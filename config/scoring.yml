@@ -1,0 +1,10 @@
+# 评分权重配置。M1 起生效，公式见 docs/requirement.md「评分与排序」。
+final_score:
+  objective: 0.35
+  importance: 0.45
+  relevance: 0.20
+importance:
+  scope: 0.4
+  durability: 0.4
+  novelty: 0.2
+offcircle_ratio: 0.20 # 破圈区占比

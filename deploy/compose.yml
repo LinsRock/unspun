@@ -1,0 +1,43 @@
+name: unspun
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: unspun
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-unspun}
+      POSTGRES_DB: unspun
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U unspun"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    image: ${SERVER_IMAGE:-unspun-server:dev}
+    environment:
+      UNSPUN_DATABASE_URL: postgresql+psycopg://unspun:${POSTGRES_PASSWORD:-unspun}@db:5432/unspun
+      UNSPUN_APP_VERSION: ${APP_VERSION:-dev}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  worker:
+    image: ${SERVER_IMAGE:-unspun-server:dev}
+    command: ["python", "-m", "unspun.pipeline.main"]
+    environment:
+      UNSPUN_DATABASE_URL: postgresql+psycopg://unspun:${POSTGRES_PASSWORD:-unspun}@db:5432/unspun
+      UNSPUN_APP_VERSION: ${APP_VERSION:-dev}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    image: ${WEB_IMAGE:-unspun-web:dev}
+    depends_on:
+      - api
+
+volumes:
+  pgdata:

@@ -1,0 +1,42 @@
+# Production overlay. cloudflared runs on the host and points at
+# http://localhost:8080 — the only published port, bound to loopback.
+services:
+  db:
+    restart: unless-stopped
+
+  api:
+    restart: unless-stopped
+
+  worker:
+    restart: unless-stopped
+
+  web:
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+
+  # Daily pg_dump kept locally for 14 days. Off-site sync to R2 is added
+  # once the bucket and token exist (see docs/roadmaps.md, M0 收尾项).
+  db-backup:
+    image: pgvector/pgvector:pg17
+    restart: unless-stopped
+    entrypoint: ["bash", "-c"]
+    command:
+      - |
+        while true; do
+          pg_dump -h db -U unspun -d unspun -Fc \
+            -f "/backups/unspun-$$(date +%F).dump" \
+            && find /backups -name '*.dump' -mtime +14 -delete \
+            && echo "backup done $$(date -Is)"
+          sleep 86400
+        done
+    environment:
+      PGPASSWORD: ${POSTGRES_PASSWORD:-unspun}
+    volumes:
+      - backups:/backups
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  backups:
