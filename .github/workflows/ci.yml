@@ -113,6 +113,14 @@ jobs:
             "https://${{ secrets.VPS_SSH_HOSTNAME }}/")
           echo "Access preflight HTTP ${code} (302 = token 被拒, 其他 = 已放行)"
           test "${code}" != "302"
+          # 再探一次 websocket 握手路径，状态码仅用于诊断（101/400 正常，302 异常）
+          ws=$(curl -s -o /dev/null -w '%{http_code}' \
+            -H "CF-Access-Client-Id: ${TUNNEL_SERVICE_TOKEN_ID}" \
+            -H "CF-Access-Client-Secret: ${TUNNEL_SERVICE_TOKEN_SECRET}" \
+            -H "Connection: Upgrade" -H "Upgrade: websocket" \
+            -H "Sec-WebSocket-Version: 13" -H "Sec-WebSocket-Key: c3NoLXByZWZsaWdodA==" \
+            "https://${{ secrets.VPS_SSH_HOSTNAME }}/")
+          echo "WebSocket preflight HTTP ${ws}"
       - name: Configure SSH over Cloudflare Tunnel
         run: |
           mkdir -p ~/.ssh
@@ -124,7 +132,7 @@ jobs:
             User ${{ secrets.VPS_SSH_USER }}
             IdentityFile ~/.ssh/id_ed25519
             StrictHostKeyChecking accept-new
-            ProxyCommand cloudflared access ssh --hostname %h
+            ProxyCommand cloudflared access ssh --hostname %h --header "CF-Access-Client-Id: $TUNNEL_SERVICE_TOKEN_ID" --header "CF-Access-Client-Secret: $TUNNEL_SERVICE_TOKEN_SECRET"
           EOF
       - name: Sync deploy files
         run: |
