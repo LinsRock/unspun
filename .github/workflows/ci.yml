@@ -88,9 +88,6 @@ jobs:
     needs: build-push
     runs-on: ubuntu-latest
     environment: production
-    env:
-      TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
-      TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - name: Install cloudflared
@@ -98,6 +95,24 @@ jobs:
           curl -fsSL -o cloudflared.deb \
             https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
           sudo dpkg -i cloudflared.deb
+      # secrets 粘贴时容易混入换行/空格，先清洗再导出给后续所有步骤
+      - name: Export Access service token
+        env:
+          RAW_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          RAW_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          {
+            printf 'TUNNEL_SERVICE_TOKEN_ID=%s\n' "$(printf %s "$RAW_ID" | tr -d '[:space:]')"
+            printf 'TUNNEL_SERVICE_TOKEN_SECRET=%s\n' "$(printf %s "$RAW_SECRET" | tr -d '[:space:]')"
+          } >> "$GITHUB_ENV"
+      - name: Preflight Access check
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' \
+            -H "CF-Access-Client-Id: ${TUNNEL_SERVICE_TOKEN_ID}" \
+            -H "CF-Access-Client-Secret: ${TUNNEL_SERVICE_TOKEN_SECRET}" \
+            "https://${{ secrets.VPS_SSH_HOSTNAME }}/")
+          echo "Access preflight HTTP ${code} (302 = token 被拒, 其他 = 已放行)"
+          test "${code}" != "302"
       - name: Configure SSH over Cloudflare Tunnel
         run: |
           mkdir -p ~/.ssh
