@@ -9,9 +9,10 @@ permissions:
   contents: read
   packages: write
 
+# GHCR 镜像名必须全小写，不能直接用 github.repository（LinsRock 含大写）
 env:
-  SERVER_IMAGE: ghcr.io/${{ github.repository }}-server
-  WEB_IMAGE: ghcr.io/${{ github.repository }}-web
+  SERVER_IMAGE: ghcr.io/linsrock/unspun-server
+  WEB_IMAGE: ghcr.io/linsrock/unspun-web
 
 jobs:
   server:
