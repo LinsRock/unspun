@@ -113,13 +113,13 @@ jobs:
             "https://${{ secrets.VPS_SSH_HOSTNAME }}/")
           echo "Access preflight HTTP ${code} (302 = token 被拒, 其他 = 已放行)"
           test "${code}" != "302"
-          # 再探一次 websocket 握手路径，状态码仅用于诊断（101/400 正常，302 异常）
-          ws=$(curl -s -o /dev/null -w '%{http_code}' \
+          # 再探一次 websocket 握手路径，仅诊断用、永不致命（ws 必须走 HTTP/1.1）
+          ws=$(curl --http1.1 -s -o /dev/null -w '%{http_code}' \
             -H "CF-Access-Client-Id: ${TUNNEL_SERVICE_TOKEN_ID}" \
             -H "CF-Access-Client-Secret: ${TUNNEL_SERVICE_TOKEN_SECRET}" \
             -H "Connection: Upgrade" -H "Upgrade: websocket" \
             -H "Sec-WebSocket-Version: 13" -H "Sec-WebSocket-Key: c3NoLXByZWZsaWdodA==" \
-            "https://${{ secrets.VPS_SSH_HOSTNAME }}/")
+            "https://${{ secrets.VPS_SSH_HOSTNAME }}/" || echo "curl-err")
           echo "WebSocket preflight HTTP ${ws}"
       - name: Configure SSH over Cloudflare Tunnel
         run: |
