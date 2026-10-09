@@ -1,13 +1,14 @@
 import math
+from datetime import UTC, datetime
 from typing import Any, cast
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from unspun.core.models import EMBEDDING_DIM, Article, Event, LlmUsage
+from unspun.core.params import get_scoring_params
 from unspun.pipeline.cluster import assign_article
 from unspun.pipeline.summarize import (
-    MAX_SUMMARY_FAILURES,
     embed_articles,
     pending_summary_ids,
     summarize_article,
@@ -62,9 +63,10 @@ def test_summarize_article_sets_fields_and_records_usage(db_session: Session) ->
 
 
 def test_pending_summary_ids_skips_articles_at_failure_cap(db_session: Session) -> None:
+    cap = get_scoring_params().pipeline.max_summary_failures
     fresh = make_article(1, content="body")
-    failing = make_article(2, content="body", summary_failures=MAX_SUMMARY_FAILURES - 1)
-    given_up = make_article(3, content="body", summary_failures=MAX_SUMMARY_FAILURES)
+    failing = make_article(2, content="body", summary_failures=cap - 1)
+    given_up = make_article(3, content="body", summary_failures=cap)
     summarized = make_article(4, content="body", summary_zh="done")
     db_session.add_all([fresh, failing, given_up, summarized])
     db_session.flush()
@@ -74,6 +76,21 @@ def test_pending_summary_ids_skips_articles_at_failure_cap(db_session: Session) 
     assert failing.id in ids
     assert given_up.id not in ids
     assert summarized.id not in ids
+
+
+def test_pending_summary_ids_orders_newest_published_first(db_session: Session) -> None:
+    old = make_article(1, content="body", published_at=datetime(2026, 10, 1, tzinfo=UTC))
+    newest = make_article(2, content="body", published_at=datetime(2026, 10, 9, tzinfo=UTC))
+    undated_early = make_article(3, content="body")
+    undated_late = make_article(4, content="body")
+    mid = make_article(5, content="body", published_at=datetime(2026, 10, 5, tzinfo=UTC))
+    db_session.add_all([old, newest, undated_early, undated_late, mid])
+    db_session.flush()
+
+    ids = pending_summary_ids(db_session, limit=10_000)
+    ours = [i for i in ids if i in {old.id, newest.id, undated_early.id, undated_late.id, mid.id}]
+    # Newest published first, undated last; undated ties fall back to id desc.
+    assert ours == [newest.id, mid.id, old.id, undated_late.id, undated_early.id]
 
 
 def test_embed_articles_assigns_vectors(db_session: Session) -> None:

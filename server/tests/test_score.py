@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from pydantic import ValidationError
 from sqlalchemy.orm import Session
 
 from unspun.core.models import Article, Event
@@ -16,6 +17,51 @@ CONFIG_DIR = Path(__file__).parents[2] / "config"
 @pytest.fixture
 def params() -> ScoringParams:
     return load_scoring_params(CONFIG_DIR)
+
+
+# Minimal valid scoring.yml for pipeline-params tests; independent of the
+# repo config so day-to-day tuning there never breaks the test suite.
+BASE_SCORING_YAML = """\
+final_score: {objective: 0.35, importance: 0.45, relevance: 0.20}
+importance: {scope: 0.4, durability: 0.4, novelty: 0.2}
+objective: {breadth: 0.40, growth: 0.25, source_quality: 0.25, community: 0.10}
+clustering: {similarity_threshold: 0.72}
+stream: {half_life_hours: 24}
+offcircle_ratio: 0.20
+"""
+
+
+def write_scoring_yaml(tmp_path: Path, pipeline_section: str = "") -> Path:
+    (tmp_path / "scoring.yml").write_text(BASE_SCORING_YAML + pipeline_section, encoding="utf-8")
+    return tmp_path
+
+
+def test_pipeline_params_are_config_driven(tmp_path: Path) -> None:
+    write_scoring_yaml(
+        tmp_path,
+        "pipeline: {summary_batch_limit: 7, embed_batch_limit: 8,"
+        " score_batch_limit: 9, max_summary_failures: 2}\n",
+    )
+    p = load_scoring_params(tmp_path).pipeline
+    assert p.summary_batch_limit == 7
+    assert p.embed_batch_limit == 8
+    assert p.score_batch_limit == 9
+    assert p.max_summary_failures == 2
+
+
+def test_pipeline_params_default_when_section_missing(tmp_path: Path) -> None:
+    write_scoring_yaml(tmp_path)
+    p = load_scoring_params(tmp_path).pipeline
+    assert p.summary_batch_limit == 50
+    assert p.embed_batch_limit == 200
+    assert p.score_batch_limit == 40
+    assert p.max_summary_failures == 3
+
+
+def test_pipeline_params_reject_non_positive_limits(tmp_path: Path) -> None:
+    write_scoring_yaml(tmp_path, "pipeline: {summary_batch_limit: 0}\n")
+    with pytest.raises(ValidationError):
+        load_scoring_params(tmp_path)
 
 
 def make_source(sid: str, lang: str, region: str, weight: float = 0.9) -> Source:

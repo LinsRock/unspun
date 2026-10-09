@@ -18,3 +18,10 @@ clustering:
 stream:
   half_life_hours: 24 # time-decay half-life for the live stream ordering
 offcircle_ratio: 0.20 # share of off-circle (bubble-breaking) items, from M3
+pipeline:
+  # Per-cycle batch caps; they bound one worker cycle's LLM spend.
+  summary_batch_limit: 50
+  embed_batch_limit: 200
+  score_batch_limit: 40
+  # Give up summarizing an article after this many failed cycles.
+  max_summary_failures: 3
