@@ -52,3 +52,34 @@ export async function fetchEvents(): Promise<EventsResponse> {
   if (!res.ok) throw new Error(`API ${res.status}`)
   return res.json() as Promise<EventsResponse>
 }
+
+export interface SourceFailure {
+  source_id: string
+  failures: number
+  last_error: string | null
+}
+
+export interface LlmSpend {
+  purpose: string
+  model: string
+  calls: number
+  prompt_tokens: number
+  completion_tokens: number
+  cost_usd: number
+}
+
+export interface ReportResponse {
+  window_hours: number
+  generated_at: string
+  fetch_runs: number
+  new_articles: number
+  source_failures: SourceFailure[]
+  llm_spend: LlmSpend[]
+  llm_cost_total_usd: number
+}
+
+export async function fetchReport(): Promise<ReportResponse> {
+  const res = await fetch('/api/report/daily')
+  if (!res.ok) throw new Error(`API ${res.status}`)
+  return res.json() as Promise<ReportResponse>
+}

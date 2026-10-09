@@ -2,6 +2,16 @@ import { useState } from 'react'
 
 import type { EventOut } from './api'
 
+// Article URLs come from scraped external feeds; only allow http(s) into href.
+function safeHref(url: string): string | undefined {
+  try {
+    const parsed = new URL(url)
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:' ? url : undefined
+  } catch {
+    return undefined
+  }
+}
+
 function ScoreBar({ label, value }: { label: string; value: number }) {
   return (
     <div className="flex items-center gap-2 text-xs text-gray-500">
@@ -59,7 +69,7 @@ export default function EventCard({ event }: { event: EventOut }) {
         {event.articles.map((a) => (
           <li key={a.id} className="max-w-full">
             <a
-              href={a.url}
+              href={safeHref(a.url)}
               target="_blank"
               rel="noreferrer"
               className="inline-flex max-w-full items-baseline gap-1 text-xs text-blue-600 hover:underline"
