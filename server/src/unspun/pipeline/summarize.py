@@ -1,8 +1,9 @@
 """Chinese titles/summaries (small model) and embeddings for new articles."""
 
+import json
 from itertools import batched
 
-from sqlalchemy import select
+from sqlalchemy import select, update
 from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
@@ -24,6 +25,7 @@ SUMMARY_SYSTEM = (
 
 MAX_CONTENT_CHARS = 6000
 SUMMARY_BATCH_LIMIT = 50  # articles per cycle, bounds one cycle's spend
+MAX_SUMMARY_FAILURES = 3  # give up on an article after this many failed cycles
 EMBED_BATCH_SIZE = 32
 EMBED_BATCH_LIMIT = 200
 
@@ -51,16 +53,40 @@ def embed_articles(session: Session, client: SupportsLlm, articles: list[Article
         article.embedding = vector
 
 
+def pending_summary_ids(session: Session, limit: int) -> list[int]:
+    return list(
+        session.scalars(
+            select(Article.id)
+            .where(
+                Article.summary_zh.is_(None),
+                Article.summary_failures < MAX_SUMMARY_FAILURES,
+            )
+            .order_by(Article.id)
+            .limit(limit)
+        )
+    )
+
+
+def record_summary_failure(article_id: int) -> None:
+    # Must never raise: it runs in the per-article error path, and an escaping
+    # exception here would abort the rest of the batch and the later stages.
+    try:
+        with session_scope() as session:
+            failures = session.execute(
+                update(Article)
+                .where(Article.id == article_id)
+                .values(summary_failures=Article.summary_failures + 1)
+                .returning(Article.summary_failures)
+            ).scalar_one_or_none()
+        if failures is not None and failures >= MAX_SUMMARY_FAILURES:
+            log.warning("summarize_gave_up", article_id=article_id, failures=failures)
+    except Exception:
+        log.exception("summary_failure_record_failed", article_id=article_id)
+
+
 def summarize_pending(client: SupportsLlm, limit: int = SUMMARY_BATCH_LIMIT) -> int:
     with session_scope() as session:
-        ids = list(
-            session.scalars(
-                select(Article.id)
-                .where(Article.summary_zh.is_(None))
-                .order_by(Article.id)
-                .limit(limit)
-            )
-        )
+        ids = pending_summary_ids(session, limit)
     done = 0
     for article_id in ids:
         try:
@@ -69,9 +95,16 @@ def summarize_pending(client: SupportsLlm, limit: int = SUMMARY_BATCH_LIMIT) -> 
                 if article is None or article.summary_zh is not None:
                     continue
                 summarize_article(session, client, article)
-                done += 1
+        except (LlmError, json.JSONDecodeError):
+            # Content-level failures (truncation, bad JSON, empty summary)
+            # count toward the give-up cap; transient transport or DB errors
+            # do not, so an outage cannot blacklist articles.
+            log.exception("summarize_failed", article_id=article_id)
+            record_summary_failure(article_id)
         except Exception:
             log.exception("summarize_failed", article_id=article_id)
+        else:
+            done += 1
     return done
 
 
