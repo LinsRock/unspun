@@ -73,6 +73,29 @@ def test_chat_json_retries_truncated_completion(
     assert len(session.added) == 2
 
 
+def test_chat_json_keeps_parseable_completion_despite_length(
+    llm_client_factory: Callable[[Handler], LlmClient],
+) -> None:
+    calls = 0
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        nonlocal calls
+        calls += 1
+        return httpx.Response(200, json=chat_response('{"summary_zh": "ok"}', "length"))
+
+    session = RecordingSession()
+    with llm_client_factory(handler) as client:
+        out = client.chat_json(
+            cast(Session, session),
+            model="m",
+            system="s",
+            user="u",
+            purpose="summary",
+        )
+    assert out == {"summary_zh": "ok"}
+    assert calls == 1
+
+
 def test_chat_json_raises_after_second_truncation(
     llm_client_factory: Callable[[Handler], LlmClient],
 ) -> None:

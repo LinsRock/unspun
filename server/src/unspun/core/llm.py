@@ -123,9 +123,15 @@ class LlmClient:
             data: dict[str, Any] = resp.json()
             self._record(session, purpose, model, data.get("usage") or {})
             choice: dict[str, Any] = data["choices"][0]
+            content = str(choice["message"]["content"])
             if choice.get("finish_reason") == "length":
-                continue
-            return parse_json_content(choice["message"]["content"])
+                # The budget ran out, but the JSON may still have closed in
+                # time; only retry when it is actually unparseable.
+                try:
+                    return parse_json_content(content)
+                except (LlmError, json.JSONDecodeError):
+                    continue
+            return parse_json_content(content)
         raise LlmError(
             f"completion still truncated at {max_tokens * 2} tokens (finish_reason=length)"
         )
