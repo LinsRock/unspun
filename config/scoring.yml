@@ -1,11 +1,18 @@
-# Scoring weight configuration. Effective from M1; the formula is in the
-# scoring-and-ranking section of docs/requirement.md.
+# Scoring parameters. The formula is in the scoring-and-ranking section of
+# docs/requirement.md. Day-to-day tuning happens here, not in code.
 final_score:
   objective: 0.35
   importance: 0.45
-  relevance: 0.20
+  relevance: 0.20 # not used until M3; final score renormalizes over active components
 importance:
   scope: 0.4
   durability: 0.4
   novelty: 0.2
-offcircle_ratio: 0.20 # share of off-circle (bubble-breaking) items
+objective:
+  breadth: 0.40
+  growth: 0.25
+  source_quality: 0.25
+  community: 0.10
+clustering:
+  similarity_threshold: 0.72
+offcircle_ratio: 0.20 # share of off-circle (bubble-breaking) items, from M3

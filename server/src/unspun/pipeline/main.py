@@ -10,6 +10,7 @@ from unspun.core.llm import LlmClient
 from unspun.core.logging import configure_logging, get_logger
 from unspun.pipeline.cluster import cluster_pending
 from unspun.pipeline.fetcher import run_fetch_cycle
+from unspun.pipeline.score import score_pending
 from unspun.pipeline.summarize import embed_pending, summarize_pending
 
 MIN_SLEEP_SECONDS = 60
@@ -24,13 +25,15 @@ def run_ai_stages() -> None:
     with LlmClient() as client:
         summarized = summarize_pending(client)
         embedded = embed_pending(client)
-    assigned, created = cluster_pending()
+        assigned, created = cluster_pending()
+        scored = score_pending(client)
     log.info(
         "ai_stages_finished",
         summarized=summarized,
         embedded=embedded,
         clustered=assigned,
         new_events=created,
+        scored=scored,
     )
 
 

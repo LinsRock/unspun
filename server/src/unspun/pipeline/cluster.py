@@ -6,10 +6,10 @@ import numpy as np
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from unspun.core.config import get_settings
 from unspun.core.db import session_scope
 from unspun.core.logging import get_logger
 from unspun.core.models import Article, Event
+from unspun.core.params import get_scoring_params
 
 log = get_logger("unspun.pipeline.cluster")
 
@@ -62,7 +62,7 @@ def _refresh_centroid(session: Session, event: Event) -> None:
 
 def cluster_pending(limit: int = CLUSTER_BATCH_LIMIT) -> tuple[int, int]:
     """Assign all summarized+embedded articles to events; returns (assigned, created)."""
-    threshold = get_settings().clustering_similarity_threshold
+    threshold = get_scoring_params().clustering.similarity_threshold
     with session_scope() as session:
         ids = list(
             session.scalars(
