@@ -58,7 +58,12 @@ def parse_feed(data: bytes, base_url: str | None = None) -> list[FeedEntry]:
             continue
         # Some feeds emit relative or scheme-relative links; resolve against the feed URL.
         if base_url:
-            url = urljoin(base_url, url)
+            try:
+                url = urljoin(base_url, url)
+            except ValueError:
+                # e.g. "Invalid IPv6 URL"; one malformed link must not kill the feed.
+                log.warning("malformed_entry_url_skipped", url=url)
+                continue
         if url in seen:
             continue
         seen.add(url)

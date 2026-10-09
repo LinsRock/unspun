@@ -93,6 +93,25 @@ RELATIVE_SAMPLE = b"""<?xml version="1.0" encoding="UTF-8"?>
 </channel></rss>"""
 
 
+MALFORMED_SAMPLE = b"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Malformed</title>
+<item>
+  <title>Broken IPv6 link</title>
+  <link>http://[bad</link>
+</item>
+<item>
+  <title>Survivor</title>
+  <link>https://example.com/ok</link>
+</item>
+</channel></rss>"""
+
+
+def test_parse_feed_survives_a_malformed_entry_url() -> None:
+    # urljoin raises ValueError on this link; it must not abort the whole feed.
+    entries = parse_feed(MALFORMED_SAMPLE, base_url="https://blog.example.com/feed.xml")
+    assert [e.url for e in entries] == ["https://example.com/ok"]
+
+
 def test_parse_feed_rejects_non_http_urls() -> None:
     entries = parse_feed(MALICIOUS_SAMPLE)
     assert [e.url for e in entries] == ["https://example.com/ok"]
