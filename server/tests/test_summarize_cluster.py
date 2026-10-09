@@ -6,7 +6,12 @@ from sqlalchemy.orm import Session
 
 from unspun.core.models import EMBEDDING_DIM, Article, Event, LlmUsage
 from unspun.pipeline.cluster import assign_article
-from unspun.pipeline.summarize import embed_articles, summarize_article
+from unspun.pipeline.summarize import (
+    MAX_SUMMARY_FAILURES,
+    embed_articles,
+    pending_summary_ids,
+    summarize_article,
+)
 
 THRESHOLD = 0.72
 
@@ -54,6 +59,21 @@ def test_summarize_article_sets_fields_and_records_usage(db_session: Session) ->
     assert article.title_zh == "zh-title"
     usage = db_session.scalars(select(LlmUsage)).one()
     assert usage.purpose == "summary"
+
+
+def test_pending_summary_ids_skips_articles_at_failure_cap(db_session: Session) -> None:
+    fresh = make_article(1, content="body")
+    failing = make_article(2, content="body", summary_failures=MAX_SUMMARY_FAILURES - 1)
+    given_up = make_article(3, content="body", summary_failures=MAX_SUMMARY_FAILURES)
+    summarized = make_article(4, content="body", summary_zh="done")
+    db_session.add_all([fresh, failing, given_up, summarized])
+    db_session.flush()
+
+    ids = pending_summary_ids(db_session, limit=10_000)
+    assert fresh.id in ids
+    assert failing.id in ids
+    assert given_up.id not in ids
+    assert summarized.id not in ids
 
 
 def test_embed_articles_assigns_vectors(db_session: Session) -> None:

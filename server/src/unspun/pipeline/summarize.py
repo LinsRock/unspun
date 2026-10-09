@@ -24,6 +24,7 @@ SUMMARY_SYSTEM = (
 
 MAX_CONTENT_CHARS = 6000
 SUMMARY_BATCH_LIMIT = 50  # articles per cycle, bounds one cycle's spend
+MAX_SUMMARY_FAILURES = 3  # give up on an article after this many failed cycles
 EMBED_BATCH_SIZE = 32
 EMBED_BATCH_LIMIT = 200
 
@@ -51,16 +52,37 @@ def embed_articles(session: Session, client: SupportsLlm, articles: list[Article
         article.embedding = vector
 
 
+def pending_summary_ids(session: Session, limit: int) -> list[int]:
+    return list(
+        session.scalars(
+            select(Article.id)
+            .where(
+                Article.summary_zh.is_(None),
+                Article.summary_failures < MAX_SUMMARY_FAILURES,
+            )
+            .order_by(Article.id)
+            .limit(limit)
+        )
+    )
+
+
+def record_summary_failure(article_id: int) -> None:
+    with session_scope() as session:
+        article = session.get(Article, article_id)
+        if article is None:
+            return
+        article.summary_failures += 1
+        if article.summary_failures >= MAX_SUMMARY_FAILURES:
+            log.warning(
+                "summarize_gave_up",
+                article_id=article_id,
+                failures=article.summary_failures,
+            )
+
+
 def summarize_pending(client: SupportsLlm, limit: int = SUMMARY_BATCH_LIMIT) -> int:
     with session_scope() as session:
-        ids = list(
-            session.scalars(
-                select(Article.id)
-                .where(Article.summary_zh.is_(None))
-                .order_by(Article.id)
-                .limit(limit)
-            )
-        )
+        ids = pending_summary_ids(session, limit)
     done = 0
     for article_id in ids:
         try:
@@ -72,6 +94,7 @@ def summarize_pending(client: SupportsLlm, limit: int = SUMMARY_BATCH_LIMIT) -> 
                 done += 1
         except Exception:
             log.exception("summarize_failed", article_id=article_id)
+            record_summary_failure(article_id)
     return done
 
 

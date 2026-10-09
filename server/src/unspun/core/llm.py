@@ -61,7 +61,7 @@ def parse_json_content(content: str) -> dict[str, Any]:
 
 
 class LlmClient:
-    def __init__(self) -> None:
+    def __init__(self, transport: httpx.BaseTransport | None = None) -> None:
         settings = get_settings()
         if not settings.openrouter_api_key:
             raise LlmError("UNSPUN_OPENROUTER_API_KEY is not set")
@@ -69,6 +69,7 @@ class LlmClient:
             base_url=settings.openrouter_base_url,
             headers={"Authorization": f"Bearer {settings.openrouter_api_key}"},
             timeout=CHAT_TIMEOUT_SECONDS,
+            transport=transport,
         )
 
     def close(self) -> None:
@@ -101,23 +102,33 @@ class LlmClient:
         purpose: str,
         max_tokens: int = 1024,
     ) -> dict[str, Any]:
-        resp = self._client.post(
-            "/chat/completions",
-            json={
-                "model": model,
-                "messages": [
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": user},
-                ],
-                "response_format": {"type": "json_object"},
-                "usage": {"include": True},
-                "max_tokens": max_tokens,
-            },
+        # Models that spend reasoning tokens can exhaust the completion budget
+        # and return JSON cut off mid-string; one retry with a doubled budget
+        # recovers those instead of failing the article every cycle.
+        for attempt_max_tokens in (max_tokens, max_tokens * 2):
+            resp = self._client.post(
+                "/chat/completions",
+                json={
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": system},
+                        {"role": "user", "content": user},
+                    ],
+                    "response_format": {"type": "json_object"},
+                    "usage": {"include": True},
+                    "max_tokens": attempt_max_tokens,
+                },
+            )
+            resp.raise_for_status()
+            data: dict[str, Any] = resp.json()
+            self._record(session, purpose, model, data.get("usage") or {})
+            choice: dict[str, Any] = data["choices"][0]
+            if choice.get("finish_reason") == "length":
+                continue
+            return parse_json_content(choice["message"]["content"])
+        raise LlmError(
+            f"completion still truncated at {max_tokens * 2} tokens (finish_reason=length)"
         )
-        resp.raise_for_status()
-        data: dict[str, Any] = resp.json()
-        self._record(session, purpose, model, data.get("usage") or {})
-        return parse_json_content(data["choices"][0]["message"]["content"])
 
     def embed(self, session: Session, texts: list[str]) -> list[list[float]]:
         settings = get_settings()
