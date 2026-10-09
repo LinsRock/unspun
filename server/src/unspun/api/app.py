@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from sqlalchemy import text
 
+from unspun.api.events import router as events_router
 from unspun.core.config import get_settings
 from unspun.core.db import get_engine
 from unspun.core.logging import configure_logging, get_logger
@@ -10,6 +11,7 @@ configure_logging()
 log = get_logger("unspun.api")
 
 app = FastAPI(title="Unspun API", docs_url=None, redoc_url=None)
+app.include_router(events_router)
 
 
 class HealthResponse(BaseModel):

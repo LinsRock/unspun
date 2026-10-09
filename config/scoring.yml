@@ -15,4 +15,6 @@ objective:
   community: 0.10
 clustering:
   similarity_threshold: 0.72
+stream:
+  half_life_hours: 24 # time-decay half-life for the live stream ordering
 offcircle_ratio: 0.20 # share of off-circle (bubble-breaking) items, from M3
