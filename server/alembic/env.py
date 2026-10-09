@@ -1,6 +1,7 @@
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
+import unspun.core.models  # noqa: F401  # populate Base.metadata for autogenerate
 from unspun.core.config import get_settings
 from unspun.core.db import Base
 
