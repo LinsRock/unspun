@@ -41,8 +41,9 @@ def is_http_url(url: str) -> bool:
     return parsed.scheme in ("http", "https") and bool(parsed.netloc)
 
 
-def fetch_bytes(client: httpx.Client, url: str) -> bytes:
-    resp = client.get(url)
+def fetch_bytes(client: httpx.Client, url: str, timeout_seconds: int | None = None) -> bytes:
+    timeout = timeout_seconds if timeout_seconds is not None else httpx.USE_CLIENT_DEFAULT
+    resp = client.get(url, timeout=timeout)
     resp.raise_for_status()
     return resp.content
 

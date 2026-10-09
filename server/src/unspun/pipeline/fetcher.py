@@ -31,7 +31,10 @@ def _article_content(client: httpx.Client, entry: FeedEntry) -> str | None:
 
 def fetch_source(session: Session, client: httpx.Client, source: Source) -> int:
     """Fetch one source's feed and insert unseen articles; returns new count."""
-    entries = parse_feed(fetch_bytes(client, str(source.url)), base_url=str(source.url))
+    entries = parse_feed(
+        fetch_bytes(client, str(source.url), timeout_seconds=source.timeout_seconds),
+        base_url=str(source.url),
+    )
     if source.max_items is not None:
         entries = entries[: source.max_items]
     if not entries:
