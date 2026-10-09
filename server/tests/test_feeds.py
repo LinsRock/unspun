@@ -1,7 +1,9 @@
 from datetime import UTC, datetime
 
+import pytest
+
 from unspun.pipeline.extract import strip_tags
-from unspun.pipeline.feeds import parse_feed
+from unspun.pipeline.feeds import is_http_url, parse_feed
 
 RSS_SAMPLE = b"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel><title>Sample</title>
@@ -52,6 +54,81 @@ def test_parse_atom_uses_updated_timestamp() -> None:
     assert len(entries) == 1
     assert entries[0].url == "https://example.com/atom-1"
     assert entries[0].published_at == datetime(2026, 10, 9, 9, 30, tzinfo=UTC)
+
+
+MALICIOUS_SAMPLE = b"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Hostile</title>
+<item>
+  <title>Script link</title>
+  <link>javascript:alert(1)</link>
+</item>
+<item>
+  <title>Data link</title>
+  <link>data:text/html,hi</link>
+</item>
+<item>
+  <title>Host-less https link</title>
+  <link>https:evil.example</link>
+</item>
+<item>
+  <title>Legit story</title>
+  <link>https://example.com/ok</link>
+</item>
+</channel></rss>"""
+
+RELATIVE_SAMPLE = b"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Relative links</title>
+<item>
+  <title>Relative path</title>
+  <link>/posts/123</link>
+</item>
+<item>
+  <title>Scheme-relative</title>
+  <link>//other.example.com/x</link>
+</item>
+<item>
+  <title>Still hostile</title>
+  <link>javascript:alert(1)</link>
+</item>
+</channel></rss>"""
+
+
+def test_parse_feed_rejects_non_http_urls() -> None:
+    entries = parse_feed(MALICIOUS_SAMPLE)
+    assert [e.url for e in entries] == ["https://example.com/ok"]
+
+
+def test_parse_feed_resolves_relative_urls_against_feed_url() -> None:
+    entries = parse_feed(RELATIVE_SAMPLE, base_url="https://blog.example.com/feed.xml")
+    assert [e.url for e in entries] == [
+        "https://blog.example.com/posts/123",
+        "https://other.example.com/x",
+    ]
+
+
+def test_parse_feed_without_base_url_drops_relative_links() -> None:
+    entries = parse_feed(RELATIVE_SAMPLE)
+    assert entries == []
+
+
+@pytest.mark.parametrize(
+    ("url", "expected"),
+    [
+        ("https://example.com/a", True),
+        ("http://example.com/a", True),
+        ("javascript:alert(1)", False),
+        ("data:text/html,hi", False),
+        ("ftp://example.com/a", False),
+        ("//example.com/a", False),
+        ("/relative/path", False),
+        ("", False),
+        ("http:", False),
+        ("https:evil", False),
+        ("http:///x", False),
+    ],
+)
+def test_is_http_url(url: str, expected: bool) -> None:
+    assert is_http_url(url) is expected
 
 
 def test_strip_tags_flattens_html() -> None:
