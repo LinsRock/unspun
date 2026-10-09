@@ -48,6 +48,16 @@ docker compose -f deploy/compose.yml -f deploy/compose.local.yml up --build
 - Deployment is the deploy job in `.github/workflows/ci.yml`: cloudflared SSHs into the VPS and runs `deploy/deploy.sh` (pull images, up, run migrations, health smoke check).
 - Environment variables use the `UNSPUN_` prefix and are defined in `server/src/unspun/core/config.py`.
 
+## AI development loop
+
+Rules for AI sessions working on this repo across milestones:
+
+- **Sources of truth**: `docs/requirement.md` (product spec) and `docs/roadmaps.md` (milestones with acceptance criteria). Both are living documents owned by the user and still evolving — treat them as the current best understanding, not a frozen contract. Requirement changes land in `docs/` first; the task board is reconciled afterwards.
+- **Task board**: each milestone has `docs/tasks/m<n>.md`. At milestone kickoff, break the scope into PR-sized tasks and get the user's confirmation before implementing. Write every task self-contained (goal, touched areas, acceptance, dependencies) so a fresh session can execute it without conversation history.
+- **Session protocol**: one session works one task and ends in one PR. Start by reading the task board and `docs/decisions.md`; plan before coding for non-trivial tasks; implement with tests; run the lint/typecheck/test commands above; run /code-review before opening the PR; tick the task off in the same PR that completes it.
+- **Decision log**: `docs/decisions.md` records significant technical choices and why they were made. Check it before proposing architecture or dependency changes; never silently reverse a recorded decision — propose the change to the user and update the log entry instead.
+- **Milestone close**: reconcile `docs/` with what was actually built, record acceptance results on the task board, and confirm with the user before starting the next milestone.
+
 ## Language conventions
 
 - Everything in the repo is written in English, with two exemptions:
