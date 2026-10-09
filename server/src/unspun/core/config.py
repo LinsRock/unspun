@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     # UNSPUN_CONFIG_DIR=/app/config.
     config_dir: str = "../config"
     fetch_interval_minutes: int = 30
+    # Self-hosted RSSHub base URL (rsshub:// source URLs resolve against it
+    # from M2 T2 on). Default fits the compose network; host-run dev points
+    # it at the loopback mapping from deploy/compose.local.yml.
+    rsshub_url: str = "http://rsshub:1200"
 
     # OpenRouter covers both chat and embeddings; one key for everything.
     openrouter_api_key: str = ""

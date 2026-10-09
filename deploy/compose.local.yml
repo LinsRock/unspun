@@ -18,3 +18,9 @@ services:
       dockerfile: deploy/web.Dockerfile
     ports:
       - "127.0.0.1:8080:80"
+
+  # Loopback mapping so a host-run worker/API (uv run ...) can reach RSSHub
+  # via UNSPUN_RSSHUB_URL=http://localhost:1200.
+  rsshub:
+    ports:
+      - "127.0.0.1:1200:1200"
