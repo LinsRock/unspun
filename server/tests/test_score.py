@@ -1,3 +1,4 @@
+import math
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -17,6 +18,18 @@ CONFIG_DIR = Path(__file__).parents[2] / "config"
 @pytest.fixture
 def params() -> ScoringParams:
     return load_scoring_params(CONFIG_DIR)
+
+
+@pytest.fixture
+def pinned_params(tmp_path: Path) -> ScoringParams:
+    """Params with pinned objective_signals, so repo-config tuning never
+    changes what the objective-score tests assert."""
+    write_scoring_yaml(
+        tmp_path,
+        "objective_signals: {source_cap: 15, recent_cap: 10,"
+        " monolocal_discount: 0.7, growth_window_hours: 24}\n",
+    )
+    return load_scoring_params(tmp_path)
 
 
 # Minimal valid scoring.yml for pipeline-params tests; independent of the
@@ -64,6 +77,34 @@ def test_pipeline_params_reject_non_positive_limits(tmp_path: Path) -> None:
         load_scoring_params(tmp_path)
 
 
+def test_objective_signals_are_config_driven(tmp_path: Path) -> None:
+    write_scoring_yaml(
+        tmp_path,
+        "objective_signals: {source_cap: 20, recent_cap: 6,"
+        " monolocal_discount: 0.5, growth_window_hours: 12}\n",
+    )
+    o = load_scoring_params(tmp_path).objective_signals
+    assert o.source_cap == 20
+    assert o.recent_cap == 6
+    assert o.monolocal_discount == 0.5
+    assert o.growth_window_hours == 12
+
+
+def test_objective_signals_default_when_section_missing(tmp_path: Path) -> None:
+    write_scoring_yaml(tmp_path)
+    o = load_scoring_params(tmp_path).objective_signals
+    assert o.source_cap == 15
+    assert o.recent_cap == 10
+    assert o.monolocal_discount == 0.7
+    assert o.growth_window_hours == 24
+
+
+def test_objective_signals_reject_out_of_range_discount(tmp_path: Path) -> None:
+    write_scoring_yaml(tmp_path, "objective_signals: {monolocal_discount: 0}\n")
+    with pytest.raises(ValidationError):
+        load_scoring_params(tmp_path)
+
+
 def make_source(sid: str, lang: str, region: str, weight: float = 0.9) -> Source:
     return Source(
         id=sid,
@@ -76,31 +117,103 @@ def make_source(sid: str, lang: str, region: str, weight: float = 0.9) -> Source
     )
 
 
-def make_article(n: int, sid: str, hours_ago: float = 1.0) -> Article:
+def make_article(
+    n: int, sid: str, hours_ago: float = 1.0, published_hours_ago: float | None = None
+) -> Article:
+    now = datetime.now(UTC)
     return Article(
         source_id=sid,
         url=f"https://example.com/{n}",
         title=f"story {n}",
-        fetched_at=datetime.now(UTC) - timedelta(hours=hours_ago),
+        fetched_at=now - timedelta(hours=hours_ago),
+        published_at=(
+            now - timedelta(hours=published_hours_ago) if published_hours_ago is not None else None
+        ),
         summary_zh="s",
         title_zh="t",
     )
 
 
-def test_objective_score_rewards_breadth_and_recency(params: ScoringParams) -> None:
+def expected_log_score(count: int, cap: int) -> float:
+    return 100.0 * math.log1p(count) / math.log1p(cap)
+
+
+def test_objective_score_rewards_breadth_and_recency(pinned_params: ScoringParams) -> None:
+    cfg = pinned_params.objective_signals
     sources = {
         "a": make_source("a", "en", "us"),
         "b": make_source("b", "zh", "cn-mainland"),
     }
-    narrow, _ = objective_score([make_article(1, "a", hours_ago=48)], sources, params)
+    narrow, _ = objective_score([make_article(1, "a", hours_ago=48)], sources, pinned_params)
     broad, parts = objective_score(
-        [make_article(1, "a"), make_article(2, "b"), make_article(3, "a")], sources, params
+        [make_article(1, "a"), make_article(2, "b"), make_article(3, "a")], sources, pinned_params
     )
     assert broad > narrow
-    # Two sources, two languages, two regions: 40 + 10 + 10.
-    assert parts["breadth"] == 60.0
-    assert parts["growth"] == 60.0  # three articles inside the 24h window
+    # Two sources across two languages/regions: no monolocal discount.
+    assert parts["breadth"] == pytest.approx(expected_log_score(2, cfg.source_cap))
+    # Three articles inside the growth window (fetched_at fallback).
+    assert parts["growth"] == pytest.approx(expected_log_score(3, cfg.recent_cap))
     assert parts["community"] == 0.0
+
+
+def test_objective_score_discounts_monolocal_pileups(pinned_params: ScoringParams) -> None:
+    local = {f"s{i}": make_source(f"s{i}", "zh", "cn-mainland") for i in range(5)}
+    articles = [make_article(i, f"s{i}") for i in range(5)]
+    _, local_parts = objective_score(articles, local, pinned_params)
+    # Hard-pinned acceptance number (A10): 5 monolocal sources score ~45,
+    # not 100 — 100*ln(6)/ln(16)*0.7. Independent of the implementation's
+    # own formula, so a shared-formula bug cannot hide here.
+    assert local_parts["breadth"] == pytest.approx(45.23, abs=0.05)
+
+    # Same source count, but spanning languages and regions: no discount,
+    # so the local pileup scores strictly lower.
+    mixed = {
+        "s0": make_source("s0", "zh", "cn-mainland"),
+        "s1": make_source("s1", "en", "us"),
+        "s2": make_source("s2", "en", "eu"),
+        "s3": make_source("s3", "zh", "cn-mainland"),
+        "s4": make_source("s4", "en", "us"),
+    }
+    _, mixed_parts = objective_score(articles, mixed, pinned_params)
+    assert mixed_parts["breadth"] == pytest.approx(64.62, abs=0.05)
+    assert local_parts["breadth"] < mixed_parts["breadth"]
+
+
+def test_objective_score_no_discount_for_unknown_sources(pinned_params: ScoringParams) -> None:
+    cfg = pinned_params.objective_signals
+    # Three counted sources but only one matches config (e.g. after a
+    # rename in sources.yml): missing sources are not evidence of
+    # monolocality, so the discount must not fire.
+    sources = {"s0": make_source("s0", "zh", "cn-mainland")}
+    articles = [make_article(i, f"s{i}") for i in range(3)]
+    _, parts = objective_score(articles, sources, pinned_params)
+    assert parts["breadth"] == pytest.approx(expected_log_score(3, cfg.source_cap))
+
+
+def test_objective_score_saturates_at_source_cap(pinned_params: ScoringParams) -> None:
+    n = pinned_params.objective_signals.source_cap
+    sources = {
+        f"s{i}": make_source(f"s{i}", "en" if i % 2 else "zh", "us" if i % 2 else "eu")
+        for i in range(n)
+    }
+    articles = [make_article(i, f"s{i}") for i in range(n)]
+    _, parts = objective_score(articles, sources, pinned_params)
+    assert parts["breadth"] == pytest.approx(100.0)
+
+
+def test_objective_score_growth_ignores_backfilled_and_future(
+    pinned_params: ScoringParams,
+) -> None:
+    sources = {"a": make_source("a", "en", "us"), "b": make_source("b", "zh", "eu")}
+    # Published long ago but fetched just now (a backfill), or carrying a
+    # future timestamp from a broken feed clock: neither is growth.
+    articles = [
+        make_article(1, "a", hours_ago=0.5, published_hours_ago=72),
+        make_article(2, "b", hours_ago=0.5, published_hours_ago=200),
+        make_article(3, "a", hours_ago=0.5, published_hours_ago=-48),
+    ]
+    _, parts = objective_score(articles, sources, pinned_params)
+    assert parts["growth"] == 0.0
 
 
 class FakeImportanceLlm:

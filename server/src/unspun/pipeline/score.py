@@ -4,6 +4,7 @@ Only events whose content changed since the last scoring are (re)scored, so
 LLM spend tracks real news flow instead of total event count.
 """
 
+import math
 from datetime import UTC, datetime, timedelta
 from statistics import mean
 from typing import Any
@@ -21,7 +22,6 @@ from unspun.core.sources import Source, load_sources
 
 log = get_logger("unspun.pipeline.score")
 
-GROWTH_WINDOW_HOURS = 24
 PROMPT_ARTICLE_LIMIT = 8
 PROMPT_SUMMARY_CHARS = 500
 
@@ -71,17 +71,28 @@ def objective_score(
 ) -> tuple[float, dict[str, float]]:
     """Breadth, growth, source quality, community heat -> 0-100 plus components."""
     now = now or datetime.now(UTC)
-    known = [sources_by_id[sid] for sid in {a.source_id for a in articles} if sid in sources_by_id]
-    source_count = len({a.source_id for a in articles})
+    cfg = params.objective_signals
+    source_ids = {a.source_id for a in articles}
+    known = [sources_by_id[sid] for sid in source_ids if sid in sources_by_id]
+    source_count = len(source_ids)
     langs = {s.lang for s in known}
     regions = {s.region for s in known}
-    breadth = min(
-        100.0,
-        20.0 * source_count + 10.0 * max(0, len(langs) - 1) + 10.0 * max(0, len(regions) - 1),
-    )
-    window_start = now - timedelta(hours=GROWTH_WINDOW_HOURS)
-    recent = sum(1 for a in articles if a.fetched_at and a.fetched_at >= window_start)
-    growth = min(100.0, 20.0 * recent)
+    # Log saturation (D-010): the old linear 20/source maxed out at five
+    # sources, flattening local pileups and global stories alike.
+    breadth = 100.0 * math.log1p(source_count) / math.log1p(cfg.source_cap)
+    if known and len(known) == source_count and len(langs) <= 1 and len(regions) <= 1:
+        # Every counted source is known and they all share one language
+        # and one region: local heat is not global coverage. Sources
+        # missing from config are not evidence of monolocality, so a
+        # partial match never discounts.
+        breadth *= cfg.monolocal_discount
+    breadth = min(100.0, breadth)
+    window_start = now - timedelta(hours=cfg.growth_window_hours)
+    # published_at, not fetched_at: a backfill of old articles is not
+    # growth, and neither is a feed's future-dated timestamp (<= now).
+    recent_times = [a.published_at or a.fetched_at for a in articles]
+    recent = sum(1 for t in recent_times if t and window_start <= t <= now)
+    growth = min(100.0, 100.0 * math.log1p(recent) / math.log1p(cfg.recent_cap))
     quality = 100.0 * (mean(s.weight for s in known) if known else 0.5)
     community = 100.0 if any(s.kind == "community" for s in known) else 0.0
     w = params.objective
