@@ -40,5 +40,27 @@ services:
     depends_on:
       - api
 
+  # Self-hosted RSSHub for sources without an official feed (see D-008).
+  # Internal network only: never publish a host port here (the local overlay
+  # maps it to loopback for host-run dev). Worker reaches it at rsshub:1200.
+  rsshub:
+    image: diygod/rsshub:2026-10-09
+    environment:
+      NODE_ENV: production
+      CACHE_TYPE: memory
+      CACHE_EXPIRE: "1800"
+      CACHE_CONTENT_EXPIRE: "3600"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:1200/healthz').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
 volumes:
   pgdata:

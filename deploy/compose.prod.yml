@@ -15,6 +15,14 @@ services:
     ports:
       - "127.0.0.1:8080:80"
 
+  rsshub:
+    restart: unless-stopped
+    # Guard rail on the 4GB VPS; RSSHub normally sits in the 200-400MB range.
+    # memswap_limit matches mem_limit so the cap cannot spill into swap; an
+    # OOM-killed RSSHub exits and the restart policy brings it back.
+    mem_limit: 512m
+    memswap_limit: 512m
+
   # Daily pg_dump kept locally for 14 days. Off-site sync to R2 is added
   # once the bucket and token exist (see docs/roadmaps.md, M0 wrap-up items).
   db-backup:
