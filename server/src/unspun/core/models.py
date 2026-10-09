@@ -58,6 +58,7 @@ class Article(Base):
     published_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     fetched_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     content: Mapped[str | None] = mapped_column(Text)
+    title_zh: Mapped[str | None] = mapped_column(Text)
     summary_zh: Mapped[str | None] = mapped_column(Text)
     embedding: Mapped[Any | None] = mapped_column(Vector(EMBEDDING_DIM))
     event_id: Mapped[int | None] = mapped_column(ForeignKey("events.id"), index=True)

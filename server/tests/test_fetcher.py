@@ -49,7 +49,11 @@ def test_fetch_source_inserts_then_dedupes(db_session: Session) -> None:
     source = make_source()
     assert fetch_source(db_session, client, source) == 2
     assert fetch_source(db_session, client, source) == 0
-    articles = list(db_session.scalars(select(Article).order_by(Article.url)))
+    articles = list(
+        db_session.scalars(
+            select(Article).where(Article.source_id == "sample").order_by(Article.url)
+        )
+    )
     assert [a.url for a in articles] == ["https://example.com/a", "https://example.com/b"]
     assert articles[0].content == "Teaser one"
     assert articles[0].lang == "en"

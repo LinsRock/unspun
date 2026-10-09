@@ -1,0 +1,101 @@
+"""Chinese titles/summaries (small model) and embeddings for new articles."""
+
+from itertools import batched
+
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+from unspun.core.config import get_settings
+from unspun.core.db import session_scope
+from unspun.core.llm import LlmError, SupportsLlm
+from unspun.core.logging import get_logger
+from unspun.core.models import Article
+
+log = get_logger("unspun.pipeline.summarize")
+
+SUMMARY_SYSTEM = (
+    "You summarize news articles for a personal intelligence reader. "
+    'Respond with a JSON object: {"title_zh": "...", "summary_zh": "..."}. '
+    "title_zh is the story title in Simplified Chinese (translate when the "
+    "original is not Chinese). summary_zh is 2-4 factual sentences in "
+    "Simplified Chinese covering what happened, who is involved, and concrete "
+    "numbers from the text; no opinions, no hype."
+)
+
+MAX_CONTENT_CHARS = 6000
+SUMMARY_BATCH_LIMIT = 50  # articles per cycle, bounds one cycle's spend
+EMBED_BATCH_SIZE = 32
+EMBED_BATCH_LIMIT = 200
+
+
+def summarize_article(session: Session, client: SupportsLlm, article: Article) -> None:
+    body = (article.content or "")[:MAX_CONTENT_CHARS]
+    user = f"Source language: {article.lang or 'unknown'}\nTitle: {article.title}\n\n{body}"
+    out = client.chat_json(
+        session,
+        model=get_settings().summary_model,
+        system=SUMMARY_SYSTEM,
+        user=user,
+        purpose="summary",
+    )
+    summary_zh = str(out.get("summary_zh") or "").strip()
+    if not summary_zh:
+        raise LlmError("model returned an empty summary_zh")
+    article.summary_zh = summary_zh
+    article.title_zh = str(out.get("title_zh") or "").strip() or article.title
+
+
+def embed_articles(session: Session, client: SupportsLlm, articles: list[Article]) -> None:
+    texts = [f"{a.title_zh or a.title}\n{a.summary_zh or ''}" for a in articles]
+    for article, vector in zip(articles, client.embed(session, texts), strict=True):
+        article.embedding = vector
+
+
+def summarize_pending(client: SupportsLlm, limit: int = SUMMARY_BATCH_LIMIT) -> int:
+    with session_scope() as session:
+        ids = list(
+            session.scalars(
+                select(Article.id)
+                .where(Article.summary_zh.is_(None))
+                .order_by(Article.id)
+                .limit(limit)
+            )
+        )
+    done = 0
+    for article_id in ids:
+        try:
+            with session_scope() as session:
+                article = session.get(Article, article_id)
+                if article is None or article.summary_zh is not None:
+                    continue
+                summarize_article(session, client, article)
+                done += 1
+        except Exception:
+            log.exception("summarize_failed", article_id=article_id)
+    return done
+
+
+def embed_pending(client: SupportsLlm, limit: int = EMBED_BATCH_LIMIT) -> int:
+    with session_scope() as session:
+        ids = list(
+            session.scalars(
+                select(Article.id)
+                .where(Article.summary_zh.is_not(None), Article.embedding.is_(None))
+                .order_by(Article.id)
+                .limit(limit)
+            )
+        )
+    done = 0
+    for batch_ids in batched(ids, EMBED_BATCH_SIZE):
+        try:
+            with session_scope() as session:
+                articles = [
+                    a
+                    for article_id in batch_ids
+                    if (a := session.get(Article, article_id)) is not None
+                ]
+                embed_articles(session, client, articles)
+                done += len(articles)
+        except Exception:
+            log.exception("embed_batch_failed", article_ids=list(batch_ids))
+    return done
