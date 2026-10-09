@@ -83,6 +83,21 @@ class FetchLog(Base):
     new_articles: Mapped[int] = mapped_column(default=0)
 
 
+class PipelineRun(Base):
+    """Per-stage processed counts of one worker AI cycle; feeds the run report."""
+
+    __tablename__ = "pipeline_runs"
+    __table_args__ = (Index("ix_pipeline_runs_run_at", "run_at"),)
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    run_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    summarized: Mapped[int] = mapped_column(default=0)
+    embedded: Mapped[int] = mapped_column(default=0)
+    clustered: Mapped[int] = mapped_column(default=0)
+    new_events: Mapped[int] = mapped_column(default=0)
+    scored: Mapped[int] = mapped_column(default=0)
+
+
 class LlmUsage(Base):
     """One LLM/embedding API call; feeds the daily cost report."""
 
