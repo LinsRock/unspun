@@ -10,7 +10,7 @@ services:
     ports:
       - "127.0.0.1:8000:8000"
 
-  # worker 复用 api 构建出的 unspun-server:dev 镜像，不单独定义 build
+  # worker reuses the unspun-server:dev image built by api; no separate build.
 
   web:
     build:

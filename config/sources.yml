@@ -1,7 +1,8 @@
-# 信息源清单。M1 填入首批 20–30 个有官方 RSS 的中英文源。
-# 字段约定（见 docs/requirement.md「信息源清单与权重」）：
-#   id: 唯一标识    name: 显示名    url: RSS 地址
-#   weight: 0.3–1.0（A=1.0 通讯社 … F=0.3 社区）
+# Source list. M1 fills in the first 20-30 Chinese/English sources that have
+# official RSS feeds.
+# Field conventions (see the source-list-and-weights section of docs/requirement.md):
+#   id: unique identifier    name: display name    url: RSS feed URL
+#   weight: 0.3-1.0 (A=1.0 wire services ... F=0.3 community)
 #   region: cn-mainland | hk-tw | us | eu | jp | intl | ...
 #   kind: wire | public | commercial | state | independent | community
 #   lang: zh | en

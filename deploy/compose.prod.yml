@@ -16,7 +16,7 @@ services:
       - "127.0.0.1:8080:80"
 
   # Daily pg_dump kept locally for 14 days. Off-site sync to R2 is added
-  # once the bucket and token exist (see docs/roadmaps.md, M0 收尾项).
+  # once the bucket and token exist (see docs/roadmaps.md, M0 wrap-up items).
   db-backup:
     image: pgvector/pgvector:pg17
     restart: unless-stopped

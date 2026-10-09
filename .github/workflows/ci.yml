@@ -9,12 +9,70 @@ permissions:
   contents: read
   packages: write
 
-# GHCR 镜像名必须全小写，不能直接用 github.repository（LinsRock 含大写）
+# GHCR image names must be all lowercase; github.repository cannot be used
+# directly because "LinsRock" contains uppercase letters.
 env:
   SERVER_IMAGE: ghcr.io/linsrock/unspun-server
   WEB_IMAGE: ghcr.io/linsrock/unspun-web
 
 jobs:
+  conventions:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate PR title (Conventional Commits)
+        if: github.event_name == 'pull_request'
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            docs
+            ci
+            build
+            refactor
+            test
+            perf
+            chore
+          scopes: |
+            server
+            web
+            deploy
+            config
+            docs
+          requireScope: false
+          subjectPattern: ^(?![A-Z]).+[^.]$
+          subjectPatternError: >
+            The subject must start lowercase and must not end with a period.
+      - name: Check for CJK text outside docs/
+        run: |
+          # English-only repo except docs/ (Chinese product docs) and UI copy
+          # in web/src (Chinese product UI; comments there must be English).
+          fail=0
+          while IFS= read -r f; do
+            case "$f" in
+              docs/*) continue ;;
+              web/src/*)
+                if grep -nIE '//|/\*|^\s*\*' "$f" | grep -P '[\x{4E00}-\x{9FFF}]'; then
+                  echo "::error file=$f::Chinese text in comments; comments must be English"
+                  fail=1
+                fi
+                ;;
+              *)
+                if grep -nIP '[\x{4E00}-\x{9FFF}]' "$f"; then
+                  echo "::error file=$f::Chinese text outside docs/; repo content must be English"
+                  fail=1
+                fi
+                ;;
+            esac
+          done < <(git ls-files)
+          exit "$fail"
+
   server:
     runs-on: ubuntu-latest
     defaults:
@@ -50,7 +108,7 @@ jobs:
 
   build-push:
     if: github.ref == 'refs/heads/main'
-    needs: [server, web]
+    needs: [conventions, server, web]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -95,7 +153,8 @@ jobs:
           curl -fsSL -o cloudflared.deb \
             https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
           sudo dpkg -i cloudflared.deb
-      # secrets 粘贴时容易混入换行/空格，先清洗再导出给后续所有步骤
+      # Pasted secrets often pick up stray newlines/spaces; trim them before
+      # exporting for all later steps.
       - name: Export Access service token
         env:
           RAW_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
@@ -111,9 +170,10 @@ jobs:
             -H "CF-Access-Client-Id: ${TUNNEL_SERVICE_TOKEN_ID}" \
             -H "CF-Access-Client-Secret: ${TUNNEL_SERVICE_TOKEN_SECRET}" \
             "https://${{ secrets.VPS_SSH_HOSTNAME }}/")
-          echo "Access preflight HTTP ${code} (302 = token 被拒, 其他 = 已放行)"
+          echo "Access preflight HTTP ${code} (302 = token rejected, anything else = allowed)"
           test "${code}" != "302"
-          # 再探一次 websocket 握手路径，仅诊断用、永不致命（ws 必须走 HTTP/1.1）
+          # Probe the websocket handshake path too — diagnostic only, never
+          # fatal (ws requires HTTP/1.1).
           ws=$(curl --http1.1 -s -o /dev/null -w '%{http_code}' \
             -H "CF-Access-Client-Id: ${TUNNEL_SERVICE_TOKEN_ID}" \
             -H "CF-Access-Client-Secret: ${TUNNEL_SERVICE_TOKEN_SECRET}" \
