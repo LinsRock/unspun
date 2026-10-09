@@ -4,7 +4,8 @@ from sqlalchemy.orm import Session
 
 from unspun.core.models import Article
 from unspun.core.sources import Source
-from unspun.pipeline.fetcher import fetch_source
+from unspun.pipeline.feeds import FeedEntry
+from unspun.pipeline.fetcher import drop_internal_urls, fetch_source
 
 FEED = b"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel><title>Sample</title>
@@ -62,3 +63,18 @@ def test_fetch_source_inserts_then_dedupes(db_session: Session) -> None:
 
 def test_fetch_source_honors_max_items(db_session: Session) -> None:
     assert fetch_source(db_session, make_client(), make_source(max_items=1)) == 1
+
+
+def testdrop_internal_urls_filters_rsshub_host() -> None:
+    def entry(url: str) -> FeedEntry:
+        return FeedEntry(url=url, title="t", published_at=None, summary_html=None)
+
+    entries = [
+        entry("https://example.com/story"),
+        entry("http://rsshub:1200/caixin/article/1"),
+        entry("http://rsshub:1200"),
+        # Same prefix but a different host: must be kept.
+        entry("http://rsshub:12000/other"),
+    ]
+    kept = drop_internal_urls(entries, "http://rsshub:1200")
+    assert [e.url for e in kept] == ["https://example.com/story", "http://rsshub:12000/other"]

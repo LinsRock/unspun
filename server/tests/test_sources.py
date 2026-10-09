@@ -1,6 +1,9 @@
 from pathlib import Path
 
-from unspun.core.sources import load_sources, resolve_rsshub_url
+import pytest
+from pydantic import ValidationError
+
+from unspun.core.sources import Source, load_sources, resolve_rsshub_url
 
 CONFIG_DIR = Path(__file__).parents[2] / "config"
 
@@ -37,9 +40,23 @@ def test_resolve_rsshub_url_expands_routes() -> None:
     )
 
 
-def test_rsshub_sources_resolve_against_configured_base() -> None:
-    by_id = {s.id: s for s in load_sources(CONFIG_DIR)}
+def test_rsshub_sources_resolve_against_explicit_base() -> None:
+    by_id = {s.id: s for s in load_sources(CONFIG_DIR, rsshub_base="http://rsshub-test:1200")}
     caixin = by_id["caixin"]
-    # Default settings: rsshub_url = http://rsshub:1200.
-    assert str(caixin.url) == "http://rsshub:1200/caixin/latest"
+    assert str(caixin.url) == "http://rsshub-test:1200/caixin/latest"
     assert caixin.timeout_seconds == 60
+
+
+def test_timeout_seconds_must_be_positive() -> None:
+    fields = {
+        "id": "x",
+        "name": "X",
+        "url": "https://example.com/feed",
+        "weight": 0.5,
+        "region": "us",
+        "kind": "commercial",
+        "lang": "en",
+    }
+    with pytest.raises(ValidationError):
+        Source.model_validate({**fields, "timeout_seconds": 0})
+    assert Source.model_validate({**fields, "timeout_seconds": 60}).timeout_seconds == 60
