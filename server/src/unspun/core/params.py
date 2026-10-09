@@ -40,6 +40,18 @@ class ClusteringParams(BaseModel):
     similarity_threshold: float
 
 
+class ObjectiveSignalsParams(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    # Log-saturation caps and monolocal discount for objective_score
+    # (D-010). Defaults match config/scoring.yml; validation keeps a
+    # tuning typo from silently flattening or inverting the score.
+    source_cap: int = Field(default=15, ge=1)
+    recent_cap: int = Field(default=10, ge=1)
+    monolocal_discount: float = Field(default=0.7, gt=0.0, le=1.0)
+    growth_window_hours: float = Field(default=24.0, gt=0.0)
+
+
 class StreamParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -66,6 +78,7 @@ class ScoringParams(BaseModel):
     importance: ImportanceWeights
     objective: ObjectiveWeights
     clustering: ClusteringParams
+    objective_signals: ObjectiveSignalsParams = ObjectiveSignalsParams()
     stream: StreamParams
     offcircle_ratio: float
     pipeline: PipelineParams = PipelineParams()

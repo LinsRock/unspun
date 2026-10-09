@@ -15,6 +15,16 @@ objective:
   community: 0.10
 clustering:
   similarity_threshold: 0.72
+objective_signals:
+  # Log-saturation caps: roughly how many sources / recent articles it
+  # takes to approach a full breadth / growth score (D-010).
+  source_cap: 15
+  recent_cap: 10
+  # Breadth multiplier when every source shares one language and one
+  # region: local pileups must not read as global coverage.
+  monolocal_discount: 0.7
+  # Growth counts articles published within this window.
+  growth_window_hours: 24
 stream:
   half_life_hours: 24 # time-decay half-life for the live stream ordering
 offcircle_ratio: 0.20 # share of off-circle (bubble-breaking) items, from M3
