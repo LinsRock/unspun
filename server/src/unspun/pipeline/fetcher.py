@@ -4,6 +4,7 @@ import httpx
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from unspun.core.config import get_settings
 from unspun.core.db import session_scope
 from unspun.core.logging import get_logger
 from unspun.core.models import Article, FetchLog
@@ -29,9 +30,30 @@ def _article_content(client: httpx.Client, entry: FeedEntry) -> str | None:
     return content
 
 
+def drop_internal_urls(entries: list[FeedEntry], rsshub_base: str) -> list[FeedEntry]:
+    """Drop entries whose link resolved to the internal RSSHub host.
+
+    A relative <link> in an RSSHub feed urljoins against the feed URL and
+    would otherwise be stored (and later fetched) as http://rsshub:1200/...,
+    a host that only exists on the compose network.
+    """
+    base = rsshub_base.rstrip("/")
+    kept: list[FeedEntry] = []
+    for entry in entries:
+        if entry.url == base or entry.url.startswith(base + "/"):
+            log.warning("internal_rsshub_entry_url_dropped", url=entry.url)
+            continue
+        kept.append(entry)
+    return kept
+
+
 def fetch_source(session: Session, client: httpx.Client, source: Source) -> int:
     """Fetch one source's feed and insert unseen articles; returns new count."""
-    entries = parse_feed(fetch_bytes(client, str(source.url)), base_url=str(source.url))
+    entries = parse_feed(
+        fetch_bytes(client, str(source.url), timeout_seconds=source.timeout_seconds),
+        base_url=str(source.url),
+    )
+    entries = drop_internal_urls(entries, get_settings().rsshub_url)
     if source.max_items is not None:
         entries = entries[: source.max_items]
     if not entries:

@@ -1,0 +1,131 @@
+/*
+ * Design tokens from T-D1. Spec: web/src/DESIGN.md; interactive prototype:
+ * docs/design/t-d1-prototype.html (user-approved 2026-10-09).
+ *
+ * Raw values live on :root and flip with the viewer's theme; Tailwind
+ * utilities are generated from them via @theme inline below. Components use
+ * these utilities (bg-surface, text-ink-2, border-line, ...) and never
+ * hardcode colors.
+ */
+
+:root {
+  /* Light: warm paper background + warm ink text + indigo accent. */
+  --bg: #faf8f4;
+  --bg-sunk: #f1eee7;
+  --surface: #ffffff;
+  --surface-2: #fdfcf9;
+  --line: #e7e2d8;
+  --line-strong: #d8d1c3;
+  --ink: #2a2722;
+  --ink-2: #4c473e;
+  --ink-3: #746d5f;
+  --ink-4: #948c7b;
+  --accent: #22608f;
+  --accent-ink: #1b5076;
+  --accent-soft: rgba(34, 96, 143, 0.09);
+  --hot: #b5432a;
+  --hot-soft: rgba(181, 67, 42, 0.1);
+  --amber: #9a701f;
+  --amber-soft: rgba(154, 112, 31, 0.12);
+  --ok: #3a7d5d;
+  --ok-soft: rgba(58, 125, 93, 0.12);
+  --sh-card: 0 1px 2px rgba(42, 39, 34, 0.04);
+  --sh-pop: 0 8px 28px rgba(42, 39, 34, 0.12);
+}
+
+/*
+ * Dark: neutral cool grey — the paper tint is a light-mode-only trait.
+ * Theme model: an explicit choice sets data-theme="light"/"dark" on <html>;
+ * "system" removes the attribute, so prefers-color-scheme decides. The two
+ * blocks below carry identical values so the manual choice beats the OS
+ * setting in both directions.
+ *
+ * NOTE: `color-scheme: dark` is intentionally not set here yet. T-D2 adds it
+ * (plus the theme switcher UI) when the existing pages are restyled onto the
+ * tokens; until then pages keep rendering light everywhere.
+ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171a;
+    --bg-sunk: #101214;
+    --surface: #1c1f23;
+    --surface-2: #212529;
+    --line: rgba(255, 255, 255, 0.09);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --ink: #e9ebed;
+    --ink-2: #c7ccd1;
+    --ink-3: #99a1a8;
+    --ink-4: #767e86;
+    --accent: #6fb0d8;
+    --accent-ink: #8cc3e6;
+    --accent-soft: rgba(111, 176, 216, 0.13);
+    --hot: #e07b5c;
+    --hot-soft: rgba(224, 123, 92, 0.14);
+    --amber: #d2ab61;
+    --amber-soft: rgba(210, 171, 97, 0.14);
+    --ok: #72bd96;
+    --ok-soft: rgba(114, 189, 150, 0.14);
+    --sh-card: none;
+    --sh-pop: 0 8px 28px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #15171a;
+  --bg-sunk: #101214;
+  --surface: #1c1f23;
+  --surface-2: #212529;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --ink: #e9ebed;
+  --ink-2: #c7ccd1;
+  --ink-3: #99a1a8;
+  --ink-4: #767e86;
+  --accent: #6fb0d8;
+  --accent-ink: #8cc3e6;
+  --accent-soft: rgba(111, 176, 216, 0.13);
+  --hot: #e07b5c;
+  --hot-soft: rgba(224, 123, 92, 0.14);
+  --amber: #d2ab61;
+  --amber-soft: rgba(210, 171, 97, 0.14);
+  --ok: #72bd96;
+  --ok-soft: rgba(114, 189, 150, 0.14);
+  --sh-card: none;
+  --sh-pop: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Tailwind v4 theme: generates bg-*/text-*/border-* etc. from the raw vars. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-sunk: var(--bg-sunk);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-4: var(--ink-4);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-hot: var(--hot);
+  --color-hot-soft: var(--hot-soft);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+
+  --font-sans:
+    -apple-system, "SF Pro Text", system-ui, "PingFang SC",
+    "Hiragino Sans GB", "HarmonyOS Sans SC", "Microsoft YaHei", sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "PingFang SC",
+    monospace;
+
+  --radius-card: 10px;
+  --radius-ctl: 8px;
+
+  --shadow-card: var(--sh-card);
+  --shadow-pop: var(--sh-pop);
+}

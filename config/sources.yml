@@ -1,17 +1,19 @@
-# M1 source list: official RSS feeds only (RSSHub and community platforms
-# arrive in M2/M6). Every URL below was verified to return valid RSS/Atom/RDF
-# on 2026-10-09.
+# Source list. M1 entries use official RSS; from M2 on, rsshub://<route>
+# URLs resolve against the self-hosted RSSHub (UNSPUN_RSSHUB_URL). Every URL
+# below was verified working from the VPS at the date noted in its section.
 #
 # Field conventions (see the source-list-and-weights section of docs/requirement.md):
-#   id: unique identifier    name: display name    url: RSS feed URL
+#   id: unique identifier    name: display name    url: RSS feed URL or rsshub://route
 #   weight: 0.3-1.0 (A=1.0 wire/primary ... F=0.3 community)
 #   region: cn-mainland | hk-tw | us | eu | jp | me | intl
 #   kind: wire | public | commercial | state | independent | community | academic | official
 #   lang: zh | en
 #   max_items: optional per-fetch cap for high-volume feeds
+#   timeout_seconds: optional per-feed fetch timeout (RSSHub cold-cache routes are slow)
 #
-# Not includable yet (no working official RSS; planned for M2 via RSSHub):
-# Caixin, The Paper (Pengpai), Jiemian, Zaobao, Jiqizhixin, 36Kr.
+# Dropped after M2 T2 validation (see docs/tasks/m2.md, source validation log):
+# Jiemian (origin unreachable from the overseas VPS), Jiqizhixin (no RSSHub
+# route; official RSS discontinued).
 sources:
   # --- General & international (en) ---
   - id: bbc-world
@@ -221,3 +223,40 @@ sources:
     region: cn-mainland
     kind: commercial
     lang: zh
+  # --- Via self-hosted RSSHub (zh), M2 T2; routes verified from the VPS 2026-10-09 ---
+  - id: caixin
+    name: Caixin
+    url: rsshub://caixin/latest
+    weight: 0.9
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    timeout_seconds: 60
+  - id: thepaper
+    name: The Paper
+    url: rsshub://thepaper/featured
+    weight: 0.9
+    region: cn-mainland
+    kind: state
+    lang: zh
+    timeout_seconds: 60
+  - id: zaobao-china
+    name: Zaobao China Realtime
+    url: rsshub://zaobao/realtime/china
+    weight: 0.9
+    region: intl
+    kind: commercial
+    lang: zh
+    timeout_seconds: 60
+  # Newsflashes are aggregated briefs (tier E), not original reporting; the
+  # article route (/36kr/news) is broken upstream as of 2026-10-09 — revisit
+  # the weight if it recovers.
+  - id: 36kr-newsflashes
+    name: 36Kr Newsflashes
+    url: rsshub://36kr/newsflashes
+    weight: 0.5
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    max_items: 20
+    timeout_seconds: 60
