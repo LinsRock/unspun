@@ -3,7 +3,7 @@
 import json
 from itertools import batched
 
-from sqlalchemy import select, update
+from sqlalchemy import ColumnElement, select, update
 from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
@@ -53,14 +53,33 @@ def embed_articles(session: Session, client: SupportsLlm, articles: list[Article
         article.embedding = vector
 
 
+# Pending/abandoned predicates are shared with the daily report, so the
+# backlog it shows always matches what the worker will actually drain.
+
+
+def pending_summary_conditions() -> tuple[ColumnElement[bool], ...]:
+    return (
+        Article.summary_zh.is_(None),
+        Article.summary_failures < MAX_SUMMARY_FAILURES,
+    )
+
+
+def abandoned_summary_conditions() -> tuple[ColumnElement[bool], ...]:
+    return (
+        Article.summary_zh.is_(None),
+        Article.summary_failures >= MAX_SUMMARY_FAILURES,
+    )
+
+
+def pending_embedding_conditions() -> tuple[ColumnElement[bool], ...]:
+    return (Article.summary_zh.is_not(None), Article.embedding.is_(None))
+
+
 def pending_summary_ids(session: Session, limit: int) -> list[int]:
     return list(
         session.scalars(
             select(Article.id)
-            .where(
-                Article.summary_zh.is_(None),
-                Article.summary_failures < MAX_SUMMARY_FAILURES,
-            )
+            .where(*pending_summary_conditions())
             .order_by(Article.id)
             .limit(limit)
         )
@@ -113,7 +132,7 @@ def embed_pending(client: SupportsLlm, limit: int = EMBED_BATCH_LIMIT) -> int:
         ids = list(
             session.scalars(
                 select(Article.id)
-                .where(Article.summary_zh.is_not(None), Article.embedding.is_(None))
+                .where(*pending_embedding_conditions())
                 .order_by(Article.id)
                 .limit(limit)
             )

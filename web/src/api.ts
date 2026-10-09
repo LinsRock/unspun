@@ -68,6 +68,29 @@ export interface LlmSpend {
   cost_usd: number
 }
 
+export interface AbandonedArticle {
+  id: number
+  title: string
+  source_id: string
+}
+
+export interface PipelineBacklog {
+  pending_summaries: number
+  pending_embeddings: number
+  pending_scores: number
+  abandoned_total: number
+  abandoned_articles: AbandonedArticle[]
+}
+
+export interface LastRun {
+  run_at: string
+  summarized: number
+  embedded: number
+  clustered: number
+  new_events: number
+  scored: number
+}
+
 export interface ReportResponse {
   window_hours: number
   generated_at: string
@@ -76,6 +99,8 @@ export interface ReportResponse {
   source_failures: SourceFailure[]
   llm_spend: LlmSpend[]
   llm_cost_total_usd: number
+  backlog: PipelineBacklog
+  last_run: LastRun | null
 }
 
 export async function fetchReport(): Promise<ReportResponse> {

@@ -8,7 +8,7 @@ from datetime import UTC, datetime, timedelta
 from statistics import mean
 from typing import Any
 
-from sqlalchemy import or_, select
+from sqlalchemy import ColumnElement, or_, select
 from sqlalchemy.orm import Session, selectinload
 
 from unspun.core.config import get_settings
@@ -158,6 +158,11 @@ def score_event(
     event.scored_at = datetime.now(UTC)
 
 
+def pending_score_conditions() -> tuple[ColumnElement[bool], ...]:
+    # Shared with the daily report so the backlog count matches this query.
+    return (or_(Event.scored_at.is_(None), Event.changed_at > Event.scored_at),)
+
+
 def score_pending(client: SupportsLlm, limit: int = SCORE_BATCH_LIMIT) -> int:
     params = get_scoring_params()
     sources_by_id = {s.id: s for s in load_sources()}
@@ -165,7 +170,7 @@ def score_pending(client: SupportsLlm, limit: int = SCORE_BATCH_LIMIT) -> int:
         ids = list(
             session.scalars(
                 select(Event.id)
-                .where(or_(Event.scored_at.is_(None), Event.changed_at > Event.scored_at))
+                .where(*pending_score_conditions())
                 .order_by(Event.changed_at.desc())
                 .limit(limit)
             )
