@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     # Default fits local dev (run from server/); the container image sets
     # UNSPUN_CONFIG_DIR=/app/config.
     config_dir: str = "../config"
+    fetch_interval_minutes: int = 30
 
 
 @lru_cache

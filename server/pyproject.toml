@@ -14,6 +14,9 @@ dependencies = [
     "pgvector>=0.5.1",
     "pyyaml>=6.0.3",
     "pydantic>=2.13.5",
+    "feedparser>=6.0.14",
+    "trafilatura>=2.3.1",
+    "httpx>=0.28.1",
 ]
 
 [dependency-groups]
