@@ -12,6 +12,8 @@ dependencies = [
     "pydantic-settings>=2.7",
     "structlog>=24.4",
     "pgvector>=0.5.1",
+    "pyyaml>=6.0.3",
+    "pydantic>=2.13.5",
 ]
 
 [dependency-groups]
@@ -21,6 +23,7 @@ dev = [
     "pytest>=8.3",
     "httpx>=0.28",
     "anyio>=4.15.1",
+    "types-pyyaml>=6.0.12.20260906",
 ]
 
 [build-system]

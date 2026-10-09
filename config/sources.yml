@@ -1,9 +1,223 @@
-# Source list. M1 fills in the first 20-30 Chinese/English sources that have
-# official RSS feeds.
+# M1 source list: official RSS feeds only (RSSHub and community platforms
+# arrive in M2/M6). Every URL below was verified to return valid RSS/Atom/RDF
+# on 2026-10-09.
+#
 # Field conventions (see the source-list-and-weights section of docs/requirement.md):
 #   id: unique identifier    name: display name    url: RSS feed URL
-#   weight: 0.3-1.0 (A=1.0 wire services ... F=0.3 community)
-#   region: cn-mainland | hk-tw | us | eu | jp | intl | ...
-#   kind: wire | public | commercial | state | independent | community
+#   weight: 0.3-1.0 (A=1.0 wire/primary ... F=0.3 community)
+#   region: cn-mainland | hk-tw | us | eu | jp | me | intl
+#   kind: wire | public | commercial | state | independent | community | academic | official
 #   lang: zh | en
-sources: []
+#   max_items: optional per-fetch cap for high-volume feeds
+#
+# Not includable yet (no working official RSS; planned for M2 via RSSHub):
+# Caixin, The Paper (Pengpai), Jiemian, Zaobao, Jiqizhixin, 36Kr.
+sources:
+  # --- General & international (en) ---
+  - id: bbc-world
+    name: BBC World
+    url: https://feeds.bbci.co.uk/news/world/rss.xml
+    weight: 0.9
+    region: eu
+    kind: public
+    lang: en
+  - id: guardian-world
+    name: The Guardian World
+    url: https://www.theguardian.com/world/rss
+    weight: 0.9
+    region: eu
+    kind: commercial
+    lang: en
+  - id: nyt-world
+    name: New York Times World
+    url: https://rss.nytimes.com/services/xml/rss/nyt/World.xml
+    weight: 0.9
+    region: us
+    kind: commercial
+    lang: en
+  - id: aljazeera
+    name: Al Jazeera
+    url: https://www.aljazeera.com/xml/rss/all.xml
+    weight: 0.9
+    region: me
+    kind: state
+    lang: en
+  - id: dw-en
+    name: DW English
+    url: https://rss.dw.com/rdf/rss-en-all
+    weight: 0.9
+    region: eu
+    kind: public
+    lang: en
+  - id: economist-latest
+    name: The Economist
+    url: https://www.economist.com/latest/rss.xml
+    weight: 0.9
+    region: eu
+    kind: commercial
+    lang: en
+  # --- Economy (en) ---
+  - id: ft-home
+    name: Financial Times
+    url: https://www.ft.com/rss/home
+    weight: 0.9
+    region: eu
+    kind: commercial
+    lang: en
+  # --- Tech & AI (en) ---
+  - id: hn-front
+    name: Hacker News Frontpage
+    url: https://hnrss.org/frontpage
+    weight: 0.3
+    region: us
+    kind: community
+    lang: en
+  - id: arxiv-ai
+    name: arXiv cs.AI/CL/LG
+    url: https://rss.arxiv.org/rss/cs.AI+cs.CL+cs.LG
+    weight: 1.0
+    region: intl
+    kind: academic
+    lang: en
+    max_items: 30
+  - id: ars-technica
+    name: Ars Technica
+    url: https://feeds.arstechnica.com/arstechnica/index
+    weight: 0.8
+    region: us
+    kind: commercial
+    lang: en
+  - id: the-verge
+    name: The Verge
+    url: https://www.theverge.com/rss/index.xml
+    weight: 0.8
+    region: us
+    kind: commercial
+    lang: en
+  - id: mit-tr
+    name: MIT Technology Review
+    url: https://www.technologyreview.com/feed/
+    weight: 0.8
+    region: us
+    kind: commercial
+    lang: en
+  - id: simon-willison
+    name: Simon Willison
+    url: https://simonwillison.net/atom/everything/
+    weight: 0.7
+    region: eu
+    kind: independent
+    lang: en
+  # --- Politics & international relations (en) ---
+  - id: foreign-policy
+    name: Foreign Policy
+    url: https://foreignpolicy.com/feed/
+    weight: 0.8
+    region: us
+    kind: commercial
+    lang: en
+  # --- Medicine & health (en) ---
+  - id: stat-news
+    name: STAT News
+    url: https://www.statnews.com/feed/
+    weight: 0.8
+    region: us
+    kind: commercial
+    lang: en
+  - id: nature
+    name: Nature
+    url: https://www.nature.com/nature.rss
+    weight: 0.8
+    region: eu
+    kind: academic
+    lang: en
+    max_items: 30
+  # --- Climate & energy (en) ---
+  - id: carbon-brief
+    name: Carbon Brief
+    url: https://www.carbonbrief.org/feed/
+    weight: 0.8
+    region: eu
+    kind: independent
+    lang: en
+  # --- Space & astronomy (en) ---
+  - id: spacenews
+    name: SpaceNews
+    url: https://spacenews.com/feed/
+    weight: 0.8
+    region: us
+    kind: commercial
+    lang: en
+  - id: nasa
+    name: NASA Breaking News
+    url: https://www.nasa.gov/rss/dyn/breaking_news.rss
+    weight: 1.0
+    region: us
+    kind: official
+    lang: en
+  # --- Ideas, society & culture (en) ---
+  - id: aeon
+    name: Aeon
+    url: https://aeon.co/feed.rss
+    weight: 0.7
+    region: intl
+    kind: independent
+    lang: en
+  - id: the-atlantic
+    name: The Atlantic
+    url: https://www.theatlantic.com/feed/all/
+    weight: 0.7
+    region: us
+    kind: commercial
+    lang: en
+  # --- Off-circle: basic science (en) ---
+  - id: quanta
+    name: Quanta Magazine
+    url: https://www.quantamagazine.org/feed/
+    weight: 0.8
+    region: us
+    kind: independent
+    lang: en
+  # --- Chinese sources ---
+  - id: bbc-zhongwen
+    name: BBC Chinese
+    url: https://feeds.bbci.co.uk/zhongwen/simp/rss.xml
+    weight: 0.9
+    region: eu
+    kind: public
+    lang: zh
+  - id: dw-zh
+    name: DW Chinese
+    url: https://rss.dw.com/rdf/rss-chi-all
+    weight: 0.9
+    region: eu
+    kind: public
+    lang: zh
+  - id: nyt-cn
+    name: New York Times Chinese
+    url: https://cn.nytimes.com/rss/
+    weight: 0.9
+    region: us
+    kind: commercial
+    lang: zh
+  - id: initium
+    name: Initium Media
+    url: https://theinitium.com/rss
+    weight: 0.9
+    region: hk-tw
+    kind: independent
+    lang: zh
+  - id: sspai
+    name: SSPAI
+    url: https://sspai.com/feed
+    weight: 0.7
+    region: cn-mainland
+    kind: independent
+    lang: zh
+  - id: qbitai
+    name: QbitAI
+    url: https://www.qbitai.com/feed
+    weight: 0.8
+    region: cn-mainland
+    kind: commercial
+    lang: zh
