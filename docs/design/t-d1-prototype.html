@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unspun 设计原型</title>
+<style>
+/* Layout: desktop = fixed left sidebar + single feed column; phone = top bar + bottom tab bar. */
+:root {
+  /* -- color tokens · light (warm paper + ink + indigo accent) -- */
+  --bg: #faf8f4;
+  --bg-sunk: #f1eee7;
+  --surface: #ffffff;
+  --surface-2: #fdfcf9;
+  --line: #e7e2d8;
+  --line-strong: #d8d1c3;
+  --ink: #2a2722;
+  --ink-2: #4c473e;
+  --ink-3: #746d5f;
+  --ink-4: #948c7b;
+  --accent: #22608f;
+  --accent-ink: #1b5076;
+  --accent-soft: rgba(34, 96, 143, 0.09);
+  --hot: #b5432a;
+  --hot-soft: rgba(181, 67, 42, 0.10);
+  --amber: #9a701f;
+  --amber-soft: rgba(169, 123, 47, 0.12);
+  --ok: #3a7d5d;
+  --ok-soft: rgba(58, 125, 93, 0.12);
+  --shadow-card: 0 1px 2px rgba(42, 39, 34, 0.04);
+  --shadow-pop: 0 8px 28px rgba(42, 39, 34, 0.12);
+  /* -- type tokens -- */
+  --font-sans: -apple-system, "SF Pro Text", system-ui, "PingFang SC", "Hiragino Sans GB", "HarmonyOS Sans SC", "Microsoft YaHei", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "PingFang SC", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171a; --bg-sunk: #101214;
+    --surface: #1c1f23; --surface-2: #212529;
+    --line: rgba(255, 255, 255, 0.09); --line-strong: rgba(255, 255, 255, 0.16);
+    --ink: #e9ebed; --ink-2: #c7ccd1; --ink-3: #99a1a8; --ink-4: #767e86;
+    --accent: #6fb0d8; --accent-ink: #8cc3e6; --accent-soft: rgba(111, 176, 216, 0.13);
+    --hot: #e07b5c; --hot-soft: rgba(224, 123, 92, 0.14);
+    --amber: #d2ab61; --amber-soft: rgba(210, 171, 97, 0.14);
+    --ok: #72bd96; --ok-soft: rgba(114, 189, 150, 0.14);
+    --shadow-card: none; --shadow-pop: 0 8px 28px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15171a; --bg-sunk: #101214;
+  --surface: #1c1f23; --surface-2: #212529;
+  --line: rgba(255, 255, 255, 0.09); --line-strong: rgba(255, 255, 255, 0.16);
+  --ink: #e9ebed; --ink-2: #c7ccd1; --ink-3: #99a1a8; --ink-4: #767e86;
+  --accent: #6fb0d8; --accent-ink: #8cc3e6; --accent-soft: rgba(111, 176, 216, 0.13);
+  --hot: #e07b5c; --hot-soft: rgba(224, 123, 92, 0.14);
+  --amber: #d2ab61; --amber-soft: rgba(210, 171, 97, 0.14);
+  --ok: #72bd96; --ok-soft: rgba(114, 189, 150, 0.14);
+  --shadow-card: none; --shadow-pop: 0 8px 28px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-sans); font-size: 14px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-ink); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.app { display: flex; min-height: 100%; }
+
+/* ---------- sidebar (desktop) ---------- */
+.sidebar {
+  width: 216px; flex-shrink: 0; position: sticky; top: 0; height: 100vh;
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 20px 12px 16px; border-right: 1px solid var(--line);
+  background: var(--surface-2);
+}
+.brand { display: flex; align-items: baseline; gap: 8px; padding: 0 10px 14px; }
+.brand b { font-size: 17px; font-weight: 700; letter-spacing: 0.02em; }
+.brand b::first-letter { color: var(--accent); }
+.brand span { font-size: 11px; color: var(--ink-4); }
+.nav-label { font-size: 11px; color: var(--ink-4); letter-spacing: 0.08em; padding: 10px 10px 4px; }
+.nav-item {
+  display: flex; align-items: center; gap: 9px; padding: 7px 10px; border-radius: 8px;
+  font-size: 13.5px; color: var(--ink-2); text-align: left;
+}
+.nav-item svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; flex-shrink: 0; }
+.nav-item:hover { background: var(--bg-sunk); }
+.nav-item.active { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+.sidebar-foot { margin-top: auto; padding: 10px 6px 0; border-top: 1px solid var(--line); }
+
+/* theme toggle: 3-state segmented control */
+.theme-seg { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--bg-sunk); border: 1px solid var(--line); }
+.theme-seg button { width: 30px; height: 24px; border-radius: 999px; display: grid; place-items: center; color: var(--ink-4); }
+.theme-seg button svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+.theme-seg button.on { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-card); border: 1px solid var(--line); }
+
+/* ---------- main column ---------- */
+.main { flex: 1; min-width: 0; }
+.page { max-width: 760px; margin: 0 auto; padding: 24px 20px 96px; }
+.page.wide { max-width: 980px; }
+
+.page-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.page-head h1 { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: 0.01em; }
+.page-sub { font-size: 12px; color: var(--ink-4); font-family: var(--font-mono); }
+
+/* mobile top bar */
+.mobile-top {
+  display: none; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  align-items: center; justify-content: space-between;
+  padding: 10px 16px; background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.mobile-top b { font-size: 16px; font-weight: 700; }
+.mobile-top b::first-letter { color: var(--accent); }
+
+/* mobile bottom tab bar */
+.tabbar {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+  background: var(--surface-2); border-top: 1px solid var(--line);
+}
+.tabbar-inner { display: flex; }
+.tabbar button { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 4px 0; font-size: 10.5px; color: var(--ink-4); border-radius: 8px; }
+.tabbar button svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+.tabbar button.active { color: var(--accent-ink); font-weight: 600; }
+
+/* ---------- filter pills ---------- */
+.pills { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 16px; }
+.pill {
+  padding: 4px 12px; border-radius: 999px; font-size: 12.5px; color: var(--ink-3);
+  border: 1px solid var(--line); background: var(--surface-2);
+}
+.pill.on { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 600; }
+
+/* ---------- event card ---------- */
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 14px 16px; box-shadow: var(--shadow-card);
+}
+.feed { display: flex; flex-direction: column; gap: 10px; }
+.card:hover { border-color: var(--line-strong); }
+.card-top { display: flex; align-items: flex-start; gap: 10px; }
+.card-title { flex: 1; min-width: 0; margin: 0; font-size: 15px; font-weight: 650; line-height: 1.5; letter-spacing: 0.01em; }
+.card-title a { color: inherit; }
+.card-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+.card-summary { margin: 8px 0 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.7; }
+.card-foot { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; }
+
+/* score badge: tiered color — ≥80 hot, 65–79 amber, else neutral */
+.score {
+  flex-shrink: 0; min-width: 40px; text-align: center; padding: 2px 8px; border-radius: 7px;
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums;
+  background: var(--bg-sunk); color: var(--ink-3); border: 1px solid transparent;
+}
+.score.t-hot { background: var(--hot-soft); color: var(--hot); }
+.score.t-warm { background: var(--amber-soft); color: var(--amber); }
+
+/* tags: region = outline chip, kind = tinted chip, lang = mono mark */
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px; border-radius: 999px; font-size: 11px; line-height: 1.7; }
+.tag.region { border: 1px solid var(--line-strong); color: var(--ink-3); }
+.tag.kind { background: var(--bg-sunk); color: var(--ink-3); }
+.meta-dim { font-size: 11.5px; color: var(--ink-4); font-family: var(--font-mono); }
+
+/* source chips */
+.src { display: inline-flex; align-items: baseline; gap: 5px; font-size: 12px; max-width: 100%; }
+.src .src-name { color: var(--ink-4); font-weight: 600; flex-shrink: 0; }
+.src .src-title { color: var(--accent-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.src .src-lang { font-family: var(--font-mono); font-size: 10px; color: var(--ink-4); border: 1px solid var(--line); border-radius: 3px; padding: 0 3px; flex-shrink: 0; }
+
+/* score breakdown */
+.breakdown { margin-top: 10px; padding: 10px 12px; border-radius: 8px; background: var(--bg-sunk); display: flex; flex-direction: column; gap: 5px; }
+.bar-row { display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--ink-3); }
+.bar-row .bar-label { width: 56px; flex-shrink: 0; }
+.bar-row .bar-track { flex: 1; height: 5px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.bar-row .bar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+.bar-row .bar-val { width: 26px; text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.bar-row.sub { padding-left: 12px; opacity: 0.8; }
+.bar-row.sub .bar-fill { background: var(--ink-4); }
+.reason { margin: 8px 0 0; font-size: 12px; color: var(--ink-3); }
+.reason b { color: var(--ink-2); font-weight: 600; }
+
+.linklike { font-size: 12px; color: var(--accent-ink); }
+.linklike:hover { text-decoration: underline; }
+
+/* card action bars: viewpoint entry + collapsed sources share one row, wrap when narrow */
+.card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 9px; }
+.more-bar, .vp-bar {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  flex: 1; min-width: 170px; padding: 6px 12px; border-radius: 8px; font-size: 12.5px;
+}
+.more-bar { background: var(--bg-sunk); color: var(--ink-3); }
+.more-bar:hover { color: var(--ink-2); }
+.vp-bar { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+.vp-bar:hover { filter: brightness(0.96); }
+
+/* day bar above the feed */
+.daybar {
+  display: flex; align-items: baseline; gap: 8px; margin: 2px 0 10px;
+  padding: 7px 12px; border-radius: 8px; background: var(--bg-sunk);
+  font-size: 12.5px; color: var(--ink-3);
+}
+.daybar b { color: var(--ink); font-size: 13px; }
+.daybar .d-count { margin-left: auto; font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-4); }
+
+/* ---------- viewpoint page ---------- */
+.back { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; color: var(--ink-3); margin-bottom: 14px; }
+.vp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-top: 12px; }
+.vp-col { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; min-width: 0; }
+.vp-col-head { display: flex; align-items: center; gap: 7px; padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+.vp-col-head b { font-size: 13px; }
+.vp-claim { font-size: 13px; color: var(--ink-2); line-height: 1.7; margin: 0; }
+.vp-claim-src { display: block; margin-top: 8px; font-size: 11.5px; }
+.diverge { margin-top: 22px; }
+.diverge-item { display: flex; gap: 10px; padding: 11px 0; border-top: 1px solid var(--line); }
+.diverge-n { font-family: var(--font-mono); font-size: 12px; color: var(--hot); font-weight: 700; flex-shrink: 0; padding-top: 2px; }
+.diverge-item p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+.diverge-item .refs { margin-top: 3px; font-size: 11.5px; color: var(--ink-4); }
+.section-h { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-3); margin: 26px 0 6px; display: flex; align-items: center; gap: 8px; }
+.section-h::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* ---------- digest ---------- */
+.digest-date { display: flex; align-items: center; gap: 10px; margin: 14px 0 4px; }
+.digest-date .d-nav { width: 26px; height: 26px; border-radius: 7px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink-3); background: var(--surface-2); }
+.digest-date h2 { margin: 0; font-size: 22px; font-weight: 750; letter-spacing: 0.01em; }
+.digest-date .d-week { font-size: 12px; color: var(--ink-4); font-family: var(--font-mono); }
+.digest-intro {
+  margin: 14px 0 0; padding: 14px 16px; border-radius: 10px;
+  background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+  font-size: 14px; line-height: 1.85; color: var(--ink-2);
+}
+.digest-intro .gen-meta { display: block; margin-top: 8px; font-size: 11px; color: var(--ink-4); font-family: var(--font-mono); }
+.digest-item { display: flex; gap: 12px; padding: 14px 2px; border-bottom: 1px solid var(--line); }
+.digest-rank { font-family: var(--font-mono); font-size: 15px; font-weight: 700; color: var(--ink-4); width: 22px; flex-shrink: 0; text-align: center; padding-top: 1px; }
+.digest-rank.r1 { color: var(--hot); } .digest-rank.r2 { color: #b06a33; } .digest-rank.r3 { color: var(--amber); }
+.digest-body { flex: 1; min-width: 0; }
+.digest-body h3 { margin: 0; font-size: 14.5px; font-weight: 650; line-height: 1.55; }
+.digest-body .d-sum { margin: 5px 0 0; font-size: 13px; color: var(--ink-2); }
+.digest-vp { margin-top: 7px; padding: 8px 11px; border-radius: 8px; background: var(--accent-soft); font-size: 12.5px; color: var(--ink-2); }
+.digest-vp b { color: var(--accent-ink); font-weight: 650; }
+
+/* ---------- report ---------- */
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 14px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; }
+.stat .s-label { font-size: 11.5px; color: var(--ink-4); }
+.stat .s-val { font-family: var(--font-mono); font-size: 21px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.stat .s-note { font-size: 11px; color: var(--ink-4); margin-top: 1px; }
+.stat .s-val.bad { color: var(--hot); }
+.stat .s-val.good { color: var(--ok); }
+.table-wrap { overflow-x: auto; margin-top: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+th { text-align: left; font-size: 11px; color: var(--ink-4); font-weight: 600; letter-spacing: 0.05em; padding: 8px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 7px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: none; }
+td.num { font-family: var(--font-mono); }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; }
+.dot.ok { background: var(--ok); } .dot.bad { background: var(--hot); }
+
+/* ---------- spec page ---------- */
+.spec-note { font-size: 13px; color: var(--ink-3); margin: 4px 0 0; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px; margin-top: 10px; }
+.swatch { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.swatch .sw-color { height: 44px; }
+.swatch .sw-name { padding: 5px 9px 1px; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); }
+.swatch .sw-use { padding: 0 9px 7px; font-size: 10.5px; color: var(--ink-4); }
+.type-row { display: flex; align-items: baseline; gap: 14px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.type-row .t-spec { width: 120px; flex-shrink: 0; font-family: var(--font-mono); font-size: 11px; color: var(--ink-4); }
+.demo-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.spec-kv { font-size: 13px; color: var(--ink-2); margin: 6px 0 0; }
+.spec-kv code { font-family: var(--font-mono); font-size: 12px; background: var(--bg-sunk); border-radius: 4px; padding: 1px 5px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 880px) {
+  .sidebar { display: none; }
+  .mobile-top { display: flex; }
+  .tabbar { display: block; }
+  .page { padding: 16px 16px 90px; }
+  .vp-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card, .pill, .nav-item { transition: border-color 0.15s, background 0.15s; }
+}
+</style>
+
+<div class="app">
+  <!-- desktop sidebar -->
+  <aside class="sidebar">
+    <div class="brand"><b>Unspun</b><span>个人情报站</span></div>
+    <div class="nav-label">内容</div>
+    <button class="nav-item" data-nav="feed">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>实时事件流</button>
+    <button class="nav-item" data-nav="digest">
+      <svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z M9 8h6 M9 12h6 M9 16h4"/></svg>每日日报</button>
+    <div class="nav-label">系统</div>
+    <button class="nav-item" data-nav="report">
+      <svg viewBox="0 0 24 24"><path d="M4 19V5 M4 19h16 M8 15v-4 M13 15V8 M18 15v-6"/></svg>运行报告</button>
+    <button class="nav-item" data-nav="spec">
+      <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z M3 13l9 5 9-5"/></svg>设计规范</button>
+    <div class="sidebar-foot">
+      <div class="theme-seg" role="group" aria-label="主题切换">
+        <button data-theme-set="light" title="亮色"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></button>
+        <button data-theme-set="system" title="跟随系统"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M9 21h6"/></svg></button>
+        <button data-theme-set="dark" title="暗色"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></svg></button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <!-- mobile top bar -->
+    <div class="mobile-top">
+      <b>Unspun</b>
+      <div class="theme-seg" role="group" aria-label="主题切换">
+        <button data-theme-set="light" title="亮色"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></button>
+      <button data-theme-set="system" title="跟随系统"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="M9 21h6"/></svg></button>
+        <button data-theme-set="dark" title="暗色"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></svg></button>
+      </div>
+    </div>
+
+    <!-- ================= 事件流 ================= -->
+    <section class="page" id="page-feed">
+      <div class="page-head"><h1>实时事件流</h1><span class="page-sub">更新于 08:42 · 每 5 分钟</span></div>
+      <div class="pills">
+        <button class="pill on">全部</button><button class="pill">有观点对比</button>
+        <button class="pill">全球</button><button class="pill">中国</button><button class="pill">美国</button>
+        <button class="pill">科技 AI</button><button class="pill">经济</button><button class="pill">学术</button>
+      </div>
+      <div class="daybar"><b>今天</b><span>10 月 9 日 · 周五</span><span class="d-count">47 个活跃事件</span></div>
+      <div class="feed" id="feed"></div>
+    </section>
+
+    <!-- ================= 观点对比(事件详情) ================= -->
+    <section class="page wide" id="page-event" hidden>
+      <button class="back" data-nav="feed">← 返回事件流</button>
+      <div id="event-detail"></div>
+    </section>
+
+    <!-- ================= 日报 ================= -->
+    <section class="page" id="page-digest" hidden>
+      <div class="page-head"><h1>每日日报</h1><span class="page-sub">北京时间 08:00 生成</span></div>
+      <div class="digest-date">
+        <button class="d-nav" title="前一天">‹</button>
+        <h2>10 月 9 日</h2><span class="d-week">星期五 · 2026</span>
+        <button class="d-nav" title="后一天">›</button>
+      </div>
+      <p class="digest-intro">
+        过去 24 小时的焦点在经济与地缘的交叉口:欧盟对华电动车反补贴关税落下终裁,中欧表态针锋相对,这也是今日观点分歧最大的事件;美联储如期降息 25 个基点,但点阵图透露的分歧让市场对 12 月路径重新定价。科技侧,OpenAI 向全量用户开放 GPT-6,中文科技媒体与英文评测的关注点明显不同。日元跌破 160 后日本央行的沉默值得持续观察。
+        <span class="gen-meta">generated 08:00:14 · gemini-2.5-flash-lite · 今日事件 47 · 入选 6</span>
+      </p>
+      <div id="digest-list"></div>
+    </section>
+
+    <!-- ================= 运行报告 ================= -->
+    <section class="page" id="page-report" hidden>
+      <div class="page-head"><h1>运行报告</h1><span class="page-sub">2026-10-09</span></div>
+      <div class="stat-row">
+        <div class="stat"><div class="s-label">抓取文章</div><div class="s-val">1,284</div><div class="s-note">昨日 1,190</div></div>
+        <div class="stat"><div class="s-label">活跃事件</div><div class="s-val">47</div><div class="s-note">新建 12</div></div>
+        <div class="stat"><div class="s-label">失败源</div><div class="s-val bad">3</div><div class="s-note">共 94 源</div></div>
+        <div class="stat"><div class="s-label">今日花费</div><div class="s-val good">$0.71</div><div class="s-note">本月 $6.48</div></div>
+      </div>
+      <div class="section-h">抓取失败的源</div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>源</th><th>错误</th><th>连续失败</th><th>最近成功</th></tr></thead>
+        <tbody>
+          <tr><td><span class="dot bad"></span>WSJ Markets</td><td>HTTP 401(付费墙变更)</td><td class="num">6 轮</td><td class="num">10-08 22:10</td></tr>
+          <tr><td><span class="dot bad"></span>联合早报·国际</td><td>RSSHub 路由超时</td><td class="num">2 轮</td><td class="num">10-09 06:35</td></tr>
+          <tr><td><span class="dot bad"></span>量子位</td><td>解析失败(空 feed)</td><td class="num">1 轮</td><td class="num">10-09 07:40</td></tr>
+        </tbody>
+      </table></div>
+      <div class="section-h">LLM 花费构成</div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>阶段</th><th>模型</th><th>调用</th><th>tokens</th><th>花费</th></tr></thead>
+        <tbody>
+          <tr><td>摘要</td><td>flash-lite</td><td class="num">212</td><td class="num">1.9M</td><td class="num">$0.19</td></tr>
+          <tr><td>重要性评分</td><td>flash</td><td class="num">47</td><td class="num">0.9M</td><td class="num">$0.33</td></tr>
+          <tr><td>观点对比</td><td>flash</td><td class="num">9</td><td class="num">0.5M</td><td class="num">$0.17</td></tr>
+          <tr><td>embedding</td><td>qwen3-8b</td><td class="num">1,284</td><td class="num">2.1M</td><td class="num">$0.02</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- ================= 设计规范 ================= -->
+    <section class="page" id="page-spec" hidden>
+      <div class="page-head"><h1>设计规范</h1><span class="page-sub">v0 · T-D1 提案</span></div>
+      <p class="spec-note">方向:现代工具风(Vercel 式的克制)× 暖纸张底色,参考 aihot.news 的信息结构。墨色文字四级灰阶,靛蓝做唯一交互强调色;朱砂、琥珀只用于语义(高分、警示),不参与装饰。数据、时间戳、分数一律等宽字体。</p>
+
+      <div class="section-h">配色 TOKENS</div>
+      <div class="swatches" id="swatches"></div>
+      <p class="spec-kv">暗色模式:同名 token 整组替换(右上角切换预览);跟随系统 + 手动三态,选择存本地。暗色取中性冷灰,不沿用亮色的纸张棕调。</p>
+
+      <div class="section-h">排版</div>
+      <div class="type-row"><span class="t-spec">20px / 700</span><span style="font-size:20px;font-weight:700">页面标题 Page Title</span></div>
+      <div class="type-row"><span class="t-spec">15px / 650</span><span style="font-size:15px;font-weight:650">事件卡标题,行高 1.5</span></div>
+      <div class="type-row"><span class="t-spec">14px / 400</span><span>正文与日报导语,行高 1.65–1.85</span></div>
+      <div class="type-row"><span class="t-spec">13.5px / 400</span><span style="font-size:13.5px;color:var(--ink-2)">摘要正文,次级墨色</span></div>
+      <div class="type-row"><span class="t-spec">12px mono</span><span class="meta-dim">元数据 08:42 · 6 sources · $0.71</span></div>
+      <p class="spec-kv">字体栈:界面 <code>system-ui + PingFang SC</code>,数据 <code>ui-monospace</code>。中文不引外部字体,首屏零字体加载。</p>
+
+      <div class="section-h">间距与密度</div>
+      <p class="spec-kv">4px 基数网格:组件内 8/12/16,卡片间 10,区块间 24。信息密度取中高档:事件卡默认露出标题 + 标签 + 摘要两行,宽屏一屏约 5 个事件;分数构成、来源列表折叠在卡内展开。</p>
+      <p class="spec-kv">圆角:卡片 <code>10px</code>,小组件 <code>7–8px</code>,标签胶囊 <code>999px</code>。边框永远 1px,阴影只在亮色下轻微存在。</p>
+
+      <div class="section-h">核心组件</div>
+      <div class="demo-row">
+        <span class="score t-hot">87</span><span class="score t-warm">71</span><span class="score">58</span>
+        <span class="meta-dim">分数三档:≥80 朱砂 / 65–79 琥珀 / 其余中性</span>
+      </div>
+      <div class="demo-row">
+        <span class="tag region">全球</span><span class="tag region">中国</span><span class="tag kind">通讯社</span>
+        <span class="tag kind">官方</span><span class="tag kind">社区</span>
+        <span class="meta-dim">标签行只放元数据,不混入动作</span>
+      </div>
+      <div class="demo-row" style="width:100%">
+        <button class="more-bar" style="max-width:280px"><span>另有 4 篇来源报道</span><span>›</span></button>
+        <button class="vp-bar" style="max-width:280px"><span>◫ 观点对比 · 5 源说法</span><span>›</span></button>
+      </div>
+      <div class="demo-row">
+        <span class="src"><span class="src-lang">EN</span><span class="src-name">Reuters</span><span class="src-title">EU slaps final tariffs on Chinese EVs</span></span>
+      </div>
+      <div class="demo-row">
+        <button class="pill on">全部</button><button class="pill">有观点对比</button><button class="pill">科技 AI</button>
+      </div>
+      <p class="spec-kv">导航:桌面左侧栏(216px),手机底部标签栏 + 顶栏;两端主题切换都放在角落,不占内容位。</p>
+    </section>
+  </div>
+</div>
+
+<!-- mobile bottom tabs -->
+<nav class="tabbar"><div class="tabbar-inner">
+  <button data-nav="feed"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>事件流</button>
+  <button data-nav="digest"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z M9 8h6 M9 12h6 M9 16h4"/></svg>日报</button>
+  <button data-nav="report"><svg viewBox="0 0 24 24"><path d="M4 19V5 M4 19h16 M8 15v-4 M13 15V8 M18 15v-6"/></svg>报告</button>
+  <button data-nav="spec"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z M3 13l9 5 9-5"/></svg>规范</button>
+</div></nav>
+
+<script>
+/* ---------- demo data (fictional but plausible; for design review only) ---------- */
+const EVENTS = [
+  {
+    id: 1, score: 87, title: '欧盟对中国电动车反补贴关税终裁落地,税率最高 36.3%',
+    regions: ['全球', '中国', '欧洲'], kinds: ['通讯社', '官方', '媒体'], hasVp: true, updated: '42 分钟前',
+    summary: '欧盟委员会公布对华电动车反补贴调查终裁,在现有 10% 关税之上加征 17%–36.3% 不等的反补贴税,为期五年。中方回应称将采取一切必要措施维护中国企业合法权益,欧洲车企与成员国立场明显分裂。',
+    breakdown: { objective: 72, breadth: 81, growth: 64, quality: 78, importance: 91 },
+    reason: '涉及全球两大经济体的贸易政策转折,多语言多地区高强度报道,后续反制措施存在显著不确定性。',
+    articles: [
+      { src: 'Reuters', lang: 'EN', title: 'EU imposes final tariffs of up to 36.3% on Chinese EVs' },
+      { src: '新华社', lang: '中', title: '商务部回应欧盟电动汽车反补贴终裁:坚决反对,绝不接受' },
+      { src: '财新', lang: '中', title: '欧盟电动车关税终裁落地 中国车企欧洲本地化提速' },
+      { src: 'Politico EU', lang: 'EN', title: 'How the EV tariff vote split Europe down the middle' },
+      { src: 'Bloomberg', lang: 'EN', title: 'Chinese EV makers slide as EU tariff decision lands' },
+      { src: '界面新闻', lang: '中', title: '36.3%顶格税率意味着什么?中国车企的三条出路' },
+    ],
+  },
+  {
+    id: 2, score: 82, title: '美联储降息 25 个基点,点阵图显示 12 月路径分歧加大',
+    regions: ['美国', '全球'], kinds: ['通讯社', '媒体'], hasVp: true, updated: '1 小时前',
+    summary: 'FOMC 如期将联邦基金利率目标区间下调至 3.75%–4.00%,声明删除"通胀依然偏高"表述。点阵图显示委员对 12 月是否继续降息几乎对半分裂,鲍威尔在记者会上拒绝给出前瞻指引。',
+    breakdown: { objective: 68, breadth: 74, growth: 70, quality: 82, importance: 86 },
+    reason: '全球资产定价之锚变动,影响面广;但属于市场充分预期内的常规政策事件,增量信息有限。',
+    articles: [
+      { src: 'Reuters', lang: 'EN', title: 'Fed cuts rates by quarter point, signals December split' },
+      { src: 'WSJ', lang: 'EN', title: 'Powell declines to commit to December move' },
+      { src: '财新', lang: '中', title: '美联储年内第三次降息 中美利差收窄至 80 个基点' },
+      { src: 'Nikkei Asia', lang: 'EN', title: 'Asian currencies rally as Fed eases again' },
+    ],
+  },
+  {
+    id: 3, score: 76, title: 'OpenAI 向全量用户开放 GPT-6,推理与多模态能力大幅升级',
+    regions: ['美国', '科技'], kinds: ['媒体'], hasVp: false, updated: '2 小时前',
+    summary: 'OpenAI 宣布 GPT-6 结束灰度,向所有 ChatGPT 用户开放,免费档也可有限使用。官方称长程推理与视频理解为最大改进;中文科技媒体关注国内大模型厂商的跟进节奏与价格战走向。',
+    breakdown: { objective: 61, breadth: 66, growth: 73, quality: 64, importance: 79 },
+    reason: '头部 AI 厂商旗舰发布,科技侧报道密集,但对非科技领域外溢有限。',
+    articles: [
+      { src: 'The Verge', lang: 'EN', title: 'GPT-6 is now available to everyone' },
+      { src: 'Ars Technica', lang: 'EN', title: 'Hands on: GPT-6 reasoning gains are real but uneven' },
+      { src: '机器之心', lang: '中', title: 'GPT-6 全量开放:架构细节与国产模型的差距测算' },
+      { src: '36氪', lang: '中', title: 'GPT-6 来了,国内大模型价格战还打得动吗' },
+    ],
+  },
+  {
+    id: 4, score: 71, title: '日元跌破 160 关口,日本央行按兵不动引发干预猜测',
+    regions: ['日本', '全球'], kinds: ['官方', '通讯社'], hasVp: false, updated: '3 小时前',
+    summary: '美元兑日元自 2024 年以来首次突破 160。日本央行维持利率不变,财务省官员称"正以高度紧迫感关注汇市",市场押注口头干预升级为实际干预的窗口临近。',
+    breakdown: { objective: 58, breadth: 60, growth: 66, quality: 71, importance: 74 },
+    reason: '区域性货币事件但有全球传导风险,报道以日本与财经源为主。',
+    articles: [
+      { src: 'NHK World', lang: 'EN', title: 'Yen weakens past 160 as BOJ stands pat' },
+      { src: 'Nikkei Asia', lang: 'EN', title: 'Tokyo signals readiness to act on yen slide' },
+      { src: '联合早报', lang: '中', title: '日元贬破160 日本当局干预压力骤增' },
+    ],
+  },
+  {
+    id: 5, score: 64, title: 'SpaceX 星舰第 12 次试飞:首次完成二级在轨加注演示',
+    regions: ['美国', '太空'], kinds: ['官方', '媒体'], hasVp: false, updated: '5 小时前',
+    summary: '星舰完成第 12 次综合飞行测试,首次在轨演示推进剂转移,这是 Artemis 登月架构的关键节点。NASA 确认数据将用于评估 2027 年载人登月时间表。',
+    breakdown: { objective: 49, breadth: 52, growth: 44, quality: 66, importance: 68 },
+    reason: '工程里程碑,航天与科技源报道为主,公众关注度中等。',
+    articles: [
+      { src: 'SpaceNews', lang: 'EN', title: 'Starship demonstrates first orbital propellant transfer' },
+      { src: 'NASA', lang: 'EN', title: 'Artemis update following Starship Flight 12' },
+      { src: '澎湃', lang: '中', title: '星舰第12飞:在轨加注成功意味着什么' },
+    ],
+  },
+  {
+    id: 6, score: 58, title: 'Nature:固态电池新电解质实现 1200 次循环保持 90% 容量',
+    regions: ['学术'], kinds: ['学术', '媒体'], hasVp: false, updated: '7 小时前',
+    summary: '中美联合团队在 Nature 发表硫化物固态电解质新工艺,室温下 1200 次充放循环后容量保持率 90%,界面阻抗问题取得进展;距离量产仍有成本与规模化障碍。',
+    breakdown: { objective: 41, breadth: 38, growth: 30, quality: 70, importance: 62 },
+    reason: '高质量学术源,但报道面窄、时效性弱,属于慢变量。',
+    articles: [
+      { src: 'Nature News', lang: 'EN', title: 'Solid-state battery milestone: 1,200 cycles at 90% capacity' },
+      { src: 'Ars Technica', lang: 'EN', title: 'Why this solid-state result matters (and what it doesn\'t solve)' },
+    ],
+  },
+];
+
+const VIEWPOINT = {
+  eventId: 1,
+  generated: '08:12 · gemini-2.5-flash · 指纹 a3f82c',
+  claims: [
+    { src: 'Reuters', lang: 'EN', kind: '通讯社', stance: '定性为欧盟"去风险"政策的标志性落地,强调终裁前成员国投票的罕见分裂:德国反对、法国支持,10 国弃权。', ref: 'EU imposes final tariffs…' },
+    { src: '新华社', lang: '中', kind: '官方', stance: '定性为"赤裸裸的保护主义",强调调查程序不公,预告中方将在世贸框架内采取反制并保留一切必要措施。', ref: '商务部回应欧盟电动汽车…' },
+    { src: '财新', lang: '中', kind: '媒体', stance: '淡化对抗叙事,聚焦企业应对:比亚迪、吉利欧洲建厂可在 2–3 年内对冲大部分关税影响,真正变量是欧盟后续的本地化含量要求。', ref: '欧盟电动车关税终裁落地…' },
+    { src: 'Politico EU', lang: 'EN', kind: '媒体', stance: '视为布鲁塞尔对柏林的政治胜利,关注点在欧盟内部权力平衡,提示中欧可能以"最低进口价"谈判收场。', ref: 'How the EV tariff vote split…' },
+    { src: 'Bloomberg', lang: 'EN', kind: '媒体', stance: '从市场出发:关税幅度低于最差预期,中国车企股价先跌后收复,判断实际盈利冲击"可控但压缩出海利润率"。', ref: 'Chinese EV makers slide…' },
+  ],
+  divergences: [
+    { text: '关税的性质:正当的公平竞争工具,还是保护主义?', refs: 'Reuters、Politico 采用"去风险"框架 ↔ 新华社定性为保护主义' },
+    { text: '对中国车企的实际冲击:重大受挫还是可以消化?', refs: 'Bloomberg 强调利润率压缩 ↔ 财新认为本地化可对冲大部分影响' },
+    { text: '事件的主线:中欧博弈还是欧盟内政?', refs: '中文源聚焦中欧关系 ↔ Politico 把重心放在欧盟内部分裂' },
+  ],
+};
+
+const DIGEST = [
+  { rank: 1, score: 87, title: '欧盟对中国电动车反补贴关税终裁落地,税率最高 36.3%', sum: '17%–36.3% 反补贴税为期五年;中方称坚决反对,欧洲内部立场分裂。', vp: '观点分歧:公平竞争工具还是保护主义?中欧与欧媒叙事对立(5 源对比)', hasVp: true },
+  { rank: 2, score: 82, title: '美联储降息 25 个基点,12 月路径分歧加大', sum: '利率降至 3.75%–4.00%,点阵图近乎对半分裂,鲍威尔拒绝前瞻指引。', vp: null, hasVp: true },
+  { rank: 3, score: 76, title: 'OpenAI 向全量用户开放 GPT-6', sum: '长程推理与视频理解为最大改进;中文媒体聚焦国产模型跟进与价格战。', vp: null, hasVp: false },
+  { rank: 4, score: 71, title: '日元跌破 160,日本央行按兵不动', sum: '2024 年以来首次;财务省示警,市场押注实际干预窗口临近。', vp: null, hasVp: false },
+  { rank: 5, score: 64, title: '星舰第 12 次试飞完成首次在轨加注演示', sum: 'Artemis 架构关键节点,NASA 将据此评估 2027 载人登月时间表。', vp: null, hasVp: false },
+  { rank: 6, score: 58, title: '固态电池新电解质实现 1200 次循环', sum: 'Nature 论文:容量保持率 90%;量产仍有成本与规模化障碍。', vp: null, hasVp: false },
+];
+
+/* ---------- renderers ---------- */
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const scoreCls = (v) => v >= 80 ? 'score t-hot' : v >= 65 ? 'score t-warm' : 'score';
+
+function cardHtml(e) {
+  const tags = e.regions.map((r) => `<span class="tag region">${r}</span>`).join('')
+    + e.kinds.map((k) => `<span class="tag kind">${k}</span>`).join('');
+  const vp = e.hasVp
+    ? `<button class="vp-bar" data-open-event="${e.id}"><span>◫ 观点对比 · ${VIEWPOINT.claims.length} 源说法</span><span>›</span></button>` : '';
+  const srcs = e.articles.slice(0, 2).map((a) =>
+    `<a class="src" href="#"><span class="src-lang">${a.lang}</span><span class="src-name">${esc(a.src)}</span><span class="src-title">${esc(a.title)}</span></a>`).join('');
+  const more = e.articles.length > 2
+    ? `<button class="more-bar" data-toggle-srcs="${e.id}"><span>另有 ${e.articles.length - 2} 篇来源报道</span><span>›</span></button>` : '';
+  const allSrcs = e.articles.map((a) =>
+    `<a class="src" href="#"><span class="src-lang">${a.lang}</span><span class="src-name">${esc(a.src)}</span><span class="src-title">${esc(a.title)}</span></a>`).join('');
+  return `<article class="card">
+    <div class="card-top">
+      <h2 class="card-title"><a href="#" data-open-event="${e.hasVp ? e.id : ''}">${esc(e.title)}</a></h2>
+      <button class="${scoreCls(e.score)}" data-toggle-bd="${e.id}" title="查看分数构成">${e.score}</button>
+    </div>
+    <div class="card-meta">${tags}<span class="meta-dim">${e.articles.length} 源 · ${e.updated}</span></div>
+    <p class="card-summary">${esc(e.summary)}</p>
+    <div class="breakdown" id="bd-${e.id}" hidden>
+      <div class="bar-row"><span class="bar-label">重要性</span><div class="bar-track"><div class="bar-fill" style="width:${e.breakdown.importance}%"></div></div><span class="bar-val">${e.breakdown.importance}</span></div>
+      <div class="bar-row"><span class="bar-label">客观信号</span><div class="bar-track"><div class="bar-fill" style="width:${e.breakdown.objective}%"></div></div><span class="bar-val">${e.breakdown.objective}</span></div>
+      <div class="bar-row sub"><span class="bar-label">报道广度</span><div class="bar-track"><div class="bar-fill" style="width:${e.breakdown.breadth}%"></div></div><span class="bar-val">${e.breakdown.breadth}</span></div>
+      <div class="bar-row sub"><span class="bar-label">增长速度</span><div class="bar-track"><div class="bar-fill" style="width:${e.breakdown.growth}%"></div></div><span class="bar-val">${e.breakdown.growth}</span></div>
+      <div class="bar-row sub"><span class="bar-label">来源质量</span><div class="bar-track"><div class="bar-fill" style="width:${e.breakdown.quality}%"></div></div><span class="bar-val">${e.breakdown.quality}</span></div>
+      <p class="reason"><b>评分理由</b> ${esc(e.reason)}</p>
+    </div>
+    <div class="card-foot" id="srcs-${e.id}">${srcs}</div>
+    <div class="card-foot" id="srcs-all-${e.id}" hidden>${allSrcs}</div>
+    <div class="card-actions">${more}${vp}</div>
+  </article>`;
+}
+
+function eventDetailHtml(e) {
+  const vp = VIEWPOINT;
+  const cols = vp.claims.map((c) => `<div class="vp-col">
+      <div class="vp-col-head"><span class="src-lang">${c.lang}</span><b>${esc(c.src)}</b><span class="tag kind">${c.kind}</span></div>
+      <p class="vp-claim">${esc(c.stance)}<a class="vp-claim-src" href="#">↗ ${esc(c.ref)}</a></p>
+    </div>`).join('');
+  const divs = vp.divergences.map((d, i) => `<div class="diverge-item">
+      <span class="diverge-n">0${i + 1}</span>
+      <div><p>${esc(d.text)}</p><div class="refs">${esc(d.refs)}</div></div>
+    </div>`).join('');
+  return `<div class="card-top" style="align-items:center;gap:12px">
+      <h1 style="flex:1;min-width:0;margin:0;font-size:19px;font-weight:700;line-height:1.5">${esc(e.title)}</h1>
+      <span class="${scoreCls(e.score)}">${e.score}</span>
+    </div>
+    <div class="card-meta">${e.regions.map((r) => `<span class="tag region">${r}</span>`).join('')}${e.kinds.map((k) => `<span class="tag kind">${k}</span>`).join('')}<span class="meta-dim">${e.articles.length} 源 · ${e.updated}</span></div>
+    <p class="card-summary" style="font-size:14px">${esc(e.summary)}</p>
+    <div class="section-h">各源说法 · ${vp.claims.length}</div>
+    <div class="vp-grid">${cols}</div>
+    <div class="diverge">
+      <div class="section-h">分歧焦点 · ${vp.divergences.length}</div>
+      ${divs}
+      <p class="meta-dim" style="margin-top:10px">${vp.generated}</p>
+    </div>`;
+}
+
+function digestHtml(d) {
+  const rankCls = d.rank <= 3 ? ` r${d.rank}` : '';
+  const vp = d.vp ? `<div class="digest-vp"><b>◫</b> ${esc(d.vp)}</div>` : '';
+  return `<div class="digest-item">
+    <span class="digest-rank${rankCls}">${d.rank}</span>
+    <div class="digest-body">
+      <h3><a href="#" data-open-event="${d.hasVp && d.rank === 1 ? 1 : ''}" style="color:inherit">${esc(d.title)}</a></h3>
+      <p class="d-sum">${esc(d.sum)}</p>${vp}
+    </div>
+    <span class="${scoreCls(d.score)}" style="align-self:flex-start">${d.score}</span>
+  </div>`;
+}
+
+const SWATCHES = [
+  ['--bg', '页面底·暖纸'], ['--surface', '卡片面'], ['--bg-sunk', '下沉区'], ['--line', '边框'],
+  ['--ink', '主文字'], ['--ink-2', '次级文字'], ['--ink-3', '辅助文字'], ['--ink-4', '元数据'],
+  ['--accent', '强调·交互'], ['--hot', '朱砂·高分'], ['--amber', '琥珀·中分'], ['--ok', '正常·通过'],
+];
+
+document.getElementById('feed').innerHTML = EVENTS.map(cardHtml).join('');
+document.getElementById('digest-list').innerHTML = DIGEST.map(digestHtml).join('');
+document.getElementById('event-detail').innerHTML = eventDetailHtml(EVENTS[0]);
+document.getElementById('swatches').innerHTML = SWATCHES.map(([t, use]) =>
+  `<div class="swatch"><div class="sw-color" style="background:var(${t})"></div><div class="sw-name">${t}</div><div class="sw-use">${use}</div></div>`).join('');
+
+/* ---------- navigation ---------- */
+const PAGES = ['feed', 'event', 'digest', 'report', 'spec'];
+function show(page) {
+  PAGES.forEach((p) => { document.getElementById('page-' + p).hidden = p !== page; });
+  document.querySelectorAll('[data-nav]').forEach((b) => {
+    b.classList.toggle('active', b.dataset.nav === page || (page === 'event' && b.dataset.nav === 'feed'));
+  });
+  window.scrollTo(0, 0);
+}
+document.addEventListener('click', (ev) => {
+  const nav = ev.target.closest('[data-nav]');
+  if (nav) { show(nav.dataset.nav); return; }
+  const open = ev.target.closest('[data-open-event]');
+  if (open) { ev.preventDefault(); if (open.dataset.openEvent) show('event'); return; }
+  const bd = ev.target.closest('[data-toggle-bd]');
+  if (bd) { const el = document.getElementById('bd-' + bd.dataset.toggleBd); el.hidden = !el.hidden; return; }
+  const ts = ev.target.closest('[data-toggle-srcs]');
+  if (ts) {
+    const id = ts.dataset.toggleSrcs;
+    document.getElementById('srcs-' + id).hidden = true;
+    document.getElementById('srcs-all-' + id).hidden = false;
+    ts.hidden = true;
+    return;
+  }
+  if (ev.target.closest('a[href="#"]')) ev.preventDefault();
+  const pill = ev.target.closest('.pill');
+  if (pill && pill.closest('#page-feed')) {
+    pill.closest('.pills').querySelectorAll('.pill').forEach((p) => p.classList.remove('on'));
+    pill.classList.add('on');
+  }
+});
+
+/* ---------- theme (system / light / dark, persisted) ---------- */
+function applyTheme(mode) {
+  if (mode === 'light' || mode === 'dark') document.documentElement.dataset.theme = mode;
+  else delete document.documentElement.dataset.theme;
+  document.querySelectorAll('[data-theme-set]').forEach((b) =>
+    b.classList.toggle('on', b.dataset.themeSet === mode));
+  try { localStorage.setItem('unspun-theme', mode); } catch (e) { /* storage unavailable */ }
+}
+document.querySelectorAll('[data-theme-set]').forEach((b) =>
+  b.addEventListener('click', () => applyTheme(b.dataset.themeSet)));
+let saved = 'system';
+try { saved = localStorage.getItem('unspun-theme') || 'system'; } catch (e) { /* ignore */ }
+applyTheme(saved);
+const initial = location.hash.replace('#', '');
+show(PAGES.includes(initial) ? initial : 'feed');
+</script>
+
+</html>
