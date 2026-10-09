@@ -1,35 +1,38 @@
-import { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
-interface Health {
-  status: string
-  version: string
-  database: string
-}
+import { fetchEvents } from './api'
+import EventCard from './EventCard'
+
+const REFRESH_INTERVAL_MS = 5 * 60 * 1000
 
 export default function App() {
-  const [health, setHealth] = useState<Health | null>(null)
-  const [error, setError] = useState(false)
-
-  useEffect(() => {
-    fetch('/api/health')
-      .then((res) => (res.ok ? (res.json() as Promise<Health>) : Promise.reject(new Error())))
-      .then(setHealth)
-      .catch(() => setError(true))
-  }, [])
+  const { data, error, isPending, dataUpdatedAt } = useQuery({
+    queryKey: ['events'],
+    queryFn: fetchEvents,
+    refetchInterval: REFRESH_INTERVAL_MS,
+  })
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-xl flex-col items-center justify-center gap-4 px-4">
-      <h1 className="text-3xl font-bold">Unspun</h1>
-      <p className="text-gray-500">个人情报站 · M0 占位页</p>
-      <div className="rounded-lg border border-gray-200 px-4 py-2 text-sm">
-        {error && <span className="text-red-600">API 不可用</span>}
-        {!error && !health && <span>检查中…</span>}
-        {health && (
-          <span data-testid="health">
-            状态 {health.status} · 版本 {health.version} · 数据库 {health.database}
-          </span>
-        )}
-      </div>
+    <main className="mx-auto min-h-screen max-w-2xl px-4 py-6">
+      <header className="mb-4 flex items-baseline justify-between">
+        <h1 className="text-2xl font-bold">Unspun</h1>
+        <span className="text-xs text-gray-400">
+          实时事件流
+          {dataUpdatedAt > 0 && ` · 更新于 ${new Date(dataUpdatedAt).toLocaleTimeString()}`}
+        </span>
+      </header>
+      {isPending && <p className="text-sm text-gray-500">加载中…</p>}
+      {error != null && <p className="text-sm text-red-600">加载失败，请稍后重试</p>}
+      {data && data.events.length === 0 && (
+        <p className="text-sm text-gray-500">暂无事件，等流水线跑完第一轮再来看看</p>
+      )}
+      {data && (
+        <div className="space-y-3">
+          {data.events.map((e) => (
+            <EventCard key={e.id} event={e} />
+          ))}
+        </div>
+      )}
     </main>
   )
 }

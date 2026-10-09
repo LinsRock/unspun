@@ -40,6 +40,12 @@ class ClusteringParams(BaseModel):
     similarity_threshold: float
 
 
+class StreamParams(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    half_life_hours: float
+
+
 class ScoringParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -47,6 +53,7 @@ class ScoringParams(BaseModel):
     importance: ImportanceWeights
     objective: ObjectiveWeights
     clustering: ClusteringParams
+    stream: StreamParams
     offcircle_ratio: float
 
 
