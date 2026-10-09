@@ -28,11 +28,12 @@ Score tiers: >= 80 `hot`, 65–79 `amber`, below neutral (`bg-sunk` + `ink-3`).
 ## Theming
 
 Three states: `data-theme="light"` / `"dark"` on `<html>`, or no attribute
-(follow system). Manual choice persists in `localStorage` and must win over
-the OS setting in both directions (already wired in `theme.css`). The theme
-switcher UI (3-state segmented control, bottom of sidebar / top bar corner on
-mobile) ships with T-D2, together with `color-scheme: dark` in the dark token
-blocks — deliberately left out of T-D1 so unstyled pages keep rendering light.
+(follow system). `theme.css` carries only the CSS side (the manual attribute
+beats the OS setting in both directions). The JS side — the 3-state switcher
+(bottom of sidebar / top bar corner on mobile), applying `data-theme`, and
+persisting the choice to `localStorage` — ships with T-D2; the prototype has
+a reference implementation. `color-scheme: dark` is also deferred to T-D2 so
+unstyled pages keep rendering light until restyled.
 
 ## Typography
 
@@ -74,8 +75,8 @@ All numbers that line up (scores, costs, counts, times) are mono + tabular.
   mobile), each column = source head + stance + link to the article;
   divergence list numbered in `hot` mono; generation metadata in mono.
 - **Digest**: intro card with 3px accent left border + generation metadata;
-  ranked list (ranks 1–3 colored), score badge per item, viewpoint excerpt in
-  `accent-soft`.
+  ranked list (rank 1 `hot`, rank 2 `amber`, rank 3 `ink-2`, rest `ink-4` —
+  tokens only), score badge per item, viewpoint excerpt in `accent-soft`.
 - **Report**: stat tiles (mono values, semantic colors), bordered tables,
   status dots.
 - **Navigation**: desktop 216px left sidebar (`surface-2`); mobile top bar +

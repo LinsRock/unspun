@@ -23,7 +23,7 @@
   --hot: #b5432a;
   --hot-soft: rgba(181, 67, 42, 0.10);
   --amber: #9a701f;
-  --amber-soft: rgba(169, 123, 47, 0.12);
+  --amber-soft: rgba(154, 112, 31, 0.12);
   --ok: #3a7d5d;
   --ok-soft: rgba(58, 125, 93, 0.12);
   --shadow-card: 0 1px 2px rgba(42, 39, 34, 0.04);
@@ -153,7 +153,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 
 /* score badge: tiered color — ≥80 hot, 65–79 amber, else neutral */
 .score {
-  flex-shrink: 0; min-width: 40px; text-align: center; padding: 2px 8px; border-radius: 7px;
+  flex-shrink: 0; min-width: 40px; text-align: center; padding: 2px 8px; border-radius: 8px;
   font-family: var(--font-mono); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums;
   background: var(--bg-sunk); color: var(--ink-3); border: 1px solid transparent;
 }
@@ -225,7 +225,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 
 /* ---------- digest ---------- */
 .digest-date { display: flex; align-items: center; gap: 10px; margin: 14px 0 4px; }
-.digest-date .d-nav { width: 26px; height: 26px; border-radius: 7px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink-3); background: var(--surface-2); }
+.digest-date .d-nav { width: 26px; height: 26px; border-radius: 8px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink-3); background: var(--surface-2); }
 .digest-date h2 { margin: 0; font-size: 22px; font-weight: 750; letter-spacing: 0.01em; }
 .digest-date .d-week { font-size: 12px; color: var(--ink-4); font-family: var(--font-mono); }
 .digest-intro {
@@ -236,7 +236,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .digest-intro .gen-meta { display: block; margin-top: 8px; font-size: 11px; color: var(--ink-4); font-family: var(--font-mono); }
 .digest-item { display: flex; gap: 12px; padding: 14px 2px; border-bottom: 1px solid var(--line); }
 .digest-rank { font-family: var(--font-mono); font-size: 15px; font-weight: 700; color: var(--ink-4); width: 22px; flex-shrink: 0; text-align: center; padding-top: 1px; }
-.digest-rank.r1 { color: var(--hot); } .digest-rank.r2 { color: #b06a33; } .digest-rank.r3 { color: var(--amber); }
+.digest-rank.r1 { color: var(--hot); } .digest-rank.r2 { color: var(--amber); } .digest-rank.r3 { color: var(--ink-2); }
 .digest-body { flex: 1; min-width: 0; }
 .digest-body h3 { margin: 0; font-size: 14.5px; font-weight: 650; line-height: 1.55; }
 .digest-body .d-sum { margin: 5px 0 0; font-size: 13px; color: var(--ink-2); }
@@ -402,7 +402,7 @@ td.num { font-family: var(--font-mono); }
 
       <div class="section-h">间距与密度</div>
       <p class="spec-kv">4px 基数网格:组件内 8/12/16,卡片间 10,区块间 24。信息密度取中高档:事件卡默认露出标题 + 标签 + 摘要两行,宽屏一屏约 5 个事件;分数构成、来源列表折叠在卡内展开。</p>
-      <p class="spec-kv">圆角:卡片 <code>10px</code>,小组件 <code>7–8px</code>,标签胶囊 <code>999px</code>。边框永远 1px,阴影只在亮色下轻微存在。</p>
+      <p class="spec-kv">圆角:卡片 <code>10px</code>,小组件 <code>8px</code>,标签胶囊 <code>999px</code>。边框永远 1px,阴影只在亮色下轻微存在。</p>
 
       <div class="section-h">核心组件</div>
       <div class="demo-row">
@@ -457,7 +457,7 @@ const EVENTS = [
   },
   {
     id: 2, score: 82, title: '美联储降息 25 个基点,点阵图显示 12 月路径分歧加大',
-    regions: ['美国', '全球'], kinds: ['通讯社', '媒体'], hasVp: true, updated: '1 小时前',
+    regions: ['美国', '全球'], kinds: ['通讯社', '媒体'], hasVp: false, updated: '1 小时前',
     summary: 'FOMC 如期将联邦基金利率目标区间下调至 3.75%–4.00%,声明删除"通胀依然偏高"表述。点阵图显示委员对 12 月是否继续降息几乎对半分裂,鲍威尔在记者会上拒绝给出前瞻指引。',
     breakdown: { objective: 68, breadth: 74, growth: 70, quality: 82, importance: 86 },
     reason: '全球资产定价之锚变动,影响面广;但属于市场充分预期内的常规政策事件,增量信息有限。',
@@ -537,7 +537,7 @@ const VIEWPOINT = {
 
 const DIGEST = [
   { rank: 1, score: 87, title: '欧盟对中国电动车反补贴关税终裁落地,税率最高 36.3%', sum: '17%–36.3% 反补贴税为期五年;中方称坚决反对,欧洲内部立场分裂。', vp: '观点分歧:公平竞争工具还是保护主义?中欧与欧媒叙事对立(5 源对比)', hasVp: true },
-  { rank: 2, score: 82, title: '美联储降息 25 个基点,12 月路径分歧加大', sum: '利率降至 3.75%–4.00%,点阵图近乎对半分裂,鲍威尔拒绝前瞻指引。', vp: null, hasVp: true },
+  { rank: 2, score: 82, title: '美联储降息 25 个基点,12 月路径分歧加大', sum: '利率降至 3.75%–4.00%,点阵图近乎对半分裂,鲍威尔拒绝前瞻指引。', vp: null, hasVp: false },
   { rank: 3, score: 76, title: 'OpenAI 向全量用户开放 GPT-6', sum: '长程推理与视频理解为最大改进;中文媒体聚焦国产模型跟进与价格战。', vp: null, hasVp: false },
   { rank: 4, score: 71, title: '日元跌破 160,日本央行按兵不动', sum: '2024 年以来首次;财务省示警,市场押注实际干预窗口临近。', vp: null, hasVp: false },
   { rank: 5, score: 64, title: '星舰第 12 次试飞完成首次在轨加注演示', sum: 'Artemis 架构关键节点,NASA 将据此评估 2027 载人登月时间表。', vp: null, hasVp: false },
@@ -545,7 +545,7 @@ const DIGEST = [
 ];
 
 /* ---------- renderers ---------- */
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const scoreCls = (v) => v >= 80 ? 'score t-hot' : v >= 65 ? 'score t-warm' : 'score';
 
 function cardHtml(e) {
