@@ -10,7 +10,8 @@ FROM python:3.12-slim-bookworm
 WORKDIR /app
 RUN groupadd -r app && useradd -r -g app app
 COPY --from=builder --chown=app:app /app /app
-ENV PATH="/app/.venv/bin:$PATH"
+COPY --chown=app:app config /app/config
+ENV PATH="/app/.venv/bin:$PATH" UNSPUN_CONFIG_DIR=/app/config
 USER app
 EXPOSE 8000
 CMD ["uvicorn", "unspun.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
