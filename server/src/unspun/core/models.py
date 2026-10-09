@@ -60,8 +60,9 @@ class Article(Base):
     content: Mapped[str | None] = mapped_column(Text)
     title_zh: Mapped[str | None] = mapped_column(Text)
     summary_zh: Mapped[str | None] = mapped_column(Text)
-    # Summarize failures so far; articles at MAX_SUMMARY_FAILURES are skipped,
-    # otherwise a permanently broken article burns a batch slot every cycle.
+    # Summarize failures so far; articles at pipeline.max_summary_failures
+    # (config/scoring.yml) are skipped, otherwise a permanently broken
+    # article burns a batch slot every cycle.
     summary_failures: Mapped[int] = mapped_column(default=0, server_default="0")
     embedding: Mapped[Any | None] = mapped_column(Vector(EMBEDDING_DIM))
     event_id: Mapped[int | None] = mapped_column(ForeignKey("events.id"), index=True)

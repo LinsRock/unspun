@@ -21,7 +21,6 @@ from unspun.core.sources import Source, load_sources
 
 log = get_logger("unspun.pipeline.score")
 
-SCORE_BATCH_LIMIT = 40  # events per cycle, bounds one cycle's spend
 GROWTH_WINDOW_HOURS = 24
 PROMPT_ARTICLE_LIMIT = 8
 PROMPT_SUMMARY_CHARS = 500
@@ -163,8 +162,10 @@ def pending_score_conditions() -> tuple[ColumnElement[bool], ...]:
     return (or_(Event.scored_at.is_(None), Event.changed_at > Event.scored_at),)
 
 
-def score_pending(client: SupportsLlm, limit: int = SCORE_BATCH_LIMIT) -> int:
+def score_pending(client: SupportsLlm, limit: int | None = None) -> int:
     params = get_scoring_params()
+    if limit is None:
+        limit = params.pipeline.score_batch_limit
     sources_by_id = {s.id: s for s in load_sources()}
     with session_scope() as session:
         ids = list(

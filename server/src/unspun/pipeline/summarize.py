@@ -11,6 +11,7 @@ from unspun.core.db import session_scope
 from unspun.core.llm import LlmError, SupportsLlm
 from unspun.core.logging import get_logger
 from unspun.core.models import Article
+from unspun.core.params import get_scoring_params
 
 log = get_logger("unspun.pipeline.summarize")
 
@@ -24,10 +25,7 @@ SUMMARY_SYSTEM = (
 )
 
 MAX_CONTENT_CHARS = 6000
-SUMMARY_BATCH_LIMIT = 50  # articles per cycle, bounds one cycle's spend
-MAX_SUMMARY_FAILURES = 3  # give up on an article after this many failed cycles
-EMBED_BATCH_SIZE = 32
-EMBED_BATCH_LIMIT = 200
+EMBED_BATCH_SIZE = 32  # texts per embedding API call, not a tuning knob
 
 
 def summarize_article(session: Session, client: SupportsLlm, article: Article) -> None:
@@ -60,14 +58,14 @@ def embed_articles(session: Session, client: SupportsLlm, articles: list[Article
 def pending_summary_conditions() -> tuple[ColumnElement[bool], ...]:
     return (
         Article.summary_zh.is_(None),
-        Article.summary_failures < MAX_SUMMARY_FAILURES,
+        Article.summary_failures < get_scoring_params().pipeline.max_summary_failures,
     )
 
 
 def abandoned_summary_conditions() -> tuple[ColumnElement[bool], ...]:
     return (
         Article.summary_zh.is_(None),
-        Article.summary_failures >= MAX_SUMMARY_FAILURES,
+        Article.summary_failures >= get_scoring_params().pipeline.max_summary_failures,
     )
 
 
@@ -76,11 +74,16 @@ def pending_embedding_conditions() -> tuple[ColumnElement[bool], ...]:
 
 
 def pending_summary_ids(session: Session, limit: int) -> list[int]:
+    # Newest first: when the pipeline is catching up on a backlog, current
+    # news gets summarized before old leftovers. Unknown dates go last.
+    # Tradeoff: if inflow stays above summary_batch_limit per cycle, the
+    # oldest items never drain; the report's pending count makes that
+    # visible, and the fix is raising the limit in config/scoring.yml.
     return list(
         session.scalars(
             select(Article.id)
             .where(*pending_summary_conditions())
-            .order_by(Article.id)
+            .order_by(Article.published_at.desc().nulls_last(), Article.id.desc())
             .limit(limit)
         )
     )
@@ -97,13 +100,15 @@ def record_summary_failure(article_id: int) -> None:
                 .values(summary_failures=Article.summary_failures + 1)
                 .returning(Article.summary_failures)
             ).scalar_one_or_none()
-        if failures is not None and failures >= MAX_SUMMARY_FAILURES:
+        if failures is not None and failures >= get_scoring_params().pipeline.max_summary_failures:
             log.warning("summarize_gave_up", article_id=article_id, failures=failures)
     except Exception:
         log.exception("summary_failure_record_failed", article_id=article_id)
 
 
-def summarize_pending(client: SupportsLlm, limit: int = SUMMARY_BATCH_LIMIT) -> int:
+def summarize_pending(client: SupportsLlm, limit: int | None = None) -> int:
+    if limit is None:
+        limit = get_scoring_params().pipeline.summary_batch_limit
     with session_scope() as session:
         ids = pending_summary_ids(session, limit)
     done = 0
@@ -127,13 +132,17 @@ def summarize_pending(client: SupportsLlm, limit: int = SUMMARY_BATCH_LIMIT) -> 
     return done
 
 
-def embed_pending(client: SupportsLlm, limit: int = EMBED_BATCH_LIMIT) -> int:
+def embed_pending(client: SupportsLlm, limit: int | None = None) -> int:
+    if limit is None:
+        limit = get_scoring_params().pipeline.embed_batch_limit
     with session_scope() as session:
         ids = list(
             session.scalars(
                 select(Article.id)
                 .where(*pending_embedding_conditions())
-                .order_by(Article.id)
+                # Same newest-first order as summaries, so hot articles are
+                # not stuck behind old leftovers on the way to clustering.
+                .order_by(Article.published_at.desc().nulls_last(), Article.id.desc())
                 .limit(limit)
             )
         )
