@@ -4,11 +4,11 @@ Sources are configured in config/sources.yml, not in the database, so
 `Article.source_id` is a plain string referencing a config entry.
 """
 
-from datetime import datetime
+from datetime import date, datetime
 from typing import Any
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import DateTime, ForeignKey, Index, Text, func
+from sqlalchemy import Date, DateTime, ForeignKey, Index, Text, UniqueConstraint, func
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -42,6 +42,9 @@ class Event(Base):
     changed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     articles: Mapped[list["Article"]] = relationship(back_populates="event")
+    viewpoint: Mapped["EventViewpoint | None"] = relationship(
+        back_populates="event", cascade="all, delete-orphan", passive_deletes=True
+    )
 
 
 class Article(Base):
@@ -68,6 +71,49 @@ class Article(Base):
     event_id: Mapped[int | None] = mapped_column(ForeignKey("events.id"), index=True)
 
     event: Mapped[Event | None] = relationship(back_populates="articles")
+
+
+class EventViewpoint(Base):
+    """LLM-generated viewpoint comparison for one event (at most one row each).
+
+    Regeneration replaces the whole row. The payload shape (per-source claims
+    and disagreement points) is owned by the viewpoints pipeline stage so it
+    can evolve without migrations.
+    """
+
+    __tablename__ = "event_viewpoints"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    event_id: Mapped[int] = mapped_column(ForeignKey("events.id", ondelete="CASCADE"), unique=True)
+    payload: Mapped[dict[str, Any]] = mapped_column(JSONB)
+    # Hash of the event's sorted article ids; unchanged fingerprint means the
+    # inputs did not change and no regeneration is needed.
+    input_fingerprint: Mapped[str] = mapped_column(Text)
+    model: Mapped[str] = mapped_column(Text)
+    generated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+    event: Mapped[Event] = relationship(back_populates="viewpoint")
+
+
+class Digest(Base):
+    """Daily digest for one report date; same-day regeneration replaces the row.
+
+    The payload shape (intro paragraph and selected events) is owned by the
+    digest pipeline stage so it can evolve without migrations.
+    """
+
+    __tablename__ = "digests"
+    __table_args__ = (UniqueConstraint("report_date", "kind", name="uq_digests_report_date_kind"),)
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    report_date: Mapped[date] = mapped_column(Date)
+    kind: Mapped[str] = mapped_column(Text, default="daily", server_default="daily")
+    payload: Mapped[dict[str, Any]] = mapped_column(JSONB)
+    generated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
 
 
 class FetchLog(Base):
