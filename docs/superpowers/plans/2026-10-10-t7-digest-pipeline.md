@@ -27,4 +27,4 @@
 - [x] 运行 `uv run ruff check .`、`uv run ruff format --check .`、`uv run pyright`、`uv run pytest`。
 - [x] 评审差异与需求覆盖，处理发现的问题。
 - [x] 在 `docs/tasks/m2.md` 登记本地验收结果与 T10 七天生产观察待办；保留 D-012 页面体验规则。
-- [ ] 提交单任务分支，按项目模板创建 PR 并确认 CI 状态；不自动合并。
+- [x] 提交单任务分支，按项目模板创建 PR 并确认 CI 状态；不自动合并。PR：[#39](https://github.com/LinsRock/unspun/pull/39)。
