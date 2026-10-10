@@ -23,6 +23,13 @@
 #
 # Dropped after M2 T3b validation: IEA (Cloudflare challenge on iea.org),
 # DXY (RSSHub only has forum routes, no news route).
+#
+# Dropped after M2 T3c validation: Lawfare (Cloudflare challenge), The
+# Athletic (public RSS discontinued), The Browser (subscriber-only feed),
+# The Paper thought-market list (m.thepaper.cn blocked, see T3a), Douban
+# reviews (no RSSHub route), Weibo hot search (route needs headless
+# Chromium). Reddit starts with r/worldnews only: other subreddits hit
+# 429 rate limits from the VPS; expand once worldnews proves stable.
 sources:
   # --- General & international (en) ---
   - id: bbc-world
@@ -277,13 +284,95 @@ sources:
     region: us
     kind: commercial
     lang: en
-  # --- Off-circle: basic science (en) ---
+  - id: psyche
+    name: Psyche
+    url: https://psyche.co/feed
+    weight: 0.7
+    region: intl
+    kind: independent
+    lang: en
+  - id: new-yorker
+    name: The New Yorker
+    url: https://www.newyorker.com/feed/everything
+    weight: 0.7
+    region: us
+    kind: commercial
+    lang: en
+    max_items: 30
+  - id: pew-research
+    name: Pew Research Center
+    url: https://www.pewresearch.org/feed/
+    weight: 0.8
+    region: us
+    kind: academic
+    lang: en
+    max_items: 30
+  # --- Books, literature & arts (en) ---
+  - id: nyt-books
+    name: NYT Books
+    url: https://rss.nytimes.com/services/xml/rss/nyt/Books.xml
+    weight: 0.7
+    region: us
+    kind: commercial
+    lang: en
+    max_items: 30
+  - id: lrb
+    name: London Review of Books
+    url: https://www.lrb.co.uk/feeds/rss
+    weight: 0.7
+    region: eu
+    kind: commercial
+    lang: en
+  - id: guardian-culture
+    name: The Guardian Culture
+    url: https://www.theguardian.com/culture/rss
+    weight: 0.8
+    region: eu
+    kind: commercial
+    lang: en
+    max_items: 30
+  # --- Off-circle: basic science, design, security (en) ---
   - id: quanta
     name: Quanta Magazine
     url: https://www.quantamagazine.org/feed/
     weight: 0.8
     region: us
     kind: independent
+    lang: en
+  - id: dezeen
+    name: Dezeen
+    url: https://www.dezeen.com/feed/
+    weight: 0.7
+    region: eu
+    kind: commercial
+    lang: en
+    max_items: 30
+  - id: war-on-the-rocks
+    name: War on the Rocks
+    url: https://warontherocks.com/feed/
+    weight: 0.8
+    region: us
+    kind: independent
+    lang: en
+    max_items: 30
+  # --- Longform curation (en) ---
+  # Curation/aggregation service (tier E).
+  - id: longreads
+    name: Longreads
+    url: https://longreads.com/feed/
+    weight: 0.5
+    region: us
+    kind: independent
+    lang: en
+  # --- Community (en) ---
+  # Community sources are breadth signals; the community sub-score stays 0
+  # until M3 (see docs/tasks/m2.md T3c).
+  - id: reddit-worldnews
+    name: Reddit r/worldnews
+    url: https://www.reddit.com/r/worldnews/.rss
+    weight: 0.3
+    region: us
+    kind: community
     lang: en
   # --- Chinese sources ---
   - id: bbc-zhongwen
@@ -423,4 +512,22 @@ sources:
     kind: official
     lang: en
     max_items: 20
+    timeout_seconds: 60
+  # --- Via self-hosted RSSHub, M2 T3c; routes verified from the VPS 2026-10-10 ---
+  # Lifeweek channel 9 is the investigations desk (society topics).
+  - id: lifeweek-investigation
+    name: Lifeweek Investigations
+    url: rsshub://lifeweek/channel/9
+    weight: 0.7
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    timeout_seconds: 60
+  - id: zhihu-hot
+    name: Zhihu Hot List
+    url: rsshub://zhihu/hot
+    weight: 0.3
+    region: cn-mainland
+    kind: community
+    lang: zh
     timeout_seconds: 60
