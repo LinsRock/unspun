@@ -1,20 +1,11 @@
 import { useState } from 'react'
 
 import type { ArticleOut, EventOut, ViewpointOut } from './api'
+import { safeHref } from './links'
 import SectionHeading from './SectionHeading'
 
 // How many source chips a collapsed card shows (see DESIGN.md: event card).
 const COLLAPSED_SOURCES = 2
-
-// Article URLs come from scraped external feeds; only allow http(s) into href.
-function safeHref(url: string): string | undefined {
-  try {
-    const parsed = new URL(url)
-    return parsed.protocol === 'http:' || parsed.protocol === 'https:' ? url : undefined
-  } catch {
-    return undefined
-  }
-}
 
 // Score tiers (DESIGN.md): >= 80 hot, 65-79 amber, below neutral. Tier on the
 // rounded value so the badge color always matches the number shown.

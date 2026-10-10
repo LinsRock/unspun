@@ -71,6 +71,26 @@ export async function fetchEvents(): Promise<EventsResponse> {
   return res.json() as Promise<EventsResponse>
 }
 
+export interface DigestResponse {
+  report_date: string
+  kind: string
+  generated_at: string
+  payload: {
+    intro: string
+    window_start: string
+    window_end: string
+    timezone: string
+    events: EventOut[]
+  }
+}
+
+export async function fetchDigest(date: string): Promise<DigestResponse | null> {
+  const res = await fetch(`/api/digest/${encodeURIComponent(date)}`)
+  if (res.status === 404) return null
+  if (!res.ok) throw new Error(`API ${res.status}`)
+  return res.json() as Promise<DigestResponse>
+}
+
 export interface SourceFailure {
   source_id: string
   failures: number

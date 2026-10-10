@@ -1,6 +1,14 @@
 // @vitest-environment jsdom
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import { afterEach, expect, test, vi } from 'vitest'
 
 import type { ArticleOut, EventOut, EventsResponse } from './api'
@@ -26,7 +34,13 @@ const baseEvent: EventOut = {
   score_final: 72.5,
   score_decayed: 70.1,
   score_breakdown: {
-    objective: { score: 60, breadth: 60, growth: 40, source_quality: 90, community: 0 },
+    objective: {
+      score: 60,
+      breadth: 60,
+      growth: 40,
+      source_quality: 90,
+      community: 0,
+    },
     importance: {
       score: 76,
       scope: 4,
@@ -58,11 +72,15 @@ afterEach(() => {
   localStorage.clear()
 })
 
-function renderApp() {
-  const client = new QueryClient({ defaultOptions: { queries: { retry: false } } })
+function renderApp(path = '/') {
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
   return render(
     <QueryClientProvider client={client}>
-      <App />
+      <MemoryRouter initialEntries={[path]}>
+        <App />
+      </MemoryRouter>
     </QueryClientProvider>,
   )
 }
@@ -70,7 +88,9 @@ function renderApp() {
 function stubEvents(response: EventsResponse) {
   vi.stubGlobal(
     'fetch',
-    vi.fn().mockResolvedValue({ ok: true, json: () => Promise.resolve(response) }),
+    vi
+      .fn()
+      .mockResolvedValue({ ok: true, json: () => Promise.resolve(response) }),
   )
 }
 
@@ -102,15 +122,24 @@ test('score badge toggles the breakdown with the scoring reason', async () => {
 
 test('collapses sources beyond two behind the more bar', async () => {
   const multi: EventsResponse = {
-    events: [{ ...baseEvent, articles: [article(21), article(22), article(23), article(24)] }],
+    events: [
+      {
+        ...baseEvent,
+        articles: [article(21), article(22), article(23), article(24)],
+      },
+    ],
   }
   stubEvents(multi)
   renderApp()
   await screen.findByText('某重大事件')
-  expect(screen.getAllByRole('link')).toHaveLength(2)
+  expect(within(screen.getByRole('article')).getAllByRole('link')).toHaveLength(
+    2,
+  )
   const more = screen.getByRole('button', { name: /另有 2 篇来源报道/ })
   fireEvent.click(more)
-  expect(screen.getAllByRole('link')).toHaveLength(4)
+  expect(within(screen.getByRole('article')).getAllByRole('link')).toHaveLength(
+    4,
+  )
   expect(screen.queryByRole('button', { name: /另有 2 篇来源报道/ })).toBeNull()
 })
 
@@ -124,7 +153,11 @@ const viewpointEvent: EventOut = {
   ...baseEvent,
   articles: [
     article(31, { source_name: '财新', title_zh: '财新报道', url: CAIXIN_URL }),
-    article(32, { source_name: 'Reuters', title_zh: '路透报道', url: REUTERS_URL }),
+    article(32, {
+      source_name: 'Reuters',
+      title_zh: '路透报道',
+      url: REUTERS_URL,
+    }),
     article(33, { source_name: 'BBC', title_zh: 'BBC 报道', url: BBC_URL }),
   ],
   viewpoint: {
@@ -194,7 +227,11 @@ test('viewpoint claim links reject non-http urls', async () => {
         articles: [
           ...viewpointEvent.articles.slice(1),
           // eslint-disable-next-line no-script-url
-          article(31, { source_name: '财新', title_zh: '财新报道', url: 'javascript:alert(1)' }),
+          article(31, {
+            source_name: '财新',
+            title_zh: '财新报道',
+            url: 'javascript:alert(1)',
+          }),
         ],
       },
     ],
@@ -231,4 +268,31 @@ test('theme toggle applies and persists the choice', async () => {
   expect(localStorage.getItem('unspun-theme')).toBe('dark')
   fireEvent.click(screen.getByRole('button', { name: '跟随系统' }))
   expect(document.documentElement.dataset.theme).toBeUndefined()
+})
+
+test('navigation links switch routes without showing the report on the feed', async () => {
+  stubEvents(sample)
+  renderApp()
+  await screen.findByText('某重大事件')
+  expect(
+    screen.queryByRole('heading', { level: 1, name: '运行报告' }),
+  ).toBeNull()
+  fireEvent.click(screen.getByRole('link', { name: '运行报告' }))
+  expect(
+    screen.getByRole('heading', { level: 1, name: '运行报告' }),
+  ).toBeTruthy()
+  fireEvent.click(screen.getByRole('link', { name: '实时事件流' }))
+  await screen.findByText('某重大事件')
+})
+
+test('direct digest and unknown routes render their own page', async () => {
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 404 }))
+  const view = renderApp('/digest')
+  expect(
+    screen.getByRole('heading', { level: 1, name: '每日日报' }),
+  ).toBeTruthy()
+  await screen.findByText(/这一天的日报尚未生成/)
+  view.unmount()
+  renderApp('/missing')
+  expect(screen.getByRole('heading', { name: '页面不存在' })).toBeTruthy()
 })
