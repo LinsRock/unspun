@@ -1,4 +1,5 @@
-import { useQuery } from '@tanstack/react-query'
+import { onlineManager, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useSyncExternalStore } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { fetchDigest } from './api'
@@ -10,6 +11,10 @@ const CONTROL =
   'min-h-10 rounded-ctl border border-line bg-surface px-3 text-xs text-ink-3 hover:border-line-strong disabled:cursor-not-allowed disabled:opacity-40'
 
 export default function DigestPage() {
+  const client = useQueryClient()
+  const online = useSyncExternalStore(onlineManager.subscribe, () =>
+    onlineManager.isOnline(),
+  )
   const [params, setParams] = useSearchParams()
   const today = useBeijingToday()
   const selected = params.get('date') ?? today
@@ -17,7 +22,12 @@ export default function DigestPage() {
   const valid = latest || (isCalendarDate(selected) && selected <= today)
   const { data, error, isPending, refetch } = useQuery({
     queryKey: ['digest', selected],
-    queryFn: () => fetchDigest(selected),
+    queryFn: async () => {
+      const digest = await fetchDigest(selected)
+      if (latest && digest)
+        client.setQueryData(['digest', digest.report_date], digest)
+      return digest
+    },
     enabled: valid,
     retry: false,
     refetchInterval: latest || selected === today ? 5 * 60 * 1000 : false,
@@ -88,17 +98,31 @@ export default function DigestPage() {
           日期无效，请选择今天或更早的有效日期。
         </p>
       )}
-      {valid && isPending && (
+      {valid && !online && (
+        <p
+          role="status"
+          className="mb-4 rounded-ctl border border-line bg-bg-sunk p-3 text-sm text-ink-3"
+        >
+          {data
+            ? '离线阅读：显示此前加载的日报。'
+            : '此日期没有离线日报，请联网后打开此日报以保存到设备。'}
+        </p>
+      )}
+      {valid && online && isPending && (
         <p role="status" className="text-sm text-ink-3">
           日报加载中…
         </p>
       )}
-      {valid && error != null && (
+      {valid && online && error != null && (
         <div
           role="alert"
           className="rounded-card border border-line bg-surface p-4"
         >
-          <p className="text-sm text-hot">日报加载失败，请检查网络后重试。</p>
+          <p className="text-sm text-hot">
+            {data
+              ? '更新失败，继续显示已保存的日报。'
+              : '日报加载失败，请检查网络后重试。'}
+          </p>
           <button
             type="button"
             onClick={() => void refetch()}
