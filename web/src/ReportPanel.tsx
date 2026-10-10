@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
 import { fetchReport } from './api'
+import SectionHeading from './SectionHeading'
 
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000
 
@@ -15,11 +16,7 @@ function Stat({ label, value, tone }: { label: string; value: string | number; t
 }
 
 function SectionH({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="mb-1.5 mt-5 flex items-center gap-2 text-[13px] font-bold tracking-[0.06em] text-ink-3 after:h-px after:flex-1 after:bg-line after:content-['']">
-      {children}
-    </h3>
-  )
+  return <SectionHeading className="mb-1.5 mt-5">{children}</SectionHeading>
 }
 
 function StatusDot({ bad = false }: { bad?: boolean }) {
