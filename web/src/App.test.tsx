@@ -114,12 +114,18 @@ test('collapses sources beyond two behind the more bar', async () => {
   expect(screen.queryByRole('button', { name: /另有 2 篇来源报道/ })).toBeNull()
 })
 
+// URL constants stay on their own lines: the CI CJK comment scan treats any
+// line containing "//" as a comment, so Chinese next to a URL would trip it.
+const CAIXIN_URL = 'https://caixin.example/31'
+const REUTERS_URL = 'https://reuters.example/32'
+const BBC_URL = 'https://bbc.example/33'
+
 const viewpointEvent: EventOut = {
   ...baseEvent,
   articles: [
-    article(31, { source_name: '财新', title_zh: '财新报道', url: 'https://caixin.example/31' }),
-    article(32, { source_name: 'Reuters', title_zh: '路透报道', url: 'https://reuters.example/32' }),
-    article(33, { source_name: 'BBC', title_zh: 'BBC 报道', url: 'https://bbc.example/33' }),
+    article(31, { source_name: '财新', title_zh: '财新报道', url: CAIXIN_URL }),
+    article(32, { source_name: 'Reuters', title_zh: '路透报道', url: REUTERS_URL }),
+    article(33, { source_name: 'BBC', title_zh: 'BBC 报道', url: BBC_URL }),
   ],
   viewpoint: {
     claims: [
@@ -142,9 +148,9 @@ test('viewpoint bar expands claims, each linked to its own article', async () =>
   fireEvent.click(bar)
   // Every claim sits next to the link of exactly its own article.
   const cases: Array<[string, string, string]> = [
-    ['财新的说法', 'https://caixin.example/31', '财新报道'],
-    ['路透的说法', 'https://reuters.example/32', '路透报道'],
-    ['BBC 的说法', 'https://bbc.example/33', 'BBC 报道'],
+    ['财新的说法', CAIXIN_URL, '财新报道'],
+    ['路透的说法', REUTERS_URL, '路透报道'],
+    ['BBC 的说法', BBC_URL, 'BBC 报道'],
   ]
   for (const [claim, href, linkTitle] of cases) {
     const column = screen.getByText(claim).closest('div')
