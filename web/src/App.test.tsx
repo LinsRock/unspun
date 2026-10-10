@@ -39,7 +39,13 @@ const baseEvent: EventOut = {
   },
   first_seen_at: '2026-10-09T00:00:00Z',
   changed_at: '2026-10-09T01:00:00Z',
-  articles: [article(11, { title: 'original title', title_zh: '中文标题', url: 'https://example.com/a' })],
+  articles: [
+    article(11, {
+      title: 'original title',
+      title_zh: '中文标题',
+      url: 'https://example.com/a',
+    }),
+  ],
 }
 
 const sample: EventsResponse = { events: [baseEvent] }
