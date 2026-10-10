@@ -9,6 +9,7 @@ from unspun.core.llm import LlmClient
 from unspun.core.logging import configure_logging, get_logger
 from unspun.core.models import PipelineRun
 from unspun.pipeline.cluster import cluster_pending
+from unspun.pipeline.digest import digest_pending
 from unspun.pipeline.fetcher import run_fetch_cycle
 from unspun.pipeline.score import score_pending
 from unspun.pipeline.summarize import embed_pending, summarize_pending
@@ -42,6 +43,10 @@ def run_ai_stages() -> None:
 
 
 def run_cycle() -> None:
+    try:
+        digest_pending()
+    except Exception:
+        log.exception("digest_stage_failed")
     run_fetch_cycle()
     run_ai_stages()
 

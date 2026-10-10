@@ -109,6 +109,33 @@ class EventsResponse(BaseModel):
     events: list[EventOut]
 
 
+def event_out(event: Event, decayed_score: float | None, source_names: dict[str, str]) -> EventOut:
+    """Serialize a live event or a digest snapshot with the same provenance rules."""
+    return EventOut(
+        id=event.id,
+        title=event.title,
+        summary_zh=event.summary_zh,
+        score_final=event.score_final,
+        score_decayed=decayed_score,
+        score_breakdown=event.score_breakdown,
+        first_seen_at=event.first_seen_at,
+        changed_at=event.changed_at,
+        articles=[
+            ArticleOut(
+                id=a.id,
+                title=a.title,
+                title_zh=a.title_zh,
+                url=a.url,
+                source_id=a.source_id,
+                source_name=source_names.get(a.source_id, a.source_id),
+                published_at=a.published_at,
+            )
+            for a in sorted(event.articles, key=lambda a: a.id)
+        ],
+        viewpoint=viewpoint_out(event.viewpoint, {a.id for a in event.articles}),
+    )
+
+
 @router.get("/api/events", response_model=EventsResponse)
 def list_events(
     limit: int = Query(default=50, ge=1, le=200),
@@ -127,28 +154,8 @@ def list_events(
     events: list[EventOut] = []
     for event, decayed_score in rows:
         events.append(
-            EventOut(
-                id=event.id,
-                title=event.title,
-                summary_zh=event.summary_zh,
-                score_final=event.score_final,
-                score_decayed=float(decayed_score) if decayed_score is not None else None,
-                score_breakdown=event.score_breakdown,
-                first_seen_at=event.first_seen_at,
-                changed_at=event.changed_at,
-                articles=[
-                    ArticleOut(
-                        id=a.id,
-                        title=a.title,
-                        title_zh=a.title_zh,
-                        url=a.url,
-                        source_id=a.source_id,
-                        source_name=source_names.get(a.source_id, a.source_id),
-                        published_at=a.published_at,
-                    )
-                    for a in event.articles
-                ],
-                viewpoint=viewpoint_out(event.viewpoint, {a.id for a in event.articles}),
+            event_out(
+                event, float(decayed_score) if decayed_score is not None else None, source_names
             )
         )
     return EventsResponse(events=events)

@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from sqlalchemy import text
 
+from unspun.api.digest import router as digest_router
 from unspun.api.events import router as events_router
 from unspun.api.report import router as report_router
 from unspun.core.config import get_settings
@@ -13,6 +14,7 @@ log = get_logger("unspun.api")
 
 app = FastAPI(title="Unspun API", docs_url=None, redoc_url=None)
 app.include_router(events_router)
+app.include_router(digest_router)
 app.include_router(report_router)
 
 
