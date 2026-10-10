@@ -122,6 +122,15 @@ jobs:
       - run: pnpm exec tsc -b
       - run: pnpm exec vitest run
       - run: pnpm build
+      - name: Install PWA test browser
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Verify production PWA offline behavior
+        run: |
+          pnpm preview --host 127.0.0.1 --port 4173 --strictPort > /tmp/unspun-pwa-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid"' EXIT
+          curl --retry 10 --retry-connrefused --retry-delay 1 --fail --silent http://127.0.0.1:4173/ > /dev/null
+          PWA_BASE_URL=http://127.0.0.1:4173 pnpm test:pwa
 
   build-push:
     if: github.ref == 'refs/heads/main'

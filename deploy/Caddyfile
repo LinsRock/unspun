@@ -5,6 +5,15 @@
 		reverse_proxy api:8000
 	}
 
+	# PWA entrypoints must revalidate and must not fall back to the SPA.
+	@pwa path /sw.js /registerSW.js /manifest.webmanifest
+	handle @pwa {
+		root * /srv/www
+		header Cache-Control "no-cache"
+		header /manifest.webmanifest Content-Type application/manifest+json
+		file_server
+	}
+
 	handle {
 		root * /srv/www
 		try_files {path} /index.html
