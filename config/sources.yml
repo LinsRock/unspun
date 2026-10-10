@@ -289,14 +289,17 @@ sources:
     kind: commercial
     lang: zh
     timeout_seconds: 60
+  # Via the feedx.net mirror since 2026-10-10: m.thepaper.cn now 403s
+  # non-browser clients, which breaks every RSSHub thepaper route (they fetch
+  # article bodies from that host). Switch back to rsshub://thepaper/featured
+  # once upstream moves detail fetching to www.thepaper.cn (still reachable).
   - id: thepaper
     name: The Paper
-    url: rsshub://thepaper/featured
+    url: https://feedx.net/rss/thepaper.xml
     weight: 0.9
     region: cn-mainland
     kind: state
     lang: zh
-    timeout_seconds: 60
   - id: zaobao-china
     name: Zaobao China Realtime
     url: rsshub://zaobao/realtime/china
