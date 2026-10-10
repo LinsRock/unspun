@@ -14,6 +14,12 @@
 # Dropped after M2 T2 validation (see docs/tasks/m2.md, source validation log):
 # Jiemian (origin unreachable from the overseas VPS), Jiqizhixin (no RSSHub
 # route; official RSS discontinued).
+#
+# Dropped after M2 T3a validation (details in the same log): Reuters (content
+# API requires auth; RSSHub route broken upstream), AP (apnews.com returns 403
+# to non-browser clients), AFP (no official public feed), IMF (imf.org returns
+# 403 to non-browser clients), PBoC (RSSHub route needs headless Chromium),
+# The Paper international list (m.thepaper.cn detail pages return 403).
 sources:
   # --- General & international (en) ---
   - id: bbc-world
@@ -58,6 +64,13 @@ sources:
     region: eu
     kind: commercial
     lang: en
+  - id: nikkei-asia
+    name: Nikkei Asia
+    url: https://asia.nikkei.com/rss/feed/nar
+    weight: 0.9
+    region: jp
+    kind: commercial
+    lang: en
   # --- Economy (en) ---
   - id: ft-home
     name: Financial Times
@@ -65,6 +78,35 @@ sources:
     weight: 0.9
     region: eu
     kind: commercial
+    lang: en
+  # Paywalled: titles and ledes only, contributing breadth signal (expected).
+  - id: bloomberg-economics
+    name: Bloomberg Economics
+    url: https://feeds.bloomberg.com/economics/news.rss
+    weight: 0.9
+    region: us
+    kind: commercial
+    lang: en
+  - id: wsj-world
+    name: WSJ World News
+    url: https://feeds.content.dowjones.io/public/rss/RSSWorldNews
+    weight: 0.9
+    region: us
+    kind: commercial
+    lang: en
+  - id: fed-press
+    name: Federal Reserve Press Releases
+    url: https://www.federalreserve.gov/feeds/press_all.xml
+    weight: 1.0
+    region: us
+    kind: official
+    lang: en
+  - id: ecb-press
+    name: ECB Press Releases
+    url: https://www.ecb.europa.eu/rss/press.html
+    weight: 1.0
+    region: eu
+    kind: official
     lang: en
   # --- Tech & AI (en) ---
   - id: hn-front
@@ -114,6 +156,21 @@ sources:
   - id: foreign-policy
     name: Foreign Policy
     url: https://foreignpolicy.com/feed/
+    weight: 0.8
+    region: us
+    kind: commercial
+    lang: en
+  # Paywalled: titles and ledes only (expected).
+  - id: foreign-affairs
+    name: Foreign Affairs
+    url: https://www.foreignaffairs.com/rss.xml
+    weight: 0.8
+    region: us
+    kind: commercial
+    lang: en
+  - id: politico
+    name: Politico
+    url: https://rss.politico.com/politics-news.xml
     weight: 0.8
     region: us
     kind: commercial
@@ -259,4 +316,33 @@ sources:
     kind: commercial
     lang: zh
     max_items: 20
+    timeout_seconds: 60
+  # --- Via self-hosted RSSHub, M2 T3a; routes verified from the VPS 2026-10-10 ---
+  # Xinhua sits in the wire tier (A, 1.0) per the requirement's source table;
+  # the state-media attribute is carried by kind, not the weight.
+  - id: xinhua
+    name: Xinhua News
+    url: rsshub://news/xhsxw
+    weight: 1.0
+    region: cn-mainland
+    kind: state
+    lang: zh
+    max_items: 30
+    timeout_seconds: 60
+  - id: nhk-world
+    name: NHK World News
+    url: rsshub://nhk/news/en
+    weight: 0.9
+    region: jp
+    kind: public
+    lang: en
+    max_items: 30
+    timeout_seconds: 60
+  - id: yicai
+    name: Yicai Headlines
+    url: rsshub://yicai/headline
+    weight: 0.8
+    region: cn-mainland
+    kind: commercial
+    lang: zh
     timeout_seconds: 60
