@@ -46,6 +46,7 @@ const baseEvent: EventOut = {
       url: 'https://example.com/a',
     }),
   ],
+  viewpoint: null,
 }
 
 const sample: EventsResponse = { events: [baseEvent] }
@@ -111,6 +112,101 @@ test('collapses sources beyond two behind the more bar', async () => {
   fireEvent.click(more)
   expect(screen.getAllByRole('link')).toHaveLength(4)
   expect(screen.queryByRole('button', { name: /另有 2 篇来源报道/ })).toBeNull()
+})
+
+const viewpointEvent: EventOut = {
+  ...baseEvent,
+  articles: [
+    article(31, { source_name: '财新', title_zh: '财新报道', url: 'https://caixin.example/31' }),
+    article(32, { source_name: 'Reuters', title_zh: '路透报道', url: 'https://reuters.example/32' }),
+    article(33, { source_name: 'BBC', title_zh: 'BBC 报道', url: 'https://bbc.example/33' }),
+  ],
+  viewpoint: {
+    claims: [
+      { article_id: 31, claim: '财新的说法' },
+      { article_id: 32, claim: '路透的说法' },
+      { article_id: 33, claim: 'BBC 的说法' },
+    ],
+    disagreements: [{ point: '双方对关税定性分歧', claim_indexes: [0, 1] }],
+    model: 'google/gemini-2.5-flash',
+    generated_at: '2026-10-10T00:00:00Z',
+  },
+}
+
+test('viewpoint bar expands claims, each linked to its own article', async () => {
+  stubEvents({ events: [viewpointEvent] })
+  renderApp()
+  await screen.findByText('某重大事件')
+  expect(screen.queryByText('财新的说法')).toBeNull()
+  const bar = screen.getByRole('button', { name: /观点对比 · 3 源说法/ })
+  fireEvent.click(bar)
+  // Every claim sits next to the link of exactly its own article.
+  const cases: Array<[string, string, string]> = [
+    ['财新的说法', 'https://caixin.example/31', '财新报道'],
+    ['路透的说法', 'https://reuters.example/32', '路透报道'],
+    ['BBC 的说法', 'https://bbc.example/33', 'BBC 报道'],
+  ]
+  for (const [claim, href, linkTitle] of cases) {
+    const column = screen.getByText(claim).closest('div')
+    const link = column?.querySelector('a')
+    expect(link?.getAttribute('href')).toBe(href)
+    expect(link?.textContent).toContain(linkTitle)
+  }
+  expect(screen.getByText('双方对关税定性分歧')).toBeTruthy()
+  expect(screen.getByText('财新 · Reuters')).toBeTruthy()
+  fireEvent.click(bar)
+  expect(screen.queryByText('财新的说法')).toBeNull()
+})
+
+test('claims pointing at foreign articles are dropped', async () => {
+  const vp = viewpointEvent.viewpoint
+  if (!vp) throw new Error('fixture must carry a viewpoint')
+  stubEvents({
+    events: [
+      {
+        ...viewpointEvent,
+        viewpoint: {
+          ...vp,
+          claims: [...vp.claims, { article_id: 999, claim: '张冠李戴的说法' }],
+        },
+      },
+    ],
+  })
+  renderApp()
+  await screen.findByText('某重大事件')
+  fireEvent.click(screen.getByRole('button', { name: /观点对比 · 3 源说法/ }))
+  expect(screen.queryByText('张冠李戴的说法')).toBeNull()
+})
+
+test('viewpoint claim links reject non-http urls', async () => {
+  const vp = viewpointEvent.viewpoint
+  if (!vp) throw new Error('fixture must carry a viewpoint')
+  stubEvents({
+    events: [
+      {
+        ...viewpointEvent,
+        articles: [
+          ...viewpointEvent.articles.slice(1),
+          // eslint-disable-next-line no-script-url
+          article(31, { source_name: '财新', title_zh: '财新报道', url: 'javascript:alert(1)' }),
+        ],
+      },
+    ],
+  })
+  renderApp()
+  await screen.findByText('某重大事件')
+  fireEvent.click(screen.getByRole('button', { name: /观点对比 · 3 源说法/ }))
+  // No anchor at all: an href-less <a> would look clickable but go nowhere.
+  const column = screen.getByText('财新的说法').closest('div')
+  expect(column?.querySelector('a')).toBeNull()
+  expect(column?.textContent).toContain('财新报道')
+})
+
+test('events without a viewpoint show no comparison bar', async () => {
+  stubEvents(sample)
+  renderApp()
+  await screen.findByText('某重大事件')
+  expect(screen.queryByRole('button', { name: /观点对比/ })).toBeNull()
 })
 
 test('shows the empty state when there are no events', async () => {

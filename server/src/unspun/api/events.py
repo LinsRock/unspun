@@ -11,11 +11,14 @@ from sqlalchemy import Float, func, select
 from sqlalchemy.orm import Session, selectinload
 
 from unspun.core.db import session_scope
-from unspun.core.models import Event
+from unspun.core.logging import get_logger
+from unspun.core.models import Event, EventViewpoint
 from unspun.core.params import get_scoring_params
 from unspun.core.sources import load_sources
 
 router = APIRouter()
+
+log = get_logger("unspun.api.events")
 
 LN2 = math.log(2.0)
 
@@ -35,6 +38,23 @@ class ArticleOut(BaseModel):
     published_at: datetime | None
 
 
+class ViewpointClaimOut(BaseModel):
+    article_id: int
+    claim: str
+
+
+class ViewpointDisagreementOut(BaseModel):
+    point: str
+    claim_indexes: list[int]
+
+
+class ViewpointOut(BaseModel):
+    claims: list[ViewpointClaimOut]
+    disagreements: list[ViewpointDisagreementOut]
+    model: str
+    generated_at: datetime
+
+
 class EventOut(BaseModel):
     id: int
     title: str | None
@@ -45,6 +65,44 @@ class EventOut(BaseModel):
     first_seen_at: datetime
     changed_at: datetime
     articles: list[ArticleOut]
+    viewpoint: ViewpointOut | None = None
+
+
+def viewpoint_out(row: EventViewpoint | None, article_ids: set[int]) -> ViewpointOut | None:
+    """Serve the stored payload with claims restricted to this event's articles.
+
+    Articles can be reassigned between regenerations, so membership is
+    enforced here once for every consumer (M2 acceptance: no claim may point
+    at a foreign source); disagreement indexes are remapped to the kept
+    claims, mirroring parse_viewpoints_payload.
+    """
+    if row is None:
+        return None
+    try:
+        parsed = ViewpointOut.model_validate(
+            {**row.payload, "model": row.model, "generated_at": row.generated_at}
+        )
+    except Exception as exc:
+        # A payload the current schema cannot read must not take down the
+        # whole feed; the event just renders without its comparison. No
+        # traceback: the poisoned row would log one per poll until the
+        # event's articles next change.
+        log.warning("viewpoint_payload_invalid", event_id=row.event_id, error=str(exc))
+        return None
+    index_map = {
+        i: new_i
+        for new_i, (i, _) in enumerate(
+            (i, c) for i, c in enumerate(parsed.claims) if c.article_id in article_ids
+        )
+    }
+    parsed.claims = [c for i, c in enumerate(parsed.claims) if i in index_map]
+    remapped = [
+        ViewpointDisagreementOut(point=d.point, claim_indexes=indexes)
+        for d in parsed.disagreements
+        if len(indexes := sorted(index_map[i] for i in d.claim_indexes if i in index_map)) >= 2
+    ]
+    parsed.disagreements = remapped
+    return parsed
 
 
 class EventsResponse(BaseModel):
@@ -61,7 +119,7 @@ def list_events(
     decayed = Event.score_final * func.exp(-LN2 * age_hours / half_life)
     rows = session.execute(
         select(Event, decayed.label("decayed"))
-        .options(selectinload(Event.articles))
+        .options(selectinload(Event.articles), selectinload(Event.viewpoint))
         .order_by(func.coalesce(decayed, -1.0).desc(), Event.changed_at.desc())
         .limit(limit)
     ).all()
@@ -90,6 +148,7 @@ def list_events(
                     )
                     for a in event.articles
                 ],
+                viewpoint=viewpoint_out(event.viewpoint, {a.id for a in event.articles}),
             )
         )
     return EventsResponse(events=events)

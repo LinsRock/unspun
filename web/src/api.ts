@@ -31,6 +31,23 @@ export interface ScoreBreakdown {
   importance?: ImportanceBreakdown
 }
 
+export interface ViewpointClaim {
+  article_id: number
+  claim: string
+}
+
+export interface ViewpointDisagreement {
+  point: string
+  claim_indexes: number[]
+}
+
+export interface ViewpointOut {
+  claims: ViewpointClaim[]
+  disagreements: ViewpointDisagreement[]
+  model: string
+  generated_at: string
+}
+
 export interface EventOut {
   id: number
   title: string | null
@@ -41,6 +58,7 @@ export interface EventOut {
   first_seen_at: string
   changed_at: string
   articles: ArticleOut[]
+  viewpoint: ViewpointOut | null
 }
 
 export interface EventsResponse {
