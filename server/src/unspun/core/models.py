@@ -153,7 +153,7 @@ class LlmUsage(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
-    purpose: Mapped[str] = mapped_column(Text)  # summary | importance | embedding
+    purpose: Mapped[str] = mapped_column(Text)  # summary | importance | viewpoint | embedding
     model: Mapped[str] = mapped_column(Text)
     prompt_tokens: Mapped[int] = mapped_column(default=0)
     completion_tokens: Mapped[int] = mapped_column(default=0)

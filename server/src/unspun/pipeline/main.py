@@ -1,7 +1,5 @@
-"""Pipeline worker entry point: fetch -> summarize -> embed -> cluster.
-
-Scoring joins this loop as the last M1 stage.
-"""
+"""Pipeline worker entry point: fetch -> summarize -> embed -> cluster ->
+score -> viewpoints."""
 
 import time
 
@@ -14,6 +12,7 @@ from unspun.pipeline.cluster import cluster_pending
 from unspun.pipeline.fetcher import run_fetch_cycle
 from unspun.pipeline.score import score_pending
 from unspun.pipeline.summarize import embed_pending, summarize_pending
+from unspun.pipeline.viewpoints import viewpoints_pending
 
 MIN_SLEEP_SECONDS = 60
 
@@ -31,6 +30,9 @@ def run_ai_stages() -> None:
             counts["embedded"] = embed_pending(client)
             counts["clustered"], counts["new_events"] = cluster_pending()
             counts["scored"] = score_pending(client)
+            # Not in pipeline_runs: the stage logs its own count, and its
+            # spend shows up in the cost report via the viewpoint purpose.
+            viewpoints_pending(client)
     finally:
         # Record even a partial cycle, so the report's last-run stage counts
         # reflect work that actually happened before a mid-cycle failure.

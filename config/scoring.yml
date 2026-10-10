@@ -35,3 +35,12 @@ pipeline:
   score_batch_limit: 40
   # Give up summarizing an article after this many failed cycles.
   max_summary_failures: 3
+viewpoints:
+  # Eligibility gate (D-011): an event earns a viewpoint comparison only
+  # with >= min_sources distinct sources spanning >= min_regions regions
+  # OR >= min_kinds source kinds.
+  min_sources: 3
+  min_regions: 2
+  min_kinds: 2
+  # Per-cycle cap on viewpoint LLM attempts (successful or not).
+  viewpoint_batch_limit: 10
