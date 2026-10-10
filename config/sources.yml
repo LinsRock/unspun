@@ -20,6 +20,9 @@
 # to non-browser clients), AFP (no official public feed), IMF (imf.org returns
 # 403 to non-browser clients), PBoC (RSSHub route needs headless Chromium),
 # The Paper international list (m.thepaper.cn detail pages return 403).
+#
+# Dropped after M2 T3b validation: IEA (Cloudflare challenge on iea.org),
+# DXY (RSSHub only has forum routes, no news route).
 sources:
   # --- General & international (en) ---
   - id: bbc-world
@@ -152,6 +155,14 @@ sources:
     region: eu
     kind: independent
     lang: en
+  # Mostly paywalled newsletter: free weekly articles only (expected).
+  - id: stratechery
+    name: Stratechery
+    url: https://stratechery.com/feed/
+    weight: 0.7
+    region: us
+    kind: independent
+    lang: en
   # --- Politics & international relations (en) ---
   - id: foreign-policy
     name: Foreign Policy
@@ -191,12 +202,42 @@ sources:
     kind: academic
     lang: en
     max_items: 30
+  - id: science-news
+    name: Science News
+    url: https://www.science.org/rss/news_current.xml
+    weight: 0.8
+    region: us
+    kind: academic
+    lang: en
+  - id: nejm
+    name: New England Journal of Medicine
+    url: https://www.nejm.org/action/showFeed?jc=nejm&type=etoc&feed=rss
+    weight: 0.8
+    region: us
+    kind: academic
+    lang: en
+    max_items: 30
+  - id: lancet
+    name: The Lancet
+    url: https://www.thelancet.com/rssfeed/lancet_current.xml
+    weight: 0.8
+    region: eu
+    kind: academic
+    lang: en
+    max_items: 30
   # --- Climate & energy (en) ---
   - id: carbon-brief
     name: Carbon Brief
     url: https://www.carbonbrief.org/feed/
     weight: 0.8
     region: eu
+    kind: independent
+    lang: en
+  - id: inside-climate
+    name: Inside Climate News
+    url: https://insideclimatenews.org/feed/
+    weight: 0.8
+    region: us
     kind: independent
     lang: en
   # --- Space & astronomy (en) ---
@@ -212,6 +253,13 @@ sources:
     url: https://www.nasa.gov/rss/dyn/breaking_news.rss
     weight: 1.0
     region: us
+    kind: official
+    lang: en
+  - id: esa
+    name: ESA Top News
+    url: https://www.esa.int/rssfeed/TopNews
+    weight: 1.0
+    region: eu
     kind: official
     lang: en
   # --- Ideas, society & culture (en) ---
@@ -348,4 +396,31 @@ sources:
     region: cn-mainland
     kind: commercial
     lang: zh
+    timeout_seconds: 60
+  # --- Via self-hosted RSSHub, M2 T3b; routes verified from the VPS 2026-10-10 ---
+  # AI lab blogs are first-party announcements (tier A).
+  - id: openai-news
+    name: OpenAI News
+    url: rsshub://openai/news
+    weight: 1.0
+    region: us
+    kind: official
+    lang: en
+    timeout_seconds: 60
+  - id: anthropic-news
+    name: Anthropic News
+    url: rsshub://anthropic/news
+    weight: 1.0
+    region: us
+    kind: official
+    lang: en
+    timeout_seconds: 60
+  - id: deepmind-blog
+    name: Google DeepMind Blog
+    url: rsshub://deepmind/blog
+    weight: 1.0
+    region: eu
+    kind: official
+    lang: en
+    max_items: 20
     timeout_seconds: 60
