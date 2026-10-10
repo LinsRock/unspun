@@ -71,6 +71,20 @@ class PipelineParams(BaseModel):
     max_summary_failures: int = Field(default=3, ge=1)
 
 
+class ViewpointsParams(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    # Eligibility gate (D-011): an event earns a viewpoint comparison only
+    # with enough independent coverage — at least min_sources distinct
+    # sources spanning at least min_regions regions OR min_kinds kinds.
+    min_sources: int = Field(default=3, ge=2)
+    min_regions: int = Field(default=2, ge=1)
+    min_kinds: int = Field(default=2, ge=1)
+    # Per-cycle cap on LLM attempts (successful or not); bounds one cycle's
+    # viewpoint spend even when outputs keep failing validation.
+    viewpoint_batch_limit: int = Field(default=10, ge=1)
+
+
 class ScoringParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -82,6 +96,7 @@ class ScoringParams(BaseModel):
     stream: StreamParams
     offcircle_ratio: float
     pipeline: PipelineParams = PipelineParams()
+    viewpoints: ViewpointsParams = ViewpointsParams()
 
 
 def load_scoring_params(config_dir: str | Path | None = None) -> ScoringParams:
