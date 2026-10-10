@@ -28,12 +28,12 @@ Score tiers: >= 80 `hot`, 65–79 `amber`, below neutral (`bg-sunk` + `ink-3`).
 ## Theming
 
 Three states: `data-theme="light"` / `"dark"` on `<html>`, or no attribute
-(follow system). `theme.css` carries only the CSS side (the manual attribute
-beats the OS setting in both directions). The JS side — the 3-state switcher
-(bottom of sidebar / top bar corner on mobile), applying `data-theme`, and
-persisting the choice to `localStorage` — ships with T-D2; the prototype has
-a reference implementation. `color-scheme: dark` is also deferred to T-D2 so
-unstyled pages keep rendering light until restyled.
+(follow system). `theme.css` carries the CSS side (the manual attribute beats
+the OS setting in both directions, plus `color-scheme: dark`). The JS side is
+`ThemeToggle.tsx`: a 3-state segmented control (header corner until T8 moves
+it into the sidebar / top bar) that applies `data-theme` and persists the
+choice to `localStorage` (`unspun-theme`); an inline script in `index.html`
+re-applies it before first paint to avoid a theme flash.
 
 ## Typography
 

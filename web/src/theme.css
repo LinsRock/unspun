@@ -40,12 +40,12 @@
  * blocks below carry identical values so the manual choice beats the OS
  * setting in both directions.
  *
- * NOTE: `color-scheme: dark` is intentionally not set here yet. T-D2 adds it
- * (plus the theme switcher UI) when the existing pages are restyled onto the
- * tokens; until then pages keep rendering light everywhere.
+ * The 3-state switcher UI lives in ThemeToggle.tsx; index.html applies the
+ * persisted choice before first paint to avoid a theme flash.
  */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg: #15171a;
     --bg-sunk: #101214;
     --surface: #1c1f23;
@@ -71,6 +71,7 @@
 }
 
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #15171a;
   --bg-sunk: #101214;
   --surface: #1c1f23;
@@ -94,7 +95,7 @@
   --sh-pop: 0 8px 28px rgba(0, 0, 0, 0.5);
 }
 
-/* Tailwind v4 theme: generates bg-*/text-*/border-* etc. from the raw vars. */
+/* Tailwind v4 theme: generates the bg-, text-, border- (etc.) utilities from the raw vars. */
 @theme inline {
   --color-bg: var(--bg);
   --color-bg-sunk: var(--bg-sunk);

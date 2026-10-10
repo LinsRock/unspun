@@ -2,8 +2,17 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Unspun</title>
+    <script>
+      // Apply the persisted theme choice before first paint (see ThemeToggle.tsx).
+      try {
+        var t = localStorage.getItem('unspun-theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+      } catch (e) {
+        /* storage unavailable: fall back to system theme */
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

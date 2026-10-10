@@ -75,9 +75,41 @@ test('tolerates an older API response without the new fields', async () => {
   )
   renderPanel()
   await waitFor(() => {
-    expect(screen.getByText(/抓取 48 次/)).toBeTruthy()
+    expect(screen.getByText('抓取轮次')).toBeTruthy()
   })
+  expect(screen.getByText('48')).toBeTruthy()
   expect(screen.queryByText('管线积压')).toBeNull()
+})
+
+test('renders source failures and LLM spend as tables', async () => {
+  const busy: ReportResponse = {
+    ...sample,
+    source_failures: [{ source_id: 'wsj-markets', failures: 6, last_error: 'HTTP 401' }],
+    llm_spend: [
+      {
+        purpose: 'summary',
+        model: 'flash-lite',
+        calls: 212,
+        prompt_tokens: 1000,
+        completion_tokens: 500,
+        cost_usd: 0.19,
+      },
+    ],
+  }
+  vi.stubGlobal(
+    'fetch',
+    vi.fn().mockResolvedValue({ ok: true, json: () => Promise.resolve(busy) }),
+  )
+  renderPanel()
+  await waitFor(() => {
+    expect(screen.getByText('wsj-markets')).toBeTruthy()
+  })
+  expect(screen.getByText('6 次')).toBeTruthy()
+  expect(screen.getByText('HTTP 401')).toBeTruthy()
+  expect(screen.queryByText(/所有源抓取正常/)).toBeNull()
+  expect(screen.getByText('flash-lite')).toBeTruthy()
+  expect(screen.getByText('1,500')).toBeTruthy()
+  expect(screen.getByText('$0.1900')).toBeTruthy()
 })
 
 test('shows a hint when the AI stages have never run', async () => {

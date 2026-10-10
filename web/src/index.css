@@ -1,2 +1,21 @@
 @import "tailwindcss";
 @import "./theme.css";
+
+/* Base styles from the T-D1 prototype (docs/design/t-d1-prototype.html). */
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
