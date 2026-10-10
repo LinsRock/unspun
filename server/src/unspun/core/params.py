@@ -2,9 +2,10 @@
 
 from functools import lru_cache
 from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from unspun.core.config import get_settings
 
@@ -85,6 +86,23 @@ class ViewpointsParams(BaseModel):
     viewpoint_batch_limit: int = Field(default=10, ge=1)
 
 
+class DigestParams(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    digest_hour: int = Field(default=8, ge=0, le=23)
+    digest_timezone: str = "Asia/Shanghai"
+    top_n: int = Field(default=10, ge=1, le=200)
+
+    @field_validator("digest_timezone")
+    @classmethod
+    def validate_timezone(cls, value: str) -> str:
+        try:
+            ZoneInfo(value)
+        except (ZoneInfoNotFoundError, ValueError) as exc:
+            raise ValueError("digest_timezone must be an IANA timezone") from exc
+        return value
+
+
 class ScoringParams(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -97,6 +115,7 @@ class ScoringParams(BaseModel):
     offcircle_ratio: float
     pipeline: PipelineParams = PipelineParams()
     viewpoints: ViewpointsParams = ViewpointsParams()
+    digest: DigestParams = DigestParams()
 
 
 def load_scoring_params(config_dir: str | Path | None = None) -> ScoringParams:

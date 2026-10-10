@@ -26,6 +26,7 @@ class Settings(BaseSettings):
     # Viewpoint comparison starts on the flash tier with summary-level input
     # (D-011); upgrade via env if spot checks find the quality lacking.
     viewpoint_model: str = "google/gemini-2.5-flash"
+    digest_model: str = "google/gemini-2.5-flash-lite"
     embedding_model: str = "qwen/qwen3-embedding-8b"
 
 

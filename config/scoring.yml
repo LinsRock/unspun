@@ -44,3 +44,7 @@ viewpoints:
   min_kinds: 2
   # Per-cycle cap on viewpoint LLM attempts (successful or not).
   viewpoint_batch_limit: 10
+digest:
+  digest_hour: 8
+  digest_timezone: Asia/Shanghai
+  top_n: 10

@@ -1,7 +1,7 @@
 # Unspun · Personal Intelligence Station
 
 A single-user intelligence aggregator: it pulls Chinese and English sources, then uses AI to cluster, score, and contrast viewpoints — built to break out of the filter bubble.
-Requirements live in `docs/requirement.md`; milestones and acceptance criteria in `docs/roadmaps.md`. Current phase: **M0 engineering skeleton**.
+Requirements live in `docs/requirement.md`; milestones and acceptance criteria in `docs/roadmaps.md`. Current phase: **M2 viewpoints and daily digests**; task board: `docs/tasks/m2.md`.
 
 ## Architecture
 
@@ -45,6 +45,7 @@ docker compose -f deploy/compose.yml -f deploy/compose.local.yml up --build
 ## Workflow
 
 - Always branch + PR; CI must be green before merging. Merging to main builds images, pushes them to GHCR, and deploys to the VPS.
+- For any page development or modification, start a local server and provide the user with the preview URL and acceptance steps. Open the PR only after the user has experienced the page and explicitly accepted it; automated checks do not replace this acceptance gate (D-012).
 - Deployment is the deploy job in `.github/workflows/ci.yml`: cloudflared SSHs into the VPS and runs `deploy/deploy.sh` (pull images, up, run migrations, health smoke check).
 - Environment variables use the `UNSPUN_` prefix and are defined in `server/src/unspun/core/config.py`.
 
