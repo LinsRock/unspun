@@ -106,6 +106,10 @@ class LlmClient:
         # and return JSON cut off mid-string; one retry with a doubled budget
         # recovers those instead of failing the article every cycle.
         for attempt_max_tokens in (max_tokens, max_tokens * 2):
+            if purpose == "grounding":
+                from unspun.core.review_budget import require_grounding_budget
+
+                require_grounding_budget(session)
             resp = self._client.post(
                 "/chat/completions",
                 json={
@@ -117,6 +121,11 @@ class LlmClient:
                     "response_format": {"type": "json_object"},
                     "usage": {"include": True},
                     "max_tokens": attempt_max_tokens,
+                    **(
+                        {"temperature": 0}
+                        if purpose in {"summary", "viewpoint", "grounding"}
+                        else {}
+                    ),
                 },
             )
             resp.raise_for_status()

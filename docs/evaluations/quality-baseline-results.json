@@ -1,0 +1,2808 @@
+{
+  "generated_at": "2026-10-10T09:12:28.163281+00:00",
+  "live_model_calls": true,
+  "semantic_entailment_verified": false,
+  "budget_usd": 0.5,
+  "cost_usd": 0.0257623,
+  "calls": 128,
+  "budget_note": "Cap stops subsequent calls; in-flight calls/retries can exceed the cap.",
+  "usage_ledger": [
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 132,
+      "completion_tokens": 72,
+      "cost_usd": 4.2e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 138,
+      "completion_tokens": 73,
+      "cost_usd": 4.3e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 133,
+      "completion_tokens": 94,
+      "cost_usd": 5.09e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 135,
+      "completion_tokens": 69,
+      "cost_usd": 4.11e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 134,
+      "completion_tokens": 78,
+      "cost_usd": 4.46e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 126,
+      "completion_tokens": 109,
+      "cost_usd": 5.62e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 133,
+      "completion_tokens": 82,
+      "cost_usd": 4.61e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 133,
+      "completion_tokens": 76,
+      "cost_usd": 4.37e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 142,
+      "completion_tokens": 98,
+      "cost_usd": 5.34e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 133,
+      "completion_tokens": 82,
+      "cost_usd": 4.61e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 160,
+      "completion_tokens": 75,
+      "cost_usd": 4.6e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 141,
+      "completion_tokens": 86,
+      "cost_usd": 4.85e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 136,
+      "completion_tokens": 84,
+      "cost_usd": 4.72e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 539,
+      "completion_tokens": 360,
+      "cost_usd": 0.0010617
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 129,
+      "completion_tokens": 123,
+      "cost_usd": 6.21e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 137,
+      "completion_tokens": 68,
+      "cost_usd": 4.09e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 133,
+      "completion_tokens": 59,
+      "cost_usd": 3.69e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 116,
+      "completion_tokens": 89,
+      "cost_usd": 4.72e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 841,
+      "completion_tokens": 539,
+      "cost_usd": 0.0015998
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 132,
+      "completion_tokens": 71,
+      "cost_usd": 4.16e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 147,
+      "completion_tokens": 58,
+      "cost_usd": 3.79e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 137,
+      "completion_tokens": 91,
+      "cost_usd": 5.01e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 167,
+      "completion_tokens": 92,
+      "cost_usd": 5.35e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 119,
+      "completion_tokens": 62,
+      "cost_usd": 3.67e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 168,
+      "completion_tokens": 64,
+      "cost_usd": 4.24e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1047,
+      "completion_tokens": 772,
+      "cost_usd": 0.0022441
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 114,
+      "completion_tokens": 38,
+      "cost_usd": 2.66e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 114,
+      "completion_tokens": 41,
+      "cost_usd": 2.78e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 610,
+      "completion_tokens": 278,
+      "cost_usd": 0.000878
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 114,
+      "completion_tokens": 40,
+      "cost_usd": 2.74e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 116,
+      "completion_tokens": 36,
+      "cost_usd": 2.6e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 735,
+      "completion_tokens": 465,
+      "cost_usd": 0.001383
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 116,
+      "completion_tokens": 34,
+      "cost_usd": 2.52e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 385,
+      "completion_tokens": 142,
+      "cost_usd": 0.0004705
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 33,
+      "cost_usd": 2.41e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 116,
+      "completion_tokens": 40,
+      "cost_usd": 2.76e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 107,
+      "completion_tokens": 30,
+      "cost_usd": 2.27e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 38,
+      "cost_usd": 2.6e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 386,
+      "completion_tokens": 138,
+      "cost_usd": 0.0004608
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 30,
+      "cost_usd": 2.29e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 37,
+      "cost_usd": 2.56e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 110,
+      "completion_tokens": 37,
+      "cost_usd": 2.58e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 110,
+      "completion_tokens": 37,
+      "cost_usd": 2.58e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 112,
+      "completion_tokens": 28,
+      "cost_usd": 2.24e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 32,
+      "cost_usd": 2.37e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 381,
+      "completion_tokens": 247,
+      "cost_usd": 0.0007318
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 372,
+      "completion_tokens": 275,
+      "cost_usd": 0.0007991
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 102,
+      "completion_tokens": 36,
+      "cost_usd": 2.46e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 117,
+      "completion_tokens": 41,
+      "cost_usd": 2.81e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 105,
+      "completion_tokens": 56,
+      "cost_usd": 3.29e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 364,
+      "completion_tokens": 197,
+      "cost_usd": 0.0006017
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 117,
+      "completion_tokens": 36,
+      "cost_usd": 2.61e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 104,
+      "completion_tokens": 57,
+      "cost_usd": 3.32e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 39,
+      "cost_usd": 2.65e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 36,
+      "cost_usd": 2.53e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 117,
+      "completion_tokens": 55,
+      "cost_usd": 3.37e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 111,
+      "completion_tokens": 40,
+      "cost_usd": 2.71e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 402,
+      "completion_tokens": 353,
+      "cost_usd": 0.0010031
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 425,
+      "completion_tokens": 235,
+      "cost_usd": 0.000715
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 110,
+      "completion_tokens": 36,
+      "cost_usd": 2.54e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 387,
+      "completion_tokens": 155,
+      "cost_usd": 0.0005036
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 104,
+      "completion_tokens": 38,
+      "cost_usd": 2.56e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 40,
+      "cost_usd": 2.68e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 40,
+      "cost_usd": 2.69e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 106,
+      "completion_tokens": 48,
+      "cost_usd": 2.98e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 34,
+      "cost_usd": 2.44e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 110,
+      "completion_tokens": 48,
+      "cost_usd": 3.02e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 107,
+      "completion_tokens": 26,
+      "cost_usd": 2.11e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 384,
+      "completion_tokens": 129,
+      "cost_usd": 0.0004377
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 26,
+      "cost_usd": 2.12e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 55,
+      "cost_usd": 3.29e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 356,
+      "completion_tokens": 183,
+      "cost_usd": 0.0005643
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 110,
+      "completion_tokens": 41,
+      "cost_usd": 2.74e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 382,
+      "completion_tokens": 202,
+      "cost_usd": 0.0006196
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 38,
+      "cost_usd": 2.6e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 28,
+      "cost_usd": 2.2e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 42,
+      "cost_usd": 2.77e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 104,
+      "completion_tokens": 37,
+      "cost_usd": 2.52e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 55,
+      "cost_usd": 3.28e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 48,
+      "cost_usd": 3e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 390,
+      "completion_tokens": 258,
+      "cost_usd": 0.000762
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 110,
+      "completion_tokens": 56,
+      "cost_usd": 3.34e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 383,
+      "completion_tokens": 138,
+      "cost_usd": 0.0004599
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 34,
+      "cost_usd": 2.45e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 111,
+      "completion_tokens": 49,
+      "cost_usd": 3.07e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 95,
+      "completion_tokens": 32,
+      "cost_usd": 2.23e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 420,
+      "completion_tokens": 308,
+      "cost_usd": 0.000896
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 107,
+      "completion_tokens": 35,
+      "cost_usd": 2.47e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 95,
+      "completion_tokens": 40,
+      "cost_usd": 2.55e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 95,
+      "completion_tokens": 48,
+      "cost_usd": 2.87e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 91,
+      "completion_tokens": 82,
+      "cost_usd": 4.19e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 387,
+      "completion_tokens": 157,
+      "cost_usd": 0.0005086
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 91,
+      "completion_tokens": 127,
+      "cost_usd": 5.99e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 106,
+      "completion_tokens": 36,
+      "cost_usd": 2.5e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 358,
+      "completion_tokens": 254,
+      "cost_usd": 0.0007424
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 106,
+      "completion_tokens": 30,
+      "cost_usd": 2.26e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 91,
+      "completion_tokens": 110,
+      "cost_usd": 5.31e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 111,
+      "completion_tokens": 40,
+      "cost_usd": 2.71e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 106,
+      "completion_tokens": 32,
+      "cost_usd": 2.34e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 49,
+      "cost_usd": 3.04e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 557,
+      "completion_tokens": 178,
+      "cost_usd": 0.0006121
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 107,
+      "completion_tokens": 30,
+      "cost_usd": 2.27e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 355,
+      "completion_tokens": 144,
+      "cost_usd": 0.0004665
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 30,
+      "cost_usd": 2.29e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 66,
+      "cost_usd": 3.72e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 386,
+      "completion_tokens": 153,
+      "cost_usd": 0.0004983
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 109,
+      "completion_tokens": 30,
+      "cost_usd": 2.29e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 46,
+      "cost_usd": 2.92e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 113,
+      "completion_tokens": 37,
+      "cost_usd": 2.61e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 49,
+      "cost_usd": 3.04e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 368,
+      "completion_tokens": 134,
+      "cost_usd": 0.0004454
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 123,
+      "completion_tokens": 53,
+      "cost_usd": 3.35e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 107,
+      "completion_tokens": 44,
+      "cost_usd": 2.83e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 430,
+      "completion_tokens": 237,
+      "cost_usd": 0.0007215
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 107,
+      "completion_tokens": 39,
+      "cost_usd": 2.63e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 122,
+      "completion_tokens": 59,
+      "cost_usd": 3.58e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 110,
+      "completion_tokens": 33,
+      "cost_usd": 2.42e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 111,
+      "completion_tokens": 46,
+      "cost_usd": 2.95e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 108,
+      "completion_tokens": 26,
+      "cost_usd": 2.12e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 409,
+      "completion_tokens": 166,
+      "cost_usd": 0.0005377
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 114,
+      "completion_tokens": 54,
+      "cost_usd": 3.3e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 110,
+      "completion_tokens": 31,
+      "cost_usd": 2.34e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 112,
+      "completion_tokens": 34,
+      "cost_usd": 2.48e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 115,
+      "completion_tokens": 36,
+      "cost_usd": 2.59e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 448,
+      "completion_tokens": 257,
+      "cost_usd": 0.0007769
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 115,
+      "completion_tokens": 29,
+      "cost_usd": 2.31e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 357,
+      "completion_tokens": 203,
+      "cost_usd": 0.0006146
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 383,
+      "completion_tokens": 155,
+      "cost_usd": 0.0005024
+    }
+  ],
+  "results": [
+    {
+      "case_id": "audit-12",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 13,
+            "claim": "\u667a\u5229\u4e2d\u90e8\u5730\u533a\u56e0\u66b4\u96e8\u5f15\u53d1\u6d2a\u6c34\uff0c\u8b66\u65b9\u901a\u8fc7\u7a7a\u8fd0\u5c06\u53d7\u56f0\u5c45\u6c11\u89e3\u6551\u81f3\u5b89\u5168\u5730\u5e26\uff0c\u4e3b\u8981\u5f71\u54cd\u9a6c\u6ce2\u4e54\u6cb3\u6cbf\u5cb8\u3002"
+          },
+          {
+            "article_id": 1470,
+            "claim": "\u667a\u5229\u9996\u90fd\u906d\u9047\u66b4\u96e8\u548c\u6ce5\u77f3\u6d41\uff0c\u4e00\u8f86\u6c7d\u8f66\u88ab\u6d2a\u6c34\u51b2\u8d70\uff0c\u8f66\u5185\u53f8\u673a\u7528\u624b\u673a\u8bb0\u5f55\u4e86\u5168\u8fc7\u7a0b\uff0c\u4f46\u672a\u62a5\u544a\u4eba\u5458\u4f24\u4ea1\u3002"
+          },
+          {
+            "article_id": 1866,
+            "claim": "\u667a\u5229\u9996\u90fd\u5723\u5730\u4e9a\u54e5\u7684\u62c9\u65af\u5b54\u5fb7\u65af\u533a\u906d\u9047\u7279\u5927\u66b4\u96e8\u5f15\u53d1\u7684\u5c71\u6d2a\u548c\u6ce5\u77f3\u6d41\uff0c\u9020\u6210\u8857\u9053\u88ab\u6bc1\u3001\u8f66\u8f86\u53d7\u56f0\uff0c\u76ee\u524d\u6551\u63f4\u4eba\u5458\u6b63\u6e05\u7406\u9053\u8def\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae0\u5bf9\u4e8e\u53d7\u5f71\u54cd\u5730\u533a\u7684\u63cf\u8ff0\u4e0d\u540c\uff0cBBC\u62a5\u9053\u7684\u662f\u667a\u5229\u4e2d\u90e8\u5730\u533a\u7684\u9a6c\u6ce2\u4e54\u6cb3\u6cbf\u5cb8\uff0c\u800cAl Jazeera\u548cBloomberg Economics\u5219\u5177\u4f53\u6307\u5411\u667a\u5229\u9996\u90fd\u5723\u5730\u4e9a\u54e5\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "point": "\u5404\u6587\u7ae0\u4fa7\u91cd\u70b9\u4e0d\u540c\uff0cBBC\u5f3a\u8c03\u8b66\u65b9\u7a7a\u8fd0\u6551\u63f4\u5c45\u6c11\uff0cAl Jazeera\u5f3a\u8c03\u53f8\u673a\u62cd\u6444\u6c7d\u8f66\u88ab\u51b2\u8d70\u7684\u89c6\u9891\uff0c\u800cBloomberg Economics\u5219\u5173\u6ce8\u5c71\u6d2a\u548c\u6ce5\u77f3\u6d41\u5bf9\u8857\u9053\u7684\u7834\u574f\u4ee5\u53ca\u6551\u63f4\u6e05\u7406\u5de5\u4f5c\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null,
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 13,
+          "summary": "\u667a\u5229\u4e2d\u90e8\u5730\u533a\u8fd1\u671f\u906d\u9047\u7684\u66b4\u96e8\u5f15\u53d1\u6d2a\u6c34\uff0c\u5bfc\u81f4\u90e8\u5206\u5c45\u6c11\u88ab\u56f0\u5bb6\u4e2d\u3002\u8b66\u65b9\u968f\u540e\u901a\u8fc7\u7a7a\u8fd0\u5c06\u6570\u540d\u5c45\u6c11\u89e3\u6551\u81f3\u5b89\u5168\u5730\u5e26\u3002\u6d2a\u6c34\u4e3b\u8981\u5f71\u54cd\u4e86\u9a6c\u6ce2\u4e54\u6cb3\u6cbf\u5cb8\u5730\u533a\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1470,
+          "summary": "\u667a\u5229\u9996\u90fd\u906d\u9047\u66b4\u96e8\uff0c\u5f15\u53d1\u6ce5\u77f3\u6d41\u3002\u4e00\u8f86\u6c7d\u8f66\u5728\u6d2a\u6c34\u4e2d\u88ab\u51b2\u8d70\uff0c\u8f66\u5185\u4e00\u540d\u53f8\u673a\u7528\u624b\u673a\u62cd\u6444\u4e86\u6574\u4e2a\u8fc7\u7a0b\u3002\u76ee\u524d\u672a\u6709\u4eba\u5458\u4f24\u4ea1\u7684\u62a5\u9053\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1866,
+          "summary": "\u667a\u5229\u9996\u90fd\u5723\u5730\u4e9a\u54e5\u7684\u62c9\u65af\u5b54\u5fb7\u65af\u533a\u906d\u9047\u4e86\u7279\u5927\u66b4\u96e8\u5f15\u53d1\u7684\u5c71\u6d2a\u548c\u6ce5\u77f3\u6d41\u3002\u6d2a\u6c34\u5939\u6742\u7740\u6ce5\u571f\u548c\u5ca9\u77f3\u51b2\u6bc1\u4e86\u8857\u9053\uff0c\u5bfc\u81f4\u8f66\u8f86\u88ab\u56f0\u3002\u76ee\u524d\uff0c\u5e94\u6025\u6551\u63f4\u4eba\u5458\u6b63\u5728\u6e05\u7406\u8857\u9053\uff0c\u8bd5\u56fe\u6062\u590d\u4ea4\u901a\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "audit-52",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 1345,
+            "claim": "\u6c99\u7279\u9996\u90fd\u5229\u96c5\u5f97\u7684\u54c8\u7acb\u5fb7\u56fd\u738b\u56fd\u9645\u673a\u573a\u5728\u906d\u5230\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u3001\u9020\u6210\u4e09\u4eba\u6b7b\u4ea1\u540e\u5df2\u91cd\u65b0\u5f00\u653e\u5e76\u6062\u590d\u6b63\u5e38\u8fd0\u8425\u3002"
+          },
+          {
+            "article_id": 62,
+            "claim": "\u80e1\u585e\u6b66\u88c5\u58f0\u79f0\u5bf9\u6c99\u7279\u9996\u90fd\u5229\u96c5\u5f97\u673a\u573a\u53d1\u52a8\u4e86\u88ad\u51fb\uff0c\u4f46\u6c99\u7279\u65b9\u9762\u5c1a\u672a\u53d1\u8868\u8bc4\u8bba\uff0c\u4e14\u822a\u7a7a\u516c\u53f8\u5df2\u6682\u505c\u98de\u5f80\u8be5\u5730\u7684\u822a\u73ed\u3002"
+          },
+          {
+            "article_id": 1301,
+            "claim": "\u80e1\u585e\u6b66\u88c5\u5bf9\u5229\u96c5\u5f97\u673a\u573a\u7684\u88ad\u51fb\u5bfc\u81f43\u4eba\u6b7b\u4ea1\uff0c\u8fd9\u8868\u660e\u4e5f\u95e8\u51b2\u7a81\u5df2\u8513\u5ef6\u81f3\u6c99\u7279\u9996\u90fd\uff0c\u6c99\u7279\u5728\u963b\u6b62\u6b64\u7c7b\u88ad\u51fb\u65b9\u9762\u9762\u4e34\u6311\u6218\u3002"
+          },
+          {
+            "article_id": 1210,
+            "claim": "\u6c99\u7279\u6c11\u822a\u5c40\u8868\u793a\uff0c\u80e1\u585e\u6b66\u88c5\u5bf9\u5229\u96c5\u5f97\u56fd\u9645\u673a\u573a\u53d1\u52a8\u4e86\u4e24\u8d77\u88ad\u51fb\uff0c\u9020\u6210\u4e09\u540d\u6c99\u7279\u516c\u6c11\u6b7b\u4ea1\u3002"
+          },
+          {
+            "article_id": 1436,
+            "claim": "\u6c99\u7279\u9886\u5bfc\u7684\u8054\u519b\u8a93\u8a00\u5bf9\u5bfc\u81f4\u4e09\u4eba\u6b7b\u4ea1\u7684\u673a\u573a\u88ad\u51fb\u8fdb\u884c\u201c\u5f3a\u786c\u201d\u56de\u5e94\uff0c\u5e76\u5df2\u5bf9\u80e1\u585e\u6b66\u88c5\u7684\u76ee\u6807\u5b9e\u65bd\u6253\u51fb\u3002"
+          },
+          {
+            "article_id": 1879,
+            "claim": "\u80e1\u585e\u6b66\u88c5\u4f7f\u7528\u5bfc\u5f39\u88ad\u51fb\u6c99\u7279\u591a\u4e2a\u673a\u573a\uff0c\u65e8\u5728\u5207\u65ad\u6c99\u7279\u4e0e\u5916\u754c\u7684\u8054\u7cfb\uff0c\u6b64\u4e3e\u8fdb\u4e00\u6b65\u5a01\u80c1\u6c99\u7279\u822a\u7a7a\u4e1a\u5e76\u9020\u6210\u4eba\u5458\u4f24\u4ea1\u3002"
+          },
+          {
+            "article_id": 736,
+            "claim": "\u4e5f\u95e8\u80e1\u585e\u6b66\u88c5\u7ec4\u7ec7\u6b63\u5728\u52a0\u5927\u5bf9\u6c99\u7279\u963f\u62c9\u4f2f\u673a\u573a\u3001\u70bc\u6cb9\u5382\u548c\u5176\u4ed6\u5173\u952e\u57fa\u7840\u8bbe\u65bd\u7684\u88ad\u51fb\u529b\u5ea6\uff0c\u4f5c\u4e3a\u4e5f\u95e8\u5185\u6218\u51b2\u7a81\u5347\u7ea7\u7684\u4e00\u90e8\u5206\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u5229\u96c5\u5f97\u673a\u573a\u88ad\u51fb\u4e2d\u5177\u4f53\u6b7b\u4ea1\u4eba\u6570\uff0c\u90e8\u5206\u6d88\u606f\u6765\u6e90\u786e\u5207\u6307\u51fa\u4e3a\u4e09\u4eba\u6b7b\u4ea1\uff0c\u800c\u53e6\u4e00\u4e9b\u5219\u672a\u5177\u4f53\u8bf4\u660e\u6216\u4ec5\u63d0\u53ca\u4eba\u5458\u4f24\u4ea1\u3002",
+            "claim_indexes": [
+              0,
+              2,
+              3,
+              5
+            ]
+          },
+          {
+            "point": "\u4e0d\u540c\u6587\u7ae0\u5bf9\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u6c99\u7279\u673a\u573a\u7684\u76ee\u7684\u548c\u5f71\u54cd\u6709\u4e0d\u540c\u4fa7\u91cd\u3002\u6709\u7684\u6587\u7ae0\u5f3a\u8c03\u88ad\u51fb\u9020\u6210\u7684\u4eba\u5458\u4f24\u4ea1\u548c\u673a\u573a\u5173\u95ed\uff0c\u6709\u7684\u5219\u5f3a\u8c03\u5176\u5bf9\u6c99\u7279\u7ecf\u6d4e\u548c\u56fd\u9645\u8054\u7cfb\u7684\u5a01\u80c1\uff0c\u8fd8\u6709\u7684\u5219\u8ba4\u4e3a\u8fd9\u662f\u4e5f\u95e8\u51b2\u7a81\u5347\u7ea7\u7684\u4f53\u73b0\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2,
+              5,
+              6
+            ]
+          },
+          {
+            "point": "\u90e8\u5206\u6587\u7ae0\u660e\u786e\u6307\u51fa\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u7684\u662f\u5229\u96c5\u5f97\u7684\u54c8\u7acb\u5fb7\u56fd\u738b\u56fd\u9645\u673a\u573a\uff0c\u800c\u53e6\u4e00\u4e9b\u6587\u7ae0\u5219\u6cdb\u6307\u6c99\u7279\u673a\u573a\uff0c\u5e76\u63d0\u53ca\u4e86\u5176\u4ed6\u673a\u573a\u7684\u88ad\u51fb\u4e8b\u4ef6\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2,
+              3,
+              5
+            ]
+          },
+          {
+            "point": "\u5173\u4e8e\u6c99\u7279\u65b9\u9762\u5bf9\u88ad\u51fb\u7684\u53cd\u5e94\uff0c\u6709\u6587\u7ae0\u63d0\u5230\u6c99\u7279\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\u5e76\u6062\u590d\u8fd0\u8425\uff0c\u4e5f\u6709\u6587\u7ae0\u63d0\u5230\u6c99\u7279\u9886\u5bfc\u7684\u8054\u519b\u8a93\u8a00\u5c06\u8fdb\u884c\u201c\u5f3a\u786c\u201d\u56de\u5e94\u5e76\u5df2\u5b9e\u65bd\u6253\u51fb\uff0c\u8fd8\u6709\u6587\u7ae0\u63d0\u5230\u6c99\u7279\u5c1a\u672a\u5bf9\u6b64\u7f6e\u8bc4\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              4
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 7,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 7,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 1345,
+          "summary": "\u4e5f\u95e8\u80e1\u585e\u6b66\u88c5\u8fd1\u671f\u591a\u6b21\u88ad\u51fb\u6c99\u7279\uff0c\u4ee5\u673a\u573a\u4e3a\u4e3b\u8981\u76ee\u6807\u3002\u6c99\u7279\u963f\u62c9\u4f2f\u5df2\u4e8e\u5468\u4e09\u91cd\u5f00\u9996\u90fd\u5229\u96c5\u5f97\u7684\u54c8\u7acb\u5fb7\u56fd\u738b\u56fd\u9645\u673a\u573a\uff0c\u6b64\u524d\u8be5\u673a\u573a\u906d\u5230\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\uff0c\u9020\u6210\u4e09\u4eba\u6b7b\u4ea1\u3002\u6c99\u7279\u65b9\u9762\u79f0\uff0c\u88ad\u51fb\u9020\u6210\u7684\u7834\u574f\u6709\u9650\uff0c\u673a\u573a\u5df2\u6062\u590d\u6b63\u5e38\u8fd0\u8425\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 62,
+          "summary": "\u80e1\u585e\u6b66\u88c5\u58f0\u79f0\u88ad\u51fb\u4e86\u6c99\u7279\u9996\u90fd\u5229\u96c5\u5f97\u7684\u673a\u573a\uff0c\u4f46\u672a\u63d0\u4f9b\u8bc1\u636e\u3002\u6c99\u7279\u65b9\u9762\u5c1a\u672a\u5bf9\u6b64\u7f6e\u8bc4\u3002\u6b64\u524d\uff0c\u8be5\u5730\u533a\u5df2\u6709\u822a\u7a7a\u516c\u53f8\u6682\u505c\u98de\u5f80\u5229\u96c5\u5f97\u7684\u822a\u73ed\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1301,
+          "summary": "\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u4e86\u6c99\u7279\u9996\u90fd\u5229\u96c5\u5f97\u7684\u673a\u573a\uff0c\u9020\u62103\u4eba\u6b7b\u4ea1\u3002\u6b64\u6b21\u88ad\u51fb\u6807\u5fd7\u7740\u4e5f\u95e8\u51b2\u7a81\u5df2\u6ce2\u53ca\u6c99\u7279\u9996\u90fd\u3002\u6c99\u7279\u963f\u62c9\u4f2f\u8868\u793a\uff0c\u4e3a\u963b\u6b62\u6b64\u7c7b\u88ad\u51fb\uff0c\u5176\u9009\u62e9\u6709\u9650\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1210,
+          "summary": "\u6c99\u7279\u6c11\u822a\u5c40\u79f0\uff0c\u80e1\u585e\u6b66\u88c5\u5728\u9996\u90fd\u5229\u96c5\u5f97\u56fd\u9645\u673a\u573a\u53d1\u52a8\u4e86\u4e24\u8d77\u88ad\u51fb\uff0c\u9020\u6210\u4e09\u540d\u6c99\u7279\u516c\u6c11\u6b7b\u4ea1\u3002\u6b64\u6b21\u88ad\u51fb\u4e8b\u4ef6\u53d1\u751f\u5728\u5229\u96c5\u5f97\u673a\u573a\u3002\u76ee\u524d\u5c1a\u4e0d\u6e05\u695a\u88ad\u51fb\u7684\u5177\u4f53\u7ec6\u8282\u548c\u4f24\u4ea1\u60c5\u51b5\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1436,
+          "summary": "\u4e5f\u95e8\u8428\u90a3\u56fd\u9645\u673a\u573a\u5728\u5468\u4e94\u906d\u5230\u88ad\u51fb\uff0c\u9020\u6210\u81f3\u5c113\u4eba\u6b7b\u4ea1\u3002\u6c99\u7279\u9886\u5bfc\u7684\u8054\u519b\u79f0\u5df2\u5bf9\u80e1\u585e\u6b66\u88c5\u4f7f\u7528\u7684\u76ee\u6807\u8fdb\u884c\u4e86\u6253\u51fb\u3002\u8054\u519b\u53d1\u8a00\u4eba\u8868\u793a\u5c06\u5bf9\u88ad\u51fb\u8fdb\u884c\u201c\u5f3a\u786c\u201d\u56de\u5e94\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1879,
+          "summary": "\u4e5f\u95e8\u80e1\u585e\u6b66\u88c5\u4f7f\u7528\u5bfc\u5f39\u88ad\u51fb\u4e86\u6c99\u7279\u7684\u591a\u4e2a\u673a\u573a\uff0c\u5305\u62ec\u6c99\u7279\u5357\u90e8\u7684\u963f\u535c\u54c8\u56fd\u9645\u673a\u573a\u548c\u5409\u8d5e\u673a\u573a\u3002\u88ad\u51fb\u53d1\u751f\u5728\u5468\u4e09\uff0c\u9020\u6210\u4e86\u81f3\u5c11\u4e00\u540d\u57c3\u53ca\u516c\u6c11\u6b7b\u4ea1\uff0c\u53e6\u6709\u6570\u4eba\u53d7\u4f24\u3002\u6b64\u6b21\u88ad\u51fb\u8fdb\u4e00\u6b65\u5a01\u80c1\u4e86\u6c99\u7279\u7684\u822a\u7a7a\u4e1a\uff0c\u8be5\u4ea7\u4e1a\u662f\u6c99\u7279\u7ecf\u6d4e\u589e\u957f\u7684\u91cd\u8981\u652f\u67f1\u4e4b\u4e00\u3002\u4e5f\u95e8\u51b2\u7a81\u5df2\u6301\u7eed\u591a\u5e74\uff0c\u6b64\u6b21\u88ad\u51fb\u662f\u80e1\u585e\u6b66\u88c5\u8bd5\u56fe\u8fdb\u4e00\u6b65\u5b64\u7acb\u6c99\u7279\u738b\u56fd\u7684\u6700\u65b0\u884c\u52a8\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 736,
+          "summary": "\u4e5f\u95e8\u80e1\u585e\u6b66\u88c5\u7ec4\u7ec7\u8fd1\u671f\u52a0\u5927\u4e86\u5bf9\u6c99\u7279\u963f\u62c9\u4f2f\u673a\u573a\u3001\u70bc\u6cb9\u5382\u53ca\u5176\u4ed6\u5173\u952e\u57fa\u7840\u8bbe\u65bd\u7684\u88ad\u51fb\u529b\u5ea6\u3002\u6b64\u6b21\u88ad\u51fb\u662f\u4e5f\u95e8\u5185\u6218\u51b2\u7a81\u5347\u7ea7\u7684\u4e00\u90e8\u5206\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "audit-366",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 1884,
+            "claim": "\u4e00\u4f19\u8499\u9762\u7a83\u8d3c\u5229\u7528\u516c\u53f8\u7684\u53c9\u8f66\u76d7\u8d70\u4e86\u7ea63\u4e07\u74f6\u9ad8\u6863\u8461\u8404\u9152\uff0c\u6d89\u6848\u91d1\u989d\u9ad8\u8fbe560\u4e07\u7f8e\u5143\u3002"
+          },
+          {
+            "article_id": 1085,
+            "claim": "\u610f\u5927\u5229\u8457\u540d\u9152\u5e84\u5b89\u63d0\u8bfa\u91cc\u906d\u9047\u76d7\u7a83\uff0c\u7ea63\u4e07\u74f6\u8461\u8404\u9152\u88ab\u76d7\uff0c\u4f30\u8ba1\u635f\u5931500\u4e07\u6b27\u5143\uff0c\u9152\u5e84\u65b9\u9762\u5df2\u5c31\u6b64\u4e8b\u53d1\u51fa\u8b66\u544a\u4ee5\u4fdd\u62a4\u5e02\u573a\u3002"
+          },
+          {
+            "article_id": 1378,
+            "claim": "\u81f3\u5c11\u4e03\u540d\u8499\u9762\u7a83\u8d3c\u4ece\u62e5\u6709\u6570\u767e\u5e74\u5386\u53f2\u7684Marchesi Antinori\u5bb6\u65cf\u9152\u5e84\u76d7\u8d70\u4e86\u4ef7\u503c\u7ea6500\u4e07\u6b27\u5143\u7684\u540d\u8d35\u8461\u8404\u9152\u3002"
+          },
+          {
+            "article_id": 1209,
+            "claim": "\u610f\u5927\u5229\u8457\u540d\u9152\u5e84Marchesi Antinori\u7684\u7ea63\u4e07\u74f6\u8461\u8404\u9152\u88ab\u76d7\uff0c\u603b\u4ef7\u503c\u7ea6\u4e3a500\u4e07\u6b27\u5143\u3002"
+          },
+          {
+            "article_id": 1550,
+            "claim": "\u610f\u5927\u5229\u6258\u65af\u5361\u7eb3\u53d1\u751f\u7279\u5927\u9152\u6848\uff0c\u591a\u8fbe10\u540d\u7a83\u8d3c\u76d7\u8d70\u4e86\u8d85\u8fc73\u4e07\u74f6\u9ad8\u54c1\u8d28\u610f\u5927\u5229\u7ea2\u9152\uff0c\u9020\u6210\u8d85\u8fc7500\u4e07\u7f8e\u5143\u7684\u635f\u5931\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u88ab\u76d7\u8461\u8404\u9152\u7684\u603b\u4ef7\u503c\uff0c\u5404\u6765\u6e90\u7ed9\u51fa\u4e86\u4e0d\u540c\u7684\u91d1\u989d\u4f30\u7b97\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "point": "\u5173\u4e8e\u6d89\u6848\u7a83\u8d3c\u7684\u5177\u4f53\u4eba\u6570\uff0c\u5404\u6765\u6e90\u7684\u63cf\u8ff0\u6709\u6240\u4e0d\u540c\u3002",
+            "claim_indexes": [
+              0,
+              2,
+              4
+            ]
+          },
+          {
+            "point": "\u5173\u4e8e\u76d7\u7a83\u6848\u53d1\u751f\u7684\u5177\u4f53\u9152\u5e84\u540d\u79f0\uff0c\u5404\u6765\u6e90\u63d0\u53ca\u7684\u7a0b\u5ea6\u548c\u65b9\u5f0f\u4e0d\u540c\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "point": "\u5173\u4e8e\u76d7\u7a83\u6848\u53d1\u751f\u7684\u5177\u4f53\u7ec6\u8282\uff0c\u5305\u62ec\u7a83\u8d3c\u5982\u4f55\u4f5c\u6848\uff0c\u90e8\u5206\u6765\u6e90\u63d0\u4f9b\u4e86\u989d\u5916\u4fe1\u606f\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 5,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 5,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 1884,
+          "summary": "\u610f\u5927\u5229\u7684\u4e00\u4f19\u8499\u9762\u7a83\u8d3c\u76d7\u8d70\u4e86\u7ea63\u4e07\u74f6\u9ad8\u6863\u8461\u8404\u9152\uff0c\u5305\u62ec\u73cd\u8d35\u7684\u7ea2\u9152\u3002\u7a83\u8d3c\u5229\u7528\u4e00\u5bb6\u516c\u53f8\u7684\u53c9\u8f66\u5b9e\u65bd\u4e86\u76d7\u7a83\uff0c\u6d89\u6848\u91d1\u989d\u9ad8\u8fbe560\u4e07\u7f8e\u5143\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1085,
+          "summary": "\u610f\u5927\u5229\u8457\u540d\u9152\u5e84\u5b89\u63d0\u8bfa\u91cc\uff08Antinori\uff09\u8fd1\u65e5\u906d\u9047\u76d7\u7a83\uff0c\u7ea63\u4e07\u74f6\u8461\u8404\u9152\u88ab\u76d7\uff0c\u4f30\u8ba1\u635f\u5931\u9ad8\u8fbe500\u4e07\u6b27\u5143\u3002\u9152\u5e84\u65b9\u9762\u5df2\u5c31\u6b64\u4e8b\u53d1\u51fa\u8b66\u544a\uff0c\u5e76\u5e0c\u671b\u901a\u8fc7\u63d0\u9192\u6f5c\u5728\u4e70\u5bb6\u6765\u4fdd\u62a4\u5e02\u573a\u514d\u53d7\u5047\u5192\u6216\u4e0d\u660e\u6765\u6e90\u4ea7\u54c1\u7684\u5f71\u54cd\u3002\u6b64\u6b21\u88ab\u76d7\u7684\u8461\u8404\u9152\u5e74\u4efd\u548c\u5177\u4f53\u54c1\u79cd\u5c1a\u672a\u516c\u5e03\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1378,
+          "summary": "\u81f3\u5c11\u4e03\u540d\u8499\u9762\u7a83\u8d3c\u95ef\u5165\u62e5\u6709\u6570\u767e\u5e74\u5386\u53f2\u7684Marchesi Antinori\u5bb6\u65cf\u9152\u5e84\u7684\u9152\u7a96\u3002\u4ed6\u4eec\u76d7\u8d70\u4e86\u4ef7\u503c\u7ea6500\u4e07\u6b27\u5143\u7684\u540d\u8d35\u8461\u8404\u9152\u3002\u6b64\u6b21\u76d7\u7a83\u53d1\u751f\u5728\u5468\u4e8c\u665a\u4e0a\uff0c\u5730\u70b9\u4f4d\u4e8e\u4f5b\u7f57\u4f26\u8428\u9644\u8fd1\u3002\u76ee\u524d\u8b66\u65b9\u6b63\u5728\u5bf9\u6848\u4ef6\u8fdb\u884c\u8c03\u67e5\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1209,
+          "summary": "\u636e\u610f\u5927\u5229\u5a92\u4f53\u62a5\u9053\uff0c\u610f\u5927\u5229\u8457\u540d\u9152\u5e84Marchesi Antinori\u8fd1\u65e5\u53d1\u751f\u76d7\u7a83\u6848\uff0c\u7ea63\u4e07\u74f6\u8461\u8404\u9152\u88ab\u76d7\u3002\u8fd9\u6279\u88ab\u76d7\u8461\u8404\u9152\u7684\u603b\u4ef7\u503c\u7ea6\u4e3a500\u4e07\u6b27\u5143\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1550,
+          "summary": "\u610f\u5927\u5229\u6258\u65af\u5361\u7eb3\u5730\u533a\u53d1\u751f\u4e00\u8d77\u540d\u9152\u76d7\u7a83\u6848\uff0c\u591a\u8fbe10\u540d\u7a83\u8d3c\u76d7\u8d70\u4e86\u8d85\u8fc73\u4e07\u74f6\u9ad8\u54c1\u8d28\u610f\u5927\u5229\u7ea2\u9152\u3002\u6b64\u6b21\u76d7\u7a83\u9020\u6210\u7684\u635f\u5931\u4f30\u8ba1\u8d85\u8fc7500\u4e07\u7f8e\u5143\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "audit-117",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 172,
+            "claim": "\u7f8e\u56fd\u603b\u7edf\u5510\u7eb3\u5fb7\u00b7\u7279\u6717\u666e\u8868\u793a\uff0c\u572811\u67083\u65e5\u7684\u4e2d\u671f\u9009\u4e3e\u4e4b\u524d\uff0c\u4ed6\u4e0d\u4f1a\u4e0b\u4ee4\u6062\u590d\u5bf9\u4f0a\u6717\u7684\u519b\u4e8b\u6253\u51fb\u3002"
+          },
+          {
+            "article_id": 610,
+            "claim": "\u7f8e\u56fd\u603b\u7edf\u7279\u6717\u666e\u8868\u793a\uff0c\u7f8e\u56fd\u5728\u4e2d\u671f\u9009\u4e3e\u524d\u201c\u4e0d\u4f1a\u653b\u51fb\u4f0a\u6717\u201d\uff0c\u5e76\u79f0\u534e\u76db\u987f\u4e0e\u5fb7\u9ed1\u5170\u6b63\u5728\u8fdb\u884c\u201c\u5bcc\u6709\u6210\u6548\u7684\u8ba8\u8bba\u201d\u3002"
+          },
+          {
+            "article_id": 1303,
+            "claim": "\u5c3d\u7ba1\u6709\u7f8e\u56fd\u5a92\u4f53\u62a5\u9053\u79f0\u7279\u6717\u666e\u53ef\u80fd\u5728\u4e2d\u671f\u9009\u4e3e\u524d\u6743\u8861\u6253\u51fb\u4f0a\u6717\uff0c\u4f46\u603b\u7edf\u5df2\u660e\u786e\u6392\u9664\u4e86\u8fd9\u4e00\u9009\u9879\u3002"
+          },
+          {
+            "article_id": 1885,
+            "claim": "\u7f8e\u56fd\u603b\u7edf\u7279\u6717\u666e\u6697\u793a\u5728\u4e2d\u671f\u9009\u4e3e\u524d\u5c06\u4e0d\u6253\u51fb\u4f0a\u6717\uff0c\u6b64\u756a\u8a00\u8bba\u53d1\u5e03\u540e\u6cb9\u4ef7\u5c0f\u5e45\u4e0a\u6da8\u3002"
+          },
+          {
+            "article_id": 885,
+            "claim": "\u636e\u62a5\u9053\uff0c\u7f8e\u56fd\u56fd\u9632\u90e8\u6b63\u5728\u8003\u8651\u5bf9\u4f0a\u6717\u53d1\u52a8\u88ad\u51fb\u7684\u9009\u9879\uff0c\u4e14\u6b64\u4e3e\u53ef\u80fd\u4f1a\u5728\u4e2d\u671f\u9009\u4e3e\u524d\u53d1\u751f\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u7f8e\u56fd\u662f\u5426\u4f1a\u5728\u4e2d\u671f\u9009\u4e3e\u524d\u5bf9\u4f0a\u6717\u8fdb\u884c\u519b\u4e8b\u6253\u51fb\uff0c\u4e0d\u540c\u6765\u6e90\u7684\u62a5\u9053\u5b58\u5728\u51b2\u7a81\uff1a\u6709\u7684\u660e\u786e\u6307\u51fa\u7279\u6717\u666e\u5df2\u6392\u9664\u6b64\u53ef\u80fd\u6027\uff0c\u800c\u6709\u7684\u5219\u79f0\u56fd\u9632\u90e8\u4ecd\u5728\u8003\u8651\u9009\u9879\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "point": "\u5173\u4e8e\u7f8e\u56fd\u4e0e\u4f0a\u6717\u4e4b\u95f4\u662f\u5426\u5b58\u5728\u5bf9\u8bdd\uff0c\u6709\u4e00\u7bc7\u6587\u7ae0\u63d0\u53ca\u4e24\u56fd\u6b63\u5728\u8fdb\u884c\u201c\u5bcc\u6709\u6210\u6548\u7684\u8ba8\u8bba\u201d\uff0c\u800c\u5176\u4ed6\u6587\u7ae0\u672a\u63d0\u53ca\u6216\u4fa7\u91cd\u4e8e\u519b\u4e8b\u884c\u52a8\u7684\u53ef\u80fd\u6027\u3002",
+            "claim_indexes": [
+              1,
+              4
+            ]
+          },
+          {
+            "point": "\u5bf9\u4e8e\u7279\u6717\u666e\u58f0\u660e\u5bf9\u6cb9\u4ef7\u7684\u5f71\u54cd\uff0c\u4e00\u7bc7\u62a5\u9053\u6307\u51fa\u6cb9\u4ef7\u5c0f\u5e45\u4e0a\u6da8\uff0c\u800c\u5176\u4ed6\u62a5\u9053\u672a\u63d0\u53ca\u7ecf\u6d4e\u5f71\u54cd\u3002",
+            "claim_indexes": [
+              3
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 5,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 5,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null,
+          null,
+          null
+        ],
+        "invalid_relations": 1,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 172,
+          "summary": "\u7f8e\u56fd\u603b\u7edf\u5510\u7eb3\u5fb7\u00b7\u7279\u6717\u666e\u4e8e2026\u5e7410\u67088\u65e5\u8868\u793a\uff0c\u572811\u67083\u65e5\u7684\u4e2d\u671f\u9009\u4e3e\u4e4b\u524d\uff0c\u4ed6\u4e0d\u4f1a\u4e0b\u4ee4\u6062\u590d\u5bf9\u4f0a\u6717\u7684\u519b\u4e8b\u6253\u51fb\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 610,
+          "summary": "\u7f8e\u56fd\u603b\u7edf\u7279\u6717\u666e\u8868\u793a\uff0c\u7f8e\u56fd\u5728\u4e2d\u671f\u9009\u4e3e\u524d\u201c\u4e0d\u4f1a\u653b\u51fb\u4f0a\u6717\u201d\u3002\u7279\u6717\u666e\u79f0\uff0c\u534e\u76db\u987f\u4e0e\u5fb7\u9ed1\u5170\u6b63\u5728\u8fdb\u884c\u201c\u5bcc\u6709\u6210\u6548\u7684\u8ba8\u8bba\u201d\uff0c\u4f46\u672a\u900f\u9732\u8ba8\u8bba\u7684\u5177\u4f53\u7ec6\u8282\u3002\u6b64\u756a\u8868\u6001\u662f\u5728\u6b64\u524d\u6709\u62a5\u9053\u79f0\u4f0a\u6717\u53ef\u80fd\u6b63\u51c6\u5907\u5bf9\u6c99\u7279\u963f\u62c9\u4f2f\u53d1\u52a8\u88ad\u51fb\u4e4b\u540e\u53d1\u8868\u7684\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1303,
+          "summary": "\u6709\u7f8e\u56fd\u5a92\u4f53\u62a5\u9053\u79f0\uff0c\u7279\u6717\u666e\u53ef\u80fd\u5728\u4e2d\u671f\u9009\u4e3e\u524d\u6743\u8861\u6253\u51fb\u4f0a\u6717\uff0c\u4f46\u603b\u7edf\u5df2\u6392\u9664\u6b64\u53ef\u80fd\u6027\u3002\u5c3d\u7ba1\u5b58\u5728\u8fd9\u4e9b\u62a5\u9053\uff0c\u7f8e\u56fd\u603b\u7edf\u5510\u7eb3\u5fb7\u00b7\u7279\u6717\u666e\u5df2\u660e\u786e\u6392\u9664\u4e86\u8fd9\u4e00\u9009\u9879\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1885,
+          "summary": "\u5728\u4e2d\u671f\u9009\u4e3e\u524d\uff0c\u7f8e\u56fd\u603b\u7edf\u7279\u6717\u666e\u6697\u793a\u5c06\u4e0d\u6253\u51fb\u4f0a\u6717\u3002\u6b64\u524d\uff0c\u6295\u8d44\u8005\u5bf9\u4f0a\u6717\u53ef\u80fd\u91c7\u53d6\u7684\u519b\u4e8b\u884c\u52a8\u548c\u822a\u8fd0\u98ce\u9669\u8868\u793a\u62c5\u5fe7\uff0c\u5bfc\u81f4\u6cb9\u4ef7\u51fa\u73b0\u6ce2\u52a8\u3002\u5728\u7279\u6717\u666e\u53d1\u8868\u6b64\u756a\u8a00\u8bba\u540e\uff0c\u6cb9\u4ef7\u5c0f\u5e45\u4e0a\u6da8\uff0c\u4ea4\u6613\u5458\u4eec\u6b63\u5728\u6743\u8861\u8fd9\u4e00\u58f0\u660e\u5bf9\u5e02\u573a\u7684\u5f71\u54cd\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 885,
+          "summary": "\u636e\u62a5\u9053\uff0c\u7f8e\u56fd\u56fd\u9632\u90e8\u6b63\u5728\u8003\u8651\u5bf9\u4f0a\u6717\u53d1\u52a8\u88ad\u51fb\u7684\u9009\u9879\uff0c\u4f46\u5c1a\u672a\u505a\u51fa\u6700\u7ec8\u51b3\u5b9a\u3002\u6b64\u4e3e\u53ef\u80fd\u4f1a\u5728\u4e2d\u671f\u9009\u4e3e\u524d\u53d1\u751f\u3002\u76ee\u524d\u5c1a\u4e0d\u6e05\u695a\u88ad\u51fb\u7684\u5177\u4f53\u76ee\u6807\u6216\u6027\u8d28\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "audit-1368",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 2035,
+            "claim": "2026\u5e74\u524d\u4e09\u5b63\u5ea6\uff0c\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a\u8fbe\u52301052\u4e07\u4eba\uff0c\u663e\u793a\u4e86\u4e2d\u56fd\u7ecf\u6d4e\u5728\u4fc3\u8fdb\u5c31\u4e1a\u65b9\u9762\u7684\u7a33\u5b9a\u8868\u73b0\u3002"
+          },
+          {
+            "article_id": 1803,
+            "claim": "\u4e2d\u56fd\u5b98\u65b9\u8868\u793a\u4eca\u5e74\u524d\u4e09\u5b63\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\uff0c\u5c31\u4e1a\u5f62\u52bf\u603b\u4f53\u7a33\u5b9a\uff0c\u5e76\u8ba1\u5212\u5f00\u5c55\u9002\u5e94\u4eba\u5de5\u667a\u80fd\u53d1\u5c55\u548c\u519c\u6c11\u5de5\u7684\u4fc3\u5c31\u4e1a\u884c\u52a8\u4ee5\u5e94\u5bf9\u5c31\u4e1a\u7ed3\u6784\u53d8\u5316\u3002"
+          },
+          {
+            "article_id": 1795,
+            "claim": "\u4eca\u5e741\u6708\u81f39\u6708\uff0c\u4e2d\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\uff0c\u4eba\u529b\u8d44\u6e90\u793e\u4f1a\u4fdd\u969c\u90e8\u5728\u65b0\u95fb\u53d1\u5e03\u4f1a\u4e0a\u4ecb\u7ecd\u4e86\u4fc3\u8fdb\u5c31\u4e1a\u548c\u793e\u4f1a\u4fdd\u969c\u9ad8\u8d28\u91cf\u53d1\u5c55\u7684\u60c5\u51b5\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u300a\u8054\u5408\u65e9\u62a5\u300b\u5f3a\u8c03\u4e86\u4e2d\u56fd\u5b98\u65b9\u9488\u5bf9\u4eba\u5de5\u667a\u80fd\u53d1\u5c55\u548c\u519c\u6c11\u5de5\u5c31\u4e1a\u63a8\u51fa\u7684\u5177\u4f53\u4fc3\u5c31\u4e1a\u884c\u52a8\uff0c\u800c\u65b0\u534e\u793e\u548c36\u6c2a\u65b0\u95fb\u5feb\u8baf\u5219\u672a\u63d0\u53ca\u8fd9\u4e9b\u672a\u6765\u8ba1\u5212\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 2035,
+          "summary": "2026\u5e74\u524d\u4e09\u5b63\u5ea6\uff0c\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a\u8fbe1052\u4e07\u4eba\u3002\u8fd9\u4e00\u6570\u636e\u53cd\u6620\u4e86\u4e2d\u56fd\u7ecf\u6d4e\u5728\u4fc3\u8fdb\u5c31\u4e1a\u65b9\u9762\u7684\u7a33\u5b9a\u8868\u73b0\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1803,
+          "summary": "\u4e2d\u56fd\u5b98\u65b9\u5ba3\u5e03\uff0c\u4eca\u5e74\u524d\u4e09\u5b63\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\uff0c\u5c31\u4e1a\u5f62\u52bf\u603b\u4f53\u7a33\u5b9a\u3002\u4e3a\u8fdb\u4e00\u6b65\u4fc3\u8fdb\u5c31\u4e1a\uff0c\u5c06\u5f00\u5c55\u9002\u5e94\u4eba\u5de5\u667a\u80fd\u53d1\u5c55\u7684\u4fc3\u5c31\u4e1a\u884c\u52a8\u548c\u519c\u6c11\u5de5\u5c31\u4e1a\u4fc3\u8fdb\u884c\u52a8\u3002\u6b64\u4e3e\u65e8\u5728\u5e94\u5bf9\u4eba\u5de5\u667a\u80fd\u53d1\u5c55\u53ef\u80fd\u5e26\u6765\u7684\u5c31\u4e1a\u7ed3\u6784\u53d8\u5316\uff0c\u5e76\u5de9\u56fa\u548c\u63d0\u5347\u519c\u6c11\u5de5\u7684\u5c31\u4e1a\u80fd\u529b\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 1795,
+          "summary": "\u4eca\u5e741\u81f39\u6708\uff0c\u6211\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\u3002\u4eba\u529b\u8d44\u6e90\u793e\u4f1a\u4fdd\u969c\u90e8\u76f8\u5173\u8d1f\u8d23\u4eba\u5728\u65b0\u95fb\u53d1\u5e03\u4f1a\u4e0a\u4ecb\u7ecd\u4e86\u63a8\u8fdb\u5c31\u4e1a\u548c\u793e\u4f1a\u4fdd\u969c\u9ad8\u8d28\u91cf\u53d1\u5c55\u7684\u60c5\u51b5\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "sparse-video",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10010,
+            "claim": "\u4e00\u90e8\u95e8\u62a5\u544a\u65b0\u589e\u4e861052\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002"
+          },
+          {
+            "article_id": 10011,
+            "claim": "\u4e00\u90e8\u95e8\u62a5\u544a\u79f0\uff0c\u5171\u65b0\u589e\u4e861052\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002"
+          },
+          {
+            "article_id": 10012,
+            "claim": "\u67d0\u90e8\u95e8\u62a5\u544a\u79f0\uff0c\u65b0\u589e\u4e861052\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10010,
+          "summary": "\u4e00\u90e8\u95e8\u62a5\u544a\u65b0\u589e\u4e861052\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10011,
+          "summary": "\u4e00\u90e8\u95e8\u62a5\u544a\u79f0\uff0c\u5171\u65b0\u589e\u4e861052\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10012,
+          "summary": "\u67d0\u90e8\u95e8\u62a5\u544a\u79f0\uff0c\u65b0\u589e\u4e861052\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "same-fact",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10020,
+            "claim": "\u516c\u4ea4\u670d\u52a1\u5728\u7ef4\u4fee\u540e\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002"
+          },
+          {
+            "article_id": 10021,
+            "claim": "\u516c\u4ea4\u670d\u52a1\u5df2\u4e8e\u4e0a\u53489\u70b9\u4fee\u590d\u540e\u91cd\u65b0\u5f00\u653e\u3002"
+          },
+          {
+            "article_id": 10022,
+            "claim": "\u516c\u4ea4\u670d\u52a1\u5df2\u4e8e\u4e0a\u534809:00\u5b8c\u6210\u7ef4\u4fee\u5e76\u91cd\u65b0\u5f00\u653e\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10020,
+          "summary": "\u516c\u4ea4\u670d\u52a1\u5728\u7ef4\u4fee\u540e\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10021,
+          "summary": "\u516c\u4ea4\u670d\u52a1\u5df2\u4e8e\u4e0a\u53489\u70b9\u4fee\u590d\u540e\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10022,
+          "summary": "\u516c\u4ea4\u670d\u52a1\u5df2\u4e8e\u4e0a\u534809:00\u5b8c\u6210\u7ef4\u4fee\u5e76\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "plan-v-decision",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10030,
+            "claim": "\u519b\u4e8b\u89c4\u5212\u8005\u6b63\u5728\u8003\u8651\u51e0\u4e2a\u9009\u9879\uff0c\u4f46\u5c1a\u672a\u505a\u51fa\u4efb\u4f55\u51b3\u5b9a\u3002"
+          },
+          {
+            "article_id": 10031,
+            "claim": "\u603b\u7edf\u8868\u793a\u5728\u9009\u4e3e\u524d\u4e0d\u4f1a\u4e0b\u4ee4\u8fdb\u884c\u4efb\u4f55\u519b\u4e8b\u884c\u52a8\uff0c\u5177\u4f53\u9009\u9879\u4ecd\u5728\u5ba1\u8bae\u4e2d\u3002"
+          },
+          {
+            "article_id": 10032,
+            "claim": "\u653f\u5e9c\u5c1a\u672a\u6279\u51c6\u4efb\u4f55\u884c\u52a8\uff0c\u5b98\u5458\u4eec\u6b63\u5728\u5ba1\u89c6\u5404\u79cd\u53ef\u80fd\u6027\uff0c\u89c4\u5212\u4ecd\u5728\u8fdb\u884c\u4e2d\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010031\u660e\u786e\u6307\u51fa\u603b\u7edf\u5df2\u58f0\u660e\u5728\u9009\u4e3e\u524d\u4e0d\u4f1a\u4e0b\u4ee4\u8fdb\u884c\u519b\u4e8b\u884c\u52a8\uff0c\u800c\u6587\u7ae010030\u548c10032\u5219\u6ca1\u6709\u63d0\u53ca\u8fd9\u4e00\u5177\u4f53\u7684\u65f6\u95f4\u9650\u5236\u6216\u603b\u7edf\u7684\u8868\u6001\uff0c\u4ec5\u7b3c\u7edf\u8bf4\u660e\u5c1a\u672a\u505a\u51fa\u51b3\u5b9a\u6216\u5c1a\u672a\u6279\u51c6\u884c\u52a8\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10030,
+          "summary": "\u519b\u4e8b\u89c4\u5212\u8005\u6b63\u5728\u8003\u8651\u51e0\u4e2a\u9009\u9879\u3002\u76ee\u524d\u5c1a\u672a\u505a\u51fa\u4efb\u4f55\u51b3\u5b9a\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10031,
+          "summary": "\u603b\u7edf\u8868\u793a\uff0c\u5728\u9009\u4e3e\u524d\u4e0d\u4f1a\u4e0b\u4ee4\u8fdb\u884c\u4efb\u4f55\u519b\u4e8b\u884c\u52a8\u3002\u5177\u4f53\u9009\u9879\u4ecd\u5728\u5ba1\u8bae\u4e2d\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10032,
+          "summary": "\u76ee\u524d\u5c1a\u5728\u89c4\u5212\u4e2d\uff0c\u653f\u5e9c\u5c1a\u672a\u6279\u51c6\u4efb\u4f55\u884c\u52a8\u3002\u5b98\u5458\u4eec\u6b63\u5728\u5ba1\u89c6\u5404\u79cd\u53ef\u80fd\u6027\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "temporal-update",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10040,
+            "claim": "\u673a\u573a\u5728\u4e0a\u53488\u70b9\u6682\u505c\u4e86\u822a\u73ed\uff0c\u4f46\u968f\u540e\u91cd\u65b0\u5f00\u653e\u3002"
+          },
+          {
+            "article_id": 10041,
+            "claim": "\u673a\u573a\u5728\u5b89\u5168\u68c0\u67e5\u540e\u4e8e\u4e0a\u534811\u70b9\u6062\u590d\u822a\u73ed\u3002"
+          },
+          {
+            "article_id": 10042,
+            "claim": "\u673a\u573a\u4e8e\u4e0a\u534811\u70b9\u6062\u590d\u4e86\u822a\u73ed\u8fd0\u8425\uff0c\u6b64\u524d\u66fe\u56e0\u6545\u6682\u505c\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010040\u660e\u786e\u6307\u51fa\u822a\u73ed\u6682\u505c\u53d1\u751f\u5728\u4e0a\u53488\u70b9\uff0c\u800c\u5176\u4ed6\u6587\u7ae0\u4ec5\u63d0\u53ca\u822a\u73ed\u6062\u590d\u7684\u65f6\u95f4\u70b9\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "point": "\u6587\u7ae010041\u63d0\u4f9b\u4e86\u822a\u73ed\u6062\u590d\u7684\u539f\u56e0\u662f\u201c\u5b89\u5168\u68c0\u67e5\u201d\uff0c\u800c\u6587\u7ae010040\u548c10042\u6ca1\u6709\u8bf4\u660e\u6682\u505c\u7684\u5177\u4f53\u539f\u56e0\u6216\u6062\u590d\u7684\u524d\u63d0\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null,
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10040,
+          "summary": "\u673a\u573a\u5728\u4e0a\u53488\u70b9\u6682\u505c\u4e86\u822a\u73ed\uff0c\u968f\u540e\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10041,
+          "summary": "\u673a\u573a\u5728\u5b89\u5168\u68c0\u67e5\u540e\u4e8e\u4e0a\u534811\u70b9\u6062\u590d\u822a\u73ed\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10042,
+          "summary": "\u673a\u573a\u4e8e\u4e0a\u534811\u70b9\u6062\u590d\u4e86\u822a\u73ed\u8fd0\u8425\uff0c\u6b64\u524d\u66fe\u56e0\u6545\u6682\u505c\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "currency",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10050,
+            "claim": "\u4e00\u6279\u8ca8\u7269\u7684\u50f9\u503c\u4f30\u8a08\u7d04\u70ba\u4e94\u767e\u842c\u6b50\u5143\u3002"
+          },
+          {
+            "article_id": 10051,
+            "claim": "\u8a72\u6279\u8ca8\u7269\u7684\u50f9\u503c\u4f30\u8a08\u7d04\u70ba560\u842c\u7f8e\u5143\u3002"
+          },
+          {
+            "article_id": 10052,
+            "claim": "\u8ca8\u7269\u4ee5\u4e0d\u540c\u7684\u8ca8\u5e63\u548c\u4e0d\u540c\u7684\u7cbe\u78ba\u5ea6\u9032\u884c\u4f30\u503c\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u95dc\u65bc\u8ca8\u7269\u50f9\u503c\u7684\u5177\u9ad4\u6578\u5b57\u548c\u8a08\u50f9\u8ca8\u5e63\uff0c\u4e0d\u540c\u7684\u6d88\u606f\u4f86\u6e90\u6709\u4e0d\u540c\u7684\u8aaa\u6cd5\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10050,
+          "summary": "\u4e00\u6279\u8ca8\u7269\u7684\u50f9\u503c\u7d04\u70ba\u4e94\u767e\u842c\u6b50\u5143\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10051,
+          "summary": "\u8be5\u6279\u8d27\u7269\u4ef7\u503c\u7ea6\u5408560\u4e07\u7f8e\u5143\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10052,
+          "summary": "\u8d27\u7269\u4ee5\u4e0d\u540c\u8d27\u5e01\u548c\u4e0d\u540c\u7cbe\u5ea6\u8fdb\u884c\u4f30\u503c\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "missing-is-not-denial",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10060,
+            "claim": "\u98ce\u66b4\u5df2\u9020\u6210\u516d\u4eba\u53d7\u4f24\u3002"
+          },
+          {
+            "article_id": 10061,
+            "claim": "\u98ce\u66b4\u9020\u6210\u591a\u4eba\u53d7\u4f24\uff0c\u5e76\u5f15\u53d1\u6d2a\u6c34\u7834\u574f\u4e86\u623f\u5c4b\u548c\u9053\u8def\u3002"
+          },
+          {
+            "article_id": 10062,
+            "claim": "\u98ce\u66b4\u5df2\u9020\u6210\u4eba\u5458\u53d7\u4f24\uff0c\u6d2a\u6c34\u8fc7\u540e\u6551\u63f4\u884c\u52a8\u4ecd\u5728\u7ee7\u7eed\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae0\u5bf9\u4e8e\u5177\u4f53\u7684\u53d7\u4f24\u4eba\u6570\u63cf\u8ff0\u4e0d\u540c\u3002\u6587\u7ae010060\u660e\u786e\u4e86\u53d7\u4f24\u4eba\u6570\u4e3a\u516d\u4eba\uff0c\u800c\u6587\u7ae010061\u548c10062\u5747\u672a\u63d0\u4f9b\u5177\u4f53\u7684\u53d7\u4f24\u4eba\u6570\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "point": "\u6587\u7ae010061\u63d0\u53ca\u98ce\u66b4\u5bfc\u81f4\u623f\u5c4b\u548c\u9053\u8def\u906d\u5230\u6d2a\u6c34\u7834\u574f\uff0c\u800c\u6587\u7ae010060\u548c10062\u5747\u672a\u63d0\u53ca\u8d22\u4ea7\u635f\u5931\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          },
+          {
+            "point": "\u6587\u7ae010062\u5f3a\u8c03\u4e86\u98ce\u66b4\u540e\u7684\u6551\u63f4\u884c\u52a8\u4ecd\u5728\u7ee7\u7eed\uff0c\u800c\u6587\u7ae010060\u548c10061\u5747\u672a\u63d0\u53ca\u6551\u63f4\u884c\u52a8\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null,
+          null,
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10060,
+          "summary": "\u4e00\u573a\u98ce\u66b4\u5bfc\u81f4\u516d\u4eba\u53d7\u4f24\u3002\u6709\u5173\u90e8\u95e8\u5df2\u7ecf\u786e\u8ba4\u4e86\u53d7\u4f24\u4eba\u6570\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10061,
+          "summary": "\u4e00\u573a\u98ce\u66b4\u9020\u6210\u591a\u4eba\u53d7\u4f24\uff0c\u5e76\u5f15\u53d1\u6d2a\u6c34\uff0c\u5bfc\u81f4\u623f\u5c4b\u548c\u9053\u8def\u906d\u5230\u7834\u574f\u3002\u5177\u4f53\u4f24\u4ea1\u4eba\u6570\u548c\u8d22\u4ea7\u635f\u5931\u6570\u5b57\u672a\u5728\u6587\u672c\u4e2d\u63d0\u4f9b\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10062,
+          "summary": "\u98ce\u66b4\u5df2\u9020\u6210\u4eba\u5458\u53d7\u4f24\uff0c\u6d2a\u6c34\u8fc7\u540e\u6551\u63f4\u884c\u52a8\u4ecd\u5728\u7ee7\u7eed\u3002\u76ee\u524d\u5c1a\u672a\u516c\u5e03\u5177\u4f53\u7684\u53d7\u4f24\u4eba\u6570\u3002\u76f8\u5173\u90e8\u95e8\u6b63\u5728\u6293\u7d27\u65f6\u95f4\u8fdb\u884c\u6551\u63f4\u5de5\u4f5c\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "genuine-count-conflict",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10070,
+            "claim": "\u5730\u70b9A\u4e2d\u534812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u663e\u793a\u67093\u4eba\u53d7\u4f24\u3002"
+          },
+          {
+            "article_id": 10071,
+            "claim": "\u5730\u70b9A\u4e2d\u534812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u663e\u793a\u67098\u4eba\u53d7\u4f24\u3002"
+          },
+          {
+            "article_id": 10072,
+            "claim": "\u5728\u5730\u70b9A\uff0c\u4e24\u5bb6\u673a\u6784\u5bf9\u4e2d\u534812\u70b9\u7684\u6700\u7ec8\u8ba1\u7968\u6570\u5b58\u5728\u4e89\u8bae\uff0c\u4f46\u5177\u4f53\u4e89\u8bae\u5185\u5bb9\u548c\u6d89\u53ca\u7684\u8ba1\u7968\u6570\u989d\u5c1a\u672a\u62ab\u9732\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u5730\u70b9A\u4e2d\u534812:00\u7684\u6700\u7ec8\u53d7\u4f24\u4eba\u6570\uff0c\u5404\u62a5\u9053\u7ed9\u51fa\u4e86\u4e0d\u540c\u7684\u5177\u4f53\u6570\u5b57\u3002\u540c\u65f6\uff0c\u6709\u4e00\u7bc7\u62a5\u9053\u6307\u51fa\u8be5\u6570\u5b57\u5b58\u5728\u4e89\u8bae\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10070,
+          "summary": "\u5730\u70b9 A \u5728\u4e2d\u5348 12:00 \u7684\u6700\u7ec8\u7edf\u8ba1\u663e\u793a\u6709 3 \u4eba\u53d7\u4f24\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10071,
+          "summary": "\u5730\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u663e\u793a\u67098\u4eba\u53d7\u4f24\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10072,
+          "summary": "\u5728\u67d0\u5730\u70b9 A\uff0c\u4e24\u5bb6\u673a\u6784\u5bf9\u4e2d\u534812\u70b9\u7684\u6700\u7ec8\u8ba1\u7968\u6570\u5b58\u5728\u4e89\u8bae\u3002\u5177\u4f53\u4e89\u8bae\u5185\u5bb9\u548c\u6d89\u53ca\u7684\u8ba1\u7968\u6570\u989d\u5c1a\u672a\u62ab\u9732\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "historical-year",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10080,
+            "claim": "\u4e00\u9879\u5386\u53f2\u8c03\u67e5\u57282023\u5e74\u6536\u96c6\u4e86\u89c2\u5bdf\u6570\u636e\uff0c\u76ee\u7684\u662f\u56de\u987e\u5386\u53f2\u6570\u636e\u3002"
+          },
+          {
+            "article_id": 10081,
+            "claim": "\u4e00\u9879\u5386\u53f2\u8c03\u67e5\u6b63\u5728\u8fdb\u884c\u56de\u987e\uff0c\u7814\u7a76\u4f7f\u7528\u4e862023\u5e74\u7684\u8bb0\u5f55\u3002"
+          },
+          {
+            "article_id": 10082,
+            "claim": "\u4e00\u4efd\u65b0\u62a5\u544a\u8ba8\u8bba\u4e862023\u5e74\u8bb0\u5f55\u7684\u89c2\u6d4b\u7ed3\u679c\uff0c\u5e76\u5bf9\u5386\u53f2\u8c03\u67e5\u8fdb\u884c\u4e86\u56de\u987e\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10080,
+          "summary": "\u4e00\u9879\u5386\u53f2\u8c03\u67e5\u57282023\u5e74\u6536\u96c6\u4e86\u89c2\u5bdf\u6570\u636e\u3002\u8be5\u8c03\u67e5\u7684\u76ee\u7684\u662f\u56de\u987e\u5386\u53f2\u6570\u636e\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10081,
+          "summary": "\u4e00\u9879\u5386\u53f2\u8c03\u67e5\u6b63\u5728\u8fdb\u884c\u56de\u987e\u3002\u8be5\u7814\u7a76\u4f7f\u7528\u4e86 2023 \u5e74\u7684\u8bb0\u5f55\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10082,
+          "summary": "\u4e00\u4efd\u65b0\u62a5\u544a\u8ba8\u8bba\u4e862023\u5e74\u8bb0\u5f55\u7684\u89c2\u6d4b\u7ed3\u679c\u3002\u8be5\u62a5\u544a\u5bf9\u5386\u53f2\u8c03\u67e5\u8fdb\u884c\u4e86\u56de\u987e\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "publication-not-event-year",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10090,
+            "claim": "\u67d0\u6865\u6881\u4e8e\u5468\u4e8c\u5f00\u653e\u3002"
+          },
+          {
+            "article_id": 10091,
+            "claim": "\u4e00\u5ea7\u6865\u6881\u5728\u5b8c\u6210\u4fee\u590d\u5de5\u4f5c\u540e\u91cd\u65b0\u5f00\u653e\u3002"
+          },
+          {
+            "article_id": 10092,
+            "claim": "\u5728\u6865\u6881\u91cd\u65b0\u5f00\u653e\u540e\uff0c\u5f53\u5730\u4ea4\u901a\u6062\u590d\u6b63\u5e38\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10090,
+          "summary": "\u4e00\u5ea7\u6865\u6881\u4e8e\u5468\u4e8c\u5f00\u653e\u3002\u62a5\u9053\u4e2d\u672a\u63d0\u53ca\u5177\u4f53\u5e74\u4efd\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10091,
+          "summary": "\u4e00\u5ea7\u6865\u6881\u5728\u5b8c\u6210\u4fee\u590d\u5de5\u4f5c\u540e\u91cd\u65b0\u5f00\u653e\u3002\u62a5\u544a\u4e2d\u672a\u63d0\u53ca\u5177\u4f53\u5e74\u4efd\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10092,
+          "summary": "\u5728\u6865\u6881\u91cd\u65b0\u5f00\u653e\u540e\uff0c\u5f53\u5730\u4ea4\u901a\u6062\u590d\u6b63\u5e38\u3002\u62a5\u544a\u4e2d\u9057\u6f0f\u4e86\u4e8b\u6545\u53d1\u751f\u7684\u5e74\u4efd\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "different-sites",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10100,
+            "claim": "\u62a5\u544a\u79f0\u5728A\u5730\u6709\u4e09\u4eba\u53d7\u4f24\u3002"
+          },
+          {
+            "article_id": 10101,
+            "claim": "\u62a5\u544a\u6307\u51fa\u5728B\u5730\u6709\u516b\u4eba\u53d7\u4f24\u3002"
+          },
+          {
+            "article_id": 10102,
+            "claim": "\u8be5\u62a5\u544a\u4ec5\u63d0\u53ca\u4e8b\u4ef6\u53d1\u751f\u5728\u4e24\u4e2a\u4e0d\u540c\u5730\u70b9\uff0c\u672a\u8bf4\u660e\u662f\u5426\u6709\u4eba\u5458\u53d7\u4f24\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5404\u6d88\u606f\u6765\u6e90\u5bf9\u4e8e\u53d7\u4f24\u4eba\u6570\u4ee5\u53ca\u53d7\u4f24\u5730\u70b9\u5b58\u5728\u5206\u6b67\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10100,
+          "summary": "\u4e8b\u4ef6\u53d1\u751f\u5728A\u3001B\u4e24\u5904\u5730\u70b9\u3002\u5176\u4e2d\uff0c\u5728A\u5730\u70b9\u6709\u4e09\u4eba\u53d7\u4f24\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10101,
+          "summary": "\u4e8b\u6545\u53d1\u751f\u5728\u4e24\u4e2a\u5730\u70b9\u3002\u5730\u70b9B\u6709\u516b\u4eba\u53d7\u4f24\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10102,
+          "summary": "\u62a5\u544a\u6d89\u53ca\u4e24\u4e2a\u4e0d\u540c\u7684\u5730\u70b9\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "different-populations",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10110,
+            "claim": "\u8be5\u5e02\u5728\u5236\u9020\u4e1a\u65b0\u589e\u4e86100\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002"
+          },
+          {
+            "article_id": 10111,
+            "claim": "\u8be5\u5e02\u6240\u6709\u884c\u4e1a\u7684\u5c31\u4e1a\u4eba\u6570\u589e\u52a0\u4e86300\u4eba\u3002"
+          },
+          {
+            "article_id": 10112,
+            "claim": "\u5236\u9020\u4e1a\u662f\u6574\u4f53\u5c31\u4e1a\u6570\u5b57\u7684\u4e00\u90e8\u5206\uff0c\u5f3a\u8c03\u4e86\u5176\u4f5c\u4e3a\u6574\u4f53\u5c31\u4e1a\u7ec4\u6210\u90e8\u5206\u7684\u5730\u4f4d\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae0\u62a5\u9053\u7684\u5c31\u4e1a\u589e\u957f\u603b\u6570\u548c\u8303\u56f4\u4e0d\u540c\u3002\u4e00\u7bc7\u62a5\u544a\u4e86\u5236\u9020\u4e1a\u7684\u5177\u4f53\u589e\u957f\uff0c\u800c\u53e6\u4e00\u7bc7\u5219\u62a5\u544a\u4e86\u6240\u6709\u884c\u4e1a\u7684\u6574\u4f53\u589e\u957f\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10110,
+          "summary": "\u8be5\u5e02\u5728\u5236\u9020\u4e1a\u65b0\u589e\u4e86100\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002\u5c31\u4e1a\u4eba\u6570\u7684\u7edf\u8ba1\u8303\u56f4\u53ef\u80fd\u6709\u6240\u4e0d\u540c\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10111,
+          "summary": "\u8be5\u5e02\u6240\u6709\u884c\u4e1a\u7684\u5c31\u4e1a\u4eba\u6570\u589e\u52a0\u4e86300\u4eba\u3002\u6b64\u4fe1\u606f\u6d89\u53ca\u57ce\u5e02\u6574\u4f53\u5c31\u4e1a\u6570\u636e\uff0c\u4f46\u672a\u6307\u660e\u5177\u4f53\u884c\u4e1a\u6216\u516c\u53f8\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10112,
+          "summary": "\u5236\u9020\u4e1a\u662f\u6574\u4f53\u5c31\u4e1a\u6570\u5b57\u7684\u4e00\u90e8\u5206\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "forecast-v-observed",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10120,
+            "claim": "\u6b64\u62a5\u9053\u5f3a\u8c03\u9884\u62a5\u4e8650\u6beb\u7c73\u7684\u964d\u96e8\u91cf\uff0c\u5e76\u6307\u51fa\u9884\u62a5\u4e0e\u5b9e\u9645\u89c2\u6d4b\u662f\u4e0d\u540c\u7684\u6982\u5ff5\u3002"
+          },
+          {
+            "article_id": 10121,
+            "claim": "\u6b64\u62a5\u9053\u79f0\u98ce\u66b4\u540e\u8bb0\u5f55\u7684\u964d\u96e8\u91cf\u4e3a30\u6beb\u7c73\uff0c\u5e76\u63d0\u53ca\u8fd9\u4e0e\u4e4b\u524d\u7684\u9884\u6d4b\u4e0d\u540c\u3002"
+          },
+          {
+            "article_id": 10122,
+            "claim": "\u6b64\u62a5\u9053\u6307\u51fa\u5b9e\u9645\u89c2\u6d4b\u5230\u7684\u964d\u96e8\u91cf\u4f4e\u4e8e\u4e4b\u524d\u7684\u9884\u6d4b\u503c\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010120\u63d0\u53ca\u7684\u964d\u96e8\u9884\u6d4b\u91cf\u4e3a50\u6beb\u7c73\uff0c\u800c\u6587\u7ae010121\u5219\u660e\u786e\u8bb0\u5f55\u4e86\u5b9e\u9645\u964d\u96e8\u91cf\u4e3a30\u6beb\u7c73\u3002\u6587\u7ae010122\u4ec5\u6307\u51fa\u89c2\u6d4b\u503c\u4f4e\u4e8e\u9884\u6d4b\u503c\uff0c\u4f46\u6ca1\u6709\u63d0\u4f9b\u5177\u4f53\u7684\u9884\u6d4b\u6216\u89c2\u6d4b\u6570\u636e\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10120,
+          "summary": "\u9884\u62a5\u79f0\u5c06\u670950\u6beb\u7c73\u7684\u964d\u96e8\u91cf\uff0c\u4f46\u5b9e\u9645\u89c2\u6d4b\u7ed3\u679c\u4e0e\u6b64\u4e0d\u540c\u3002\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u9884\u62a5\u548c\u89c2\u6d4b\u662f\u4e24\u4e2a\u4e0d\u540c\u7684\u6982\u5ff5\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10121,
+          "summary": "\u98ce\u66b4\u8fc7\u540e\uff0c\u8bb0\u5f55\u7684\u964d\u96e8\u91cf\u4e3a30\u6beb\u7c73\u3002\u8fd9\u4e0e\u6b64\u524d\u7684\u9884\u6d4b\u6709\u6240\u4e0d\u540c\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10122,
+          "summary": "\u5b9e\u9645\u89c2\u6d4b\u5230\u7684\u6570\u503c\u4f4e\u4e8e\u4e86\u4e4b\u524d\u7684\u9884\u6d4b\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "attribution",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10130,
+            "claim": "\u4e00\u5bb6\u516c\u53f8\u6307\u63a7\u4f9b\u5e94\u5546\u8fdd\u53cd\u4e86\u5408\u540c\u3002"
+          },
+          {
+            "article_id": 10131,
+            "claim": "\u4f9b\u5e94\u5546\u5426\u8ba4\u4e86\u9488\u5bf9\u4ed6\u7684\u6307\u63a7\u3002"
+          },
+          {
+            "article_id": 10132,
+            "claim": "\u76ee\u524d\u5c1a\u672a\u6709\u6cd5\u5ead\u88c1\u5b9a\u662f\u5426\u5b58\u5728\u8fdd\u6cd5\u884c\u4e3a\uff0c\u56e0\u6b64\u6307\u63a7\u7684\u771f\u5b9e\u6027\u4ecd\u672a\u5f97\u5230\u8bc1\u5b9e\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10130,
+          "summary": "\u4e00\u5bb6\u516c\u53f8\u6307\u63a7\u5176\u4f9b\u5e94\u5546\u8fdd\u53cd\u4e86\u5408\u540c\u3002\u76ee\u524d\u8be5\u6307\u63a7\u5c1a\u672a\u5f97\u5230\u8bc1\u5b9e\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10131,
+          "summary": "\u4e00\u540d\u4f9b\u5e94\u5546\u5426\u8ba4\u4e86\u9488\u5bf9\u4ed6\u7684\u6307\u63a7\u3002\u76ee\u524d\u8be5\u6307\u63a7\u5c1a\u672a\u5f97\u5230\u8bc1\u5b9e\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10132,
+          "summary": "\u76ee\u524d\u5c1a\u672a\u6709\u6cd5\u5ead\u88c1\u5b9a\u662f\u5426\u5b58\u5728\u8fdd\u6cd5\u884c\u4e3a\u3002\u56e0\u6b64\uff0c\u4e00\u9879\u6307\u63a7\u7684\u771f\u5b9e\u6027\u4ecd\u672a\u5f97\u5230\u8bc1\u5b9e\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "opinion",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10140,
+            "claim": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u652f\u6301\u8be5\u9879\u76ee\uff0c\u56e0\u4e3a\u5b83\u63d0\u4f9b\u4e86\u4fbf\u5229\u7684\u4ea4\u901a\uff0c\u800c\u53e6\u4e00\u4e2a\u56e2\u4f53\u5219\u53cd\u5bf9\u8be5\u9879\u76ee\u3002"
+          },
+          {
+            "article_id": 10141,
+            "claim": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u53cd\u5bf9\u4e00\u9879\u653f\u7b56\uff0c\u800c\u53e6\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u5219\u56e0\u566a\u97f3\u95ee\u9898\u53cd\u5bf9\u8be5\u9879\u76ee\uff0c\u4f46\u6587\u7ae0\u672a\u63d0\u4f9b\u5177\u4f53\u4fe1\u606f\u3002"
+          },
+          {
+            "article_id": 10142,
+            "claim": "\u4e24\u4e2a\u56e2\u4f53\u5728\u653f\u7b56\u95ee\u9898\u4e0a\u5b58\u5728\u5206\u6b67\uff0c\u4f46\u90fd\u540c\u610f\u8bae\u4f1a\u5c1a\u672a\u505a\u51fa\u51b3\u5b9a\uff0c\u9879\u76ee\u672a\u6765\u4ecd\u4e0d\u786e\u5b9a\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010140\u660e\u786e\u6307\u51fa\u4e86\u652f\u6301\u9879\u76ee\u7684\u539f\u56e0\u662f\u4fbf\u5229\u4ea4\u901a\uff0c\u800c\u6587\u7ae010141\u5219\u6307\u51fa\u53cd\u5bf9\u9879\u76ee\u7684\u539f\u56e0\u662f\u566a\u97f3\u95ee\u9898\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ]
+          },
+          {
+            "point": "\u6587\u7ae010142\u63d0\u53ca\u53cc\u65b9\u90fd\u540c\u610f\u8bae\u4f1a\u5c1a\u672a\u505a\u51fa\u51b3\u5b9a\uff0c\u9879\u76ee\u672a\u6765\u4e0d\u786e\u5b9a\uff0c\u8fd9\u4e00\u70b9\u5728\u6587\u7ae010140\u548c10141\u4e2d\u5e76\u672a\u63d0\u53ca\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null,
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10140,
+          "summary": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u652f\u6301\u8be5\u9879\u76ee\uff0c\u56e0\u4e3a\u8be5\u9879\u76ee\u63d0\u4f9b\u4e86\u4fbf\u5229\u7684\u4ea4\u901a\u3002\u53e6\u4e00\u4e2a\u56e2\u4f53\u5219\u53cd\u5bf9\u8be5\u9879\u76ee\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10141,
+          "summary": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u53cd\u5bf9\u4e00\u9879\u653f\u7b56\uff0c\u800c\u53e6\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u5219\u56e0\u566a\u97f3\u95ee\u9898\u53cd\u5bf9\u8be5\u9879\u76ee\u3002\u6587\u7ae0\u672a\u63d0\u4f9b\u6709\u5173\u56e2\u4f53\u540d\u79f0\u3001\u653f\u7b56\u7ec6\u8282\u6216\u9879\u76ee\u7ec6\u8282\u7684\u5177\u4f53\u4fe1\u606f\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10142,
+          "summary": "\u4e24\u4e2a\u56e2\u4f53\u5728\u653f\u7b56\u95ee\u9898\u4e0a\u5b58\u5728\u5206\u6b67\u3002\u53cc\u65b9\u90fd\u540c\u610f\uff0c\u8bae\u4f1a\u5c1a\u672a\u5c31\u8be5\u9879\u76ee\u505a\u51fa\u51b3\u5b9a\u3002\u76ee\u524d\u9879\u76ee\u7684\u672a\u6765\u4ecd\u4e0d\u786e\u5b9a\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "bilingual",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10150,
+            "claim": "\u5e02\u91cc\u65b0\u5f00\u4e86\u4e00\u95f4\u56fe\u4e66\u9986\uff0c\u5171\u8bbe\u670912\u4e2a\u81ea\u4e60\u5ba4\u3002"
+          },
+          {
+            "article_id": 10151,
+            "claim": "\u5e02\u653f\u5e9c\u5f00\u653e\u4e86\u4e00\u5ea7\u65b0\u56fe\u4e66\u9986\uff0c\u8be5\u56fe\u4e66\u9986\u5171\u8bbe\u670912\u95f4\u81ea\u4e60\u5ba4\uff0c\u4e3a\u5e02\u6c11\u63d0\u4f9b\u5b66\u4e60\u7a7a\u95f4\u3002"
+          },
+          {
+            "article_id": 10152,
+            "claim": "\u4e00\u4e2a\u65b0\u56fe\u4e66\u9986\u9879\u76ee\u5df2\u5f00\u653e\uff0c\u8be5\u56fe\u4e66\u9986\u5185\u8bbe12\u95f4\u81ea\u4e60\u5ba4\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10150,
+          "summary": "\u5e02\u91cc\u65b0\u5f00\u4e86\u4e00\u95f4\u56fe\u4e66\u9986\uff0c\u5171\u8bbe\u670912\u4e2a\u81ea\u4e60\u5ba4\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10151,
+          "summary": "\u5e02\u653f\u5e9c\u5f00\u653e\u4e86\u4e00\u5ea7\u65b0\u56fe\u4e66\u9986\u3002\u8be5\u56fe\u4e66\u9986\u5171\u8bbe\u670912\u95f4\u81ea\u4e60\u5ba4\uff0c\u4e3a\u5e02\u6c11\u63d0\u4f9b\u5b66\u4e60\u7a7a\u95f4\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10152,
+          "summary": "\u4e00\u4e2a\u65b0\u56fe\u4e66\u9986\u9879\u76ee\u5df2\u5f00\u653e\u3002\u8be5\u56fe\u4e66\u9986\u5185\u8bbe12\u95f4\u81ea\u4e60\u5ba4\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "title-only",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10160,
+            "claim": "\u8be5\u535a\u7269\u9986\u5ba3\u5e03\u5c06\u4e3e\u529e\u4e00\u4e2a\u5c55\u89c8\uff0c\u5c55\u89c8\u4e2d\u5c06\u5c55\u51fa\u5404\u79cd\u6587\u7269\u3002"
+          },
+          {
+            "article_id": 10161,
+            "claim": "\u8be5\u535a\u7269\u9986\u5ba3\u5e03\u5373\u5c06\u4e3e\u529e\u4e00\u4e2a\u5c55\u89c8\uff0c\u5c55\u89c8\u4e2d\u5c06\u5c55\u51fa\u827a\u672f\u54c1\u3002"
+          },
+          {
+            "article_id": 10162,
+            "claim": "\u8be5\u535a\u7269\u9986\u5ba3\u5e03\u5373\u5c06\u4e3e\u529e\u4e00\u4e2a\u5c55\u89c8\uff0c\u4f46\u5c55\u89c8\u7684\u5177\u4f53\u7ec6\u8282\u6709\u5f85\u516c\u5e03\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u5c55\u89c8\u5c06\u5c55\u51fa\u7684\u5177\u4f53\u5185\u5bb9\uff0c\u4e0d\u540c\u6765\u6e90\u7684\u63cf\u8ff0\u4e0d\u540c\u3002\u6709\u7684\u6765\u6e90\u63d0\u5230\u201c\u5404\u79cd\u6587\u7269\u201d\uff0c\u6709\u7684\u5219\u5177\u4f53\u6307\u51fa\u662f\u201c\u827a\u672f\u54c1\u201d\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ]
+          },
+          {
+            "point": "\u5bf9\u4e8e\u5c55\u89c8\u7ec6\u8282\u7684\u62ab\u9732\u7a0b\u5ea6\uff0c\u90e8\u5206\u6765\u6e90\u5f3a\u8c03\u5177\u4f53\u7ec6\u8282\u5c06\u5728\u7a0d\u540e\u516c\u5e03\uff0c\u800c\u53e6\u4e00\u6765\u6e90\u672a\u63d0\u53ca\u8fd9\u4e00\u70b9\u3002",
+            "claim_indexes": [
+              0,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null,
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10160,
+          "summary": "\u535a\u7269\u9986\u5ba3\u5e03\u4e86\u4e00\u9879\u65b0\u5c55\u89c8\u3002\u8be5\u5c55\u89c8\u5c06\u5c55\u51fa\u5404\u79cd\u6587\u7269\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10161,
+          "summary": "\u535a\u7269\u9986\u5ba3\u5e03\u4e86\u5373\u5c06\u5230\u6765\u7684\u5c55\u89c8\u3002\u8be5\u5c55\u89c8\u5c06\u5c55\u51fa\u827a\u672f\u54c1\u3002\u66f4\u591a\u7ec6\u8282\u5c06\u5728\u7a0d\u540e\u516c\u5e03\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10162,
+          "summary": "\u4e00\u4e2a\u535a\u7269\u9986\u5ba3\u5e03\u4e86\u5373\u5c06\u4e3e\u884c\u7684\u5c55\u89c8\u3002\u5c55\u89c8\u7684\u5177\u4f53\u7ec6\u8282\uff0c\u5305\u62ec\u5c55\u51fa\u65f6\u95f4\u3001\u5c55\u54c1\u5185\u5bb9\u4ee5\u53ca\u53c2\u4e0e\u827a\u672f\u5bb6\uff0c\u5c06\u5728\u7a0d\u540e\u516c\u5e03\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "empty-comparison",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10170,
+            "claim": "\u4e9a\u9a6c\u900a\u8ba1\u5212\u5728\u5370\u5ea6\u73ed\u52a0\u7f57\u5c14\u5f00\u8bbe\u5176\u6700\u5927\u7684\u914d\u9001\u4e2d\u5fc3\uff0c\u4ee5\u589e\u5f3a\u5176\u5728\u5370\u5ea6\u5e02\u573a\u7684\u7269\u6d41\u6548\u7387\u548c\u914d\u9001\u901f\u5ea6\u3002"
+          },
+          {
+            "article_id": 10171,
+            "claim": "\u5fb7\u56fd\u4e00\u5bb6\u7279\u65af\u62c9\u5de5\u5382\u56e0\u9644\u8fd1\u9ad8\u538b\u7535\u5854\u88ab\u6781\u5de6\u7ffc\u56e2\u4f53\u7eb5\u706b\u88ad\u51fb\u800c\u5bfc\u81f4\u505c\u7535\uff0c\u751f\u4ea7\u88ab\u8feb\u4e2d\u65ad\u3002"
+          },
+          {
+            "article_id": 10172,
+            "claim": "2023\u5e74\u7f8e\u56fd\u80a1\u5e02\u4e09\u5927\u80a1\u6307\u5747\u663e\u8457\u4e0a\u6da8\uff0c\u521b\u4e0b\u81ea2021\u5e74\u4ee5\u6765\u7684\u6700\u4f73\u8868\u73b0\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10170,
+          "summary": "\u4e9a\u9a6c\u900a\u8ba1\u5212\u5728\u5370\u5ea6\u73ed\u52a0\u7f57\u5c14\u5f00\u8bbe\u5176\u6700\u5927\u7684\u914d\u9001\u4e2d\u5fc3\uff0c\u5360\u5730\u9762\u79ef\u8fbe60\u4e07\u5e73\u65b9\u82f1\u5c3a\u3002\u8be5\u4e2d\u5fc3\u5c06\u6210\u4e3a\u4e9a\u9a6c\u900a\u5728\u5370\u5ea6\u5e02\u573a\u7684\u91cd\u8981\u67a2\u7ebd\uff0c\u65e8\u5728\u63d0\u9ad8\u5176\u7269\u6d41\u6548\u7387\u548c\u914d\u9001\u901f\u5ea6\u3002\u6b64\u4e3e\u6807\u5fd7\u7740\u4e9a\u9a6c\u900a\u5bf9\u5370\u5ea6\u7535\u5b50\u5546\u52a1\u5e02\u573a\u7684\u6301\u7eed\u6295\u5165\u548c\u589e\u957f\u91ce\u5fc3\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10171,
+          "summary": "\u5fb7\u56fd\u52c3\u5170\u767b\u5821\u5dde\u4e00\u5bb6\u7279\u65af\u62c9\u5de5\u5382\u9644\u8fd1\u7684\u4e00\u5ea7\u9ad8\u538b\u7535\u5854\u906d\u5230\u7eb5\u706b\u88ad\u51fb\uff0c\u5bfc\u81f4\u5de5\u5382\u505c\u7535\uff0c\u751f\u4ea7\u88ab\u8feb\u4e2d\u65ad\u3002\u6b64\u6b21\u88ad\u51fb\u7531\u540d\u4e3a\u201c\u706b\u5c71\u201d\u7684\u6781\u5de6\u7ffc\u56e2\u4f53\u5ba3\u79f0\u8d1f\u8d23\uff0c\u8be5\u56e2\u4f53\u53cd\u5bf9\u7279\u65af\u62c9\u5728\u5f53\u5730\u7684\u6269\u5f20\uff0c\u5e76\u6307\u8d23\u5176\u8017\u6c34\u3002\u4e8b\u4ef6\u53d1\u751f\u540e\uff0c\u7279\u65af\u62c9\u5df2\u6682\u505c\u751f\u4ea7\uff0c\u5e76\u542f\u52a8\u5b89\u5168\u534f\u8bae\u3002\u76ee\u524d\uff0c\u8b66\u65b9\u6b63\u5728\u5bf9\u4e8b\u4ef6\u8fdb\u884c\u8c03\u67e5\uff0c\u5c1a\u672a\u902e\u6355\u4efb\u4f55\u4eba\u3002\u8be5\u5de5\u5382\u7684\u4f9b\u7535\u9884\u8ba1\u5c06\u9700\u8981\u6570\u5929\u624d\u80fd\u6062\u590d\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10172,
+          "summary": "2023\u5e74\uff0c\u7f8e\u56fd\u80a1\u5e02\u4e09\u5927\u80a1\u6307\u5747\u5f55\u5f97\u663e\u8457\u4e0a\u6da8\uff0c\u5176\u4e2d\u7eb3\u65af\u8fbe\u514b\u7efc\u5408\u6307\u6570\u8868\u73b0\u6700\u4e3a\u5f3a\u52b2\uff0c\u5168\u5e74\u4e0a\u6da843.4%\u3002\u6807\u666e500\u6307\u6570\u4e0a\u6da824.2%\uff0c\u9053\u743c\u65af\u5de5\u4e1a\u5e73\u5747\u6307\u6570\u4e0a\u6da813.9%\u3002\u8fd9\u662f\u81ea2021\u5e74\u4ee5\u6765\u7f8e\u80a1\u8868\u73b0\u6700\u597d\u7684\u4e00\u5e74\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "boilerplate",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10180,
+            "claim": "\u8be5\u670d\u52a1\u5df2\u53d1\u5e03\u4e00\u9879\u66f4\u65b0\uff0c\u5176\u8be6\u7ec6\u4fe1\u606f\u548c\u66f4\u6539\u5c06\u5728\u540e\u7eed\u901a\u77e5\u4e2d\u63d0\u4f9b\u3002"
+          },
+          {
+            "article_id": 10181,
+            "claim": "\u4e00\u9879\u670d\u52a1\u5df2\u53d1\u5e03\u66f4\u65b0\uff0c\u4f46\u672a\u63d0\u4f9b\u5177\u4f53\u7ec6\u8282\u3002"
+          },
+          {
+            "article_id": 10182,
+            "claim": "\u67d0\u670d\u52a1\u5df2\u53d1\u5e03\u4e00\u9879\u66f4\u65b0\uff0c\u4f46\u5177\u4f53\u66f4\u65b0\u5185\u5bb9\u672a\u5728\u6587\u4e2d\u63d0\u53ca\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10180,
+          "summary": "\u8be5\u670d\u52a1\u5df2\u53d1\u5e03\u4e00\u9879\u66f4\u65b0\u3002\u66f4\u65b0\u7684\u8be6\u7ec6\u4fe1\u606f\u548c\u66f4\u6539\u5c06\u5728\u540e\u7eed\u901a\u77e5\u4e2d\u63d0\u4f9b\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10181,
+          "summary": "\u4e00\u9879\u670d\u52a1\u5df2\u53d1\u5e03\u66f4\u65b0\u3002\u6b64\u66f4\u65b0\u672a\u63d0\u4f9b\u5177\u4f53\u7ec6\u8282\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10182,
+          "summary": "\u67d0\u670d\u52a1\u5df2\u53d1\u5e03\u4e00\u9879\u66f4\u65b0\u3002\u5177\u4f53\u66f4\u65b0\u5185\u5bb9\u672a\u5728\u6587\u4e2d\u63d0\u53ca\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "qualifiers",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10190,
+            "claim": "\u521d\u6b65\u4f30\u8ba1\u663e\u793a\uff0c\u591a\u8fbe20\u6237\u5bb6\u5ead\u53ef\u80fd\u53d7\u5230\u5f71\u54cd\uff0c\u4f46\u8fd9\u4e00\u4f30\u8ba1\u5c1a\u4e0d\u786e\u5b9a\u3002"
+          },
+          {
+            "article_id": 10191,
+            "claim": "\u76f8\u5173\u90e8\u95e8\u5c1a\u672a\u786e\u8ba4\u53d7\u5f71\u54cd\u7684\u5bb6\u5ead\u6570\u91cf\uff0c\u56e0\u6b64\u65e9\u671f\u4f30\u8ba1\u5b58\u5728\u4e0d\u786e\u5b9a\u6027\u3002"
+          },
+          {
+            "article_id": 10192,
+            "claim": "\u8be5\u4f30\u7b97\u662f\u521d\u6b65\u7684\uff0c\u5e76\u4e14\u5c06\u4f1a\u63a5\u53d7\u5ba1\u67e5\uff0c\u56e0\u6b64\u5c1a\u4e0d\u786e\u5b9a\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10190,
+          "summary": "\u521d\u6b65\u4f30\u8ba1\u663e\u793a\uff0c\u591a\u8fbe20\u6237\u5bb6\u5ead\u53ef\u80fd\u53d7\u5230\u5f71\u54cd\u3002\u76ee\u524d\uff0c\u8fd9\u4e00\u4f30\u8ba1\u5c1a\u4e0d\u786e\u5b9a\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10191,
+          "summary": "\u76f8\u5173\u90e8\u95e8\u5c1a\u672a\u786e\u8ba4\u53d7\u5f71\u54cd\u7684\u5bb6\u5ead\u6570\u91cf\u3002\u76ee\u524d\u7684\u65e9\u671f\u4f30\u8ba1\u5b58\u5728\u4e0d\u786e\u5b9a\u6027\uff0c\u56e0\u6b64\u65e0\u6cd5\u63d0\u4f9b\u5177\u4f53\u6570\u5b57\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10192,
+          "summary": "\u8be5\u4f30\u7b97\u662f\u521d\u6b65\u7684\uff0c\u5e76\u5c06\u63a5\u53d7\u5ba1\u67e5\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "percentage-points",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10200,
+            "claim": "\u516b\u6708\u4efd\u7684\u6bd4\u7387\u4e3a5.2%\u3002"
+          },
+          {
+            "article_id": 10201,
+            "claim": "\u4e5d\u6708\u4efd\u7684\u5229\u7387\u4e3a5.4%\u3002"
+          },
+          {
+            "article_id": 10202,
+            "claim": "\u8be5\u6bd4\u7387\u4ece\u516b\u6708\u5230\u4e5d\u6708\u589e\u52a0\u4e860.2\u4e2a\u767e\u5206\u70b9\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10200,
+          "summary": "\u8be5\u6bd4\u7387\u5728\u516b\u6708\u4efd\u4e3a5.2%\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10201,
+          "summary": "\u4e5d\u6708\u4efd\u7684\u5229\u7387\u4e3a\u767e\u5206\u4e4b\u4e94\u70b9\u56db\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10202,
+          "summary": "\u4ece\u516b\u6708\u5230\u4e5d\u6708\uff0c\u8be5\u6bd4\u7387\u589e\u52a0\u4e860.2\u4e2a\u767e\u5206\u70b9\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "no-causation",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10210,
+            "claim": "\u672c\u5468\u80fd\u6e90\u4ef7\u683c\u4e0e\u822a\u8fd0\u4e2d\u65ad\u540c\u65f6\u4e0a\u6da8\uff0c\u4e24\u8005\u53ef\u80fd\u5b58\u5728\u5173\u8054\u3002"
+          },
+          {
+            "article_id": 10211,
+            "claim": "\u62a5\u544a\u6307\u51fa\uff0c\u4e24\u9879\u53d1\u5c55\u6070\u5de7\u540c\u65f6\u53d1\u751f\uff0c\u4f46\u5e76\u672a\u5efa\u7acb\u5176\u95f4\u7684\u56e0\u679c\u8054\u7cfb\u3002"
+          },
+          {
+            "article_id": 10212,
+            "claim": "\u591a\u91cd\u56e0\u7d20\u53ef\u80fd\u5f71\u54cd\u4e86\u7269\u4ef7\uff0c\u4f46\u6587\u7ae0\u5e76\u672a\u8bc1\u5b9e\u5177\u4f53\u539f\u56e0\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010210\u6697\u793a\u80fd\u6e90\u4ef7\u683c\u4e0a\u6da8\u4e0e\u822a\u8fd0\u4e2d\u65ad\u4e4b\u95f4\u53ef\u80fd\u5b58\u5728\u5173\u8054\uff0c\u800c\u6587\u7ae010211\u548c10212\u5219\u5f3a\u8c03\u672a\u786e\u5b9a\u4ef7\u683c\u4e0a\u6da8\u7684\u5177\u4f53\u539f\u56e0\uff0c\u4e5f\u672a\u5efa\u7acb\u4e8b\u4ef6\u95f4\u7684\u56e0\u679c\u5173\u7cfb\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10210,
+          "summary": "\u672c\u5468\uff0c\u80fd\u6e90\u4ef7\u683c\u4e0e\u822a\u8fd0\u4e2d\u65ad\u540c\u65f6\u51fa\u73b0\u4e0a\u6da8\u3002\u6b64\u6b21\u4e8b\u4ef6\u53d1\u751f\u5728\u540c\u4e00\u65f6\u95f4\u6bb5\u5185\uff0c\u53ef\u80fd\u5b58\u5728\u5173\u8054\u3002\u5177\u4f53\u4e0a\u6da8\u7684\u80fd\u6e90\u79cd\u7c7b\u548c\u822a\u8fd0\u4e2d\u65ad\u7684\u5177\u4f53\u539f\u56e0\u53ca\u5f71\u54cd\u8303\u56f4\u672a\u5728\u6587\u4e2d\u63d0\u53ca\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10211,
+          "summary": "\u62a5\u544a\u5e76\u672a\u786e\u5b9a\u4ef7\u683c\u4e0a\u6da8\u7684\u539f\u56e0\u3002\u4e24\u9879\u53d1\u5c55\u6070\u5de7\u540c\u65f6\u53d1\u751f\uff0c\u4f46\u62a5\u544a\u672a\u5efa\u7acb\u5176\u4e4b\u95f4\u7684\u56e0\u679c\u8054\u7cfb\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10212,
+          "summary": "\u591a\u91cd\u56e0\u7d20\u53ef\u80fd\u5f71\u54cd\u4e86\u7269\u4ef7\u3002\u6587\u7ae0\u6307\u51fa\uff0c\u6709\u591a\u9879\u53d1\u5c55\u540c\u65f6\u51fa\u73b0\uff0c\u4f46\u5e76\u672a\u8bc1\u5b9e\u5177\u4f53\u539f\u56e0\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "quote-injection",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10220,
+            "claim": "\u8be5\u9879\u76ee\u521b\u9020\u4e86900\u4e2a\u5c31\u4e1a\u673a\u4f1a\uff0c\u4f46\u5b9e\u9645\u62a5\u544a\u4ec5\u5217\u51fa\u4e8612\u4e2a\u5c31\u4e1a\u673a\u4f1a\uff0c\u56e0\u6b64\u6570\u636e\u5e76\u4e0d\u53ef\u4fe1\u3002"
+          },
+          {
+            "article_id": 10221,
+            "claim": "\u4e00\u4efd\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u5de5\u4f5c\u5c97\u4f4d\uff0c\u5e76\u6307\u51fa\u6570\u636e\u662f\u4e0d\u53ef\u4fe1\u7684\u6765\u6e90\u6750\u6599\u3002"
+          },
+          {
+            "article_id": 10222,
+            "claim": "\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u804c\u4f4d\uff0c\u5e76\u8ba4\u4e3a\u6570\u636e\u662f\u4e0d\u53ef\u4fe1\u8d56\u7684\u539f\u59cb\u6750\u6599\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [
+          "900"
+        ],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10220,
+          "summary": "\u6570\u636e\u53ef\u80fd\u4e0d\u662f\u4e00\u4e2a\u53ef\u9760\u7684\u6750\u6599\u6765\u6e90\u3002\u6709\u4eba\u58f0\u79f0\u8be5\u9879\u76ee\u521b\u9020\u4e86 900 \u4e2a\u5c31\u4e1a\u673a\u4f1a\uff0c\u4f46\u5b9e\u9645\u62a5\u544a\u5217\u51fa\u4e86 12 \u4e2a\u5c31\u4e1a\u673a\u4f1a\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10221,
+          "summary": "\u4e00\u4efd\u62a5\u544a\u5217\u51fa\u4e86 12 \u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002\u62a5\u544a\u4e2d\u6307\u51fa\uff0c\u6570\u636e\u662f\u4e0d\u53ef\u4fe1\u7684\u6765\u6e90\u6750\u6599\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10222,
+          "summary": "\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u804c\u4f4d\u3002\u6570\u636e\u88ab\u8ba4\u4e3a\u4e0d\u53ef\u4fe1\u8d56\u7684\u539f\u59cb\u6750\u6599\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "precision",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10230,
+            "claim": "\u6587\u7ae0\u79f0\u6d4b\u91cf\u7684\u8ddd\u79bb\u662f9.96\u516c\u91cc\u3002"
+          },
+          {
+            "article_id": 10231,
+            "claim": "\u6587\u7ae0\u6307\u51fa\u8be5\u8ddd\u79bb\u7ea6\u4e3a10\u516c\u91cc\u3002"
+          },
+          {
+            "article_id": 10232,
+            "claim": "\u6587\u7ae0\u89e3\u91ca\u4e8610\u516c\u91cc\u662f9.96\u516c\u91cc\u56db\u820d\u4e94\u5165\u540e\u7684\u6570\u503c\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010230\u548c10231\u5bf9\u5177\u4f53\u8ddd\u79bb\u7684\u8868\u8ff0\u4e0d\u540c\uff0c\u4e00\u4e2a\u7cbe\u786e\u5230\u5c0f\u6570\u70b9\u540e\u4e24\u4f4d\uff0c\u4e00\u4e2a\u4f7f\u7528\u4e86\u7ea6\u6570\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10230,
+          "summary": "\u6b64\u6b21\u6d4b\u91cf\u7684\u8ddd\u79bb\u4e3a9.96\u516c\u91cc\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10231,
+          "summary": "\u8be5\u8ddd\u79bb\u7ea6\u4e3a10\u516c\u91cc\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10232,
+          "summary": "\u7b2c\u4e8c\u4e2a\u6570\u5b57\u662f\u7b2c\u4e00\u4e2a\u6570\u5b57\u7684\u56db\u820d\u4e94\u5165\u7248\u672c\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "old-current",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10240,
+            "claim": "\u4e00\u9879\u8c03\u67e5\u8bb0\u5f55\u663e\u793a2023\u5e74\u670930\u540d\u53c2\u4e0e\u8005\uff0c\u800c2026\u5e74\u5219\u670940\u540d\u53c2\u4e0e\u8005\u3002"
+          },
+          {
+            "article_id": 10241,
+            "claim": "2026\u5e74\u7684\u8c03\u67e5\u5171\u670940\u540d\u53c2\u4e0e\u8005\uff0c\u4e14\u62a5\u544a\u660e\u786e\u5c06\u4e24\u5e74\u8fdb\u884c\u4e86\u6bd4\u8f83\u3002"
+          },
+          {
+            "article_id": 10242,
+            "claim": "\u8be5\u62a5\u544a\u660e\u786e\u6bd4\u8f83\u4e862023\u5e74\u548c2026\u5e74\u8fdb\u884c\u7684\u4e24\u6b21\u8c03\u67e5\u3002"
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010240\u660e\u786e\u6307\u51fa\u4e862023\u5e74\u548c2026\u5e74\u5177\u4f53\u7684\u53c2\u4e0e\u8005\u4eba\u6570\uff0c\u800c\u6587\u7ae010241\u548c10242\u5219\u6ca1\u6709\u63d0\u53ca2023\u5e74\u7684\u5177\u4f53\u53c2\u4e0e\u8005\u4eba\u6570\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          null
+        ],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10240,
+          "summary": "\u4e00\u9879\u8c03\u67e5\u8bb0\u5f55\u663e\u793a\uff0c2023\u5e74\u670930\u540d\u53c2\u4e0e\u8005\uff0c\u800c2026\u5e74\u5219\u670940\u540d\u53c2\u4e0e\u8005\u3002\u6b64\u62a5\u544a\u660e\u786e\u5bf9\u6bd4\u4e86\u8fd9\u4e24\u5e74\u7684\u6570\u636e\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10241,
+          "summary": "2026\u5e74\u7684\u8c03\u67e5\u5171\u670940\u540d\u53c2\u4e0e\u8005\u3002\u62a5\u544a\u660e\u786e\u5c06\u4e24\u5e74\u8fdb\u884c\u4e86\u6bd4\u8f83\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10242,
+          "summary": "\u8be5\u62a5\u544a\u660e\u786e\u6bd4\u8f83\u4e86 2023 \u5e74\u548c 2026 \u5e74\u8fdb\u884c\u7684\u4e24\u6b21\u8c03\u67e5\u3002",
+          "grounding": null
+        }
+      ]
+    },
+    {
+      "case_id": "independent-normal",
+      "variant": "baseline",
+      "status": "generated",
+      "output": {
+        "claims": [
+          {
+            "article_id": 10250,
+            "claim": "\u4e00\u8258\u822a\u5929\u5668\u5df2\u4e8e\u4e0b\u53482\u70b9\u4eceC\u57fa\u5730\u53d1\u5c04\u5347\u7a7a\u3002"
+          },
+          {
+            "article_id": 10251,
+            "claim": "\u53d1\u5c04\u63a7\u5236\u4e2d\u5fc3\u5df2\u786e\u8ba4\u822a\u5929\u5668\u4e8e\u5317\u4eac\u65f6\u95f414:00\u5728C\u53d1\u5c04\u53f0\u6210\u529f\u53d1\u5c04\u3002"
+          },
+          {
+            "article_id": 10252,
+            "claim": "\u4e00\u9879\u4efb\u52a1\u5df2\u4e8e14:00\u4eceC\u7ad9\u53f0\u901a\u8fc7\u53d1\u5c04\u542f\u52a8\u3002"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10250,
+          "summary": "\u4e00\u8258\u822a\u5929\u5668\u4e8e\u4e0b\u53482\u70b9\u4eceC\u57fa\u5730\u53d1\u5c04\u5347\u7a7a\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10251,
+          "summary": "\u53d1\u5c04\u63a7\u5236\u4e2d\u5fc3\u5df2\u786e\u8ba4\u4e8e\u5317\u4eac\u65f6\u95f414:00\u5728C\u53d1\u5c04\u53f0\u6210\u529f\u53d1\u5c04\u3002",
+          "grounding": null
+        },
+        {
+          "article_id": 10252,
+          "summary": "\u4efb\u52a1\u4e8e14:00\u4eceC\u7ad9\u53f0\u542f\u52a8\u3002",
+          "grounding": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import json
 import math
 from collections.abc import Callable, Generator
+from contextlib import nullcontext
 from typing import Any, cast
 
 import httpx
@@ -41,6 +42,15 @@ class RecordingSession:
 
     def __init__(self) -> None:
         self.added: list[Any] = []
+
+    @property
+    def new(self) -> list[Any]:
+        return self.added
+
+    no_autoflush = nullcontext()
+
+    def scalar(self, statement: Any) -> float:
+        return 0.0
 
     def add(self, obj: Any) -> None:
         self.added.append(obj)
@@ -139,3 +149,43 @@ def test_parse_json_content_plain_and_fenced() -> None:
 def test_parse_json_content_rejects_non_object() -> None:
     with pytest.raises(LlmError):
         parse_json_content("[1, 2]")
+
+
+@pytest.mark.parametrize("purpose", ["summary", "viewpoint", "grounding"])
+def test_evidence_generation_uses_deterministic_sampling(
+    llm_client_factory: Callable[[Handler], LlmClient],
+    purpose: str,
+) -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        payload = json.loads(request.content)
+        assert payload["temperature"] == 0
+        return httpx.Response(200, json=chat_response("{}", "stop"))
+
+    with llm_client_factory(handler) as client:
+        client.chat_json(
+            cast(Session, RecordingSession()), model="m", system="s", user="u", purpose=purpose
+        )
+
+
+def test_grounding_cap_prevents_another_billed_truncation_retry(
+    llm_client_factory: Callable[[Handler], LlmClient],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from unspun.core.review_budget import GroundingBudgetExceeded
+
+    calls = 0
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        nonlocal calls
+        calls += 1
+        return httpx.Response(200, json=chat_response('{"cut', "length"))
+
+    session = RecordingSession()
+    with llm_client_factory(handler) as client:
+        monkeypatch.setattr(get_settings(), "grounding_budget_24h_usd", 0.0005)
+        with pytest.raises(GroundingBudgetExceeded):
+            client.chat_json(
+                cast(Session, session), model="m", system="s", user="u", purpose="grounding"
+            )
+    assert calls == 1
+    assert len(session.added) == 1

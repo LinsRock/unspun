@@ -1,5 +1,8 @@
 import type { EventOut } from './api'
 import { safeHref } from './links'
+import EvidenceQuote from './EvidenceQuote'
+import { relationLabel } from './relationLabels'
+import { contentQualityLabel } from './contentQualityLabel'
 
 export default function DigestItem({
   event,
@@ -58,6 +61,9 @@ export default function DigestItem({
             </span>
           )}
         </div>
+        {event.viewpoint?.status === 'review_limited' && (
+          <p className="mt-2 text-xs text-ink-3">观点对比待审核</p>
+        )}
         {event.summary_zh && (
           <p className="mt-1.5 break-words text-[13.5px] leading-[1.8] text-ink-2">
             {event.summary_zh}
@@ -77,7 +83,7 @@ export default function DigestItem({
                 </>
               )
               return (
-                <p key={claim.article_id} className="break-words">
+                <div key={claim.article_id} className="mt-1.5 break-words">
                   {href ? (
                     <a
                       href={href}
@@ -90,7 +96,11 @@ export default function DigestItem({
                   ) : (
                     <span>{content}</span>
                   )}
-                </p>
+                  <EvidenceQuote
+                    quote={claim.evidence_quote}
+                    limited={article.content_quality === 'limited'}
+                  />
+                </div>
               )
             })}
             {disagreements.map((point, index) => (
@@ -98,7 +108,9 @@ export default function DigestItem({
                 key={`${index}-${point.point}`}
                 className="mt-1.5 border-t border-line pt-1.5"
               >
-                <b className="font-semibold">分歧焦点：</b>
+                <b className="mr-1.5 font-semibold">
+                  {relationLabel(point.kind)}
+                </b>
                 {point.point}
               </p>
             ))}
@@ -121,6 +133,9 @@ export default function DigestItem({
                   </a>
                 ) : (
                   <span className="text-ink-4">{article.source_name}</span>
+                )}
+                {contentQualityLabel(article.content_quality) && (
+                  <span className="whitespace-nowrap text-[11px] text-ink-4">{contentQualityLabel(article.content_quality)}</span>
                 )}
               </li>
             )
