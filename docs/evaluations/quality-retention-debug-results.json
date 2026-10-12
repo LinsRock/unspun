@@ -1,0 +1,496 @@
+{
+  "generated_at": "2026-10-10T11:22:35.172244+00:00",
+  "live_model_calls": true,
+  "summary_version": "summary-grounded-v5",
+  "viewpoint_version": "viewpoint-grounded-v3",
+  "semantic_entailment_verified": false,
+  "budget_usd": 0.03,
+  "cost_usd": 0.014572600000000002,
+  "calls": 24,
+  "budget_note": "Cap stops subsequent calls; in-flight calls/retries can exceed the cap.",
+  "usage_ledger": [
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 375,
+      "completion_tokens": 52,
+      "cost_usd": 5.83e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1013,
+      "completion_tokens": 160,
+      "cost_usd": 0.0007039
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 372,
+      "completion_tokens": 23,
+      "cost_usd": 4.64e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1010,
+      "completion_tokens": 164,
+      "cost_usd": 0.000713
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 371,
+      "completion_tokens": 23,
+      "cost_usd": 4.63e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1008,
+      "completion_tokens": 153,
+      "cost_usd": 0.0006849
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 753,
+      "completion_tokens": 257,
+      "cost_usd": 0.0008684
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1439,
+      "completion_tokens": 542,
+      "cost_usd": 0.0017867
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 372,
+      "completion_tokens": 54,
+      "cost_usd": 5.88e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1169,
+      "completion_tokens": 208,
+      "cost_usd": 0.0008707
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 372,
+      "completion_tokens": 23,
+      "cost_usd": 4.64e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1014,
+      "completion_tokens": 155,
+      "cost_usd": 0.0006917
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 372,
+      "completion_tokens": 23,
+      "cost_usd": 4.64e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1015,
+      "completion_tokens": 139,
+      "cost_usd": 0.000652
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 750,
+      "completion_tokens": 277,
+      "cost_usd": 0.0009175
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1383,
+      "completion_tokens": 461,
+      "cost_usd": 0.0015674
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 374,
+      "completion_tokens": 51,
+      "cost_usd": 5.78e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1091,
+      "completion_tokens": 233,
+      "cost_usd": 0.0009098
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 372,
+      "completion_tokens": 47,
+      "cost_usd": 5.6e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1064,
+      "completion_tokens": 185,
+      "cost_usd": 0.0007817
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 374,
+      "completion_tokens": 21,
+      "cost_usd": 4.58e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 989,
+      "completion_tokens": 121,
+      "cost_usd": 0.0005992
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 755,
+      "completion_tokens": 273,
+      "cost_usd": 0.000909
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1390,
+      "completion_tokens": 415,
+      "cost_usd": 0.0014545
+    }
+  ],
+  "results": [
+    {
+      "case_id": "qualifiers",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v3",
+        "claims": [
+          {
+            "article_id": 10191,
+            "claim": "\u5b98\u5458\u4eec\u5c1a\u672a\u786e\u8ba4\u53d7\u5f71\u54cd\u5bb6\u5ead\u7684\u6570\u91cf\u3002",
+            "evidence_quote": "Officials have not confirmed the number of affected households."
+          },
+          {
+            "article_id": 10192,
+            "claim": "\u8be5\u4f30\u8ba1\u662f\u521d\u6b65\u7684\uff0c\u5e76\u5c06\u8fdb\u884c\u5ba1\u67e5\u3002",
+            "evidence_quote": "The estimate is preliminary and will be reviewed."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u53d7\u5f71\u54cd\u5bb6\u5ead\u6570\u91cf\u662f\u5426\u5df2\u786e\u8ba4\u5b58\u5728\u5dee\u5f02\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 2,
+        "valid_evidence_claims": 2,
+        "distinct_sources": 2,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "summary_forbidden_assertions": [],
+        "summary_missing_required_facts": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [
+          "\u6700\u591a|\u81f3\u591a|\u4e0d\u8d85\u8fc7|\u4e0a\u9650|\u591a\u8fbe|up to"
+        ],
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10190,
+          "title_zh": "\u65e9\u671f\u4f30\u8ba1\u4e0d\u786e\u5b9a",
+          "summary": "An early estimate is uncertain.",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10191,
+          "title_zh": "\u65e9\u671f\u4f30\u8ba1\u4e0d\u786e\u5b9a",
+          "summary": "\u5b98\u5458\u4eec\u5c1a\u672a\u786e\u8ba4\u53d7\u5f71\u54cd\u5bb6\u5ead\u7684\u6570\u91cf\u3002",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u5b98\u5458\u4eec\u5c1a\u672a\u786e\u8ba4\u53d7\u5f71\u54cd\u5bb6\u5ead\u7684\u6570\u91cf\u3002",
+                "quote": "Officials have not confirmed the number of affected households."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10192,
+          "title_zh": "\u65e9\u671f\u4f30\u8ba1\u4e0d\u786e\u5b9a",
+          "summary": "\u8be5\u4f30\u8ba1\u662f\u521d\u6b65\u7684\uff0c\u5e76\u5c06\u8fdb\u884c\u5ba1\u67e5\u3002",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8be5\u4f30\u8ba1\u662f\u521d\u6b65\u7684\uff0c\u5e76\u5c06\u8fdb\u884c\u5ba1\u67e5\u3002",
+                "quote": "The estimate is preliminary and will be reviewed."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "no-causation",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v3",
+        "claims": [
+          {
+            "article_id": 10210,
+            "claim": "\u80fd\u6e90\u4ef7\u683c\u5728\u822a\u8fd0\u4e2d\u65ad\u7684\u540c\u4e00\u5468\u4e0a\u6da8\u3002",
+            "evidence_quote": "Energy prices rose during the same week as a shipping disruption."
+          },
+          {
+            "article_id": 10211,
+            "claim": "\u8be5\u62a5\u544a\u6ca1\u6709\u786e\u5b9a\u4ef7\u683c\u4e0a\u6da8\u7684\u539f\u56e0\u3002",
+            "evidence_quote": "The report does not establish the cause of the price increase."
+          },
+          {
+            "article_id": 10212,
+            "claim": "\u6709\u51e0\u4e2a\u56e0\u7d20\u53ef\u80fd\u5f71\u54cd\u4e86\u4ef7\u683c\uff0c\u4f46\u6ca1\u6709\u786e\u8ba4\u539f\u56e0\u3002",
+            "evidence_quote": "Several factors may have affected prices. No cause was confirmed."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u4ef7\u683c\u4e0a\u6da8\u539f\u56e0\u7684\u786e\u5b9a\u6027\uff0c\u6587\u7ae010211\u6307\u51fa\u62a5\u544a\u672a\u786e\u5b9a\u539f\u56e0\uff0c\u800c\u6587\u7ae010212\u5219\u63d0\u5230\u6709\u51e0\u4e2a\u56e0\u7d20\u53ef\u80fd\u5f71\u54cd\u4e86\u4ef7\u683c\u4f46\u672a\u786e\u8ba4\u539f\u56e0\u3002",
+            "claim_indexes": [
+              1,
+              2
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "summary_forbidden_assertions": [],
+        "summary_missing_required_facts": [
+          "10212:\u56e0\u679c|\u539f\u56e0|\u5bfc\u81f4"
+        ],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10210,
+          "title_zh": "\u80fd\u6e90\u4ef7\u683c\u4e0a\u6da8\u4e0e\u822a\u8fd0\u4e2d\u65ad\u540c\u671f\u53d1\u751f",
+          "summary": "\u80fd\u6e90\u4ef7\u683c\u5728\u822a\u8fd0\u4e2d\u65ad\u7684\u540c\u4e00\u5468\u4e0a\u6da8\u3002",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u80fd\u6e90\u4ef7\u683c\u5728\u822a\u8fd0\u4e2d\u65ad\u7684\u540c\u4e00\u5468\u4e0a\u6da8\u3002",
+                "quote": "Energy prices rose during the same week as a shipping disruption."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10211,
+          "title_zh": "\u4e24\u4e2a\u53d1\u5c55\u540c\u65f6\u53d1\u751f",
+          "summary": "\u8be5\u62a5\u544a\u6ca1\u6709\u786e\u5b9a\u4ef7\u683c\u4e0a\u6da8\u7684\u539f\u56e0\u3002",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8be5\u62a5\u544a\u6ca1\u6709\u786e\u5b9a\u4ef7\u683c\u4e0a\u6da8\u7684\u539f\u56e0\u3002",
+                "quote": "The report does not establish the cause of the price increase."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10212,
+          "title_zh": "\u4e24\u4e2a\u53d1\u5c55\u540c\u65f6\u53d1\u751f",
+          "summary": "Two developments coincided.",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "precision",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v3",
+        "claims": [
+          {
+            "article_id": 10230,
+            "claim": "\u6d4b\u5f97\u7684\u8ddd\u79bb\u4e3a9.96\u516c\u91cc\u3002",
+            "evidence_quote": "The measured distance was 9.96 kilometres."
+          },
+          {
+            "article_id": 10231,
+            "claim": "\u8ddd\u79bb\u7ea6\u4e3a10\u516c\u91cc\u3002",
+            "evidence_quote": "The distance was approximately 10 kilometres."
+          },
+          {
+            "article_id": 10232,
+            "claim": "\u7b2c\u4e8c\u4e2a\u6570\u5b57\u662f\u7b2c\u4e00\u4e2a\u6570\u5b57\u7684\u56db\u820d\u4e94\u5165\u7248\u672c\u3002",
+            "evidence_quote": "The second figure is a rounded version of the first."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010230\u548c10231\u5bf9\u8ddd\u79bb\u7684\u63cf\u8ff0\u4e0d\u540c\uff0c\u4e00\u4e2a\u7ed9\u51fa\u4e86\u7cbe\u786e\u6d4b\u91cf\u503c\uff0c\u53e6\u4e00\u4e2a\u7ed9\u51fa\u4e86\u8fd1\u4f3c\u503c\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "summary_forbidden_assertions": [],
+        "summary_missing_required_facts": [
+          "10232:\u820d\u5165|\u56db\u820d\u4e94\u5165|\u53d6\u6574"
+        ],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10230,
+          "title_zh": "Rounded values refer to one amount.",
+          "summary": "\u6d4b\u5f97\u7684\u8ddd\u79bb\u4e3a9.96\u516c\u91cc\u3002",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u6d4b\u5f97\u7684\u8ddd\u79bb\u4e3a9.96\u516c\u91cc\u3002",
+                "quote": "The measured distance was 9.96 kilometres."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10231,
+          "title_zh": "Rounded values refer to one amount.",
+          "summary": "\u8ddd\u79bb\u7ea6\u4e3a10\u516c\u91cc\u3002",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8ddd\u79bb\u7ea6\u4e3a10\u516c\u91cc\u3002",
+                "quote": "The distance was approximately 10 kilometres."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10232,
+          "title_zh": "Rounded values refer to one amount.",
+          "summary": "Rounded values refer to one amount.",
+          "grounding": {
+            "version": "summary-grounded-v5",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

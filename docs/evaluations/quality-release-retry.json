@@ -1,0 +1,202 @@
+{
+  "generated_at": "2026-10-10T10:28:08.966539+00:00",
+  "live_model_calls": true,
+  "summary_version": "summary-grounded-v3",
+  "viewpoint_version": "viewpoint-grounded-v3",
+  "semantic_entailment_verified": false,
+  "budget_usd": 0.03,
+  "cost_usd": 0.0054884,
+  "calls": 8,
+  "budget_note": "Cap stops subsequent calls; in-flight calls/retries can exceed the cap.",
+  "usage_ledger": [
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 366,
+      "completion_tokens": 41,
+      "cost_usd": 5.3e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 662,
+      "completion_tokens": 186,
+      "cost_usd": 0.0006636
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 369,
+      "completion_tokens": 65,
+      "cost_usd": 6.29e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 778,
+      "completion_tokens": 251,
+      "cost_usd": 0.0008609
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 368,
+      "completion_tokens": 38,
+      "cost_usd": 5.2e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 633,
+      "completion_tokens": 172,
+      "cost_usd": 0.0006199
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 724,
+      "completion_tokens": 439,
+      "cost_usd": 0.0013147
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1438,
+      "completion_tokens": 572,
+      "cost_usd": 0.0018614
+    }
+  ],
+  "results": [
+    {
+      "case_id": "missing-is-not-denial",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v3",
+        "claims": [
+          {
+            "article_id": 10060,
+            "claim": "\u5b98\u5458\u62a5\u544a\u6709\u516d\u4eba\u53d7\u4f24\u3002",
+            "evidence_quote": "Officials reported six injuries."
+          },
+          {
+            "article_id": 10061,
+            "claim": "\u98ce\u66b4\u9020\u6210\u4e86\u4eba\u5458\u53d7\u4f24\uff0c\u6d2a\u6c34\u635f\u574f\u4e86\u623f\u5c4b\u548c\u9053\u8def\u3002",
+            "evidence_quote": "A storm caused injuries.\nHomes and roads were damaged by flooding."
+          },
+          {
+            "article_id": 10062,
+            "claim": "\u6d2a\u6c34\u8fc7\u540e\uff0c\u6551\u63f4\u884c\u52a8\u4ecd\u5728\u7ee7\u7eed\u3002",
+            "evidence_quote": "Rescue operations continued after the flood."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010060\u548c10061\u90fd\u63d0\u5230\u98ce\u66b4\u9020\u6210\u4e86\u4eba\u5458\u53d7\u4f24\uff0c\u4f46\u6587\u7ae010060\u5177\u4f53\u8bf4\u660e\u6709\u516d\u4eba\u53d7\u4f24\uff0c\u800c\u6587\u7ae010061\u6ca1\u6709\u63d0\u4f9b\u5177\u4f53\u6570\u5b57\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          },
+          {
+            "point": "\u6587\u7ae010061\u63d0\u5230\u6d2a\u6c34\u635f\u574f\u4e86\u623f\u5c4b\u548c\u9053\u8def\uff0c\u800c\u6587\u7ae010060\u548c10062\u6ca1\u6709\u63d0\u53ca\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ],
+            "kind": "coverage_difference"
+          },
+          {
+            "point": "\u6587\u7ae010062\u63d0\u5230\u6d2a\u6c34\u540e\u7684\u6551\u63f4\u884c\u52a8\uff0c\u800c\u6587\u7ae010060\u548c10061\u6ca1\u6709\u63d0\u53ca\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "summary_forbidden_assertions": [],
+        "summary_missing_required_facts": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10060,
+          "title_zh": "\u98ce\u66b4\u9020\u6210\u4eba\u5458\u53d7\u4f24",
+          "summary": "\u4e00\u540d\u5b98\u5458\u62a5\u544a\u79f0\uff0c\u6709\u516d\u4eba\u53d7\u4f24\u3002",
+          "grounding": {
+            "version": "summary-grounded-v3",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e00\u540d\u5b98\u5458\u62a5\u544a\u79f0\uff0c\u6709\u516d\u4eba\u53d7\u4f24\u3002",
+                "quote": "Officials reported six injuries."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10061,
+          "title_zh": "A storm caused injuries.",
+          "summary": "\u98ce\u66b4\u9020\u6210\u4e86\u4eba\u5458\u53d7\u4f24\u3002 \u6d2a\u6c34\u635f\u574f\u4e86\u623f\u5c4b\u548c\u9053\u8def\u3002",
+          "grounding": {
+            "version": "summary-grounded-v3",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u98ce\u66b4\u9020\u6210\u4e86\u4eba\u5458\u53d7\u4f24\u3002",
+                "quote": "A storm caused injuries."
+              },
+              {
+                "text": "\u6d2a\u6c34\u635f\u574f\u4e86\u623f\u5c4b\u548c\u9053\u8def\u3002",
+                "quote": "Homes and roads were damaged by flooding."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10062,
+          "title_zh": "\u98ce\u66b4\u9020\u6210\u4eba\u5458\u53d7\u4f24",
+          "summary": "\u98ce\u66b4\u5bfc\u81f4\u4eba\u5458\u53d7\u4f24\u3002",
+          "grounding": {
+            "version": "summary-grounded-v3",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u98ce\u66b4\u5bfc\u81f4\u4eba\u5458\u53d7\u4f24\u3002",
+                "quote": "A storm caused injuries."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

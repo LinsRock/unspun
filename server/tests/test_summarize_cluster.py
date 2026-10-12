@@ -5,6 +5,7 @@ from typing import Any, cast
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from unspun.core.config import get_settings
 from unspun.core.models import EMBEDDING_DIM, Article, Event, LlmUsage
 from unspun.core.params import get_scoring_params
 from unspun.pipeline.cluster import assign_article
@@ -29,7 +30,13 @@ class FakeLlm:
         max_tokens: int = 1024,
     ) -> dict[str, Any]:
         session.add(LlmUsage(purpose=purpose, model=model, prompt_tokens=10, cost_usd=0.001))
-        return {"title_zh": "zh-title", "summary_zh": "zh-summary"}
+        if purpose == "grounding":
+            return {"supported_fact_indexes": [0, 1]}
+        return {
+            "title_zh": "zh-title",
+            "facts": [{"text": "zh-summary", "quote": "body text"}],
+            "content_quality": "sufficient",
+        }
 
     def embed(self, session: Session, texts: list[str]) -> list[list[float]]:
         return [unit_vector(i) for i in range(len(texts))]
@@ -58,8 +65,12 @@ def test_summarize_article_sets_fields_and_records_usage(db_session: Session) ->
     summarize_article(db_session, FakeLlm(), article)
     assert article.summary_zh == "zh-summary"
     assert article.title_zh == "zh-title"
-    usage = db_session.scalars(select(LlmUsage)).one()
-    assert usage.purpose == "summary"
+    assert article.summary_grounding is not None
+    assert article.summary_grounding["status"] == "grounded"
+    usage = list(db_session.scalars(select(LlmUsage).order_by(LlmUsage.id)))
+    assert [row.purpose for row in usage] == ["summary", "grounding"]
+    assert usage[0].model == get_settings().summary_model
+    assert usage[1].model == get_settings().viewpoint_model
 
 
 def test_pending_summary_ids_skips_articles_at_failure_cap(db_session: Session) -> None:

@@ -63,6 +63,7 @@ class Article(Base):
     content: Mapped[str | None] = mapped_column(Text)
     title_zh: Mapped[str | None] = mapped_column(Text)
     summary_zh: Mapped[str | None] = mapped_column(Text)
+    summary_grounding: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
     # Summarize failures so far; articles at pipeline.max_summary_failures
     # (config/scoring.yml) are skipped, otherwise a permanently broken
     # article burns a batch slot every cycle.
@@ -86,7 +87,7 @@ class EventViewpoint(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     event_id: Mapped[int] = mapped_column(ForeignKey("events.id", ondelete="CASCADE"), unique=True)
     payload: Mapped[dict[str, Any]] = mapped_column(JSONB)
-    # Hash of the event's sorted article ids; unchanged fingerprint means the
+    # Hash of sorted source content, metadata, model, and prompts; equality means the
     # inputs did not change and no regeneration is needed.
     input_fingerprint: Mapped[str] = mapped_column(Text)
     model: Mapped[str] = mapped_column(Text)

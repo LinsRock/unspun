@@ -36,19 +36,23 @@ class ArticleOut(BaseModel):
     source_id: str
     source_name: str
     published_at: datetime | None
+    content_quality: str | None = None
 
 
 class ViewpointClaimOut(BaseModel):
     article_id: int
     claim: str
+    evidence_quote: str | None = None
 
 
 class ViewpointDisagreementOut(BaseModel):
     point: str
     claim_indexes: list[int]
+    kind: str | None = None
 
 
 class ViewpointOut(BaseModel):
+    status: str | None = None
     claims: list[ViewpointClaimOut]
     disagreements: list[ViewpointDisagreementOut]
     model: str
@@ -97,7 +101,7 @@ def viewpoint_out(row: EventViewpoint | None, article_ids: set[int]) -> Viewpoin
     }
     parsed.claims = [c for i, c in enumerate(parsed.claims) if i in index_map]
     remapped = [
-        ViewpointDisagreementOut(point=d.point, claim_indexes=indexes)
+        ViewpointDisagreementOut(point=d.point, claim_indexes=indexes, kind=d.kind)
         for d in parsed.disagreements
         if len(indexes := sorted(index_map[i] for i in d.claim_indexes if i in index_map)) >= 2
     ]
@@ -129,6 +133,13 @@ def event_out(event: Event, decayed_score: float | None, source_names: dict[str,
                 source_id=a.source_id,
                 source_name=source_names.get(a.source_id, a.source_id),
                 published_at=a.published_at,
+                content_quality=(
+                    a.summary_grounding.get("status")
+                    if a.summary_grounding
+                    and a.summary_grounding.get("status")
+                    in ("grounded", "limited", "review_limited")
+                    else None
+                ),
             )
             for a in sorted(event.articles, key=lambda a: a.id)
         ],

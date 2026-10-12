@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-10-10T10:00:42.242567+00:00",
+  "live_model_calls": true,
+  "semantic_entailment_verified": false,
+  "budget_usd": 0.1,
+  "cost_usd": 0.0011005,
+  "calls": 4,
+  "budget_note": "Cap stops subsequent calls; in-flight calls/retries can exceed the cap.",
+  "usage_ledger": [
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 268,
+      "completion_tokens": 34,
+      "cost_usd": 4.04e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 270,
+      "completion_tokens": 65,
+      "cost_usd": 5.3e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 271,
+      "completion_tokens": 58,
+      "cost_usd": 5.03e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 706,
+      "completion_tokens": 298,
+      "cost_usd": 0.0009568
+    }
+  ],
+  "results": [
+    {
+      "case_id": "temporal-update",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v1",
+        "claims": [
+          {
+            "article_id": 10040,
+            "claim": "\u4e00\u5ea7\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\uff0c\u822a\u73ed\u4e8e08:00\u6682\u505c\u3002",
+            "evidence_quote": "An airport reopened.\nAt 08:00 flights were suspended."
+          },
+          {
+            "article_id": 10041,
+            "claim": "\u4e00\u5ea7\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\uff0c\u822a\u73ed\u5728\u5b89\u5168\u68c0\u67e5\u540e\u4e8e11:00\u6062\u590d\u3002",
+            "evidence_quote": "An airport reopened.\nAt 11:00 flights resumed after safety checks."
+          },
+          {
+            "article_id": 10042,
+            "claim": "\u4e00\u5ea7\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\uff0c\u822a\u73ed\u5728\u65e9\u524d\u6682\u505c\u540e\u4e8e11:00\u6062\u590d\u3002",
+            "evidence_quote": "An airport reopened.\nFlights resumed at 11:00 following an earlier suspension."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u822a\u73ed\u6062\u590d\u7684\u65f6\u95f4\u4e0d\u540c\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ],
+            "kind": "factual_conflict"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          "factual_conflict"
+        ],
+        "invalid_relations": 0,
+        "missing_required_kinds": [
+          "temporal_update"
+        ],
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10040,
+          "summary": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": {
+            "version": "summary-grounded-v1",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\u3002",
+                "quote": "An airport reopened."
+              }
+            ]
+          }
+        },
+        {
+          "article_id": 10041,
+          "summary": "\u4e00\u5ea7\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\u3002 \u5728\u5b89\u5168\u68c0\u67e5\u540e\uff0c\u822a\u73ed\u4e8e11\u70b9\u6062\u590d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v1",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e00\u5ea7\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\u3002",
+                "quote": "An airport reopened."
+              },
+              {
+                "text": "\u5728\u5b89\u5168\u68c0\u67e5\u540e\uff0c\u822a\u73ed\u4e8e11\u70b9\u6062\u590d\u3002",
+                "quote": "At 11:00 flights resumed after safety checks."
+              }
+            ]
+          }
+        },
+        {
+          "article_id": 10042,
+          "summary": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\uff0c\u822a\u73ed\u5df2\u4e8e\u4e0a\u534811\u70b9\u6062\u590d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v1",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\uff0c\u822a\u73ed\u5df2\u4e8e\u4e0a\u534811\u70b9\u6062\u590d\u3002",
+                "quote": "An airport reopened.\nFlights resumed at 11:00 following an earlier suspension."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
