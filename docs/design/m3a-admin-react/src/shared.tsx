@@ -1,6 +1,6 @@
-import { useRef, useState, type ReactNode } from 'react'
-import { Card, Collapse, DatePicker, Empty, Segmented, Tag, Typography } from 'antd'
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { useRef, type ReactNode } from 'react'
+import { Card, Collapse, DatePicker, Empty, Tag, Typography } from 'antd'
+import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import dayjs from 'dayjs'
 import { asOf, buckets, dateISO, dayMs, midnight, money, presets, zone, type Bucket, type Range } from './data'
 
@@ -41,7 +41,8 @@ export function DateRange({range,onChange}:{range:Range;onChange:(range:Range)=>
 }
 export function Trend({range,type,onBucket}:{range:Range;type:'articles'|'cost';onBucket:(bucket:Bucket)=>void}){
   const data=buckets(range,type)
-  const tick=(n:number)=>type==='cost'?`$${n<1?n.toFixed(2):n.toFixed(0)}`:String(n)
+  const costPrecision=Math.max(2,-Math.floor(Math.log10(Math.max(...data.map(d=>d.value),1e-8)/4)))
+  const tick=(n:number)=>type==='cost'?`$${n.toFixed(costPrecision)}`:String(n)
   if(!data.some(item=>item.value>0))return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="此期间暂无记录"/>
   return <><Typography.Text type="secondary" className="chart-unit">{type==='cost'?'调用费用 · USD':'入库文章 · 篇'}</Typography.Text><div className="chart-container"><ResponsiveContainer width="100%" height="100%"><BarChart data={data} margin={{top:18,right:12,bottom:6,left:2}} accessibilityLayer>
     <CartesianGrid vertical={false} stroke="var(--line)"/>
@@ -52,7 +53,16 @@ export function Trend({range,type,onBucket}:{range:Range;type:'articles'|'cost';
   </BarChart></ResponsiveContainer></div></>
 }
 export function OverviewTrend(props:{range:Range;onBucket:(bucket:Bucket,type:'articles'|'cost')=>void}){
-  const [type,setType]=useState<'articles'|'cost'>('articles')
-  return <Panel title="采集与费用趋势" extra={<Segmented options={[{label:'文章',value:'articles'},{label:'调用费用',value:'cost'}]} value={type} onChange={value=>setType(value as typeof type)}/>}><Trend range={props.range} type={type} onBucket={b=>props.onBucket(b,type)}/></Panel>
+  return <div className="overview-trends">{(['articles','cost'] as const).map(type=>{
+    const total=buckets(props.range,type).reduce((sum,b)=>sum+b.value,0)
+    return <Panel key={type} title={type==='articles'?'文章入库趋势':'调用费用趋势'}><div className="trend-total"><span>所选期间合计</span><strong data-trend-total={type}>{type==='articles'?`${total} 篇`:money(total)}</strong></div><Trend range={props.range} type={type} onBucket={b=>props.onBucket(b,type)}/></Panel>
+  })}</div>
+}
+export interface CostSlice {purpose:string;count:number;cost:number}
+export function CostComposition({data,onPurpose}:{data:CostSlice[];onPurpose:(purpose:string)=>void}){
+  const slices=data.filter(d=>d.cost>0),total=data.reduce((sum,d)=>sum+d.cost,0)
+  const colors=['var(--accent)','#4e7fa7','#789ec0','#a3bad4','#6b7e98','#bec5ce']
+  if(!total)return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="此期间没有调用费用"/>
+  return <section className="cost-composition" aria-label="模型调用费用构成"><div className="composition-heading"><Typography.Text type="secondary">模型调用费用构成 · 不含固定费用</Typography.Text><span className="num" data-composition-total>{money(total)}</span></div><div className="pie-container"><ResponsiveContainer width="100%" height="100%"><PieChart accessibilityLayer><Pie data={slices} dataKey="cost" nameKey="purpose" innerRadius={62} outerRadius={96} paddingAngle={2} stroke="var(--surface)" isAnimationActive={false} onClick={slice=>onPurpose((slice as unknown as {payload:CostSlice}).payload.purpose)}>{slices.map((slice,i)=><Cell key={slice.purpose} fill={colors[i%colors.length]}/>)}</Pie><Tooltip contentStyle={{background:'var(--surface)',border:'1px solid var(--line)',borderRadius:8,color:'var(--ink)'}} formatter={(value)=>`${money(Number(value))} · ${(Number(value)/total*100).toFixed(1)}%`}/><Legend verticalAlign="bottom" iconType="circle" iconSize={8} formatter={purpose=>{const slice=slices.find(s=>s.purpose===purpose);return <span className="pie-legend-label">{purpose} {slice?(slice.cost/total*100).toFixed(1)+'%':''}</span>}}/></PieChart></ResponsiveContainer></div></section>
 }
 export function Explanation({children}:{children:ReactNode}){return <Collapse ghost size="small" className="explanation" items={[{key:'explanation',label:'口径与数据说明',children}]}/>}
