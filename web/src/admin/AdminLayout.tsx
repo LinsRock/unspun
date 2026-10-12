@@ -6,7 +6,9 @@ import { Link, NavLink, useLocation, useSearchParams } from 'react-router-dom'
 
 import ThemeToggle from '../ThemeToggle'
 import { fetchAdminRange } from './adminApi'
+import ContentPage from './ContentPage'
 import DateRange from './DateRange'
+import SourcesPage from './SourcesPage'
 import { parseRange, rangeSearch, sharedRangeSearch, type AdminRange } from './adminFilters'
 import './admin.css'
 
@@ -116,7 +118,9 @@ export default function AdminLayout() {
                   <Button onClick={() => void query.refetch()}>重试</Button>
                 </div>
               )}
-              {query.isSuccess && (
+              {query.isSuccess && page.path === '/admin/sources' && <SourcesPage range={range} />}
+              {query.isSuccess && page.path === '/admin/content' && <ContentPage range={range} />}
+              {query.isSuccess && page.path !== '/admin/sources' && page.path !== '/admin/content' && (
                 <div className="admin-state">
                   <Empty description={`${page.label}历史查询将在 ${page.phase} 接入；当前没有可展示的真实后台数据。`} />
                 </div>
