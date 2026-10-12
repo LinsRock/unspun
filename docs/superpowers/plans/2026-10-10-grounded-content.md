@@ -45,4 +45,4 @@ Files: `server/src/unspun/evaluation/`, `server/tests/test_quality_evaluation.py
 
 - [x] 更新 requirement/decisions/M2 任务说明与评测记录，不提前关闭 T10。
 - [x] 全量后端/前端检查、迁移、独立规格与代码评审、生产构建浏览器检查。
-- [ ] 本地演示与用户体验验收；D-012 验收通过后创建 PR。此会话不修改生产文章/观点/日报。
+- [x] 本地演示与用户体验验收；用户于 2026-10-12 明确回复“验收通过”，D-012 提 PR 前置条件已满足。此会话不修改生产文章/观点/日报。
