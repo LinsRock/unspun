@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unspun · 管理后台原型</title><link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="prototype.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unspun · 管理后台原型</title><link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="vendor/flatpickr.min.css"><link rel="stylesheet" href="prototype.css"><link rel="stylesheet" href="refinement.css"></head>
 <body>
 <aside class="sidebar"><a class="brand" href="#overview"><span class="mark">u</span>unspun <small>管理后台</small></a><div class="nav-label">工作区</div><nav id="nav"></nav><div class="sidebar-bottom"><p>个人情报站</p><span>查询 · 理解 · 调整</span><button id="theme">切换深浅色</button></div></aside>
-<main><header><div><div class="eyebrow">UNSPUN / WORKSPACE</div><h1 id="title">总览</h1><p id="subtitle"></p></div><span class="prototype-badge">交互原型 · 示例数据</span></header>
-<div class="demo-note">固定演示时点：2026-10-12 14:00 北京时间。数据用于评审交互，不代表生产状态；账务操作仅修改本次演示。</div>
-<section class="rangebar" aria-label="查询时间"><div class="range-presets" id="presets"></div><div class="range-controls"><label>起始日期<input type="date" id="start" value="2026-10-12"></label><span>至</span><label>结束日期<input type="date" id="end" value="2026-10-12"></label><button id="apply">应用</button></div><div class="range-foot"><span id="range-label"></span><span>Asia/Shanghai · 自然日与滚动窗口分开</span></div></section>
-<div id="content"></div><footer>M3-A 查询版原型 <span>·</span> 原文证据与历史记录始终可追踪</footer></main>
+<main><header><div><div class="eyebrow">UNSPUN / WORKSPACE</div><h1 id="title">总览</h1><p id="subtitle"></p></div><span class="prototype-badge" title="固定演示时点 2026-10-12 14:00；所有数据均为示例">原型 · 示例数据</span></header>
+<section class="querybar" aria-label="查询时间"><div><button id="range-trigger" aria-haspopup="dialog" aria-controls="range-dialog">▦ <span id="range-name">今天</span><span class="range-chevron">⌄</span></button><span id="range-label"></span></div><span class="timezone-label">北京时间</span></section>
+<div id="content"></div><footer>示例时点 2026-10-12 14:00 · 账务操作仅在本次演示生效</footer></main>
+<dialog id="range-dialog" aria-labelledby="range-dialog-title"><div class="range-dialog-header"><h2 id="range-dialog-title">选择时间范围</h2><button id="range-close" aria-label="关闭时间选择">✕</button></div><div class="range-picker-body"><div id="range-shortcuts" class="range-shortcuts"></div><div class="calendar-side"><input id="calendar-input" aria-label="日历范围"><div id="calendar-host"></div><div class="range-draft-inputs"><label>开始日期<input id="draft-start" type="date"></label><span>—</span><label>结束日期<input id="draft-end" type="date"></label></div><p id="range-error" role="alert"></p></div></div><div class="range-dialog-footer"><span>北京时间 · 结束日期包含当天</span><button id="range-cancel">取消</button><button id="range-apply" class="primary">应用范围</button></div></dialog>
 <dialog id="detail"><div class="dialog-header"><div><span class="eyebrow">详细信息</span><h2 id="detail-title"></h2></div><button id="close" aria-label="关闭详情">✕</button></div><div id="detail-body"></div></dialog>
-<div class="toast" id="toast" role="status"></div><script src="prototype.js"></script>
+<div class="toast" id="toast" role="status"></div><script src="vendor/flatpickr.min.js"></script><script src="vendor/zh.js"></script><script src="prototype.js"></script><script src="range-picker.js"></script>
 </body></html>
