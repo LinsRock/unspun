@@ -128,7 +128,7 @@ def test_generation_stores_snapshot_and_replaces_same_day(db_session: Session) -
     assert snapshot["intro"] == "daily introduction"
     assert snapshot["events"][0]["articles"][0]["source_name"] == "BBC World"
     assert snapshot["events"][0]["viewpoint"]["claims"] == [
-        {"article_id": article.id, "claim": "traceable"}
+        {"article_id": article.id, "claim": "traceable", "evidence_quote": None}
     ]
     event.title = "updated"
     db_session.flush()

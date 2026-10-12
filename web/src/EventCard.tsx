@@ -3,6 +3,9 @@ import { useState } from 'react'
 import type { ArticleOut, EventOut, ViewpointOut } from './api'
 import { safeHref } from './links'
 import SectionHeading from './SectionHeading'
+import EvidenceQuote from './EvidenceQuote'
+import { relationLabel } from './relationLabels'
+import { contentQualityLabel } from './contentQualityLabel'
 
 // How many source chips a collapsed card shows (see DESIGN.md: event card).
 const COLLAPSED_SOURCES = 2
@@ -29,9 +32,19 @@ function relativeTime(iso: string): string | null {
 const SCORE_BADGE =
   'min-w-10 shrink-0 rounded-ctl px-2 py-0.5 text-center font-mono text-sm font-bold tabular-nums'
 
-function ScoreBar({ label, value, sub = false }: { label: string; value: number; sub?: boolean }) {
+function ScoreBar({
+  label,
+  value,
+  sub = false,
+}: {
+  label: string
+  value: number
+  sub?: boolean
+}) {
   return (
-    <div className={`flex items-center gap-2 text-[11.5px] text-ink-3 ${sub ? 'pl-3 opacity-80' : ''}`}>
+    <div
+      className={`flex items-center gap-2 text-[11.5px] text-ink-3 ${sub ? 'pl-3 opacity-80' : ''}`}
+    >
       <span className="w-14 shrink-0">{label}</span>
       <div className="h-[5px] flex-1 overflow-hidden rounded-[3px] bg-line">
         <div
@@ -39,7 +52,9 @@ function ScoreBar({ label, value, sub = false }: { label: string; value: number;
           style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
         />
       </div>
-      <span className="w-[26px] shrink-0 text-right font-mono tabular-nums">{Math.round(value)}</span>
+      <span className="w-[26px] shrink-0 text-right font-mono tabular-nums">
+        {Math.round(value)}
+      </span>
     </div>
   )
 }
@@ -61,7 +76,11 @@ function ClaimLink({ article }: { article: ArticleOut }) {
   const href = safeHref(article.url)
   const label = `↗ ${article.title_zh ?? article.title}`
   if (href == null) {
-    return <span className="mt-2 block truncate text-[11.5px] text-ink-4">{label}</span>
+    return (
+      <span className="mt-2 block truncate text-[11.5px] text-ink-4">
+        {label}
+      </span>
+    )
   }
   return (
     <a
@@ -75,11 +94,20 @@ function ClaimLink({ article }: { article: ArticleOut }) {
   )
 }
 
-function ViewpointSection({ viewpoint, claims }: { viewpoint: ViewpointOut; claims: ResolvedClaim[] }) {
-  const indexToName = new Map(claims.map((c) => [c.index, c.article.source_name]))
+function ViewpointSection({
+  viewpoint,
+  claims,
+}: {
+  viewpoint: ViewpointOut
+  claims: ResolvedClaim[]
+}) {
+  const indexToName = new Map(
+    claims.map((c) => [c.index, c.article.source_name]),
+  )
   const disagreements = viewpoint.disagreements
     .map((d) => ({
       point: d.point,
+      kind: d.kind,
       refs: d.claim_indexes.flatMap((i) => indexToName.get(i) ?? []),
     }))
     .filter((d) => d.refs.length >= 2)
@@ -89,29 +117,48 @@ function ViewpointSection({ viewpoint, claims }: { viewpoint: ViewpointOut; clai
       <SectionHeading>各源说法 · {claims.length}</SectionHeading>
       <div className="mt-2.5 grid gap-2.5 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
         {claims.map(({ claim, article }) => (
-          <div key={claim.article_id} className="min-w-0 rounded-card border border-line px-3.5 py-3">
+          <div
+            key={claim.article_id}
+            className="min-w-0 rounded-card border border-line px-3.5 py-3"
+          >
             <div className="border-b border-line pb-2 text-[13px] font-bold">
               {article.source_name}
             </div>
-            <p className="mt-2 text-[13px] leading-[1.7] text-ink-2">{claim.claim}</p>
+            <p className="mt-2 text-[13px] leading-[1.7] text-ink-2">
+              {claim.claim}
+            </p>
+            <EvidenceQuote
+              quote={claim.evidence_quote}
+              limited={article.content_quality === 'limited'}
+            />
             <ClaimLink article={article} />
           </div>
         ))}
       </div>
       {disagreements.length > 0 && (
         <div className="mt-4">
-          <SectionHeading>分歧焦点 · {disagreements.length}</SectionHeading>
+          <SectionHeading>报道差异 · {disagreements.length}</SectionHeading>
           <ul>
             {disagreements.map((d, i) => (
               // Points can repeat verbatim; position is the stable identity.
               // eslint-disable-next-line react/no-array-index-key
-              <li key={i} className="flex gap-2.5 border-b border-line py-2.5 last:border-b-0">
+              <li
+                key={i}
+                className="flex gap-2.5 border-b border-line py-2.5 last:border-b-0"
+              >
                 <span className="shrink-0 pt-0.5 font-mono text-xs font-bold text-hot">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div className="min-w-0">
-                  <p className="text-[13.5px] leading-relaxed text-ink-2">{d.point}</p>
-                  <div className="mt-0.5 text-[11.5px] text-ink-4">{d.refs.join(' · ')}</div>
+                  <p className="mb-1 text-[11.5px] font-semibold text-ink-3">
+                    {relationLabel(d.kind)}
+                  </p>
+                  <p className="text-[13.5px] leading-relaxed text-ink-2">
+                    {d.point}
+                  </p>
+                  <div className="mt-0.5 text-[11.5px] text-ink-4">
+                    {d.refs.join(' · ')}
+                  </div>
                 </div>
               </li>
             ))}
@@ -134,8 +181,12 @@ function SourceChip({ article }: { article: EventOut['articles'][number] }) {
       rel="noreferrer"
       className="inline-flex max-w-full items-baseline gap-[5px] text-xs hover:underline"
     >
-      <span className="shrink-0 font-semibold text-ink-4">{article.source_name}</span>
-      <span className="truncate text-accent-ink">{article.title_zh ?? article.title}</span>
+      <span className="shrink-0 font-semibold text-ink-4">
+        {article.source_name}
+      </span>
+      <span className="truncate text-accent-ink">
+        {article.title_zh ?? article.title}
+      </span>
     </a>
   )
 }
@@ -146,12 +197,17 @@ export default function EventCard({ event }: { event: EventOut }) {
   const [showViewpoint, setShowViewpoint] = useState(false)
   const breakdown = event.score_breakdown
   const reason = breakdown?.importance?.reason
-  const rounded = event.score_final != null ? Math.round(event.score_final) : null
+  const rounded =
+    event.score_final != null ? Math.round(event.score_final) : null
   const updated = relativeTime(event.changed_at)
-  const articles = showAllSources ? event.articles : event.articles.slice(0, COLLAPSED_SOURCES)
+  const articles = showAllSources
+    ? event.articles
+    : event.articles.slice(0, COLLAPSED_SOURCES)
   const hiddenCount = event.articles.length - COLLAPSED_SOURCES
   const viewpoint = event.viewpoint
-  const viewpointClaims = viewpoint ? resolveClaims(viewpoint, event.articles) : []
+  const viewpointClaims = viewpoint
+    ? resolveClaims(viewpoint, event.articles)
+    : []
   // A comparison needs at least two traceable sides to be worth a button.
   const hasViewpoint = viewpointClaims.length >= 2
 
@@ -173,24 +229,45 @@ export default function EventCard({ event }: { event: EventOut }) {
               {rounded}
             </button>
           ) : (
-            <span className={`${SCORE_BADGE} ${scoreTierClasses(rounded)}`}>{rounded}</span>
+            <span className={`${SCORE_BADGE} ${scoreTierClasses(rounded)}`}>
+              {rounded}
+            </span>
           ))}
       </div>
       <div className="mt-[7px] font-mono text-[11.5px] tabular-nums text-ink-4">
         {event.articles.length} 源{updated != null && ` · 更新于 ${updated}`}
       </div>
+      {viewpoint?.status === 'review_limited' && (
+        <p className="mt-2 text-xs text-ink-3">观点对比待审核</p>
+      )}
       {event.summary_zh && (
-        <p className="mt-2 text-[13.5px] leading-[1.7] text-ink-2">{event.summary_zh}</p>
+        <p className="mt-2 text-[13.5px] leading-[1.7] text-ink-2">
+          {event.summary_zh}
+        </p>
       )}
       {showBreakdown && breakdown && (
         <div className="mt-2.5 flex flex-col gap-[5px] rounded-ctl bg-bg-sunk px-3 py-2.5">
-          {breakdown.importance && <ScoreBar label="重要性" value={breakdown.importance.score} />}
+          {breakdown.importance && (
+            <ScoreBar label="重要性" value={breakdown.importance.score} />
+          )}
           {breakdown.objective && (
             <>
               <ScoreBar label="客观信号" value={breakdown.objective.score} />
-              <ScoreBar sub label="报道广度" value={breakdown.objective.breadth} />
-              <ScoreBar sub label="增长速度" value={breakdown.objective.growth} />
-              <ScoreBar sub label="来源质量" value={breakdown.objective.source_quality} />
+              <ScoreBar
+                sub
+                label="报道广度"
+                value={breakdown.objective.breadth}
+              />
+              <ScoreBar
+                sub
+                label="增长速度"
+                value={breakdown.objective.growth}
+              />
+              <ScoreBar
+                sub
+                label="来源质量"
+                value={breakdown.objective.source_quality}
+              />
             </>
           )}
           {reason && (
@@ -204,6 +281,9 @@ export default function EventCard({ event }: { event: EventOut }) {
         {articles.map((a) => (
           <li key={a.id} className="max-w-full">
             <SourceChip article={a} />
+            {contentQualityLabel(a.content_quality) && (
+              <span className="ml-1.5 whitespace-nowrap text-[11px] text-ink-4">{contentQualityLabel(a.content_quality)}</span>
+            )}
           </li>
         ))}
       </ul>

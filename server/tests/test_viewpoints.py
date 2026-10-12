@@ -1,3 +1,4 @@
+import json
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -52,7 +53,7 @@ def make_article(n: int, sid: str) -> Article:
         title=f"story {n}",
         title_zh=f"t{n}",
         summary_zh=f"s{n}",
-        content=f"lead {n}",
+        content=f"Original coverage for story {n}.",
     )
 
 
@@ -236,9 +237,12 @@ def test_parse_tolerates_malformed_disagreements() -> None:
 
 
 class FakeViewpointLlm:
-    def __init__(self, response: dict[str, Any] | None = None) -> None:
+    def __init__(
+        self, response: dict[str, Any] | None = None, review_response: dict[str, Any] | None = None
+    ) -> None:
         self.calls = 0
         self.response = response
+        self.review_response = review_response
 
     def chat_json(
         self,
@@ -250,16 +254,31 @@ class FakeViewpointLlm:
         purpose: str,
         max_tokens: int = 1024,
     ) -> dict[str, Any]:
-        assert purpose == "viewpoint"
+        assert purpose in {"viewpoint", "grounding"}
         self.calls += 1
         session.add(LlmUsage(purpose=purpose, model=model, prompt_tokens=10, cost_usd=0.001))
+        if purpose == "grounding":
+            return (
+                self.review_response
+                if self.review_response is not None
+                else json.loads(user)["draft"]
+            )
         if self.response is not None:
             return self.response
         # Claims for the article_ids present in the prompt.
-        ids = [int(part.split(" ")[0]) for part in user.split("article_id=")[1:]]
+        rows = json.loads(user)["articles"]
         return {
-            "claims": [{"article_id": i, "claim": f"claim {i}"} for i in ids],
-            "disagreements": [{"point": "framing differs", "claim_indexes": [0, 1]}],
+            "claims": [
+                {
+                    "article_id": row["article_id"],
+                    "claim": "\u6765\u6e90\u62a5\u9053\u4e8b\u4ef6",
+                    "evidence_quote": row["original_evidence"],
+                }
+                for row in rows
+            ],
+            "disagreements": [
+                {"point": "framing differs", "claim_indexes": [0, 1], "kind": "coverage_difference"}
+            ],
         }
 
     def embed(self, session: Session, texts: list[str]) -> list[list[float]]:
@@ -294,11 +313,13 @@ def test_refresh_generates_and_skips_unchanged(db_session: Session) -> None:
     assert viewpoint is not None
     article_ids = {a.id for a in event.articles}
     assert {c["article_id"] for c in viewpoint.payload["claims"]} <= article_ids
-    assert viewpoint.input_fingerprint == input_fingerprint(sorted(article_ids))
+    assert viewpoint.input_fingerprint == input_fingerprint(
+        list(event.articles), DIVERSE_SOURCES, viewpoint.model
+    )
 
     # Same article set: no second LLM call.
     assert refresh_event_viewpoint(db_session, llm, event, PARAMS, DIVERSE_SOURCES) == "skipped"
-    assert llm.calls == 1
+    assert llm.calls == 2
 
 
 def test_refresh_skips_ineligible_without_llm_call(db_session: Session) -> None:
@@ -327,7 +348,7 @@ def test_refresh_replaces_row_when_articles_change(db_session: Session) -> None:
 
     assert refresh_event_viewpoint(db_session, llm, event, PARAMS, DIVERSE_SOURCES) == "generated"
     db_session.flush()
-    assert llm.calls == 2
+    assert llm.calls == 4
     assert event.viewpoint is not None
     assert event.viewpoint.id == row_id  # replaced in place, one row per event
     assert event.viewpoint.input_fingerprint != first_fingerprint
@@ -360,4 +381,4 @@ def test_candidate_query_filters_by_sources_and_staleness(db_session: Session) -
     ids = candidate_viewpoint_ids(db_session, min_sources=3)
     assert diverse.id in ids
     assert narrow.id not in ids
-    assert done.id not in ids
+    assert done.id in ids  # Legacy/changed content requires Python fingerprint examination.

@@ -1,0 +1,180 @@
+{
+  "generated_at": "2026-10-10T10:20:28.987771+00:00",
+  "live_model_calls": true,
+  "summary_version": "summary-grounded-v3",
+  "viewpoint_version": "viewpoint-grounded-v2",
+  "semantic_entailment_verified": false,
+  "budget_usd": 0.03,
+  "cost_usd": 0.0027745,
+  "calls": 8,
+  "budget_note": "Cap stops subsequent calls; in-flight calls/retries can exceed the cap.",
+  "usage_ledger": [
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 374,
+      "completion_tokens": 45,
+      "cost_usd": 5.54e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 602,
+      "completion_tokens": 10,
+      "cost_usd": 0.0002056
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 376,
+      "completion_tokens": 54,
+      "cost_usd": 5.92e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 634,
+      "completion_tokens": 13,
+      "cost_usd": 0.0002227
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 373,
+      "completion_tokens": 75,
+      "cost_usd": 6.73e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 809,
+      "completion_tokens": 10,
+      "cost_usd": 0.0002677
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 711,
+      "completion_tokens": 256,
+      "cost_usd": 0.0008533
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1261,
+      "completion_tokens": 266,
+      "cost_usd": 0.0010433
+    }
+  ],
+  "results": [
+    {
+      "case_id": "currency",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10050,
+            "claim": "\u4e00\u6279\u8d27\u7269\u7684\u4ef7\u503c\u7ea6\u4e3a500\u4e07\u6b27\u5143\u3002",
+            "evidence_quote": "The shipment was worth approximately 5 million euros."
+          },
+          {
+            "article_id": 10051,
+            "claim": "\u4e00\u6279\u8d27\u7269\u7684\u4ef7\u503c\u7ea6\u4e3a560\u4e07\u7f8e\u5143\u3002",
+            "evidence_quote": "The shipment was worth approximately 5.6 million dollars."
+          },
+          {
+            "article_id": 10052,
+            "claim": "\u62a5\u544a\u7684\u4ef7\u503c\u4f7f\u7528\u4e86\u4e0d\u540c\u7684\u8d27\u5e01\u548c\u820d\u5165\u3002",
+            "evidence_quote": "The reported values use different currencies and rounding."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u8d27\u7269\u7684\u4f30\u503c\uff0c\u6765\u6e90\u4e4b\u95f4\u5b58\u5728\u8986\u76d6\u8303\u56f4\u5dee\u5f02\uff0c\u56e0\u4e3a\u5b83\u4eec\u62a5\u544a\u4e86\u4e0d\u540c\u8d27\u5e01\u7684\u4ef7\u503c\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "summary_forbidden_assertions": [],
+        "summary_missing_required_facts": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10050,
+          "title_zh": "A shipment was valued in several currencies.",
+          "summary": "\u4e00\u4efd\u8d27\u7269\u4f30\u503c\u7ea6\u4e3a\u4e94\u767e\u4e07\u6b27\u5143\u3002",
+          "grounding": {
+            "version": "summary-grounded-v3",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e00\u4efd\u8d27\u7269\u4f30\u503c\u7ea6\u4e3a\u4e94\u767e\u4e07\u6b27\u5143\u3002",
+                "quote": "The shipment was worth approximately 5 million euros."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10051,
+          "title_zh": "\u4e00\u4efd\u8d27\u7269\u7684\u4f30\u503c\u4ee5\u591a\u79cd\u8d27\u5e01\u8ba1\u4ef7",
+          "summary": "\u8fd9\u6279\u8d27\u7269\u5927\u7ea6\u4ef7\u503c560\u4e07\u7f8e\u5143\u3002",
+          "grounding": {
+            "version": "summary-grounded-v3",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8fd9\u6279\u8d27\u7269\u5927\u7ea6\u4ef7\u503c560\u4e07\u7f8e\u5143\u3002",
+                "quote": "The shipment was worth approximately 5.6 million dollars."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10052,
+          "title_zh": "A shipment was valued in several currencies.",
+          "summary": "\u4e00\u4efd\u8d27\u8fd0\u7684\u4ef7\u503c\u4f7f\u7528\u4e86\u591a\u79cd\u4e0d\u540c\u7684\u8d27\u5e01\u8fdb\u884c\u4f30\u503c\uff0c\u5e76\u4e14\u5728\u62a5\u544a\u65f6\u91c7\u7528\u4e86\u4e0d\u540c\u7684\u8d27\u5e01\u548c\u820d\u5165\u65b9\u5f0f\u3002",
+          "grounding": {
+            "version": "summary-grounded-v3",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u4efd\u8d27\u8fd0\u7684\u4ef7\u503c\u4f7f\u7528\u4e86\u591a\u79cd\u4e0d\u540c\u7684\u8d27\u5e01\u8fdb\u884c\u4f30\u503c\uff0c\u5e76\u4e14\u5728\u62a5\u544a\u65f6\u91c7\u7528\u4e86\u4e0d\u540c\u7684\u8d27\u5e01\u548c\u820d\u5165\u65b9\u5f0f\u3002",
+                "quote": "A shipment was valued in several currencies.\nThe reported values use different currencies and rounding."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 from functools import lru_cache
 
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -23,9 +24,10 @@ class Settings(BaseSettings):
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
     summary_model: str = "google/gemini-2.5-flash-lite"
     importance_model: str = "google/gemini-2.5-flash"
-    # Viewpoint comparison starts on the flash tier with summary-level input
-    # (D-011); upgrade via env if spot checks find the quality lacking.
+    # Viewpoint comparison and semantic grounding review use the flash tier.
+    # Evidence inputs and review behavior follow D-013.
     viewpoint_model: str = "google/gemini-2.5-flash"
+    grounding_budget_24h_usd: float = Field(default=0.40, ge=0, allow_inf_nan=False)
     digest_model: str = "google/gemini-2.5-flash-lite"
     embedding_model: str = "qwen/qwen3-embedding-8b"
 

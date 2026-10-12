@@ -83,8 +83,8 @@ async def test_events_include_viewpoint_payload(db_session: Session) -> None:
     ours = next(e for e in resp.json()["events"] if e["id"] == event.id)
     vp = ours["viewpoint"]
     assert vp["model"] == "m"
-    assert vp["claims"] == payload["claims"]
-    assert vp["disagreements"] == payload["disagreements"]
+    assert vp["claims"] == [{**c, "evidence_quote": None} for c in payload["claims"]]
+    assert vp["disagreements"] == [{**d, "kind": None} for d in payload["disagreements"]]
     assert {c["article_id"] for c in vp["claims"]} <= {a["id"] for a in ours["articles"]}
     others = [e for e in resp.json()["events"] if e["id"] != event.id]
     assert all(e["viewpoint"] is None for e in others)

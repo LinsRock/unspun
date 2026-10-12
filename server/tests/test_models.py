@@ -54,3 +54,30 @@ def test_migrated_schema_matches_models(db_session: Session) -> None:
         assert set(db_cols) == {c.name for c in table.columns}, table.name
         for col in table.columns:
             assert db_cols[col.name]["nullable"] == col.nullable, f"{table.name}.{col.name}"
+
+
+def test_summary_grounding_is_nullable_jsonb() -> None:
+    from sqlalchemy.dialects.postgresql import JSONB
+
+    column = Base.metadata.tables["articles"].c.get("summary_grounding")
+    assert column is not None
+    assert column.nullable
+    assert isinstance(column.type, JSONB)
+
+
+def test_summary_grounding_migration_is_additive() -> None:
+    from io import StringIO
+
+    from alembic import command
+    from alembic.config import Config
+
+    output = StringIO()
+    config = Config("alembic.ini", stdout=output)
+    config.set_main_option("path_separator", "os")
+    config.output_buffer = output
+    command.upgrade(config, "000006:000007", sql=True)
+    sql = output.getvalue()
+    assert "ADD COLUMN summary_grounding JSONB" in sql
+    assert "NOT NULL" not in sql
+    assert "UPDATE articles" not in sql
+    assert "DROP" not in sql

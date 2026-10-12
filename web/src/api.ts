@@ -6,6 +6,7 @@ export interface ArticleOut {
   source_id: string
   source_name: string
   published_at: string | null
+  content_quality?: 'grounded' | 'limited' | 'review_limited' | null
 }
 
 export interface ImportanceBreakdown {
@@ -34,14 +35,17 @@ export interface ScoreBreakdown {
 export interface ViewpointClaim {
   article_id: number
   claim: string
+  evidence_quote?: string | null
 }
 
 export interface ViewpointDisagreement {
   point: string
   claim_indexes: number[]
+  kind?: string | null
 }
 
 export interface ViewpointOut {
+  status?: string | null
   claims: ViewpointClaim[]
   disagreements: ViewpointDisagreement[]
   model: string
@@ -84,7 +88,9 @@ export interface DigestResponse {
   }
 }
 
-export async function fetchDigest(date: string): Promise<DigestResponse | null> {
+export async function fetchDigest(
+  date: string,
+): Promise<DigestResponse | null> {
   const res = await fetch(`/api/digest/${encodeURIComponent(date)}`)
   if (res.status === 404) return null
   if (!res.ok) throw new Error(`API ${res.status}`)

@@ -1,0 +1,4642 @@
+{
+  "generated_at": "2026-10-10T10:12:49.157569+00:00",
+  "live_model_calls": true,
+  "summary_version": "summary-grounded-v2",
+  "viewpoint_version": "viewpoint-grounded-v2",
+  "semantic_entailment_verified": false,
+  "budget_usd": 0.5,
+  "cost_usd": 0.05549359999999999,
+  "calls": 227,
+  "budget_note": "Cap stops subsequent calls; in-flight calls/retries can exceed the cap.",
+  "usage_ledger": [
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 356,
+      "completion_tokens": 114,
+      "cost_usd": 8.12e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 350,
+      "completion_tokens": 159,
+      "cost_usd": 9.86e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 351,
+      "completion_tokens": 121,
+      "cost_usd": 8.35e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 555,
+      "completion_tokens": 10,
+      "cost_usd": 5.95e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 476,
+      "completion_tokens": 10,
+      "cost_usd": 5.16e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 663,
+      "completion_tokens": 10,
+      "cost_usd": 7.03e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 344,
+      "completion_tokens": 80,
+      "cost_usd": 6.64e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 352,
+      "completion_tokens": 59,
+      "cost_usd": 5.88e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 482,
+      "completion_tokens": 10,
+      "cost_usd": 5.22e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 353,
+      "completion_tokens": 144,
+      "cost_usd": 9.29e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 381,
+      "completion_tokens": 10,
+      "cost_usd": 4.21e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 590,
+      "completion_tokens": 13,
+      "cost_usd": 6.42e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 361,
+      "completion_tokens": 173,
+      "cost_usd": 0.0001053
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 351,
+      "completion_tokens": 79,
+      "cost_usd": 6.67e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 351,
+      "completion_tokens": 87,
+      "cost_usd": 6.99e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 493,
+      "completion_tokens": 13,
+      "cost_usd": 5.45e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 553,
+      "completion_tokens": 13,
+      "cost_usd": 6.05e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 437,
+      "completion_tokens": 10,
+      "cost_usd": 4.77e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 351,
+      "completion_tokens": 84,
+      "cost_usd": 6.87e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 379,
+      "completion_tokens": 176,
+      "cost_usd": 0.0001083
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 470,
+      "completion_tokens": 10,
+      "cost_usd": 5.1e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 629,
+      "completion_tokens": 13,
+      "cost_usd": 6.81e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 709,
+      "completion_tokens": 213,
+      "cost_usd": 0.0007452
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 359,
+      "completion_tokens": 114,
+      "cost_usd": 8.15e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 354,
+      "completion_tokens": 169,
+      "cost_usd": 0.000103
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 489,
+      "completion_tokens": 10,
+      "cost_usd": 5.29e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 687,
+      "completion_tokens": 13,
+      "cost_usd": 7.39e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1140,
+      "completion_tokens": 253,
+      "cost_usd": 0.0009745
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 347,
+      "completion_tokens": 87,
+      "cost_usd": 6.95e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 558,
+      "completion_tokens": 10,
+      "cost_usd": 5.98e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 355,
+      "completion_tokens": 81,
+      "cost_usd": 6.79e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 351,
+      "completion_tokens": 98,
+      "cost_usd": 7.43e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 365,
+      "completion_tokens": 67,
+      "cost_usd": 6.33e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1338,
+      "completion_tokens": 461,
+      "cost_usd": 0.0015539
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 509,
+      "completion_tokens": 10,
+      "cost_usd": 5.49e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 726,
+      "completion_tokens": 10,
+      "cost_usd": 7.66e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 385,
+      "completion_tokens": 120,
+      "cost_usd": 8.65e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 1630,
+      "completion_tokens": 13,
+      "cost_usd": 0.0001682
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1253,
+      "completion_tokens": 542,
+      "cost_usd": 0.0017309
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1702,
+      "completion_tokens": 560,
+      "cost_usd": 0.0019106
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 386,
+      "completion_tokens": 95,
+      "cost_usd": 7.66e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 332,
+      "completion_tokens": 55,
+      "cost_usd": 5.52e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 1028,
+      "completion_tokens": 10,
+      "cost_usd": 0.0001068
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 361,
+      "completion_tokens": 10,
+      "cost_usd": 4.01e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1895,
+      "completion_tokens": 451,
+      "cost_usd": 0.001696
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 332,
+      "completion_tokens": 57,
+      "cost_usd": 5.6e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 989,
+      "completion_tokens": 275,
+      "cost_usd": 0.0009842
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 334,
+      "completion_tokens": 57,
+      "cost_usd": 5.62e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 374,
+      "completion_tokens": 10,
+      "cost_usd": 4.14e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 383,
+      "completion_tokens": 10,
+      "cost_usd": 4.23e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1262,
+      "completion_tokens": 178,
+      "cost_usd": 0.0008236
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 334,
+      "completion_tokens": 53,
+      "cost_usd": 5.46e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 332,
+      "completion_tokens": 57,
+      "cost_usd": 5.6e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 96,
+      "cost_usd": 7.11e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 360,
+      "completion_tokens": 10,
+      "cost_usd": 4e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 334,
+      "completion_tokens": 87,
+      "cost_usd": 6.82e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 422,
+      "completion_tokens": 13,
+      "cost_usd": 4.74e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 367,
+      "completion_tokens": 10,
+      "cost_usd": 4.07e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 486,
+      "completion_tokens": 13,
+      "cost_usd": 5.38e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 37,
+      "cost_usd": 4.74e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 337,
+      "completion_tokens": 10,
+      "cost_usd": 3.77e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 719,
+      "completion_tokens": 160,
+      "cost_usd": 0.0006157
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 744,
+      "completion_tokens": 165,
+      "cost_usd": 0.0006357
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 37,
+      "cost_usd": 4.74e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 10,
+      "cost_usd": 3.67e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1037,
+      "completion_tokens": 165,
+      "cost_usd": 0.0007236
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1042,
+      "completion_tokens": 205,
+      "cost_usd": 0.0008251
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 613,
+      "completion_tokens": 167,
+      "cost_usd": 0.0006014
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 328,
+      "completion_tokens": 111,
+      "cost_usd": 7.72e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 325,
+      "completion_tokens": 38,
+      "cost_usd": 4.77e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 458,
+      "completion_tokens": 13,
+      "cost_usd": 5.1e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 308,
+      "completion_tokens": 10,
+      "cost_usd": 3.48e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1003,
+      "completion_tokens": 164,
+      "cost_usd": 0.0007109
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 330,
+      "completion_tokens": 110,
+      "cost_usd": 7.7e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 60,
+      "cost_usd": 5.67e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 320,
+      "completion_tokens": 59,
+      "cost_usd": 5.56e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 430,
+      "completion_tokens": 13,
+      "cost_usd": 4.82e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 422,
+      "completion_tokens": 10,
+      "cost_usd": 4.62e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 403,
+      "completion_tokens": 13,
+      "cost_usd": 4.55e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 111,
+      "cost_usd": 7.71e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 328,
+      "completion_tokens": 40,
+      "cost_usd": 4.88e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 323,
+      "completion_tokens": 65,
+      "cost_usd": 5.83e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 467,
+      "completion_tokens": 13,
+      "cost_usd": 5.19e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 403,
+      "completion_tokens": 13,
+      "cost_usd": 4.55e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 325,
+      "completion_tokens": 10,
+      "cost_usd": 3.65e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 322,
+      "completion_tokens": 39,
+      "cost_usd": 4.78e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 684,
+      "completion_tokens": 119,
+      "cost_usd": 0.0005027
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 320,
+      "completion_tokens": 10,
+      "cost_usd": 3.6e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 791,
+      "completion_tokens": 256,
+      "cost_usd": 0.0008773
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 957,
+      "completion_tokens": 119,
+      "cost_usd": 0.0005846
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 646,
+      "completion_tokens": 278,
+      "cost_usd": 0.0008888
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 335,
+      "completion_tokens": 61,
+      "cost_usd": 5.79e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1109,
+      "completion_tokens": 256,
+      "cost_usd": 0.0009727
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 380,
+      "completion_tokens": 10,
+      "cost_usd": 4.2e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1036,
+      "completion_tokens": 208,
+      "cost_usd": 0.0008308
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 335,
+      "completion_tokens": 87,
+      "cost_usd": 6.83e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 55,
+      "cost_usd": 5.47e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 354,
+      "completion_tokens": 10,
+      "cost_usd": 3.94e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 371,
+      "completion_tokens": 10,
+      "cost_usd": 4.11e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 328,
+      "completion_tokens": 44,
+      "cost_usd": 5.04e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 330,
+      "completion_tokens": 10,
+      "cost_usd": 3.7e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 66,
+      "cost_usd": 5.91e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 335,
+      "completion_tokens": 58,
+      "cost_usd": 5.67e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 428,
+      "completion_tokens": 13,
+      "cost_usd": 4.8e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 401,
+      "completion_tokens": 10,
+      "cost_usd": 4.41e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 322,
+      "completion_tokens": 48,
+      "cost_usd": 5.14e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 351,
+      "completion_tokens": 10,
+      "cost_usd": 3.91e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 329,
+      "completion_tokens": 54,
+      "cost_usd": 5.45e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 324,
+      "completion_tokens": 54,
+      "cost_usd": 5.4e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 687,
+      "completion_tokens": 309,
+      "cost_usd": 0.0009786
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 358,
+      "completion_tokens": 10,
+      "cost_usd": 3.98e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 386,
+      "completion_tokens": 10,
+      "cost_usd": 4.26e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 613,
+      "completion_tokens": 136,
+      "cost_usd": 0.0005239
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1176,
+      "completion_tokens": 310,
+      "cost_usd": 0.0011278
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 670,
+      "completion_tokens": 139,
+      "cost_usd": 0.0005485
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 60,
+      "cost_usd": 5.66e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 973,
+      "completion_tokens": 290,
+      "cost_usd": 0.0010169
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 394,
+      "completion_tokens": 13,
+      "cost_usd": 4.46e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 981,
+      "completion_tokens": 238,
+      "cost_usd": 0.0008893
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 50,
+      "cost_usd": 5.27e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 70,
+      "cost_usd": 6.06e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 361,
+      "completion_tokens": 10,
+      "cost_usd": 4.01e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 47,
+      "cost_usd": 5.15e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 328,
+      "completion_tokens": 58,
+      "cost_usd": 5.6e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 345,
+      "completion_tokens": 10,
+      "cost_usd": 3.85e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 395,
+      "completion_tokens": 12,
+      "cost_usd": 4.43e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 328,
+      "completion_tokens": 66,
+      "cost_usd": 5.92e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 325,
+      "completion_tokens": 53,
+      "cost_usd": 5.37e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 358,
+      "completion_tokens": 10,
+      "cost_usd": 3.98e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 376,
+      "completion_tokens": 10,
+      "cost_usd": 4.16e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 336,
+      "completion_tokens": 10,
+      "cost_usd": 3.76e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 50,
+      "cost_usd": 5.26e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 43,
+      "cost_usd": 4.98e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 355,
+      "completion_tokens": 10,
+      "cost_usd": 3.95e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 362,
+      "completion_tokens": 10,
+      "cost_usd": 4.02e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 667,
+      "completion_tokens": 278,
+      "cost_usd": 0.0008951
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 620,
+      "completion_tokens": 184,
+      "cost_usd": 0.000646
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 623,
+      "completion_tokens": 340,
+      "cost_usd": 0.0010369
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1057,
+      "completion_tokens": 205,
+      "cost_usd": 0.0008296
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1028,
+      "completion_tokens": 183,
+      "cost_usd": 0.0007659
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 47,
+      "cost_usd": 5.14e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1101,
+      "completion_tokens": 264,
+      "cost_usd": 0.0009903
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 52,
+      "cost_usd": 5.35e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 366,
+      "completion_tokens": 10,
+      "cost_usd": 4.06e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 389,
+      "completion_tokens": 10,
+      "cost_usd": 4.29e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 52,
+      "cost_usd": 5.35e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 322,
+      "completion_tokens": 19,
+      "cost_usd": 3.98e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 55,
+      "cost_usd": 5.46e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 376,
+      "completion_tokens": 10,
+      "cost_usd": 4.16e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 32,
+      "cost_usd": 4.54e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 381,
+      "completion_tokens": 10,
+      "cost_usd": 4.21e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 329,
+      "completion_tokens": 101,
+      "cost_usd": 7.33e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 600,
+      "completion_tokens": 13,
+      "cost_usd": 6.52e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 328,
+      "completion_tokens": 83,
+      "cost_usd": 6.6e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 612,
+      "completion_tokens": 147,
+      "cost_usd": 0.0005511
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 505,
+      "completion_tokens": 13,
+      "cost_usd": 5.57e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 325,
+      "completion_tokens": 46,
+      "cost_usd": 5.09e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 335,
+      "completion_tokens": 10,
+      "cost_usd": 3.75e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 982,
+      "completion_tokens": 147,
+      "cost_usd": 0.0006621
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 678,
+      "completion_tokens": 160,
+      "cost_usd": 0.0006034
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 693,
+      "completion_tokens": 169,
+      "cost_usd": 0.0006304
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 313,
+      "completion_tokens": 22,
+      "cost_usd": 4.01e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1005,
+      "completion_tokens": 260,
+      "cost_usd": 0.0009515
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 313,
+      "completion_tokens": 22,
+      "cost_usd": 4.01e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1010,
+      "completion_tokens": 168,
+      "cost_usd": 0.000723
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 313,
+      "completion_tokens": 22,
+      "cost_usd": 4.01e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 308,
+      "completion_tokens": 85,
+      "cost_usd": 6.48e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 324,
+      "completion_tokens": 23,
+      "cost_usd": 4.16e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 574,
+      "completion_tokens": 119,
+      "cost_usd": 0.0004697
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 324,
+      "completion_tokens": 22,
+      "cost_usd": 4.12e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 324,
+      "completion_tokens": 22,
+      "cost_usd": 4.12e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 308,
+      "completion_tokens": 404,
+      "cost_usd": 0.0001924
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 916,
+      "completion_tokens": 166,
+      "cost_usd": 0.0006898
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 308,
+      "completion_tokens": 58,
+      "cost_usd": 5.4e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 616,
+      "completion_tokens": 128,
+      "cost_usd": 0.0005048
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 329,
+      "completion_tokens": 56,
+      "cost_usd": 5.53e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 552,
+      "completion_tokens": 43,
+      "cost_usd": 0.0002731
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 392,
+      "completion_tokens": 10,
+      "cost_usd": 4.32e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 967,
+      "completion_tokens": 128,
+      "cost_usd": 0.0006101
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 55,
+      "cost_usd": 5.47e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 23,
+      "cost_usd": 4.18e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 61,
+      "cost_usd": 5.7e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 324,
+      "completion_tokens": 10,
+      "cost_usd": 3.64e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 325,
+      "completion_tokens": 22,
+      "cost_usd": 4.13e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 395,
+      "completion_tokens": 10,
+      "cost_usd": 4.35e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 327,
+      "completion_tokens": 48,
+      "cost_usd": 5.19e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 24,
+      "cost_usd": 4.22e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 331,
+      "completion_tokens": 10,
+      "cost_usd": 3.71e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 620,
+      "completion_tokens": 187,
+      "cost_usd": 0.0006535
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 30,
+      "cost_usd": 4.46e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 331,
+      "completion_tokens": 64,
+      "cost_usd": 5.87e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 374,
+      "completion_tokens": 10,
+      "cost_usd": 4.14e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 612,
+      "completion_tokens": 160,
+      "cost_usd": 0.0005836
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1031,
+      "completion_tokens": 255,
+      "cost_usd": 0.0009468
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 623,
+      "completion_tokens": 170,
+      "cost_usd": 0.0006119
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 341,
+      "completion_tokens": 19,
+      "cost_usd": 4.17e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 996,
+      "completion_tokens": 160,
+      "cost_usd": 0.0006988
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 325,
+      "completion_tokens": 52,
+      "cost_usd": 5.33e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 328,
+      "completion_tokens": 56,
+      "cost_usd": 5.52e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1016,
+      "completion_tokens": 170,
+      "cost_usd": 0.0007298
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 336,
+      "completion_tokens": 10,
+      "cost_usd": 3.76e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 329,
+      "completion_tokens": 10,
+      "cost_usd": 3.69e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 325,
+      "completion_tokens": 45,
+      "cost_usd": 5.05e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 340,
+      "completion_tokens": 82,
+      "cost_usd": 6.68e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 326,
+      "completion_tokens": 53,
+      "cost_usd": 5.38e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 336,
+      "completion_tokens": 10,
+      "cost_usd": 3.76e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 318,
+      "completion_tokens": 10,
+      "cost_usd": 3.58e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 419,
+      "completion_tokens": 10,
+      "cost_usd": 4.59e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 328,
+      "completion_tokens": 16,
+      "cost_usd": 3.92e-05
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 329,
+      "completion_tokens": 79,
+      "cost_usd": 6.45e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 633,
+      "completion_tokens": 227,
+      "cost_usd": 0.0007574
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 429,
+      "completion_tokens": 13,
+      "cost_usd": 4.81e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 623,
+      "completion_tokens": 152,
+      "cost_usd": 0.0005669
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1084,
+      "completion_tokens": 145,
+      "cost_usd": 0.0006877
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 332,
+      "completion_tokens": 58,
+      "cost_usd": 5.64e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 363,
+      "completion_tokens": 10,
+      "cost_usd": 4.03e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 999,
+      "completion_tokens": 179,
+      "cost_usd": 0.0007472
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 330,
+      "completion_tokens": 119,
+      "cost_usd": 8.06e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 471,
+      "completion_tokens": 13,
+      "cost_usd": 5.23e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 737,
+      "completion_tokens": 201,
+      "cost_usd": 0.0007236
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 333,
+      "completion_tokens": 45,
+      "cost_usd": 5.13e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 346,
+      "completion_tokens": 10,
+      "cost_usd": 3.86e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1063,
+      "completion_tokens": 203,
+      "cost_usd": 0.0008264
+    },
+    {
+      "purpose": "summary",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 333,
+      "completion_tokens": 81,
+      "cost_usd": 6.57e-05
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash-lite",
+      "prompt_tokens": 349,
+      "completion_tokens": 10,
+      "cost_usd": 3.89e-05
+    },
+    {
+      "purpose": "viewpoint",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 635,
+      "completion_tokens": 186,
+      "cost_usd": 0.0006555
+    },
+    {
+      "purpose": "grounding",
+      "model": "google/gemini-2.5-flash",
+      "prompt_tokens": 1044,
+      "completion_tokens": 186,
+      "cost_usd": 0.0007782
+    }
+  ],
+  "results": [
+    {
+      "case_id": "audit-12",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 13,
+            "claim": "\u667a\u5229\u4e2d\u90e8\u5730\u533a\u6d2a\u6c34\u6cdb\u6ee5\uff0c\u5c45\u6c11\u88ab\u7a7a\u8fd0\u81f3\u5b89\u5168\u5730\u5e26\u3002",
+            "evidence_quote": "Residents airlifted to safety after flooding in central Chile"
+          },
+          {
+            "article_id": 1470,
+            "claim": "\u66b4\u96e8\u88ad\u51fb\u667a\u5229\u9996\u90fd\uff0c\u5f15\u53d1\u6ce5\u77f3\u6d41\u51b2\u8d70\u6c7d\u8f66\u3002",
+            "evidence_quote": "Torrential rain hit Chile\u2019s capital, triggering mudslides that swept away cars through"
+          },
+          {
+            "article_id": 1866,
+            "claim": "\u667a\u5229\u9996\u90fd\u53d1\u751f\u5c71\u6d2a\u548c\u6ce5\u77f3\u6d41\uff0c\u7d27\u6025\u6551\u63f4\u4eba\u5458\u6b63\u5728\u6e05\u7406\u8857\u9053\u4e0a\u7684\u6ce5\u571f\u3001\u5ca9\u77f3\u548c\u88ab\u56f0\u8f66\u8f86\u3002",
+            "evidence_quote": "Emergency crews are working to clear mud, rocks and stranded vehicles from streets in Chile's capital after flash flooding swept through the affluent Las Condes"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 13,
+          "summary": "\u667a\u5229\u4e2d\u90e8\u8b66\u65b9\u5df2\u5c06\u6570\u540d\u5c45\u6c11\u7a7a\u8fd0\u81f3\u5b89\u5168\u5730\u5e26\uff0c\u6b64\u524d\u4e0d\u65ad\u4e0a\u6da8\u7684\u6d2a\u6c34\u5c06\u4ed6\u4eec\u56f0\u5728\u5bb6\u4e2d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u667a\u5229\u4e2d\u90e8\u8b66\u65b9\u5df2\u5c06\u6570\u540d\u5c45\u6c11\u7a7a\u8fd0\u81f3\u5b89\u5168\u5730\u5e26\uff0c\u6b64\u524d\u4e0d\u65ad\u4e0a\u6da8\u7684\u6d2a\u6c34\u5c06\u4ed6\u4eec\u56f0\u5728\u5bb6\u4e2d\u3002",
+                "quote": "Police in central Chile have airlifted several residents to safety after rising floodwaters left them trapped in their homes."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1470,
+          "summary": "\u667a\u5229\u9996\u90fd\u906d\u9047\u66b4\u96e8\u4fb5\u88ad\uff0c\u5f15\u53d1\u4e86\u6ce5\u77f3\u6d41\u3002 \u4e00\u540d\u53f8\u673a\u4ece\u8f66\u5185\u62cd\u6444\u5230\u6c7d\u8f66\u5728\u667a\u5229\u6d2a\u6c34\u4e2d\u88ab\u51b2\u8d70\u7684\u753b\u9762\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u667a\u5229\u9996\u90fd\u906d\u9047\u66b4\u96e8\u4fb5\u88ad\uff0c\u5f15\u53d1\u4e86\u6ce5\u77f3\u6d41\u3002",
+                "quote": "Torrential rain hit Chile\u2019s capital, triggering mudslides that swept away cars through"
+              },
+              {
+                "text": "\u4e00\u540d\u53f8\u673a\u4ece\u8f66\u5185\u62cd\u6444\u5230\u6c7d\u8f66\u5728\u667a\u5229\u6d2a\u6c34\u4e2d\u88ab\u51b2\u8d70\u7684\u753b\u9762\u3002",
+                "quote": "Driver films from inside vehicle as car swept away in Chile floods"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1866,
+          "summary": "\u667a\u5229\u9996\u90fd\u62c9\u65af\u5b54\u5fb7\u65af\u533a\u906d\u9047\u4e86\u7a81\u53d1\u6d2a\u6c34\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u667a\u5229\u9996\u90fd\u62c9\u65af\u5b54\u5fb7\u65af\u533a\u906d\u9047\u4e86\u7a81\u53d1\u6d2a\u6c34\u3002",
+                "quote": "Flash Floods, Mudslides Sweep Through Chile's Capital Emergency crews are working to clear mud, rocks and stranded vehicles from streets in Chile's capital after flash flooding swept through the affluent Las Condes"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "audit-52",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 62,
+            "claim": "\u80e1\u585e\u6b66\u88c5\u58f0\u79f0\u88ad\u51fb\u4e86\u5229\u96c5\u5f97\u673a\u573a\u3002",
+            "evidence_quote": "Houthis claim attack on Riyadh airport as airlines suspend flights to Saudi capital"
+          },
+          {
+            "article_id": 736,
+            "claim": "\u4e5f\u95e8\u53db\u519b\u90e8\u961f\u52a0\u5f3a\u4e86\u5bf9\u6c99\u7279\u673a\u573a\u3001\u70bc\u6cb9\u5382\u548c\u5176\u4ed6\u5173\u952e\u57fa\u7840\u8bbe\u65bd\u7684\u88ad\u51fb\u3002",
+            "evidence_quote": "The Yemeni rebel forces ramp up strikes on Saudi airports, oil refineries, and other critical infrastructure."
+          },
+          {
+            "article_id": 1210,
+            "claim": "\u8be5\u56fd\u6c11\u822a\u5c40\u8868\u793a\uff0c\u80e1\u585e\u6b66\u88c5\u5bf9\u9996\u90fd\u5229\u96c5\u5f97\u56fd\u9645\u673a\u573a\u53d1\u52a8\u7684\u4e24\u6b21\u88ad\u51fb\u4e2d\uff0c\u6709\u4e09\u540d\u6c99\u7279\u516c\u6c11\u9047\u96be\u3002",
+            "evidence_quote": "Three Saudi nationals have been killed in two attacks on the international airport in the capital, Riyadh, the country's civil aviation authority has said after"
+          },
+          {
+            "article_id": 1301,
+            "claim": "\u6c99\u7279\u963f\u62c9\u4f2f\u8868\u793a\uff0c\u80e1\u585e\u6b66\u88c5\u5bf9\u5229\u96c5\u5f97\u673a\u573a\u7684\u88ad\u51fb\u9020\u62103\u4eba\u6b7b\u4ea1\u3002",
+            "evidence_quote": "Houthi Attacks on Riyadh Airport Leave 3 Dead, Saudi Arabia Says"
+          },
+          {
+            "article_id": 1345,
+            "claim": "\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u9020\u6210\u4e09\u4eba\u6b7b\u4ea1\u540e\uff0c\u6c99\u7279\u963f\u62c9\u4f2f\u91cd\u65b0\u5f00\u653e\u4e86\u5229\u96c5\u5f97\u673a\u573a\u3002",
+            "evidence_quote": "Saudi Arabia reopens Riyadh airport after Houthi attack kills three"
+          },
+          {
+            "article_id": 1436,
+            "claim": "\u6c99\u7279\u8054\u519b\u8a93\u8a00\u5728\u673a\u573a\u88ad\u51fb\u9020\u62103\u4eba\u6b7b\u4ea1\u540e\u5c06\u4f5c\u51fa\u201c\u575a\u51b3\u201d\u56de\u5e94\u3002",
+            "evidence_quote": "Saudi coalition vows 'firm' response after airport attack kills 3"
+          },
+          {
+            "article_id": 1879,
+            "claim": "\u5bf9\u673a\u573a\u7684\u5bfc\u5f39\u88ad\u51fb\u6b63\u5728\u5413\u574f\u65c5\u5ba2\uff0c\u5e76\u5a01\u80c1\u7740\u6c99\u7279\u738b\u56fd\u589e\u957f\u7684\u53e6\u4e00\u4e2a\u652f\u67f1\u3002",
+            "evidence_quote": "Missile attacks on airports are spooking travelers and threatening another pillar of the kingdom\u2019s growth."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 7,
+        "valid_evidence_claims": 7,
+        "distinct_sources": 7,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 1345,
+          "summary": "\u80e1\u585e\u6b66\u88c5\u8fd1\u671f\u5bf9\u6c99\u7279\u963f\u62c9\u4f2f\u53d1\u52a8\u4e86\u6570\u6b21\u88ad\u51fb\uff0c\u673a\u573a\u662f\u4e3b\u8981\u76ee\u6807\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u80e1\u585e\u6b66\u88c5\u8fd1\u671f\u5bf9\u6c99\u7279\u963f\u62c9\u4f2f\u53d1\u52a8\u4e86\u6570\u6b21\u88ad\u51fb\uff0c\u673a\u573a\u662f\u4e3b\u8981\u76ee\u6807\u3002",
+                "quote": "Saudi Arabia has seen several attacks by the Houthis in recent days, with the airports appearing to be the primary target."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 62,
+          "summary": "\u80e1\u585e\u6b66\u88c5\u58f0\u79f0\u88ad\u51fb\u4e86\u5229\u96c5\u5f97\u673a\u573a",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u80e1\u585e\u6b66\u88c5\u58f0\u79f0\u88ad\u51fb\u4e86\u5229\u96c5\u5f97\u673a\u573a",
+                "quote": "Houthis claim attack on Riyadh airport"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1301,
+          "summary": "\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u4e86\u5229\u96c5\u5f97\u673a\u573a\u3002 \u6c99\u7279\u963f\u62c9\u4f2f\u8868\u793a\uff0c\u6b64\u6b21\u88ad\u51fb\u9020\u62103\u4eba\u6b7b\u4ea1\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u4e86\u5229\u96c5\u5f97\u673a\u573a\u3002",
+                "quote": "Houthi Attacks on Riyadh Airport"
+              },
+              {
+                "text": "\u6c99\u7279\u963f\u62c9\u4f2f\u8868\u793a\uff0c\u6b64\u6b21\u88ad\u51fb\u9020\u62103\u4eba\u6b7b\u4ea1\u3002",
+                "quote": "Leave 3 Dead, Saudi Arabia Says"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1210,
+          "summary": "\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u4e86\u5229\u96c5\u5f97\u56fd\u9645\u673a\u573a\uff0c\u9020\u6210\u4e09\u540d\u6c99\u7279\u56fd\u6c11\u6b7b\u4ea1\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u80e1\u585e\u6b66\u88c5\u88ad\u51fb\u4e86\u5229\u96c5\u5f97\u56fd\u9645\u673a\u573a\uff0c\u9020\u6210\u4e09\u540d\u6c99\u7279\u56fd\u6c11\u6b7b\u4ea1\u3002",
+                "quote": "Three Saudi nationals have been killed in two attacks on the international airport in the capital, Riyadh, the country's civil aviation authority has said after"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1436,
+          "summary": "\u6c99\u7279\u9886\u5bfc\u7684\u8054\u519b\u5728\u4e5f\u95e8\u53d1\u52a8\u4e86\u88ad\u51fb\uff0c\u6467\u6bc1\u4e86\u80e1\u585e\u6b66\u88c5\u4f7f\u7528\u7684\u76ee\u6807\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u6c99\u7279\u9886\u5bfc\u7684\u8054\u519b\u5728\u4e5f\u95e8\u53d1\u52a8\u4e86\u88ad\u51fb\uff0c\u6467\u6bc1\u4e86\u80e1\u585e\u6b66\u88c5\u4f7f\u7528\u7684\u76ee\u6807\u3002",
+                "quote": "The Saudi-led coalition in Yemen launched strikes that destroyed targets used by the Houthis, a coalition spokesperson said Friday."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1879,
+          "summary": "\u80e1\u585e\u6b66\u88c5\u6b63\u5728\u5bf9\u6c99\u7279\u963f\u62c9\u4f2f\u7684\u673a\u573a\u53d1\u52a8\u5bfc\u5f39\u88ad\u51fb\uff0c\u6b64\u4e3e\u53ef\u80fd\u5a01\u80c1\u5230\u6c99\u7279\u7ecf\u6d4e\u589e\u957f\u7684\u53c8\u4e00\u4e2a\u652f\u67f1\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u80e1\u585e\u6b66\u88c5\u6b63\u5728\u5bf9\u6c99\u7279\u963f\u62c9\u4f2f\u7684\u673a\u573a\u53d1\u52a8\u5bfc\u5f39\u88ad\u51fb\uff0c\u6b64\u4e3e\u53ef\u80fd\u5a01\u80c1\u5230\u6c99\u7279\u7ecf\u6d4e\u589e\u957f\u7684\u53c8\u4e00\u4e2a\u652f\u67f1\u3002",
+                "quote": "Missile attacks on airports are spooking travelers and threatening another pillar of the kingdom\u2019s growth."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 736,
+          "summary": "\u4e5f\u95e8\u80e1\u585e\u6b66\u88c5\u90e8\u961f\u6b63\u5728\u52a0\u5f3a\u5bf9\u6c99\u7279\u673a\u573a\u3001\u70bc\u6cb9\u5382\u548c\u5176\u4ed6\u5173\u952e\u57fa\u7840\u8bbe\u65bd\u7684\u6253\u51fb\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e5f\u95e8\u80e1\u585e\u6b66\u88c5\u90e8\u961f\u6b63\u5728\u52a0\u5f3a\u5bf9\u6c99\u7279\u673a\u573a\u3001\u70bc\u6cb9\u5382\u548c\u5176\u4ed6\u5173\u952e\u57fa\u7840\u8bbe\u65bd\u7684\u6253\u51fb\u3002",
+                "quote": "The Yemeni rebel forces ramp up strikes on Saudi airports, oil refineries, and other critical infrastructure."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "audit-366",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 1085,
+            "claim": "\u610f\u5927\u5229\u8457\u540d\u9152\u5e84\u5728\u4e00\u6b21\u76d7\u7a83\u6848\u4e2d\u635f\u5931\u4e863\u4e07\u74f6\u4ef7\u503c500\u4e07\u6b27\u5143\u7684\u8461\u8404\u9152\u3002",
+            "evidence_quote": "Famous Italian winery loses 30,000 bottles worth \u20ac5mn in heist"
+          },
+          {
+            "article_id": 1209,
+            "claim": "\u636e\u62a5\u9053\uff0c\u7a83\u8d3c\u5728\u610f\u5927\u5229\u7a83\u53d6\u4e863\u4e07\u74f6\u8461\u8404\u9152\uff0c\u603b\u4ef7\u503c\u7ea6500\u4e07\u6b27\u5143\uff08420\u4e07\u82f1\u9551\uff09\u3002",
+            "evidence_quote": "Thieves have stolen 30,000 bottles of wine collectively worth about \u20ac5m (\u00a34.2m) from a prestigious Italian winery, Italian media reports."
+          },
+          {
+            "article_id": 1378,
+            "claim": "\u7a83\u8d3c\u4ece\u4e00\u5bb6\u8457\u540d\u7684\u610f\u5927\u5229\u9152\u5e84\u5077\u8d70\u4e86\u4ef7\u503c500\u4e07\u6b27\u5143\uff08\u20ac5m\uff09\u7684\u8461\u8404\u9152\u3002",
+            "evidence_quote": "Thieves make off with \u20ac5m haul from prestigious Italian winery"
+          },
+          {
+            "article_id": 1550,
+            "claim": "\u591a\u8fbe10\u540d\u7537\u5b50\u76d7\u8d70\u4e86\u8d85\u8fc7500\u4e07\u7f8e\u5143\u7684\u610f\u5927\u5229\u4f18\u8d28\u7ea2\u9152\u3002",
+            "evidence_quote": "As many as 10 men made off with more than $5 million of first-rate Italian red wine."
+          },
+          {
+            "article_id": 1884,
+            "claim": "\u610f\u5927\u5229\u7684\u8499\u9762\u7a83\u8d3c\u76d7\u8d70\u4e86\u4ef7\u503c560\u4e07\u7f8e\u5143\u7684\u9ad8\u7aef\u8461\u8404\u9152\uff0c\u5176\u4e2d\u5305\u62ec\u7ea63\u4e07\u74f6\u73cd\u8d35\u7ea2\u9152\u3002",
+            "evidence_quote": "Masked Thieves in Italy Make Off With $5.6 Million of High-End Wine The bandits used a company\u2019s own forklifts to steal some 30,000 bottles of wine, including prized reds."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u88ab\u76d7\u8461\u8404\u9152\u7684\u4ef7\u503c\uff0c\u5b58\u5728\u4ee5\u6b27\u5143\u8ba1\u4ef7\uff08500\u4e07\u6b27\u5143\uff09\u548c\u4ee5\u7f8e\u5143\u8ba1\u4ef7\uff08\u8d85\u8fc7500\u4e07\u7f8e\u5143\u6216560\u4e07\u7f8e\u5143\uff09\u7684\u4e0d\u540c\u62a5\u9053\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 5,
+        "valid_evidence_claims": 5,
+        "distinct_sources": 5,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 1884,
+          "summary": "\u8499\u9762\u7a83\u8d3c\u5728\u610f\u5927\u5229\u76d7\u8d70\u4e86\u4ef7\u503c560\u4e07\u7f8e\u5143\u7684\u9ad8\u7aef\u8461\u8404\u9152\uff0c\u5176\u4e2d\u5305\u62ec30,000\u74f6\u73cd\u8d35\u7684\u7ea2\u9152\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u8499\u9762\u7a83\u8d3c\u5728\u610f\u5927\u5229\u76d7\u8d70\u4e86\u4ef7\u503c560\u4e07\u7f8e\u5143\u7684\u9ad8\u7aef\u8461\u8404\u9152\uff0c\u5176\u4e2d\u5305\u62ec30,000\u74f6\u73cd\u8d35\u7684\u7ea2\u9152\u3002",
+                "quote": "Masked Thieves in Italy Make Off With $5.6 Million of High-End Wine The bandits used a company\u2019s own forklifts to steal some 30,000 bottles of wine, including prized reds."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1085,
+          "summary": "\u610f\u5927\u5229\u4e00\u5bb6\u8457\u540d\u9152\u5e84\u88ab\u76d7\uff0c\u635f\u5931\u4e86\u4ef7\u503c500\u4e07\u6b27\u5143\u76843\u4e07\u74f6\u8461\u8404\u9152\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u610f\u5927\u5229\u4e00\u5bb6\u8457\u540d\u9152\u5e84\u88ab\u76d7\uff0c\u635f\u5931\u4e86\u4ef7\u503c500\u4e07\u6b27\u5143\u76843\u4e07\u74f6\u8461\u8404\u9152\u3002",
+                "quote": "Famous Italian winery loses 30,000 bottles worth \u20ac5mn in heist"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1378,
+          "summary": "\u81f3\u5c11\u4e03\u540d\u8499\u9762\u76d7\u8d3c\u95ef\u5165Marchesi Antinori\u9152\u5e84\u7684\u9152\u7a96\u3002 \u88ab\u76d7\u7684\u8d22\u7269\u603b\u4ef7\u503c\u9ad8\u8fbe500\u4e07\u6b27\u5143\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u81f3\u5c11\u4e03\u540d\u8499\u9762\u76d7\u8d3c\u95ef\u5165Marchesi Antinori\u9152\u5e84\u7684\u9152\u7a96\u3002",
+                "quote": "A gang of at least seven masked individuals broke into the cellar of Marchesi Antinori, a family-owned winery dating back to the late 1300s, in"
+              },
+              {
+                "text": "\u88ab\u76d7\u7684\u8d22\u7269\u603b\u4ef7\u503c\u9ad8\u8fbe500\u4e07\u6b27\u5143\u3002",
+                "quote": "Thieves make off with \u20ac5m haul from prestigious Italian winery"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1209,
+          "summary": "\u76d7\u8d3c\u4ece\u610f\u5927\u5229\u4e00\u5bb6\u8457\u540d\u9152\u5e84\u7a83\u53d6\u4e8630,000\u74f6\u8461\u8404\u9152\u3002 \u88ab\u76d7\u7684\u8461\u8404\u9152\u603b\u4ef7\u503c\u7ea6\u5408500\u4e07\u6b27\u5143\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u76d7\u8d3c\u4ece\u610f\u5927\u5229\u4e00\u5bb6\u8457\u540d\u9152\u5e84\u7a83\u53d6\u4e8630,000\u74f6\u8461\u8404\u9152\u3002",
+                "quote": "Thieves have stolen 30,000 bottles of wine collectively worth about \u20ac5m (\u00a34.2m) from a prestigious Italian winery"
+              },
+              {
+                "text": "\u88ab\u76d7\u7684\u8461\u8404\u9152\u603b\u4ef7\u503c\u7ea6\u5408500\u4e07\u6b27\u5143\u3002",
+                "quote": "Thieves have stolen 30,000 bottles of wine collectively worth about \u20ac5m (\u00a34.2m)"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1550,
+          "summary": "\u5927\u7ea610\u540d\u76d7\u8d3c\u5728\u4e00\u6b21\u76d7\u7a83\u6848\u4e2d\u5077\u8d70\u4e86\u4ef7\u503c\u8d85\u8fc7500\u4e07\u7f8e\u5143\u7684\u4f18\u8d28\u610f\u5927\u5229\u7ea2\u9152\u3002 \u6b64\u6b21\u76d7\u7a83\u6848\u53d1\u751f\u5728\u6258\u65af\u5361\u7eb3\u5730\u533a\uff0c\u4e22\u5931\u7684\u8461\u8404\u9152\u6570\u91cf\u9ad8\u8fbe3\u4e07\u74f6\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u5927\u7ea610\u540d\u76d7\u8d3c\u5728\u4e00\u6b21\u76d7\u7a83\u6848\u4e2d\u5077\u8d70\u4e86\u4ef7\u503c\u8d85\u8fc7500\u4e07\u7f8e\u5143\u7684\u4f18\u8d28\u610f\u5927\u5229\u7ea2\u9152\u3002",
+                "quote": "As many as 10 men made off with more than $5 million of first-rate Italian red wine."
+              },
+              {
+                "text": "\u6b64\u6b21\u76d7\u7a83\u6848\u53d1\u751f\u5728\u6258\u65af\u5361\u7eb3\u5730\u533a\uff0c\u4e22\u5931\u7684\u8461\u8404\u9152\u6570\u91cf\u9ad8\u8fbe3\u4e07\u74f6\u3002",
+                "quote": "30,000 Bottles Stolen in Tuscan Heist"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "audit-117",
+      "variant": "candidate",
+      "error": "JSONDecodeError"
+    },
+    {
+      "case_id": "audit-1368",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 1795,
+            "claim": "\u4eca\u5e741\u81f39\u6708\uff0c\u4e2d\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\u3002",
+            "evidence_quote": "\u4eca\u5e741\u81f39\u6708\uff0c\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba"
+          },
+          {
+            "article_id": 1803,
+            "claim": "\u4e2d\u56fd\u5b98\u65b9\u79f0\uff0c\u4eca\u5e74\u524d\u4e09\u5b63\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\u3002",
+            "evidence_quote": "\u4eca\u5e74\u524d\u4e09\u5b63\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba"
+          },
+          {
+            "article_id": 2035,
+            "claim": "\u524d\u4e09\u5b63\u5ea6\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\u3002",
+            "evidence_quote": "\u524d\u4e09\u5b63\u5ea6\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba"
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [
+          "\u4eba\u5de5\u667a\u80fd|AI"
+        ],
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 2035,
+          "summary": "\u4eca\u5e74\u524d\u4e09\u5b63\u5ea6\uff0c\u4e2d\u56fd\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a\u4eba\u6570\u8fbe\u52301052\u4e07\u4eba\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4eca\u5e74\u524d\u4e09\u5b63\u5ea6\uff0c\u4e2d\u56fd\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a\u4eba\u6570\u8fbe\u52301052\u4e07\u4eba\u3002",
+                "quote": "\u524d\u4e09\u5b63\u5ea6\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1803,
+          "summary": "\u4e2d\u56fd\u5b98\u65b9\u8868\u793a\uff0c\u4eca\u5e74\u524d\u4e09\u5b63\u5ea6\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\uff0c\u5c31\u4e1a\u5f62\u52bf\u603b\u4f53\u7a33\u5b9a\u3002 \u4e2d\u56fd\u5b98\u65b9\u5c06\u5f00\u5c55\u4e00\u7cfb\u5217\u884c\u52a8\u4ee5\u4fc3\u8fdb\u5c31\u4e1a\uff0c\u5305\u62ec\u9002\u5e94\u4eba\u5de5\u667a\u80fd\u53d1\u5c55\u7684\u884c\u52a8\u548c\u4fc3\u8fdb\u519c\u6c11\u5de5\u5c31\u4e1a\u7684\u884c\u52a8\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e2d\u56fd\u5b98\u65b9\u8868\u793a\uff0c\u4eca\u5e74\u524d\u4e09\u5b63\u5ea6\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\uff0c\u5c31\u4e1a\u5f62\u52bf\u603b\u4f53\u7a33\u5b9a\u3002",
+                "quote": "\u4eca\u5e74\u524d\u4e09\u5b63\u5168\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\uff0c\u5c31\u4e1a\u5f62\u52bf\u603b\u4f53\u7a33\u5b9a\uff0c"
+              },
+              {
+                "text": "\u4e2d\u56fd\u5b98\u65b9\u5c06\u5f00\u5c55\u4e00\u7cfb\u5217\u884c\u52a8\u4ee5\u4fc3\u8fdb\u5c31\u4e1a\uff0c\u5305\u62ec\u9002\u5e94\u4eba\u5de5\u667a\u80fd\u53d1\u5c55\u7684\u884c\u52a8\u548c\u4fc3\u8fdb\u519c\u6c11\u5de5\u5c31\u4e1a\u7684\u884c\u52a8\u3002",
+                "quote": "\u5c06\u5f00\u5c55\u9002\u5e94\u4eba\u5de5\u667a\u80fd\u53d1\u5c55\u4fc3\u5c31\u4e1a\u884c\u52a8\u548c\u519c\u6c11\u5de5\u5c31\u4e1a\u4fc3\u8fdb\u884c\u52a8\u7b49\u3002"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 1795,
+          "summary": "\u4eca\u5e741\u6708\u81f39\u6708\uff0c\u4e2d\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4eca\u5e741\u6708\u81f39\u6708\uff0c\u4e2d\u56fd\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba\u3002",
+                "quote": "\u4eca\u5e741\u81f39\u6708\uff0c\u57ce\u9547\u65b0\u589e\u5c31\u4e1a1052\u4e07\u4eba"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "sparse-video",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10010,
+            "claim": "\u4e00\u4e2a\u90e8\u95e8\u62a5\u544a\u79f0\u65b0\u589e\u4e861052\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+            "evidence_quote": "A ministry reported 1052 new jobs."
+          },
+          {
+            "article_id": 10011,
+            "claim": "\u4e00\u4e2a\u90e8\u95e8\u62a5\u544a\u65b0\u589e\u4e861052\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+            "evidence_quote": "A ministry reported 1052 new jobs."
+          },
+          {
+            "article_id": 10012,
+            "claim": "\u4e00\u4e2a\u90e8\u95e8\u62a5\u544a\u4e861052\u4e2a\u65b0\u5de5\u4f5c\u5c97\u4f4d\u3002",
+            "evidence_quote": "A ministry reported 1052 new jobs."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10010,
+          "summary": "\u4e00\u90e8\u95e8\u62a5\u544a\u65b0\u589e1052\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e00\u90e8\u95e8\u62a5\u544a\u65b0\u589e1052\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+                "quote": "A ministry reported 1052 new jobs."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10011,
+          "summary": "\u4e00\u4e2a\u90e8\u95e8\u62a5\u544a\u65b0\u589e\u4e861052\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e00\u4e2a\u90e8\u95e8\u62a5\u544a\u65b0\u589e\u4e861052\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+                "quote": "A ministry reported 1052 new jobs."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10012,
+          "summary": "\u4e00\u4e2a\u90e8\u95e8\u62a5\u544a\u4e861052\u4e2a\u65b0\u5de5\u4f5c\u5c97\u4f4d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e00\u4e2a\u90e8\u95e8\u62a5\u544a\u4e861052\u4e2a\u65b0\u5de5\u4f5c\u5c97\u4f4d\u3002",
+                "quote": "A ministry reported 1052 new jobs."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "same-fact",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10020,
+            "claim": "\u4ea4\u901a\u670d\u52a1\u4e8e09:00\u91cd\u65b0\u5f00\u653e\u3002",
+            "evidence_quote": "Transit service reopened at 09:00."
+          },
+          {
+            "article_id": 10021,
+            "claim": "\u4ea4\u901a\u670d\u52a1\u4e8e09:00\u91cd\u65b0\u5f00\u653e\u3002",
+            "evidence_quote": "Transit service reopened at 09:00."
+          },
+          {
+            "article_id": 10022,
+            "claim": "\u4ea4\u901a\u670d\u52a1\u4e8e09:00\u91cd\u65b0\u5f00\u653e\u3002",
+            "evidence_quote": "Transit service reopened at 09:00."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10020,
+          "summary": "\u4ea4\u901a\u670d\u52a1\u5728\u7ef4\u4fee\u540e\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4ea4\u901a\u670d\u52a1\u5728\u7ef4\u4fee\u540e\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002",
+                "quote": "Transit service reopened at 09:00 after repairs."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10021,
+          "summary": "\u4ea4\u901a\u670d\u52a1\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4ea4\u901a\u670d\u52a1\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002",
+                "quote": "Transit service reopened at 09:00."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10022,
+          "summary": "\u4ea4\u901a\u670d\u52a1\u5df2\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002 \u4ea4\u901a\u670d\u52a1\u5728\u7ef4\u4fee\u540e\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4ea4\u901a\u670d\u52a1\u5df2\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002",
+                "quote": "Transit service reopened at 09:00 after repairs."
+              },
+              {
+                "text": "\u4ea4\u901a\u670d\u52a1\u5728\u7ef4\u4fee\u540e\u4e8e\u4e0a\u53489\u70b9\u91cd\u65b0\u5f00\u653e\u3002",
+                "quote": "Transit service reopened at 09:00 after repairs."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "plan-v-decision",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10030,
+            "claim": "\u519b\u4e8b\u89c4\u5212\u4eba\u5458\u6b63\u5728\u8003\u8651\u591a\u79cd\u65b9\u6848\uff0c\u5c1a\u672a\u4f5c\u51fa\u51b3\u5b9a\u3002",
+            "evidence_quote": "Military planners are considering several options. No decision has been made."
+          },
+          {
+            "article_id": 10031,
+            "claim": "\u603b\u7edf\u8868\u793a\uff0c\u5728\u5927\u9009\u524d\u4e0d\u4f1a\u4e0b\u4ee4\u8fdb\u884c\u4efb\u4f55\u884c\u52a8\u3002",
+            "evidence_quote": "The president said no operation will be ordered before the election."
+          },
+          {
+            "article_id": 10032,
+            "claim": "\u89c4\u5212\u6b63\u5728\u8fdb\u884c\u4e2d\u3002\u653f\u5e9c\u5c1a\u672a\u6279\u51c6\u4e00\u9879\u884c\u52a8\u3002",
+            "evidence_quote": "Planning is ongoing. The government has not approved an operation."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10030,
+          "summary": "\u519b\u4e8b\u89c4\u5212\u8005\u6b63\u5728\u8003\u8651\u51e0\u4e2a\u9009\u9879\u3002 \u5c1a\u672a\u505a\u51fa\u4efb\u4f55\u51b3\u5b9a\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u519b\u4e8b\u89c4\u5212\u8005\u6b63\u5728\u8003\u8651\u51e0\u4e2a\u9009\u9879\u3002",
+                "quote": "Military planners are considering several options."
+              },
+              {
+                "text": "\u5c1a\u672a\u505a\u51fa\u4efb\u4f55\u51b3\u5b9a\u3002",
+                "quote": "No decision has been made."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10031,
+          "summary": "\u5b98\u5458\u4eec\u6b63\u5728\u8003\u8651\u5404\u79cd\u9009\u9879\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u5b98\u5458\u4eec\u6b63\u5728\u8003\u8651\u5404\u79cd\u9009\u9879\u3002",
+                "quote": "Officials consider options."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10032,
+          "summary": "\u5b98\u5458\u4eec\u6b63\u5728\u8003\u8651\u9009\u62e9\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u5b98\u5458\u4eec\u6b63\u5728\u8003\u8651\u9009\u62e9\u3002",
+                "quote": "Officials consider options."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "temporal-update",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10040,
+            "claim": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\u3002",
+            "evidence_quote": "An airport reopened."
+          },
+          {
+            "article_id": 10041,
+            "claim": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\u3002",
+            "evidence_quote": "An airport reopened."
+          },
+          {
+            "article_id": 10042,
+            "claim": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\u3002",
+            "evidence_quote": "An airport reopened."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [
+          "temporal_update"
+        ],
+        "missing_required_facts": [],
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10040,
+          "summary": "\u673a\u573a\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u673a\u573a\u91cd\u65b0\u5f00\u653e\u3002",
+                "quote": "An airport reopened."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10041,
+          "summary": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\uff0c\u822a\u73ed\u5df2\u5728\u5b89\u5168\u68c0\u67e5\u540e\u4e8e\u4e0a\u534811\u70b9\u6062\u590d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u673a\u573a\u5df2\u91cd\u65b0\u5f00\u653e\uff0c\u822a\u73ed\u5df2\u5728\u5b89\u5168\u68c0\u67e5\u540e\u4e8e\u4e0a\u534811\u70b9\u6062\u590d\u3002",
+                "quote": "An airport reopened. At 11:00 flights resumed after safety checks."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10042,
+          "summary": "\u822a\u73ed\u4e8e\u4e0a\u534811\u70b9\u6062\u590d",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u822a\u73ed\u4e8e\u4e0a\u534811\u70b9\u6062\u590d",
+                "quote": "Flights resumed at 11:00"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "currency",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10050,
+            "claim": "\u8be5\u6279\u8d27\u7269\u4ef7\u503c\u7ea6500\u4e07\u6b27\u5143\u3002",
+            "evidence_quote": "The shipment was worth approximately 5 million euros."
+          },
+          {
+            "article_id": 10051,
+            "claim": "\u8be5\u6279\u8d27\u7269\u4ef7\u503c\u7ea6560\u4e07\u7f8e\u5143\u3002",
+            "evidence_quote": "The shipment was worth approximately 5.6 million dollars."
+          },
+          {
+            "article_id": 10052,
+            "claim": "\u6240\u62a5\u544a\u7684\u4ef7\u503c\u4f7f\u7528\u4e86\u4e0d\u540c\u7684\u8d27\u5e01\u548c\u820d\u5165\u3002",
+            "evidence_quote": "The reported values use different currencies and rounding."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u8d27\u7269\u7684\u4ef7\u503c\u548c\u6240\u4f7f\u7528\u7684\u8d27\u5e01\u4e0d\u540c\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "viewpoint_difference"
+          },
+          {
+            "point": "\u5173\u4e8e\u4ef7\u503c\u7684\u62a5\u544a\u4f7f\u7528\u7684\u8d27\u5e01\u548c\u820d\u5165\u65b9\u6cd5\u4e0d\u540c\u3002",
+            "claim_indexes": [
+              0,
+              2
+            ],
+            "kind": "coverage_difference"
+          },
+          {
+            "point": "\u5173\u4e8e\u4ef7\u503c\u7684\u62a5\u544a\u4f7f\u7528\u7684\u8d27\u5e01\u548c\u820d\u5165\u65b9\u6cd5\u4e0d\u540c\u3002",
+            "claim_indexes": [
+              1,
+              2
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [
+          "viewpoint_difference"
+        ],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": false,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10050,
+          "summary": "\u8be5\u6279\u8d27\u7269\u4ee5\u591a\u79cd\u8d27\u5e01\u8fdb\u884c\u4e86\u4f30\u503c\u3002 \u8be5\u6279\u8d27\u7269\u4ef7\u503c\u7ea6\u5408\u4e94\u767e\u4e07\u6b27\u5143\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u8be5\u6279\u8d27\u7269\u4ee5\u591a\u79cd\u8d27\u5e01\u8fdb\u884c\u4e86\u4f30\u503c\u3002",
+                "quote": "A shipment was valued in several currencies."
+              },
+              {
+                "text": "\u8be5\u6279\u8d27\u7269\u4ef7\u503c\u7ea6\u5408\u4e94\u767e\u4e07\u6b27\u5143\u3002",
+                "quote": "The shipment was worth approximately 5 million euros."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10051,
+          "summary": "\u8fd9\u6279\u8d27\u7269\u4ee5\u591a\u79cd\u8d27\u5e01\u4f30\u503c\u3002 \u8fd9\u6279\u8d27\u7269\u4ef7\u503c\u7ea6560\u4e07\u7f8e\u5143\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u8fd9\u6279\u8d27\u7269\u4ee5\u591a\u79cd\u8d27\u5e01\u4f30\u503c\u3002",
+                "quote": "A shipment was valued in several currencies."
+              },
+              {
+                "text": "\u8fd9\u6279\u8d27\u7269\u4ef7\u503c\u7ea6560\u4e07\u7f8e\u5143\u3002",
+                "quote": "The shipment was worth approximately 5.6 million dollars."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10052,
+          "summary": "\u4e00\u4efd\u8d27\u8fd0\u4ee5\u591a\u79cd\u8d27\u5e01\u8ba1\u4ef7\u3002 \u62a5\u544a\u7684\u4ef7\u503c\u4f7f\u7528\u4e86\u4e0d\u540c\u7684\u8d27\u5e01\u548c\u820d\u5165\u65b9\u6cd5\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e00\u4efd\u8d27\u8fd0\u4ee5\u591a\u79cd\u8d27\u5e01\u8ba1\u4ef7\u3002",
+                "quote": "A shipment was valued in several currencies."
+              },
+              {
+                "text": "\u62a5\u544a\u7684\u4ef7\u503c\u4f7f\u7528\u4e86\u4e0d\u540c\u7684\u8d27\u5e01\u548c\u820d\u5165\u65b9\u6cd5\u3002",
+                "quote": "The reported values use different currencies and rounding."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "missing-is-not-denial",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10060,
+            "claim": "\u4e00\u573a\u98ce\u66b4\u5bfc\u81f4\u4eba\u5458\u53d7\u4f24\uff0c\u5b98\u5458\u62a5\u544a\u6709\u516d\u4eba\u53d7\u4f24\u3002",
+            "evidence_quote": "A storm caused injuries.\nOfficials reported six injuries."
+          },
+          {
+            "article_id": 10061,
+            "claim": "\u4e00\u573a\u98ce\u66b4\u5bfc\u81f4\u4e86\u4eba\u5458\u53d7\u4f24\uff0c\u623f\u5c4b\u548c\u9053\u8def\u88ab\u6d2a\u6c34\u635f\u574f\u3002",
+            "evidence_quote": "A storm caused injuries.\nHomes and roads were damaged by flooding."
+          },
+          {
+            "article_id": 10062,
+            "claim": "\u4e00\u573a\u98ce\u66b4\u5bfc\u81f4\u4e86\u4eba\u5458\u53d7\u4f24\uff0c\u6d2a\u6c34\u8fc7\u540e\u6551\u63f4\u884c\u52a8\u4ecd\u5728\u7ee7\u7eed\u3002",
+            "evidence_quote": "A storm caused injuries.\nRescue operations continued after the flood."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae0\u62a5\u9053\u4e86\u98ce\u66b4\u9020\u6210\u7684\u4e0d\u540c\u540e\u679c\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10060,
+          "summary": "\u4e00\u573a\u98ce\u66b4\u9020\u6210\u4e86\u4eba\u5458\u53d7\u4f24\u3002 \u5b98\u65b9\u62a5\u544a\u4e86\u516d\u4eba\u53d7\u4f24\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u573a\u98ce\u66b4\u9020\u6210\u4e86\u4eba\u5458\u53d7\u4f24\u3002",
+                "quote": "A storm caused injuries."
+              },
+              {
+                "text": "\u5b98\u65b9\u62a5\u544a\u4e86\u516d\u4eba\u53d7\u4f24\u3002",
+                "quote": "Officials reported six injuries."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10061,
+          "summary": "\u98ce\u66b4\u9020\u6210\u4e86\u4eba\u5458\u53d7\u4f24\u3002 \u6d2a\u6c34\u635f\u574f\u4e86\u623f\u5c4b\u548c\u9053\u8def\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u98ce\u66b4\u9020\u6210\u4e86\u4eba\u5458\u53d7\u4f24\u3002",
+                "quote": "A storm caused injuries."
+              },
+              {
+                "text": "\u6d2a\u6c34\u635f\u574f\u4e86\u623f\u5c4b\u548c\u9053\u8def\u3002",
+                "quote": "Homes and roads were damaged by flooding."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10062,
+          "summary": "\u98ce\u66b4\u5bfc\u81f4\u4e86\u4eba\u5458\u53d7\u4f24\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u98ce\u66b4\u5bfc\u81f4\u4e86\u4eba\u5458\u53d7\u4f24\u3002",
+                "quote": "A storm caused injuries."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "genuine-count-conflict",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10070,
+            "claim": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u7ed3\u679c\u662f3\u540d\u4f24\u8005\u3002",
+            "evidence_quote": "The final count at site A at 12:00 was 3 injured people."
+          },
+          {
+            "article_id": 10071,
+            "claim": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u7ed3\u679c\u662f8\u540d\u4f24\u8005\u3002",
+            "evidence_quote": "The final count at site A at 12:00 was 8 injured people."
+          },
+          {
+            "article_id": 10072,
+            "claim": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u7ed3\u679c\u5728\u4e24\u4e2a\u673a\u6784\u4e4b\u95f4\u5b58\u5728\u4e89\u8bae\u3002",
+            "evidence_quote": "The final count at site A at 12:00 was disputed between two agencies."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u7ed3\u679c\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "factual_conflict"
+          },
+          {
+            "point": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u7ed3\u679c\u3002",
+            "claim_indexes": [
+              0,
+              2
+            ],
+            "kind": "coverage_difference"
+          },
+          {
+            "point": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u7ed3\u679c\u3002",
+            "claim_indexes": [
+              1,
+              2
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10070,
+          "summary": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u7ed3\u679c\u4e3a3\u4eba\u53d7\u4f24\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u7edf\u8ba1\u7ed3\u679c\u4e3a3\u4eba\u53d7\u4f24\u3002",
+                "quote": "The final count at site A at 12:00 was 3 injured people."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10071,
+          "summary": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u8ba1\u6570\u4e3a8\u4eba\u53d7\u4f24\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u7ad9\u70b9A\u572812:00\u7684\u6700\u7ec8\u8ba1\u6570\u4e3a8\u4eba\u53d7\u4f24\u3002",
+                "quote": "The final count at site A at 12:00 was 8 injured people."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10072,
+          "summary": "\u7f51\u7ad9 A \u7684\u6700\u7ec8\u8ba1\u6570\u5728\u4e2d\u5348\u65f6\u88ab\u4e24\u4e2a\u673a\u6784\u4e89\u8bba\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u7f51\u7ad9 A \u7684\u6700\u7ec8\u8ba1\u6570\u5728\u4e2d\u5348\u65f6\u88ab\u4e24\u4e2a\u673a\u6784\u4e89\u8bba\u3002",
+                "quote": "The final count at site A at 12:00 was disputed between two agencies."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "historical-year",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10080,
+            "claim": "\u4e00\u9879\u5386\u53f2\u8c03\u67e5\u6b63\u5728\u5ba1\u67e5\u4e2d\uff0c\u8be5\u8c03\u67e5\u57282023\u5e74\u6536\u96c6\u4e86\u89c2\u6d4b\u7ed3\u679c\u3002",
+            "evidence_quote": "A historical survey is reviewed.\nThe survey collected observations in 2023."
+          },
+          {
+            "article_id": 10081,
+            "claim": "\u4e00\u9879\u5386\u53f2\u8c03\u67e5\u6b63\u5728\u5ba1\u67e5\u4e2d\uff0c\u8be5\u7814\u7a76\u4f7f\u7528\u4e862023\u5e74\u7684\u8bb0\u5f55\u3002",
+            "evidence_quote": "A historical survey is reviewed.\nThe study used records from 2023."
+          },
+          {
+            "article_id": 10082,
+            "claim": "\u4e00\u4efd\u65b0\u62a5\u544a\u8ba8\u8bba\u4e862023\u5e74\u8bb0\u5f55\u7684\u89c2\u6d4b\u7ed3\u679c\u3002",
+            "evidence_quote": "A new report discusses observations recorded in 2023."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10080,
+          "summary": "\u8be5\u8c03\u67e5\u6536\u96c6\u4e862023\u5e74\u7684\u89c2\u5bdf\u7ed3\u679c\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8be5\u8c03\u67e5\u6536\u96c6\u4e862023\u5e74\u7684\u89c2\u5bdf\u7ed3\u679c\u3002",
+                "quote": "The survey collected observations in 2023."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10081,
+          "summary": "\u4e00\u9879\u5386\u53f2\u8c03\u67e5\u5f97\u5230\u4e86\u5ba1\u67e5\u3002 \u8be5\u7814\u7a76\u4f7f\u7528\u4e862023\u5e74\u7684\u8bb0\u5f55\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e00\u9879\u5386\u53f2\u8c03\u67e5\u5f97\u5230\u4e86\u5ba1\u67e5\u3002",
+                "quote": "A historical survey is reviewed."
+              },
+              {
+                "text": "\u8be5\u7814\u7a76\u4f7f\u7528\u4e862023\u5e74\u7684\u8bb0\u5f55\u3002",
+                "quote": "The study used records from 2023."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10082,
+          "summary": "\u4e00\u4efd\u65b0\u7684\u62a5\u544a\u8ba8\u8bba\u4e862023\u5e74\u8bb0\u5f55\u7684\u89c2\u6d4b\u7ed3\u679c\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u4efd\u65b0\u7684\u62a5\u544a\u8ba8\u8bba\u4e862023\u5e74\u8bb0\u5f55\u7684\u89c2\u6d4b\u7ed3\u679c\u3002",
+                "quote": "A new report discusses observations recorded in 2023."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "publication-not-event-year",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10090,
+            "claim": "\u4e00\u5ea7\u6865\u5728\u5468\u4e8c\u5f00\u653e\u3002",
+            "evidence_quote": "A bridge opened on Tuesday."
+          },
+          {
+            "article_id": 10091,
+            "claim": "\u4e00\u5ea7\u6865\u5728\u7ef4\u4fee\u540e\u91cd\u65b0\u5f00\u653e\u3002",
+            "evidence_quote": "A bridge opened after repairs."
+          },
+          {
+            "article_id": 10092,
+            "claim": "\u5f53\u5730\u4ea4\u901a\u5728\u6865\u6881\u91cd\u65b0\u5f00\u653e\u540e\u6062\u590d\u3002",
+            "evidence_quote": "Local traffic resumed when the bridge reopened."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u6865\u6881\u5f00\u653e\u7684\u539f\u56e0\uff0c\u4fe1\u606f\u6709\u6240\u4e0d\u540c\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          },
+          {
+            "point": "\u5f53\u5730\u4ea4\u901a\u72b6\u51b5\u4e0e\u6865\u6881\u5f00\u653e\u7684\u5173\u7cfb\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10090,
+          "summary": "\u4e00\u5ea7\u6865\u6881\u4e8e\u5468\u4e8c\u5f00\u901a\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u5ea7\u6865\u6881\u4e8e\u5468\u4e8c\u5f00\u901a\u3002",
+                "quote": "A bridge opened on Tuesday."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10091,
+          "summary": "\u4e00\u5ea7\u6865\u6881\u5728\u4fee\u590d\u5b8c\u6210\u540e\u91cd\u65b0\u5f00\u653e\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u5ea7\u6865\u6881\u5728\u4fee\u590d\u5b8c\u6210\u540e\u91cd\u65b0\u5f00\u653e\u3002",
+                "quote": "A bridge opened after repairs."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10092,
+          "summary": "\u5f53\u5730\u4ea4\u901a\u5728\u6865\u6881\u91cd\u65b0\u5f00\u653e\u540e\u6062\u590d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u5f53\u5730\u4ea4\u901a\u5728\u6865\u6881\u91cd\u65b0\u5f00\u653e\u540e\u6062\u590d\u3002",
+                "quote": "Local traffic resumed when the bridge reopened."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "different-sites",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10100,
+            "claim": "\u4e8b\u6545\u53d1\u751f\u5728\u4e24\u4e2a\u5730\u70b9\uff0c\u5176\u4e2d3\u4eba\u5728A\u5730\u70b9\u53d7\u4f24\u3002",
+            "evidence_quote": "Incidents took place at two sites.\nThree people were injured at site A."
+          },
+          {
+            "article_id": 10101,
+            "claim": "\u4e8b\u6545\u53d1\u751f\u5728\u4e24\u4e2a\u5730\u70b9\uff0c\u5176\u4e2d8\u4eba\u5728B\u5730\u70b9\u53d7\u4f24\u3002",
+            "evidence_quote": "Incidents took place at two sites.\nEight people were injured at site B."
+          },
+          {
+            "article_id": 10102,
+            "claim": "\u62a5\u544a\u6d89\u53ca\u4e24\u5904\u4e0d\u540c\u7684\u5730\u70b9\uff0c\u6709\u4e8b\u4ef6\u53d1\u751f\u3002",
+            "evidence_quote": "Incidents took place at two sites.\nThe reports concern two different locations."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u53d7\u4f24\u4eba\u6570\u7684\u62a5\u9053\u5b58\u5728\u5dee\u5f02\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10100,
+          "summary": "\u4e8b\u4ef6\u53d1\u751f\u5728\u4e24\u5904\u5730\u70b9\u3002 \u4e09\u4eba\u4e8eA\u5730\u70b9\u53d7\u4f24\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e8b\u4ef6\u53d1\u751f\u5728\u4e24\u5904\u5730\u70b9\u3002",
+                "quote": "Incidents took place at two sites."
+              },
+              {
+                "text": "\u4e09\u4eba\u4e8eA\u5730\u70b9\u53d7\u4f24\u3002",
+                "quote": "Three people were injured at site A."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10101,
+          "summary": "\u4e8b\u4ef6\u53d1\u751f\u5728\u4e24\u4e2a\u5730\u70b9\u3002 B\u5730\u70b9\u6709\u516b\u4eba\u53d7\u4f24\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e8b\u4ef6\u53d1\u751f\u5728\u4e24\u4e2a\u5730\u70b9\u3002",
+                "quote": "Incidents took place at two sites."
+              },
+              {
+                "text": "B\u5730\u70b9\u6709\u516b\u4eba\u53d7\u4f24\u3002",
+                "quote": "Eight people were injured at site B."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10102,
+          "summary": "\u4e8b\u4ef6\u53d1\u751f\u5728\u4e24\u4e2a\u5730\u70b9\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e8b\u4ef6\u53d1\u751f\u5728\u4e24\u4e2a\u5730\u70b9\u3002",
+                "quote": "Incidents took place at two sites. The reports concern two different locations."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "different-populations",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10110,
+            "claim": "\u8be5\u5e02\u5728\u5236\u9020\u4e1a\u589e\u52a0\u4e86100\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+            "evidence_quote": "The city added 100 jobs in manufacturing."
+          },
+          {
+            "article_id": 10111,
+            "claim": "\u8be5\u5e02\u5728\u6240\u6709\u884c\u4e1a\u589e\u52a0\u4e86300\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+            "evidence_quote": "The city added 300 jobs across all industries."
+          },
+          {
+            "article_id": 10112,
+            "claim": "\u5236\u9020\u4e1a\u662f\u6574\u4f53\u5c31\u4e1a\u6570\u5b57\u7684\u4e00\u90e8\u5206\u3002",
+            "evidence_quote": "Manufacturing is one part of the overall employment figure."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5c31\u4e1a\u6570\u636e\u8303\u56f4\u4e0d\u540c\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10110,
+          "summary": "\u8be5\u5e02\u5236\u9020\u4e1a\u65b0\u589e\u4e86100\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8be5\u5e02\u5236\u9020\u4e1a\u65b0\u589e\u4e86100\u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+                "quote": "The city added 100 jobs in manufacturing."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10111,
+          "summary": "\u8be5\u5e02\u6240\u6709\u884c\u4e1a\u5171\u589e\u52a0\u4e86 300 \u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8be5\u5e02\u6240\u6709\u884c\u4e1a\u5171\u589e\u52a0\u4e86 300 \u4e2a\u5c31\u4e1a\u5c97\u4f4d\u3002",
+                "quote": "The city added 300 jobs across all industries."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10112,
+          "summary": "\u5236\u9020\u4e1a\u662f\u6574\u4f53\u5c31\u4e1a\u4eba\u6570\u7684\u4e00\u90e8\u5206\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u5236\u9020\u4e1a\u662f\u6574\u4f53\u5c31\u4e1a\u4eba\u6570\u7684\u4e00\u90e8\u5206\u3002",
+                "quote": "Manufacturing is one part of the overall employment figure."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "forecast-v-observed",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10120,
+            "claim": "\u9884\u6d4b\u964d\u96e8\u91cf\u4e3a50\u6beb\u7c73\u3002",
+            "evidence_quote": "A forecast predicted rainfall of 50 mm."
+          },
+          {
+            "article_id": 10121,
+            "claim": "\u98ce\u66b4\u8fc7\u540e\u8bb0\u5f55\u7684\u964d\u96e8\u91cf\u4e3a30\u6beb\u7c73\u3002",
+            "evidence_quote": "Recorded rainfall was 30 mm after the storm."
+          },
+          {
+            "article_id": 10122,
+            "claim": "\u89c2\u6d4b\u5230\u7684\u6570\u91cf\u4f4e\u4e8e\u65e9\u524d\u7684\u9884\u6d4b\u3002",
+            "evidence_quote": "The observed amount was below the earlier forecast."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6587\u7ae010120\u548c10121\u62a5\u9053\u7684\u964d\u96e8\u91cf\u6570\u636e\u4e0d\u540c\uff0c\u4e00\u4e2a\u662f\u9884\u6d4b\u503c\uff0c\u4e00\u4e2a\u662f\u89c2\u6d4b\u503c\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "temporal_update"
+          },
+          {
+            "point": "\u6587\u7ae010122\u660e\u786e\u6307\u51fa\u89c2\u6d4b\u5230\u7684\u964d\u96e8\u91cf\u4f4e\u4e8e\u9884\u6d4b\uff0c\u800c\u6587\u7ae010120\u548c10121\u5206\u522b\u63d0\u4f9b\u4e86\u5177\u4f53\u7684\u9884\u6d4b\u548c\u89c2\u6d4b\u6570\u636e\u3002",
+            "claim_indexes": [
+              0,
+              1,
+              2
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10120,
+          "summary": "\u4e00\u9879\u9884\u6d4b\u662f50\u6beb\u7c73\u7684\u964d\u96e8\u91cf\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u9879\u9884\u6d4b\u662f50\u6beb\u7c73\u7684\u964d\u96e8\u91cf\u3002",
+                "quote": "A forecast predicted rainfall of 50 mm."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10121,
+          "summary": "\u98ce\u66b4\u8fc7\u540e\u8bb0\u5f55\u7684\u964d\u96e8\u91cf\u4e3a 30 \u6beb\u7c73\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u98ce\u66b4\u8fc7\u540e\u8bb0\u5f55\u7684\u964d\u96e8\u91cf\u4e3a 30 \u6beb\u7c73\u3002",
+                "quote": "Recorded rainfall was 30 mm after the storm."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10122,
+          "summary": "\u89c2\u6d4b\u5230\u7684\u6570\u91cf\u4f4e\u4e8e\u6b64\u524d\u7684\u9884\u6d4b\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u89c2\u6d4b\u5230\u7684\u6570\u91cf\u4f4e\u4e8e\u6b64\u524d\u7684\u9884\u6d4b\u3002",
+                "quote": "The observed amount was below the earlier forecast."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "attribution",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10130,
+            "claim": "\u4e00\u5bb6\u516c\u53f8\u58f0\u79f0\u67d0\u4f9b\u5e94\u5546\u8fdd\u53cd\u4e86\u5176\u5408\u540c\u3002",
+            "evidence_quote": "A company alleged that a supplier violated its contract."
+          },
+          {
+            "article_id": 10131,
+            "claim": "\u4f9b\u5e94\u5546\u5426\u8ba4\u4e86\u8fd9\u9879\u6307\u63a7\u3002",
+            "evidence_quote": "The supplier denied the allegation."
+          },
+          {
+            "article_id": 10132,
+            "claim": "\u6cd5\u9662\u5c1a\u672a\u88c1\u5b9a\u662f\u5426\u53d1\u751f\u8fdd\u89c4\u884c\u4e3a\u3002",
+            "evidence_quote": "The court has not determined whether a violation occurred."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10130,
+          "summary": "\u4e00\u5bb6\u516c\u53f8\u58f0\u79f0\u5176\u4f9b\u5e94\u5546\u8fdd\u53cd\u4e86\u5408\u540c\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u5bb6\u516c\u53f8\u58f0\u79f0\u5176\u4f9b\u5e94\u5546\u8fdd\u53cd\u4e86\u5408\u540c\u3002",
+                "quote": "A company alleged that a supplier violated its contract."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10131,
+          "summary": "An allegation is not confirmed.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10132,
+          "summary": "An allegation is not confirmed.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "opinion",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10140,
+            "claim": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u652f\u6301\u8be5\u9879\u76ee\uff0c\u56e0\u4e3a\u5b83\u63d0\u4f9b\u4e86\u4ea4\u901a\u4fbf\u5229\u3002",
+            "evidence_quote": "A residents group supports the project because of transport access."
+          },
+          {
+            "article_id": 10141,
+            "claim": "\u53e6\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u53cd\u5bf9\u8be5\u9879\u76ee\uff0c\u56e0\u4e3a\u566a\u97f3\u95ee\u9898\u3002",
+            "evidence_quote": "Another residents group opposes the project because of noise."
+          },
+          {
+            "article_id": 10142,
+            "claim": "\u4e24\u4e2a\u56e2\u4f53\u90fd\u8ba4\u4e3a\u7406\u4e8b\u4f1a\u5c1a\u672a\u5c31\u8be5\u9879\u76ee\u505a\u51fa\u51b3\u5b9a\u3002",
+            "evidence_quote": "Both groups agree the council has not decided on the project."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u8be5\u9879\u76ee\u7684\u652f\u6301\u548c\u53cd\u5bf9\u610f\u89c1\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "viewpoint_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10140,
+          "summary": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u652f\u6301\u8be5\u9879\u76ee\uff0c\u7406\u7531\u662f\u4ea4\u901a\u4fbf\u5229\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u652f\u6301\u8be5\u9879\u76ee\uff0c\u7406\u7531\u662f\u4ea4\u901a\u4fbf\u5229\u3002",
+                "quote": "A residents group supports the project because of transport access."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10141,
+          "summary": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u53cd\u5bf9\u8be5\u9879\u76ee\uff0c\u56e0\u4e3a\u566a\u97f3\u95ee\u9898\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e00\u4e2a\u5c45\u6c11\u56e2\u4f53\u53cd\u5bf9\u8be5\u9879\u76ee\uff0c\u56e0\u4e3a\u566a\u97f3\u95ee\u9898\u3002",
+                "quote": "Another residents group opposes the project because of noise."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10142,
+          "summary": "\u4e24\u4e2a\u56e2\u4f53\u5c31\u67d0\u9879\u653f\u7b56\u6301\u4e0d\u540c\u610f\u89c1\u3002 \u4e24\u4e2a\u56e2\u4f53\u5747\u540c\u610f\u7406\u4e8b\u4f1a\u5c1a\u672a\u5c31\u8be5\u9879\u76ee\u505a\u51fa\u51b3\u5b9a\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u4e24\u4e2a\u56e2\u4f53\u5c31\u67d0\u9879\u653f\u7b56\u6301\u4e0d\u540c\u610f\u89c1\u3002",
+                "quote": "Two groups disagree about policy."
+              },
+              {
+                "text": "\u4e24\u4e2a\u56e2\u4f53\u5747\u540c\u610f\u7406\u4e8b\u4f1a\u5c1a\u672a\u5c31\u8be5\u9879\u76ee\u505a\u51fa\u51b3\u5b9a\u3002",
+                "quote": "Both groups agree the council has not decided on the project."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "bilingual",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10150,
+            "claim": "\u8be5\u5e02\u5f00\u653e\u4e86\u4e00\u5ea7\u8bbe\u670912\u95f4\u81ea\u4e60\u5ba4\u7684\u56fe\u4e66\u9986\u3002",
+            "evidence_quote": "The city opened a library with 12 study rooms."
+          },
+          {
+            "article_id": 10151,
+            "claim": "\u5e02\u653f\u5e9c\u5f00\u653e\u4e86\u4e00\u5ea7\u8bbe\u670912\u95f4\u81ea\u4e60\u5ba4\u7684\u56fe\u4e66\u9986\u3002",
+            "evidence_quote": "\u5e02\u653f\u5e9c\u5f00\u653e\u4e86\u4e00\u5ea7\u56fe\u4e66\u9986\uff0c\u8bbe\u670912\u95f4\u81ea\u4e60\u5ba4\u3002"
+          },
+          {
+            "article_id": 10152,
+            "claim": "\u65b0\u56fe\u4e66\u9986\u5185\u8bbe12\u95f4\u81ea\u4e60\u5ba4\u3002",
+            "evidence_quote": "The new library contains 12 study rooms."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10150,
+          "summary": "\u5e02\u91cc\u5f00\u653e\u4e86\u4e00\u95f4\u670912\u95f4\u81ea\u4e60\u5ba4\u7684\u56fe\u4e66\u9986\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u5e02\u91cc\u5f00\u653e\u4e86\u4e00\u95f4\u670912\u95f4\u81ea\u4e60\u5ba4\u7684\u56fe\u4e66\u9986\u3002",
+                "quote": "The city opened a library with 12 study rooms."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10151,
+          "summary": "\u5e02\u653f\u5e9c\u5f00\u653e\u4e86\u4e00\u5ea7\u56fe\u4e66\u9986\u3002 \u8be5\u56fe\u4e66\u9986\u8bbe\u670912\u95f4\u81ea\u4e60\u5ba4\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u5e02\u653f\u5e9c\u5f00\u653e\u4e86\u4e00\u5ea7\u56fe\u4e66\u9986\u3002",
+                "quote": "\u5e02\u653f\u5e9c\u5f00\u653e\u4e86\u4e00\u5ea7\u56fe\u4e66\u9986"
+              },
+              {
+                "text": "\u8be5\u56fe\u4e66\u9986\u8bbe\u670912\u95f4\u81ea\u4e60\u5ba4\u3002",
+                "quote": "\u8bbe\u670912\u95f4\u81ea\u4e60\u5ba4"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10152,
+          "summary": "\u65b0\u56fe\u4e66\u9986\u5185\u8bbe12\u95f4\u81ea\u4e60\u5ba4\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u65b0\u56fe\u4e66\u9986\u5185\u8bbe12\u95f4\u81ea\u4e60\u5ba4\u3002",
+                "quote": "The new library contains 12 study rooms."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "title-only",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10160,
+            "claim": "\u535a\u7269\u9986\u5ba3\u5e03\u4e3e\u529e\u5c55\u89c8\u3002",
+            "evidence_quote": "Museum announces exhibition."
+          },
+          {
+            "article_id": 10161,
+            "claim": "\u535a\u7269\u9986\u5ba3\u5e03\u4e3e\u529e\u5c55\u89c8\u3002",
+            "evidence_quote": "Museum announces exhibition."
+          },
+          {
+            "article_id": 10162,
+            "claim": "\u535a\u7269\u9986\u5ba3\u5e03\u4e3e\u529e\u5c55\u89c8\u3002",
+            "evidence_quote": "Museum announces exhibition."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10160,
+          "summary": "Museum announces exhibition.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10161,
+          "summary": "Museum announces exhibition.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10162,
+          "summary": "Museum announces exhibition.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "empty-comparison",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [],
+        "disagreements": [],
+        "status": "insufficient_evidence",
+        "reason": "\u8bc1\u636e\u4e0d\u8db3"
+      },
+      "metrics": {
+        "claim_count": 0,
+        "valid_evidence_claims": 0,
+        "distinct_sources": 0,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10170,
+          "summary": "",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10171,
+          "summary": "",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10172,
+          "summary": "",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "boilerplate",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10180,
+            "claim": "\u4e00\u9879\u670d\u52a1\u53d1\u5e03\u4e86\u66f4\u65b0\u3002",
+            "evidence_quote": "A service publishes an update."
+          },
+          {
+            "article_id": 10181,
+            "claim": "\u4e00\u9879\u670d\u52a1\u53d1\u5e03\u4e86\u66f4\u65b0\u3002",
+            "evidence_quote": "A service publishes an update."
+          },
+          {
+            "article_id": 10182,
+            "claim": "\u4e00\u9879\u670d\u52a1\u53d1\u5e03\u4e86\u66f4\u65b0\u3002",
+            "evidence_quote": "A service publishes an update."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10180,
+          "summary": "A service publishes an update.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10181,
+          "summary": "A service publishes an update.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10182,
+          "summary": "A service publishes an update.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "qualifiers",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10190,
+            "claim": "\u521d\u6b65\u4f30\u8ba1\uff0c\u6700\u591a\u53ef\u80fd\u670920\u6237\u5bb6\u5ead\u53d7\u5230\u5f71\u54cd\u3002",
+            "evidence_quote": "Preliminary estimates suggest up to 20 households may be affected."
+          },
+          {
+            "article_id": 10191,
+            "claim": "\u5b98\u5458\u5c1a\u672a\u786e\u8ba4\u53d7\u5f71\u54cd\u5bb6\u5ead\u7684\u6570\u91cf\u3002",
+            "evidence_quote": "Officials have not confirmed the number of affected households."
+          },
+          {
+            "article_id": 10192,
+            "claim": "\u8be5\u4f30\u8ba1\u662f\u521d\u6b65\u7684\uff0c\u5e76\u5c06\u88ab\u5ba1\u67e5\u3002",
+            "evidence_quote": "The estimate is preliminary and will be reviewed."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u5173\u4e8e\u53d7\u5f71\u54cd\u5bb6\u5ead\u6570\u91cf\u7684\u786e\u8ba4\u72b6\u6001\u5b58\u5728\u5dee\u5f02\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10190,
+          "summary": "\u521d\u6b65\u4f30\u8ba1\u663e\u793a\uff0c\u53ef\u80fd\u6709\u591a\u8fbe20\u6237\u5bb6\u5ead\u53d7\u5230\u5f71\u54cd\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u521d\u6b65\u4f30\u8ba1\u663e\u793a\uff0c\u53ef\u80fd\u6709\u591a\u8fbe20\u6237\u5bb6\u5ead\u53d7\u5230\u5f71\u54cd\u3002",
+                "quote": "Preliminary estimates suggest up to 20 households may be affected."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10191,
+          "summary": "An early estimate is uncertain.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10192,
+          "summary": "An early estimate is uncertain.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "percentage-points",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10200,
+            "claim": "\u8be5\u6bd4\u7387\u5728\u516b\u6708\u4efd\u4e3a5.2%\u3002",
+            "evidence_quote": "The rate was 5.2 percent in August."
+          },
+          {
+            "article_id": 10201,
+            "claim": "\u8be5\u6bd4\u7387\u5728\u4e5d\u6708\u4efd\u4e3a5.4%\u3002",
+            "evidence_quote": "The rate was 5.4 percent in September."
+          },
+          {
+            "article_id": 10202,
+            "claim": "\u8be5\u6bd4\u7387\u4ece\u516b\u6708\u4efd\u5230\u4e5d\u6708\u4efd\u589e\u52a0\u4e860.2\u4e2a\u767e\u5206\u70b9\u3002",
+            "evidence_quote": "The rate increased by 0.2 percentage points from August to September."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10200,
+          "summary": "\u8be5\u6bd4\u7387\u57288\u6708\u4efd\u4e3a5.2%\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8be5\u6bd4\u7387\u57288\u6708\u4efd\u4e3a5.2%\u3002",
+                "quote": "The rate was 5.2 percent in August."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10201,
+          "summary": "\u4e5d\u6708\u4efd\u7684\u5931\u4e1a\u7387\u4e3a5.4%\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4e5d\u6708\u4efd\u7684\u5931\u4e1a\u7387\u4e3a5.4%\u3002",
+                "quote": "The rate was 5.4 percent in September."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10202,
+          "summary": "\u8be5\u6bd4\u7387\u4ece8\u6708\u52309\u6708\u589e\u52a0\u4e860.2\u4e2a\u767e\u5206\u70b9\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8be5\u6bd4\u7387\u4ece8\u6708\u52309\u6708\u589e\u52a0\u4e860.2\u4e2a\u767e\u5206\u70b9\u3002",
+                "quote": "The rate increased by 0.2 percentage points from August to September."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "no-causation",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10210,
+            "claim": "\u80fd\u6e90\u4ef7\u683c\u4e0a\u6da8\u4e0e\u822a\u8fd0\u4e2d\u65ad\u53d1\u751f\u5728\u540c\u4e00\u5468\u3002",
+            "evidence_quote": "Energy prices rose during the same week as a shipping disruption."
+          },
+          {
+            "article_id": 10211,
+            "claim": "\u8be5\u62a5\u544a\u6ca1\u6709\u8bf4\u660e\u4ef7\u683c\u4e0a\u6da8\u7684\u539f\u56e0\u3002",
+            "evidence_quote": "The report does not establish the cause of the price increase."
+          },
+          {
+            "article_id": 10212,
+            "claim": "\u6709\u51e0\u4e2a\u56e0\u7d20\u53ef\u80fd\u5f71\u54cd\u4e86\u4ef7\u683c\uff0c\u4f46\u6ca1\u6709\u786e\u8ba4\u5177\u4f53\u539f\u56e0\u3002",
+            "evidence_quote": "Several factors may have affected prices. No cause was confirmed."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10210,
+          "summary": "\u80fd\u6e90\u4ef7\u683c\u5728\u540c\u5468\u4e0a\u6da8\uff0c\u5f53\u65f6\u4e5f\u53d1\u751f\u4e86\u822a\u8fd0\u4e2d\u65ad\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u80fd\u6e90\u4ef7\u683c\u5728\u540c\u5468\u4e0a\u6da8\uff0c\u5f53\u65f6\u4e5f\u53d1\u751f\u4e86\u822a\u8fd0\u4e2d\u65ad\u3002",
+                "quote": "Energy prices rose during the same week as a shipping disruption."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10211,
+          "summary": "Two developments coincided.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10212,
+          "summary": "Two developments coincided.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "quote-injection",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10220,
+            "claim": "\u5b9e\u9645\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+            "evidence_quote": "The actual report lists 12 jobs."
+          },
+          {
+            "article_id": 10221,
+            "claim": "\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+            "evidence_quote": "The report lists 12 jobs."
+          },
+          {
+            "article_id": 10222,
+            "claim": "\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+            "evidence_quote": "The report lists 12 jobs."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10220,
+          "summary": "Data is untrusted source material.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        },
+        {
+          "article_id": 10221,
+          "summary": "\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+                "quote": "The report lists 12 jobs."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10222,
+          "summary": "\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u62a5\u544a\u5217\u51fa\u4e8612\u4e2a\u5de5\u4f5c\u5c97\u4f4d\u3002",
+                "quote": "The report lists 12 jobs."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "precision",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10230,
+            "claim": "\u6d4b\u5f97\u7684\u8ddd\u79bb\u662f9.96\u516c\u91cc\u3002",
+            "evidence_quote": "The measured distance was 9.96 kilometres."
+          },
+          {
+            "article_id": 10231,
+            "claim": "\u8ddd\u79bb\u5927\u7ea6\u662f10\u516c\u91cc\u3002",
+            "evidence_quote": "The distance was approximately 10 kilometres."
+          },
+          {
+            "article_id": 10232,
+            "claim": "\u7b2c\u4e8c\u4e2a\u6570\u5b57\u662f\u7b2c\u4e00\u4e2a\u6570\u5b57\u7684\u56db\u820d\u4e94\u5165\u7248\u672c\u3002",
+            "evidence_quote": "The second figure is a rounded version of the first."
+          }
+        ],
+        "disagreements": [
+          {
+            "point": "\u6d4b\u91cf\u8ddd\u79bb\u5b58\u5728\u5dee\u5f02\u3002",
+            "claim_indexes": [
+              0,
+              1
+            ],
+            "kind": "coverage_difference"
+          }
+        ]
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10230,
+          "summary": "\u6d4b\u91cf\u7684\u8ddd\u79bb\u4e3a9.96\u516c\u91cc\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u6d4b\u91cf\u7684\u8ddd\u79bb\u4e3a9.96\u516c\u91cc\u3002",
+                "quote": "The measured distance was 9.96 kilometres."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10231,
+          "summary": "\u8ddd\u79bb\u5927\u7ea6\u4e3a 10 \u516c\u91cc\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8ddd\u79bb\u5927\u7ea6\u4e3a 10 \u516c\u91cc\u3002",
+                "quote": "The distance was approximately 10 kilometres."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10232,
+          "summary": "Rounded values refer to one amount.",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "title_fallback"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "old-current",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10240,
+            "claim": "\u8c03\u67e5\u8bb0\u5f55\u663e\u793a\uff0c2023\u5e74\u670930\u540d\u53c2\u4e0e\u8005\uff0c2026\u5e74\u670940\u540d\u53c2\u4e0e\u8005\u3002",
+            "evidence_quote": "The survey recorded 30 participants in 2023 and 40 in 2026."
+          },
+          {
+            "article_id": 10241,
+            "claim": "2026\u5e74\u7684\u8c03\u67e5\u5305\u62ec40\u540d\u53c2\u4e0e\u8005\u3002",
+            "evidence_quote": "The 2026 survey included 40 participants."
+          },
+          {
+            "article_id": 10242,
+            "claim": "\u8be5\u62a5\u544a\u6bd4\u8f83\u4e862023\u5e74\u548c2026\u5e74\u7684\u8c03\u67e5\u3002",
+            "evidence_quote": "The report compares 2023 and 2026 surveys."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10240,
+          "summary": "\u8c03\u67e5\u663e\u793a2023\u5e74\u670930\u540d\u53c2\u4e0e\u8005\uff0c2026\u5e74\u670940\u540d\u53c2\u4e0e\u8005\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u8c03\u67e5\u663e\u793a2023\u5e74\u670930\u540d\u53c2\u4e0e\u8005\uff0c2026\u5e74\u670940\u540d\u53c2\u4e0e\u8005\u3002",
+                "quote": "The survey recorded 30 participants in 2023 and 40 in 2026."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10241,
+          "summary": "\u8be5\u62a5\u544a\u660e\u786e\u6bd4\u8f83\u4e86\u4e24\u5e74\u3002 2026\u5e74\u7684\u8c03\u67e5\u5305\u62ec40\u540d\u53c2\u4e0e\u8005\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u8be5\u62a5\u544a\u660e\u786e\u6bd4\u8f83\u4e86\u4e24\u5e74\u3002",
+                "quote": "Reports explicitly compare two years."
+              },
+              {
+                "text": "2026\u5e74\u7684\u8c03\u67e5\u5305\u62ec40\u540d\u53c2\u4e0e\u8005\u3002",
+                "quote": "The 2026 survey included 40 participants."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10242,
+          "summary": "\u62a5\u544a\u5bf9\u6bd4\u4e862023\u5e74\u548c2026\u5e74\u7684\u8c03\u67e5\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "grounded",
+            "facts": [
+              {
+                "text": "\u62a5\u544a\u5bf9\u6bd4\u4e862023\u5e74\u548c2026\u5e74\u7684\u8c03\u67e5\u3002",
+                "quote": "The report compares 2023 and 2026 surveys."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "independent-normal",
+      "variant": "candidate",
+      "status": "generated",
+      "output": {
+        "schema_version": "viewpoint-grounded-v2",
+        "claims": [
+          {
+            "article_id": 10250,
+            "claim": "\u4e00\u8258\u5b87\u5b99\u98de\u8239\u4e8e14:00\u4eceC\u5730\u70b9\u53d1\u5c04\u3002",
+            "evidence_quote": "A spacecraft launched from site C at 14:00."
+          },
+          {
+            "article_id": 10251,
+            "claim": "\u53d1\u5c04\u63a7\u5236\u4eba\u5458\u8bc1\u5b9e\u4e8e14:00\u5728C\u5730\u70b9\u5347\u7a7a\u3002",
+            "evidence_quote": "Launch controllers confirmed lift-off at 14:00 from site C."
+          },
+          {
+            "article_id": 10252,
+            "claim": "\u8be5\u4efb\u52a1\u4e8e14:00\u4eceC\u5730\u70b9\u53d1\u5c04\u5f00\u59cb\u3002",
+            "evidence_quote": "The mission began with a launch from site C at 14:00."
+          }
+        ],
+        "disagreements": []
+      },
+      "metrics": {
+        "claim_count": 3,
+        "valid_evidence_claims": 3,
+        "distinct_sources": 3,
+        "minimum_coverage_met": true,
+        "forbidden_assertions": [],
+        "unexpected_kinds": [],
+        "invalid_relations": 0,
+        "missing_required_kinds": [],
+        "missing_required_facts": [],
+        "passed": true,
+        "semantic_entailment_verified": false
+      },
+      "summaries": [
+        {
+          "article_id": 10250,
+          "summary": "\u636e\u591a\u4e2a\u6d88\u606f\u6765\u6e90\u62a5\u9053\uff0c\u6709\u4e00\u6b21\u53d1\u5c04\u3002 \u4e00\u8258\u5b87\u5b99\u98de\u8239\u4e8e 14:00 \u4ece C \u573a\u5730\u53d1\u5c04\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u636e\u591a\u4e2a\u6d88\u606f\u6765\u6e90\u62a5\u9053\uff0c\u6709\u4e00\u6b21\u53d1\u5c04\u3002",
+                "quote": "Several sources report a launch."
+              },
+              {
+                "text": "\u4e00\u8258\u5b87\u5b99\u98de\u8239\u4e8e 14:00 \u4ece C \u573a\u5730\u53d1\u5c04\u3002",
+                "quote": "A spacecraft launched from site C at 14:00."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10251,
+          "summary": "\u53d1\u5c04\u63a7\u5236\u4eba\u5458\u786e\u8ba4\u4e86\u8d77\u98de\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u53d1\u5c04\u63a7\u5236\u4eba\u5458\u786e\u8ba4\u4e86\u8d77\u98de\u3002",
+                "quote": "Launch controllers confirmed lift-off"
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        },
+        {
+          "article_id": 10252,
+          "summary": "\u4efb\u52a1\u4eceC\u53d1\u5c04\u573a\u4e8e14:00\u5f00\u59cb\u3002",
+          "grounding": {
+            "version": "summary-grounded-v2",
+            "status": "limited",
+            "facts": [
+              {
+                "text": "\u4efb\u52a1\u4eceC\u53d1\u5c04\u573a\u4e8e14:00\u5f00\u59cb\u3002",
+                "quote": "The mission began with a launch from site C at 14:00."
+              }
+            ],
+            "verification": {
+              "model": "google/gemini-2.5-flash-lite",
+              "method": "source_entailment_review"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
