@@ -270,18 +270,21 @@ test('theme toggle applies and persists the choice', async () => {
   expect(document.documentElement.dataset.theme).toBeUndefined()
 })
 
-test('navigation links switch routes without showing the report on the feed', async () => {
+test('navigation links switch routes without showing admin content on the feed', async () => {
+  vi.stubGlobal('ResizeObserver', class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  })
   stubEvents(sample)
   renderApp()
   await screen.findByText('某重大事件')
   expect(
-    screen.queryByRole('heading', { level: 1, name: '运行报告' }),
+    screen.queryByRole('heading', { level: 1, name: '总览' }),
   ).toBeNull()
-  fireEvent.click(screen.getByRole('link', { name: '运行报告' }))
-  expect(
-    screen.getByRole('heading', { level: 1, name: '运行报告' }),
-  ).toBeTruthy()
-  fireEvent.click(screen.getByRole('link', { name: '实时事件流' }))
+  fireEvent.click(screen.getByRole('link', { name: '管理后台' }))
+  expect(await screen.findByRole('heading', { level: 1, name: '总览' }, { timeout: 5000 })).toBeTruthy()
+  fireEvent.click(screen.getByRole('link', { name: '返回阅读页' }))
   await screen.findByText('某重大事件')
 })
 

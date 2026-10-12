@@ -50,6 +50,8 @@ Tunnel 上的另一条 Public Hostname：`unspun.farstrand.com` →
 服务类型 `HTTP`，URL `localhost:8080`。并给它建 Access 应用（Allow 你的邮箱），
 保证网站先登录才能看。（如果已建好这条，确认服务类型是 HTTP 而不是 SSH 即可。）
 
+M3-A 后台 API 还会在服务端校验 Access JWT。部署后台前，从网站 Access 应用复制 **Application Audience (AUD) Tag**，并找到团队域名（形如 `yourteam.cloudflareaccess.com`），分别写入 VPS `~/unspun/.env` 的 `ACCESS_AUDIENCE` 与 `ACCESS_TEAM_DOMAIN`。缺少任一项时后台 API 返回 503；本地预览可显式设置 `UNSPUN_ADMIN_LOCAL_PREVIEW=true`，且只允许回环地址请求。不要在生产 Compose 中设置此预览开关。
+
 ## 4. GitHub 仓库配置
 
 Settings → Secrets and variables → Actions：

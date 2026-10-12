@@ -9,6 +9,9 @@ class Settings(BaseSettings):
 
     database_url: str = "postgresql+psycopg://unspun:unspun@localhost:5432/unspun"
     app_version: str = "dev"
+    access_team_domain: str = ""
+    access_audience: str = ""
+    admin_local_preview: bool = False
     log_json: bool = True
     # Default fits local dev (run from server/); the container image sets
     # UNSPUN_CONFIG_DIR=/app/config.
