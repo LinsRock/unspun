@@ -1,9 +1,15 @@
 from fastapi import APIRouter, Depends
 
 from unspun.api.admin.auth import require_admin_identity
+from unspun.api.admin.content import router as content_router
+from unspun.api.admin.exports import router as exports_router
 from unspun.api.admin.ranges import router as ranges_router
+from unspun.api.admin.sources import router as sources_router
 
 router = APIRouter(
     prefix="/api/admin", tags=["admin"], dependencies=[Depends(require_admin_identity)]
 )
 router.include_router(ranges_router)
+router.include_router(exports_router)
+router.include_router(sources_router)
+router.include_router(content_router)
