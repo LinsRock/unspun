@@ -76,3 +76,28 @@ def test_source_summary_counts_zero_update_success_as_successful(db_session: Ses
     summary = source_summary(rows)
     assert summary["successful_sources"] >= 1
     assert summary["productive_sources"] == sum(bool(r["new_articles"]) for r in rows)
+
+
+def test_health_and_latest_error_are_all_time_while_counts_are_period_only(
+    db_session: Session,
+) -> None:
+    now = datetime.now(UTC)
+    source_id = f"all-time-{now.timestamp()}"
+    db_session.add_all(
+        [
+            FetchLog(
+                source_id=source_id, status="ok", new_articles=0, run_at=now - timedelta(days=2)
+            ),
+            FetchLog(source_id=source_id, status="error", error="last error", run_at=now),
+        ]
+    )
+    db_session.flush()
+    rows = list_sources(db_session, now - timedelta(days=1), now - timedelta(hours=1))
+    item = next(row for row in rows if row["id"] == source_id)
+    assert item["health"] == "error"
+    assert item["last_error"] == "last error"
+    assert item["last_success_at"] == now - timedelta(days=2)
+    assert item["successful_fetches"] == 0
+    assert item["failed_fetches"] == 0
+    assert item["success_rate"] is None
+    assert item["period_latest_status"] is None

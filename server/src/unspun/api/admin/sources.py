@@ -1,11 +1,11 @@
 """Read-only source history from current configuration and recorded outcomes."""
 
-from collections import defaultdict
 from datetime import UTC, datetime
 from typing import Any, Literal
 
 from fastapi import APIRouter, HTTPException
-from sqlalchemy import select
+from sqlalchemy import func, select
+from sqlalchemy.dialects.postgresql import distinct_on
 from sqlalchemy.orm import Session
 
 from unspun.api.admin.query import Page, PageSize, RangeDep, page_result
@@ -21,34 +21,59 @@ SourceHealth = Literal["ok", "error", "no_runs"]
 def list_sources(session: Session, start: datetime, end: datetime) -> list[dict[str, Any]]:
     """Combine current IDs with historical IDs, without inventing old config."""
     current = {source.id: source for source in load_sources()}
-    logs = session.scalars(
-        select(FetchLog)
-        .where(FetchLog.run_at >= start, FetchLog.run_at < end)
-        .order_by(FetchLog.run_at.desc(), FetchLog.id.desc())
-    ).all()
-    articles = session.execute(
-        select(Article.source_id, Article.id).where(
-            Article.fetched_at >= start, Article.fetched_at < end
+    ids = (
+        set(current)
+        | set(session.scalars(select(FetchLog.source_id).distinct()))
+        | set(session.scalars(select(Article.source_id).distinct()))
+    )
+    period_counts = {
+        row.source_id: row
+        for row in session.execute(
+            select(
+                FetchLog.source_id,
+                func.count().filter(FetchLog.status == "ok").label("successes"),
+                func.count().filter(FetchLog.status == "error").label("failures"),
+                func.coalesce(
+                    func.sum(FetchLog.new_articles).filter(FetchLog.status == "ok"), 0
+                ).label("new_articles"),
+            )
+            .where(FetchLog.run_at >= start, FetchLog.run_at < end)
+            .group_by(FetchLog.source_id)
         )
-    ).all()
-    ids = set(current) | {log.source_id for log in logs} | {source_id for source_id, _ in articles}
-    by_source: dict[str, list[FetchLog]] = defaultdict(list)
-    for log in logs:
-        by_source[log.source_id].append(log)
-    counts: dict[str, int] = defaultdict(int)
-    for source_id, _ in articles:
-        counts[source_id] += 1
+    }
+    article_counts = {
+        source_id: count
+        for source_id, count in session.execute(
+            select(Article.source_id, func.count(Article.id))
+            .where(Article.fetched_at >= start, Article.fetched_at < end)
+            .group_by(Article.source_id)
+        )
+    }
+
+    def latest_by_source(*, status: str | None = None, period: bool = False) -> dict[str, FetchLog]:
+        stmt = select(FetchLog).ext(distinct_on(FetchLog.source_id))
+        if status is not None:
+            stmt = stmt.where(FetchLog.status == status)
+        if period:
+            stmt = stmt.where(FetchLog.run_at >= start, FetchLog.run_at < end)
+        stmt = stmt.order_by(FetchLog.source_id, FetchLog.run_at.desc(), FetchLog.id.desc())
+        return {log.source_id: log for log in session.scalars(stmt)}
+
+    latest = latest_by_source()
+    latest_errors = latest_by_source(status="error")
+    latest_successes = latest_by_source(status="ok")
+    period_latest = latest_by_source(period=True)
     rows: list[dict[str, Any]] = []
     for source_id in ids:
         source = current.get(source_id)
-        runs = by_source[source_id]
-        successes = sum(log.status == "ok" for log in runs)
-        failures = sum(log.status == "error" for log in runs)
-        latest_error = next((log for log in runs if log.status == "error"), None)
-        latest_success = next((log for log in runs if log.status == "ok"), None)
-        latest = runs[0] if runs else None
+        counts = period_counts.get(source_id)
+        successes = counts.successes if counts else 0
+        failures = counts.failures if counts else 0
+        latest_error = latest_errors.get(source_id)
+        latest_success = latest_successes.get(source_id)
+        latest_run = latest.get(source_id)
         health: SourceHealth = (
-            "no_runs" if latest is None else "error" if latest.status == "error" else "ok"
+            "no_runs" if latest_run is None else "error" if latest_run.status == "error" else "ok"
         )
         rows.append(
             {
@@ -60,8 +85,8 @@ def list_sources(session: Session, start: datetime, end: datetime) -> list[dict[
                 "configured": source is not None,
                 "enabled": source is not None,
                 "health": health,
-                "article_count": counts[source_id],
-                "new_articles": sum(log.new_articles for log in runs if log.status == "ok"),
+                "article_count": article_counts.get(source_id, 0),
+                "new_articles": counts.new_articles if counts else 0,
                 "successful_fetches": successes,
                 "failed_fetches": failures,
                 "success_rate": successes / (successes + failures)
@@ -70,7 +95,10 @@ def list_sources(session: Session, start: datetime, end: datetime) -> list[dict[
                 "last_success_at": latest_success.run_at if latest_success else None,
                 "last_error_at": latest_error.run_at if latest_error else None,
                 "last_error": latest_error.error if latest_error else None,
-                "latest_status": latest.status if latest else None,
+                "latest_status": latest_run.status if latest_run else None,
+                "period_latest_status": period_latest[source_id].status
+                if source_id in period_latest
+                else None,
             }
         )
     return rows

@@ -1,17 +1,18 @@
 """Bounded, filtered, spreadsheet-safe admin CSV exports."""
 
 import csv
-from collections.abc import Iterable, Iterator
+from collections.abc import Iterator
 from datetime import datetime
 from io import StringIO
 from typing import Any
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 
 from unspun.api.admin.content import (
     ArticleStatus,
     EventStatus,
+    EventTimeStatus,
     Order,
     TimeBasis,
     list_articles,
@@ -33,6 +34,8 @@ SOURCE_COLUMNS = [
     "configured",
     "enabled",
     "health",
+    "latest_status",
+    "period_latest_status",
     "article_count",
     "new_articles",
     "successful_fetches",
@@ -69,6 +72,7 @@ EVENT_COLUMNS = [
     "score_final",
     "scored_at",
     "processing_status",
+    "range_time_basis",
 ]
 
 
@@ -82,15 +86,15 @@ def safe_cell(value: object) -> str:
 
 
 def csv_lines(
-    rows: Iterable[dict[str, Any]], columns: list[str], *, limit: int = EXPORT_LIMIT
+    rows: list[dict[str, Any]], columns: list[str], *, limit: int = EXPORT_LIMIT
 ) -> Iterator[str]:
+    if len(rows) > limit:
+        raise ValueError("export has too many matching rows; choose narrower filters")
     buffer = StringIO()
     writer = csv.writer(buffer, lineterminator="\r\n")
     writer.writerow(columns)
     yield buffer.getvalue()
-    for index, row in enumerate(rows):
-        if index >= limit:
-            break
+    for row in rows:
         buffer.seek(0)
         buffer.truncate(0)
         writer.writerow([safe_cell(row.get(column)) for column in columns])
@@ -98,8 +102,12 @@ def csv_lines(
 
 
 def _response(rows: list[dict[str, Any]], columns: list[str], filename: str) -> StreamingResponse:
+    if len(rows) > EXPORT_LIMIT:
+        raise HTTPException(
+            status_code=422, detail="too many matching rows; choose narrower filters"
+        )
     return StreamingResponse(
-        csv_lines(rows, columns),
+        csv_lines(rows, columns, limit=EXPORT_LIMIT),
         media_type="text/csv; charset=utf-8",
         headers={
             "Content-Disposition": f'attachment; filename="{filename}"',
@@ -158,6 +166,7 @@ def export_articles(
             processing_status=processing_status,
             quality_status=quality_status,
             sort=sort,
+            limit=EXPORT_LIMIT + 1,
         )
     return _response(rows, ARTICLE_COLUMNS, "articles.csv")
 
@@ -168,6 +177,7 @@ def export_events(
     keyword: str | None = None,
     source_id: str | None = None,
     processing_status: EventStatus | None = None,
+    time_status: EventTimeStatus = "reported",
     sort: Order = "newest",
 ) -> StreamingResponse:
     with session_scope() as session:
@@ -178,7 +188,9 @@ def export_events(
             keyword=keyword,
             source_id=source_id,
             processing_status=processing_status,
+            time_status=time_status,
             sort=sort,
             as_of=period.as_of,
+            limit=EXPORT_LIMIT + 1,
         )
     return _response(rows, EVENT_COLUMNS, "events.csv")

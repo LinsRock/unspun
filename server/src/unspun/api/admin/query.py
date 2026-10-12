@@ -22,7 +22,12 @@ RangeDep = Annotated[ResolvedRange, Depends(admin_range)]
 
 
 def page_result(
-    rows: list[dict[str, object]], period: ResolvedRange, page: int, page_size: int
+    rows: list[dict[str, object]],
+    period: ResolvedRange,
+    page: int,
+    page_size: int,
+    *,
+    total: int | None = None,
 ) -> dict[str, object]:
     return {
         "range": {
@@ -34,6 +39,6 @@ def page_result(
         "as_of": period.as_of,
         "page": page,
         "page_size": page_size,
-        "total": len(rows),
-        "items": rows[(page - 1) * page_size : page * page_size],
+        "total": len(rows) if total is None else total,
+        "items": rows[(page - 1) * page_size : page * page_size] if total is None else rows,
     }
