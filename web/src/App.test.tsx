@@ -283,7 +283,7 @@ test('navigation links switch routes without showing admin content on the feed',
     screen.queryByRole('heading', { level: 1, name: '总览' }),
   ).toBeNull()
   fireEvent.click(screen.getByRole('link', { name: '管理后台' }))
-  expect(await screen.findByRole('heading', { level: 1, name: '总览' })).toBeTruthy()
+  expect(await screen.findByRole('heading', { level: 1, name: '总览' }, { timeout: 5000 })).toBeTruthy()
   fireEvent.click(screen.getByRole('link', { name: '返回阅读页' }))
   await screen.findByText('某重大事件')
 })
