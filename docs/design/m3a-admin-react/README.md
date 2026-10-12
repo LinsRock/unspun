@@ -2,7 +2,11 @@
 
 这版取代手写 HTML 控件和 SVG 图表作为当前评审入口。六页均用 React + TypeScript；Ant Design 负责通用基础组件，Recharts 负责图表。仍为独立示例数据原型，不连接生产 API，不完成 M3-A 正式开发。
 
+验收记录（2026-10-12）：用户明确回复“验收通过”。验收版本包含左右并排的趋势图与期间合计、调用用途环形图、Ant Design/Recharts 基础交互、详情下钻和响应式主题。此记录仅确认原型，不替代正式后台接入真实 API 后的 D-012 页面验收，也不关闭 M2 或标记 M3-A 完成。
+
 ## 启动与检查
+
+使用 Node.js 22.12 或更高的 22.x 版本；先执行 `corepack enable`。项目通过 `packageManager` 锁定 pnpm 12.3.4，CI 同样使用 Node 22 和冻结 lockfile 构建。
 
 ```bash
 cd docs/design/m3a-admin-react
@@ -46,5 +50,7 @@ pnpm build
 正式后台复用此组件选型，仍按 M3-A 分 PR 交付。通过懒加载后台路由与图表，让阅读页面不用加载后台组件库；原型当前单入口构建，不用其包大小作为正式交付基线。TanStack Query 与现有路由继续复用，后台查询不能加入日报离线持久化。
 
 来源数据与新闻均为示例，8 个源不代表生产源数。费用包含示例人工汇率，缺失历史字段仍显示未记录。任务重跑、配置写入、聚类纠正随 M3-C 实施。
+
+固定费用按与查询相交的北京时间自然日分摊，今日按一个覆盖日计；滚动 24 小时可能与两个自然日相交，不代表按小时分摊。调用费用仍按精确时刻统计。演示付款仅有日期，为便于筛选暂取当日 12:00；这不是已确认的付款时刻，正式 A4/A5 必须区分真实付款时间与仅有日期的记录，不继承该近似。原型只呈现部分筛选控件，正式版语言、地区、类型、处理与质量状态按产品设计实现。
 
 参考：[Ant Design RangePicker](https://ant.design/components/date-picker/)、[主题配置](https://ant.design/docs/react/customize-theme/)、[Recharts BarChart](https://recharts.github.io/en-US/api/BarChart/)。

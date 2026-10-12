@@ -1,6 +1,7 @@
 {
   "name": "unspun-admin-react-prototype",
   "private": true,
+  "packageManager": "pnpm@12.3.4",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 4187 --strictPort",

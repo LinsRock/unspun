@@ -132,6 +132,20 @@ jobs:
           curl --retry 10 --retry-connrefused --retry-delay 1 --fail --silent http://127.0.0.1:4173/ > /dev/null
           PWA_BASE_URL=http://127.0.0.1:4173 pnpm test:pwa
 
+  admin-prototype:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs/design/m3a-admin-react
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
   build-push:
     if: github.ref == 'refs/heads/main'
     needs: [conventions, server, web]
