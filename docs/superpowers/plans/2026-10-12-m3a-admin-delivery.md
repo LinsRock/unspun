@@ -6,7 +6,7 @@
 
 **Architecture:** React 后台独立路由，FastAPI 分领域查询，复用 Postgres 历史数据；新增周期费用和审计数据通过增量迁移实现。M3-A 不执行管线任务或配置 PR，缺失历史字段明确未记录。
 
-**Tech Stack:** React、TypeScript、TanStack Query、FastAPI、SQLAlchemy、Alembic、Postgres；设计原型为本地静态 HTML/CSS/JavaScript，无新增生产依赖。
+**Tech Stack:** React、TypeScript、Ant Design（日期/表格/表单/弹窗）、Recharts（图表）、TanStack Query、FastAPI、SQLAlchemy、Alembic、Postgres。当前评审原型为 `docs/design/m3a-admin-react/` 的独立 Vite 项目，原静态 HTML 留档；正式后台依赖在 A1 引入并按路由懒加载。
 
 ---
 
@@ -22,6 +22,8 @@
 **目标：** 独立后台工作区、可恢复筛选、自然日/滚动时间契约，旧 `/report` 可兼容进入。
 
 **文件：** 新建 `server/src/unspun/api/admin/__init__.py`、`ranges.py`、`schemas.py`；修改 `server/src/unspun/api/app.py`、`web/src/App.tsx`；新建 `web/src/admin/AdminLayout.tsx`、`DateRange.tsx`、`adminApi.ts`、`adminFilters.ts`。
+
+**组件选型：** 修改 `web/package.json` 和 lockfile，引入 Ant Design、Recharts 及其所需日期/图标依赖，复用已安装的 React，不另建基础控件。`ConfigProvider` 映射现有主题；`DateRange.tsx` 包装库的 `RangePicker`，只承担北京时间转换和业务范围。后台路由懒加载，阅读入口不加载后台库。以 React 原型完成库集成验证，不照搬静态 HTML 的日期实现。
 
 **接口：** 统一接受带时区的 `start`/`end`、分页 `page`/`page_size` 和白名单排序；返回 `range`、`as_of`、`items`、`total` 与缺失信息。左闭右开，未来截止截到快照时间。页面默认今天/Asia/Shanghai，URL 保存筛选，返回列表保留状态。
 
@@ -85,7 +87,9 @@
 
 **文件：** 新建 `server/src/unspun/api/admin/overview.py`、`web/src/admin/OverviewPage.tsx`、`MetricCard.tsx`、`TrendChart.tsx`；修改 `web/src/App.tsx`；测试 `server/tests/test_admin_overview.py`、`web/src/admin/OverviewPage.test.tsx`。
 
-**规则：** 查询 API 共享快照截止时间和聚合函数；当前状态单列，统计结果 null 不显示零。新事件标签为新建事件，按系统创建计数。图表使用轻量可访问 SVG/现有原生能力，颜色沿用 tokens。阶段实时状态缺失显示未记录，不因最近轮次存在而宣称正在健康运行。
+**规则：** 查询 API 共享快照截止时间和聚合函数；当前状态单列，统计结果 null 不显示零。新事件标签为新建事件，按系统创建计数。图表使用 Recharts，颜色沿用 tokens。阶段实时状态缺失显示未记录，不因最近轮次存在而宣称正在健康运行。
+
+**修订：** 图表统一采用 Recharts 的 `ResponsiveContainer / BarChart / XAxis / YAxis / CartesianGrid / Tooltip`，启用库的可访问层；不手写 SVG 坐标、刻度、Tooltip 或尺寸计算。业务组件只处理聚合后的数据与下钻目标。
 
 **验证：** 指标与目标明细数量/费用一致，今天/昨天/自定义下钻保留范围，获取失败不清空为零，400px 无页面溢出，键盘/暗色可用；可访问表格摘要与图表数据。真实后端与前端检查后启动本地服务，用户验收通过再开页面 PR。M3-A 完成记录只覆盖实际数据与交付项。
 
@@ -103,3 +107,7 @@
 ## 2026-10-12 第二版体验修订
 
 用户反馈第一版日期控件分散、入口太小、图表缺纵轴、内容与联动混乱。新版原型将总览收敛为三项核心指标、单图切换、整块状态入口与少量异常；费用取消重复统计卡片，来源摘要收成一行，口径说明渐进展开。A1 需落实成熟范围组件、日期草稿/取消/应用、全局与局部范围、按页筛选和浏览器返回；A6 需落实零起点纵轴、单位、悬停及键盘读数、手机可读刻度，并用真实路径验证指标与明细一致。新增组件选型须在子项目设计中决定，静态原型 vendor 不自动引入生产包。
+
+## 2026-10-12 React 与组件库修订
+
+用户指出基础组件和绘图无需手写，要求复用开源库。当前原型迁移到独立 React + TypeScript 项目，实际使用 Ant Design 与 Recharts，不再用原日历外围、手写分页/表单或 SVG 图表作为实现依据。配置与主题遵循现有栈；正式后台采用同一选型，库版本在 A1 按主应用 React 兼容性锁定。时间口径、费用账目、查询和下钻仍属于业务代码，不能用组件库替代这些规则。
