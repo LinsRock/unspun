@@ -20,6 +20,8 @@ services:
     environment:
       UNSPUN_DATABASE_URL: postgresql+psycopg://unspun:${POSTGRES_PASSWORD:-unspun}@db:5432/unspun
       UNSPUN_APP_VERSION: ${APP_VERSION:-dev}
+      UNSPUN_ACCESS_TEAM_DOMAIN: ${ACCESS_TEAM_DOMAIN:-}
+      UNSPUN_ACCESS_AUDIENCE: ${ACCESS_AUDIENCE:-}
     depends_on:
       db:
         condition: service_healthy

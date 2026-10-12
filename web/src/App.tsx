@@ -1,17 +1,24 @@
-import { Link, NavLink, Route, Routes } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 
 import DigestPage from './DigestPage'
 import FeedPage from './FeedPage'
 import ReportPanel from './ReportPanel'
 import ThemeToggle from './ThemeToggle'
 
+const AdminLayout = lazy(() => import('./admin/AdminLayout'))
+
 const pages = [
   { to: '/', label: '实时事件流', symbol: '▤' },
   { to: '/digest', label: '每日日报', symbol: '▥' },
-  { to: '/report', label: '运行报告', symbol: '▦' },
+  { to: '/admin', label: '管理后台', symbol: '▦' },
 ]
 
 export default function App() {
+  const location = useLocation()
+  if (location.pathname === '/admin' || location.pathname.startsWith('/admin/')) {
+    return <Suspense fallback={<p role="status">正在打开管理后台…</p>}><AdminLayout /></Suspense>
+  }
   return (
     <div className="min-h-screen">
       <a
@@ -65,7 +72,8 @@ export default function App() {
               path="/report"
               element={
                 <>
-                  <h1 className="mb-4 text-xl font-bold">运行报告</h1>
+                  <h1 className="mb-2 text-xl font-bold">运行报告</h1>
+                  <Link to="/admin" className="mb-4 inline-block text-accent-ink hover:underline">进入管理后台</Link>
                   <ReportPanel />
                 </>
               }

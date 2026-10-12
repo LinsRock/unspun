@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from sqlalchemy import text
 
+from unspun.api.admin import router as admin_router
 from unspun.api.digest import router as digest_router
 from unspun.api.events import router as events_router
 from unspun.api.report import router as report_router
@@ -16,6 +17,7 @@ app = FastAPI(title="Unspun API", docs_url=None, redoc_url=None)
 app.include_router(events_router)
 app.include_router(digest_router)
 app.include_router(report_router)
+app.include_router(admin_router)
 
 
 class HealthResponse(BaseModel):

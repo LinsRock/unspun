@@ -13,13 +13,17 @@
     "test:pwa": "node scripts/verify-pwa.mjs"
   },
   "dependencies": {
+    "@ant-design/icons": "6.3.4",
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-query": "^5.104.1",
     "@tanstack/react-query-persist-client": "^5.104.1",
+    "antd": "6.6.5",
+    "dayjs": "1.11.23",
     "idb-keyval": "^6.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4",
+    "recharts": "3.10.1",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
