@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { Button, ConfigProvider, Empty, Typography } from 'antd'
+import { Button, ConfigProvider, Empty, Typography, theme as antdTheme } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation, useSearchParams } from 'react-router-dom'
 
 import ThemeToggle from '../ThemeToggle'
@@ -19,7 +19,20 @@ const pages = [
   { path: '/admin/configuration', label: '配置与操作记录', phase: 'A3' },
 ] as const
 
+function readThemeColors() {
+  const styles = getComputedStyle(document.documentElement)
+  return {
+    dark: styles.colorScheme.includes('dark'),
+    accent: styles.getPropertyValue('--accent').trim(),
+    accentContrast: styles.getPropertyValue('--accent-contrast').trim(),
+    surface: styles.getPropertyValue('--surface').trim(),
+    ink: styles.getPropertyValue('--ink').trim(),
+    line: styles.getPropertyValue('--line').trim(),
+  }
+}
+
 export default function AdminLayout() {
+  const [colors, setColors] = useState(readThemeColors)
   const location = useLocation()
   const [search, setSearch] = useSearchParams()
   const [openedAt, setOpenedAt] = useState(() => new Date())
@@ -32,6 +45,18 @@ export default function AdminLayout() {
     enabled: Boolean(page),
   })
 
+  useEffect(() => {
+    const refreshColors = () => setColors(readThemeColors())
+    const observer = new MutationObserver(refreshColors)
+    const systemTheme = window.matchMedia?.('(prefers-color-scheme: dark)')
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    systemTheme?.addEventListener('change', refreshColors)
+    return () => {
+      observer.disconnect()
+      systemTheme?.removeEventListener('change', refreshColors)
+    }
+  }, [])
+
   function applyRange(next: AdminRange) {
     setOpenedAt(new Date())
     const params = rangeSearch(search, next)
@@ -43,11 +68,14 @@ export default function AdminLayout() {
     <ConfigProvider
       locale={zhCN}
       theme={{
+        algorithm: colors.dark ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
         token: {
-          colorPrimary: 'var(--accent)',
-          colorBgContainer: 'var(--surface)',
-          colorText: 'var(--ink)',
-          colorBorder: 'var(--line)',
+          colorPrimary: colors.accent,
+          colorTextLightSolid: colors.accentContrast,
+          colorBgContainer: colors.surface,
+          colorBgElevated: colors.surface,
+          colorText: colors.ink,
+          colorBorder: colors.line,
         },
       }}
     >
@@ -68,7 +96,7 @@ export default function AdminLayout() {
             ))}
           </nav>
           <Link to="/" className="admin-return">返回阅读页</Link>
-          <ThemeToggle />
+          <div className="admin-theme-control"><ThemeToggle /></div>
         </aside>
         <main id="admin-content" className="admin-main">
           {page ? (
