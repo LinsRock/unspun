@@ -1,7 +1,7 @@
 # Unspun · Personal Intelligence Station
 
 A single-user intelligence aggregator: it pulls Chinese and English sources, then uses AI to cluster, score, and contrast viewpoints — built to break out of the filter bubble.
-Requirements live in `docs/requirement.md`; milestones and acceptance criteria in `docs/roadmaps.md`. Current phase: **M2 viewpoints and daily digests**; task board: `docs/tasks/m2.md`.
+Requirements live in `docs/requirement.md`; milestones and acceptance criteria in `docs/roadmaps.md`. Current phase: **M3 curated intelligence and daily publishing**; task board: `docs/tasks/m3.md`. M2 was closed by user decision on 2026-10-12; outstanding evidence is tracked on both milestone boards.
 
 ## Architecture
 
