@@ -11,6 +11,7 @@ import DateRange from './DateRange'
 import SourcesPage from './SourcesPage'
 import RunsPage from './RunsPage'
 import ConfigurationPage from './ConfigurationPage'
+import CostsPage from './CostsPage'
 import { parseRange, rangeSearch, sharedRangeSearch, type AdminRange } from './adminFilters'
 import './admin.css'
 
@@ -124,7 +125,8 @@ export default function AdminLayout() {
               {query.isSuccess && page.path === '/admin/content' && <ContentPage range={range} />}
               {query.isSuccess && page.path === '/admin/runs' && <RunsPage range={range} />}
               {query.isSuccess && page.path === '/admin/configuration' && <ConfigurationPage />}
-              {query.isSuccess && !['/admin/sources', '/admin/content', '/admin/runs', '/admin/configuration'].includes(page.path) && (
+              {query.isSuccess && page.path === '/admin/costs' && <CostsPage range={range} />}
+              {query.isSuccess && !['/admin/sources', '/admin/content', '/admin/runs', '/admin/configuration', '/admin/costs'].includes(page.path) && (
                 <div className="admin-state">
                   <Empty description={`${page.label}历史查询将在 ${page.phase} 接入；当前没有可展示的真实后台数据。`} />
                 </div>
