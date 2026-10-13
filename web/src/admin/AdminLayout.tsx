@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { Button, ConfigProvider, Empty, Typography, theme as antdTheme } from 'antd'
+import { Button, ConfigProvider, Typography, theme as antdTheme } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation, useSearchParams } from 'react-router-dom'
@@ -12,6 +12,7 @@ import SourcesPage from './SourcesPage'
 import RunsPage from './RunsPage'
 import ConfigurationPage from './ConfigurationPage'
 import CostsPage from './CostsPage'
+import OverviewPage from './OverviewPage'
 import { parseRange, rangeSearch, sharedRangeSearch, type AdminRange } from './adminFilters'
 import './admin.css'
 
@@ -126,11 +127,7 @@ export default function AdminLayout() {
               {query.isSuccess && page.path === '/admin/runs' && <RunsPage range={range} />}
               {query.isSuccess && page.path === '/admin/configuration' && <ConfigurationPage />}
               {query.isSuccess && page.path === '/admin/costs' && <CostsPage range={range} />}
-              {query.isSuccess && !['/admin/sources', '/admin/content', '/admin/runs', '/admin/configuration', '/admin/costs'].includes(page.path) && (
-                <div className="admin-state">
-                  <Empty description={`${page.label}历史查询将在 ${page.phase} 接入；当前没有可展示的真实后台数据。`} />
-                </div>
-              )}
+              {query.isSuccess && page.path === '/admin' && <OverviewPage range={range} />}
             </>
           ) : (
             <div className="admin-state"><h1>后台页面不存在</h1><Link to="/admin">返回总览</Link></div>
