@@ -5,10 +5,21 @@ Sources are configured in config/sources.yml, not in the database, so
 """
 
 from datetime import date, datetime
+from decimal import Decimal
 from typing import Any
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import Date, DateTime, ForeignKey, Index, Text, UniqueConstraint, func
+from sqlalchemy import (
+    CheckConstraint,
+    Date,
+    DateTime,
+    ForeignKey,
+    Index,
+    Numeric,
+    Text,
+    UniqueConstraint,
+    func,
+)
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -160,3 +171,119 @@ class LlmUsage(Base):
     prompt_tokens: Mapped[int] = mapped_column(default=0)
     completion_tokens: Mapped[int] = mapped_column(default=0)
     cost_usd: Mapped[float] = mapped_column(default=0.0)
+
+
+class ExpenseRule(Base):
+    """Current recurring charge terms; existing entries retain their snapshots."""
+
+    __tablename__ = "expense_rules"
+    __table_args__ = (
+        CheckConstraint("amount > 0", name="ck_expense_rules_amount"),
+        CheckConstraint(
+            "cadence IN ('once', 'monthly', 'yearly')", name="ck_expense_rules_cadence"
+        ),
+        CheckConstraint("currency ~ '^[A-Z]{3}$'", name="ck_expense_rules_currency"),
+        CheckConstraint(
+            "once_end IS NULL OR once_end > anchor_date", name="ck_expense_rules_once_end"
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(Text)
+    category: Mapped[str] = mapped_column(Text)
+    amount: Mapped[Decimal] = mapped_column(Numeric(20, 6))
+    currency: Mapped[str] = mapped_column(Text)
+    cadence: Mapped[str] = mapped_column(Text)
+    anchor_date: Mapped[date] = mapped_column(Date)
+    once_end: Mapped[date | None] = mapped_column(Date)
+    stop_before: Mapped[date | None] = mapped_column(Date)
+    reminder_days: Mapped[int] = mapped_column(default=7, server_default="7")
+    version: Mapped[int] = mapped_column(default=1, server_default="1")
+
+
+class ExpenseEntry(Base):
+    """A fixed service charge or prepaid credit, with immutable generation terms."""
+
+    __tablename__ = "expense_entries"
+    __table_args__ = (
+        UniqueConstraint("rule_id", "period_start", name="uq_expense_entries_rule_period"),
+        CheckConstraint("amount > 0", name="ck_expense_entries_amount"),
+        CheckConstraint("currency ~ '^[A-Z]{3}$'", name="ck_expense_entries_currency"),
+        CheckConstraint("kind IN ('fixed', 'topup')", name="ck_expense_entries_kind"),
+        CheckConstraint(
+            "status IN ('pending', 'paid', 'canceled')", name="ck_expense_entries_status"
+        ),
+        CheckConstraint(
+            "period_end IS NULL OR period_end > period_start", name="ck_expense_entries_period"
+        ),
+        CheckConstraint(
+            "(paid_on IS NULL OR paid_at IS NULL)", name="ck_expense_entries_payment_precision"
+        ),
+        CheckConstraint(
+            "status != 'paid' OR paid_on IS NOT NULL OR paid_at IS NOT NULL",
+            name="ck_expense_entries_paid_date",
+        ),
+        CheckConstraint(
+            "status = 'paid' OR (paid_on IS NULL AND paid_at IS NULL)",
+            name="ck_expense_entries_unpaid_date",
+        ),
+        CheckConstraint(
+            "(kind = 'fixed' AND period_start IS NOT NULL AND period_end IS NOT NULL) "
+            "OR (kind = 'topup' AND period_start IS NULL AND period_end IS NULL "
+            "AND status = 'paid')",
+            name="ck_expense_entries_shape",
+        ),
+        Index("ix_expense_entries_period", "period_start", "period_end"),
+    )
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    rule_id: Mapped[int | None] = mapped_column(ForeignKey("expense_rules.id"))
+    rule_version: Mapped[int | None]
+    name: Mapped[str] = mapped_column(Text)
+    category: Mapped[str] = mapped_column(Text)
+    amount: Mapped[Decimal] = mapped_column(Numeric(20, 6))
+    currency: Mapped[str] = mapped_column(Text)
+    kind: Mapped[str] = mapped_column(Text)
+    period_start: Mapped[date | None] = mapped_column(Date)
+    period_end: Mapped[date | None] = mapped_column(Date)
+    status: Mapped[str] = mapped_column(Text, default="pending", server_default="pending")
+    paid_on: Mapped[date | None] = mapped_column(Date)
+    paid_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    version: Mapped[int] = mapped_column(default=1, server_default="1")
+
+
+class FxRate(Base):
+    """One original-currency to USD rate effective from a Beijing date."""
+
+    __tablename__ = "fx_rates"
+    __table_args__ = (
+        UniqueConstraint("currency", "effective_on", name="uq_fx_rates_currency_date"),
+        CheckConstraint("rate_to_usd > 0", name="ck_fx_rates_positive"),
+        CheckConstraint(
+            "currency ~ '^[A-Z]{3}$' AND currency != 'USD'", name="ck_fx_rates_currency"
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    currency: Mapped[str] = mapped_column(Text)
+    effective_on: Mapped[date] = mapped_column(Date)
+    rate_to_usd: Mapped[Decimal] = mapped_column(Numeric(24, 12))
+    source: Mapped[str] = mapped_column(Text)
+    version: Mapped[int] = mapped_column(default=1, server_default="1")
+
+
+class ExpenseAudit(Base):
+    """Append-only record for every expense write and its stated reason."""
+
+    __tablename__ = "expense_audit"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    recorded_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    actor: Mapped[str] = mapped_column(Text)
+    action: Mapped[str] = mapped_column(Text)
+    object_type: Mapped[str] = mapped_column(Text)
+    object_id: Mapped[int] = mapped_column()
+    before: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    after: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    reason: Mapped[str] = mapped_column(Text)
