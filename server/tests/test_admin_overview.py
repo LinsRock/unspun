@@ -98,8 +98,20 @@ async def test_overview_agrees_with_detail_queries_and_excludes_end(
     assert body["recent_run"]["status"] is None
     assert body["recent_run"]["missing_fields"]
     assert sum(point["articles"] for point in body["article_trend"]) == body["period"]["articles"]
-    assert any(item["source_id"] == source_id for item in body["exceptions"]["sources"])
+    assert all(item["source_id"] != source_id for item in body["exceptions"]["sources"])
     assert body["current"]["scope"] == "current"
+    assert body["granularity"] == "day"
+    assert (
+        sum(
+            item["clustered"]
+            + item["embedded"]
+            + item["summarized"]
+            + item["failed"]
+            + item["pending"]
+            for item in body["processing_trend"]
+        )
+        == body["period"]["articles"]
+    )
 
 
 @pytest.mark.anyio
@@ -110,3 +122,34 @@ async def test_overview_rejects_invalid_range(overview_client: httpx.AsyncClient
             params={"start": "2026-10-12T00:00:00Z", "end": "2026-10-11T00:00:00Z"},
         )
     assert result.status_code == 422
+
+
+@pytest.mark.anyio
+async def test_overview_supports_hour_and_month_buckets(
+    overview_client: httpx.AsyncClient,
+) -> None:
+    async with overview_client as client:
+        hourly = await client.get(
+            "/api/admin/overview",
+            params={
+                "start": "2026-10-12T16:00:00Z",
+                "end": "2026-10-13T04:00:00Z",
+                "granularity": "hour",
+            },
+        )
+        monthly = await client.get(
+            "/api/admin/overview",
+            params={
+                "start": "2024-12-31T16:00:00Z",
+                "end": "2025-12-31T16:00:00Z",
+                "granularity": "month",
+            },
+        )
+    assert hourly.status_code == 200, hourly.text
+    assert monthly.status_code == 200, monthly.text
+    assert hourly.json()["granularity"] == "hour"
+    assert len(hourly.json()["article_trend"]) == 12
+    assert hourly.json()["article_trend"][0]["day"] == "2026-10-13 00:00"
+    assert monthly.json()["granularity"] == "month"
+    assert len(monthly.json()["article_trend"]) == 12
+    assert monthly.json()["article_trend"][0]["day"] == "2025-01"

@@ -13,5 +13,5 @@
 - [x] Add UI tests for real metrics, unavailable totals, range-preserving drilldowns, and retry.
 - [x] Implement overview cards, accessible trends and breakdown, responsive layout, and navigation.
 - [x] Run server and web static checks, database tests, frontend tests, and production build.
-- [x] User inspected the local page at desktop/mobile widths and in dark mode, and accepted it on 2026-10-13.
-- [x] Present the local preview and receive user experience acceptance before opening a PR or marking A6 complete.
+- [x] User accepted the initial local preview on 2026-10-13.
+- [ ] Re-review updated trends (hour/day/month and processing status), present the local preview, and receive acceptance before opening a PR or marking A6 complete.

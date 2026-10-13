@@ -71,6 +71,7 @@
 .admin-trend-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
 .admin-trend-heading strong { font-size: 18px; }
 .admin-chart { width: 100%; height: 240px; }
+.admin-trend-controls { display: flex; align-items: center; gap: 12px; }
 .admin-chart-table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .admin-chart-table caption, .admin-purpose-table caption { text-align: left; color: var(--ink-3); padding: 8px 0; }
 .admin-chart-table th, .admin-chart-table td, .admin-purpose-table th, .admin-purpose-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: left; }

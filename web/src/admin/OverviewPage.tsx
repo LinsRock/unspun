@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { Alert, Button, Empty } from 'antd'
+import { Alert, Button, Empty, Select } from 'antd'
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
@@ -9,15 +9,27 @@ import { rangeSearch } from './adminFilters'
 import { money } from './costsApi'
 import MetricCard from './MetricCard'
 import OverviewDayDetail from './OverviewDayDetail'
-import { getOverview } from './overviewApi'
+import { getOverview, type OverviewGranularity } from './overviewApi'
 import TrendChart from './TrendChart'
 
 const pieColors = ['#4c78a8', '#e69f00', '#009e73', '#cc79a7', '#56b4e9', '#d55e00']
+const processSeries = [
+  { key: 'pending', label: '待处理', color: '#9aa0a6' },
+  { key: 'failed', label: '失败', color: '#d55e00' },
+  { key: 'summarized', label: '已摘要', color: '#e69f00' },
+  { key: 'embedded', label: '已嵌入', color: '#56b4e9' },
+  { key: 'clustered', label: '已聚类', color: '#009e73' },
+]
 
 export default function OverviewPage({ range }: { range: AdminRange }) {
   const location = useLocation()
   const [selectedDay, setSelectedDay] = useState<{ kind: 'articles' | 'calls'; day: string } | null>(null)
-  const query = useQuery({ queryKey: ['admin', 'overview', range.start, range.end], queryFn: ({ signal }) => getOverview(range, signal), retry: false })
+  const [granularity, setGranularity] = useState<OverviewGranularity>('auto')
+  const rangeDays = (Date.parse(range.end) - Date.parse(range.start)) / 86_400_000
+  const granularityOptions = rangeDays <= 14
+    ? ['auto', 'hour', 'day'] as const
+    : ['auto', 'day', 'month'] as const
+  const query = useQuery({ queryKey: ['admin', 'overview', range.start, range.end, granularity], queryFn: ({ signal }) => getOverview(range, granularity, signal), retry: false })
   function target(pathname: string, params: Record<string, string> = {}) {
     const search = rangeSearch(new URLSearchParams(location.search), range)
     for (const key of [...search.keys()]) if (!['period', 'start', 'end'].includes(key)) search.delete(key)
@@ -51,9 +63,11 @@ export default function OverviewPage({ range }: { range: AdminRange }) {
         <Link to={target('/admin/runs', { tab: 'backlog', stage: 'pending_score' })}>待评分 <strong>{data.current.backlog.pending_scores}</strong></Link>
       </div>
     </div>
+    <section className="admin-panel admin-trend-controls"><label htmlFor="overview-granularity">趋势粒度</label><Select id="overview-granularity" aria-label="趋势粒度" value={granularity} onChange={value => setGranularity(value as OverviewGranularity)} options={granularityOptions.map(value => ({ value, label: ({ auto: '自动', hour: '按小时', day: '按天', month: '按月' })[value] }))} /></section>
     <div className="admin-overview-trends">
-      <TrendChart title="文章入库趋势" total={`${data.period.articles} 篇`} data={data.article_trend.map(item => ({ day: item.day, value: item.articles }))} keyName="文章" unit="篇" onSelectDay={day => setSelectedDay({ kind: 'articles', day })} />
-      <TrendChart title="调用费用趋势" total={`${money(cost.calls.cost_usd)} USD`} data={data.call_trend.map(item => ({ day: item.day, value: Number(item.cost_usd) }))} keyName="调用费用" unit="USD" onSelectDay={day => setSelectedDay({ kind: 'calls', day })} />
+      <TrendChart title="文章入库趋势" total={`${data.period.articles} 篇`} data={data.article_trend.map(item => ({ day: item.day, articles: item.articles }))} series={[{ key: 'articles', label: '文章', color: 'var(--accent)' }]} onSelectDay={day => setSelectedDay({ kind: 'articles', day })} />
+      <TrendChart title="调用费用趋势" total={`${money(cost.calls.cost_usd)} USD`} data={data.call_purpose_trend ?? []} series={data.purposes.map((item, index) => ({ key: item.name, label: item.name, color: pieColors[index % pieColors.length] ?? pieColors[0]! }))} format="money" onSelectDay={day => setSelectedDay({ kind: 'calls', day })} />
+      <TrendChart title="文章处理状态趋势" total={`${data.period.articles} 篇`} data={data.processing_trend ?? []} series={processSeries} note="按文章入库时间分组，显示当前处理状态；历史阶段完成时间尚未记录。" />
     </div>
     <div className="admin-overview-lower">
       <section className="admin-panel"><h2>调用用途 <small>不含固定费用</small></h2>
@@ -68,6 +82,6 @@ export default function OverviewPage({ range }: { range: AdminRange }) {
         <p className="admin-note">最近运行记录不代表管线当前健康；阶段状态和结束时间若未采集，仍显示未记录。</p>
       </section>
     </div>
-    {selectedDay && <OverviewDayDetail key={`${selectedDay.kind}-${selectedDay.day}`} range={range} day={selectedDay.day} kind={selectedDay.kind} onClose={() => setSelectedDay(null)} articleTarget={id => target('/admin/content', { tab: 'articles', article_detail: String(id) })} />}
+    {selectedDay && <OverviewDayDetail key={`${selectedDay.kind}-${selectedDay.day}`} range={range} day={selectedDay.day} granularity={data.granularity ?? 'day'} kind={selectedDay.kind} onClose={() => setSelectedDay(null)} articleTarget={id => target('/admin/content', { tab: 'articles', article_detail: String(id) })} />}
   </div>
 }
