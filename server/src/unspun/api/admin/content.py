@@ -17,7 +17,7 @@ TimeBasis = Literal["fetched_at", "published_at"]
 Order = Literal["newest", "oldest"]
 ArticleStatus = Literal["pending", "failed", "summarized", "embedded", "clustered"]
 EventStatus = Literal["pending", "scored"]
-EventTimeStatus = Literal["reported", "missing"]
+EventTimeStatus = Literal["reported", "missing", "discovered"]
 
 
 def _escape_like(value: str) -> str:
