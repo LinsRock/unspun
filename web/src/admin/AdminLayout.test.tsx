@@ -12,6 +12,7 @@ beforeEach(() => {
     unobserve() {}
     disconnect() {}
   })
+  vi.stubGlobal('matchMedia', () => ({ matches: false, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {} }))
 })
 
 afterEach(() => {
@@ -51,14 +52,14 @@ function renderAdmin(path: string, failFirst = false) {
   )
 }
 
-test('admin workspace has six entries and honest pending states', async () => {
+test('admin workspace has six entries and the source query', async () => {
   renderAdmin('/admin/sources')
   expect(await screen.findByRole('navigation', { name: '后台导航' }, { timeout: 5000 })).toBeTruthy()
   for (const name of ['总览', '信息源', '文章与事件', '运行与任务', '费用', '配置与操作记录']) {
     expect(screen.getByRole('link', { name })).toBeTruthy()
   }
   expect(screen.getByRole('heading', { name: '信息源' })).toBeTruthy()
-  expect(await screen.findByText(/历史查询将在 A2 接入/)).toBeTruthy()
+  expect(await screen.findByRole('region', { name: '信息源历史查询' })).toBeTruthy()
 })
 
 test('legacy report path keeps an entry to admin overview', async () => {
