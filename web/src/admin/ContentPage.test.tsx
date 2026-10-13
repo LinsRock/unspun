@@ -12,7 +12,14 @@ test('article detail drills into its event without losing the range', async () =
   vi.stubGlobal('ResizeObserver', class { observe() {} unobserve() {} disconnect() {} })
   vi.stubGlobal('matchMedia', () => ({ matches: false, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {} }))
   const requests: string[] = []
-  const article = { id: 1, source_id: 'bbc-world', source_name: 'BBC World', url: 'https://example.com/a', title: 'Original headline', title_zh: '报道标题', lang: 'en', published_at: null, fetched_at: '2026-10-01T08:00:00Z', summary_status: 'summarized', embedding_status: 'embedded', cluster_status: 'clustered', processing_status: 'clustered', quality_status: 'grounded', event_id: 2 }
+  const article = {
+    id: 1, source_id: 'bbc-world', source_name: 'BBC World',
+    url: 'https://example.com/a', title: 'Original headline',
+    title_zh: '报道标题', lang: 'en', published_at: null,
+    fetched_at: '2026-10-01T08:00:00Z', summary_status: 'summarized',
+    embedding_status: 'embedded', cluster_status: 'clustered',
+    processing_status: 'clustered', quality_status: 'grounded', event_id: 2,
+  }
   const event = { id: 2, title: '事件标题', first_seen_at: '2026-10-01T08:00:00Z', changed_at: '2026-10-01T08:00:00Z', earliest_published_at: null, latest_published_at: null, article_count: 1, source_count: 1, score_final: 72, scored_at: '2026-10-01T09:00:00Z', processing_status: 'scored' }
   vi.stubGlobal('fetch', vi.fn((input: string) => {
     requests.push(input)
