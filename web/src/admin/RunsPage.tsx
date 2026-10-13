@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { Button, Empty, Select, Table, Tabs } from 'antd'
 import { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 import { fetchAdmin, type BacklogResult, type BacklogStage, type PageResult, type RunRecord } from './adminApi'
-import type { AdminRange } from './adminFilters'
+import { sharedRangeSearch, type AdminRange } from './adminFilters'
 import RunDetail from './RunDetail'
 
 const stageLabels: Record<BacklogStage, string> = { pending_summary: '待摘要', abandoned_summary: '摘要失败上限', pending_embedding: '待 Embedding', pending_score: '待评分' }
@@ -27,6 +27,14 @@ export default function RunsPage({ range }: { range: AdminRange }) {
       else next.set(key, value)
     }
     setSearch(next)
+  }
+
+  function contentDetail(id: number, itemStage: BacklogStage) {
+    const params = new URLSearchParams(sharedRangeSearch(search))
+    const event = itemStage === 'pending_score'
+    params.set('tab', event ? 'events' : 'articles')
+    params.set(event ? 'event_detail' : 'article_detail', String(id))
+    return { pathname: '/admin/content', search: params.toString() }
   }
 
   return <div className="admin-panel">
@@ -56,6 +64,7 @@ export default function RunsPage({ range }: { range: AdminRange }) {
         <p>待摘要 {backlogQuery.data.counts.pending_summaries} · 摘要失败上限 {backlogQuery.data.counts.abandoned_summaries} · 待 Embedding {backlogQuery.data.counts.pending_embeddings} · 待评分 {backlogQuery.data.counts.pending_scores}</p>
         <Table rowKey="id" dataSource={backlogQuery.data.items} scroll={{ x: 520 }} locale={{ emptyText: <Empty description="当前阶段没有积压" /> }} pagination={{ current: page, pageSize: backlogQuery.data.page_size, total: backlogQuery.data.total, showSizeChanger: false, onChange: next => update({ page: String(next) }) }} columns={[
           { title: 'ID', dataIndex: 'id' }, { title: '对象', dataIndex: 'title' }, { title: '来源', dataIndex: 'source_id', render: (value: string | null) => value ?? '—' }, { title: '阶段', render: () => stageLabels[stage] },
+          { title: '详情', render: (_, item: BacklogResult['items'][number]) => <Link to={contentDetail(item.id, item.stage)}>查看{item.stage === 'pending_score' ? '事件' : '文章'} #{item.id}</Link> },
         ]} />
       </>}
     </>}
