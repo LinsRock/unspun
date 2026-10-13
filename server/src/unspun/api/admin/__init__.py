@@ -3,6 +3,7 @@ from fastapi import APIRouter, Depends
 from unspun.api.admin.auth import require_admin_identity
 from unspun.api.admin.configuration import router as configuration_router
 from unspun.api.admin.content import router as content_router
+from unspun.api.admin.expenses import router as expenses_router
 from unspun.api.admin.exports import router as exports_router
 from unspun.api.admin.ranges import router as ranges_router
 from unspun.api.admin.runs import router as runs_router
@@ -17,3 +18,4 @@ router.include_router(sources_router)
 router.include_router(content_router)
 router.include_router(runs_router)
 router.include_router(configuration_router)
+router.include_router(expenses_router)
