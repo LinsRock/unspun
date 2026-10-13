@@ -62,3 +62,7 @@
 - [ ] Run server Ruff, Pyright, pytest with a migrated Postgres database; run web lint, typecheck, test, and build.
 - [ ] Start API and Vite preview with local-only admin preview enabled and seeded data. Check desktop and 400px, light/dark, source-to-article-to-event navigation, filters, export, URL back/forward, empty/error states.
 - [ ] Request user page experience and explicit acceptance under D-012 before creating the PR. Record acceptance on the task board in the same PR.
+
+## Completion record · 2026-10-13
+
+Tasks 1–5 were implemented in the A2 branch. Local database integration checks passed (403 server tests), as did 57 web tests, lint, type checking, and the production build. The local database contained 63 configured sources, 1132 articles, and no events, so event behavior was verified through database and UI tests. The browser automation surface did not connect; the user experienced the running local preview and explicitly accepted it. The result is recorded in `docs/tasks/m3.md`.
