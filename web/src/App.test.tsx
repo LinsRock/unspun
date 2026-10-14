@@ -276,15 +276,16 @@ test('navigation links switch routes without showing admin content on the feed',
     unobserve() {}
     disconnect() {}
   })
-  stubEvents(sample)
+  vi.stubGlobal('matchMedia', () => ({ matches: false, addEventListener() {}, removeEventListener() {} }))
+  vi.stubGlobal('fetch', vi.fn((url: string) => Promise.resolve(url.startsWith('/api/admin/') ? { ok: false, status: 503 } : { ok: true, json: async () => sample })))
   renderApp()
   await screen.findByText('某重大事件')
   expect(
-    screen.queryByRole('heading', { level: 1, name: '总览' }),
+    screen.queryByRole('heading', { level: 1, name: '运营总览' }),
   ).toBeNull()
   fireEvent.click(screen.getByRole('link', { name: '管理后台' }))
-  expect(await screen.findByRole('heading', { level: 1, name: '总览' }, { timeout: 5000 })).toBeTruthy()
-  fireEvent.click(screen.getByRole('link', { name: '返回阅读页' }))
+  expect(await screen.findByRole('heading', { level: 1, name: '运营总览' }, { timeout: 5000 })).toBeTruthy()
+  fireEvent.click(screen.getByRole('link', { name: '打开阅读端' }))
   await screen.findByText('某重大事件')
 })
 

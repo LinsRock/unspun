@@ -39,7 +39,7 @@ export default function RunsPage({ range }: { range: AdminRange }) {
 
   return <div className="admin-panel">
     <Tabs activeKey={tab} onChange={value => update({ tab: value, page: null })} items={[
-      { key: 'history', label: '运行历史' }, { key: 'backlog', label: '待处理与失败' }, { key: 'tasks', label: '手动任务' },
+      { key: 'history', label: '运行历史' }, { key: 'backlog', label: '待处理与失败' },
     ]} />
     {tab === 'history' && <>
       <p className="admin-note">记录的是 AI 处理轮次。历史结束时间、阶段状态和关联费用未记录；单个信息源失败不代表整轮失败。</p>
@@ -57,17 +57,17 @@ export default function RunsPage({ range }: { range: AdminRange }) {
     </>}
     {tab === 'backlog' && <>
       <p className="admin-note">当前积压 · 不随页面日期范围变化。worker 处理期间，汇总与列表可能短暂不同。</p>
-      <Select aria-label="积压阶段" value={stage} options={Object.entries(stageLabels).map(([value, label]) => ({ value, label }))} onChange={value => update({ stage: value, page: null })} />
+      <div className="admin-toolbar"><Select aria-label="积压阶段" value={stage} options={Object.entries(stageLabels).map(([value, label]) => ({ value, label }))} onChange={value => update({ stage: value, page: null })} /></div>
       {backlogQuery.isPending && <p role="status">正在加载当前积压…</p>}
       {backlogQuery.isError && <div role="alert">当前积压加载失败。<Button onClick={() => void backlogQuery.refetch()}>重试</Button></div>}
       {backlogQuery.data && <>
-        <p>待摘要 {backlogQuery.data.counts.pending_summaries} · 摘要失败上限 {backlogQuery.data.counts.abandoned_summaries} · 待 Embedding {backlogQuery.data.counts.pending_embeddings} · 待评分 {backlogQuery.data.counts.pending_scores}</p>
+        <div className="admin-stage-selector">{[{ stage: 'pending_summary', label: '待摘要', count: backlogQuery.data.counts.pending_summaries }, { stage: 'pending_embedding', label: '待 Embedding', count: backlogQuery.data.counts.pending_embeddings }, { stage: 'pending_score', label: '待评分', count: backlogQuery.data.counts.pending_scores }, { stage: 'abandoned_summary', label: '摘要失败上限', count: backlogQuery.data.counts.abandoned_summaries }].map(item => <button className={item.stage === stage ? 'active' : ''} key={item.stage} onClick={() => update({ stage: item.stage, page: null })}><span>{item.label}</span><strong>{item.count}</strong></button>)}</div>
         <Table rowKey="id" dataSource={backlogQuery.data.items} scroll={{ x: 520 }} locale={{ emptyText: <Empty description="当前阶段没有积压" /> }} pagination={{ current: page, pageSize: backlogQuery.data.page_size, total: backlogQuery.data.total, showSizeChanger: false, onChange: next => update({ page: String(next) }) }} columns={[
           { title: 'ID', dataIndex: 'id' }, { title: '对象', dataIndex: 'title' }, { title: '来源', dataIndex: 'source_id', render: (value: string | null) => value ?? '—' }, { title: '阶段', render: () => stageLabels[stage] },
           { title: '详情', render: (_, item: BacklogResult['items'][number]) => <Link to={contentDetail(item.id, item.stage)}>查看{item.stage === 'pending_score' ? '事件' : '文章'} #{item.id}</Link> },
         ]} />
       </>}
     </>}
-    {tab === 'tasks' && <Empty description="手动任务队列将在 M3-C 交付；当前没有历史任务记录。" />}
+    <p className="admin-footnote">手动任务能力尚未接入；当前可查看运行历史并定位积压对象。</p>
   </div>
 }

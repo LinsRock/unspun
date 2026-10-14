@@ -21,7 +21,7 @@ afterEach(() => {
 })
 
 function renderAdmin(path: string, failFirst = false) {
-  const fetchMock = vi.fn().mockResolvedValue({
+  const rangeResponse = {
     ok: true,
     json: () =>
       Promise.resolve({
@@ -36,7 +36,8 @@ function renderAdmin(path: string, failFirst = false) {
         page_size: 25,
         sort: 'newest',
       }),
-  })
+  }
+  const fetchMock = vi.fn().mockImplementation(async (url: string) => url.startsWith('/api/admin/range?') ? rangeResponse : { ok: false, status: 503 })
   if (failFirst) fetchMock.mockRejectedValueOnce(new Error('offline'))
   vi.stubGlobal(
     'fetch',
@@ -55,7 +56,7 @@ function renderAdmin(path: string, failFirst = false) {
 test('admin workspace has six entries and the source query', async () => {
   renderAdmin('/admin/sources')
   expect(await screen.findByRole('navigation', { name: '后台导航' }, { timeout: 5000 })).toBeTruthy()
-  for (const name of ['总览', '信息源', '文章与事件', '运行与任务', '费用', '配置与操作记录']) {
+  for (const name of ['运营总览', '信息源', '内容工作区', '运行与任务', '费用与预算', '配置与审计']) {
     expect(screen.getByRole('link', { name })).toBeTruthy()
   }
   expect(screen.getByRole('heading', { name: '信息源' })).toBeTruthy()
@@ -72,23 +73,23 @@ test('legacy report path keeps an entry to admin overview', async () => {
   )
   expect(screen.getByRole('heading', { name: '运行报告' })).toBeTruthy()
   fireEvent.click(screen.getByRole('link', { name: '进入管理后台' }))
-  expect(await screen.findByRole('heading', { name: '总览' })).toBeTruthy()
+  expect(await screen.findByRole('heading', { name: '运营总览' })).toBeTruthy()
 })
 
 test('admin query failure is visible and retryable', async () => {
   renderAdmin('/admin/costs', true)
   expect(await screen.findByText(/无法获取查询时间/)).toBeTruthy()
   fireEvent.click(screen.getByRole('button', { name: /重\s*试/ }))
-  expect(await screen.findByText(/查询截止/)).toBeTruthy()
+  expect(await screen.findByText(/快照/)).toBeTruthy()
 })
 
 test('custom URL range survives refresh and cross-page navigation without page filters', async () => {
   renderAdmin('/admin/sources?period=custom&start=2026-10-01T00%3A00%3A00Z&end=2026-10-02T00%3A00%3A00Z&source=bbc')
   await screen.findByRole('navigation', { name: '后台导航' }, { timeout: 5000 })
-  const costs = screen.getByRole('link', { name: '费用' })
+  const costs = screen.getByRole('link', { name: '费用与预算' })
   expect(costs.getAttribute('href')).toContain('period=custom')
-  expect(costs.getAttribute('href')).toContain('start=2026-10-01T00%3A00%3A00Z')
+  expect(costs.getAttribute('href')).toContain('start=2026-10-01T00%3A00%3A00.000Z')
   expect(costs.getAttribute('href')).not.toContain('source=bbc')
   fireEvent.click(costs)
-  expect(await screen.findByRole('heading', { name: '费用' })).toBeTruthy()
+  expect(await screen.findByRole('heading', { name: '费用与预算' })).toBeTruthy()
 })
