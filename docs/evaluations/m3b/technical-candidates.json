@@ -1,0 +1,2085 @@
+{
+  "captured_at": "2026-10-14T05:53:46.53987+00:00",
+  "event_count": 5131,
+  "events": [
+    {
+      "id": 3492,
+      "title": "Vikki Campion, News Corp columnist and wife of Barnaby Joyce, begins role with NSW One Nation",
+      "summary_zh": "Vikki Campion, News Corp columnist and wife of Barnaby Joyce, begins role with NSW One Nation",
+      "score_final": 38.567896537851894,
+      "score_breakdown": {
+        "objective": {
+          "score": 36.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 40.0,
+          "reason": "Vikki Campion是News Corp专栏作家，并已开始在NSW One Nation担任职务。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 2,
+          "domain_importance": 2
+        }
+      },
+      "first_seen_at": "2026-10-13T04:06:35.551379+00:00",
+      "changed_at": "2026-10-13T04:06:35.551379+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 5685,
+          "source_id": "guardian-world",
+          "title": "Vikki Campion, News Corp columnist and wife of Barnaby Joyce, begins role with NSW One Nation",
+          "url": "https://www.theguardian.com/australia-news/2026/oct/13/vikki-campion-news-corp-columnist-and-wife-of-barnaby-joyce-begins-role-with-nsw-one-nation",
+          "published_at": "2026-10-13T03:02:35+00:00",
+          "fetched_at": "2026-10-13T04:02:27.802134+00:00",
+          "reported_at": "2026-10-13T03:02:35Z",
+          "reported_date": "2026-10-13",
+          "reported_precision": "time",
+          "reported_basis": "JSON-LD datePublished and article:published_time"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章报道了一位政治顾问的新工作，这不构成紧急的公共安全威胁、严重的服务中断或需要紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "952e43f90f0625c79c5594e7d9a0981446f940710a23206ad24b622830eebe42"
+    },
+    {
+      "id": 3373,
+      "title": "Russia introduces drone classes in public schools",
+      "summary_zh": "Russia introduces drone classes in public schools",
+      "score_final": null,
+      "score_breakdown": null,
+      "first_seen_at": "2026-10-12T09:19:53.39849+00:00",
+      "changed_at": "2026-10-12T09:19:53.39849+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 4692,
+          "source_id": "aljazeera",
+          "title": "Russia introduces drone classes in public schools",
+          "url": "https://www.aljazeera.com/video/newsfeed/2026/10/12/russia-introduces-drone-classes-in-public-schools?traffic_source=rss",
+          "published_at": "2026-10-12T08:47:43+00:00",
+          "fetched_at": "2026-10-12T09:15:38.313167+00:00",
+          "reported_at": "2026-10-12T08:47:43Z",
+          "reported_date": "2026-10-12",
+          "reported_precision": "time",
+          "reported_basis": "JSON-LD VideoObject uploadDate"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "该事件描述了俄罗斯学校课程的变化，但没有提及当前或非常近期的人员伤亡、严重公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "2cade845c64a2d76faa0f34395583e9faaf98e0ebdfaf89b4e23e75ad2f0d3e7"
+    },
+    {
+      "id": 2491,
+      "title": "《大明王朝1566》中杨金水毁堤淹田的动机分析",
+      "summary_zh": "电视剧《大明王朝1566》中，关于毁堤淹田的剧情引发了观众的疑问。剧中显示，毁堤淹田并非严嵩的直接授意，而是由严世蕃等人策划并指使郑泌昌、何茂才执行。杨金水作为宫内太监，在明知此举可能引发的后果下，仍参与其中。其具体动机，以及为何在事后选择上报，成为剧情中一个值得探讨的疑点，也让部分观众认为可能存在剧情上的瑕疵。",
+      "score_final": 26.46875,
+      "score_breakdown": {
+        "objective": {
+          "score": 24.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 100.0,
+          "source_quality": 30.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 28.000000000000004,
+          "reason": "事件是关于电视剧《大明王朝1566》中杨金水毁堤淹田的动机分析，属于对特定影视作品剧情的探讨。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 1,
+          "domain_importance": 2
+        }
+      },
+      "first_seen_at": "2026-10-11T00:10:37.879032+00:00",
+      "changed_at": "2026-10-11T00:10:37.879032+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 3351,
+          "source_id": "zhihu-hot",
+          "title": "《大明王朝 1566》中，杨金水为什么要入毁堤淹田的局？",
+          "url": "https://www.zhihu.com/question/5850873475",
+          "published_at": "2024-12-03T10:25:54+00:00",
+          "fetched_at": "2026-10-11T00:10:14.25722+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是一部历史剧的剧情，不涉及当前或近期发生的严重人类伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "d3d9c49627c0411085b776644a92c610cea0e5082f520e1826bd2ff0cf17c4b9"
+    },
+    {
+      "id": 2226,
+      "title": "2024年度最佳言情小说（截至目前）",
+      "summary_zh": "文章推荐了2024年迄今为止最佳的20部言情小说。这些小说提供了令人沉醉的爱情故事，旨在为读者提供一种逃离现实的阅读体验。",
+      "score_final": 35.46875,
+      "score_breakdown": {
+        "objective": {
+          "score": 24.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 70.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 44.0,
+          "reason": "文章推荐了2024年迄今为止最佳的20部言情小说，提供了新的阅读列表。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 2,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-10T12:41:42.423418+00:00",
+      "changed_at": "2026-10-10T12:41:42.423418+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 2387,
+          "source_id": "nyt-books",
+          "title": "The Best Romance Novels of 2024 (So Far)",
+          "url": "https://www.nytimes.com/article/best-romance-books.html",
+          "published_at": "2024-10-01T20:33:10+00:00",
+          "fetched_at": "2026-10-10T04:16:38.100916+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章内容是关于2024年最佳浪漫小说的推荐，不涉及任何当前或近期对人类造成严重伤害、公共服务中断或紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "5739cd37a68186e7ededcdd06a94602ba8084ed5b236b477c7286ab38d4c57af"
+    },
+    {
+      "id": 550,
+      "title": "我怀疑我用Claude Code发现了一颗新行星",
+      "summary_zh": "一位Reddit用户声称使用AI工具Claude Code，通过分析ESO（欧洲南方天文台）的VLT（甚大望远镜）数据，发现了一颗此前未被记载的系外行星。该用户发布了部分数据和分析结果，并表示这颗行星可能隐藏在行星系统TRAPPIST-1附近，其轨道周期约为30天，质量与地球相似。该发现尚需独立验证。",
+      "score_final": 37.71875,
+      "score_breakdown": {
+        "objective": {
+          "score": 24.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 100.0,
+          "source_quality": 30.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 48.00000000000001,
+          "reason": "一位Reddit用户声称使用AI工具Claude Code分析ESO的VLT数据，发现了一颗此前未被记载的系外行星。",
+          "novelty": 4,
+          "confidence": "medium",
+          "durability": 2,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-09T10:02:15.918694+00:00",
+      "changed_at": "2026-10-09T10:02:15.918694+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 1108,
+          "source_id": "hn-front",
+          "title": "I think I found a planet nobody knew existed. I used Claude Code to find it",
+          "url": "https://www.reddit.com/r/ClaudeAI/s/mbe5IY2LF9",
+          "published_at": "2026-10-08T07:07:34+00:00",
+          "fetched_at": "2026-10-09T05:37:43.729976+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": "Only relative 18h post age visible in cached web rendering."
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章内容是关于使用AI发现行星的个人经历，不涉及当前或近期对人类造成严重伤害、公共服务中断或紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "14159e59af003129b91565203fc04930e08cfd45604295abbd606a80d4386fea"
+    },
+    {
+      "id": 4964,
+      "title": "特朗普：台湾同意采购阿拉斯加天然气项目三成产量",
+      "summary_zh": "特朗普：台湾同意采购阿拉斯加天然气项目三成产量",
+      "score_final": 36.317896537851894,
+      "score_breakdown": {
+        "objective": {
+          "score": 36.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 36.00000000000001,
+          "reason": "特朗普表示台湾同意购买阿拉斯加天然气项目三成产量，此事件影响一家公司或一个人。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 2,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-14T01:38:50.516301+00:00",
+      "changed_at": "2026-10-14T01:38:50.516301+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 6973,
+          "source_id": "zaobao-china",
+          "title": "特朗普：台湾同意采购阿拉斯加天然气项目三成产量",
+          "url": "https://www.zaobao.com/news/china/story20261014-9833246",
+          "published_at": "2026-10-14T01:33:40+00:00",
+          "fetched_at": "2026-10-14T01:35:40.471707+00:00",
+          "reported_at": "2026-10-14T09:33:40+08:00",
+          "reported_date": "2026-10-14",
+          "reported_precision": "time",
+          "reported_basis": "JSON-LD datePublished; visible clock agrees"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章报道的是一项潜在的天然气采购协议，涉及未来的能源供应和投资，不涉及当前或近期的人身伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "3656d70141a352bdfbe80f49652bbe66c3dcd0e289cefbe493d91e80df6d3b70"
+    },
+    {
+      "id": 2215,
+      "title": "旅日大熊猫“晓晓”“蕾蕾”将于明年1月回国",
+      "summary_zh": "旅居日本东京上野动物园的大熊猫“晓晓”和“蕾蕾”将于2026年1月下旬送还中国。它们在日本的最后参观日定在2026年1月25日。东京都政府已发布此消息。",
+      "score_final": 33.15625,
+      "score_breakdown": {
+        "objective": {
+          "score": 29.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 36.00000000000001,
+          "reason": "旅居日本东京上野动物园的大熊猫“晓晓”和“蕾蕾”将于2026年1月下旬送还中国。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 2,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-10T12:41:41.732487+00:00",
+      "changed_at": "2026-10-10T12:41:41.732487+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 2135,
+          "source_id": "thepaper",
+          "title": "旅日大熊猫“晓晓”“蕾蕾”将于明年1月回国",
+          "url": "https://www.thepaper.cn/newsDetail_forward_32178397",
+          "published_at": "2025-12-15T06:53:04+00:00",
+          "fetched_at": "2026-10-10T04:07:23.348361+00:00",
+          "reported_at": "2025-12-15T05:24:31.929Z",
+          "reported_date": "2025-12-15",
+          "reported_precision": "time",
+          "reported_basis": "Embedded article publishTime=1765776271929 Unix milliseconds; pubTime and visible clock 2025-12-15 13:24"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "该事件涉及旅日大熊猫的未来回国计划，不构成当前或近期对人类的严重伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "52732101d509117ededd8fb875ca8df4b3e3ba55b5737749bad496c87aad95eb"
+    },
+    {
+      "id": 4407,
+      "title": "霸王茶姬奖励员工1350万元，350万元团建费，1000万元红包，全部给到一线门店员工，如何评价此举？",
+      "summary_zh": "霸王茶姬奖励员工1350万元，350万元团建费，1000万元红包，全部给到一线门店员工，如何评价此举？",
+      "score_final": 26.46875,
+      "score_breakdown": {
+        "objective": {
+          "score": 24.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 100.0,
+          "source_quality": 30.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 28.000000000000004,
+          "reason": "霸王茶姬奖励员工1350万元，此举主要影响公司内部员工。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 1,
+          "domain_importance": 2
+        }
+      },
+      "first_seen_at": "2026-10-13T17:39:47.022424+00:00",
+      "changed_at": "2026-10-13T17:39:47.022424+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 5129,
+          "source_id": "zhihu-hot",
+          "title": "霸王茶姬奖励员工1350万元，350万元团建费，1000万元红包，全部给到一线门店员工，如何评价此举？",
+          "url": "https://www.zhihu.com/question/2093064242601762869",
+          "published_at": "2026-10-12T11:43:22+00:00",
+          "fetched_at": "2026-10-12T14:25:33.207172+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章描述的是一个商业促销活动，虽然导致了小程序故障和员工工作量增加，但没有提及造成严重的人身伤害、对基本公共服务的严重中断或需要紧急保护性响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "0e25febd724cf21ef45baf901f8f846055b9fd2b1511548d45ec56ab5e082b2b"
+    },
+    {
+      "id": 2751,
+      "title": "萨拉赫为特拉布宗体育创造土耳其超级联赛纪录",
+      "summary_zh": "穆罕默德·萨拉赫在为特拉布宗体育效力的前七场土耳其超级联赛比赛中，创造了新的纪录，成为首位贡献10个进球（7个进球，3次助攻）的球员。周六，特拉布宗体育以3-0战胜萨姆松体育，萨拉赫贡献了一次助攻，进一步巩固了他的这一纪录。这位34岁的球员于8月从利物浦转会至特拉布宗体育，并签下了一份两年合同。",
+      "score_final": 38.567896537851894,
+      "score_breakdown": {
+        "objective": {
+          "score": 36.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 40.0,
+          "reason": "穆罕默德·萨拉赫成为首位在前七场土耳其超级联赛比赛中贡献10个进球（7个进球，3次助攻）的球员，创造了新的联赛纪录。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 2,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-11T11:10:58.73163+00:00",
+      "changed_at": "2026-10-11T11:10:58.73163+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 3756,
+          "source_id": "aljazeera",
+          "title": "Mohamed Salah sets Turkish Super Lig record for Trabzonspor",
+          "url": "https://www.aljazeera.com/sports/2026/10/11/mohamed-salah-sets-turkish-super-lig-record-for-trabzonspor?traffic_source=rss",
+          "published_at": "2026-10-11T10:48:34+00:00",
+          "fetched_at": "2026-10-11T11:07:32.797355+00:00",
+          "reported_at": "2026-10-11T10:48:34Z",
+          "reported_date": "2026-10-11",
+          "reported_precision": "time",
+          "reported_basis": "JSON-LD datePublished"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "此事件是关于足球运动员的体育记录，不涉及对公众造成严重伤害、服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "b8d26948287c6b0865cdec111e4c22f4c1c9994ff233bbf0ca37ef08b98629bc"
+    },
+    {
+      "id": 4393,
+      "title": "马斯克称只有三家公司拥有足够的编程训练数据",
+      "summary_zh": "马斯克称只有三家公司拥有足够的编程训练数据",
+      "score_final": null,
+      "score_breakdown": null,
+      "first_seen_at": "2026-10-13T17:39:45.550832+00:00",
+      "changed_at": "2026-10-13T17:39:45.550832+00:00",
+      "sampling_bucket": 1,
+      "articles": [
+        {
+          "id": 4954,
+          "source_id": "36kr-newsflashes",
+          "title": "马斯克称只有三家公司拥有足够的编程训练数据",
+          "url": "https://www.36kr.com/newsflashes/4022783858577539",
+          "published_at": "2026-10-12T11:42:05+00:00",
+          "fetched_at": "2026-10-12T11:53:26.641325+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-12",
+          "reported_precision": "date",
+          "reported_basis": "Visible 2026-10-12 19:42 and article-local React article:published_time=2026-10-12 19:42:05; no zone"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是公司收购、上市计划终止以及市场动态，没有提及任何当前或近期造成严重人员伤害、公共服务中断或需要紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "9193008bf8461effa1eba321d7bea0d48a9ba1df06adeaeb060adbb4b3201e96"
+    },
+    {
+      "id": 1970,
+      "title": "捷豹Type 01电动汽车本周亮相",
+      "summary_zh": "本周，捷豹在其Type 01电动汽车的发布活动中，开启了该英国汽车品牌的新纪元。这款新车在纽约的独家活动上亮相，是其作为捷豹新时代首款车型推出的生产版本。",
+      "score_final": 40.880396537851894,
+      "score_breakdown": {
+        "objective": {
+          "score": 31.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 70.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 48.00000000000001,
+          "reason": "捷豹Type 01电动汽车的发布标志着该品牌新时代的开始，是其首款生产版本车型。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-10T09:11:20.336025+00:00",
+      "changed_at": "2026-10-10T09:11:20.336025+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 2842,
+          "source_id": "dezeen",
+          "title": "This week Jaguar's much-anticipated Type 01 electric car was unveiled",
+          "url": "https://www.dezeen.com/2026/10/10/jaguar-type-01-electric-car-this-week/",
+          "published_at": "2026-10-10T05:00:58+00:00",
+          "fetched_at": "2026-10-10T09:07:46.592469+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "该事件是关于一款新电动汽车的发布，不涉及当前或近期的人类严重伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "65524373ff61a0b08a697025719a6b834a4622c4507cf0e3c2fedaf85f1bdb7a"
+    },
+    {
+      "id": 1994,
+      "title": "被框住的语言：地下出版如何重塑诗歌",
+      "summary_zh": "《Lost and Found Times》是一份始于1975年的实验性出版物，以其独特的“邮件艺术”和在汽车挡风玻璃下分发的方式而闻名。该出版物由诗人John M. Bennett和画家D.C. Landies发起，展示了不属于传统文学范畴的“不可归类材料”。与“Mimeo革命”同期，使用复印机廉价制作的地下刊物层出不穷，挑战了文学的定义和形式，其中Ed Sanders创办的《Fuck You/ A Magazine of the Arts》是代表之一。",
+      "score_final": 39.96875,
+      "score_breakdown": {
+        "objective": {
+          "score": 24.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 70.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 52.0,
+          "reason": "《Lost and Found Times》是一份始于1975年的实验性出版物，以其独特的“邮件艺术”和在汽车挡风玻璃下分发的方式而闻名。",
+          "novelty": 3,
+          "confidence": "medium",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-10T09:42:07.336925+00:00",
+      "changed_at": "2026-10-10T09:42:07.336925+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 2419,
+          "source_id": "lrb",
+          "title": "Gill Partington: Boxed into Our Language",
+          "url": "https://www.lrb.co.uk/the-paper/v48/n18/gill-partington/boxed-into-our-language",
+          "published_at": "2026-09-25T00:00:00+00:00",
+          "fetched_at": "2026-10-10T04:16:40.646282+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是一本名为《失物招领时报》的文学杂志及其相关艺术形式，内容不涉及当前或近期对人类造成严重伤害、对公共服务造成严重破坏或需要紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "abd83f6066ae25e3a7f780cbd5c0250a7b18d0f7b552324a07b78ed77a082090"
+    },
+    {
+      "id": 4497,
+      "title": "税务部门再次集中曝光多起涉税中介违法违规案件",
+      "summary_zh": "税务部门再次集中曝光多起涉税中介违法违规案件",
+      "score_final": 43.25,
+      "score_breakdown": {
+        "objective": {
+          "score": 32.0,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 100.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 52.0,
+          "reason": "税务部门再次集中曝光多起涉税中介违法违规案件，表明这是一个持续性的监管行动。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 2,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-13T19:10:00.920691+00:00",
+      "changed_at": "2026-10-13T19:10:00.920691+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 4926,
+          "source_id": "xinhua",
+          "title": "税务部门再次集中曝光多起涉税中介违法违规案件",
+          "url": "http://www.news.cn/20261012/6facfbc003934a749d3bf98ba9ccb6b8/c.html",
+          "published_at": "2026-10-12T10:55:39+00:00",
+          "fetched_at": "2026-10-12T11:24:28.700319+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-12",
+          "reported_precision": "date",
+          "reported_basis": "publishdate metadata and visible clock 2026-10-12 18:55:39 without explicit timezone"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "该事件涉及税务部门曝光涉税中介违法违规案件，但并未提及当前或近期造成严重人身伤害、公共服务严重中断或需要紧急保护性响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "a166d37ec9945137821e71c4c680dd85314ad133642e9ed0987d3020ecd117c9"
+    },
+    {
+      "id": 381,
+      "title": "编程并非特殊",
+      "summary_zh": "尽管创意产业的从业者们对人工智能（AI）的兴起普遍持抵制态度，许多程序员却认为使用AI进行编程是可接受的，理由是编程不属于艺术。文章认为，这种观点忽视了编程的艺术性和创造性，并将其与艺术、新闻写作等其他形式的劳动进行了类比，强调了即使是看似功能性的编程工作，也蕴含着审美和创造的价值，并以“Deferred”的创造为例，说明了对问题领域深入思考和审美追求可以催生出优秀的编程作品。",
+      "score_final": 42.59375,
+      "score_breakdown": {
+        "objective": {
+          "score": 30.5,
+          "growth": 20.0,
+          "breadth": 20.0,
+          "community": 100.0,
+          "source_quality": 30.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 52.0,
+          "reason": "文章探讨了编程的艺术性与创造性，并将其与艺术、新闻写作等其他形式的劳动进行类比。",
+          "novelty": 3,
+          "confidence": "medium",
+          "durability": 3,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-09T09:03:49.897124+00:00",
+      "changed_at": "2026-10-09T09:03:49.897124+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 1158,
+          "source_id": "hn-front",
+          "title": "Programming Isn't Special",
+          "url": "https://blog.glyph.im/2026/10/programming-isnt-special.html",
+          "published_at": "2026-10-09T07:44:36+00:00",
+          "fetched_at": "2026-10-09T08:30:06.769455+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-09",
+          "reported_precision": "date",
+          "reported_basis": "Visible dateline Friday October09,2026"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论了AI对创意产业（包括编程）的影响，但没有提及任何当前或近期造成严重人员伤害、公共服务中断或需要紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "8f68c64abe5a2448f69f56f210de5566d4a929de2dd3db49283404bf2cd8f6fe"
+    },
+    {
+      "id": 4527,
+      "title": "通讯丨中国高校首所海外分校迎办学十年毕业季",
+      "summary_zh": "通讯丨中国高校首所海外分校迎办学十年毕业季",
+      "score_final": 43.25,
+      "score_breakdown": {
+        "objective": {
+          "score": 32.0,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 100.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 52.0,
+          "reason": "中国高校首所海外分校——厦门大学马来西亚分校迎来了办学十年毕业季。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-13T19:40:10.481905+00:00",
+      "changed_at": "2026-10-13T19:40:10.481905+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 4868,
+          "source_id": "xinhua",
+          "title": "通讯丨中国高校首所海外分校迎办学十年毕业季",
+          "url": "http://www.news.cn/20261012/ddfeb010bea8418c99d8bf557d75acfc/c.html",
+          "published_at": "2026-10-12T10:48:07+00:00",
+          "fetched_at": "2026-10-12T10:53:55.934003+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-12",
+          "reported_precision": "date",
+          "reported_basis": "publishdate and visible clock 2026-10-12 18:48:07 without timezone"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章报道了中国高校海外分校的毕业典礼，内容是关于学校的办学成就和毕业生的感想，不涉及任何近期严重的人身伤害、公共服务中断或紧急保护性应对措施。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "d027ffb5207052d13c3561a52cebdf432b3df4774c64d198ff0104ba67cf0950"
+    },
+    {
+      "id": 3509,
+      "title": "巴基斯坦一火车脱轨致5人死亡",
+      "summary_zh": "巴基斯坦一火车脱轨致5人死亡",
+      "score_final": 39.26109120303013,
+      "score_breakdown": {
+        "objective": {
+          "score": 43.45392274978315,
+          "growth": 45.81569099913261,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 100.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 36.00000000000001,
+          "reason": "巴基斯坦发生火车脱轨事故，造成5人死亡和30人受伤。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 2,
+          "domain_importance": 2
+        }
+      },
+      "first_seen_at": "2026-10-13T04:06:36.881454+00:00",
+      "changed_at": "2026-10-13T05:07:07.612718+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 5709,
+          "source_id": "xinhua",
+          "title": "巴基斯坦一火车脱轨致5人死亡",
+          "url": "http://www.news.cn/20261013/ffa63df2d04c44af9d33c24ba709e598/c.html",
+          "published_at": "2026-10-13T03:42:06+00:00",
+          "fetched_at": "2026-10-13T04:03:23.47648+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-13",
+          "reported_precision": "date",
+          "reported_basis": "publishdate and visible clock 2026-10-13 11:42:07 without timezone",
+          "impact_original_excerpt": "07\n来源：新华网\n新华社伊斯兰堡10月13日电（记者杨恺）巴基斯坦警方13日说，该国东部旁遮普省一列客运列车当天清晨脱轨，造成至少5人死亡、30人受伤。\n【纠错】\n【责任编辑:王頔】\n阅读下一篇：\n深度观察\n新华",
+          "impact_original_body_sha256": "50ee2cb7cb311a4e89e29af5afb1a247d7eb01f731ee9c581535c0e2a2d7d0cb"
+        },
+        {
+          "id": 5761,
+          "source_id": "xinhua",
+          "title": "巴基斯坦一客运列车脱轨致5死30伤",
+          "url": "http://www.news.cn/20261013/b3c8ce22cc5b43f9be24f3d907b645fc/c.html",
+          "published_at": "2026-10-13T04:59:46+00:00",
+          "fetched_at": "2026-10-13T05:03:23.521443+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-13",
+          "reported_precision": "date",
+          "reported_basis": "publishdate and visible clock 2026-10-13 12:59:46 without timezone",
+          "impact_original_excerpt": "新华社伊斯兰堡10月13日电（记者杨恺）巴基斯坦警方13日说，该国东部旁遮普省一列客运列车当天清晨脱轨，造成至少5人死亡、30人受伤。\n当地警方表示，列车原定从南部信德省首府卡拉奇开往西北部开伯",
+          "impact_original_body_sha256": "43fb78c12af12d847106778e4392ef5c94ddc66e7446a1d35581f242751cea20"
+        }
+      ],
+      "public_impact_status": "supported",
+      "public_impact_urgent": true,
+      "public_impact_evidence": [
+        {
+          "article_id": 5709,
+          "quote": "巴基斯坦警方13日说，该国东部旁遮普省一列客运列车当天清晨脱轨，造成至少5人死亡、30人受伤。"
+        },
+        {
+          "article_id": 5761,
+          "quote": "巴基斯坦警方13日说，该国东部旁遮普省一列客运列车当天清晨脱轨，造成至少5人死亡、30人受伤。"
+        }
+      ],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "巴基斯坦一列客运列车脱轨，造成至少5人死亡、30人受伤，需要紧急关注。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "91cf2fdb28c944733f4cdd5adf07fff7c7dc2722072ff4ec60ba02509fee2f1a"
+    },
+    {
+      "id": 2045,
+      "title": "八款打破常规的非常规照明设计",
+      "summary_zh": "本文介绍了八款非常规的照明设计，包括可塑蜡灯罩和可折叠放入A4信封的台灯。其中，“城市女孩”工作室的两位伦敦艺术家利用各种废弃物品制作独特的“科学怪人”灯具。这些设计挑战了传统的照明美学和功能性。",
+      "score_final": 43.130396537851894,
+      "score_breakdown": {
+        "objective": {
+          "score": 31.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 70.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 52.0,
+          "reason": "文章介绍了八款非常规的照明设计，包括利用废弃物品制作的“科学怪人”灯具，这些设计挑战了传统照明美学。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-10T10:11:54.16581+00:00",
+      "changed_at": "2026-10-10T10:11:54.16581+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 2907,
+          "source_id": "dezeen",
+          "title": "Eight unconventional lighting designs that tear up the rulebook",
+          "url": "https://www.dezeen.com/2026/10/10/eight-unconventional-lighting-designs-roundups/",
+          "published_at": "2026-10-10T09:00:41+00:00",
+          "fetched_at": "2026-10-10T10:07:50.849167+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章内容是关于非传统照明设计的综述，不涉及任何紧急的人类伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "c3b2cc1fea0e3f53aa505f8bbb4dc529039cee44c8fa8c4b709bb3d4d849a3bc"
+    },
+    {
+      "id": 1283,
+      "title": "纪录片《马斯克》揭露埃隆·马斯克的自我神话",
+      "summary_zh": "导演亚历克斯·吉布尼的新纪录片《马斯克》深入探讨了埃隆·马斯克，审视了他从特斯拉早期推广可持续交通的形象，转变为利用卫星技术、痴迷生育以及成为全球法西斯主义代表人物的过程。该片通过整理马斯克公开言论、诉讼文件和X平台上的帖子，描绘了一个缺乏明确道德指南的、权力在握的情感不稳定的个体。影片还将其置于反寡头电影的背景下，与描绘马克·扎克伯格和山姆·奥特曼等人的其他电影一同出现，揭示了科技巨头对经济和政治的掌控。",
+      "score_final": 38.65621919631044,
+      "score_breakdown": {
+        "objective": {
+          "score": 42.07135816299529,
+          "growth": 28.906482631788784,
+          "breadth": 27.73684376262023,
+          "community": 100.0,
+          "source_quality": 55.00000000000001
+        },
+        "importance": {
+          "scope": 1,
+          "score": 36.00000000000001,
+          "reason": "奥斯卡获奖导演亚历克斯·吉布尼的新纪录片《马斯克》深入探讨了埃隆·马斯克的公众形象和生平事件。",
+          "novelty": 3,
+          "confidence": "medium",
+          "durability": 2,
+          "domain_importance": 2
+        }
+      },
+      "first_seen_at": "2026-10-09T23:04:53.434896+00:00",
+      "changed_at": "2026-10-12T00:41:24.235243+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 1676,
+          "source_id": "hn-front",
+          "title": "In \"Musk,\" Alex Gibney Punctures Elon's Self-Mythology",
+          "url": "https://www.newyorker.com/culture/the-lede/in-musk-alex-gibney-punctures-elons-self-mythology",
+          "published_at": "2026-10-09T22:14:03+00:00",
+          "fetched_at": "2026-10-09T23:04:22.617627+00:00",
+          "reported_at": "2026-10-09T10:00:00Z",
+          "reported_date": "2026-10-09",
+          "reported_precision": "time",
+          "reported_basis": "article:published_time and JSON-LD datePublished agree; visible header confirms day"
+        },
+        {
+          "id": 4204,
+          "source_id": "ars-technica",
+          "title": "Review: 4-hour Musk documentary feels like two different films",
+          "url": "https://arstechnica.com/culture/2026/10/review-4-hour-musk-documentary-feels-like-two-different-films/",
+          "published_at": "2026-10-11T18:10:54+00:00",
+          "fetched_at": "2026-10-12T00:37:42.114027+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-11",
+          "reported_precision": "date",
+          "reported_basis": "Web-rendered publisher byline shows Oct 11, 2026 2:10 pm; timezone absent"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "这两篇文章都是关于一部新纪录片的评论，该纪录片探讨了埃隆·马斯克的职业生涯和公众形象。虽然其中一篇提到了特斯拉驾驶辅助系统相关的死亡事件，但这是对过去事件的提及，而不是当前或最近发生的紧急情况。因此，这些文章不构成需要紧急公众关注的单一连贯事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "ad381b8f487719c50d453f929d0757f5f9ad6839047c7e321a6e4e4521509f7f"
+    },
+    {
+      "id": 3550,
+      "title": "Apple Watch Edition 的前世今生：不只是材质的高端",
+      "summary_zh": "Apple Watch Edition 是 Apple 围绕“高端智能手表”概念进行的一场持续数年的大型实验，曾尝试使用 18K 金、精密陶瓷和钛金属等不同材质，以赋予智能手表高级腕表般的质感与价值。",
+      "score_final": 38.630396537851894,
+      "score_breakdown": {
+        "objective": {
+          "score": 31.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 70.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 44.0,
+          "reason": "Apple Watch Edition是Apple尝试使用不同材质（如18K金、精密陶瓷和钛金属）以赋予智能手表高级腕表质感与价值的产品线，而非公司或行业的重大事件。",
+          "novelty": 3,
+          "confidence": "medium",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-13T04:38:39.992672+00:00",
+      "changed_at": "2026-10-13T04:38:39.992672+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 5738,
+          "source_id": "sspai",
+          "title": "高端，不只是材质而已：Apple Watch Edition 的前世今生",
+          "url": "https://sspai.com/post/114561",
+          "published_at": "2026-10-13T03:09:17+00:00",
+          "fetched_at": "2026-10-13T04:32:49.853327+00:00",
+          "reported_at": "2026-09-26T03:12:24Z",
+          "reported_date": "2026-09-26",
+          "reported_precision": "time",
+          "reported_basis": "HTTP JSON-LD datePublished; visible page date Sep 26"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是Apple Watch Edition的历史和材质演变，不涉及当前或近期的人身伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "5fe6ef3fa05cb34098fa9e52fae8ba57faf7efeac889c8bde5e3c0db5aa2b2e7"
+    },
+    {
+      "id": 433,
+      "title": "Jevman：AI 决策模型玩吃豆人",
+      "summary_zh": "Jevman 是一个新项目，允许 AI 决策模型玩经典的吃豆人街机游戏。六个不同的 AI 模型各自进行了 100 场比赛，对抗经典的街机幽灵。比赛最多持续 5 分钟，但最长的游戏仅耗时 2 分 24 秒。该项目是开源的，并提供了一个基准测试，让用户可以提交自己的模型进行比赛和排名。",
+      "score_final": 45.38039653785189,
+      "score_breakdown": {
+        "objective": {
+          "score": 31.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 100.0,
+          "source_quality": 30.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 56.0,
+          "reason": "Jevman 项目允许 AI 决策模型玩经典的吃豆人街机游戏，并提供基准测试，代表了AI领域的一个新颖应用。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-09T09:29:33.639494+00:00",
+      "changed_at": "2026-10-09T09:29:33.639494+00:00",
+      "sampling_bucket": 2,
+      "articles": [
+        {
+          "id": 624,
+          "source_id": "hn-front",
+          "title": "Show HN: Jevman – AI decision models play Pac-Man",
+          "url": "https://opper.ai/jevman-benchmark/",
+          "published_at": "2026-10-08T16:34:13+00:00",
+          "fetched_at": "2026-10-09T03:55:40.900477+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": "Origin page has no publication date in rendered text or retrieved metadata"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章描述的是AI模型玩吃豆人游戏，不涉及任何对人类造成严重伤害、公共服务中断或紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "928404b3f5846f789f0dbf833617f152fd4af519a126f863f6782bed0901c170"
+    },
+    {
+      "id": 4612,
+      "title": "AI edges closer to solving the Riemann hypothesis, one of math’s hardest problems",
+      "summary_zh": "AI edges closer to solving the Riemann hypothesis, one of math’s hardest problems",
+      "score_final": 46.47414653785189,
+      "score_breakdown": {
+        "objective": {
+          "score": 34.226620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 80.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 56.0,
+          "reason": "AI在解决黎曼猜想这一数学难题上取得了进展。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 5
+        }
+      },
+      "first_seen_at": "2026-10-13T20:39:35.735571+00:00",
+      "changed_at": "2026-10-13T20:39:35.735571+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 6742,
+          "source_id": "science-news",
+          "title": "AI edges closer to solving the Riemann hypothesis, one of math’s hardest problems",
+          "url": "https://www.science.org/content/article/ai-edges-closer-solving-riemann-hypothesis-one-math-s-hardest-problems",
+          "published_at": "2026-10-13T04:00:00+00:00",
+          "fetched_at": "2026-10-13T20:35:18.22183+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": "Web open failed; ordinary HTTP request returned 403"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是AI在数学问题上的进展，不涉及当前或近期对人类造成严重伤害、对基本公共服务造成严重破坏或需要紧急保护性响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "3c3f41bbf73bc01344b75529f44e46f2360924ae01be2480129da57dc5f076b5"
+    },
+    {
+      "id": 4897,
+      "title": "Singapore Q3 GDP grows 5.4% on sustained AI-driven demand",
+      "summary_zh": "Singapore Q3 GDP grows 5.4% on sustained AI-driven demand",
+      "score_final": 51.03905214368518,
+      "score_breakdown": {
+        "objective": {
+          "score": 49.80354775699472,
+          "growth": 45.81569099913261,
+          "breadth": 39.6240625180289,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 52.0,
+          "reason": "新加坡第三季度GDP同比增长5.4%，主要得益于制造业的增长，特别是电子、精密工程和交通工程领域。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 2,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-14T00:39:08.219702+00:00",
+      "changed_at": "2026-10-14T04:43:04.71296+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 6916,
+          "source_id": "nikkei-asia",
+          "title": "Singapore Q3 GDP grows 5.4% on sustained AI-driven demand",
+          "url": "https://asia.nikkei.com/economy/singapore-q3-gdp-grows-5.4-on-sustained-ai-driven-demand",
+          "published_at": null,
+          "fetched_at": "2026-10-14T00:35:09.504467+00:00",
+          "reported_at": "2026-10-14T00:10:21Z",
+          "reported_date": "2026-10-14",
+          "reported_precision": "time",
+          "reported_basis": "HTTP JSON-LD datePublished and meta date 2026-10-14T09:10:21+09:00 agree"
+        },
+        {
+          "id": 7161,
+          "source_id": "aljazeera",
+          "title": "Singapore’s economy grows more than 5 percent amid AI boom",
+          "url": "https://www.aljazeera.com/economy/2026/10/14/singapores-economy-grows-more-than-5-percent-amid-ai-boom?traffic_source=rss",
+          "published_at": "2026-10-14T04:25:02+00:00",
+          "fetched_at": "2026-10-14T04:34:59.234084+00:00",
+          "reported_at": "2026-10-14T04:25:02Z",
+          "reported_date": "2026-10-14",
+          "reported_precision": "time",
+          "reported_basis": "HTTP JSON-LD datePublished"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "这些文章报道了新加坡经济增长的最新数据，但没有提及任何当前或近期造成严重人员伤害、公共服务中断或需要紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "7c657f761c2f56244eeeb5cd4ce3b020f23b1f41c13aac78adcd1671ecda1997"
+    },
+    {
+      "id": 363,
+      "title": "欧洲经济重振：来自美国的乐观展望",
+      "summary_zh": "文章指出，欧洲经济增长受到市场分割、反竞争文化以及投资不足的阻碍。然而，文章认为欧洲经济仍有巨大潜力。作者基于对美国企业在欧洲投资的观察，对欧洲经济的未来表达了谨慎的乐观态度，认为通过改革可以激发欧洲的创新和增长活力。",
+      "score_final": 49.28125,
+      "score_breakdown": {
+        "objective": {
+          "score": 35.5,
+          "growth": 20.0,
+          "breadth": 20.0,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 60.00000000000001,
+          "reason": "文章指出欧洲经济增长受到市场分割、反竞争文化以及投资不足的阻碍，但认为仍有巨大潜力。",
+          "novelty": 3,
+          "confidence": "medium",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-09T09:03:49.326772+00:00",
+      "changed_at": "2026-10-09T09:03:49.326772+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 1082,
+          "source_id": "ft-home",
+          "title": "Some much-needed American optimism on Europe",
+          "url": "https://www.ft.com/content/c0bec605-c948-4249-be2d-a76e0e60203b?syn-25a6b1a6=1",
+          "published_at": "2026-10-09T04:00:32+00:00",
+          "fetched_at": "2026-10-09T04:37:41.572866+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": "Web open failed; ordinary HTTP request returned 403"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章内容没有提及当前或近期造成严重人员伤害、严重公共服务中断或紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "681724cb33ac5e13a2b86253655036ad96b82baff654976038ce4cf5d2954c68"
+    },
+    {
+      "id": 168,
+      "title": "爱尔兰再次抵制欧洲歌唱大赛，但该赛事仍在扩张",
+      "summary_zh": "由于以色列的参赛，爱尔兰确认将连续第二次抵制2027年欧洲歌唱大赛。此前，包括荷兰、西班牙、冰岛和斯洛文尼亚在内的五个国家也曾抵制2026年赛事，导致收视人数从2025年的1.66亿下降到1.31亿。为应对政治争议，赛事主办方宣布新规，禁止武装冲突或地缘政治紧张国家举办比赛，并计划改革投票机制以减少政治投票。尽管面临挑战，欧洲歌唱大赛正寻求品牌扩张，将推出亚洲版赛事，并已确认加拿大加入参赛行列。",
+      "score_final": 51.53125,
+      "score_breakdown": {
+        "objective": {
+          "score": 35.5,
+          "growth": 20.0,
+          "breadth": 20.0,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 64.0,
+          "reason": "由于以色列的参赛，爱尔兰确认将连续第二次抵制2027年欧洲歌唱大赛，导致收视人数从2025年的1.66亿下降到1.31亿。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-09T07:34:45.78237+00:00",
+      "changed_at": "2026-10-09T07:34:45.78237+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 243,
+          "source_id": "dw-en",
+          "title": "Ireland will boycott Eurovision again because of Israel's participation, but the song contest is still expanding",
+          "url": "https://www.dw.com/en/ireland-will-boycott-eurovision-again-because-of-israel-s-participation-but-the-song-contest-is-still-expanding/a-79401752?maca=en-rss-en-all-1573-rdf",
+          "published_at": "2026-09-30T09:18:00+00:00",
+          "fetched_at": "2026-10-09T03:53:37.837468+00:00",
+          "reported_at": "2026-09-30T09:18:43.881Z",
+          "reported_date": "2026-09-30",
+          "reported_precision": "time",
+          "reported_basis": "HTTP JSON-LD datePublished and meta date"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是一个文化活动中的政治抵制和规则调整，不涉及当前或近期严重的人员伤亡、对基本公共服务的严重破坏或紧急保护性响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "cba37c12011f9d024f0c109679ef17c29f77d0a7b2945e7c655fd87645f5e641"
+    },
+    {
+      "id": 2184,
+      "title": "全球存储三巨头跻身万亿美元市值俱乐部",
+      "summary_zh": "5月26日，美光科技股价大涨超19%，市值突破1万亿美元。此前，三星电子已是万亿美元市值公司。5月27日，SK海力士股价大涨14%，市值也突破1万亿美元。至此，全球存储芯片三大巨头均已跻身“万亿美元市值俱乐部”。尽管如此，市场对明年存储芯片价格涨幅放缓存有担忧，PC、手机等终端厂商因成本压力，采购趋于保守，进一步削弱了存储芯片单价上涨动能。",
+      "score_final": 47.8125,
+      "score_breakdown": {
+        "objective": {
+          "score": 27.0,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 80.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 64.0,
+          "reason": "美光科技、三星电子和SK海力士三大存储芯片巨头市值均突破万亿美元，代表了行业内的重大里程碑。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-10T12:12:06.070503+00:00",
+      "changed_at": "2026-10-10T12:12:06.070503+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 2120,
+          "source_id": "yicai",
+          "title": "晓数点丨全球存储三巨头，集体跻身“万亿美元市值俱乐部”",
+          "url": "https://www.yicai.com/news/103203039.html",
+          "published_at": "2026-05-27T04:47:41+00:00",
+          "fetched_at": "2026-10-10T03:47:26.07831+00:00",
+          "reported_at": "2026-05-27T12:46:43+08:00",
+          "reported_date": "2026-05-27",
+          "reported_precision": "time",
+          "reported_basis": "Publisher HTML analytics actime/autime 2026-05-27T12:46:43+08; normalized +08 offset to +08:00; visible timestamp agrees"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是公司市值和市场趋势，不涉及当前或近期的人类伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "b2b0a772f4979e90a2e01e8dc5b66d354f081e91d54873680e6cdfc5118f7cda"
+    },
+    {
+      "id": 236,
+      "title": "劝导人们健康饮食无效",
+      "summary_zh": "对人们进行关于健康饮食的劝导是无效的。政府正在考虑各种措施来限制不健康食品的消费，包括征税、修改规划法规以及限制广告。这些措施旨在减少垃圾食品的摄入，但有研究表明，仅凭劝导并不足以改变人们的饮食习惯。",
+      "score_final": 46.65625,
+      "score_breakdown": {
+        "objective": {
+          "score": 29.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 60.00000000000001,
+          "reason": "政府正在考虑通过征税、修改规划法规和限制广告来减少不健康食品的消费。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-09T08:18:09.120291+00:00",
+      "changed_at": "2026-10-09T08:18:09.120291+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 316,
+          "source_id": "economist-latest",
+          "title": "Nagging people to eat healthily does not work",
+          "url": "https://www.economist.com/international/2026/10/08/nagging-people-to-eat-healthily-does-not-work",
+          "published_at": "2026-10-08T13:01:51+00:00",
+          "fetched_at": "2026-10-09T03:55:30.210469+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": "Web open failed; ordinary HTTP request returned 403"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是关于健康饮食的政策建议，而不是当前或近期发生的严重人类伤害、公共服务中断或紧急保护响应事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "3580dacfd11117d9583024babc79fa562a7e1cb134ec58c01e9de4478450ac8a"
+    },
+    {
+      "id": 348,
+      "title": "可见推理并非万能优化器：分析代码生成的个性化和思维依赖性效应",
+      "summary_zh": "一项关于分析代码生成的研究发现，可见的思维链（CoT）提示并不能普遍提高模型性能。研究结果表明，CoT的有效性取决于用户身份、目标语言（SQL或Python）、模型配置以及内部推理设置，而不是简单地匹配推理表述与目标语言。这些发现表明，在为模型选择推理策略时，需要根据具体情况进行调整，而不是采用通用的默认设置。",
+      "score_final": 48.66164653785189,
+      "score_breakdown": {
+        "objective": {
+          "score": 39.226620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 100.0
+        },
+        "importance": {
+          "scope": 2,
+          "score": 56.0,
+          "reason": "研究发现，可见的思维链（CoT）提示并不能普遍提高模型性能，其有效性取决于用户身份、目标语言、模型配置及内部推理设置。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-09T09:03:49.064721+00:00",
+      "changed_at": "2026-10-09T09:03:49.064721+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 1067,
+          "source_id": "arxiv-ai",
+          "title": "Visible Reasoning Is Not a Universal Optimizer: Persona- and Thinking-Dependent Effects in Analytics Code Generation",
+          "url": "https://arxiv.org/abs/2610.10639",
+          "published_at": "2026-10-09T04:00:00+00:00",
+          "fetched_at": "2026-10-09T04:03:52.723744+00:00",
+          "reported_at": "2026-10-07T14:27:58Z",
+          "reported_date": "2026-10-07",
+          "reported_precision": "time",
+          "reported_basis": "Origin submission history [v1] Wed, 7 Oct 2026 14:27:58 UTC"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "这篇文章是一篇关于机器学习研究的学术论文，讨论了可见推理在分析代码生成中的应用。它不涉及当前或近期对人类造成严重伤害、对基本公共服务造成严重破坏或需要紧急保护性响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "cf95a7e341b49cfde51ae9c6b530486d40770edc33055c4e88cb74110941808f"
+    },
+    {
+      "id": 4029,
+      "title": "腾讯WorkBuddy企业版加速迭代，上线一站式 Agent 可观测平台",
+      "summary_zh": "腾讯WorkBuddy企业版加速迭代，上线一站式 Agent 可观测平台",
+      "score_final": 51.27128886148867,
+      "score_breakdown": {
+        "objective": {
+          "score": 40.04866025483125,
+          "growth": 45.81569099913261,
+          "breadth": 27.73684376262023,
+          "community": 0.0,
+          "source_quality": 70.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 60.00000000000001,
+          "reason": "腾讯WorkBuddy与企业微信的全面打通，标志着腾讯在智能办公产品领域与字节跳动和阿里巴巴的竞争进入了新的阶段。",
+          "novelty": 3,
+          "confidence": "medium",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-13T11:09:59.762063+00:00",
+      "changed_at": "2026-10-14T03:44:31.113014+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 6201,
+          "source_id": "36kr-newsflashes",
+          "title": "腾讯WorkBuddy企业版加速迭代，上线一站式 Agent 可观测平台",
+          "url": "https://www.36kr.com/newsflashes/4024187101187976",
+          "published_at": "2026-10-13T11:05:01+00:00",
+          "fetched_at": "2026-10-13T11:05:51.036751+00:00",
+          "reported_at": "2026-10-13T11:05:01.233Z",
+          "reported_date": "2026-10-13",
+          "reported_precision": "time",
+          "reported_basis": "Origin embedded article detail publishTime Unix milliseconds 1791889501233; title-specific meta 2026-10-13 19:05:01 and visible day agree"
+        },
+        {
+          "id": 7114,
+          "source_id": "caixin",
+          "title": "腾讯AI办公智能体WorkBuddy打通企业微信",
+          "url": "https://www.caixin.com/2026-10-14/102493268.html",
+          "published_at": "2026-10-14T03:34:02+00:00",
+          "fetched_at": "2026-10-14T03:35:33.397923+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-14",
+          "reported_precision": "date",
+          "reported_basis": "Publisher HTTP HTML pubtime_baidu 2026-10-14 11:34:02; timezone not explicit"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章描述的是腾讯WorkBuddy企业版的功能更新和产品整合，以及农业银行的派息公告，这些都不是涉及严重人类伤害、公共服务中断或紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "a35fa7d88c111bb63d5d4d666cbc4f9a552b85b2889dcf6c1cd99370a0c36ed2"
+    },
+    {
+      "id": 2822,
+      "title": "皇岗口岸开通仪式在深圳举行",
+      "summary_zh": "2026年10月11日，皇岗口岸的开通仪式在深圳举行。该仪式由新华社报道，记者为李晓玲和肖逸晨。",
+      "score_final": 46.411646537851894,
+      "score_breakdown": {
+        "objective": {
+          "score": 39.226620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 100.0
+        },
+        "importance": {
+          "scope": 1,
+          "score": 52.0,
+          "reason": "皇岗口岸的开通仪式于2026年10月11日在深圳举行。",
+          "novelty": 5,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-11T13:11:05.079584+00:00",
+      "changed_at": "2026-10-11T13:11:05.079584+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 3870,
+          "source_id": "xinhua",
+          "title": "新华社消息丨皇岗口岸开通仪式在深圳举行",
+          "url": "http://www.news.cn/20261011/c10175f93b9b4ce6a35864c8c86fa73a/c.html",
+          "published_at": "2026-10-11T12:47:48+00:00",
+          "fetched_at": "2026-10-11T13:08:25.147938+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-11",
+          "reported_precision": "date",
+          "reported_basis": "Origin visible timestamp 2026-10-11 20:47:49 and publishdate metadata; timezone absent"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章报道的是一个口岸的开通仪式，这不涉及当前或近期对人类造成严重伤害、对基本公共服务造成严重破坏或需要紧急保护性响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "4e9c0314e0b59c7c011540c4b12cc47f1ae66d4b12fda22b811b59f9f3c7c38e"
+    },
+    {
+      "id": 1195,
+      "title": "中國AI雄心背後的算力前線：草原上的數據中心",
+      "summary_zh": "在中國內蒙古的草原地區，數十座數據中心正在快速興建，以滿足國家日益增長的AI算力需求。這些數據中心被視為支撐中國AI雄心的「引擎」。此舉發生之際，中國正加速與美國在AI領域展開競爭。這一發展也對當地居民的生活產生了影響。",
+      "score_final": 51.15624999999999,
+      "score_breakdown": {
+        "objective": {
+          "score": 29.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 68.0,
+          "reason": "中国在内蒙古草原地区快速兴建数十座数据中心，旨在满足日益增长的AI算力需求，以支撑其AI雄心并加速与美国在AI领域展开竞争。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 4,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-09T18:35:39.893454+00:00",
+      "changed_at": "2026-10-09T18:35:39.893454+00:00",
+      "sampling_bucket": 3,
+      "articles": [
+        {
+          "id": 912,
+          "source_id": "bbc-zhongwen",
+          "title": "草原上的數據中心：中國AI雄心背後的算力前線",
+          "url": "https://www.bbc.com/zhongwen/articles/crje8gjn3nl5o/trad?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-09-23T13:24:03+00:00",
+          "fetched_at": "2026-10-09T03:57:11.016018+00:00",
+          "reported_at": "2026-09-23T13:24:03.571Z",
+          "reported_date": "2026-09-23",
+          "reported_precision": "time",
+          "reported_basis": "HTTP JSON-LD datePublished and article:published_time agree"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章描述了中国数据中心建设的趋势及其对当地生活的影响，但没有提及当前或近期发生的严重人类伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "02d6769b80189d9b8c3131a04db60b6fe5abb3a306b23e225384df2d73a8b6b4"
+    },
+    {
+      "id": 2081,
+      "title": "密苏里州重新划定选区争议",
+      "summary_zh": "2025年，密苏里州共和党人再次通过了经过政治操纵的选区划分地图。人民而非政客组织发起了公投，收集了比所需数量多近三倍的签名。州务卿丹尼·霍斯金斯宣布公投非法，但州最高法院裁定请愿有效。该案件经过多级法院审理，美国最高法院最终裁定使用新地图将“引发选举混乱”。",
+      "score_final": 54.3803965378519,
+      "score_breakdown": {
+        "objective": {
+          "score": 31.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 70.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 72.00000000000001,
+          "reason": "密苏里州共和党人通过了政治操纵的选区划分地图，引发人民而非政客组织发起公投，并最终由美国最高法院裁定。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 4,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-10T10:42:17.022887+00:00",
+      "changed_at": "2026-10-10T10:42:17.022887+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 2936,
+          "source_id": "new-yorker",
+          "title": "Who Won the Redistricting War?",
+          "url": "https://www.newyorker.com/news/the-political-scene/who-won-the-redistricting-war",
+          "published_at": "2026-10-10T10:00:00+00:00",
+          "fetched_at": "2026-10-10T10:37:45.362021+00:00",
+          "reported_at": "2026-10-10T10:00:00Z",
+          "reported_date": "2026-10-10",
+          "reported_precision": "time",
+          "reported_basis": "HTTP article:published_time, JSON-LD datePublished, and time datetime agree"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是2025年和1922年密苏里州的选区重划事件，以及2026年可能举行的全民公投。这些事件不涉及当前或近期的人身伤害、公共服务中断或紧急保护性应对措施。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "cc88e1c64222d6e5637889ddcb1a93afe77c6d8db0265a7b34fb8bafea621d95"
+    },
+    {
+      "id": 4713,
+      "title": "印度正式提交 2036 年奥运会申办申请，其胜选几率有多大？面临哪些现实短板？",
+      "summary_zh": "印度正式提交 2036 年奥运会申办申请，其胜选几率有多大？面临哪些现实短板？",
+      "score_final": 55.71875,
+      "score_breakdown": {
+        "objective": {
+          "score": 24.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 100.0,
+          "source_quality": 30.0
+        },
+        "importance": {
+          "scope": 4,
+          "score": 80.0,
+          "reason": "印度已正式提交申办2036年奥运会，成为奥运会主办权的有力竞争者。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 4,
+          "domain_importance": 3
+        }
+      },
+      "first_seen_at": "2026-10-13T22:39:24.053594+00:00",
+      "changed_at": "2026-10-13T22:39:24.053594+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 4928,
+          "source_id": "zhihu-hot",
+          "title": "印度正式提交 2036 年奥运会申办申请，其胜选几率有多大？面临哪些现实短板？",
+          "url": "https://www.zhihu.com/question/2092034645735088905",
+          "published_at": "2026-10-09T15:32:07+00:00",
+          "fetched_at": "2026-10-12T11:26:23.64261+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": "Web open failed; ordinary HTTP request returned 403"
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是印度申办2036年奥运会，这是一个未来事件的规划和展望，不涉及当前或近期发生的严重人类伤害、公共服务中断或紧急保护性响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "abf26cb8ab617d3641a1a7842afc8a1bd7c8fab5cac1f32a30dd0512ac676d1c"
+    },
+    {
+      "id": 610,
+      "title": "欧盟财长就市场监管改革达成初步协议",
+      "summary_zh": "欧盟成员国财政部长就市场一体化和监管方案（MISP）达成初步协议，该方案旨在消除国家壁垒，促进私人融资。改革将把监管和执法工作集中交给欧洲证券和市场管理局（ESMA）负责。该方案尚需与欧洲议会达成一致才能正式批准生效。",
+      "score_final": 52.1928965378519,
+      "score_breakdown": {
+        "objective": {
+          "score": 26.726620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 50.0
+        },
+        "importance": {
+          "scope": 4,
+          "score": 72.00000000000001,
+          "reason": "欧盟财长已就市场一体化和监管方案达成初步协议，旨在消除国家壁垒并促进私人融资。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-09T10:38:00.765074+00:00",
+      "changed_at": "2026-10-09T10:38:00.765074+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 1284,
+          "source_id": "36kr-newsflashes",
+          "title": "欧盟各国财长就市场监管达成初步协议",
+          "url": "https://www.36kr.com/newsflashes/4018473481326469",
+          "published_at": "2026-10-09T10:02:36+00:00",
+          "fetched_at": "2026-10-09T10:34:57.313756+00:00",
+          "reported_at": "2026-10-09T10:00:10+00:00",
+          "reported_date": "2026-10-09",
+          "reported_precision": "time",
+          "reported_basis": "Original CLS article __NEXT_DATA__.props.pageProps.articleDetail.ctime=1791540010 (Unix seconds); display 2026年10月09日18:00:10."
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章报道了欧盟成员国就市场监管改革达成初步协议，以及一家公司的财务预测，这些都不是当前或近期造成严重人员伤害、公共服务中断或需要紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "7d85bc13716e3c631f225706152b86222d9c7b1fec586966bd65d1f316bd01c7"
+    },
+    {
+      "id": 1164,
+      "title": "许多手术干预效果与安慰剂相差无几",
+      "summary_zh": "一系列的临床试验正颠覆外科手术领域。研究表明，对于一些常见病，手术效果与安慰剂（如假手术）相差无几。这意味着许多外科手术可能并非必要，患者可以通过其他方式获得相似的治疗效果，并且避免手术风险。这一发现对医疗实践和患者选择治疗方案提出了新的思考。",
+      "score_final": 53.40625000000001,
+      "score_breakdown": {
+        "objective": {
+          "score": 29.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 72.00000000000001,
+          "reason": "研究发现，许多常见病的手术效果与安慰剂相差无几，这可能会改变医疗实践和患者的治疗选择。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 4,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-09T18:35:39.037461+00:00",
+      "changed_at": "2026-10-09T18:35:39.037461+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 570,
+          "source_id": "economist-latest",
+          "title": "Many surgical interventions are little better than placebo",
+          "url": "https://www.economist.com/science-and-technology/2026/09/23/many-surgical-interventions-are-little-better-than-placebo",
+          "published_at": "2026-09-23T16:24:21+00:00",
+          "fetched_at": "2026-10-09T03:55:30.210469+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是一项正在进行的研究，而不是一个需要立即关注的紧急事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "fc07a4c98fdcac3a6d3fd43b4bf3b45d2f5f3672197b51241c729ef6deb24af2"
+    },
+    {
+      "id": 833,
+      "title": "巴基斯坦一场备受争议的新权力攫取",
+      "summary_zh": "巴基斯坦陆军参谋长兼事实上的统治者希望重新绘制政治版图。此举引发了关于军队干预民选政府的担忧。",
+      "score_final": 57.90625,
+      "score_breakdown": {
+        "objective": {
+          "score": 29.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 4,
+          "score": 80.0,
+          "reason": "巴基斯坦陆军参谋长试图重绘政治版图，此举引发了人们对军队干预民选政府的担忧，可能对该国产生持久影响。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 4,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-09T14:06:11.504434+00:00",
+      "changed_at": "2026-10-09T14:06:11.504434+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 385,
+          "source_id": "economist-latest",
+          "title": "A controversial new power grab in Pakistan",
+          "url": "https://www.economist.com/asia/2026/10/05/a-controversial-new-power-grab-in-pakistan",
+          "published_at": "2026-10-05T15:30:00+00:00",
+          "fetched_at": "2026-10-09T03:55:30.210469+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章描述的是巴基斯坦军队首长试图重绘政治版图的争议性举动，但没有提及当前或近期造成严重人员伤亡、公共服务中断或需要紧急保护性应对措施的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "d91c7f293d47826e9736f6e0b923ec98249373ebb7c2f655006da2d3c3b2f386"
+    },
+    {
+      "id": 138,
+      "title": "新兴经济体拥抱太阳能，发展速度远超欧美",
+      "summary_zh": "新兴经济体正迅速采用太阳能，其发展速度远超欧洲和美国。由于许多中低收入国家对化石能源基础设施的依赖较少，它们能够更快地部署可再生能源，特别是太阳能，目前其发电成本已低于化石燃料。例如，2023年印度和越南的太阳能发电量占总发电量的比例分别为至少6%和10%，高于全球平均水平的5%。",
+      "score_final": 57.90625,
+      "score_breakdown": {
+        "objective": {
+          "score": 29.5,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 4,
+          "score": 80.0,
+          "reason": "新兴经济体采用太阳能的速度远超欧美，部分国家太阳能发电占比高于全球平均水平，例如2023年印度和越南的太阳能发电量占总发电量的比例分别为至少6%和10%。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 4,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-09T07:34:45.014979+00:00",
+      "changed_at": "2026-10-09T07:34:45.014979+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 201,
+          "source_id": "dw-en",
+          "title": "Emerging economies are embracing solar power and skipping fossil fuels much faster than Europe or the US",
+          "url": "https://www.dw.com/en/emerging-economies-are-embracing-solar-power-and-skipping-fossil-fuels-much-faster-than-europe-or-the-us/a-79474847?maca=en-rss-en-all-1573-rdf",
+          "published_at": "2026-10-07T07:48:00+00:00",
+          "fetched_at": "2026-10-09T03:53:37.837468+00:00",
+          "reported_at": "2026-10-07T07:48:09.46Z",
+          "reported_date": "2026-10-07",
+          "reported_precision": "time",
+          "reported_basis": "Primary HTML JSON-LD datePublished; dateModified separately 2026-10-07T17:23:04.006Z."
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是新兴经济体采用太阳能的趋势，而不是当前或近期发生的严重人类伤害、公共服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "dff7f92f6bace5327d3a7efc8ed6205fd8880678f7caf5a8f4303d040a07815d"
+    },
+    {
+      "id": 899,
+      "title": "27名日本跨党派议员访台参加双十活动",
+      "summary_zh": "由日本跨党派友台团体“日本台湾友好议员联盟”会长古屋圭司率领的27名日本国会议员，于10月9日起访台两天，参加台湾双十活动。访团将与台湾总统赖清德、立法院长韩国瑜等人会面，并就台日国会交流及共同关切议题交换意见。此次是该组织更名后首次组织大型双十祝贺团访台，显示日本国会跨党派对台日关系的重视。",
+      "score_final": 56.16734120303013,
+      "score_breakdown": {
+        "objective": {
+          "score": 40.95392274978315,
+          "growth": 45.81569099913261,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 90.0
+        },
+        "importance": {
+          "scope": 4,
+          "score": 68.0,
+          "reason": "由日本跨党派友台团体“日本台湾友好议员联盟”会长古屋圭司率领的27名日本国会议员，于10月9日起访台两天，参加台湾双十活动，并与台湾总统赖清德等人会面，显示日本国会跨党派对台日关系的重视。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-09T14:36:27.598637+00:00",
+      "changed_at": "2026-10-11T08:10:54.500456+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 1463,
+          "source_id": "zaobao-china",
+          "title": "日本27名跨党派国会议员访台 参加台湾双十活动",
+          "url": "https://www.zaobao.com/news/china/story20261009-9812646",
+          "published_at": "2026-10-09T14:05:00+00:00",
+          "fetched_at": "2026-10-09T14:34:48.612145+00:00",
+          "reported_at": "2026-10-09T22:05:00+08:00",
+          "reported_date": "2026-10-09",
+          "reported_precision": "time",
+          "reported_basis": "Primary HTML JSON-LD datePublished; dateModified separately 2026-10-09T22:05:02+08:00."
+        },
+        {
+          "id": 2809,
+          "source_id": "zaobao-china",
+          "title": "赖清德见日本国会议员访团 盼延续台日友好情谊",
+          "url": "https://www.zaobao.com/news/china/story20261010-9815554",
+          "published_at": "2026-10-10T08:24:10+00:00",
+          "fetched_at": "2026-10-10T08:26:31.383632+00:00",
+          "reported_at": "2026-10-10T16:24:10+08:00",
+          "reported_date": "2026-10-10",
+          "reported_precision": "time",
+          "reported_basis": "Primary HTML JSON-LD datePublished; dateModified separately 2026-10-10T16:36:07+08:00."
+        },
+        {
+          "id": 3621,
+          "source_id": "zaobao-china",
+          "title": "日众议员率团访台 吁日台加速无人机领域合作",
+          "url": "https://www.zaobao.com/news/china/story20261011-9819014",
+          "published_at": "2026-10-11T08:02:15+00:00",
+          "fetched_at": "2026-10-11T08:08:01.294624+00:00",
+          "reported_at": "2026-10-11T16:02:15+08:00",
+          "reported_date": "2026-10-11",
+          "reported_precision": "time",
+          "reported_basis": "Primary HTML JSON-LD datePublished; dateModified separately 2026-10-11T16:02:17+08:00."
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章描述的是日本议员访问台湾，参加双十活动并讨论合作事宜，不涉及当前或近期严重的人身伤害、公共服务中断或紧急保护性应对措施。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "325be9a1c2a680f26f290f78e2d5d897b5a35fd4bb2451e764f2acbaf22dec72"
+    },
+    {
+      "id": 2113,
+      "title": "谷歌发布最先进的全球天气AI模型WeatherNext 3",
+      "summary_zh": "谷歌DeepMind和谷歌研究院推出了名为WeatherNext 3的全球天气AI模型，据称是迄今为止最先进和最准确的模型。该模型直接从实时卫星数据中学习，能够每小时生成一次高分辨率（最高5公里）的天气预报，比前代模型WeatherNext 2（25公里分辨率，6小时预报间隔）在分辨率上提高了五倍。WeatherNext 3在降水预测方面也取得了显著进步，并特别为可再生能源生产提供了100米高度的风速、云量和太阳辐射等预报。",
+      "score_final": 59,
+      "score_breakdown": {
+        "objective": {
+          "score": 32.0,
+          "growth": 0.0,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 100.0
+        },
+        "importance": {
+          "scope": 4,
+          "score": 80.0,
+          "reason": "谷歌DeepMind和谷歌研究部门的AI模型WeatherNext在预测热带气旋方面达到最先进准确性，并提供了额外的预报时间，甚至在2025年飓风季期间协助美国国家飓风中心对飓风Melissa进行了历史性预测。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 4,
+          "domain_importance": 5
+        }
+      },
+      "first_seen_at": "2026-10-10T11:11:28.35837+00:00",
+      "changed_at": "2026-10-10T11:41:38.403109+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 2284,
+          "source_id": "deepmind-blog",
+          "title": "Introducing WeatherNext 3, our most advanced and accurate global weather AI model",
+          "url": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/",
+          "published_at": "2026-09-03T15:02:08+00:00",
+          "fetched_at": "2026-10-10T04:14:34.866042+00:00",
+          "reported_at": "2026-09-03T15:00:00+00:00",
+          "reported_date": "2026-09-03",
+          "reported_precision": "time",
+          "reported_basis": "HTML published_time and JSON-LD datePublished; dateModified 2026-09-04T18:11:13.669316+00:00."
+        },
+        {
+          "id": 2294,
+          "source_id": "deepmind-blog",
+          "title": "WeatherNext: AI model achieves breakthrough in forecasting cyclones",
+          "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+          "published_at": "2026-08-06T15:06:15+00:00",
+          "fetched_at": "2026-10-10T04:14:34.866042+00:00",
+          "reported_at": "2026-08-06T16:00:00+00:00",
+          "reported_date": "2026-08-06",
+          "reported_precision": "time",
+          "reported_basis": "HTML article:published_time; article:modified_time 2026-08-11T18:34:13.897252+00:00."
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章描述的是AI天气预报模型的发布和改进，这些模型旨在提高预测准确性，从而可能在未来帮助减少灾害损失。然而，文章中没有提及当前或近期发生的严重人类伤害、公共服务中断或紧急保护性响应事件。虽然提到了飓风Melissa的预测，但那是在2025年飓风季节，并非当前事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "c0402cb4c11c264a9a908457ae6f8c5fdcbcd3c477875d07e8937f36cfaef28a"
+    },
+    {
+      "id": 3125,
+      "title": "Self-Preservation in Language Models",
+      "summary_zh": "Self-Preservation in Language Models",
+      "score_final": 65.53080133747389,
+      "score_breakdown": {
+        "objective": {
+          "score": 67.49897448565461,
+          "growth": 67.11877414712396,
+          "breadth": 58.04820237218406,
+          "community": 100.0,
+          "source_quality": 70.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 64.0,
+          "reason": "多篇报道关注了AI模型的新能力（如“Self-Preservation in Language Models”、“AI Models Can Provably Hide Arbitrary Capabilities”），这代表了人工智能领域的新发展。",
+          "novelty": 4,
+          "confidence": "high",
+          "durability": 3,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-12T04:12:17.141869+00:00",
+      "changed_at": "2026-10-13T23:39:30.983157+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 4393,
+          "source_id": "arxiv-ai",
+          "title": "Self-Preservation in Language Models",
+          "url": "https://arxiv.org/abs/2610.12602",
+          "published_at": "2026-10-12T04:00:00+00:00",
+          "fetched_at": "2026-10-12T04:03:08.92571+00:00",
+          "reported_at": "2026-10-08T18:24:02Z",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "Primary arXiv submission history v1 explicitly UTC; only v1 listed, no later updates visible."
+        },
+        {
+          "id": 4944,
+          "source_id": "nature",
+          "title": "Private, offline and yours: how to search the literature with local AI systems",
+          "url": "https://www.nature.com/articles/d41586-026-03227-4",
+          "published_at": "2026-10-12T00:00:00+00:00",
+          "fetched_at": "2026-10-12T11:52:56.740294+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-12",
+          "reported_precision": "date",
+          "reported_basis": "dc.date/prism.publicationDate and visible time datetime all 2026-10-12. JSON-LD datePublished/dateModified both 2026-10-12T00:00:00Z retained here as date-serialization evidence, not verified clock time."
+        },
+        {
+          "id": 5310,
+          "source_id": "hn-front",
+          "title": "Just say no to OpenAI and Anthropic",
+          "url": "https://micahflee.com/just-say-no-to-openai-and-anthropic/",
+          "published_at": "2026-10-12T18:17:29+00:00",
+          "fetched_at": "2026-10-12T18:52:49.93996+00:00",
+          "reported_at": "2026-10-11T23:03:05.000Z",
+          "reported_date": "2026-10-11",
+          "reported_precision": "time",
+          "reported_basis": "HTML article:published_time and JSON-LD datePublished; modified separately 2026-10-12T18:16:53.000Z."
+        },
+        {
+          "id": 5692,
+          "source_id": "hn-front",
+          "title": "AI Models Can Provably Hide Arbitrary Capabilities",
+          "url": "https://arxiv.org/abs/2610.13928",
+          "published_at": "2026-10-13T02:07:08+00:00",
+          "fetched_at": "2026-10-13T04:02:32.645715+00:00",
+          "reported_at": "2026-10-09T17:55:06Z",
+          "reported_date": "2026-10-09",
+          "reported_precision": "time",
+          "reported_basis": "Primary arXiv submission history v1 explicitly UTC; only v1 listed, no later updates visible."
+        },
+        {
+          "id": 6824,
+          "source_id": "hn-front",
+          "title": "Physical Intelligence API Beta: Frontier Models for Every Robot",
+          "url": "https://www.pi.website/blog/api-beta",
+          "published_at": "2026-10-13T21:55:25+00:00",
+          "fetched_at": "2026-10-13T23:05:13.312174+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-13",
+          "reported_precision": "date",
+          "reported_basis": "Visible Published October13,2026; article:published_time and JSON-LD datePublished/dateModified contain date only."
+        },
+        {
+          "id": 6826,
+          "source_id": "simon-willison",
+          "title": "llm-meta-ai 0.2",
+          "url": "https://simonwillison.net/2026/Oct/12/llm-meta-ai/",
+          "published_at": "2026-10-12T23:58:46+00:00",
+          "fetched_at": "2026-10-13T23:05:14.138969+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-12",
+          "reported_precision": "date",
+          "reported_basis": "Primary page Posted date and clock 11:58 pm; clock timezone unspecified. og:updated_time=1791849526 is update metadata, not datePublished."
+        },
+        {
+          "id": 6848,
+          "source_id": "simon-willison",
+          "title": "llm-gemini 0.35",
+          "url": "https://simonwillison.net/2026/Oct/13/llm-gemini/",
+          "published_at": "2026-10-13T22:28:54+00:00",
+          "fetched_at": "2026-10-13T23:35:15.099372+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-13",
+          "reported_precision": "date",
+          "reported_basis": "Primary page Posted date and clock 10:28 pm; clock timezone unspecified. og:updated_time=1791930534 is update metadata, not datePublished."
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "这些文章讨论了人工智能模型的隐私、能力、自我保护和新版本发布，但没有提及任何当前或近期造成严重人员伤害、公共服务中断或需要紧急保护响应的事件。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "88bc9f2a815eb9b458d2dd95d76e58965f6bb961cd7684b8dc35378c6f9659ac"
+    },
+    {
+      "id": 1457,
+      "title": "规范医疗人工智能的未来发展",
+      "summary_zh": "人工智能在医学领域的进步速度已超出了监管、伦理和专业反思的跟进能力。作者认为，应先规范医疗AI的发展，再将其应用于临床，而非在开发后再讨论其在临床中的位置。",
+      "score_final": 53.224146537851894,
+      "score_breakdown": {
+        "objective": {
+          "score": 34.226620657947194,
+          "growth": 28.906482631788784,
+          "breadth": 17.5,
+          "community": 0.0,
+          "source_quality": 80.0
+        },
+        "importance": {
+          "scope": 3,
+          "score": 68.0,
+          "reason": "文章指出，人工智能在医学领域的进步速度已超出了监管、伦理和专业反思的跟进能力，需要先规范其发展再应用于临床。",
+          "novelty": 3,
+          "confidence": "high",
+          "durability": 4,
+          "domain_importance": 4
+        }
+      },
+      "first_seen_at": "2026-10-10T04:19:28.418831+00:00",
+      "changed_at": "2026-10-10T04:19:28.418831+00:00",
+      "sampling_bucket": 4,
+      "articles": [
+        {
+          "id": 2218,
+          "source_id": "lancet",
+          "title": "[Correspondence] Regulate prospective development of medical AI now",
+          "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)01941-0/fulltext?rss=yes",
+          "published_at": "2026-10-10T00:00:00+00:00",
+          "fetched_at": "2026-10-10T04:13:10.55898+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": null
+        }
+      ],
+      "public_impact_status": "routine",
+      "public_impact_urgent": false,
+      "public_impact_evidence": [],
+      "public_impact_assessed_at": "2026-10-14T05:53:46.539870Z",
+      "public_impact_reason": "文章讨论的是对医疗AI未来发展的监管，而非当前或近期发生的严重人类伤害、服务中断或紧急保护响应。",
+      "public_impact_model": "google/gemini-2.5-flash",
+      "public_impact_input_fingerprint": "de186e8504364bcce8adec3328e4b4cd107243a3e9a782d5467b27faec6458d4"
+    }
+  ],
+  "provenance": "production-read-only-snapshot",
+  "sampling": "Four score quartiles, ten deterministic hash-selected events per quartile; not representative of all domains.",
+  "baseline_half_life_hours": 24,
+  "baseline_config_evidence": "Observed read-only from worker /app/config/scoring.yml on 2026-10-14 after the database snapshot; not an atomic configuration snapshot.",
+  "technical_review": {
+    "reviewer": "AI original-source verification; user authorized technical completion",
+    "checked_on": "2026-10-14",
+    "original_snapshot_file": "production-candidates.json",
+    "records_files": [
+      "origin-review-a.json",
+      "origin-review-b.json",
+      "origin-review-c.json"
+    ],
+    "limitations": [
+      "Unknown original dates never fall back to feed entry dates.",
+      "Publisher brands are grouping proxies, not independent corroboration.",
+      "Mixed events 2113 and 3125 retain existing membership as negative cases."
+    ],
+    "impact_input_snapshot_archived_as": "publication-candidates.json",
+    "impact_review_reports": [
+      "public-impact-live-report.json",
+      "public-impact-retry-report.json"
+    ]
+  }
+}

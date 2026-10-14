@@ -103,7 +103,7 @@ test('renders event cards from the API', async () => {
   expect(screen.getByText('这是事件摘要。')).toBeTruthy()
   const link = screen.getByRole('link', { name: /BBC World/ })
   expect(link.getAttribute('href')).toBe('https://example.com/a')
-  expect(screen.getByText(/1 源 · 更新于/)).toBeTruthy()
+  expect(screen.getByText(/1 篇报道 · 报道时间未知/)).toBeTruthy()
 })
 
 test('score badge toggles the breakdown with the scoring reason', async () => {

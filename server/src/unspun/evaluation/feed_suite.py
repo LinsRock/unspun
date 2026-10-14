@@ -1,9 +1,9 @@
-"""Human-label readiness and reproducible offline ranking reports."""
+"""Review provenance, readiness and reproducible offline ranking reports."""
 
 import hashlib
 import json
 from dataclasses import asdict
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from typing import Annotated, Any, Literal
 
@@ -18,6 +18,7 @@ from pydantic import (
     ValidationError,
 )
 
+from unspun.core import public_impact, publication
 from unspun.evaluation import feed_ranking
 from unspun.evaluation.feed_ranking import (
     DEFAULT_PARAMS,
@@ -30,6 +31,7 @@ from unspun.evaluation.feed_ranking import (
 )
 
 Nonempty = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
+ReviewerKind = Literal["human", "ai-technical"]
 
 
 class Snapshot(BaseModel):
@@ -49,6 +51,8 @@ class Reprint(BaseModel):
 class EventLabel(BaseModel):
     model_config = ConfigDict(extra="forbid")
     event_id: PositiveInt
+    reviewer_kind: ReviewerKind = "human"
+    subjective_labels_origin: Nonempty | None = None
     domain: Nonempty | None = None
     importance_band: Annotated[int, Field(strict=True, ge=1, le=5)] | None = None
     worth_reading: StrictBool | None = None
@@ -65,6 +69,7 @@ class EventLabel(BaseModel):
 
 class ExpectedPair(BaseModel):
     model_config = ConfigDict(extra="forbid")
+    reviewer_kind: ReviewerKind = "human"
     sort: Literal["newest", "hot", "important"]
     range: Literal["today", "24h", "7d", "all"]
     before_event_id: PositiveInt
@@ -77,6 +82,8 @@ class ExpectedPair(BaseModel):
 class Annotations(BaseModel):
     model_config = ConfigDict(extra="forbid")
     version: Nonempty
+    reviewer_kind: ReviewerKind = "human"
+    technical_review_origin: Nonempty | None = None
     snapshot_sha256: str
     frozen: StrictBool = False
     frozen_sha256: str | None = None
@@ -91,7 +98,7 @@ class Annotations(BaseModel):
 
 
 def _json_default(value: Any) -> str:
-    if isinstance(value, datetime):
+    if isinstance(value, (date, datetime)):
         return value.isoformat()
     raise TypeError(f"unsupported JSON type: {type(value).__name__}")
 
@@ -104,7 +111,12 @@ def content_hash(document: Any) -> str:
 
 
 def candidate_source_hash() -> str:
-    files = [Path(__file__), Path(feed_ranking.__file__)]
+    files = [
+        Path(__file__),
+        Path(feed_ranking.__file__),
+        Path(publication.__file__),
+        Path(public_impact.__file__),
+    ]
     return hashlib.sha256(b"\n".join(path.read_bytes() for path in files)).hexdigest()
 
 
@@ -129,12 +141,15 @@ def _readiness(
         issues.append("candidate source hash does not match reviewed code")
     if not annotations.frozen:
         issues.append("annotations are not frozen")
+    role = "human" if annotations.reviewer_kind == "human" else "AI technical"
+    if annotations.reviewer_kind == "ai-technical" and annotations.technical_review_origin is None:
+        issues.append("AI technical suite requires explicit technical review origin")
     if annotations.reviewed_by is None or annotations.reviewed_at is None:
-        issues.append("suite requires a human reviewer and timezone-aware review time")
+        issues.append(f"suite requires a {role} reviewer and timezone-aware review time")
     if not annotations.coverage_reviewed or annotations.coverage_notes is None:
-        issues.append("domain and case coverage requires explicit human review")
+        issues.append(f"domain and case coverage requires explicit {role} review")
     if len({label.domain for label in annotations.labels if label.domain}) < 3:
-        issues.append("standard set must cover at least three human-labelled domains")
+        issues.append(f"standard set must cover at least three {role}-labelled domains")
     events = {event.id: event for event in snapshot.events}
     if len(events) != len(snapshot.events):
         issues.append("duplicate event IDs in snapshot")
@@ -153,9 +168,38 @@ def _readiness(
         if label is None:
             continue
         prefix = f"event {event_id}: "
+        if event.public_impact_urgent or event.public_impact_status == "supported":
+            impact = public_impact.parse_impact(
+                {
+                    "reason": "Frozen source-grounded public-impact assessment",
+                    "is_urgent": event.public_impact_urgent,
+                    "evidence": [item.model_dump() for item in event.public_impact_evidence],
+                },
+                [
+                    public_impact.ImpactArticle(
+                        id=article.id,
+                        title=article.title,
+                        text=article.impact_original_excerpt or "",
+                        reported_at=article.reported_at,
+                        reported_date=article.reported_date,
+                    )
+                    for article in event.articles
+                ],
+            )
+            if impact.status == "unknown":
+                issues.append(
+                    prefix + "public-impact evidence not verified against original excerpt"
+                )
+        label_role = "human" if label.reviewer_kind == "human" else "AI technical"
+        if label.reviewer_kind == "ai-technical" and label.subjective_labels_origin is None:
+            issues.append(
+                prefix + "AI technical labels require original user subjective labels origin"
+            )
+        if label.reviewer_kind == "ai-technical" and annotations.technical_review_origin is None:
+            issues.append(prefix + "AI technical review requires suite technical review origin")
         for field in ("domain", "importance_band", "worth_reading", "reviewed_by", "reviewed_at"):
             if getattr(label, field) is None:
-                issues.append(prefix + f"missing human {field}")
+                issues.append(prefix + f"missing {label_role} {field}")
         if not event.articles:
             issues.append(prefix + "no source articles to review")
         if not label.reprints_reviewed:
@@ -166,7 +210,8 @@ def _readiness(
         for article in event.articles:
             expected = (
                 "missing"
-                if article.published_at is None
+                if article.reported_precision == "unknown"
+                or (article.reported_precision is None and article.published_at is None)
                 else "valid"
                 if valid_publication(article, snapshot.captured_at, params)
                 else "anomalous"
@@ -198,8 +243,10 @@ def _readiness(
         ):
             issues.append(prefix + "reprint origin must use http(s)")
     if {pair.sort for pair in annotations.expected_pairs} != {"newest", "hot", "important"}:
-        issues.append("human priority pairs must cover newest, hot and important")
+        issues.append(f"{role} priority pairs must cover newest, hot and important")
     for pair in annotations.expected_pairs:
+        if pair.reviewer_kind == "ai-technical" and annotations.technical_review_origin is None:
+            issues.append("AI technical priority pair requires suite technical review origin")
         if pair.before_event_id == pair.after_event_id:
             issues.append("priority pair must compare two different events")
         if pair.before_event_id not in events or pair.after_event_id not in events:
@@ -212,7 +259,7 @@ def evaluate_suite(
     annotations_document: dict[str, Any],
     params: CandidateParams = DEFAULT_PARAMS,
 ) -> dict[str, Any]:
-    """Drafts can be ranked, but cannot satisfy the human acceptance gate."""
+    """Drafts can be ranked, but cannot satisfy the reviewed acceptance gate."""
     snapshot_hash = content_hash(snapshot_document)
     report: dict[str, Any] = {
         "version": "m3b-ranking-report-v1",
@@ -231,7 +278,7 @@ def evaluate_suite(
             "source": candidate_source_hash(),
         },
         "limitations": [
-            "Human reviewer metadata is a recorded assertion, not an identity verification.",
+            "Reviewer metadata and origin are recorded assertions, not identity verifications.",
             "Media activity is not independent factual evidence; unknown reprints remain unknown.",
             "Priority pairs assess only declared preferences, not overall ranking accuracy.",
         ],
@@ -256,7 +303,13 @@ def evaluate_suite(
     report["captured_at"] = snapshot.captured_at.isoformat()
     report["baseline_half_life_hours"] = snapshot.baseline_half_life_hours
     report["event_count"] = len(snapshot.events)
-    report["publisher_grouping"] = "human-reviewed" if not issues else "draft-unverified"
+    report["reviewer_kind"] = annotations.reviewer_kind
+    report["technical_review_origin"] = annotations.technical_review_origin
+    grouping_roles = {label.reviewer_kind for label in annotations.labels}
+    grouping_review = next(iter(grouping_roles)) if len(grouping_roles) == 1 else "mixed"
+    report["publisher_grouping"] = (
+        f"{grouping_review}-reviewed" if not issues else "draft-unverified"
+    )
     positions: dict[tuple[str, str], dict[int, int]] = {}
     for period in PERIODS:
         report["rankings"][period] = {}
@@ -274,12 +327,7 @@ def evaluate_suite(
                 article_publisher_groups=article_groups,
             )
             report["rankings"][period][sort] = [
-                {
-                    **asdict(row),
-                    "earliest": row.earliest.isoformat() if row.earliest else None,
-                    "latest": row.latest.isoformat() if row.latest else None,
-                }
-                for row in rows
+                json.loads(json.dumps(asdict(row), default=_json_default)) for row in rows
             ]
             positions[sort, period] = {row.id: i for i, row in enumerate(rows)}
     for pair in annotations.expected_pairs:

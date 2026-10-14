@@ -7,8 +7,8 @@
       "before_event_id": 3509,
       "after_event_id": 4029,
       "reason": "An incident with deaths should receive priority attention over the WorkBuddy product update.",
-      "applicable_sort": null,
-      "scope_status": "clarification-requested"
+      "applicable_sort": "important",
+      "scope_status": "recommended-scope-authorized-by-user-start-instruction"
     }
   ],
   "unconstrained_pairs": [
@@ -23,28 +23,23 @@
     }
   ],
   "current_candidate_checks": {
-    "hot": {
-      "range": "7d",
-      "before_event_id": 3509,
-      "after_event_id": 4029,
-      "incident_position": 6,
-      "product_position": 1,
-      "matches_user_preference": false,
-      "status": "scope-awaiting-clarification"
-    },
     "important": {
       "range": "7d",
       "before_event_id": 3509,
       "after_event_id": 4029,
-      "incident_position": 21,
-      "product_position": 8,
-      "matches_user_preference": false,
-      "status": "scope-awaiting-clarification"
+      "incident_position": 1,
+      "product_position": 7,
+      "matches_user_preference": true,
+      "status": "frozen-candidate-passed"
+    },
+    "hot": {
+      "range": "7d",
+      "status": "coverage-activity-only-not-a-user-public-impact-constraint"
     }
   },
   "unconfirmed": [
     "The user did not confirm that social attention is actually higher in observed coverage.",
-    "The user did not approve a universal rule putting every casualty incident above every product update.",
-    "The user has not yet specified whether the priority belongs in important or also hot."
-  ]
+    "The user did not approve a universal rule putting every casualty incident above every product update."
+  ],
+  "scope_resolution": "User instructed to start after assistant proposed important=public impact, hot=reporting activity."
 }

@@ -78,3 +78,37 @@ def testdrop_internal_urls_filters_rsshub_host() -> None:
     ]
     kept = drop_internal_urls(entries, "http://rsshub:1200")
     assert [e.url for e in kept] == ["https://example.com/story", "http://rsshub:12000/other"]
+
+
+def test_fetch_stores_original_metadata_in_same_article_request(db_session: Session) -> None:
+    requests: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        requests.append(request.url.path)
+        if request.url.path == "/feed":
+            return httpx.Response(200, content=FEED)
+        return httpx.Response(
+            200,
+            text=(
+                '<meta property="article:published_time" content="2026-10-01">'
+                "<article><p>Original material.</p></article>"
+            ),
+        )
+
+    assert (
+        fetch_source(
+            db_session,
+            httpx.Client(transport=httpx.MockTransport(handler)),
+            make_source(max_items=1),
+        )
+        == 1
+    )
+    article = db_session.scalar(select(Article).where(Article.url == "https://example.com/a"))
+    assert article is not None
+    assert article.reported_at is None
+    assert article.reported_date is not None
+    assert article.reported_date.isoformat() == "2026-10-01"
+    assert article.reported_precision == "date"
+    assert article.reported_basis == "meta:article:published_time"
+    assert article.publisher_group == "example.com"
+    assert requests == ["/feed", "/a"]

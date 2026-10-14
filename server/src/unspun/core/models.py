@@ -44,6 +44,7 @@ class Event(Base):
     # Score components, LLM reason, and confidence; shape is owned by the
     # scoring module so it can evolve without migrations.
     score_breakdown: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    public_impact: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
     scored_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     first_seen_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
@@ -70,7 +71,15 @@ class Article(Base):
     title: Mapped[str] = mapped_column(Text)
     lang: Mapped[str | None] = mapped_column(Text)
     published_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    reported_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    reported_date: Mapped[date | None] = mapped_column(Date)
+    reported_precision: Mapped[str] = mapped_column(
+        Text, default="unknown", server_default="unknown"
+    )
+    reported_basis: Mapped[str | None] = mapped_column(Text)
+    publisher_group: Mapped[str | None] = mapped_column(Text)
     fetched_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    content_basis: Mapped[str] = mapped_column(Text, default="unknown", server_default="unknown")
     content: Mapped[str | None] = mapped_column(Text)
     title_zh: Mapped[str | None] = mapped_column(Text)
     summary_zh: Mapped[str | None] = mapped_column(Text)

@@ -1,0 +1,285 @@
+{
+  "version": "m3b-post-review-validation-v1",
+  "reason": "Filter empty legacy bodies before 8-article cap; retained 40 real + 6 control model inputs are unchanged, no additional paid calls needed.",
+  "current_impact_source_sha256": "319ce964591f687d661acfd6a1426d54718ef81263134a9baf0728c540100981",
+  "model_calls": 0,
+  "source_bodies_persisted": false,
+  "checks": [
+    {
+      "case_id": "3492",
+      "model_input_sha256": "ba4280782cda76b143eeaa6a7a6ef458a2d323c2ca75122c2cd3eb56c509bb35",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "3373",
+      "model_input_sha256": "e4c3c051272923436bd5e8a086a79fe46ad8215419d61a0a439b14e5daf0aec4",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2491",
+      "model_input_sha256": "e118f0492d372482dcd0906614a556acf4914e20c5d4839a43cf6a12a05fac04",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2226",
+      "model_input_sha256": "aa7b59e3f0104a3a3e3a0112b20f4887ce38a7e36d10815e1d54a2d66cc765b9",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "550",
+      "model_input_sha256": "2474199e62a9682144fc68e099ae9e5d159b8d67716d650c0a4cb3d4312c44c4",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4964",
+      "model_input_sha256": "0dcc1b5eb19c94c7aec0765917565a0cc081f173b03130da756cdf37659f9450",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2215",
+      "model_input_sha256": "0c52c342b0462ba3e80466911f05b6dc5a16593643dc62cc032129d941db9f23",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4407",
+      "model_input_sha256": "6f10952bce60ded12b36e563c4d496adbaef57a24181ad115b0ec35255b3baac",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2751",
+      "model_input_sha256": "82b2150c6550a03c807813cc5f41a798c0a818eea90c9b5058c6a910b1f15851",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4393",
+      "model_input_sha256": "ae1abf186cdf45820ace4a3b0132d74dd46aff61f066357cc54342d03f8b0b53",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "1970",
+      "model_input_sha256": "af7a391699d64479c4b33ad2eb2383e8479b967cc5f0d3c26dd42b7b9f51ad10",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "1994",
+      "model_input_sha256": "bb146649d6909b8479df4fa6079fd8eca11e8c26d372607173122b6745279533",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4497",
+      "model_input_sha256": "8ad46cedafe67ee642f4c3449486298e505d73954483a83d75035d42f6ea022f",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "381",
+      "model_input_sha256": "c02c7203ffaa1a6a3cb83854378df5e04357e1e0023a742276e07fba08df8697",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4527",
+      "model_input_sha256": "32959bea66b74adb532aca7a9ab5ffb2db7bf2d06bc1ec25da7823b16fee2674",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "3509",
+      "model_input_sha256": "127cc29450479a6a7c5e3a146e9d8a4fdbd36f52697397dfaa9c4a32d54a3330",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2045",
+      "model_input_sha256": "0a8c8a7f5d108b7c120a5a6dc8c47d63ddc77567eaccddabbdde8470a1a71551",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "1283",
+      "model_input_sha256": "3d2b6f9f640c5d4ea5a1e63e8410c874a699635708b33874cbdab7b0a9598731",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "3550",
+      "model_input_sha256": "cefc07938a91a76ce09200b29a2aad14335cc31f5b4f67a5594d9dd9a2139939",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "433",
+      "model_input_sha256": "5c3188248b86eb4f6d592c5a923f8df02e500becd7e0ce14382ecd2ddeec4411",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4612",
+      "model_input_sha256": "6189b241117ae5b0015c92e534fb28b3c49414cd12d5128c75b946086f12c79b",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4897",
+      "model_input_sha256": "25ecdd825044a953438f1791c5edc6bd4c96610286e82253ddbab2f131fb669f",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "363",
+      "model_input_sha256": "01f679d1f52ba7185386510078e2a692807887f71b2c10b6b60871e8f472e6d3",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "168",
+      "model_input_sha256": "a68254902c9a19d8be859e275bf5f959b44d86a34c4160fdb5f925db2d8303cf",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2184",
+      "model_input_sha256": "2168d50087469d803dc8d1c6b50f80d7fa3a7430de0715db1f1e971579ba10ee",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "236",
+      "model_input_sha256": "5fb2331f9a01e9fd28584beca6c41930d2f3549cc7549ad6af9086e6fbeeb634",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "348",
+      "model_input_sha256": "d92022ec7ca8fb2cc7e14cf22b8830288a17970dcb936bf020cd5f97c0d1c7ce",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4029",
+      "model_input_sha256": "b1e5ce96e0c8a3037e1afa1975ef77db3b7e11864876ad020c14c6c52fc582c3",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2822",
+      "model_input_sha256": "6681252a504c1d92194d9eb7d937e59db338254f87b7a5857459006bcfb475be",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "1195",
+      "model_input_sha256": "ec32aedfb8f4195b5e5faa050c97ec09d6ffe89fba93e7f568dd2bbd6796e70b",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2081",
+      "model_input_sha256": "d599f9ad816f9edbfd20451df4c5124340eaaac4b812bc466d6c7d7eb94686a3",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "4713",
+      "model_input_sha256": "856681f78e0569864459052c548e1eb6fa1d3644db5dd808359f38dde6259a2f",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "610",
+      "model_input_sha256": "e8521276c3966d056432899faca04fd43fe7ef09d1ccfa8969fa397b04b7445f",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "1164",
+      "model_input_sha256": "10901ef56757ccd0215463354d454bad81ef2e0515bbb160eda4dcfd71081e53",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "833",
+      "model_input_sha256": "fe3a70b52b64ee3c9cb7ea16e34e3243fa0b996a441269ba650e930fa1270386",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "138",
+      "model_input_sha256": "19a2f96df4d93b3dfaf8adaa5dd526df6dbfa91edefbc9f4fbb8a88476a633c6",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "899",
+      "model_input_sha256": "07dd1effb997239148e638c454569ac580b8a1012a30719a1c4a4909a361b88e",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "2113",
+      "model_input_sha256": "81baece9cc9a0f3c7ade855c0bfe26e2ebaf60d3714a5cd4a6faa8d0e51267a9",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "3125",
+      "model_input_sha256": "ca2aa5dd743e8def9d19b344702408eb5d0ef52a59b5c2735a053ddae39e40e9",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "1457",
+      "model_input_sha256": "cdf279b370a3a040669d9e41f5cebccbd0a8951513d2640d42a75b17d7783b97",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "recent-casualties",
+      "model_input_sha256": "2d947fcd5d51edd1ce76418721ad2a74e4a59a99ac94938fbac15000d0250e3b",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "historical-casualties",
+      "model_input_sha256": "c67bd40bf724b7bd4eaa5a1f0581a3f8608ecd7bf21a6d8fe28fa5e8aae173bb",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "routine-product",
+      "model_input_sha256": "c9ae1d6911f6925c674b344d6020adabde2b1887f9f2afced509305c858dcd89",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "urgent-protection",
+      "model_input_sha256": "41688235f12a67ea8761ee7b5d60e7a9bfb7db867b25660a9b3b75f6153cf588",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "death-metaphor",
+      "model_input_sha256": "d275c9b18c40feeeabcb4679cacde9dbcd916c718f47672c9df6d5df82f1f208",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    },
+    {
+      "case_id": "prompt-injection",
+      "model_input_sha256": "330ef0f613c626b4bb0949c4fa34334611ce7cd1f48d4cb51ffdc751718aa7ee",
+      "retained_fingerprint_matches": true,
+      "before_after_prompt_equal": true
+    }
+  ]
+}

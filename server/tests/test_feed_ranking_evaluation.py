@@ -210,3 +210,159 @@ def test_direct_and_aggregated_links_to_same_publisher_count_once() -> None:
     )
     assert rows[0].active_publishers == 1
     assert rows[0].metric == pytest.approx(1.5)
+
+
+def reviewed(sample: dict[str, object], precision: str, value: object = None) -> dict[str, object]:
+    from typing import cast
+
+    articles = cast(list[dict[str, object]], sample["articles"])
+    for article in articles:
+        article["reported_precision"] = precision
+        article["reported_basis"] = "primary-page"
+        article["reported_at" if precision == "time" else "reported_date"] = value
+    return sample
+
+
+def urgent(sample: dict[str, object]) -> dict[str, object]:
+    from typing import cast
+
+    articles = cast(list[dict[str, object]], sample["articles"])
+    articles[0]["impact_original_excerpt"] = "Ongoing harm requires immediate public action."
+    sample.update(
+        public_impact_status="supported",
+        public_impact_urgent=True,
+        public_impact_evidence=[{"article_id": articles[0]["id"], "quote": "Ongoing harm"}],
+    )
+    return sample
+
+
+def test_reviewed_unknown_never_falls_back_to_feed_update() -> None:
+    sample = reviewed(event_sample(1, [("a", NOW)]), "unknown")
+    assert rank([sample], period="24h") == []
+    assert rank([sample])[0].earliest is None
+    assert rank([sample])[0].missing_count == 1
+    assert rank([sample], "hot", "24h") == []
+
+
+def test_date_only_preserves_display_and_uses_conservative_bounds() -> None:
+    from datetime import date
+
+    sample = reviewed(event_sample(1, [("a", NOW)]), "date", date(2026, 10, 13))
+    row = rank([sample])[0]
+    assert row.earliest is None
+    assert row.earliest_date == date(2026, 10, 13)
+    assert row.earliest_precision == "date"
+    assert row.earliest_lower == datetime(2026, 10, 12, 10, tzinfo=UTC)
+    assert row.earliest_upper == NOW
+    assert row.valid_count == 1
+    assert rank([sample], period="24h") == []
+    assert rank([sample], "important", "24h") == []
+    assert rank([sample], "hot", "24h") == []
+
+
+def test_original_time_and_same_publisher_repost_do_not_revive_heat() -> None:
+    old = NOW - timedelta(days=5)
+    sample = reviewed(event_sample(1, [("a", NOW)]), "time", old)
+    assert rank([sample])[0].earliest == old
+    assert rank([sample], "hot", "24h") == []
+    legacy_repost = event_sample(2, [("a", old), ("a", NOW)])
+    assert rank([legacy_repost], "hot", "24h") == []
+
+
+def test_fresh_supported_public_harm_precedes_high_score_product_only_in_important() -> None:
+    harm = urgent(event_sample(1, [("a", NOW - timedelta(hours=2))], score=10))
+    product = event_sample(2, [("b", NOW)], score=90)
+    assert [r.id for r in rank([product, harm], "important")] == [1, 2]
+    assert rank([harm], "important")[0].public_impact_boosted
+    assert [r.id for r in rank([product, harm])] == [2, 1]
+    assert [r.id for r in rank([product, harm], "hot")] == [2, 1]
+
+
+@pytest.mark.parametrize(
+    "publication", [NOW - timedelta(hours=48, seconds=1), NOW + timedelta(seconds=1), None]
+)
+def test_old_future_or_unknown_harm_is_not_boosted(publication: datetime | None) -> None:
+    harm = urgent(event_sample(1, [("a", publication)], score=10))
+    product = event_sample(2, [("b", NOW)], score=90)
+    assert [r.id for r in rank([harm, product], "important")] == [2, 1]
+    assert not rank([harm], "important")[0].public_impact_boosted
+
+
+def test_public_impact_requires_supported_member_evidence_and_nonfuture_assessment() -> None:
+    cases: list[dict[str, object]] = [
+        {"public_impact_status": "unknown"},
+        {"public_impact_evidence": []},
+        {"public_impact_evidence": [{"article_id": 9999, "quote": "Harm"}]},
+        {"public_impact_assessed_at": NOW + timedelta(seconds=1)},
+    ]
+    for changes in cases:
+        sample = urgent(event_sample(1, [("a", NOW)], score=10))
+        sample.update(changes)
+        assert not rank([sample], "important")[0].public_impact_boosted
+
+
+def test_uncertain_old_date_is_not_boosted_even_when_feed_is_fresh() -> None:
+    from datetime import date
+
+    sample = urgent(reviewed(event_sample(1, [("a", NOW)]), "date", date(2026, 10, 12)))
+    assert not rank([sample], "important")[0].public_impact_boosted
+
+
+@pytest.mark.parametrize("hours", [0, -1, float("nan"), float("inf")])
+def test_public_impact_window_must_be_positive_finite(hours: float) -> None:
+    from unspun.evaluation.feed_ranking import CandidateParams
+
+    with pytest.raises(ValueError):
+        CandidateParams(public_impact_hours=hours)
+
+
+def test_date_bounds_order_events_without_fabricating_instants() -> None:
+    from datetime import date
+
+    dated = reviewed(event_sample(1, [("a", NOW)], score=90), "date", date(2026, 10, 13))
+    precise = event_sample(2, [("b", NOW - timedelta(hours=25))], score=10)
+    assert [r.id for r in rank([dated, precise])] == [2, 1]
+    assert rank([dated], period="7d")[0].earliest_date == date(2026, 10, 13)
+    assert rank([dated], "hot", "7d")[0].metric == pytest.approx(2 ** (-38.5 / 24))
+
+
+def test_public_impact_uses_earliest_source_and_includes_exact_48h_boundary() -> None:
+    boundary = urgent(event_sample(1, [("a", NOW - timedelta(hours=48))], score=10))
+    assert rank([boundary], "important")[0].public_impact_boosted
+    old = urgent(event_sample(2, [("a", NOW - timedelta(days=5)), ("b", NOW)], score=10))
+    assert not rank([old], "important")[0].public_impact_boosted
+
+
+def test_public_impact_parameters_are_immutable() -> None:
+    from dataclasses import FrozenInstanceError
+
+    from unspun.evaluation.feed_ranking import CandidateParams
+
+    params = CandidateParams()
+    assert params.public_impact_hours == 48
+    with pytest.raises(FrozenInstanceError):
+        params.public_impact_hours = 24  # pyright: ignore[reportAttributeAccessIssue]
+
+
+@pytest.mark.parametrize("excerpt", [None, "", "Routine product announcement."])
+def test_public_impact_quote_must_match_member_original_excerpt(excerpt: str | None) -> None:
+    from typing import cast
+
+    sample = urgent(event_sample(1, [("a", NOW)], score=10))
+    articles = cast(list[dict[str, object]], sample["articles"])
+    articles[0]["impact_original_excerpt"] = excerpt
+    assert not rank([sample], "important")[0].public_impact_boosted
+
+
+def test_public_impact_original_excerpt_is_bounded() -> None:
+    from typing import cast
+
+    from pydantic import ValidationError
+
+    from unspun.evaluation.feed_ranking import EventSample
+
+    sample = urgent(event_sample(1, [("a", NOW)]))
+    articles = cast(list[dict[str, object]], sample["articles"])
+    articles[0]["impact_original_excerpt"] = "x" * 2501
+    with pytest.raises(ValidationError):
+        EventSample.model_validate(sample)

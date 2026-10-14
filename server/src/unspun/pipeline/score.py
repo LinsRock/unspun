@@ -9,7 +9,7 @@ from datetime import UTC, datetime, timedelta
 from statistics import mean
 from typing import Any
 
-from sqlalchemy import ColumnElement, or_, select
+from sqlalchemy import ColumnElement, or_, select, text
 from sqlalchemy.orm import Session, selectinload
 
 from unspun.core.config import get_settings
@@ -18,6 +18,13 @@ from unspun.core.llm import SupportsLlm
 from unspun.core.logging import get_logger
 from unspun.core.models import Article, Event
 from unspun.core.params import ScoringParams, get_scoring_params
+from unspun.core.public_impact import (
+    ImpactArticle,
+    assess_impact,
+    impact_fingerprint,
+    unknown_impact,
+)
+from unspun.core.publication import publication_bounds
 from unspun.core.sources import Source, load_sources
 
 log = get_logger("unspun.pipeline.score")
@@ -165,7 +172,84 @@ def score_event(
             "confidence": str(out.get("confidence") or "low"),
         },
     }
-    event.scored_at = datetime.now(UTC)
+    now = datetime.now(UTC)
+    refresh_event_public_impact(session, client, event, now)
+    event.scored_at = now
+
+
+def refresh_event_public_impact(
+    session: Session,
+    client: SupportsLlm,
+    event: Event,
+    now: datetime | None = None,
+) -> bool:
+    """Refresh eligible impact metadata, leaving importance scores untouched.
+
+    Transient failures retry at most hourly, within the original 48-hour window.
+    Evidence/payload failures remain cached until member inputs change.
+    """
+    now = now or datetime.now(UTC)
+    articles = [a for a in event.articles if a.fetched_at <= now]
+    original = [
+        ImpactArticle(
+            id=a.id,
+            title=a.title,
+            text=(a.content or "") if a.content_basis == "original" else "",
+            reported_at=a.reported_at,
+            reported_date=a.reported_date,
+        )
+        for a in articles
+    ]
+    model = get_settings().viewpoint_model
+    fingerprint = impact_fingerprint(original, model)
+    cached = event.public_impact
+    same_input = bool(cached and cached.get("input_fingerprint") == fingerprint)
+    bounds = [
+        bound
+        for a in articles
+        if a.reported_precision != "unknown"
+        and (
+            bound := publication_bounds(
+                a.reported_at if a.reported_precision == "time" else None,
+                a.reported_date if a.reported_precision == "date" else None,
+                a.fetched_at,
+                now,
+            )
+        )
+        is not None
+    ]
+    eligible = bool(
+        bounds
+        and min(bound[0] for bound in bounds) >= now - timedelta(hours=48)
+        and any(a.text.strip() for a in original)
+    )
+    if not eligible:
+        if same_input and cached and cached.get("failure_kind") == "ineligible":
+            return False
+        result = unknown_impact(
+            "Original reporting is outside the current impact window or unavailable", "ineligible"
+        )
+        result.input_fingerprint = fingerprint
+        result.model = model
+        result.assessed_at = now
+        event.public_impact = result.model_dump(mode="json")
+        return True
+    if same_input and cached:
+        if cached.get("status") != "unknown" or cached.get("failure_kind") not in (
+            "budget",
+            "generation",
+        ):
+            return False
+        try:
+            assessed_at = datetime.fromisoformat(str(cached.get("assessed_at")))
+            if assessed_at.utcoffset() is None or assessed_at > now - timedelta(hours=1):
+                return False
+        except ValueError:
+            pass
+    event.public_impact = assess_impact(session, client, original, now, model).model_dump(
+        mode="json"
+    )
+    return True
 
 
 def pending_score_conditions() -> tuple[ColumnElement[bool], ...]:
@@ -198,4 +282,48 @@ def score_pending(client: SupportsLlm, limit: int | None = None) -> int:
                 done += 1
         except Exception:
             log.exception("score_failed", event_id=event_id)
+    refresh_pending_public_impact(client)
     return done
+
+
+def refresh_pending_public_impact(client: SupportsLlm, limit: int = 20) -> int:
+    """Retry up to 20 eligible transient assessments without importance calls."""
+    now = datetime.now(UTC)
+    # Aggregate before LIMIT: expired observations cannot starve recent retries.
+    query = text("""
+        WITH original_times AS (
+            SELECT event_id, min(CASE
+                WHEN reported_precision='time' AND reported_at >= timestamptz '1970-01-01'
+                    AND reported_at <= least(:now, fetched_at + interval '5 minutes')
+                THEN reported_at
+                WHEN reported_precision='date' AND reported_date >= date '1970-01-01'
+                    AND greatest(reported_date::timestamp AT TIME ZONE 'UTC' - interval '14 hours',
+                                  timestamptz '1970-01-01')
+                        <= least(:now, fetched_at + interval '5 minutes')
+                THEN greatest(reported_date::timestamp AT TIME ZONE 'UTC' - interval '14 hours',
+                              timestamptz '1970-01-01') END) AS earliest,
+                bool_or(content_basis='original' AND length(trim(content)) > 0) AS has_original
+            FROM articles WHERE fetched_at <= :now GROUP BY event_id
+        )
+        SELECT e.id FROM events e JOIN original_times t ON t.event_id=e.id
+        WHERE e.scored_at IS NOT NULL AND e.scored_at >= e.changed_at
+            AND t.earliest >= :now - interval '48 hours' AND t.has_original
+            AND e.public_impact->>'status'='unknown'
+            AND e.public_impact->>'failure_kind' IN ('budget','generation')
+            AND CASE WHEN pg_input_is_valid(e.public_impact->>'assessed_at','timestamptz')
+                THEN (e.public_impact->>'assessed_at')::timestamptz <= :now - interval '1 hour'
+                ELSE true END
+        ORDER BY e.id LIMIT :limit
+    """)
+    with session_scope() as session:
+        ids = list(session.scalars(query, {"now": now, "limit": max(0, min(limit, 20))}))
+    refreshed = 0
+    for event_id in ids:
+        try:
+            with session_scope() as session:
+                event = session.get(Event, event_id, options=[selectinload(Event.articles)])
+                if event and refresh_event_public_impact(session, client, event, now):
+                    refreshed += 1
+        except Exception:
+            log.exception("public_impact_refresh_failed", event_id=event_id)
+    return refreshed

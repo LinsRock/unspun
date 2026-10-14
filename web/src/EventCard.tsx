@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import type { ArticleOut, EventOut, ViewpointOut } from './api'
+import type { ArticleOut, EventOut, FeedSort, ViewpointOut } from './api'
 import { safeHref } from './links'
 import SectionHeading from './SectionHeading'
 import EvidenceQuote from './EvidenceQuote'
@@ -191,7 +191,7 @@ function SourceChip({ article }: { article: EventOut['articles'][number] }) {
   )
 }
 
-export default function EventCard({ event }: { event: EventOut }) {
+export default function EventCard({ event, sort = 'newest' }: { event: EventOut; sort?: FeedSort }) {
   const [showBreakdown, setShowBreakdown] = useState(false)
   const [showAllSources, setShowAllSources] = useState(false)
   const [showViewpoint, setShowViewpoint] = useState(false)
@@ -200,6 +200,12 @@ export default function EventCard({ event }: { event: EventOut }) {
   const rounded =
     event.score_final != null ? Math.round(event.score_final) : null
   const updated = relativeTime(event.changed_at)
+  const reportTime = event.earliest_reported_precision === 'date'
+    ? event.earliest_reported_date && `${event.earliest_reported_date}（仅日期）`
+    : event.earliest_reported_at && new Date(event.earliest_reported_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
+  const recentReport = event.latest_reported_precision === 'date'
+    ? event.latest_reported_date && `${event.latest_reported_date}（仅日期）`
+    : event.latest_reported_at && new Date(event.latest_reported_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
   const articles = showAllSources
     ? event.articles
     : event.articles.slice(0, COLLAPSED_SOURCES)
@@ -234,9 +240,19 @@ export default function EventCard({ event }: { event: EventOut }) {
             </span>
           ))}
       </div>
+      {rounded == null && <p className="mt-1 text-xs text-ink-4">尚未评分</p>}
       <div className="mt-[7px] font-mono text-[11.5px] tabular-nums text-ink-4">
-        {event.articles.length} 源{updated != null && ` · 更新于 ${updated}`}
+        {event.articles.length} 篇报道
+        {reportTime ? ` · 最早报道 ${reportTime}` : ` · 报道时间未知 · 首次发现 ${relativeTime(event.first_seen_at) ?? event.first_seen_at}`}
+        {recentReport && ` · 最近报道 ${recentReport}`}
       </div>
+      {((event.missing_time_count ?? 0) + (event.invalid_time_count ?? 0) > 0) && <p className="mt-1 text-[11px] text-ink-4">部分来源时间缺失或异常</p>}
+      {sort === 'hot' && event.heat != null && <p className="mt-1 text-xs text-ink-3">窗口内媒体活动：{event.active_publishers ?? 0} 家 · 热度 {event.heat.toFixed(2)}</p>}
+      {sort === 'important' && event.public_impact_boosted && <p className="mt-1 text-xs font-semibold text-hot">紧急公共影响优先</p>}
+      <details className="mt-1 text-[11px] text-ink-4">
+        <summary className="w-fit cursor-pointer">系统处理时间</summary>
+        <p>系统处理于 {updated ?? event.changed_at}；首次发现 {relativeTime(event.first_seen_at) ?? event.first_seen_at}</p>
+      </details>
       {viewpoint?.status === 'review_limited' && (
         <p className="mt-2 text-xs text-ink-3">观点对比待审核</p>
       )}

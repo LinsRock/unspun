@@ -1,0 +1,839 @@
+{
+  "version": "m3b-frozen-user-labels-ai-technical-v3",
+  "snapshot_sha256": "a7b7df85d060e6f479992b525cf7d7e90ca5bcf541d86c68af44d78714eab1d4",
+  "frozen": true,
+  "frozen_sha256": "f51f072200de80f65617a8cce6396c8e74fad4176d2eac67bdbebf8a369b3b7e",
+  "reviewed_by": "AI technical review under user authorization; original subjective grades supplied by user",
+  "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+  "coverage_reviewed": true,
+  "coverage_notes": "40 unchanged production events, 53 articles; political/public affairs, science/technology, business/economics, culture/knowledge. Includes missing/paywalled publication dates, stale news, independent knowledge and mixed-membership negative cases 2113/3125/4029. Stratified score sample is not statistically representative; no automatic membership corrections.",
+  "labels": [
+    {
+      "event_id": 3492,
+      "domain": "政治与公共事务",
+      "importance_band": 1,
+      "worth_reading": false,
+      "timestamp_review": {
+        "5685": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "5685": "theguardian.com"
+      }
+    },
+    {
+      "event_id": 3373,
+      "domain": "军事与教育",
+      "importance_band": 2,
+      "worth_reading": false,
+      "timestamp_review": {
+        "4692": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "4692": "aljazeera.com"
+      }
+    },
+    {
+      "event_id": 2491,
+      "domain": "文化与影视",
+      "importance_band": 1,
+      "worth_reading": false,
+      "timestamp_review": {
+        "3351": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "3351": "zhihu.com"
+      }
+    },
+    {
+      "event_id": 2226,
+      "domain": "文化与阅读",
+      "importance_band": 1,
+      "worth_reading": false,
+      "timestamp_review": {
+        "2387": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2387": "nytimes.com"
+      }
+    },
+    {
+      "event_id": 550,
+      "domain": "科学与AI",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "1108": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "1108": "reddit.com"
+      }
+    },
+    {
+      "event_id": 4964,
+      "domain": "能源与国际关系",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "6973": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "6973": "zaobao.com"
+      }
+    },
+    {
+      "event_id": 2215,
+      "domain": "生态与公共事务",
+      "importance_band": 1,
+      "worth_reading": false,
+      "timestamp_review": {
+        "2135": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2135": "thepaper.cn"
+      }
+    },
+    {
+      "event_id": 4407,
+      "domain": "商业与职场",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "5129": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "5129": "zhihu.com"
+      }
+    },
+    {
+      "event_id": 2751,
+      "domain": "体育",
+      "importance_band": 2,
+      "worth_reading": true,
+      "timestamp_review": {
+        "3756": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "3756": "aljazeera.com"
+      }
+    },
+    {
+      "event_id": 4393,
+      "domain": "AI与软件",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "4954": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "4954": "36kr.com"
+      }
+    },
+    {
+      "event_id": 1970,
+      "domain": "汽车与产业",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "2842": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2842": "dezeen.com"
+      }
+    },
+    {
+      "event_id": 1994,
+      "domain": "文化与文学",
+      "importance_band": 1,
+      "worth_reading": false,
+      "timestamp_review": {
+        "2419": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2419": "lrb.co.uk"
+      }
+    },
+    {
+      "event_id": 4497,
+      "domain": "经济与税务",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "4926": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "4926": "xinhua"
+      }
+    },
+    {
+      "event_id": 381,
+      "domain": "软件与编程",
+      "importance_band": 2,
+      "worth_reading": true,
+      "timestamp_review": {
+        "1158": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "1158": "blog.glyph.im"
+      }
+    },
+    {
+      "event_id": 4527,
+      "domain": "教育",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "4868": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "4868": "xinhua"
+      }
+    },
+    {
+      "event_id": 3509,
+      "domain": "社会与交通",
+      "importance_band": 4,
+      "worth_reading": true,
+      "timestamp_review": {
+        "5709": "valid",
+        "5761": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "5709": "xinhua",
+        "5761": "xinhua"
+      }
+    },
+    {
+      "event_id": 2045,
+      "domain": "设计与艺术",
+      "importance_band": 4,
+      "worth_reading": true,
+      "timestamp_review": {
+        "2907": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2907": "dezeen.com"
+      }
+    },
+    {
+      "event_id": 1283,
+      "domain": "文化与科技人物",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "1676": "valid",
+        "4204": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "1676": "newyorker.com",
+        "4204": "arstechnica.com"
+      }
+    },
+    {
+      "event_id": 3550,
+      "domain": "科技与设计史",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "5738": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "5738": "sspai.com"
+      }
+    },
+    {
+      "event_id": 433,
+      "domain": "AI与软件",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "624": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "624": "opper.ai"
+      }
+    },
+    {
+      "event_id": 4612,
+      "domain": "科学与AI",
+      "importance_band": 4,
+      "worth_reading": true,
+      "timestamp_review": {
+        "6742": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "6742": "science.org"
+      }
+    },
+    {
+      "event_id": 4897,
+      "domain": "宏观经济",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "6916": "valid",
+        "7161": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "6916": "asia.nikkei.com",
+        "7161": "aljazeera.com"
+      }
+    },
+    {
+      "event_id": 363,
+      "domain": "宏观经济",
+      "importance_band": 4,
+      "worth_reading": true,
+      "timestamp_review": {
+        "1082": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "1082": "ft.com"
+      }
+    },
+    {
+      "event_id": 168,
+      "domain": "文化与公共事务",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "243": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "243": "dw.com"
+      }
+    },
+    {
+      "event_id": 2184,
+      "domain": "半导体与产业",
+      "importance_band": 4,
+      "worth_reading": true,
+      "timestamp_review": {
+        "2120": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2120": "yicai.com"
+      }
+    },
+    {
+      "event_id": 236,
+      "domain": "健康与行为科学",
+      "importance_band": 2,
+      "worth_reading": true,
+      "timestamp_review": {
+        "316": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "316": "economist.com"
+      }
+    },
+    {
+      "event_id": 348,
+      "domain": "AI与软件",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "1067": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "1067": "arxiv.org"
+      }
+    },
+    {
+      "event_id": 4029,
+      "domain": "AI与软件",
+      "importance_band": 4,
+      "worth_reading": true,
+      "timestamp_review": {
+        "6201": "valid",
+        "7114": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "6201": "36kr.com",
+        "7114": "caixin.com"
+      }
+    },
+    {
+      "event_id": 2822,
+      "domain": "交通与公共事务",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "3870": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "3870": "xinhua"
+      }
+    },
+    {
+      "event_id": 1195,
+      "domain": "AI与基础设施",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "912": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "912": "bbc.com"
+      }
+    },
+    {
+      "event_id": 2081,
+      "domain": "政治与公共事务",
+      "importance_band": 2,
+      "worth_reading": false,
+      "timestamp_review": {
+        "2936": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2936": "newyorker.com"
+      }
+    },
+    {
+      "event_id": 4713,
+      "domain": "体育与公共事务",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "4928": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "4928": "zhihu.com"
+      }
+    },
+    {
+      "event_id": 610,
+      "domain": "经济与金融",
+      "importance_band": 2,
+      "worth_reading": true,
+      "timestamp_review": {
+        "1284": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [
+        {
+          "article_id": 1284,
+          "original_url": "https://www.cls.cn/detail/2500658"
+        }
+      ],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "1284": "cls.cn"
+      }
+    },
+    {
+      "event_id": 1164,
+      "domain": "医疗与健康",
+      "importance_band": 1,
+      "worth_reading": false,
+      "timestamp_review": {
+        "570": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "570": "economist.com"
+      }
+    },
+    {
+      "event_id": 833,
+      "domain": "政治与公共事务",
+      "importance_band": 2,
+      "worth_reading": true,
+      "timestamp_review": {
+        "385": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "385": "economist.com"
+      }
+    },
+    {
+      "event_id": 138,
+      "domain": "能源与经济",
+      "importance_band": 2,
+      "worth_reading": true,
+      "timestamp_review": {
+        "201": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "201": "dw.com"
+      }
+    },
+    {
+      "event_id": 899,
+      "domain": "政治与国际关系",
+      "importance_band": 2,
+      "worth_reading": true,
+      "timestamp_review": {
+        "1463": "valid",
+        "2809": "valid",
+        "3621": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "1463": "zaobao.com",
+        "2809": "zaobao.com",
+        "3621": "zaobao.com"
+      }
+    },
+    {
+      "event_id": 2113,
+      "domain": "科学与气象",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "2284": "valid",
+        "2294": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2284": "google",
+        "2294": "google"
+      }
+    },
+    {
+      "event_id": 3125,
+      "domain": "AI（成员混杂待核实）",
+      "importance_band": 2,
+      "worth_reading": true,
+      "timestamp_review": {
+        "4393": "valid",
+        "4944": "valid",
+        "5310": "valid",
+        "5692": "valid",
+        "6824": "valid",
+        "6826": "valid",
+        "6848": "valid"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "4393": "arxiv.org",
+        "4944": "nature.com",
+        "5310": "micahflee.com",
+        "5692": "arxiv.org",
+        "6824": "pi.website",
+        "6826": "simonwillison.net",
+        "6848": "simonwillison.net"
+      }
+    },
+    {
+      "event_id": 1457,
+      "domain": "医疗与AI治理",
+      "importance_band": 3,
+      "worth_reading": true,
+      "timestamp_review": {
+        "2218": "missing"
+      },
+      "publisher_groups": {},
+      "reprints_reviewed": true,
+      "known_reprints": [],
+      "reviewed_by": "AI technical origin verification, not a human metadata reviewer",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00",
+      "reviewer_kind": "ai-technical",
+      "subjective_labels_origin": "User annotations.json importance_band/worth_reading copied unchanged; conversation corrections retained in priority-feedback.json.",
+      "article_publisher_groups": {
+        "2218": "thelancet.com"
+      }
+    }
+  ],
+  "expected_pairs": [
+    {
+      "sort": "important",
+      "range": "7d",
+      "before_event_id": 3509,
+      "after_event_id": 4029,
+      "reason": "User preference: recent fatal train incident should receive public-impact priority over the WorkBuddy product update.",
+      "reviewer_kind": "human",
+      "reviewed_by": "user via conversation",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00"
+    },
+    {
+      "sort": "newest",
+      "range": "7d",
+      "before_event_id": 4964,
+      "after_event_id": 3492,
+      "reason": "Technical chronology: original ZaoBao report Oct14 follows original Guardian report Oct13.",
+      "reviewer_kind": "ai-technical",
+      "reviewed_by": "AI original-publication review",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00"
+    },
+    {
+      "sort": "hot",
+      "range": "7d",
+      "before_event_id": 4897,
+      "after_event_id": 3492,
+      "reason": "Technical coverage contract: two distinct publisher brands with Oct14 reports outweigh one older Guardian brand report, without asserting independent factual corroboration.",
+      "reviewer_kind": "ai-technical",
+      "reviewed_by": "AI coverage review",
+      "reviewed_at": "2026-10-14T09:26:21.942697+00:00"
+    }
+  ],
+  "parameters_sha256": "2b74645f1f19119757d1282687b32237daccbbc9699530cae06cc3070fb432f0",
+  "candidate_source_sha256": "086df4bd4a5e730a70c7b254ade369d64150e8ec3ee67a1b218b3e1fe3661eef",
+  "reviewer_kind": "ai-technical",
+  "technical_review_origin": "53 original URLs checked in origin-review-a/b/c.json; publisher grouping is a brand proxy; original raw snapshot retained; model report and retries retained."
+}

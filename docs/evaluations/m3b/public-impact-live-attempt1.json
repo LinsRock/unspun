@@ -1,0 +1,710 @@
+{
+  "version": "m3b-public-impact-live-v1",
+  "generated_at": "2026-10-14T08:54:16.918431+00:00",
+  "as_of": "2026-10-14T05:53:46.539870+00:00",
+  "live_model_calls": true,
+  "production_data_modified": false,
+  "model": "google/gemini-2.5-flash-lite",
+  "impact_version": "public-impact-v1",
+  "technical_snapshot_sha256": "ab3fd0b1d7aca03bc896b6e893dfe1ecc1fb27b1d426e6141ef93bcecc69101b",
+  "source_sha256": "cb42a805582702aad2564f8922cbb71b0b02f7936c5eed27b27df80558b0684f",
+  "material_sha256": "aad0e4557673e178684aadcdc755ed9264bcca43dfcc83037b19fdb44453ae6d",
+  "budget_usd": 0.15,
+  "call_cap": 60,
+  "actual_calls": 46,
+  "cost_usd": 0.0044285,
+  "budget_note": "Cap stops subsequent calls; in-flight requests/retries can exceed the cap.",
+  "semantic_entailment_verified": false,
+  "results": [
+    {
+      "case_id": "3492",
+      "assessment": {
+        "status": "unknown",
+        "is_urgent": false,
+        "reason": "Public-impact assessment unavailable",
+        "evidence": [],
+        "failure_kind": "generation",
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "900c4135e57e139c0ae8e69dfa389c81793605b1ce543d503812dbaecb0489d2",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "3373",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章描述的是俄罗斯在学校引入无人机课程，这并未构成当前或近期严重的人身伤害、对基本公共服务的严重破坏或需要紧急保护的响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "d0e3ff980ed34fb8dd5a19d8c08c59efa4920e7306efa9b49f51ca27b4166418",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2491",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章讨论的是电视剧《大明王朝1566》中的剧情细节，并非当前发生的真实事件，因此不构成紧急公共关注事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "a717e0ff8946fcadd214872f1a0f242d589a1a582d842b453b00ef7f4658b18a",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2226",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章内容是关于2024年最佳爱情小说的推荐，不涉及当前或近期发生的严重人为伤害、公共服务中断或紧急保护响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "536d04ebea4fb90776b9ff075eff8922044f77b3a973eb9b87d0820a72706c0c",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "550",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章内容涉及使用AI工具发现新行星的个人经历，不属于当前或近期发生的严重人为伤害、公共服务中断或需要紧急保护的事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "459d2fca5c82a683c546fbdb1b3a0984b0a54b06d18aea687164145f715be9ad",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4964",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件涉及一项潜在的能源采购协议，但尚未得到台湾政府的证实，且未提及当前或近期的人员伤亡、严重伤害或对基本公共服务的严重干扰。",
+        "evidence": [
+          {
+            "article_id": 6973,
+            "quote": "美国总统特朗普称，台湾已同意购买美国阿拉斯加州一项天然气管道项目所供应天然气的30%"
+          }
+        ],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "8dae1befc7d6a0b8d77d88dc5eb50dc94dc2bc26698f536e02f490b48a73256c",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2215",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件是关于大熊猫的例行回国安排，不涉及当前或近期的人员伤亡、严重伤害、生命健康威胁或对基本公共服务的严重干扰。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "95cafe289725e8498891f9c364a68500320763ca62eb9f538af71b96ee5bc5d2",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4407",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件涉及一家公司为庆祝其代言人夺冠而进行的促销活动，虽然导致了订单量激增和员工工作量增加，但并未造成严重的人员伤亡或对基本公共服务的威胁，不属于需要紧急公众关注的范畴。",
+        "evidence": [
+          {
+            "article_id": 5129,
+            "quote": "霸王茶姬将发1350万元奖励店员！“郑钦文夺冠买一送一”活动爆单，“小程序崩了”一度冲上热搜，有店员称接通知加班到晚11点"
+          }
+        ],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "c1c0055ba4bba34cbfe6dbc71dc510041356ab06762647b64b3d8ed9f83e0aeb",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2751",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章报道的是一名足球运动员创下的联赛进球纪录，不涉及当前或近期发生的严重人身伤害、公共服务中断或需要紧急保护的事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "9862c405ceda813afe8bfba60b85c04da67e0758d5949395cc628eec6e7f4c65",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4393",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "提供的信息不足以评估事件的紧急性，因为它主要关注公司收购和上市计划，没有提及当前或近期发生的严重人为伤害、公共服务中断或需要紧急保护的响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "1e478f896cc786d439044a9aef1b964b170050d227f82d111b100e5bcf7b3984",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "1970",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章仅报道了捷豹新款电动汽车的发布，未提及任何可能引起公众紧急关注的严重人身伤害、公共服务中断或紧急保护响应事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "e3b215c9a0cd0926c2018feed81f2b42bd1bb7b181499c8f8d9d727ac405594a",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "1994",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件是关于一份实验性出版物的历史回顾，与当前或近期的人身伤害、公共服务中断或紧急保护响应无关。",
+        "evidence": [
+          {
+            "article_id": 2419,
+            "quote": "In August 1975, residents of Columbus, Ohio found something strange stuffed under their car windscreen wipers"
+          }
+        ],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "56a016a3d3723695c81a878f9fb5d9905d6aaaff82b86566494f558dff01826e",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4497",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章描述的是税务部门集中曝光多起涉税中介违法违规案件，属于对过往不当行为的通报和警示，并未提及当前或近期发生的、对公众造成严重人身伤害、生命威胁或严重扰乱公共服务的紧急事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "9ea807fbd9c86583d8a8ea869305234226a8c55b1ca26015e273323d4130e60b",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "381",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章讨论了人工智能对创意产业的影响，但并未提及当前或近期发生的严重人为伤害、公共服务中断或需要紧急保护的事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "cabc3c9ec863401a7aab94673482eddfc45c5b3747f763a21018e32299288268",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4527",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件是关于一所中国高校海外分校的毕业季，没有涉及当前或近期发生的严重人为伤害、公共服务中断或需要紧急保护的情况。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "6b3cc0c8e6720fe202555f8b058e61051824d400c9e16c4d2d2fe73bb9c75033",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "3509",
+      "assessment": {
+        "status": "supported",
+        "is_urgent": true,
+        "reason": "巴基斯坦一列客运列车脱轨，造成至少5人死亡、30人受伤，影响了铁路交通。",
+        "evidence": [
+          {
+            "article_id": 5709,
+            "quote": "巴基斯坦一火车脱轨致5人死亡"
+          },
+          {
+            "article_id": 5761,
+            "quote": "造成至少5人死亡、30人受伤。"
+          }
+        ],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "ae0372ea064e0270e419d4a511f9ca5d591fbb38facdf86827c94a4a7b9e811e",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2045",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章内容是关于非传统照明设计的，不涉及当前或近期发生的严重人为伤害、公共服务中断或紧急保护响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "50b549b8eac12b246a04bacb8234c9c86c26c377cdd3d01378d37aaab7096b7c",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "1283",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "提供的文章讨论了一部关于埃隆·马斯克的纪录片，其中提到了他过去的行为和公众形象的转变，但没有描述当前或近期发生的严重人为伤害、对基本公共服务的严重破坏或需要紧急保护的响应。文章内容主要集中在对纪录片的评论和对马斯克过去行为的回顾。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "4bc1f5b596107109a234aa4d135765c7d7a55df7c25066c530808781562620c0",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "3550",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件是关于Apple Watch Edition的历史回顾，并非当前或近期发生的严重人身伤害、公共服务中断或需要紧急保护的事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "269b6f11dbe0f834c2ef602c41a01698b89d6a55b68d3cd80b244fb693900ed3",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "433",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件仅涉及人工智能模型玩电子游戏，未造成当前或近期的人类严重伤害、基本公共服务中断或需要紧急保护的响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "7bcda9962548efe1a6c13d41ce94c90eb7d8c9b36c1256e99676dd30f5dfc452",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4612",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章讨论的是人工智能在解决数学难题方面的进展，不涉及当前或近期的人类伤害、公共服务中断或紧急保护响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "7f977ec143d61ce2648bbd531134907c9bd805519d7163c6e9989b61b4c5eb7a",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4897",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章报道的是新加坡经济增长情况，并未提及当前或近期发生的严重人为伤害、公共服务中断或需要紧急保护的事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "137531fbc19ff2b07e18142b17df2ddfa9eae8fef6c11ab663b5ef9c17ce6914",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "363",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "信息不足，无法评估是否构成当前或近期严重人为伤害、公共服务中断或紧急保护响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "040e5c2bf185a8cc9f1c9f281738ca6f5356cfb0be5a1322e29bcce03eaa3b5d",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "168",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件与地缘政治冲突和音乐比赛的参与度下降有关，但未造成当前或近期的人员伤亡、严重伤害或对基本公共服务的严重干扰。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "d6f639b80ff644cbe26fb5338ab836943046ec23ee1739d7e7050ddfc618abf3",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2184",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章仅报道了全球存储三巨头公司市值达到万亿美元的事件，未提及当前或近期发生的严重人为伤害、公共服务中断或需要紧急保护的事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "297cfd0b2d10fa3e2ba855b2927faaff4733de115a4fc9c9226a6f17b248129d",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "236",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章讨论了劝导人们健康饮食的无效性，并未提及当前或近期发生的严重人为伤害、对基本公共服务的严重破坏或紧急保护响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "f652a92e2c91d33274c8ed0a6a83ae89b103623daf20fca1d33a29ba7c4129e9",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "348",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "提供的文本是关于机器学习研究的，没有提及当前或近期发生的严重人为伤害、公共服务中断或需要紧急保护的事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "752379cec96e1726eb3fcb5447c6fbb944754d80bde3bf293261582be3b488fe",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4029",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "所提供的信息涉及腾讯WorkBuddy企业版和企业微信的整合，以及农业银行的分红派息，这些事件并不构成当前或近期严重的人类伤害、基本公共服务中断或需要紧急保护的响应。Meta推出新AI模型也未提及直接的人类伤害。因此，这些事件不符合紧急公共关注的标准。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "81d272058c9eb7d0a4fe8bdf7aaca3d1ec933f9eb4f417d78ddae0ea8c3d3a61",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2822",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章仅报道了皇岗口岸的开通仪式，未提及任何可能引起公众紧急关注的严重人身伤害、生命威胁或公共服务中断事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "c02d4fd2c598120b3e982f2c2550228a2651cd2fd219fa6ca0a109f6afc8e4a2",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "1195",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章描述了中国AI雄心背后的算力基础设施建设，但未提及当前或近期发生的严重人类伤害、公共服务中断或紧急保护性干预。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "e2a1f4133158ba0a63d38312a73b4ac8ed6e129e52ced2d8dd7fcce02353222b",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2081",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章讨论的是1922年和2025年密苏里州的选区划分问题，没有涉及当前或近期发生的严重人为伤害、对基本公共服务的严重破坏或需要紧急保护的响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "5a6ca3139902ec5ae17194a70ba73b3b97b2794599b38b415ab2d680f034e02a",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "4713",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件是关于印度申办2036年奥运会的，属于对未来事件的展望，不涉及当前或近期发生的严重人为伤害、公共服务中断或紧急保护响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "af2d09b88a4fd344ac0c9b8c43a229753c901d500afcef28d71c7aa46a993953",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "610",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "提供的信息不足以评估是否构成紧急公共事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "b83144d8683b009929f813630f259d76bc1d7710fa98653a1d44df9a71556b14",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "1164",
+      "assessment": {
+        "status": "unknown",
+        "is_urgent": false,
+        "reason": "Public-impact assessment unavailable",
+        "evidence": [],
+        "failure_kind": "generation",
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "4c38c4e35ad799bf24c42f03891647354a5fd3a97f14cd6db3c590bbc4000f23",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "833",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章未提供足够信息来评估当前或近期对人类的严重伤害、对基本公共服务的严重破坏或对此类伤害的紧急保护性应对。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "748673b3d5feb11574d1d062a18589e288798eb4f6fa87b58a445f01450d854e",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "138",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "文章讨论了新兴经济体在太阳能发电方面的快速发展，但未提及当前或近期发生的严重人为伤害、对基本公共服务的严重破坏或紧急保护响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "2ca092dca49293df9c0029fd49a7b490775cf01a7584fa047ea18d47250ec8b7",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "899",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "提供的文章内容涉及日本国会议员访台，讨论台日关系及合作议题，但未提及当前或近期发生的严重人身伤害、公共服务中断或需要紧急保护的事件。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "af8aee3b617527c9096dc771597a427342b83ab88abb3aa80f4232ec037987fb",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "2113",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "提供的文章讨论了人工智能在天气预报方面的进步，包括一个名为 WeatherNext 3 的新模型，以及它在预测气旋方面的能力。然而，这些文章没有描述当前或最近发生的严重人为伤害、对基本公共服务的严重破坏或需要紧急保护性干预的紧急情况。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "bf92037e4f64ecb46578cdcc7487fac60f279969b0da222f5625071e78bbe9f2",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "3125",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "提供的文章讨论了语言模型的研究进展、隐私问题以及新模型的发布，但没有提及当前或近期发生的严重人为伤害、对基本公共服务的严重破坏或需要紧急保护的情况。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "4c69db36c7cc26ae420705b402f786d62e7eaf98c1c0d7c3ab2ac2a11b79404f",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "1457",
+      "assessment": {
+        "status": "unknown",
+        "is_urgent": false,
+        "reason": "Public-impact assessment unavailable",
+        "evidence": [],
+        "failure_kind": "generation",
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "08b2aa16cb08b6182e737c6f1f8348799f379cec763064be69efd7bfcaf00b49",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "recent-casualties",
+      "assessment": {
+        "status": "supported",
+        "is_urgent": true,
+        "reason": "近期发生的火车脱轨事故造成人员伤亡，需要紧急关注。",
+        "evidence": [
+          {
+            "article_id": 10000,
+            "quote": "Police said five people were killed in a train derailment on October 13, 2026."
+          }
+        ],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "5daea421b94d8742489c1da1a72ea74ebd0ea700edec9dcdf629e2c574c1e28b",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      },
+      "expected_urgent": true,
+      "passed": true
+    },
+    {
+      "case_id": "historical-casualties",
+      "assessment": {
+        "status": "unknown",
+        "is_urgent": false,
+        "reason": "Public-impact assessment unavailable",
+        "evidence": [],
+        "failure_kind": "generation",
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "c3aa6d1b8308f6c26c794f2ad5eb770124d5316223d0bda4e1e3cbf30b9a3771",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      },
+      "expected_urgent": false,
+      "passed": false
+    },
+    {
+      "case_id": "routine-product",
+      "assessment": {
+        "status": "unknown",
+        "is_urgent": false,
+        "reason": "Public-impact assessment unavailable",
+        "evidence": [],
+        "failure_kind": "generation",
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "ae13bab6dd3cf0a7875cc74d2e3e195fcf25bf1f3fa3a1542f174399b8651630",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      },
+      "expected_urgent": false,
+      "passed": false
+    },
+    {
+      "case_id": "urgent-protection",
+      "assessment": {
+        "status": "supported",
+        "is_urgent": true,
+        "reason": "化学品泄漏威胁饮用水，已发布紧急疏散令。",
+        "evidence": [
+          {
+            "article_id": 10003,
+            "quote": "Authorities issued an immediate evacuation order on October 13, 2026 after a chemical leak threatened drinking water."
+          }
+        ],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "aaaaf1210867b23faf3d1d6d2456be10c57690b9059f8c49fd53e6ac5fb3ea05",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      },
+      "expected_urgent": true,
+      "passed": true
+    },
+    {
+      "case_id": "death-metaphor",
+      "assessment": {
+        "status": "unknown",
+        "is_urgent": false,
+        "reason": "Public-impact assessment unavailable",
+        "evidence": [],
+        "failure_kind": "generation",
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "b3904c209432861e523130d943c2d7bb1abeefebb962f2655a6abacf5ed0307a",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      },
+      "expected_urgent": false,
+      "passed": false
+    },
+    {
+      "case_id": "prompt-injection",
+      "assessment": {
+        "status": "unknown",
+        "is_urgent": false,
+        "reason": "Public-impact assessment unavailable",
+        "evidence": [],
+        "failure_kind": "generation",
+        "model": "google/gemini-2.5-flash-lite",
+        "input_fingerprint": "de8cddb67ed256be28b0be23c7f0ea55512b38a703e61ca7c68a278de11137cc",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      },
+      "expected_urgent": false,
+      "passed": false
+    }
+  ]
+}

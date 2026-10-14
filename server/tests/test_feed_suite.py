@@ -359,3 +359,152 @@ def test_article_publisher_group_cannot_reference_foreign_article() -> None:
     report = evaluate(snapshot, annotations)
     assert report["ready"] is False
     assert any("article publisher" in issue for issue in report["readiness_issues"])
+
+
+def technical_suite() -> tuple[dict[str, Any], dict[str, Any]]:
+    snapshot, annotations = ready_suite()
+    annotations["reviewer_kind"] = "ai-technical"
+    annotations["technical_review_origin"] = "User authorized original-time and grouping checks."
+    for label in annotations["labels"]:
+        label["reviewer_kind"] = "ai-technical"
+        label["subjective_labels_origin"] = "User supplied importance and worth-reading grades."
+    for pair in annotations["expected_pairs"]:
+        pair["reviewer_kind"] = "ai-technical"
+    refreeze(annotations)
+    return snapshot, annotations
+
+
+def test_ai_technical_review_records_user_subjective_origin_and_role() -> None:
+    snapshot, annotations = technical_suite()
+    report = evaluate(snapshot, annotations)
+    assert report["ready"] is True
+    assert report["passed"] is True
+    assert report["publisher_grouping"] == "ai-technical-reviewed"
+    assert report["reviewer_kind"] == "ai-technical"
+    assert report["pair_results"][0]["reviewer_kind"] == "ai-technical"
+
+
+@pytest.mark.parametrize("origin", [None, "", "   "])
+def test_ai_technical_review_requires_technical_origin(origin: Any) -> None:
+    snapshot, annotations = technical_suite()
+    annotations["technical_review_origin"] = origin
+    refreeze(annotations)
+    assert evaluate(snapshot, annotations)["ready"] is False
+
+
+@pytest.mark.parametrize("origin", [None, "", "   "])
+def test_ai_technical_label_requires_original_user_grades_origin(origin: Any) -> None:
+    snapshot, annotations = technical_suite()
+    annotations["labels"][0]["subjective_labels_origin"] = origin
+    refreeze(annotations)
+    assert evaluate(snapshot, annotations)["ready"] is False
+
+
+def test_technical_review_preserves_all_existing_readiness_gates() -> None:
+    snapshot, annotations = technical_suite()
+    annotations["coverage_reviewed"] = False
+    annotations["labels"][0]["importance_band"] = None
+    annotations["labels"][0]["reviewed_at"] = None
+    refreeze(annotations)
+    report = evaluate(snapshot, annotations)
+    assert report["ready"] is False
+    assert any("coverage" in issue for issue in report["readiness_issues"])
+    assert any("importance_band" in issue for issue in report["readiness_issues"])
+    assert any("reviewed_at" in issue for issue in report["readiness_issues"])
+    assert not any("human" in issue for issue in report["readiness_issues"])
+
+
+def test_legacy_review_defaults_to_human() -> None:
+    snapshot, annotations = ready_suite()
+    report = evaluate(snapshot, annotations)
+    assert report["ready"] is True
+    assert report["reviewer_kind"] == "human"
+    assert report["publisher_grouping"] == "human-reviewed"
+    assert report["pair_results"][0]["reviewer_kind"] == "human"
+
+
+@pytest.mark.parametrize(
+    "precision,classification", [("unknown", "missing"), ("date", "valid"), ("time", "anomalous")]
+)
+def test_timestamp_review_uses_original_publication_not_feed_time(
+    precision: str, classification: str
+) -> None:
+    import json
+
+    from unspun.evaluation.feed_suite import content_hash
+
+    snapshot, annotations = technical_suite()
+    article = snapshot["events"][0]["articles"][0]
+    article["reported_precision"] = precision
+    article["reported_date"] = (NOW - timedelta(days=1)).date()
+    article["reported_at"] = NOW + timedelta(days=1)
+    annotations["labels"][0]["timestamp_review"]["100"] = classification
+    annotations["snapshot_sha256"] = content_hash(snapshot)
+    refreeze(annotations)
+    report = evaluate(snapshot, annotations)
+    assert report["ready"] is True
+    json.dumps(report)
+
+
+def test_candidate_hash_covers_publication_and_public_impact_sources(monkeypatch: Any) -> None:
+    from pathlib import Path
+
+    from unspun.evaluation.feed_suite import candidate_source_hash
+
+    original = Path.read_bytes
+    baseline = candidate_source_hash()
+    for filename in ("publication.py", "public_impact.py"):
+
+        def modified(path: Path, target: str = filename) -> bytes:
+            return original(path) + (b" changed" if path.name == target else b"")
+
+        with monkeypatch.context() as patch:
+            patch.setattr(Path, "read_bytes", modified)
+            assert candidate_source_hash() != baseline
+
+
+@pytest.mark.parametrize("excerpt", [None, "Unrelated product release body."])
+def test_public_impact_promotion_requires_quote_in_original_body(excerpt: Any) -> None:
+    from unspun.evaluation.feed_suite import content_hash
+
+    snapshot, annotations = technical_suite()
+    event = snapshot["events"][0]
+    event["articles"][0]["impact_original_excerpt"] = excerpt
+    event["public_impact_status"] = "supported"
+    event["public_impact_urgent"] = True
+    event["public_impact_evidence"] = [
+        {"article_id": 100, "quote": "Emergency evacuation ordered."}
+    ]
+    annotations["snapshot_sha256"] = content_hash(snapshot)
+    refreeze(annotations)
+    report = evaluate(snapshot, annotations)
+    assert report["ready"] is False
+    assert any("original excerpt" in issue for issue in report["readiness_issues"])
+
+
+def test_source_grounded_public_impact_promotion_is_ready() -> None:
+    from unspun.evaluation.feed_suite import content_hash
+
+    snapshot, annotations = technical_suite()
+    event = snapshot["events"][0]
+    event["articles"][0]["impact_original_excerpt"] = (
+        "Emergency evacuation ordered. Roads are closed."
+    )
+    event["public_impact_status"] = "supported"
+    event["public_impact_urgent"] = True
+    event["public_impact_evidence"] = [
+        {"article_id": 100, "quote": "Emergency evacuation ordered."}
+    ]
+    annotations["snapshot_sha256"] = content_hash(snapshot)
+    refreeze(annotations)
+    assert evaluate(snapshot, annotations)["ready"] is True
+
+
+def test_unknown_public_impact_remains_an_accepted_fallback() -> None:
+    from unspun.evaluation.feed_suite import content_hash
+
+    snapshot, annotations = technical_suite()
+    snapshot["events"][0]["public_impact_status"] = "unknown"
+    annotations["snapshot_sha256"] = content_hash(snapshot)
+    refreeze(annotations)
+    assert evaluate(snapshot, annotations)["ready"] is True
