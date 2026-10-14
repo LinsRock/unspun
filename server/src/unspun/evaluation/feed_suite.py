@@ -56,6 +56,7 @@ class EventLabel(BaseModel):
         default_factory=dict
     )
     publisher_groups: dict[str, Nonempty] = Field(default_factory=dict)
+    article_publisher_groups: dict[str, Nonempty] = Field(default_factory=dict)
     reprints_reviewed: StrictBool = False
     known_reprints: list[Reprint] = Field(default_factory=lambda: list[Reprint]())
     reviewed_by: Nonempty | None = None
@@ -112,9 +113,10 @@ def _readiness(
     annotations: Annotations,
     snapshot_hash: str,
     params: CandidateParams,
-) -> tuple[list[str], dict[str, str]]:
+) -> tuple[list[str], dict[str, str], dict[int, str]]:
     issues: list[str] = []
     groups: dict[str, str] = {}
+    article_groups: dict[int, str] = {}
     if not 30 <= len(snapshot.events) <= 50:
         issues.append("standard set must contain 30 to 50 real events")
     if snapshot.event_count < len(snapshot.events):
@@ -175,8 +177,16 @@ def _readiness(
             if article.fetched_at > snapshot.captured_at:
                 issues.append(prefix + f"article {article.id} was fetched after snapshot")
         source_ids = {a.source_id for a in event.articles}
-        if set(label.publisher_groups) != source_ids:
-            issues.append(prefix + "publisher groups must cover exactly the member sources")
+        if set(label.publisher_groups) - source_ids:
+            issues.append(prefix + "publisher groups reference non-member sources")
+        if set(label.article_publisher_groups) - article_ids:
+            issues.append(prefix + "article publisher groups reference non-member articles")
+        for article in event.articles:
+            article_group = label.article_publisher_groups.get(str(article.id))
+            if article_group is not None:
+                article_groups[article.id] = article_group
+            elif article.source_id not in label.publisher_groups:
+                issues.append(prefix + f"missing publisher group for article {article.id}")
         for source, group in label.publisher_groups.items():
             if source in groups and groups[source] != group:
                 issues.append(prefix + f"conflicting publisher group for {source}")
@@ -194,7 +204,7 @@ def _readiness(
             issues.append("priority pair must compare two different events")
         if pair.before_event_id not in events or pair.after_event_id not in events:
             issues.append("priority pair refers to an event outside the snapshot")
-    return issues, groups
+    return issues, groups, article_groups
 
 
 def evaluate_suite(
@@ -235,7 +245,7 @@ def evaluate_suite(
             for e in error.errors(include_input=False, include_url=False)
         ]
         return report
-    issues, groups = _readiness(snapshot, annotations, snapshot_hash, params)
+    issues, groups, article_groups = _readiness(snapshot, annotations, snapshot_hash, params)
     frozen_hash = content_hash(
         {k: v for k, v in annotations_document.items() if k != "frozen_sha256"}
     )
@@ -261,6 +271,7 @@ def evaluate_suite(
                 groups,
                 params,
                 baseline_half_life_hours=snapshot.baseline_half_life_hours,
+                article_publisher_groups=article_groups,
             )
             report["rankings"][period][sort] = [
                 {

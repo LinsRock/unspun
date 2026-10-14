@@ -333,3 +333,29 @@ def test_snapshot_records_baseline_half_life_separately() -> None:
     rows = evaluate(snapshot, annotations)["rankings"]["all"]["baseline"]
     first = next(row for row in rows if row["id"] == 1)
     assert first["metric"] == pytest.approx(50 * 2 ** (-24 / 48))
+
+
+def test_reviewed_article_publishers_override_aggregator_source_group() -> None:
+    from unspun.evaluation.feed_suite import content_hash
+
+    snapshot, annotations = ready_suite()
+    snapshot["events"][0]["articles"].append({**snapshot["events"][0]["articles"][0], "id": 101})
+    label = annotations["labels"][0]
+    label["timestamp_review"]["101"] = "valid"
+    label["publisher_groups"] = {"a": "media-a"}
+    label["article_publisher_groups"] = {"100": "publisher-a", "101": "publisher-b"}
+    annotations["snapshot_sha256"] = content_hash(snapshot)
+    refreeze(annotations)
+    report = evaluate(snapshot, annotations)
+    assert report["ready"] is True
+    row = next(r for r in report["rankings"]["all"]["hot"] if r["id"] == 1)
+    assert row["active_publishers"] == 2
+
+
+def test_article_publisher_group_cannot_reference_foreign_article() -> None:
+    snapshot, annotations = ready_suite()
+    annotations["labels"][0]["article_publisher_groups"] = {"999": "foreign"}
+    refreeze(annotations)
+    report = evaluate(snapshot, annotations)
+    assert report["ready"] is False
+    assert any("article publisher" in issue for issue in report["readiness_issues"])

@@ -1,0 +1,886 @@
+{
+  "version": "m3b-technical-proposals-v1",
+  "status": "AI-assisted-proposals-not-human-annotations",
+  "snapshot_sha256": "311ded909460d2c3418eaa38c48dffdef05b3a152453e34851e8e0b0361ddaea",
+  "user_labels_sha256": "4148f90986d0d4707ea0aa6a57170fa7a60b507c64edd754d0fe970bad4d0424",
+  "suggested_labels": [
+    {
+      "event_id": 3492,
+      "suggested_domain": "政治与公共事务",
+      "articles": [
+        {
+          "article_id": 5685,
+          "source_id": "guardian-world",
+          "origin_url": "https://www.theguardian.com/australia-news/2026/oct/13/vikki-campion-news-corp-columnist-and-wife-of-barnaby-joyce-begins-role-with-nsw-one-nation",
+          "observed_host": "theguardian.com",
+          "suggested_publisher_group": "theguardian.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 3373,
+      "suggested_domain": "军事与教育",
+      "articles": [
+        {
+          "article_id": 4692,
+          "source_id": "aljazeera",
+          "origin_url": "https://www.aljazeera.com/video/newsfeed/2026/10/12/russia-introduces-drone-classes-in-public-schools?traffic_source=rss",
+          "observed_host": "aljazeera.com",
+          "suggested_publisher_group": "aljazeera.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2491,
+      "suggested_domain": "文化与影视",
+      "articles": [
+        {
+          "article_id": 3351,
+          "source_id": "zhihu-hot",
+          "origin_url": "https://www.zhihu.com/question/5850873475",
+          "observed_host": "zhihu.com",
+          "suggested_publisher_group": "zhihu.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2226,
+      "suggested_domain": "文化与阅读",
+      "articles": [
+        {
+          "article_id": 2387,
+          "source_id": "nyt-books",
+          "origin_url": "https://www.nytimes.com/article/best-romance-books.html",
+          "observed_host": "nytimes.com",
+          "suggested_publisher_group": "nytimes.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 550,
+      "suggested_domain": "科学与AI",
+      "articles": [
+        {
+          "article_id": 1108,
+          "source_id": "hn-front",
+          "origin_url": "https://www.reddit.com/r/ClaudeAI/s/mbe5IY2LF9",
+          "observed_host": "reddit.com",
+          "suggested_publisher_group": "reddit.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": true
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4964,
+      "suggested_domain": "能源与国际关系",
+      "articles": [
+        {
+          "article_id": 6973,
+          "source_id": "zaobao-china",
+          "origin_url": "https://www.zaobao.com/news/china/story20261014-9833246",
+          "observed_host": "zaobao.com",
+          "suggested_publisher_group": "zaobao.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2215,
+      "suggested_domain": "生态与公共事务",
+      "articles": [
+        {
+          "article_id": 2135,
+          "source_id": "thepaper",
+          "origin_url": "https://www.thepaper.cn/newsDetail_forward_32178397",
+          "observed_host": "thepaper.cn",
+          "suggested_publisher_group": "thepaper.cn",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4407,
+      "suggested_domain": "商业与职场",
+      "articles": [
+        {
+          "article_id": 5129,
+          "source_id": "zhihu-hot",
+          "origin_url": "https://www.zhihu.com/question/2093064242601762869",
+          "observed_host": "zhihu.com",
+          "suggested_publisher_group": "zhihu.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2751,
+      "suggested_domain": "体育",
+      "articles": [
+        {
+          "article_id": 3756,
+          "source_id": "aljazeera",
+          "origin_url": "https://www.aljazeera.com/sports/2026/10/11/mohamed-salah-sets-turkish-super-lig-record-for-trabzonspor?traffic_source=rss",
+          "observed_host": "aljazeera.com",
+          "suggested_publisher_group": "aljazeera.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4393,
+      "suggested_domain": "AI与软件",
+      "articles": [
+        {
+          "article_id": 4954,
+          "source_id": "36kr-newsflashes",
+          "origin_url": "https://www.36kr.com/newsflashes/4022783858577539",
+          "observed_host": "36kr.com",
+          "suggested_publisher_group": "36kr.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 1970,
+      "suggested_domain": "汽车与产业",
+      "articles": [
+        {
+          "article_id": 2842,
+          "source_id": "dezeen",
+          "origin_url": "https://www.dezeen.com/2026/10/10/jaguar-type-01-electric-car-this-week/",
+          "observed_host": "dezeen.com",
+          "suggested_publisher_group": "dezeen.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 1994,
+      "suggested_domain": "文化与文学",
+      "articles": [
+        {
+          "article_id": 2419,
+          "source_id": "lrb",
+          "origin_url": "https://www.lrb.co.uk/the-paper/v48/n18/gill-partington/boxed-into-our-language",
+          "observed_host": "lrb.co.uk",
+          "suggested_publisher_group": "lrb.co.uk",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4497,
+      "suggested_domain": "经济与税务",
+      "articles": [
+        {
+          "article_id": 4926,
+          "source_id": "xinhua",
+          "origin_url": "http://www.news.cn/20261012/6facfbc003934a749d3bf98ba9ccb6b8/c.html",
+          "observed_host": "news.cn",
+          "suggested_publisher_group": "news.cn",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 381,
+      "suggested_domain": "软件与编程",
+      "articles": [
+        {
+          "article_id": 1158,
+          "source_id": "hn-front",
+          "origin_url": "https://blog.glyph.im/2026/10/programming-isnt-special.html",
+          "observed_host": "blog.glyph.im",
+          "suggested_publisher_group": "blog.glyph.im",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": true
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4527,
+      "suggested_domain": "教育",
+      "articles": [
+        {
+          "article_id": 4868,
+          "source_id": "xinhua",
+          "origin_url": "http://www.news.cn/20261012/ddfeb010bea8418c99d8bf557d75acfc/c.html",
+          "observed_host": "news.cn",
+          "suggested_publisher_group": "news.cn",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 3509,
+      "suggested_domain": "社会与交通",
+      "articles": [
+        {
+          "article_id": 5709,
+          "source_id": "xinhua",
+          "origin_url": "http://www.news.cn/20261013/ffa63df2d04c44af9d33c24ba709e598/c.html",
+          "observed_host": "news.cn",
+          "suggested_publisher_group": "news.cn",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 5761,
+          "source_id": "xinhua",
+          "origin_url": "http://www.news.cn/20261013/b3c8ce22cc5b43f9be24f3d907b645fc/c.html",
+          "observed_host": "news.cn",
+          "suggested_publisher_group": "news.cn",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2045,
+      "suggested_domain": "设计与艺术",
+      "articles": [
+        {
+          "article_id": 2907,
+          "source_id": "dezeen",
+          "origin_url": "https://www.dezeen.com/2026/10/10/eight-unconventional-lighting-designs-roundups/",
+          "observed_host": "dezeen.com",
+          "suggested_publisher_group": "dezeen.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 1283,
+      "suggested_domain": "文化与科技人物",
+      "articles": [
+        {
+          "article_id": 1676,
+          "source_id": "hn-front",
+          "origin_url": "https://www.newyorker.com/culture/the-lede/in-musk-alex-gibney-punctures-elons-self-mythology",
+          "observed_host": "newyorker.com",
+          "suggested_publisher_group": "newyorker.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": true
+        },
+        {
+          "article_id": 4204,
+          "source_id": "ars-technica",
+          "origin_url": "https://arstechnica.com/culture/2026/10/review-4-hour-musk-documentary-feels-like-two-different-films/",
+          "observed_host": "arstechnica.com",
+          "suggested_publisher_group": "arstechnica.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 3550,
+      "suggested_domain": "科技与设计史",
+      "articles": [
+        {
+          "article_id": 5738,
+          "source_id": "sspai",
+          "origin_url": "https://sspai.com/post/114561",
+          "observed_host": "sspai.com",
+          "suggested_publisher_group": "sspai.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 433,
+      "suggested_domain": "AI与软件",
+      "articles": [
+        {
+          "article_id": 624,
+          "source_id": "hn-front",
+          "origin_url": "https://opper.ai/jevman-benchmark/",
+          "observed_host": "opper.ai",
+          "suggested_publisher_group": "opper.ai",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": true
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4612,
+      "suggested_domain": "科学与AI",
+      "articles": [
+        {
+          "article_id": 6742,
+          "source_id": "science-news",
+          "origin_url": "https://www.science.org/content/article/ai-edges-closer-solving-riemann-hypothesis-one-math-s-hardest-problems",
+          "observed_host": "science.org",
+          "suggested_publisher_group": "science.org",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4897,
+      "suggested_domain": "宏观经济",
+      "articles": [
+        {
+          "article_id": 6916,
+          "source_id": "nikkei-asia",
+          "origin_url": "https://asia.nikkei.com/economy/singapore-q3-gdp-grows-5.4-on-sustained-ai-driven-demand",
+          "observed_host": "asia.nikkei.com",
+          "suggested_publisher_group": "asia.nikkei.com",
+          "suggested_timestamp_classification": "missing",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 7161,
+          "source_id": "aljazeera",
+          "origin_url": "https://www.aljazeera.com/economy/2026/10/14/singapores-economy-grows-more-than-5-percent-amid-ai-boom?traffic_source=rss",
+          "observed_host": "aljazeera.com",
+          "suggested_publisher_group": "aljazeera.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 363,
+      "suggested_domain": "宏观经济",
+      "articles": [
+        {
+          "article_id": 1082,
+          "source_id": "ft-home",
+          "origin_url": "https://www.ft.com/content/c0bec605-c948-4249-be2d-a76e0e60203b?syn-25a6b1a6=1",
+          "observed_host": "ft.com",
+          "suggested_publisher_group": "ft.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 168,
+      "suggested_domain": "文化与公共事务",
+      "articles": [
+        {
+          "article_id": 243,
+          "source_id": "dw-en",
+          "origin_url": "https://www.dw.com/en/ireland-will-boycott-eurovision-again-because-of-israel-s-participation-but-the-song-contest-is-still-expanding/a-79401752?maca=en-rss-en-all-1573-rdf",
+          "observed_host": "dw.com",
+          "suggested_publisher_group": "dw.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2184,
+      "suggested_domain": "半导体与产业",
+      "articles": [
+        {
+          "article_id": 2120,
+          "source_id": "yicai",
+          "origin_url": "https://www.yicai.com/news/103203039.html",
+          "observed_host": "yicai.com",
+          "suggested_publisher_group": "yicai.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 236,
+      "suggested_domain": "健康与行为科学",
+      "articles": [
+        {
+          "article_id": 316,
+          "source_id": "economist-latest",
+          "origin_url": "https://www.economist.com/international/2026/10/08/nagging-people-to-eat-healthily-does-not-work",
+          "observed_host": "economist.com",
+          "suggested_publisher_group": "economist.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 348,
+      "suggested_domain": "AI与软件",
+      "articles": [
+        {
+          "article_id": 1067,
+          "source_id": "arxiv-ai",
+          "origin_url": "https://arxiv.org/abs/2610.10639",
+          "observed_host": "arxiv.org",
+          "suggested_publisher_group": "arxiv.org",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4029,
+      "suggested_domain": "AI与软件",
+      "articles": [
+        {
+          "article_id": 6201,
+          "source_id": "36kr-newsflashes",
+          "origin_url": "https://www.36kr.com/newsflashes/4024187101187976",
+          "observed_host": "36kr.com",
+          "suggested_publisher_group": "36kr.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 7114,
+          "source_id": "caixin",
+          "origin_url": "https://www.caixin.com/2026-10-14/102493268.html",
+          "observed_host": "caixin.com",
+          "suggested_publisher_group": "caixin.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2822,
+      "suggested_domain": "交通与公共事务",
+      "articles": [
+        {
+          "article_id": 3870,
+          "source_id": "xinhua",
+          "origin_url": "http://www.news.cn/20261011/c10175f93b9b4ce6a35864c8c86fa73a/c.html",
+          "observed_host": "news.cn",
+          "suggested_publisher_group": "news.cn",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 1195,
+      "suggested_domain": "AI与基础设施",
+      "articles": [
+        {
+          "article_id": 912,
+          "source_id": "bbc-zhongwen",
+          "origin_url": "https://www.bbc.com/zhongwen/articles/crje8gjn3nl5o/trad?at_medium=RSS&at_campaign=rss",
+          "observed_host": "bbc.com",
+          "suggested_publisher_group": "bbc.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2081,
+      "suggested_domain": "政治与公共事务",
+      "articles": [
+        {
+          "article_id": 2936,
+          "source_id": "new-yorker",
+          "origin_url": "https://www.newyorker.com/news/the-political-scene/who-won-the-redistricting-war",
+          "observed_host": "newyorker.com",
+          "suggested_publisher_group": "newyorker.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 4713,
+      "suggested_domain": "体育与公共事务",
+      "articles": [
+        {
+          "article_id": 4928,
+          "source_id": "zhihu-hot",
+          "origin_url": "https://www.zhihu.com/question/2092034645735088905",
+          "observed_host": "zhihu.com",
+          "suggested_publisher_group": "zhihu.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 610,
+      "suggested_domain": "经济与金融",
+      "articles": [
+        {
+          "article_id": 1284,
+          "source_id": "36kr-newsflashes",
+          "origin_url": "https://www.36kr.com/newsflashes/4018473481326469",
+          "observed_host": "36kr.com",
+          "suggested_publisher_group": "36kr.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 1164,
+      "suggested_domain": "医疗与健康",
+      "articles": [
+        {
+          "article_id": 570,
+          "source_id": "economist-latest",
+          "origin_url": "https://www.economist.com/science-and-technology/2026/09/23/many-surgical-interventions-are-little-better-than-placebo",
+          "observed_host": "economist.com",
+          "suggested_publisher_group": "economist.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 833,
+      "suggested_domain": "政治与公共事务",
+      "articles": [
+        {
+          "article_id": 385,
+          "source_id": "economist-latest",
+          "origin_url": "https://www.economist.com/asia/2026/10/05/a-controversial-new-power-grab-in-pakistan",
+          "observed_host": "economist.com",
+          "suggested_publisher_group": "economist.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 138,
+      "suggested_domain": "能源与经济",
+      "articles": [
+        {
+          "article_id": 201,
+          "source_id": "dw-en",
+          "origin_url": "https://www.dw.com/en/emerging-economies-are-embracing-solar-power-and-skipping-fossil-fuels-much-faster-than-europe-or-the-us/a-79474847?maca=en-rss-en-all-1573-rdf",
+          "observed_host": "dw.com",
+          "suggested_publisher_group": "dw.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 899,
+      "suggested_domain": "政治与国际关系",
+      "articles": [
+        {
+          "article_id": 1463,
+          "source_id": "zaobao-china",
+          "origin_url": "https://www.zaobao.com/news/china/story20261009-9812646",
+          "observed_host": "zaobao.com",
+          "suggested_publisher_group": "zaobao.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 2809,
+          "source_id": "zaobao-china",
+          "origin_url": "https://www.zaobao.com/news/china/story20261010-9815554",
+          "observed_host": "zaobao.com",
+          "suggested_publisher_group": "zaobao.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 3621,
+          "source_id": "zaobao-china",
+          "origin_url": "https://www.zaobao.com/news/china/story20261011-9819014",
+          "observed_host": "zaobao.com",
+          "suggested_publisher_group": "zaobao.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 2113,
+      "suggested_domain": "科学与气象",
+      "articles": [
+        {
+          "article_id": 2284,
+          "source_id": "deepmind-blog",
+          "origin_url": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/",
+          "observed_host": "deepmind.google",
+          "suggested_publisher_group": "deepmind.google",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 2294,
+          "source_id": "deepmind-blog",
+          "origin_url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+          "observed_host": "deepmind.google",
+          "suggested_publisher_group": "deepmind.google",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "suspected-mixed",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 3125,
+      "suggested_domain": "AI（成员混杂待核实）",
+      "articles": [
+        {
+          "article_id": 4393,
+          "source_id": "arxiv-ai",
+          "origin_url": "https://arxiv.org/abs/2610.12602",
+          "observed_host": "arxiv.org",
+          "suggested_publisher_group": "arxiv.org",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 4944,
+          "source_id": "nature",
+          "origin_url": "https://www.nature.com/articles/d41586-026-03227-4",
+          "observed_host": "nature.com",
+          "suggested_publisher_group": "nature.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 5310,
+          "source_id": "hn-front",
+          "origin_url": "https://micahflee.com/just-say-no-to-openai-and-anthropic/",
+          "observed_host": "micahflee.com",
+          "suggested_publisher_group": "micahflee.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": true
+        },
+        {
+          "article_id": 5692,
+          "source_id": "hn-front",
+          "origin_url": "https://arxiv.org/abs/2610.13928",
+          "observed_host": "arxiv.org",
+          "suggested_publisher_group": "arxiv.org",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": true
+        },
+        {
+          "article_id": 6824,
+          "source_id": "hn-front",
+          "origin_url": "https://www.pi.website/blog/api-beta",
+          "observed_host": "pi.website",
+          "suggested_publisher_group": "pi.website",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": true
+        },
+        {
+          "article_id": 6826,
+          "source_id": "simon-willison",
+          "origin_url": "https://simonwillison.net/2026/Oct/12/llm-meta-ai/",
+          "observed_host": "simonwillison.net",
+          "suggested_publisher_group": "simonwillison.net",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        },
+        {
+          "article_id": 6848,
+          "source_id": "simon-willison",
+          "origin_url": "https://simonwillison.net/2026/Oct/13/llm-gemini/",
+          "observed_host": "simonwillison.net",
+          "suggested_publisher_group": "simonwillison.net",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "suspected-mixed",
+      "reprints": "unknown; not inferred from different hosts"
+    },
+    {
+      "event_id": 1457,
+      "suggested_domain": "医疗与AI治理",
+      "articles": [
+        {
+          "article_id": 2218,
+          "source_id": "lancet",
+          "origin_url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)01941-0/fulltext?rss=yes",
+          "observed_host": "thelancet.com",
+          "suggested_publisher_group": "thelancet.com",
+          "suggested_timestamp_classification": "valid",
+          "publication_time_basis": "feed-entry; original-page publication unverified",
+          "requires_origin_time_check": false
+        }
+      ],
+      "membership_status": "not-independently-verified",
+      "reprints": "unknown; not inferred from different hosts"
+    }
+  ],
+  "suggested_pairs": [
+    {
+      "sort": "newest",
+      "range": "7d",
+      "before_event_id": 4897,
+      "after_event_id": 3492,
+      "reason": "前者最早有效日期更近；新加坡一篇时间缺失，采用另一篇有效日期，需核实时间口径。"
+    },
+    {
+      "sort": "hot",
+      "range": "7d",
+      "before_event_id": 4029,
+      "after_event_id": 3509,
+      "reason": "WorkBuddy近期两家来源有报道；火车事故两篇均新华社，只算一个媒体活动，不能按文章数冒充两来源。"
+    },
+    {
+      "sort": "important",
+      "range": "7d",
+      "before_event_id": 4612,
+      "after_event_id": 138,
+      "reason": "用户重要性4分与2分的差异，建议核实该偏好是否也适用于重要优先；既有综合分目前给相反次序。"
+    }
+  ],
+  "limitations": [
+    "Hostname suggestions are grouping proposals, not proof of publisher identity or independent evidence.",
+    "Feed-entry timestamps are not verified original-publication times.",
+    "Human scores apply to displayed events; suspected mixed membership cannot be split and inherit those scores automatically."
+  ]
+}

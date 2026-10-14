@@ -134,6 +134,7 @@ def rank_events(
     publisher_groups: dict[str, str] | None = None,
     params: CandidateParams = DEFAULT_PARAMS,
     baseline_half_life_hours: float = 24,
+    article_publisher_groups: dict[int, str] | None = None,
 ) -> list[RankedEvent]:
     """Compare candidates without changing stored scores, membership or timestamps.
 
@@ -149,6 +150,7 @@ def rank_events(
     if sort in {"hot", "activity"} and start is None:
         start = as_of - timedelta(hours=24)
     groups = publisher_groups or {}
+    article_groups = article_publisher_groups or {}
     rows: list[RankedEvent] = []
     discovered: dict[int, datetime] = {}
     for event in events:
@@ -179,7 +181,9 @@ def rank_events(
                     and valid_publication(article, as_of, params)
                     and start <= published <= as_of
                 ):
-                    group = groups.get(article.source_id, article.source_id)
+                    group = article_groups.get(
+                        article.id, groups.get(article.source_id, article.source_id)
+                    )
                     first_per_group[group] = min(published, first_per_group.get(group, published))
             if not first_per_group:
                 continue

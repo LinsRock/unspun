@@ -179,3 +179,34 @@ def test_candidate_half_life_does_not_change_historical_baseline() -> None:
     )
     assert [r.id for r in rows] == [2, 1]
     assert rows[1].metric == pytest.approx(45)
+
+
+def test_aggregator_entries_can_have_different_article_publishers() -> None:
+    from unspun.evaluation.feed_ranking import EventSample, rank_events
+
+    sample = EventSample.model_validate(event_sample(1, [("hn-front", NOW), ("hn-front", NOW)]))
+    rows = rank_events(
+        [sample],
+        "hot",
+        "24h",
+        NOW,
+        article_publisher_groups={100: "publisher-a", 101: "publisher-b"},
+    )
+    assert rows[0].active_publishers == 2
+    assert rows[0].metric == pytest.approx(3)
+
+
+def test_direct_and_aggregated_links_to_same_publisher_count_once() -> None:
+    from unspun.evaluation.feed_ranking import EventSample, rank_events
+
+    sample = EventSample.model_validate(event_sample(1, [("arxiv-ai", NOW), ("hn-front", NOW)]))
+    rows = rank_events(
+        [sample],
+        "hot",
+        "24h",
+        NOW,
+        {"arxiv-ai": "arxiv", "hn-front": "hn"},
+        article_publisher_groups={101: "arxiv"},
+    )
+    assert rows[0].active_publishers == 1
+    assert rows[0].metric == pytest.approx(1.5)
