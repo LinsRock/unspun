@@ -35,6 +35,6 @@ test('source history shows real outcomes and keeps range when drilling into arti
   expect(await screen.findByText('BBC World')).toBeTruthy()
   expect(requests.some(url => url.includes('/api/admin/sources?') && url.includes('lang=en'))).toBe(true)
   fireEvent.click(screen.getByRole('link', { name: /查看 BBC World 的文章/ }))
-  expect(await screen.findByRole('heading', { name: '文章与事件' })).toBeTruthy()
+  expect(await screen.findByRole('heading', { name: '内容工作区' })).toBeTruthy()
   expect(requests.some(url => url.includes('/api/admin/sources?') && url.includes('start=2026-10-01'))).toBe(true)
 }, 10_000)

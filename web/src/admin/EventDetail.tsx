@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Alert, Button, Descriptions, Drawer, Empty, Spin, Table, Typography } from 'antd'
 
+import ScoreBreakdown from './ScoreBreakdown'
 import type { AdminRange } from './adminFilters'
 import { displayTime, getHistoryDetail, type EventDetailData } from './adminHistoryApi'
 
@@ -13,7 +14,7 @@ export default function EventDetail({ id, range, onClose, onArticle }: Props) {
     enabled: id !== null, retry: false,
   })
   const event = query.data
-  return <Drawer open={id !== null} onClose={onClose} title={event?.title || `事件 #${id}`} size={Math.min(720, typeof window === 'undefined' ? 720 : window.innerWidth)}>
+  return <Drawer className="admin-detail-drawer" open={id !== null} onClose={onClose} title={event?.title || `事件 #${id}`} size={Math.min(720, typeof window === 'undefined' ? 720 : window.innerWidth)}>
     {query.isPending && <Spin />}
     {query.isError && <Alert type="error" showIcon title="无法加载事件详情" action={<Button size="small" onClick={() => void query.refetch()}>重试</Button>} />}
     {event && <div className="admin-detail-stack">
@@ -27,7 +28,7 @@ export default function EventDetail({ id, range, onClose, onArticle }: Props) {
       {!event.earliest_published_at && <Alert type="info" showIcon title="关联文章缺少有效报道时间；系统发现时间不当作报道时间。" />}
       <Typography.Title level={5}>事件摘要</Typography.Title><Typography.Paragraph>{event.summary_zh || '未记录'}</Typography.Paragraph>
       <Typography.Title level={5}>分数组成与理由</Typography.Title>
-      {event.score_breakdown ? <pre className="admin-json-detail">{JSON.stringify(event.score_breakdown, null, 2)}</pre> : <Typography.Text type="secondary">未记录</Typography.Text>}
+      <ScoreBreakdown value={event.score_breakdown} />
       <Typography.Title level={5}>来源报道时间线</Typography.Title>
       {event.articles.length ? <Table rowKey="id" size="small" pagination={false} dataSource={event.articles} scroll={{ x: 530 }} columns={[
         { title: '报道时间', dataIndex: 'published_at', render: displayTime, width: 160 },

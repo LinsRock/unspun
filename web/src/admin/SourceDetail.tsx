@@ -18,7 +18,7 @@ export default function SourceDetail({ id, range, search, onClose }: Props) {
   const contentSearch = new URLSearchParams(sharedRangeSearch(search))
   if (id) contentSearch.set('source_id', id)
   const url = source?.config && safeExternalUrl(source.config.url)
-  return <Drawer open={Boolean(id)} onClose={onClose} title={source?.name || id || '信息源详情'} size={Math.min(620, typeof window === 'undefined' ? 620 : window.innerWidth)}>
+  return <Drawer className="admin-detail-drawer" open={Boolean(id)} onClose={onClose} title={source?.name || id || '信息源详情'} size={Math.min(620, typeof window === 'undefined' ? 620 : window.innerWidth)}>
     {query.isPending && <Spin />}
     {query.isError && <Alert type="error" showIcon title="无法加载来源详情" action={<Button size="small" onClick={() => void query.refetch()}>重试</Button>} />}
     {source && <div className="admin-detail-stack">
