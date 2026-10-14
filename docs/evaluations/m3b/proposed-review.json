@@ -862,25 +862,28 @@
       "before_event_id": 4897,
       "after_event_id": 3492,
       "reason": "前者最早有效日期更近；新加坡一篇时间缺失，采用另一篇有效日期，需核实时间口径。"
-    },
-    {
-      "sort": "hot",
-      "range": "7d",
-      "before_event_id": 4029,
-      "after_event_id": 3509,
-      "reason": "WorkBuddy近期两家来源有报道；火车事故两篇均新华社，只算一个媒体活动，不能按文章数冒充两来源。"
-    },
-    {
-      "sort": "important",
-      "range": "7d",
-      "before_event_id": 4612,
-      "after_event_id": 138,
-      "reason": "用户重要性4分与2分的差异，建议核实该偏好是否也适用于重要优先；既有综合分目前给相反次序。"
     }
   ],
   "limitations": [
     "Hostname suggestions are grouping proposals, not proof of publisher identity or independent evidence.",
     "Feed-entry timestamps are not verified original-publication times.",
     "Human scores apply to displayed events; suspected mixed membership cannot be split and inherit those scores automatically."
+  ],
+  "priority_feedback_file": "priority-feedback.json",
+  "withdrawn_proposals": [
+    {
+      "sort": "hot",
+      "previous_before_event_id": 4029,
+      "previous_after_event_id": 3509,
+      "status": "user-requested-reverse-order; applicable sort being clarified"
+    },
+    {
+      "sort": "important",
+      "event_ids": [
+        4612,
+        138
+      ],
+      "status": "user accepts either order; not a hard constraint"
+    }
   ]
 }

@@ -1,0 +1,50 @@
+{
+  "version": "m3b-priority-feedback-v1",
+  "recorded_on": "2026-10-14",
+  "author": "user via conversation",
+  "explicit_preferences": [
+    {
+      "before_event_id": 3509,
+      "after_event_id": 4029,
+      "reason": "An incident with deaths should receive priority attention over the WorkBuddy product update.",
+      "applicable_sort": null,
+      "scope_status": "clarification-requested"
+    }
+  ],
+  "unconstrained_pairs": [
+    {
+      "event_ids": [
+        4612,
+        138
+      ],
+      "user_instruction": "Either order is acceptable; assistant may decide.",
+      "assistant_choice": "Keep existing composite-score ordering unless another accepted requirement changes it.",
+      "hard_acceptance_constraint": false
+    }
+  ],
+  "current_candidate_checks": {
+    "hot": {
+      "range": "7d",
+      "before_event_id": 3509,
+      "after_event_id": 4029,
+      "incident_position": 6,
+      "product_position": 1,
+      "matches_user_preference": false,
+      "status": "scope-awaiting-clarification"
+    },
+    "important": {
+      "range": "7d",
+      "before_event_id": 3509,
+      "after_event_id": 4029,
+      "incident_position": 21,
+      "product_position": 8,
+      "matches_user_preference": false,
+      "status": "scope-awaiting-clarification"
+    }
+  },
+  "unconfirmed": [
+    "The user did not confirm that social attention is actually higher in observed coverage.",
+    "The user did not approve a universal rule putting every casualty incident above every product update.",
+    "The user has not yet specified whether the priority belongs in important or also hot."
+  ]
+}
