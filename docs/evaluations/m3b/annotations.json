@@ -11,7 +11,7 @@
     {
       "event_id": 3492,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 1,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -23,7 +23,7 @@
     {
       "event_id": 3373,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -35,7 +35,7 @@
     {
       "event_id": 2491,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 1,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -47,7 +47,7 @@
     {
       "event_id": 2226,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 1,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -59,7 +59,7 @@
     {
       "event_id": 550,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -71,7 +71,7 @@
     {
       "event_id": 4964,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -83,7 +83,7 @@
     {
       "event_id": 2215,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -95,7 +95,7 @@
     {
       "event_id": 4407,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -107,7 +107,7 @@
     {
       "event_id": 2751,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -119,7 +119,7 @@
     {
       "event_id": 4393,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -131,7 +131,7 @@
     {
       "event_id": 1970,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -143,7 +143,7 @@
     {
       "event_id": 1994,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 1,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -155,7 +155,7 @@
     {
       "event_id": 4497,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -167,7 +167,7 @@
     {
       "event_id": 381,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -179,7 +179,7 @@
     {
       "event_id": 4527,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -191,7 +191,7 @@
     {
       "event_id": 3509,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 4,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -203,7 +203,7 @@
     {
       "event_id": 2045,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 4,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -215,7 +215,7 @@
     {
       "event_id": 1283,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -227,7 +227,7 @@
     {
       "event_id": 3550,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -239,7 +239,7 @@
     {
       "event_id": 433,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -251,7 +251,7 @@
     {
       "event_id": 4612,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 4,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -263,7 +263,7 @@
     {
       "event_id": 4897,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -275,7 +275,7 @@
     {
       "event_id": 363,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 4,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -287,7 +287,7 @@
     {
       "event_id": 168,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -299,7 +299,7 @@
     {
       "event_id": 2184,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 4,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -311,7 +311,7 @@
     {
       "event_id": 236,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -323,7 +323,7 @@
     {
       "event_id": 348,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -335,7 +335,7 @@
     {
       "event_id": 4029,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 4,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -347,7 +347,7 @@
     {
       "event_id": 2822,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -359,7 +359,7 @@
     {
       "event_id": 1195,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -371,7 +371,7 @@
     {
       "event_id": 2081,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -383,7 +383,7 @@
     {
       "event_id": 4713,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -395,7 +395,7 @@
     {
       "event_id": 610,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -407,7 +407,7 @@
     {
       "event_id": 1164,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 1,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -419,7 +419,7 @@
     {
       "event_id": 833,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -431,7 +431,7 @@
     {
       "event_id": 138,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -443,7 +443,7 @@
     {
       "event_id": 899,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -455,7 +455,7 @@
     {
       "event_id": 2113,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -467,7 +467,7 @@
     {
       "event_id": 3125,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 2,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
@@ -479,7 +479,7 @@
     {
       "event_id": 1457,
       "domain": null,
-      "importance_band": null,
+      "importance_band": 3,
       "worth_reading": null,
       "timestamp_review": {},
       "publisher_groups": {},
