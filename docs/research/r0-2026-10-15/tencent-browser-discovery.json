@@ -1,0 +1,22 @@
+{
+  "observed_at": "2026-10-15T10:39:00.144Z",
+  "method": "headless_browser_new_context_no_login",
+  "url": "https://news.qq.com/",
+  "title": "腾讯网-要闻",
+  "purpose": "Discover actual public page endpoints, then test them independently on agent and target.",
+  "endpoints": [
+    {
+      "url": "https://i.news.qq.com/web_feed/getCollectionArticles?tagId=aUepxrtchGM%3D",
+      "status": 200
+    },
+    {
+      "url": "https://i.news.qq.com/web_feed/get_command_pagination?page=1",
+      "status": 200
+    },
+    {
+      "url": "https://i.news.qq.com/web_feed/getHotModuleList",
+      "status": 200
+    }
+  ],
+  "browser_identity_or_storage_saved": false
+}

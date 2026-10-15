@@ -1,0 +1,2549 @@
+{
+  "schema_version": "unspun-r0-review-candidates-v1",
+  "reference_date": "2026-10-15",
+  "source_count_with_samples": 17,
+  "human_labels_filled": false,
+  "not_a_curated_feed": true,
+  "candidates": [
+    {
+      "id": "C01",
+      "requested_source": "新华网",
+      "publisher": "新华社",
+      "author": "李诗萌、刘洁秋、陈怡",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "综述丨AI投资风险担忧加剧致日韩股市大跌",
+      "url": "https://www.news.cn/20261015/188a9f74385e4bfd972c69f883cea74c/c.html",
+      "genre": "报道",
+      "topic": "经济与AI",
+      "publication": {
+        "value": "2026-10-15T18:31:42+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 15 Oct 2026 10:31:42 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:25.952394+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 802,
+      "material_sha256": "bb39a3bb67f85e712cde30e4b422af229daef45d9d2e1f22b614bada4ac2f489",
+      "material_selector": "//*[@id=\"detailContent\"]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "报道日韩股市下跌，并讨论市场对AI投资风险的担忧。",
+      "limitations_zh": "RSS署名还混入其他姓名，按正文记者署名取人；市场解释属于该报道的归因。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-xinhua-article-0",
+        "vps-articles:route-xinhua-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 802
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 802
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-xinhua",
+        "vps-round2:route-xinhua-round2",
+        "vps-rsshub:route-xinhua"
+      ]
+    },
+    {
+      "id": "C02",
+      "requested_source": "新华网",
+      "publisher": "新华社",
+      "author": "张百慧",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "卢浮宫馆长警告说可能被迫关闭卢浮宫",
+      "url": "https://www.news.cn/20261015/56bed6be5b614059a603f46d54c66f1d/c.html",
+      "genre": "报道",
+      "topic": "文化与公共设施",
+      "publication": {
+        "value": "2026-10-15T18:30:04+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 15 Oct 2026 10:30:04 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:25.952769+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 568,
+      "material_sha256": "aefa8a0cb4926e80f0380003a32b224f8b692a57de1a35933e108aceff3b1f19",
+      "material_selector": "//*[@id=\"detailContent\"]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "报道卢浮宫馆长提出的修缮、管理和财政压力。",
+      "limitations_zh": "馆长的警告不是已经宣布闭馆。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-xinhua-article-1",
+        "vps-articles:route-xinhua-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 586
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 586
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-xinhua",
+        "vps-round2:route-xinhua-round2",
+        "vps-rsshub:route-xinhua"
+      ]
+    },
+    {
+      "id": "C03",
+      "requested_source": "新华网",
+      "publisher": "新华社",
+      "author": "李嘉乐（记者）；苏家梁、黄康懿（编导）",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "微纪录片丨晓茵之旅",
+      "url": "https://www.news.cn/20261015/1c6de712a4704e6eb1a07960669a1548/c.html",
+      "genre": "视频",
+      "topic": "生活与残障",
+      "publication": {
+        "value": "2026-10-15T18:21:50+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:39:29.424023+00:00",
+      "material_status": "video_description_only",
+      "material_status_label": "仅视频简介／元数据",
+      "material_chars": 440,
+      "material_sha256": "a25a19388f2399aa787baa90b4aa2b5ce3950a8a213e8d69d0737b8379cbfe23",
+      "material_selector": "#detailContent video introduction only",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "视障歌手江晓茵的生活与探索，适合评价人物视频的兴趣价值。",
+      "limitations_zh": "只核对网页简介与MP4范围请求；没有观看、字幕、转写或内容级AI导读。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:xinhua-video",
+        "vps-articles:xinhua-video"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 458
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 458
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": [],
+      "media_evidence": "media-check.json",
+      "transcript_obtained": false
+    },
+    {
+      "id": "C04",
+      "requested_source": "联合早报",
+      "publisher": "联合早报",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "库克：苹果智能已在中国获批",
+      "url": "https://www.zaobao.com/news/china/story20261015-9843138",
+      "genre": "快讯",
+      "topic": "科技与AI",
+      "publication": {
+        "value": "2026-10-15T18:08:17+08:00",
+        "precision": "second",
+        "basis": "page JSON-LD.datePublished",
+        "feed_raw": "Thu, 15 Oct 2026 10:08:17 GMT",
+        "modified_at": "2026-10-15T18:09:23+08:00"
+      },
+      "observed_at": "2026-10-15T10:39:25.952913+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 313,
+      "material_sha256": "2df133a3a31b94f2c164baabc112dfbdf6c12ae23523447db26fb6ff70f4a7d3",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "转述库克接受澎湃采访时关于苹果智能中国进展的说法。",
+      "limitations_zh": "未取得个人作者；转述关系不能算另一份独立证据。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-zaobao-china-article-1",
+        "vps-articles:route-zaobao-china-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 313
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 313
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-zaobao-china",
+        "vps-round2:route-zaobao-china-round2",
+        "vps-rsshub:route-zaobao-china"
+      ]
+    },
+    {
+      "id": "C05",
+      "requested_source": "联合早报",
+      "publisher": "联合早报",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "IMF预计亚太经济增长今明两年放缓",
+      "url": "https://www.zaobao.com/news/world/story20261015-9842241",
+      "genre": "报道",
+      "topic": "国际经济",
+      "publication": {
+        "value": "2026-10-15T18:32:53+08:00",
+        "precision": "second",
+        "basis": "page JSON-LD.datePublished",
+        "feed_raw": "Thu, 15 Oct 2026 10:32:53 GMT",
+        "modified_at": "2026-10-15T18:32:59+08:00"
+      },
+      "observed_at": "2026-10-15T10:39:25.953043+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 1189,
+      "material_sha256": "1dfc5ab3082711e1e595e4a8b79a78dedf4dfeedf2d5d6d11f6775f03a534449",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "围绕IMF亚太经济展望讨论增长、能源和AI投资风险。",
+      "limitations_zh": "页面为综合电；联合早报是发布方，图片的路透署名不是本文作者。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-zaobao-world-article-0",
+        "vps-articles:route-zaobao-world-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1189
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1189
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-zaobao-world",
+        "vps-round2:route-zaobao-world-round2",
+        "vps-rsshub:route-zaobao-world"
+      ]
+    },
+    {
+      "id": "C06",
+      "requested_source": "联合早报",
+      "publisher": "联合早报",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "黑海两艘化学品船起火 八名船员失踪",
+      "url": "https://www.zaobao.com/news/world/story20261015-9842470",
+      "genre": "报道",
+      "topic": "国际关系",
+      "publication": {
+        "value": "2026-10-15T17:12:22+08:00",
+        "precision": "second",
+        "basis": "page JSON-LD.datePublished",
+        "feed_raw": "Thu, 15 Oct 2026 09:12:22 GMT",
+        "modified_at": "2026-10-15T17:12:25+08:00"
+      },
+      "observed_at": "2026-10-15T10:39:25.953150+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 575,
+      "material_sha256": "aeb3bcb97a5d8733faf8cd1bf0f90c056302909a87ab0b7e87151a879ebb109d",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "报道黑海船舶起火及搜救进展，适合与其他国际报道比较。",
+      "limitations_zh": "时间由列表与原页JSON-LD核对；未取得个人署名，不把机构名当个人作者。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-zaobao-world-article-2",
+        "vps-articles:route-zaobao-world-article-2"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 575
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 575
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-zaobao-world",
+        "vps-round2:route-zaobao-world-round2",
+        "vps-rsshub:route-zaobao-world"
+      ]
+    },
+    {
+      "id": "C07",
+      "requested_source": "南方周末",
+      "publisher": "南方周末",
+      "author": "李在磊",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "灵活就业者参保难题：年轻时不想缴，想缴时领得少",
+      "url": "https://www.infzm.com/contents/342639",
+      "genre": "深度报道",
+      "topic": "社会与公共政策",
+      "publication": {
+        "value": "2026-10-15T17:00:00+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 15 Oct 2026 09:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:26.545831+00:00",
+      "material_status": "partial_preview",
+      "material_status_label": "部分正文／公开预览",
+      "material_chars": 535,
+      "material_sha256": "daebcfd1fc6e12596d4856e5d49fe74c62d62ac40e921c8a0daa3d4b3969f517",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" nfzm-content__content \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "讨论灵活就业者参保意愿、缴费和待遇之间的矛盾。",
+      "limitations_zh": "仅取得公开预览；与社保兴趣例子主题相近，但未确认就是用户原指事件。通用抽取器误给2023年日期。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-infzm-article-1",
+        "vps-articles:route-infzm-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 526
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 526
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-infzm",
+        "vps-round2:route-infzm-round2",
+        "vps-rsshub:route-infzm"
+      ]
+    },
+    {
+      "id": "C08",
+      "requested_source": "南方周末",
+      "publisher": "南方人物周刊",
+      "author": "朱江明",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "当副机长成为恐怖分子的时候你只能指望英雄出手了丨军事",
+      "url": "https://www.infzm.com/contents/342625",
+      "genre": "评论",
+      "topic": "国际与安全",
+      "publication": {
+        "value": "2026-10-15T18:00:00+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 15 Oct 2026 10:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:26.540874+00:00",
+      "material_status": "partial_preview",
+      "material_status_label": "部分正文／公开预览",
+      "material_chars": 499,
+      "material_sha256": "2d3bebb911a1a35ef0cde290ccac0e2953e96de7d0ce6368f3a39e02e1939234",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" nfzm-content__content \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "作者借劫机案例讨论个体干预与航空安全。",
+      "limitations_zh": "刊载于南方周末平台，首发方为南方人物周刊；正文仅公开预览。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-infzm-article-0",
+        "vps-articles:route-infzm-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 421
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 421
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-infzm",
+        "vps-round2:route-infzm-round2",
+        "vps-rsshub:route-infzm"
+      ]
+    },
+    {
+      "id": "C09",
+      "requested_source": "澎湃新闻",
+      "publisher": "澎湃新闻",
+      "author": "张无为（编辑）",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "退休情报局长的秘密生意：2000份德国机密如何沦为私人筹码？｜907编辑部",
+      "url": "https://www.thepaper.cn/newsDetail_forward_34256501",
+      "genre": "播客",
+      "topic": "国际与情报",
+      "publication": {
+        "value": "2026-10-15T17:14:06+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:39:29.340929+00:00",
+      "material_status": "podcast_description_only",
+      "material_status_label": "仅播客简介／原生章节点",
+      "material_chars": 668,
+      "material_sha256": "7c804a57d44abee01f831535454a64a954ad987c861642a5cbd4e5a945675dba",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "围绕德国前情报官员的争议提供播客简介和发布方章节。",
+      "limitations_zh": "简介不是完整音频或逐字稿；网页章节点也不证明已听完整集。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:thepaper-home-article-0",
+        "vps-articles:thepaper-home-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 668
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 668
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": []
+    },
+    {
+      "id": "C10",
+      "requested_source": "澎湃新闻",
+      "publisher": "新华社",
+      "author": "马卓言、冯歆然",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "外交部：日当政者应正视历史，反省罪责，洗心革面",
+      "url": "https://www.thepaper.cn/newsDetail_forward_34256126",
+      "genre": "报道",
+      "topic": "国际关系",
+      "publication": {
+        "value": "2026-10-15T15:22:00+08:00",
+        "precision": "minute",
+        "basis": "visible_page_dateline",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:39:29.369401+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 313,
+      "material_sha256": "6cae966a035c3e91b9e495005eb6023972f97f3ecb219c40939a7de4a07dd29f",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "转述外交部例行记者会关于靖国神社历史记录的回应。",
+      "limitations_zh": "通过澎湃发布的新华社材料；不能把澎湃与新华社计成两份独立证据。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:thepaper-home-article-1",
+        "vps-articles:thepaper-home-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 313
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 313
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": []
+    },
+    {
+      "id": "C11",
+      "requested_source": "澎湃新闻",
+      "publisher": "澎湃新闻",
+      "author": "南博一",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "澳枪击事件嫌疑人为父子：曾宣誓效忠“伊斯兰国”，行凶枪支为合法持有",
+      "url": "https://www.thepaper.cn/newsDetail_forward_32178049",
+      "genre": "旧报道",
+      "topic": "时效反例",
+      "publication": {
+        "value": "2025-12-15T13:15:00+08:00",
+        "precision": "minute",
+        "basis": "visible page dateline; feed time conflicts and is also stale",
+        "feed_raw": "Tue, 16 Dec 2025 02:23:04 +0000",
+        "original_page_date": "2025-12-15"
+      },
+      "observed_at": "2026-10-15T10:39:29.024068+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 1423,
+      "material_sha256": "c3cb527c09a5ceb6a7f0cc5b8fb50be9feddaa07694815c2bd4a037ba4cb98f8",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "澳大利亚枪击案件的旧报道，用于检验过期短期消息是否被挡住。",
+      "limitations_zh": "镜像feed标2025-12-16、原页显示2025-12-15；两者均属旧闻，不进入当前最新或当天动态。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:thepaper-mirror-article-0",
+        "vps-articles:thepaper-mirror-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1423
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1423
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "exclude_from_current_news; retain_negative_control",
+      "discovered_in_observations": [
+        "agent-direct:thepaper-mirror",
+        "vps-direct:thepaper-mirror",
+        "vps-round2:thepaper-mirror-round2"
+      ]
+    },
+    {
+      "id": "C12",
+      "requested_source": "人民日报",
+      "publisher": "人民日报",
+      "author": "本报评论员",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "建成均衡普惠、优质高效的健康中国",
+      "url": "https://paper.people.com.cn/rmrb/pc/content/202610/15/content_30185772.html",
+      "genre": "评论",
+      "topic": "公共健康与政策",
+      "publication": {
+        "value": "2026-10-15",
+        "precision": "day",
+        "basis": "visible_publication_date_only; RSS midnight is synthetic",
+        "feed_raw": "Wed, 14 Oct 2026 16:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:26.897502+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 1635,
+      "material_sha256": "1161ef9da948037439f6fcff7bb07fd86213b4ce7c83f46dbbbf105ba92652ec",
+      "material_selector": "//*[@id=\"ozoom\"]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "从公共政策角度讨论健康中国建设。",
+      "limitations_zh": "评论不是医学研究；meta publishdate残留2013-07-17，采用当期报纸日期，不能补零点当精确时间。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-people-article-1",
+        "vps-articles:route-people-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1635
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1635
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-people",
+        "vps-round2:route-people-round2",
+        "vps-rsshub:route-people"
+      ]
+    },
+    {
+      "id": "C13",
+      "requested_source": "人民日报",
+      "publisher": "新华社",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "习近平向第140届中国进出口商品交易会致贺信",
+      "url": "https://paper.people.com.cn/rmrb/pc/content/202610/15/content_30185771.html",
+      "genre": "官方发布",
+      "topic": "贸易与官方发布",
+      "publication": {
+        "value": "2026-10-15",
+        "precision": "day",
+        "basis": "visible_publication_date_only; RSS midnight is synthetic",
+        "feed_raw": "Wed, 14 Oct 2026 16:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:26.765886+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 243,
+      "material_sha256": "c0cb088c06fa9732d894105440478fc551d8c005bda8232fd04f6a34385524e5",
+      "material_selector": "//*[@id=\"ozoom\"]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "广交会相关贺信报道，可评价官方发布在版面中的位置。",
+      "limitations_zh": "10月15日报纸刊载10月14日电；版次日期、通讯社电头与事件日期分别保留。meta残留2013-07-17。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-people-article-0",
+        "vps-articles:route-people-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 322
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 322
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-people",
+        "vps-round2:route-people-round2",
+        "vps-rsshub:route-people"
+      ]
+    },
+    {
+      "id": "C14",
+      "requested_source": "新京报",
+      "publisher": "新京报",
+      "author": "李聪",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "三台尊界V800刹车踏板支架接连断裂，制动测试暴露什么问题？",
+      "url": "https://www.bjnews.com.cn/detail/1791793517169487.html",
+      "genre": "深度报道",
+      "topic": "汽车与消费安全",
+      "publication": {
+        "value": "2026-10-12T16:25:00+08:00",
+        "precision": "minute",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Mon, 12 Oct 2026 08:25:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:27.079487+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 6647,
+      "material_sha256": "62cbd617e4e86f772b54a04264b2c59708fd913189efc93fe1a12994cd3e61f8",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" content-name \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "追问尊界V800制动测试争议，包含试验描述及相关回应。",
+      "limitations_zh": "不据标题判断缺陷已获独立确认；未确认是否为用户此前提到的华为汽车问题。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-bjnews-article-1",
+        "vps-articles:route-bjnews-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 6702
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 6702
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-bjnews",
+        "vps-round2:route-bjnews-round2",
+        "vps-rsshub:route-bjnews"
+      ]
+    },
+    {
+      "id": "C15",
+      "requested_source": "新京报",
+      "publisher": "新京报",
+      "author": "胡倩；张跃然、高俪榕（实习生）",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "“贩卖”暴食症，24岁吃播网红的人生终点",
+      "url": "https://www.bjnews.com.cn/detail/1791850970169497.html",
+      "genre": "深度报道",
+      "topic": "社会与平台",
+      "publication": {
+        "value": "2026-10-13T08:22:00+08:00",
+        "precision": "minute",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Tue, 13 Oct 2026 00:22:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:26.918602+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 7656,
+      "material_sha256": "9413f00c8f9e0ab4f5033e38162d0116a52c1ca0c1029926bf436ccd076ad122",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" content-name \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "从吃播从业者经历讨论流量机制、劳动和健康风险。",
+      "limitations_zh": "个案中的死因、家属说法与医学人士观点须分开；不能变成诊疗建议。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-bjnews-article-0",
+        "vps-articles:route-bjnews-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 7755
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 7755
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-bjnews",
+        "vps-round2:route-bjnews-round2",
+        "vps-rsshub:route-bjnews"
+      ]
+    },
+    {
+      "id": "C16",
+      "requested_source": "新京报",
+      "publisher": "新京报",
+      "author": "秦冰",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "送不走的“娜娜”：一只斑海豹，和围绕它的善意与生意",
+      "url": "https://www.bjnews.com.cn/detail/1791766227168870.html",
+      "genre": "深度报道",
+      "topic": "环境与生活",
+      "publication": {
+        "value": "2026-10-12T08:50:00+08:00",
+        "precision": "minute",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:39:29.419751+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 9616,
+      "material_sha256": "4c6593ee5577cbfb24a29c283a477b5093b6294f8b117f25bd2bacc35e7d54a6",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" content-name \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "一只斑海豹与旅游、投喂、保护之间的关系，适合评价小众内容。",
+      "limitations_zh": "附带视频地址，但本次只读文章；视频内容和字幕另验。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:bjnews-depth-article-0",
+        "vps-articles:bjnews-depth-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 9753
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 9753
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-bjnews",
+        "vps-round2:route-bjnews-round2",
+        "vps-rsshub:route-bjnews"
+      ]
+    },
+    {
+      "id": "C17",
+      "requested_source": "界面新闻",
+      "publisher": "界面新闻",
+      "author": "翟瑞民",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "直通部委｜本次国内油价不作调整 我国外商直接投资权益存量全球第二",
+      "url": "https://www.jiemian.com/article/15194213.html",
+      "genre": "新闻汇编",
+      "topic": "经济与公共政策",
+      "publication": {
+        "value": "2026-10-15T18:00:00+08:00",
+        "precision": "minute",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 15 Oct 2026 10:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:27.087684+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 2408,
+      "material_sha256": "6e0ce7d3e0d2d2bef3636a376122492f8284aa8e81da6d52fea68c8bd3f0a4f8",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" article-content \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "汇集油价、外资、应用权限和牙膏分类等部委动态。",
+      "limitations_zh": "一篇含多个不同事项，不宜强行归入一个事件；本地正文可读，目标VPS单篇多次超时。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-jiemian-article-0",
+        "vps-articles:route-jiemian-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2408
+        },
+        {
+          "environment": "target_vps",
+          "status": null,
+          "error": "ConnectTimeout",
+          "extracted_chars": null
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-followup:route-jiemian-repeat",
+        "agent-rsshub:route-jiemian",
+        "vps-followup:route-jiemian-repeat"
+      ]
+    },
+    {
+      "id": "C18",
+      "requested_source": "界面新闻",
+      "publisher": "界面新闻",
+      "author": "沈霄戈",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "一颗白菜卖到四五十元！降雨减产引发日本叶菜涨价",
+      "url": "https://www.jiemian.com/article/15194529.html",
+      "genre": "报道",
+      "topic": "食品与经济",
+      "publication": {
+        "value": "2026-10-15T17:17:00+08:00",
+        "precision": "minute",
+        "basis": "visible_page_dateline",
+        "feed_raw": "Thu, 15 Oct 2026 09:17:22 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:27.096512+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 1867,
+      "material_sha256": "790aac4b37895d9a186a31fc7caad56a68c0327b697a0d87fd20dd29bcccdef0",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" article-content \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "从叶菜价格讨论日本天气、供应和通胀的关系。",
+      "limitations_zh": "本地正文可读；目标VPS单篇请求失败，不能声称生产全文已经可用。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-jiemian-article-2",
+        "vps-articles:route-jiemian-article-2"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1865
+        },
+        {
+          "environment": "target_vps",
+          "status": null,
+          "error": "ReadTimeout",
+          "extracted_chars": null
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-followup:route-jiemian-repeat",
+        "agent-rsshub:route-jiemian",
+        "vps-followup:route-jiemian-repeat"
+      ]
+    },
+    {
+      "id": "C19",
+      "requested_source": "网易新闻",
+      "publisher": "观察者网",
+      "author": "刘骞",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "美国务院声称：舍曼将“从实力的地位出发”与中方谈",
+      "url": "https://www.163.com/news/article/GFH3NG6F00019K82.html",
+      "genre": "旧报道",
+      "topic": "时效反例",
+      "publication": {
+        "value": "2021-07-22T14:44:42+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 22 Jul 2021 06:44:42 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:27.194579+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 3380,
+      "material_sha256": "763444e27662d2f73412316d8406b0cee4cf7b226c924b58b2e3a391299890a6",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" post_body \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "旧版网易24小时榜中的中美外交新闻，用作错误新鲜度的反例。",
+      "limitations_zh": "当前请求成功，但报道是2021年内容；网易是转载平台，作者与发布方取正文。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-netease-article-0",
+        "vps-articles:route-netease-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 3394
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 3394
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "exclude_from_current_news; retain_negative_control",
+      "discovered_in_observations": [
+        "agent-rsshub:route-netease",
+        "vps-rsshub:route-netease"
+      ]
+    },
+    {
+      "id": "C20",
+      "requested_source": "腾讯新闻",
+      "publisher": "人民日报",
+      "author": "门杰伟、季觉苏、杨颜菲、李亚楠",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "从“养老”到“享老”，银发族的悦己新选择_腾讯新闻",
+      "url": "https://news.qq.com/rain/a/20261015A02UWQ00",
+      "genre": "报道",
+      "topic": "社会与消费",
+      "publication": {
+        "value": "2026-10-15T07:29:00+08:00",
+        "precision": "minute",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:41:14.365145+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 4542,
+      "material_sha256": "cff08d724df903cd97e5001c01faca07ab171d1a232c5e92c74db6e61a91c825",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" rich_media_content \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "多地养老消费与生活方式的组合报道。",
+      "limitations_zh": "腾讯为人民日报官方账号转载，包含总述与四篇人物小报道；C42只含重叠总述，不能做整篇一刀切去重。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-followup:tencent-ageing-article",
+        "vps-followup:tencent-ageing-article"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 4584
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 4584
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [],
+      "shared_material_group": "peoples-ageing-20261015",
+      "relationship_note": "overlapping overview, different complete page units; not exact whole-document duplicates"
+    },
+    {
+      "id": "C21",
+      "requested_source": "腾讯新闻",
+      "publisher": "央视新闻",
+      "author": "杨彩云（执笔）",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "时政微观察丨夯实全民健康根基，总书记强调这个关键词_腾讯新闻",
+      "url": "https://news.qq.com/rain/a/20261014A06SAE00",
+      "genre": "政策解读",
+      "topic": "公共健康与政策",
+      "publication": {
+        "value": "2026-10-14T12:35:00+08:00",
+        "precision": "minute",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:41:14.367607+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 2035,
+      "material_sha256": "596c3b089a07e25ade014b5ba2c829469816f074d4b2a2cd3afcc6fc1ff3864d",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" rich_media_content \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "围绕全国卫生与健康大会讨论公共健康政策。",
+      "limitations_zh": "与C41是同篇内容；与C12主题接近但内容不同，不能把三者一起误去重。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-followup:tencent-health-article",
+        "vps-followup:tencent-health-article"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2072
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2072
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [],
+      "reprint_group": "cctv-health-20261014"
+    },
+    {
+      "id": "C22",
+      "requested_source": "腾讯新闻",
+      "publisher": "央视新闻",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "俄罗斯总统特别代表称 未来几天俄美将签首批对美柴油供应合同",
+      "url": "https://news.qq.com/rain/a/20261015V07VUB00",
+      "genre": "视频",
+      "topic": "国际经济",
+      "publication": {
+        "value": "2026-10-15T14:21:26+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:43:16.677630+00:00",
+      "material_status": "video_description_only",
+      "material_status_label": "仅视频简介／元数据",
+      "material_chars": 30,
+      "material_sha256": "521db859cb7006a4fcc9e68efa675cbae6b7c565ac1569735f21585f0f628cd7",
+      "material_selector": "public collection_api.video_info.desc only",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "俄罗斯总统特别代表关于柴油供应合同的说法，作为新闻短视频入口。",
+      "limitations_zh": "仅有公开列表中的标题、简介、作者机构和01:39时长；详情页为脚本壳，没有取得字幕或实际视频正文。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-last:tencent-video-article",
+        "vps-last:tencent-video-article"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 0
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 0
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": [],
+      "video_duration": "01:39",
+      "video_duration_basis": "public_collection_api.video_info.duration"
+    },
+    {
+      "id": "C23",
+      "requested_source": "36氪",
+      "publisher": "新浪财经",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "韩日将100亿美元货币互换协议延长至2029年",
+      "url": "https://www.36kr.com/newsflashes/4026960934359684",
+      "genre": "快讯",
+      "topic": "金融",
+      "publication": {
+        "value": "2026-10-15T18:31:12+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 15 Oct 2026 10:31:12 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:27.208139+00:00",
+      "material_status": "brief_text",
+      "material_status_label": "完整短讯，原报道另验",
+      "material_chars": 165,
+      "material_sha256": "6c7cd4032e1bc49b5dfc758cb39a3cf3726c3fb0668613005b3cd7251705d7de",
+      "material_selector": "RSSHub brief description matched page og:description",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "韩日货币互换安排的短讯。",
+      "limitations_zh": "36氪聚合转述，未取得个人作者；完整短讯不等于取得新浪原报道全文。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-36kr-flashes-article-0",
+        "vps-articles:route-36kr-flashes-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 520
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 520
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-36kr-flashes",
+        "vps-round2:route-36kr-flashes-round2",
+        "vps-rsshub:route-36kr-flashes"
+      ]
+    },
+    {
+      "id": "C24",
+      "requested_source": "知乎日报",
+      "publisher": "知乎日报",
+      "author": "云杉",
+      "author_basis": "daily JSON.body author span",
+      "title": "水刚咽下去，口渴怎么就缓解了？身体从哪里知道我喝水了？",
+      "url": "http://daily.zhihu.com/story/9793247",
+      "genre": "知识回答",
+      "topic": "科普",
+      "publication": {
+        "value": "2026-10-15T07:01:00+08:00",
+        "precision": "second",
+        "basis": "daily_api.publish_time; editorial_publication_only",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:39:29.464422+00:00",
+      "material_status": "daily_edited_text",
+      "material_status_label": "日报编辑版正文，原回答未验证",
+      "material_chars": 1706,
+      "material_sha256": "8ece174fdcf084e73ba41f1f0642b1cf19103fed40e204102802de5c013a93a3",
+      "material_selector": "json.body",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "从身体调节机制解释喝水后口渴迅速缓解的体验。",
+      "limitations_zh": "这是日报选编时间；原回答首发时间未知，原回答页面403；有原回答入口并不证明已验证原回答全文。",
+      "original_answer_urls": [
+        "https://www.zhihu.com/question/2085687195193587606/answer/2087235535194662013"
+      ],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:zhihu-daily-detail-9793247",
+        "vps-articles:zhihu-daily-detail-9793247",
+        "vps-last:zhihu-daily-alt-detail"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": null
+        },
+        {
+          "environment": "target_vps",
+          "status": null,
+          "error": "ConnectError",
+          "extracted_chars": null
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": null
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [],
+      "daily_story_id": 9793247
+    },
+    {
+      "id": "C25",
+      "requested_source": "知乎日报",
+      "publisher": "知乎日报",
+      "author": "七小七",
+      "author_basis": "daily JSON.body author span",
+      "title": "50亿年后太阳熄灭变成白矮星，人类何去何从，困死地球太阳系吗?",
+      "url": "http://daily.zhihu.com/story/9793253",
+      "genre": "知识回答",
+      "topic": "天文与知识",
+      "publication": {
+        "value": "2026-10-15T07:00:00+08:00",
+        "precision": "second",
+        "basis": "daily_api.publish_time; editorial_publication_only",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:39:29.481542+00:00",
+      "material_status": "daily_edited_text",
+      "material_status_label": "日报编辑版正文，原回答未验证",
+      "material_chars": 3254,
+      "material_sha256": "69c2917c6a4170d53032a19a09404b82efa0f92a2509ced92a232ec73e3b8ec8",
+      "material_selector": "json.body",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "讨论太阳演化与地球可居住时间，适合评价非即时知识内容。",
+      "limitations_zh": "题目里的时间说法并非作者结论；日报选编日期不是原回答首发。",
+      "original_answer_urls": [
+        "https://www.zhihu.com/question/1891434098192516264/answer/2078775632029397544"
+      ],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:zhihu-daily-detail-9793253",
+        "vps-articles:zhihu-daily-detail-9793253",
+        "vps-last:zhihu-daily-alt-detail-9793253"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": null
+        },
+        {
+          "environment": "target_vps",
+          "status": null,
+          "error": "ConnectError",
+          "extracted_chars": null
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": null
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [],
+      "daily_story_id": 9793253
+    },
+    {
+      "id": "C26",
+      "requested_source": "知乎日报",
+      "publisher": "知乎日报",
+      "author": "宁南左侯",
+      "author_basis": "daily JSON.body author span",
+      "title": "满清时满城里的八旗主要从事什么生产活动？劳动强度大不大？",
+      "url": "http://daily.zhihu.com/story/9793262",
+      "genre": "知识回答",
+      "topic": "历史",
+      "publication": {
+        "value": "2026-10-15T07:00:00+08:00",
+        "precision": "second",
+        "basis": "daily_api.publish_time; editorial_publication_only",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:39:29.509688+00:00",
+      "material_status": "daily_edited_text",
+      "material_status_label": "日报编辑版正文，原回答未验证",
+      "material_chars": 3814,
+      "material_sha256": "7f1b917f9d0a5d9c41ac58b5dc639324a7b817f07e2067bb0e2a2491ebbb2f1f",
+      "material_selector": "json.body",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "讨论清代满城、旗人生活与生产活动。",
+      "limitations_zh": "作为独立知识内容评价，不要求属于新闻事件；原回答首发时间未验证。",
+      "original_answer_urls": [
+        "https://www.zhihu.com/question/9797131553/answer/2073978710957487990"
+      ],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:zhihu-daily-detail-9793262",
+        "vps-articles:zhihu-daily-detail-9793262",
+        "vps-last:zhihu-daily-alt-detail-9793262"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": null
+        },
+        {
+          "environment": "target_vps",
+          "status": null,
+          "error": "ConnectError",
+          "extracted_chars": null
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": null
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [],
+      "daily_story_id": 9793262
+    },
+    {
+      "id": "C27",
+      "requested_source": "知乎热榜",
+      "publisher": "知乎",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "四部门公布纸尿裤甲酰胺问题调查结果，所有抽检均未检出甲酰胺，还有哪些信息值得关注？",
+      "url": "https://www.zhihu.com/question/2094096740613710016",
+      "genre": "问题讨论入口",
+      "topic": "公共讨论",
+      "publication": {
+        "value": "2026-10-15T16:06:09+08:00",
+        "precision": "second",
+        "basis": "RSSHub uses question.created_time; not_rank_observation_time",
+        "feed_raw": "Thu, 15 Oct 2026 08:06:09 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:29.131540+00:00",
+      "material_status": "question_context_only",
+      "material_status_label": "仅问题描述，无回答正文",
+      "material_chars": 2260,
+      "material_sha256": "4584db556c4621bce99c842a40c0dd1947cc33e2b169caff2bd8460b2b0708e7",
+      "material_selector": "RSSHub question description",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "关于纸尿裤甲酰胺调查结果的问题描述，可作为议题发现入口。",
+      "limitations_zh": "RSS时间是问题创建时间，不是上榜时间或回答发表时间；未取得回答作者、全文及讨论互动量。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-zhihu-hot-article-0",
+        "vps-articles:route-zhihu-hot-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 403,
+          "error": null,
+          "extracted_chars": 35
+        },
+        {
+          "environment": "target_vps",
+          "status": 403,
+          "error": null,
+          "extracted_chars": 35
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": [
+        "agent-rsshub:route-zhihu-hot",
+        "vps-round2:route-zhihu-hot-round2",
+        "vps-rsshub:route-zhihu-hot"
+      ]
+    },
+    {
+      "id": "C28",
+      "requested_source": "知乎热榜",
+      "publisher": "知乎",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "10 月 15 日全球股市大跌，为什么会这样？相互之间有哪些关联吗？",
+      "url": "https://www.zhihu.com/question/2094053673290528592",
+      "genre": "问题讨论入口",
+      "topic": "金融与公共讨论",
+      "publication": {
+        "value": "2026-10-15T13:15:01+08:00",
+        "precision": "second",
+        "basis": "RSSHub uses question.created_time; not_rank_observation_time",
+        "feed_raw": "Thu, 15 Oct 2026 05:15:01 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:29.142880+00:00",
+      "material_status": "question_context_only",
+      "material_status_label": "仅问题描述，无回答正文",
+      "material_chars": 1053,
+      "material_sha256": "558e7095adc8ab27ce402145004c6f30120bc093eeee0a66e19f7b4ce8a59410",
+      "material_selector": "RSSHub question description",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "关于当日全球股市下跌的问题描述，适合与报道作题材关联。",
+      "limitations_zh": "问题热度不验证其中说法；详情403，没有取得回答内容，不生成整场讨论的内容级结论。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-zhihu-hot-article-1",
+        "vps-articles:route-zhihu-hot-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 403,
+          "error": null,
+          "extracted_chars": 35
+        },
+        {
+          "environment": "target_vps",
+          "status": 403,
+          "error": null,
+          "extracted_chars": 35
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": [
+        "agent-rsshub:route-zhihu-hot",
+        "vps-round2:route-zhihu-hot-round2",
+        "vps-rsshub:route-zhihu-hot"
+      ]
+    },
+    {
+      "id": "C29",
+      "requested_source": "豆瓣",
+      "publisher": "豆瓣",
+      "author": "邓安庆",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "写一本书，行万里路 (评论: 凝神时刻)",
+      "url": "https://book.douban.com/review/17835717/",
+      "genre": "书评",
+      "topic": "写作与生活",
+      "publication": {
+        "value": "2026-09-30T13:00:01+08:00",
+        "precision": "second",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Wed, 30 Sep 2026 05:00:01 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:28.633313+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 2284,
+      "material_sha256": "62e37a7e0235789ecf04d625c304628b5b13cb1059cd88b6e5b6345ac58d01bc",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" review-content \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "作者借新书回看出版、旅行与写作生活。",
+      "limitations_zh": "文末包含图书销售信息；是否仍值得推荐由用户判断，不能因有推广或日期旧直接替用户判分。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:douban-book-article-0",
+        "vps-articles:douban-book-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1640
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1640
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-direct:douban-book",
+        "vps-direct:douban-book",
+        "vps-round2:douban-book-round2"
+      ]
+    },
+    {
+      "id": "C30",
+      "requested_source": "豆瓣",
+      "publisher": "豆瓣",
+      "author": "cu",
+      "author_basis": "RSS author; original page unavailable",
+      "title": "HOPE：二十一世纪杀人网络 (评论: 希望)",
+      "url": "https://movie.douban.com/review/17856209/",
+      "genre": "影评",
+      "topic": "电影与文化",
+      "publication": {
+        "value": "2026-10-14T23:26:29+08:00",
+        "precision": "second",
+        "basis": "feed_only; original_page_not_verified",
+        "feed_raw": "Wed, 14 Oct 2026 15:26:29 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:28.988802+00:00",
+      "material_status": "feed_summary_only",
+      "material_status_label": "仅RSS简介，详情受限",
+      "material_chars": null,
+      "material_sha256": null,
+      "material_selector": null,
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "影评入口样本，用于评价是否想看这类材料。",
+      "limitations_zh": "原文跳转sec.douban.com验证页；RSS是截断简介，不能生成影评观点导读。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:douban-movie-article-0",
+        "vps-articles:douban-movie-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 22
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 22
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": [
+        "agent-direct:douban-movie",
+        "vps-direct:douban-movie",
+        "vps-round2:douban-movie-round2"
+      ]
+    },
+    {
+      "id": "C31",
+      "requested_source": "财富中文网",
+      "publisher": "财富中文网",
+      "author": "Tae E. Bolling",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "机器何时应当止步，让人类接手？",
+      "url": "https://www.fortunechina.com/keji/c/2026-10/10/content_477218.htm",
+      "genre": "分析文章",
+      "topic": "AI与工作",
+      "publication": {
+        "value": "2026-10-10",
+        "precision": "day",
+        "basis": "visible_publication_date_only; RSS midnight is synthetic",
+        "feed_raw": "Fri, 09 Oct 2026 16:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:27.315227+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 3500,
+      "material_sha256": "2fcfea64681ffe099da5a0edc6a41df0ed1de018112ee569d0946cd9463226c6",
+      "material_selector": "RSSHub article description; compared with public page",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "讨论AI智能体应在什么条件下停止行动并由人接手。",
+      "limitations_zh": "是分析文章，不能当作当天AI技术发布；页面有双语和隐藏重复文本，需按正文容器去重。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-fortune-article-1",
+        "vps-articles:route-fortune-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 16141
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 16141
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-fortune",
+        "vps-round2:route-fortune-round2",
+        "vps-rsshub:route-fortune"
+      ]
+    },
+    {
+      "id": "C32",
+      "requested_source": "财富中文网",
+      "publisher": "财富中文网",
+      "author": "Emily Forlini",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "为提升行业透明度，OpenAI披露另外六起AI智能体失控事件",
+      "url": "https://www.fortunechina.com/keji/c/2026-09/24/content_477001.htm",
+      "genre": "报道与分析",
+      "topic": "AI与可靠性",
+      "publication": {
+        "value": "2026-09-24",
+        "precision": "day",
+        "basis": "visible_publication_date_only; RSS midnight is synthetic",
+        "feed_raw": "Wed, 23 Sep 2026 16:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:27.332278+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 1755,
+      "material_sha256": "980fe4aa0cb54f2602f98063fdf02f2adc13a2096074eab2b3b193d4dc322322",
+      "material_selector": "RSSHub article description; compared with public page",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "围绕AI智能体失控披露讨论产品可靠性与透明度。",
+      "limitations_zh": "保留9月原日期，是否仍有阅读价值另评；报道中的机构说法不直接当作本轮独立事实验证。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:route-fortune-article-2",
+        "vps-articles:route-fortune-article-2"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 7735
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 7735
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-rsshub:route-fortune",
+        "vps-round2:route-fortune-round2",
+        "vps-rsshub:route-fortune"
+      ]
+    },
+    {
+      "id": "C33",
+      "requested_source": "BBC",
+      "publisher": "BBC",
+      "author": "納文·辛格·卡達（Navin Singh Khadka）",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "中國和印度不算老友，尼泊爾想團結他們應對氣候威脅",
+      "url": "https://www.bbc.com/zhongwen/articles/c674pq1e0dxqo/trad?at_medium=RSS&at_campaign=rss",
+      "genre": "解释报道",
+      "topic": "气候与国际",
+      "publication": {
+        "value": "2026-10-15T05:50:29.320Z",
+        "precision": "second",
+        "basis": "page JSON-LD.datePublished",
+        "feed_raw": "Thu, 15 Oct 2026 05:50:29 GMT",
+        "modified_at": "2026-10-15T05:50:29.320Z"
+      },
+      "observed_at": "2026-10-15T10:39:27.344705+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 3079,
+      "material_sha256": "aa5a437ad90f3d16d9d3e47490841e17a4e804730e79f987845a4da45758f77c",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "从尼泊尔洪灾讨论中印之间的气候合作需求。",
+      "limitations_zh": "中文原页与feed题目略有不同；以原页发布时间为准，事件时间另记。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:bbc-chinese-article-0",
+        "vps-articles:bbc-chinese-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 3079
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 3079
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-direct:bbc-chinese",
+        "vps-direct:bbc-chinese",
+        "vps-round2:bbc-chinese-round2"
+      ]
+    },
+    {
+      "id": "C34",
+      "requested_source": "BBC",
+      "publisher": "BBC",
+      "author": "郭悠（Koh Ewe）",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "令人窒息的有毒霧霾蔓延東南亞，誰之過？",
+      "url": "https://www.bbc.com/zhongwen/articles/cjkge2k03kgpo/trad?at_medium=RSS&at_campaign=rss",
+      "genre": "解释报道",
+      "topic": "气候与环境",
+      "publication": {
+        "value": "2026-10-15T00:20:23.248Z",
+        "precision": "second",
+        "basis": "page JSON-LD.datePublished",
+        "feed_raw": "Thu, 15 Oct 2026 00:20:23 GMT",
+        "modified_at": "2026-10-15T00:20:23.248Z"
+      },
+      "observed_at": "2026-10-15T10:39:27.659676+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 2303,
+      "material_sha256": "136b52f967ea491e88a5507c06ac30d4796699839adcd849dbf5a5316951466e",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "解释东南亚烟霾的来源、责任争议和跨境影响。",
+      "limitations_zh": "报道解释与企业、官方回应按来源表达；不将两家转述当独立观测。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:bbc-chinese-article-1",
+        "vps-articles:bbc-chinese-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2303
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2303
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-direct:bbc-chinese",
+        "vps-direct:bbc-chinese",
+        "vps-round2:bbc-chinese-round2"
+      ]
+    },
+    {
+      "id": "C35",
+      "requested_source": "BBC",
+      "publisher": "BBC",
+      "author": "Tiffany Wertheimer",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "Musk says US government may be behind slowdown of Ukraine drone speeds",
+      "url": "https://www.bbc.co.uk/news/articles/c8wy9veedgygo?at_medium=RSS&at_campaign=rss",
+      "genre": "报道",
+      "topic": "国际与技术",
+      "publication": {
+        "value": "2026-10-14T20:17:09.546Z",
+        "precision": "second",
+        "basis": "page JSON-LD.datePublished; feed uses dateModified",
+        "feed_raw": "Thu, 15 Oct 2026 04:30:08 GMT",
+        "modified_at": "2026-10-15T04:30:08.423+00:00"
+      },
+      "observed_at": "2026-10-15T10:39:27.724924+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 4802,
+      "material_sha256": "2e61784ce1f6322a8a53395664205ad554f9433551298f541ac54ddb91b2fa3d",
+      "material_selector": "trafilatura public-page text; manually checked",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "报道乌克兰无人机通信速度受限及相关解释。",
+      "limitations_zh": "原页首发10月14日20:17Z，修改10月15日04:30Z；RSS pubDate用了修改时间，不当作新的首发。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:bbc-world-article-0",
+        "vps-articles:bbc-world-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 4802
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 4802
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-direct:bbc-world",
+        "vps-direct:bbc-world",
+        "vps-round2:bbc-world-round2"
+      ]
+    },
+    {
+      "id": "C36",
+      "requested_source": "纽约时报",
+      "publisher": "纽约时报",
+      "author": "CONSTANT MÉHEUT",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "星盾使用受限、俄方袭击升级：乌克兰“腹背受敌”",
+      "url": "https://cn.nytimes.com/world/20261015/ukraine-starlink-energy/?utm_source=RSS",
+      "genre": "报道",
+      "topic": "国际与技术",
+      "publication": {
+        "value": "2026-10-15",
+        "precision": "day",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 15 Oct 2026 02:01:24 +0800"
+      },
+      "observed_at": "2026-10-15T10:39:27.940042+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 2309,
+      "material_sha256": "c92f3c96d21075b63011c50a6c4031bc3ebc289df9da65b738307c7fd28d4823",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" article-body \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "围绕乌克兰通信受限与能源袭击风险展开报道。",
+      "limitations_zh": "英文报道与中文译文可能属于同一材料；feed带时分不证明中文原页具备同等首发精度。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:nyt-chinese-article-0",
+        "vps-articles:nyt-chinese-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2186
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2186
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-direct:nyt-chinese",
+        "vps-direct:nyt-chinese",
+        "vps-round2:nyt-chinese-round2"
+      ]
+    },
+    {
+      "id": "C37",
+      "requested_source": "纽约时报",
+      "publisher": "纽约时报",
+      "author": "KATRIN BENNHOLD",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "老龄化的欧洲，愤怒的年轻人",
+      "url": "https://cn.nytimes.com/world/20261015/youth-aging-europe-pension-ukraine-starshield/?utm_source=RSS",
+      "genre": "评论与分析",
+      "topic": "社会与代际",
+      "publication": {
+        "value": "2026-10-15",
+        "precision": "day",
+        "basis": "page_or_feed_verified_as_noted",
+        "feed_raw": "Thu, 15 Oct 2026 01:12:59 +0800"
+      },
+      "observed_at": "2026-10-15T10:39:28.288787+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 2183,
+      "material_sha256": "1934970d1012f13e657c807389b3946d9553de2075dfb8c58544461f35d7ee7e",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" article-body \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "从欧洲年轻人的抗议讨论老龄化与政治影响力。",
+      "limitations_zh": "保留作者论点及地域语境，不把观点改写为无归属的事实判断。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:nyt-chinese-article-1",
+        "vps-articles:nyt-chinese-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2047
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 2047
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-direct:nyt-chinese",
+        "vps-direct:nyt-chinese",
+        "vps-round2:nyt-chinese-round2"
+      ]
+    },
+    {
+      "id": "C38",
+      "requested_source": "纽约时报",
+      "publisher": "纽约时报",
+      "author": "Francesca Regalado",
+      "author_basis": "RSS author; original page unavailable",
+      "title": "Zelensky Says Ukraine Will Resume Russian Refinery Strikes, Defying Trump",
+      "url": "https://www.nytimes.com/2026/10/15/world/europe/ukraine-russia-oil-strikes-zelensky-us-intelligence.html",
+      "genre": "报道",
+      "topic": "国际关系",
+      "publication": {
+        "value": "2026-10-15T10:00:40+00:00",
+        "precision": "second",
+        "basis": "feed_only; original_page_not_verified",
+        "feed_raw": "Thu, 15 Oct 2026 10:00:40 +0000"
+      },
+      "observed_at": "2026-10-15T10:39:27.937977+00:00",
+      "material_status": "feed_summary_only",
+      "material_status_label": "仅RSS简介，详情受限",
+      "material_chars": null,
+      "material_sha256": null,
+      "material_selector": null,
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "RSS提供乌克兰打击炼油设施相关报道入口。",
+      "limitations_zh": "英文详情403；只依据标题和RSS导语呈现阅读入口，不能声称取得全文。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:nyt-world-article-0",
+        "vps-articles:nyt-world-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 403,
+          "error": null,
+          "extracted_chars": 43
+        },
+        {
+          "environment": "target_vps",
+          "status": 403,
+          "error": null,
+          "extracted_chars": 43
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": [
+        "agent-direct:nyt-world",
+        "vps-direct:nyt-world",
+        "vps-round2:nyt-world-round2"
+      ]
+    },
+    {
+      "id": "C39",
+      "requested_source": "华尔街日报",
+      "publisher": "华尔街日报",
+      "author": "Joanna Sugden",
+      "author_basis": "RSS author; original page unavailable",
+      "title": "A ‘Ludicrously Ugly’ Bridge Is Exhibit A That Britain Has Lost Its Mojo",
+      "url": "https://www.wsj.com/world/uk/a-ludicrously-ugly-bridge-is-exhibit-a-that-britain-has-lost-its-mojo-7015a654?mod=rss_worldnews",
+      "genre": "报道",
+      "topic": "基础设施与经济",
+      "publication": {
+        "value": "2026-10-15T09:30:00+00:00",
+        "precision": "second",
+        "basis": "feed_only; original_page_not_verified",
+        "feed_raw": "Thu, 15 Oct 2026 09:30:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:28.309998+00:00",
+      "material_status": "feed_summary_only",
+      "material_status_label": "仅RSS简介，详情受限",
+      "material_chars": null,
+      "material_sha256": null,
+      "material_selector": null,
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "用英国一座桥的建设争议讨论基础设施问题。",
+      "limitations_zh": "详情401；标题与导语仅供判断是否打开原文，不生成全文导读。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:wsj-world-article-0",
+        "vps-articles:wsj-world-article-0"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 401,
+          "error": null,
+          "extracted_chars": 43
+        },
+        {
+          "environment": "target_vps",
+          "status": 401,
+          "error": null,
+          "extracted_chars": 43
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": [
+        "agent-direct:wsj-world",
+        "vps-direct:wsj-world",
+        "vps-round2:wsj-world-round2"
+      ]
+    },
+    {
+      "id": "C40",
+      "requested_source": "华尔街日报",
+      "publisher": "华尔街日报",
+      "author": "Mark Maurer",
+      "author_basis": "RSS author; original page unavailable",
+      "title": "A New Private-Equity Firm Specializes in Giving Companies AI Glow-Ups",
+      "url": "https://www.wsj.com/finance/investing/a-new-private-equity-firm-specializes-in-giving-companies-ai-glow-ups-86fcb48e?mod=rss_markets_main",
+      "genre": "报道",
+      "topic": "AI与商业",
+      "publication": {
+        "value": "2026-10-15T10:00:00+00:00",
+        "precision": "second",
+        "basis": "feed_only; original_page_not_verified",
+        "feed_raw": "Thu, 15 Oct 2026 10:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:39:28.627192+00:00",
+      "material_status": "feed_summary_only",
+      "material_status_label": "仅RSS简介，详情受限",
+      "material_chars": null,
+      "material_sha256": null,
+      "material_selector": null,
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "私募基金以AI改造企业为主题的商业报道入口。",
+      "limitations_zh": "详情401；财经RSS是新增栏目验证，未启用、没有连续生产证据。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-articles:wsj-markets-article-1",
+        "vps-articles:wsj-markets-article-1"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 401,
+          "error": null,
+          "extracted_chars": 43
+        },
+        {
+          "environment": "target_vps",
+          "status": 401,
+          "error": null,
+          "extracted_chars": 43
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "discovery_or_original_link_only; no_full_content_guide",
+      "discovered_in_observations": [
+        "agent-direct:wsj-markets",
+        "vps-direct:wsj-markets",
+        "vps-round2:wsj-markets-round2"
+      ]
+    },
+    {
+      "id": "C41",
+      "requested_source": "网易新闻",
+      "publisher": "央视新闻",
+      "author": "杨彩云（执笔）",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "时政微观察丨夯实全民健康根基，总书记强调这个关键词",
+      "url": "https://www.163.com/news/article/L99S9BUQ000189FH.html",
+      "genre": "政策解读",
+      "topic": "公共健康与政策",
+      "publication": {
+        "value": "2026-10-15T15:37:19+08:00",
+        "precision": "second",
+        "basis": "article:published_time on reprint; not_original_first_publication",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:48:30.976258+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 1930,
+      "material_sha256": "3ae888d340eb0fa31a8c64fd2cc45a5d9a90a1b3ff3fe5f410c6c9a6f83aaf44",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" post_body \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "网易新闻当前首页发现的央视新闻政策解读。",
+      "limitations_zh": "与C21同篇转载，不能算新进展或独立证据；新版首页可读不代表旧排行榜恢复。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-coverage-final:netease-health-current",
+        "vps-coverage:netease-health-current"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1959
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1959
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [],
+      "reprint_group": "cctv-health-20261014"
+    },
+    {
+      "id": "C42",
+      "requested_source": "网易新闻",
+      "publisher": "人民日报",
+      "author": null,
+      "author_basis": "individual_author_not_obtained",
+      "title": "从“养老”到“享老”，银发族的悦己新选择（中国消费向新而行）",
+      "url": "https://www.163.com/dy/article/L98SMR4P0514R9M0.html",
+      "genre": "报道",
+      "topic": "社会与消费",
+      "publication": {
+        "value": "2026-10-15T06:25:26+08:00",
+        "precision": "second",
+        "basis": "article:published_time on reprint; not_original_first_publication",
+        "feed_raw": null
+      },
+      "observed_at": "2026-10-15T10:48:31.074039+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 1339,
+      "material_sha256": "57ff356ba7ca1e7f7d435ef5328ab222c14b52104f1b05eadc2a0e94cf356b72",
+      "material_selector": "//*[contains(concat(\" \",normalize-space(@class),\" \"),\" post_body \")]",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "网易新闻当前首页发现的养老消费报道。",
+      "limitations_zh": "与C20的总述重叠，但缺少腾讯稿中的四篇人物小报道；正文可见王东辉署名，角色未确认。只按整篇标题硬去重会丢失独有材料。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-coverage-final:netease-ageing-current",
+        "vps-coverage:netease-ageing-current"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1594
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 1594
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [],
+      "shared_material_group": "peoples-ageing-20261015",
+      "relationship_note": "overlapping overview, different complete page units; not exact whole-document duplicates",
+      "visible_credit": "王东辉; role not established"
+    },
+    {
+      "id": "C43",
+      "requested_source": "财富中文网",
+      "publisher": "财富中文网",
+      "author": "Jason Ma",
+      "author_basis": "public_byline_or_daily_body_or_feed_as_noted",
+      "title": "美国国会预算办公室主任警示：仅凭强劲的经济增长恐难遏制债务膨胀",
+      "url": "https://www.fortunechina.com/shangye/c/2026-10/14/content_477387.htm",
+      "genre": "分析报道",
+      "topic": "经济与财政",
+      "publication": {
+        "value": "2026-10-14",
+        "precision": "day",
+        "basis": "visible_publication_date_only; RSS midnight is synthetic",
+        "feed_raw": "Tue, 13 Oct 2026 16:00:00 GMT"
+      },
+      "observed_at": "2026-10-15T10:48:31.234919+00:00",
+      "material_status": "open_article_text",
+      "material_status_label": "开放正文已核对（文本）",
+      "material_chars": 1531,
+      "material_sha256": "821aac717b6d57f558cbade7f63f3806f686597cf4017a8ec4bc62a0400a2970",
+      "material_selector": "RSSHub article description; compared with public page",
+      "body_completeness_basis": "This describes the observed text unit only; media, layout and private/paid versions are not implied.",
+      "reading_cue_zh": "围绕美国预算办公室负责人的判断讨论债务和增长。",
+      "limitations_zh": "发布日仅精确到天；机构预测与作者分析须保留归属，不作投资建议。",
+      "original_answer_urls": [],
+      "original_answer_published_at": null,
+      "observations": [
+        "agent-coverage-final:fortune-business-article",
+        "vps-coverage:fortune-business-article"
+      ],
+      "access_results": [
+        {
+          "environment": "agent_host",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 6344
+        },
+        {
+          "environment": "target_vps",
+          "status": 200,
+          "error": null,
+          "extracted_chars": 6344
+        }
+      ],
+      "human_review": {
+        "worth_reading_now": null,
+        "importance_1_to_5": null,
+        "interest_1_to_5": null,
+        "place": null,
+        "reason": null
+      },
+      "suggested_handling": "candidate_for_human_review; not_auto_selected",
+      "discovered_in_observations": [
+        "agent-coverage-final:route-fortune-business",
+        "agent-coverage:route-fortune-business",
+        "vps-coverage:route-fortune-business"
+      ]
+    }
+  ]
+}

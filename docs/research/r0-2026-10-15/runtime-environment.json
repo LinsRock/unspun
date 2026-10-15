@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-10-15T11:00:05Z",
+  "method": "read_only_container_inspect",
+  "worker": {
+    "status": "exited",
+    "exit_code": 1,
+    "finished_at": "2026-10-15T08:57:07.503453537Z"
+  },
+  "rsshub": {
+    "tag": "diygod/rsshub:2026-10-09",
+    "image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+    "memory_limit_bytes": 536870912,
+    "chromium_executable_found_in_prior_inspection": false,
+    "puppeteer_executable_path_configured": false
+  },
+  "services_started_or_restarted": false,
+  "configuration_modified": false
+}
