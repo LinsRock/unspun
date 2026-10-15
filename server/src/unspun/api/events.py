@@ -2,15 +2,16 @@
 
 import math
 from collections.abc import Generator
-from datetime import datetime
-from typing import Any
+from datetime import UTC, date, datetime
+from typing import Any, Literal
 
 from fastapi import APIRouter, Depends, Query
 from pydantic import BaseModel
-from sqlalchemy import Float, func, select
+from sqlalchemy import select, text
 from sqlalchemy.orm import Session, selectinload
 
 from unspun.core.db import session_scope
+from unspun.core.feed_query import RANKING_VERSION, feed_page
 from unspun.core.logging import get_logger
 from unspun.core.models import Event, EventViewpoint
 from unspun.core.params import get_scoring_params
@@ -25,7 +26,14 @@ LN2 = math.log(2.0)
 
 def get_db() -> Generator[Session]:
     with session_scope() as session:
+        # One request observes one MVCC snapshot across generation, ranking and DTO queries.
+        session.connection(execution_options={"isolation_level": "REPEATABLE READ"})
+        session.execute(text("SET TRANSACTION READ ONLY"))
         yield session
+
+
+def get_feed_now() -> datetime:
+    return datetime.now(UTC)
 
 
 class ArticleOut(BaseModel):
@@ -36,6 +44,11 @@ class ArticleOut(BaseModel):
     source_id: str
     source_name: str
     published_at: datetime | None
+    reported_at: datetime | None = None
+    reported_date: date | None = None
+    reported_precision: str = "unknown"
+    reported_basis: str | None = None
+    publisher_group: str | None = None
     content_quality: str | None = None
 
 
@@ -70,6 +83,20 @@ class EventOut(BaseModel):
     changed_at: datetime
     articles: list[ArticleOut]
     viewpoint: ViewpointOut | None = None
+    earliest_reported_at: datetime | None = None
+    earliest_reported_date: date | None = None
+    earliest_reported_precision: str = "unknown"
+    latest_reported_at: datetime | None = None
+    latest_reported_date: date | None = None
+    latest_reported_precision: str = "unknown"
+    reported_time_basis: str = "original"
+    valid_time_count: int = 0
+    missing_time_count: int = 0
+    invalid_time_count: int = 0
+    active_publishers: int = 0
+    heat: float | None = None
+    ranking_metric: float | None = None
+    public_impact_boosted: bool = False
 
 
 def viewpoint_out(row: EventViewpoint | None, article_ids: set[int]) -> ViewpointOut | None:
@@ -111,10 +138,23 @@ def viewpoint_out(row: EventViewpoint | None, article_ids: set[int]) -> Viewpoin
 
 class EventsResponse(BaseModel):
     events: list[EventOut]
+    next_cursor: str | None
+    as_of: datetime
+    sort: str
+    range: str
+    window_start: datetime | None
+    window_end: datetime
+    ranking_version: str = RANKING_VERSION
 
 
-def event_out(event: Event, decayed_score: float | None, source_names: dict[str, str]) -> EventOut:
+def event_out(
+    event: Event,
+    decayed_score: float | None,
+    source_names: dict[str, str],
+    as_of: datetime | None = None,
+) -> EventOut:
     """Serialize a live event or a digest snapshot with the same provenance rules."""
+    articles = [a for a in event.articles if as_of is None or a.fetched_at <= as_of]
     return EventOut(
         id=event.id,
         title=event.title,
@@ -133,6 +173,11 @@ def event_out(event: Event, decayed_score: float | None, source_names: dict[str,
                 source_id=a.source_id,
                 source_name=source_names.get(a.source_id, a.source_id),
                 published_at=a.published_at,
+                reported_at=a.reported_at,
+                reported_date=a.reported_date,
+                reported_precision=a.reported_precision,
+                reported_basis=a.reported_basis,
+                publisher_group=a.publisher_group,
                 content_quality=(
                     a.summary_grounding.get("status")
                     if a.summary_grounding
@@ -141,32 +186,70 @@ def event_out(event: Event, decayed_score: float | None, source_names: dict[str,
                     else None
                 ),
             )
-            for a in sorted(event.articles, key=lambda a: a.id)
+            for a in sorted(articles, key=lambda a: a.id)
         ],
-        viewpoint=viewpoint_out(event.viewpoint, {a.id for a in event.articles}),
+        viewpoint=viewpoint_out(event.viewpoint, {a.id for a in articles}),
     )
 
 
 @router.get("/api/events", response_model=EventsResponse)
 def list_events(
-    limit: int = Query(default=50, ge=1, le=200),
+    limit: int = Query(default=50, ge=1, le=100),
+    sort: Literal["newest", "hot", "important"] = "newest",
+    range_: Literal["today", "24h", "7d", "all"] = Query(default="7d", alias="range"),
+    cursor: str | None = Query(default=None, max_length=2048),
     session: Session = Depends(get_db),  # noqa: B008
+    now: datetime = Depends(get_feed_now),  # noqa: B008
 ) -> EventsResponse:
-    half_life = get_scoring_params().stream.half_life_hours
-    age_hours = func.cast(func.extract("epoch", func.now() - Event.changed_at), Float) / 3600.0
-    decayed = Event.score_final * func.exp(-LN2 * age_hours / half_life)
-    rows = session.execute(
-        select(Event, decayed.label("decayed"))
-        .options(selectinload(Event.articles), selectinload(Event.viewpoint))
-        .order_by(func.coalesce(decayed, -1.0).desc(), Event.changed_at.desc())
-        .limit(limit)
-    ).all()
+    page = feed_page(session, sort, range_, limit, now, cursor)
+    ids = [row["id"] for row in page.rows]
+    events_by_id = {
+        event.id: event
+        for event in session.scalars(
+            select(Event)
+            .where(Event.id.in_(ids))
+            .options(selectinload(Event.articles), selectinload(Event.viewpoint))
+        )
+    }
     source_names = {s.id: s.name for s in load_sources()}
     events: list[EventOut] = []
-    for event, decayed_score in rows:
-        events.append(
-            event_out(
-                event, float(decayed_score) if decayed_score is not None else None, source_names
-            )
+    for row in page.rows:
+        event = events_by_id[row["id"]]
+        age = (page.as_of - event.changed_at).total_seconds() / 3600
+        decayed = (
+            event.score_final * math.exp(-LN2 * age / get_scoring_params().stream.half_life_hours)
+            if event.score_final is not None
+            else None
         )
-    return EventsResponse(events=events)
+        out = event_out(event, decayed, source_names, page.as_of)
+        for field in (
+            "earliest_reported_at",
+            "earliest_reported_date",
+            "earliest_reported_precision",
+            "latest_reported_at",
+            "latest_reported_date",
+            "latest_reported_precision",
+            "valid_time_count",
+            "missing_time_count",
+            "invalid_time_count",
+            "active_publishers",
+            "heat",
+        ):
+            setattr(
+                out,
+                field,
+                row[field] if row[field] is not None else (0 if field.endswith("count") else None),
+            )
+        out.ranking_metric = float(row["metric"]) if row["known"] else None
+        out.public_impact_boosted = bool(row["boosted"])
+        events.append(out)
+    return EventsResponse(
+        events=events,
+        next_cursor=page.next_cursor,
+        as_of=page.as_of,
+        sort=sort,
+        range=range_,
+        window_start=page.start,
+        window_end=page.as_of,
+        ranking_version=page.version,
+    )

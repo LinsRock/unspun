@@ -1,5 +1,8 @@
 """One fetch cycle: poll each configured source and store new articles."""
 
+from datetime import UTC, datetime
+from urllib.parse import urlsplit
+
 import httpx
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -8,6 +11,7 @@ from unspun.core.config import get_settings
 from unspun.core.db import session_scope
 from unspun.core.logging import get_logger
 from unspun.core.models import Article, FetchLog
+from unspun.core.publication import PublicationTime, extract_publication
 from unspun.core.sources import Source, load_sources
 from unspun.pipeline.extract import extract_content, strip_tags
 from unspun.pipeline.feeds import FeedEntry, fetch_bytes, make_client, parse_feed
@@ -17,17 +21,23 @@ log = get_logger("unspun.pipeline.fetcher")
 MAX_ERROR_LENGTH = 2000
 
 
-def _article_content(client: httpx.Client, entry: FeedEntry) -> str | None:
+def _article_material(
+    client: httpx.Client, entry: FeedEntry, fetched_at: datetime
+) -> tuple[str | None, PublicationTime, str]:
+    publication = PublicationTime()
     try:
         resp = client.get(entry.url)
         resp.raise_for_status()
         content = extract_content(resp.text, entry.url)
+        publication = extract_publication(resp.text, str(resp.url), fetched_at)
     except Exception:
         log.warning("article_fetch_failed", url=entry.url)
         content = None
+    basis = "original" if content else "unknown"
     if not content and entry.summary_html:
         content = strip_tags(entry.summary_html) or None
-    return content
+        basis = "feed_summary" if content else "unknown"
+    return content, publication, basis
 
 
 def drop_internal_urls(entries: list[FeedEntry], rsshub_base: str) -> list[FeedEntry]:
@@ -63,6 +73,11 @@ def fetch_source(session: Session, client: httpx.Client, source: Source) -> int:
     )
     new_entries = [e for e in entries if e.url not in known]
     for entry in new_entries:
+        fetched_at = datetime.now(UTC)
+        content, publication, content_basis = _article_material(client, entry, fetched_at)
+        hostname = (urlsplit(entry.url).hostname or "").lower().removeprefix("www.")
+        # A hostname is a media activity proxy, not proof of independence.
+        publisher = hostname or "source:" + source.id
         session.add(
             Article(
                 source_id=source.id,
@@ -70,7 +85,14 @@ def fetch_source(session: Session, client: httpx.Client, source: Source) -> int:
                 title=entry.title,
                 lang=source.lang,
                 published_at=entry.published_at,
-                content=_article_content(client, entry),
+                content=content,
+                content_basis=content_basis,
+                fetched_at=fetched_at,
+                reported_at=publication.reported_at,
+                reported_date=publication.reported_date,
+                reported_precision=publication.precision,
+                reported_basis=publication.basis,
+                publisher_group=publisher,
             )
         )
     return len(new_entries)

@@ -262,3 +262,244 @@ def test_score_event_combines_components(db_session: Session, params: ScoringPar
     obj = breakdown["objective"]["score"]
     expected_final = (0.35 * obj + 0.45 * 76.0) / 0.80
     assert event.score_final == pytest.approx(expected_final)
+
+
+def test_public_impact_cache_tracks_member_original_content(
+    db_session: Session, params: ScoringParams
+) -> None:
+    class FakeImpactLlm(FakeImportanceLlm):
+        grounding_calls = 0
+
+        def chat_json(
+            self,
+            session: Session,
+            *,
+            model: str,
+            system: str,
+            user: str,
+            purpose: str,
+            max_tokens: int = 1024,
+        ) -> dict[str, Any]:
+            if purpose == "grounding":
+                self.grounding_calls += 1
+                return {"is_urgent": False, "reason": "Routine update", "evidence": []}
+            return super().chat_json(
+                session,
+                model=model,
+                system=system,
+                user=user,
+                purpose=purpose,
+                max_tokens=max_tokens,
+            )
+
+    event = Event(title="impact cache")
+    member = Article(
+        source_id="s",
+        url="https://score/impact-cache",
+        title="source",
+        content="Original material",
+        content_basis="original",
+        reported_at=datetime.now(UTC) - timedelta(hours=1),
+        reported_precision="time",
+        fetched_at=datetime.now(UTC) - timedelta(minutes=1),
+        event=event,
+    )
+    db_session.add_all([event, member])
+    db_session.flush()
+    fake = FakeImpactLlm()
+    score_event(db_session, fake, event, params, {})
+    score_event(db_session, fake, event, params, {})
+    assert fake.grounding_calls == 1
+    assert event.public_impact and event.public_impact["status"] == "routine"
+    member.content = "Changed original material"
+    score_event(db_session, fake, event, params, {})
+    assert fake.grounding_calls == 2
+
+
+def test_public_impact_pending_budget_skips_generation(
+    db_session: Session, params: ScoringParams
+) -> None:
+    from unspun.core.config import get_settings
+    from unspun.core.models import LlmUsage
+
+    event = Event(title="budget")
+    db_session.add_all(
+        [
+            event,
+            Article(
+                source_id="s",
+                url="https://score/budget",
+                title="source",
+                content="Original body",
+                content_basis="original",
+                reported_at=datetime.now(UTC) - timedelta(hours=1),
+                reported_precision="time",
+                fetched_at=datetime.now(UTC) - timedelta(minutes=1),
+                event=event,
+            ),
+        ]
+    )
+    db_session.flush()
+    db_session.add(
+        LlmUsage(
+            purpose="grounding", model="fake", cost_usd=get_settings().grounding_budget_24h_usd
+        )
+    )
+    # FakeImportanceLlm asserts no grounding model call is made.
+    score_event(db_session, FakeImportanceLlm(), event, params, {})
+    result = event.public_impact
+    assert result is not None and result["status"] == "unknown"
+    assert result["failure_kind"] == "budget"
+
+
+def test_transient_impact_retries_after_cooldown_without_rescoring(db_session: Session) -> None:
+    from unspun.core.config import get_settings
+    from unspun.core.public_impact import ImpactArticle, impact_fingerprint
+    from unspun.pipeline.score import refresh_event_public_impact
+
+    class GroundingOnly(FakeImportanceLlm):
+        calls = 0
+
+        def chat_json(
+            self,
+            session: Session,
+            *,
+            model: str,
+            system: str,
+            user: str,
+            purpose: str,
+            max_tokens: int = 1024,
+        ) -> dict[str, Any]:
+            assert purpose == "grounding"
+            self.calls += 1
+            return {"is_urgent": False, "reason": "Routine original reporting", "evidence": []}
+
+    now = datetime.now(UTC)
+    event = Event(
+        title="retry",
+        score_final=71,
+        scored_at=now - timedelta(hours=2),
+        changed_at=now - timedelta(hours=3),
+    )
+    article = Article(
+        source_id="s",
+        url="https://score/retry",
+        title="source",
+        content="Original body",
+        content_basis="original",
+        reported_at=now - timedelta(hours=3),
+        reported_precision="time",
+        fetched_at=now - timedelta(hours=2),
+        event=event,
+    )
+    db_session.add_all([event, article])
+    db_session.flush()
+    fingerprint = impact_fingerprint(
+        [
+            ImpactArticle(
+                id=article.id,
+                title=article.title,
+                text=article.content or "",
+                reported_at=article.reported_at,
+            )
+        ],
+        get_settings().viewpoint_model,
+    )
+    fake = GroundingOnly()
+    saved_scored_at = event.scored_at
+    for failure in ["budget", "generation"]:
+        event.public_impact = {
+            "status": "unknown",
+            "failure_kind": failure,
+            "input_fingerprint": fingerprint,
+            "assessed_at": (now - timedelta(minutes=30)).isoformat(),
+        }
+        assert not refresh_event_public_impact(db_session, fake, event, now)
+        assert event.public_impact is not None
+        cached = event.public_impact
+        assert cached is not None
+        event.public_impact = {
+            **cached,
+            "assessed_at": (now - timedelta(hours=2)).isoformat(),
+        }
+        assert refresh_event_public_impact(db_session, fake, event, now)
+        result = event.public_impact
+        assert result is not None and result["status"] == "routine"
+    assert fake.calls == 2
+    assert event.score_final == 71 and event.scored_at == saved_scored_at
+    article.reported_at = now - timedelta(hours=49)
+    assert refresh_event_public_impact(db_session, fake, event, now)
+    assert fake.calls == 2
+    result = event.public_impact
+    assert result is not None and result["status"] == "unknown"
+
+
+def test_pending_impact_retry_recovers_without_importance_call(
+    db_session: Session, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from collections.abc import Generator
+    from contextlib import contextmanager
+
+    from unspun.core.llm import LlmError
+    from unspun.pipeline import score
+
+    class TransientLlm(FakeImportanceLlm):
+        failed = True
+        calls = 0
+
+        def chat_json(
+            self,
+            session: Session,
+            *,
+            model: str,
+            system: str,
+            user: str,
+            purpose: str,
+            max_tokens: int = 1024,
+        ) -> dict[str, Any]:
+            assert purpose == "grounding"
+            self.calls += 1
+            if self.failed:
+                raise LlmError("Temporary provider failure")
+            return {"is_urgent": False, "reason": "Routine reporting", "evidence": []}
+
+    @contextmanager
+    def local_scope() -> Generator[Session]:
+        yield db_session
+
+    monkeypatch.setattr(score, "session_scope", local_scope)
+    now = datetime.now(UTC)
+    event = Event(
+        title="provider retry",
+        score_final=64,
+        changed_at=now - timedelta(hours=4),
+        scored_at=now - timedelta(hours=3),
+    )
+    db_session.add_all(
+        [
+            event,
+            Article(
+                source_id="s",
+                title="source",
+                url="https://score/provider-retry",
+                content="Original body",
+                content_basis="original",
+                reported_at=now - timedelta(hours=4),
+                reported_precision="time",
+                fetched_at=now - timedelta(hours=3),
+                event=event,
+            ),
+        ]
+    )
+    db_session.flush()
+    fake = TransientLlm()
+    assert score.refresh_event_public_impact(db_session, fake, event, now - timedelta(hours=2))
+    db_session.flush()
+    fake.failed = False
+    saved_scored_at = event.scored_at
+    assert score.refresh_pending_public_impact(fake) == 1
+    result = event.public_impact
+    assert result is not None and result["status"] == "routine"
+    assert event.score_final == 64 and event.scored_at == saved_scored_at
+    assert fake.calls == 2
+    assert score.refresh_pending_public_impact(fake) == 0

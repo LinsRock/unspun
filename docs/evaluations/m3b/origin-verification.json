@@ -1,0 +1,67 @@
+{
+  "version": "m3b-origin-verification-v1",
+  "checked_on": "2026-10-14",
+  "scope": "Eight primary origin pages attempted; seven accessible, Nature identity redirect unavailable. Full 53-article original publication verification is not complete.",
+  "production_data_modified": false,
+  "records": [
+    {
+      "article_id": 4393,
+      "url": "https://arxiv.org/abs/2610.12602",
+      "status": "observed-original-submission-differs-from-feed",
+      "observed_original_time": "2026-10-08T18:24:02Z",
+      "stored_feed_time": "2026-10-12T04:00:00Z",
+      "finding": "arXiv v1 submission is October 8; feed date must not be claimed as first publication without preserving its time basis."
+    },
+    {
+      "article_id": 5692,
+      "url": "https://arxiv.org/abs/2610.13928",
+      "status": "observed-original-submission-differs-from-feed",
+      "observed_original_time": "2026-10-09T17:55:06Z",
+      "stored_feed_time": "2026-10-13T02:07:08Z",
+      "finding": "Different paper and different authors from article4393; HN entry date differs from original arXiv submission."
+    },
+    {
+      "article_id": 4944,
+      "url": "https://www.nature.com/articles/d41586-026-03227-4",
+      "status": "unavailable",
+      "finding": "Publisher identity redirect could not be accessed; no date/content conclusion fabricated."
+    },
+    {
+      "article_id": 2284,
+      "url": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/",
+      "resolved_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/",
+      "status": "calendar-date-confirmed",
+      "observed_original_date": "2026-09-03",
+      "finding": "Publisher date matches stored calendar date; article is a WeatherNext3 release. Exact time not verified."
+    },
+    {
+      "article_id": 2294,
+      "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+      "status": "calendar-date-confirmed",
+      "observed_original_date": "2026-08-06",
+      "finding": "Publisher date matches stored calendar date; article covers cyclone forecasting results/model open sourcing. Exact time not verified; shared series is not proof of a single event."
+    },
+    {
+      "article_id": 6824,
+      "url": "https://www.pi.website/blog/api-beta",
+      "status": "calendar-date-confirmed",
+      "observed_original_date": "2026-10-13",
+      "finding": "Robot API beta announcement; differs from language-model preservation paper. Exact time not verified."
+    },
+    {
+      "article_id": 1676,
+      "url": "https://www.newyorker.com/culture/the-lede/in-musk-alex-gibney-punctures-elons-self-mythology",
+      "status": "calendar-date-confirmed",
+      "observed_original_date": "2026-10-09",
+      "finding": "Publisher day matches HN feed day; this does not verify exact HN timestamp as original publication time."
+    },
+    {
+      "article_id": 5310,
+      "url": "https://micahflee.com/just-say-no-to-openai-and-anthropic/",
+      "status": "calendar-date-differs-from-feed",
+      "observed_original_date": "2026-10-11",
+      "stored_feed_time": "2026-10-12T18:17:29Z",
+      "finding": "Opinion article precedes HN feed date by a calendar day; not a report on the preservation paper."
+    }
+  ]
+}

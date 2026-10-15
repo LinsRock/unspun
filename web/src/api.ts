@@ -52,6 +52,9 @@ export interface ViewpointOut {
   generated_at: string
 }
 
+export type FeedSort = 'newest' | 'hot' | 'important'
+export type FeedRange = 'today' | '24h' | '7d' | 'all'
+
 export interface EventOut {
   id: number
   title: string | null
@@ -63,14 +66,42 @@ export interface EventOut {
   changed_at: string
   articles: ArticleOut[]
   viewpoint: ViewpointOut | null
+  earliest_reported_at?: string | null
+  earliest_reported_date?: string | null
+  earliest_reported_precision?: 'time' | 'date' | 'unknown'
+  latest_reported_at?: string | null
+  latest_reported_date?: string | null
+  latest_reported_precision?: 'time' | 'date' | 'unknown'
+  valid_time_count?: number
+  missing_time_count?: number
+  invalid_time_count?: number
+  active_publishers?: number
+  heat?: number | null
+  public_impact_boosted?: boolean
 }
 
 export interface EventsResponse {
   events: EventOut[]
+  next_cursor?: string | null
+  as_of?: string
+  window_start?: string | null
+  window_end?: string
+  sort?: FeedSort
+  range?: FeedRange
 }
 
-export async function fetchEvents(): Promise<EventsResponse> {
-  const res = await fetch('/api/events?limit=50')
+export class FeedChangedError extends Error {}
+
+export async function fetchEvents(
+  sort: FeedSort = 'newest',
+  range: FeedRange = '7d',
+  cursor?: string,
+  signal?: AbortSignal,
+): Promise<EventsResponse> {
+  const query = new URLSearchParams({ sort, range, limit: '50' })
+  if (cursor) query.set('cursor', cursor)
+  const res = await fetch(`/api/events?${query}`, { signal })
+  if (res.status === 409) throw new FeedChangedError('Feed changed; restart pagination')
   if (!res.ok) throw new Error(`API ${res.status}`)
   return res.json() as Promise<EventsResponse>
 }

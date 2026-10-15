@@ -105,6 +105,12 @@ jobs:
       - run: uv run pyright
       - run: uv run alembic upgrade head
       - run: uv run pytest
+      - name: Verify frozen M3-B event-set ranking
+        run: >-
+          uv run python -m unspun.evaluation.run_feed_ranking
+          --snapshot ../docs/evaluations/m3b/technical-candidates.json
+          --annotations ../docs/evaluations/m3b/technical-annotations.json
+          --output /tmp/m3b-ranking-report.json
 
   web:
     runs-on: ubuntu-latest

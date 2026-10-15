@@ -1,0 +1,1571 @@
+{
+  "version": "m3b-synthetic-preview-v1",
+  "as_of": "2026-10-14T05:53:46.539870+00:00",
+  "events": [
+    {
+      "id": 90000,
+      "title": "【模拟】晚抓的2025年旧新闻",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 80,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190000,
+          "source_id": "preview-synthetic",
+          "title": "【模拟】晚抓的2025年旧新闻",
+          "url": "https://example.test/m3b/90000/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2025-08-20T13:21:00+00:00",
+          "reported_date": "2025-08-20",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90001,
+      "title": "【模拟】旧事件新增同媒体转载",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 70,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190010,
+          "source_id": "preview-synthetic",
+          "title": "【模拟】旧事件新增同媒体转载",
+          "url": "https://example.test/m3b/90001/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-09-24T05:53:46.539870+00:00",
+          "reported_date": "2026-09-24",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "bbc.com",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        },
+        {
+          "id": 190011,
+          "source_id": "preview-synthetic",
+          "title": "【模拟】旧事件新增同媒体转载",
+          "url": "https://example.test/m3b/90001/1",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-14T04:53:46.539870+00:00",
+          "reported_date": "2026-10-14",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "bbc.co.uk",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90002,
+      "title": "【模拟】缺少原文报道日期",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 50,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190020,
+          "source_id": "preview-synthetic",
+          "title": "【模拟】缺少原文报道日期",
+          "url": "https://example.test/m3b/90002/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": null,
+          "reported_date": null,
+          "reported_precision": "unknown",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90003,
+      "title": "【模拟】仅有发布日期",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 20,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190030,
+          "source_id": "preview-synthetic",
+          "title": "【模拟】仅有发布日期",
+          "url": "https://example.test/m3b/90003/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": null,
+          "reported_date": "2026-10-13",
+          "reported_precision": "date",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90004,
+      "title": "【模拟】北京时间日界前23:59",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 15,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190040,
+          "source_id": "preview-synthetic",
+          "title": "【模拟】北京时间日界前23:59",
+          "url": "https://example.test/m3b/90004/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-13T15:59:00+00:00",
+          "reported_date": "2026-10-13",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90005,
+      "title": "【模拟】北京时间日界后00:01",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 15,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190050,
+          "source_id": "preview-synthetic",
+          "title": "【模拟】北京时间日界后00:01",
+          "url": "https://example.test/m3b/90005/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-13T16:01:00+00:00",
+          "reported_date": "2026-10-13",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90006,
+      "title": "【模拟】尚未评分的最新报道",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": null,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190060,
+          "source_id": "preview-synthetic",
+          "title": "【模拟】尚未评分的最新报道",
+          "url": "https://example.test/m3b/90006/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-14T03:53:46.539870+00:00",
+          "reported_date": "2026-10-14",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90007,
+      "title": "【模拟·分页】第01条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190070,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第01条验收事件",
+          "url": "https://example.test/m3b/90007/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:53:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90008,
+      "title": "【模拟·分页】第02条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190080,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第02条验收事件",
+          "url": "https://example.test/m3b/90008/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:52:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90009,
+      "title": "【模拟·分页】第03条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190090,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第03条验收事件",
+          "url": "https://example.test/m3b/90009/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:51:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90010,
+      "title": "【模拟·分页】第04条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190100,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第04条验收事件",
+          "url": "https://example.test/m3b/90010/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:50:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90011,
+      "title": "【模拟·分页】第05条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190110,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第05条验收事件",
+          "url": "https://example.test/m3b/90011/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:49:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90012,
+      "title": "【模拟·分页】第06条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190120,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第06条验收事件",
+          "url": "https://example.test/m3b/90012/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:48:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90013,
+      "title": "【模拟·分页】第07条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190130,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第07条验收事件",
+          "url": "https://example.test/m3b/90013/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:47:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90014,
+      "title": "【模拟·分页】第08条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190140,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第08条验收事件",
+          "url": "https://example.test/m3b/90014/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:46:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90015,
+      "title": "【模拟·分页】第09条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190150,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第09条验收事件",
+          "url": "https://example.test/m3b/90015/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:45:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90016,
+      "title": "【模拟·分页】第10条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190160,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第10条验收事件",
+          "url": "https://example.test/m3b/90016/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:44:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90017,
+      "title": "【模拟·分页】第11条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190170,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第11条验收事件",
+          "url": "https://example.test/m3b/90017/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:43:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90018,
+      "title": "【模拟·分页】第12条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190180,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第12条验收事件",
+          "url": "https://example.test/m3b/90018/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:42:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90019,
+      "title": "【模拟·分页】第13条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190190,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第13条验收事件",
+          "url": "https://example.test/m3b/90019/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:41:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90020,
+      "title": "【模拟·分页】第14条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190200,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第14条验收事件",
+          "url": "https://example.test/m3b/90020/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:40:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90021,
+      "title": "【模拟·分页】第15条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190210,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第15条验收事件",
+          "url": "https://example.test/m3b/90021/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:39:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90022,
+      "title": "【模拟·分页】第16条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190220,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第16条验收事件",
+          "url": "https://example.test/m3b/90022/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:38:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90023,
+      "title": "【模拟·分页】第17条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190230,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第17条验收事件",
+          "url": "https://example.test/m3b/90023/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:37:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90024,
+      "title": "【模拟·分页】第18条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190240,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第18条验收事件",
+          "url": "https://example.test/m3b/90024/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:36:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90025,
+      "title": "【模拟·分页】第19条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190250,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第19条验收事件",
+          "url": "https://example.test/m3b/90025/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:35:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90026,
+      "title": "【模拟·分页】第20条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190260,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第20条验收事件",
+          "url": "https://example.test/m3b/90026/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:34:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90027,
+      "title": "【模拟·分页】第21条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190270,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第21条验收事件",
+          "url": "https://example.test/m3b/90027/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:33:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90028,
+      "title": "【模拟·分页】第22条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190280,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第22条验收事件",
+          "url": "https://example.test/m3b/90028/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:32:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90029,
+      "title": "【模拟·分页】第23条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190290,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第23条验收事件",
+          "url": "https://example.test/m3b/90029/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:31:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90030,
+      "title": "【模拟·分页】第24条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190300,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第24条验收事件",
+          "url": "https://example.test/m3b/90030/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:30:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90031,
+      "title": "【模拟·分页】第25条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190310,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第25条验收事件",
+          "url": "https://example.test/m3b/90031/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:29:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90032,
+      "title": "【模拟·分页】第26条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190320,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第26条验收事件",
+          "url": "https://example.test/m3b/90032/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:28:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90033,
+      "title": "【模拟·分页】第27条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190330,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第27条验收事件",
+          "url": "https://example.test/m3b/90033/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:27:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90034,
+      "title": "【模拟·分页】第28条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190340,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第28条验收事件",
+          "url": "https://example.test/m3b/90034/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:26:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90035,
+      "title": "【模拟·分页】第29条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190350,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第29条验收事件",
+          "url": "https://example.test/m3b/90035/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:25:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90036,
+      "title": "【模拟·分页】第30条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190360,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第30条验收事件",
+          "url": "https://example.test/m3b/90036/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:24:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90037,
+      "title": "【模拟·分页】第31条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190370,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第31条验收事件",
+          "url": "https://example.test/m3b/90037/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:23:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90038,
+      "title": "【模拟·分页】第32条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190380,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第32条验收事件",
+          "url": "https://example.test/m3b/90038/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:22:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90039,
+      "title": "【模拟·分页】第33条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190390,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第33条验收事件",
+          "url": "https://example.test/m3b/90039/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:21:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90040,
+      "title": "【模拟·分页】第34条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190400,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第34条验收事件",
+          "url": "https://example.test/m3b/90040/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:20:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90041,
+      "title": "【模拟·分页】第35条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190410,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第35条验收事件",
+          "url": "https://example.test/m3b/90041/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:19:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90042,
+      "title": "【模拟·分页】第36条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190420,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第36条验收事件",
+          "url": "https://example.test/m3b/90042/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:18:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90043,
+      "title": "【模拟·分页】第37条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190430,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第37条验收事件",
+          "url": "https://example.test/m3b/90043/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:17:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90044,
+      "title": "【模拟·分页】第38条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190440,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第38条验收事件",
+          "url": "https://example.test/m3b/90044/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:16:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90045,
+      "title": "【模拟·分页】第39条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190450,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第39条验收事件",
+          "url": "https://example.test/m3b/90045/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:15:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90046,
+      "title": "【模拟·分页】第40条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190460,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第40条验收事件",
+          "url": "https://example.test/m3b/90046/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:14:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90047,
+      "title": "【模拟·分页】第41条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190470,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第41条验收事件",
+          "url": "https://example.test/m3b/90047/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:13:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90048,
+      "title": "【模拟·分页】第42条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190480,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第42条验收事件",
+          "url": "https://example.test/m3b/90048/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:12:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90049,
+      "title": "【模拟·分页】第43条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190490,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第43条验收事件",
+          "url": "https://example.test/m3b/90049/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:11:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90050,
+      "title": "【模拟·分页】第44条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190500,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第44条验收事件",
+          "url": "https://example.test/m3b/90050/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:10:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90051,
+      "title": "【模拟·分页】第45条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190510,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第45条验收事件",
+          "url": "https://example.test/m3b/90051/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:09:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90052,
+      "title": "【模拟·分页】第46条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190520,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第46条验收事件",
+          "url": "https://example.test/m3b/90052/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:08:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90053,
+      "title": "【模拟·分页】第47条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190530,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第47条验收事件",
+          "url": "https://example.test/m3b/90053/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:07:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90054,
+      "title": "【模拟·分页】第48条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190540,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第48条验收事件",
+          "url": "https://example.test/m3b/90054/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:06:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90055,
+      "title": "【模拟·分页】第49条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190550,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第49条验收事件",
+          "url": "https://example.test/m3b/90055/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:05:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90056,
+      "title": "【模拟·分页】第50条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190560,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第50条验收事件",
+          "url": "https://example.test/m3b/90056/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:04:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90057,
+      "title": "【模拟·分页】第51条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190570,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第51条验收事件",
+          "url": "https://example.test/m3b/90057/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:03:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90058,
+      "title": "【模拟·分页】第52条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190580,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第52条验收事件",
+          "url": "https://example.test/m3b/90058/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:02:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90059,
+      "title": "【模拟·分页】第53条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190590,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第53条验收事件",
+          "url": "https://example.test/m3b/90059/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:01:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90060,
+      "title": "【模拟·分页】第54条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190600,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第54条验收事件",
+          "url": "https://example.test/m3b/90060/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T05:00:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    },
+    {
+      "id": 90061,
+      "title": "【模拟·分页】第55条验收事件",
+      "summary_zh": "这是模拟验收案例，不是真实新闻。",
+      "score_final": 2,
+      "first_seen_at": "2026-10-14T04:53:46.539870+00:00",
+      "changed_at": "2026-10-14T05:43:46.539870+00:00",
+      "articles": [
+        {
+          "id": 190610,
+          "source_id": "preview-synthetic",
+          "title": "【模拟·分页】第55条验收事件",
+          "url": "https://example.test/m3b/90061/0",
+          "published_at": null,
+          "fetched_at": "2026-10-14T05:43:46.539870+00:00",
+          "reported_at": "2026-10-08T04:59:46.539870+00:00",
+          "reported_date": "2026-10-08",
+          "reported_precision": "time",
+          "reported_basis": "explicitly synthetic preview fixture",
+          "publisher_group": "preview-example",
+          "content_basis": "original",
+          "content": "Synthetic preview fixture, not a real news article."
+        }
+      ]
+    }
+  ]
+}

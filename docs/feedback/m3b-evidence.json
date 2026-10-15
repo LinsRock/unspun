@@ -1,0 +1,518 @@
+{
+  "version": "m3b-evidence-v1",
+  "collected_on": "2026-10-14",
+  "database_scope": "existing development dataset via localhost:5432; not a current production snapshot",
+  "counts": {
+    "events": 0,
+    "articles": 1132,
+    "dated": 1132
+  },
+  "late_fetched_articles": [
+    {
+      "id": 1007,
+      "source_id": "dw-zh",
+      "title": "Swatch廣告「瞇瞇眼」惹議下架 中網友怒轟",
+      "url": "https://www.dw.com/zh/swatch廣告「瞇瞇眼」惹議下架-中網友怒轟/a-73698105?maca=chi-rss-chi-all-1127-rdf",
+      "published_at": "2025-08-20 13:21:00+00:00",
+      "fetched_at": "2026-10-09 03:46:02.367229+00:00"
+    },
+    {
+      "id": 1006,
+      "source_id": "dw-zh",
+      "title": "针对患癌猫咪的这项研究可能造福猫主人以及全人类！",
+      "url": "https://www.dw.com/zh/针对患癌猫咪的这项研究可能造福猫主人以及全人类！/a-76062271?maca=chi-rss-chi-all-1127-rdf",
+      "published_at": "2026-02-22 11:50:00+00:00",
+      "fetched_at": "2026-10-09 03:46:02.367229+00:00"
+    },
+    {
+      "id": 1005,
+      "source_id": "dw-zh",
+      "title": "爆炸、呐喊、冲锋声此起彼落 中国“红色旅游景点“推出历史战争体验",
+      "url": "https://www.dw.com/zh/爆炸、呐喊、冲锋声此起彼落-中国-红色旅游景点-推出历史战争体验/a-78260505?maca=chi-rss-chi-all-1127-rdf",
+      "published_at": "2026-08-09 14:36:00+00:00",
+      "fetched_at": "2026-10-09 03:46:02.367229+00:00"
+    },
+    {
+      "id": 1004,
+      "source_id": "dw-zh",
+      "title": "艾未未：希望回到中国",
+      "url": "https://www.dw.com/zh/艾未未：希望回到中国/a-78332753?maca=chi-rss-chi-all-1127-rdf",
+      "published_at": "2026-08-12 09:59:00+00:00",
+      "fetched_at": "2026-10-09 03:46:02.367229+00:00"
+    },
+    {
+      "id": 1003,
+      "source_id": "dw-zh",
+      "title": "「直至生命盡頭仍在創作」日本藝術家草間彌生逝世",
+      "url": "https://www.dw.com/zh/「直至生命盡頭仍在創作」日本藝術家草間彌生逝世/a-78519395?maca=chi-rss-chi-all-1127-rdf",
+      "published_at": "2026-08-27 05:01:00+00:00",
+      "fetched_at": "2026-10-09 03:46:02.367229+00:00"
+    },
+    {
+      "id": 1002,
+      "source_id": "dw-zh",
+      "title": "因“台湾馆”名称争议 中国抵制光州双年展",
+      "url": "https://www.dw.com/zh/因-台湾馆-名称争议-中国抵制光州双年展/a-78997439?maca=chi-rss-chi-all-1127-rdf",
+      "published_at": "2026-09-04 13:36:00+00:00",
+      "fetched_at": "2026-10-09 03:46:02.367229+00:00"
+    },
+    {
+      "id": 1001,
+      "source_id": "dw-zh",
+      "title": "德国中学生水平测试成绩创下最差纪录 中国排名第一",
+      "url": "https://www.dw.com/zh/德国中学生水平测试成绩创下最差纪录-中国排名第一/a-79161171?maca=chi-rss-chi-all-1127-rdf",
+      "published_at": "2026-09-08 12:52:00+00:00",
+      "fetched_at": "2026-10-09 03:46:02.367229+00:00"
+    },
+    {
+      "id": 302,
+      "source_id": "dw-en",
+      "title": "The 'end of an era' as Goethe-Institut in Russia closes",
+      "url": "https://www.dw.com/en/the-end-of-an-era-as-goethe-institut-in-russia-closes/a-79224321?maca=en-rss-en-all-1573-rdf",
+      "published_at": "2026-09-11 09:39:00+00:00",
+      "fetched_at": "2026-10-09 03:39:20.201976+00:00"
+    },
+    {
+      "id": 301,
+      "source_id": "dw-en",
+      "title": "India looks to steer BRICS away from anti-Western turn",
+      "url": "https://www.dw.com/en/india-looks-to-steer-brics-away-from-anti-western-turn/a-79195234?maca=en-rss-en-all-1573-rdf",
+      "published_at": "2026-09-11 10:55:00+00:00",
+      "fetched_at": "2026-10-09 03:39:20.201976+00:00"
+    },
+    {
+      "id": 300,
+      "source_id": "dw-en",
+      "title": "Corals as climate archive: Are El Nino events intensifying?",
+      "url": "https://www.dw.com/en/corals-as-climate-archive-are-el-nino-events-intensifying/a-79243425?maca=en-rss-en-all-1573-rdf",
+      "published_at": "2026-09-12 08:53:00+00:00",
+      "fetched_at": "2026-10-09 03:39:20.201976+00:00"
+    },
+    {
+      "id": 1000,
+      "source_id": "dw-zh",
+      "title": "告别“只收现金” 德国拟强制商家提供电子支付选项",
+      "url": "https://www.dw.com/zh/告别-只收现金-德国拟强制商家提供电子支付选项/a-79244126?maca=chi-rss-chi-all-1127-rdf",
+      "published_at": "2026-09-12 10:26:00+00:00",
+      "fetched_at": "2026-10-09 03:46:02.367229+00:00"
+    },
+    {
+      "id": 299,
+      "source_id": "dw-en",
+      "title": "Why are European banks moving gold out of United States?",
+      "url": "https://www.dw.com/en/why-are-european-banks-moving-gold-out-of-united-states/a-79213013?maca=en-rss-en-all-1573-rdf",
+      "published_at": "2026-09-12 15:32:00+00:00",
+      "fetched_at": "2026-10-09 03:39:20.201976+00:00"
+    }
+  ],
+  "previous_production_audit_excerpts": [
+    {
+      "id": "audit-12",
+      "provenance": "production-audit-excerpt",
+      "description": "T10 audited event 12, bounded excerpts, not full-text fact verification",
+      "articles": [
+        {
+          "id": 13,
+          "source_id": "bbc-world",
+          "source_name": "BBC World",
+          "title": "Residents airlifted to safety after flooding in central Chile",
+          "content": "Police in central Chile have airlifted several residents to safety after rising floodwaters left them trapped in their homes. Recent torrential rains caused the Mapocho",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.bbc.co.uk/news/articles/ck5yn8jn677vo?at_medium=RSS&at_campaign=rss"
+        },
+        {
+          "id": 1470,
+          "source_id": "aljazeera",
+          "source_name": "Al Jazeera",
+          "title": "Driver films from inside vehicle as car swept away in Chile floods",
+          "content": "NewsFeed Driver films from inside vehicle as car swept away in Chile floods Torrential rain hit Chile’s capital, triggering mudslides that swept away cars through",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "eu",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.aljazeera.com/video/newsfeed/2026/10/9/driver-films-from-inside-vehicle-as-car-swept-away-in-chile-floods?traffic_source=rss"
+        },
+        {
+          "id": 1866,
+          "source_id": "bloomberg-economics",
+          "source_name": "Bloomberg Economics",
+          "title": "Flash Floods, Mudslides Sweep Through Chile's Capital",
+          "content": "Emergency crews are working to clear mud, rocks and stranded vehicles from streets in Chile's capital after flash flooding swept through the affluent Las Condes",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "intl",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.bloomberg.com/news/videos/2026-10-09/flash-floods-mudslides-sweep-through-chile-s-capital-video"
+        }
+      ],
+      "expectations": {
+        "min_claims": 2,
+        "allowed_kinds": [
+          "coverage_difference",
+          "temporal_update",
+          "uncertain",
+          "viewpoint_difference"
+        ],
+        "forbidden_patterns": [
+          "马波乔河水位上涨",
+          "马波乔河水位上升"
+        ],
+        "required_terms": [],
+        "required_kinds": [],
+        "required_patterns": [],
+        "summary_required_patterns": {
+          "13": [
+            "居民",
+            "空运|空運|空中"
+          ]
+        }
+      }
+    },
+    {
+      "id": "audit-52",
+      "provenance": "production-audit-excerpt",
+      "description": "T10 audited event 52, bounded excerpts, not full-text fact verification",
+      "articles": [
+        {
+          "id": 1345,
+          "source_id": "aljazeera",
+          "source_name": "Al Jazeera",
+          "title": "Saudi Arabia reopens Riyadh airport after Houthi attack kills three",
+          "content": "Saudi Arabia has seen several attacks by the Houthis in recent days, with the airports appearing to be the primary target. Saudi Arabia has reopened",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.aljazeera.com/news/2026/10/9/saudi-arabia-reopens-riyadh-airport-after-houthi-attack-kills-three?traffic_source=rss"
+        },
+        {
+          "id": 62,
+          "source_id": "guardian-world",
+          "source_name": "The Guardian World",
+          "title": "Houthis claim attack on Riyadh airport as airlines suspend flights to Saudi capital",
+          "content": "The group provided no evidence, and Saudi Arabia did not immediately comment on the claim. However, three people briefed on the matter told Reuters that",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "eu",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.theguardian.com/world/2026/oct/09/riyadh-airport-flights-suspended-houthis-claim-attack"
+        },
+        {
+          "id": 1301,
+          "source_id": "nyt-world",
+          "source_name": "New York Times World",
+          "title": "Houthi Attacks on Riyadh Airport Leave 3 Dead, Saudi Arabia Says",
+          "content": "The escalating violence has brought the conflict in Yemen to the doorstep of the Saudi capital, and the kingdom has no easy options to curtail",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "intl",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.nytimes.com/2026/10/09/world/middleeast/yemen-houthi-attack-saudi-arabia-airport-riyadh.html"
+        },
+        {
+          "id": 1210,
+          "source_id": "bbc-world",
+          "source_name": "BBC World",
+          "title": "Three Saudi nationals killed in Houthi attacks on Riyadh airport",
+          "content": "Three Saudi nationals have been killed in two attacks on the international airport in the capital, Riyadh, the country's civil aviation authority has said after",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.bbc.co.uk/news/articles/cmz7xe37g5wro?at_medium=RSS&at_campaign=rss"
+        },
+        {
+          "id": 1436,
+          "source_id": "dw-en",
+          "source_name": "DW English",
+          "title": "Saudi coalition vows 'firm' response after airport attack kills 3",
+          "content": "October 9, 2026 The Saudi-led coalition in Yemen launched strikes that destroyed targets used by the Houthis, a coalition spokesperson said Friday. Major General Turki",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "eu",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.dw.com/en/saudi-coalition-vows-firm-response-after-airport-attack-kills-3/a-79615437?maca=en-rss-en-all-1573-rdf"
+        },
+        {
+          "id": 1879,
+          "source_id": "wsj-world",
+          "source_name": "WSJ World News",
+          "title": "Houthis Bombard Saudi Air Links in Effort to Cut Kingdom Off From Rest of World",
+          "content": "Missile attacks on airports are spooking travelers and threatening another pillar of the kingdom’s growth.",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "intl",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.wsj.com/world/middle-east/houthis-bombard-saudi-air-links-in-effort-to-cut-kingdom-off-from-rest-of-world-1f8f55f9?mod=rss_worldnews"
+        },
+        {
+          "id": 736,
+          "source_id": "foreign-policy",
+          "source_name": "Foreign Policy",
+          "title": "Where the Saudi-Houthi War Stands Now",
+          "content": "The Yemeni rebel forces ramp up strikes on Saudi airports, oil refineries, and other critical infrastructure. Welcome back to World Brief, where we’re looking at",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://foreignpolicy.com/2026/10/08/houthis-yemen-war-saudi-arabia-airport-oil-strikes-pakistan-turkey-syria/"
+        }
+      ],
+      "expectations": {
+        "min_claims": 2,
+        "allowed_kinds": [
+          "coverage_difference",
+          "temporal_update",
+          "uncertain",
+          "viewpoint_difference"
+        ],
+        "forbidden_patterns": [],
+        "required_terms": [],
+        "required_kinds": [],
+        "required_patterns": [],
+        "summary_required_patterns": {}
+      }
+    },
+    {
+      "id": "audit-366",
+      "provenance": "production-audit-excerpt",
+      "description": "T10 audited event 366, bounded excerpts, not full-text fact verification",
+      "articles": [
+        {
+          "id": 1884,
+          "source_id": "wsj-world",
+          "source_name": "WSJ World News",
+          "title": "Masked Thieves in Italy Make Off With $5.6 Million of High-End Wine",
+          "content": "The bandits used a company’s own forklifts to steal some 30,000 bottles of wine, including prized reds.",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.wsj.com/world/europe/masked-thieves-in-italy-make-off-with-5-6-million-of-high-end-wine-f18134d5?mod=rss_worldnews"
+        },
+        {
+          "id": 1085,
+          "source_id": "ft-home",
+          "source_name": "Financial Times",
+          "title": "Famous Italian winery loses 30,000 bottles worth €5mn in heist",
+          "content": "Antinori says it hopes to ‘protect the market’ by alerting potential buyers",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "eu",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.ft.com/content/1b614d60-a5d3-4b9f-b3e8-63f51bdfd599?syn-25a6b1a6=1"
+        },
+        {
+          "id": 1378,
+          "source_id": "guardian-world",
+          "source_name": "The Guardian World",
+          "title": "Thieves make off with €5m haul from prestigious Italian winery",
+          "content": "A gang of at least seven masked individuals broke into the cellar of Marchesi Antinori, a family-owned winery dating back to the late 1300s, in",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "intl",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.theguardian.com/world/2026/oct/09/thieves-make-off-with-haul-from-prestigious-italian-winery-marchesi-antinori"
+        },
+        {
+          "id": 1209,
+          "source_id": "bbc-world",
+          "source_name": "BBC World",
+          "title": "Thieves steal 30,000 wine bottles worth €5m in Italy, reports say",
+          "content": "Thieves have stolen 30,000 bottles of wine collectively worth about €5m (£4.2m) from a prestigious Italian winery, Italian media reports. Marchesi Antinori, one of Italy's",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.bbc.co.uk/news/articles/cme3xl8ln2vko?at_medium=RSS&at_campaign=rss"
+        },
+        {
+          "id": 1550,
+          "source_id": "nyt-world",
+          "source_name": "New York Times World",
+          "title": "Fine Wines, Brazen Thieves: 30,000 Bottles Stolen in Tuscan Heist",
+          "content": "As many as 10 men made off with more than $5 million of first-rate Italian red wine.",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "eu",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.nytimes.com/2026/10/09/world/europe/wine-heist-italy-marchesi-antinori.html"
+        }
+      ],
+      "expectations": {
+        "min_claims": 2,
+        "allowed_kinds": [
+          "coverage_difference",
+          "temporal_update",
+          "uncertain",
+          "viewpoint_difference",
+          "factual_conflict"
+        ],
+        "forbidden_patterns": [],
+        "required_terms": [],
+        "required_kinds": [],
+        "required_patterns": [],
+        "summary_required_patterns": {}
+      }
+    },
+    {
+      "id": "audit-117",
+      "provenance": "production-audit-excerpt",
+      "description": "T10 audited event 117, bounded excerpts, not full-text fact verification",
+      "articles": [
+        {
+          "id": 172,
+          "source_id": "dw-en",
+          "source_name": "DW English",
+          "title": "US will not resume strikes on Iran before midterms — Trump",
+          "content": "October 8, 2026 US President Donald Trump said he will not order a resumption of military strikes on Iran before the November 3 midterm elections.",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.dw.com/en/us-will-not-resume-strikes-on-iran-before-midterms-trump/a-79603731?maca=en-rss-en-all-1573-rdf"
+        },
+        {
+          "id": 610,
+          "source_id": "ft-home",
+          "source_name": "Financial Times",
+          "title": "Trump says US ‘will not be attacking Iran’ before midterm elections",
+          "content": "President says Washington and Tehran are having ‘productive discussions’",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "eu",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.ft.com/content/e0cc2789-0e71-401d-8096-d58303970a37?syn-25a6b1a6=1"
+        },
+        {
+          "id": 1303,
+          "source_id": "aljazeera",
+          "source_name": "Al Jazeera",
+          "title": "Is Trump signalling a return to war with Iran after the midterms?",
+          "content": "US media reports suggest he may be weighing strikes before the vote but the president has ruled that out. United States President Donald Trump has",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "intl",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.aljazeera.com/news/2026/10/9/is-trump-signalling-a-return-to-war-with-iran-after-the-midterms?traffic_source=rss"
+        },
+        {
+          "id": 1885,
+          "source_id": "wsj-world",
+          "source_name": "WSJ World News",
+          "title": "Oil Prices Steady After Trump Appears to Rule Out Iran Strikes Before Midterms",
+          "content": "Oil prices edged higher as traders weighed President Trump’s pledge not to attack Iran before the U.S. midterm elections against persistent shipping risks in the",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.wsj.com/business/energy-oil/oil-prices-retreat-after-trump-appears-to-rule-out-iran-strikes-before-midterms-55b0e4d9?mod=rss_worldnews"
+        },
+        {
+          "id": 885,
+          "source_id": "the-atlantic",
+          "source_name": "The Atlantic",
+          "title": "Trump Is Considering a Plan to Strike Iran Before the Midterms",
+          "content": "Pentagon planners are weighing options, though no final decision has been made.",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "eu",
+          "kind": "commercial",
+          "lang": "en",
+          "url": "https://www.theatlantic.com/national-security/2026/10/trump-iran-strike-midterms/688910/?utm_source=feed"
+        }
+      ],
+      "expectations": {
+        "min_claims": 2,
+        "allowed_kinds": [
+          "coverage_difference",
+          "temporal_update",
+          "uncertain",
+          "viewpoint_difference"
+        ],
+        "forbidden_patterns": [
+          "主要原油供应",
+          "主要石油供应"
+        ],
+        "required_terms": [],
+        "required_kinds": [],
+        "required_patterns": [],
+        "summary_required_patterns": {}
+      }
+    },
+    {
+      "id": "audit-1368",
+      "provenance": "production-audit-excerpt",
+      "description": "T10 audited event 1368, bounded excerpts, not full-text fact verification",
+      "articles": [
+        {
+          "id": 2035,
+          "source_id": "xinhua",
+          "source_name": "Xinhua News",
+          "title": "新华社消息丨前三季度全国城镇新增就业1052万人",
+          "content": "前三季度全国城镇新增就业1052万人\n2026-10-10 11:29:04\n来源：新华社",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "us",
+          "kind": "commercial",
+          "lang": "zh",
+          "url": "http://www.news.cn/20261010/396466272129498888d12edc498d3b5f/c.html"
+        },
+        {
+          "id": 1803,
+          "source_id": "zaobao-china",
+          "source_name": "Zaobao China Realtime",
+          "title": "中国官方：将开展适应人工智能发展促就业行动",
+          "content": "中国官方称，今年前三季全国城镇新增就业1052万人，就业形势总体稳定，将开展适应人工智能发展促就业行动和农民工就业促进行动等。\n中国国务院新闻办公室星期六（10月10日）举行新闻发布会，人力资源社会保",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "eu",
+          "kind": "commercial",
+          "lang": "zh",
+          "url": "https://www.zaobao.com/news/china/story20261010-9814488"
+        },
+        {
+          "id": 1795,
+          "source_id": "36kr-newsflashes",
+          "source_name": "36Kr Newsflashes",
+          "title": "今年1至9月我国城镇新增就业1052万人",
+          "content": "国务院新闻办公室今天（10月10日）上午举行“开局起步‘十五五’”系列主题新闻发布会，人力资源社会保障部相关负责人介绍推进就业和社会保障高质量发展有关情况。今年1至9月，城镇新增就业1052万人、完成",
+          "published_at": "2026-10-10T03:00:00Z",
+          "region": "intl",
+          "kind": "commercial",
+          "lang": "zh",
+          "url": "https://www.36kr.com/newsflashes/4019425560187011"
+        }
+      ],
+      "expectations": {
+        "min_claims": 2,
+        "allowed_kinds": [
+          "coverage_difference",
+          "temporal_update",
+          "uncertain",
+          "viewpoint_difference"
+        ],
+        "forbidden_patterns": [
+          "2023",
+          "2024"
+        ],
+        "required_terms": [],
+        "required_kinds": [],
+        "required_patterns": [
+          "人工智能|AI"
+        ],
+        "summary_required_patterns": {
+          "1803": [
+            "人工智能|AI",
+            "农民工"
+          ]
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Article samples are not clustered or human-labelled standard events.",
+    "Prior audit excerpts are bounded content-quality controls; their dates are not verified publication times for ranking.",
+    "No human importance labels or ranking judgments have been supplied."
+  ]
+}

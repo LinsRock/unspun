@@ -1,0 +1,11 @@
+# Reviewed publisher brand aliases. Activity groups are a proxy, not independent evidence.
+version: media-brands-v1
+aliases:
+  bbc.com: bbc.com
+  bbc.co.uk: bbc.com
+  news.cn: xinhua
+  xinhuanet.com: xinhua
+  xinhua: xinhua
+  blog.google: google
+  deepmind.google: google
+  google: google

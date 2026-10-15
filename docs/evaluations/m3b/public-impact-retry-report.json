@@ -1,0 +1,59 @@
+{
+  "version": "m3b-public-impact-live-v1",
+  "generated_at": "2026-10-14T09:01:31.361074+00:00",
+  "as_of": "2026-10-14T05:53:46.539870+00:00",
+  "live_model_calls": true,
+  "production_data_modified": false,
+  "model": "google/gemini-2.5-flash",
+  "impact_version": "public-impact-v1",
+  "technical_snapshot_sha256": "ab3fd0b1d7aca03bc896b6e893dfe1ecc1fb27b1d426e6141ef93bcecc69101b",
+  "source_sha256": "bfefa123ac9cad6a41ceb4e4d9f4d67bc0542a99fb4f34dd9aab8d6595f35b16",
+  "material_sha256": "aad0e4557673e178684aadcdc755ed9264bcca43dfcc83037b19fdb44453ae6d",
+  "budget_usd": 0.15,
+  "cumulative_call_cap": 110,
+  "actual_calls": 2,
+  "cost_usd": 0.0012065,
+  "previous_attempt_calls": 46,
+  "previous_attempt_cost_usd": 0.0044285,
+  "budget_note": "Cap stops subsequent calls; in-flight requests/retries can exceed the cap.",
+  "semantic_entailment_verified": false,
+  "results": [
+    {
+      "case_id": "4497",
+      "assessment": {
+        "status": "routine",
+        "is_urgent": false,
+        "reason": "该事件涉及税务部门曝光涉税中介违法违规案件，但并未提及当前或近期造成严重人身伤害、公共服务严重中断或需要紧急保护性响应。",
+        "evidence": [],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash",
+        "input_fingerprint": "a166d37ec9945137821e71c4c680dd85314ad133642e9ed0987d3020ecd117c9",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    },
+    {
+      "case_id": "3509",
+      "assessment": {
+        "status": "supported",
+        "is_urgent": true,
+        "reason": "巴基斯坦一列客运列车脱轨，造成至少5人死亡、30人受伤，需要紧急关注。",
+        "evidence": [
+          {
+            "article_id": 5709,
+            "quote": "巴基斯坦警方13日说，该国东部旁遮普省一列客运列车当天清晨脱轨，造成至少5人死亡、30人受伤。"
+          },
+          {
+            "article_id": 5761,
+            "quote": "巴基斯坦警方13日说，该国东部旁遮普省一列客运列车当天清晨脱轨，造成至少5人死亡、30人受伤。"
+          }
+        ],
+        "failure_kind": null,
+        "model": "google/gemini-2.5-flash",
+        "input_fingerprint": "91cf2fdb28c944733f4cdd5adf07fff7c7dc2722072ff4ec60ba02509fee2f1a",
+        "version": "public-impact-v1",
+        "assessed_at": "2026-10-14T05:53:46.539870Z"
+      }
+    }
+  ]
+}
