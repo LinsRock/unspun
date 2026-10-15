@@ -1,7 +1,10 @@
 # Unspun
 
-A single-user personal intelligence station: it collects Chinese and English news and knowledge sources, then uses AI to cluster, score, and contrast viewpoints — built to break out of the filter bubble.
+A single-user app that automatically discovers and curates important developments and content you care about, including articles, videos, posts, and discussions. Chinese-language sources and domestic platforms come first, with global coverage and a small set of international sources.
 
+- Product definition: [docs/product-definition.md](docs/product-definition.md) (Chinese)
 - Requirements: [docs/requirement.md](docs/requirement.md) (Chinese)
 - Roadmap: [docs/roadmaps.md](docs/roadmaps.md) (Chinese)
+- Refactoring proposal: [docs/implementation-proposal.md](docs/implementation-proposal.md) (Chinese)
+- Requested sources and validation: [docs/source-plan.md](docs/source-plan.md) (Chinese)
 - Engineering guide (architecture / commands / conventions): [CLAUDE.md](CLAUDE.md)
