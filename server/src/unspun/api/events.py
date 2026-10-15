@@ -10,6 +10,7 @@ from pydantic import BaseModel
 from sqlalchemy import select, text
 from sqlalchemy.orm import Session, selectinload
 
+from unspun.api.admin.auth import require_admin_identity
 from unspun.core.db import session_scope
 from unspun.core.feed_query import RANKING_VERSION, feed_page
 from unspun.core.logging import get_logger
@@ -192,7 +193,9 @@ def event_out(
     )
 
 
-@router.get("/api/events", response_model=EventsResponse)
+@router.get(
+    "/api/events", response_model=EventsResponse, dependencies=[Depends(require_admin_identity)]
+)
 def list_events(
     limit: int = Query(default=50, ge=1, le=100),
     sort: Literal["newest", "hot", "important"] = "newest",

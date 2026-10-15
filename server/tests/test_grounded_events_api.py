@@ -97,3 +97,13 @@ def test_api_exposes_review_pause_even_when_no_claims_are_available() -> None:
     out = viewpoint_out(row, set())
     assert out is not None
     assert out.model_dump()["status"] == "review_limited"
+
+
+@pytest.fixture(autouse=True)
+def feed_identity():
+    from unspun.api.admin.auth import require_admin_identity
+    from unspun.api.app import app
+
+    app.dependency_overrides[require_admin_identity] = lambda: "owner"
+    yield
+    app.dependency_overrides.pop(require_admin_identity, None)
