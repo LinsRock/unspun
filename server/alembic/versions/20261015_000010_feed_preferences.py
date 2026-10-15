@@ -1,4 +1,4 @@
-"""Persist single-user reading state and feed preferences."""
+"""Persist single-user feed preferences."""
 
 from collections.abc import Sequence
 
@@ -13,25 +13,10 @@ depends_on: str | Sequence[str] | None = None
 
 def upgrade() -> None:
     op.create_table(
-        "event_read_states",
-        sa.Column(
-            "event_id",
-            sa.Integer(),
-            sa.ForeignKey("events.id", ondelete="CASCADE"),
-            primary_key=True,
-        ),
-        sa.Column("is_read", sa.Boolean(), nullable=False),
-        sa.Column("read_at", sa.DateTime(timezone=True)),
-        sa.Column("version", sa.Integer(), nullable=False),
-        sa.CheckConstraint("version > 0", name="ck_event_read_version"),
-        sa.CheckConstraint("is_read = (read_at IS NOT NULL)", name="ck_event_read_timestamp"),
-    )
-    op.create_table(
         "feed_preferences",
         sa.Column("id", sa.Integer(), primary_key=True, autoincrement=False),
         sa.Column("sort", sa.Text(), nullable=False),
         sa.Column("range", sa.Text(), nullable=False),
-        sa.Column("unread_only", sa.Boolean(), nullable=False),
         sa.Column("version", sa.Integer(), nullable=False),
         sa.CheckConstraint("id = 1", name="ck_feed_preferences_singleton"),
         sa.CheckConstraint("version > 0", name="ck_feed_preferences_version"),
@@ -42,4 +27,3 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     op.drop_table("feed_preferences")
-    op.drop_table("event_read_states")

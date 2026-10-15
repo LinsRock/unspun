@@ -14,7 +14,7 @@ from unspun.api.admin.auth import require_admin_identity
 from unspun.core.db import session_scope
 from unspun.core.feed_query import RANKING_VERSION, feed_page
 from unspun.core.logging import get_logger
-from unspun.core.models import Event, EventReadState, EventViewpoint
+from unspun.core.models import Event, EventViewpoint
 from unspun.core.params import get_scoring_params
 from unspun.core.sources import load_sources
 
@@ -98,9 +98,6 @@ class EventOut(BaseModel):
     heat: float | None = None
     ranking_metric: float | None = None
     public_impact_boosted: bool = False
-    is_read: bool = False
-    read_at: datetime | None = None
-    read_version: int = 0
 
 
 def viewpoint_out(row: EventViewpoint | None, article_ids: set[int]) -> ViewpointOut | None:
@@ -203,12 +200,11 @@ def list_events(
     limit: int = Query(default=50, ge=1, le=100),
     sort: Literal["newest", "hot", "important"] = "newest",
     range_: Literal["today", "24h", "7d", "all"] = Query(default="7d", alias="range"),
-    unread_only: bool = False,
     cursor: str | None = Query(default=None, max_length=2048),
     session: Session = Depends(get_db),  # noqa: B008
     now: datetime = Depends(get_feed_now),  # noqa: B008
 ) -> EventsResponse:
-    page = feed_page(session, sort, range_, limit, now, cursor, unread_only)
+    page = feed_page(session, sort, range_, limit, now, cursor)
     ids = [row["id"] for row in page.rows]
     events_by_id = {
         event.id: event
@@ -217,10 +213,6 @@ def list_events(
             .where(Event.id.in_(ids))
             .options(selectinload(Event.articles), selectinload(Event.viewpoint))
         )
-    }
-    states = {
-        r.event_id: r
-        for r in session.scalars(select(EventReadState).where(EventReadState.event_id.in_(ids)))
     }
     source_names = {s.id: s.name for s in load_sources()}
     events: list[EventOut] = []
@@ -251,8 +243,6 @@ def list_events(
                 field,
                 row[field] if row[field] is not None else (0 if field.endswith("count") else None),
             )
-        if state := states.get(event.id):
-            out.is_read, out.read_at, out.read_version = state.is_read, state.read_at, state.version
         out.ranking_metric = float(row["metric"]) if row["known"] else None
         out.public_impact_boosted = bool(row["boosted"])
         events.append(out)

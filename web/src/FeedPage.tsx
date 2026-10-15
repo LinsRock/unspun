@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
 import type { InfiniteData } from '@tanstack/react-query'
 import { useFeedPreferences } from './feedPreferences'
 
-import { FeedChangedError, StateConflict, fetchEvents, saveReadState } from './api'
-import type { EventOut, EventsResponse, FeedRange, FeedSort, ReadState } from './api'
+import { FeedChangedError, fetchEvents } from './api'
+import type { EventsResponse, FeedRange, FeedSort } from './api'
 import EventCard from './EventCard'
 
 const SORTS: { value: FeedSort; label: string; explanation: string }[] = [
@@ -21,19 +21,16 @@ function beijingTime(value: string): string {
 }
 export default function FeedPage() {
   const preferences = useFeedPreferences()
-  const { sort, range, unread_only: unreadOnly } = preferences.choice
+  const { sort, range } = preferences.choice
   const { invalid, reload } = preferences
-  const [readMessage, setReadMessage] = useState('')
-  const [pendingReads, setPendingReads] = useState<Set<number>>(new Set())
-  const writingReads = useRef(new Set<number>())
   const client = useQueryClient()
-  const key = ['events', sort, range, unreadOnly]
+  const key = ['events', sort, range]
   const query = useInfiniteQuery({
     queryKey: key,
     gcTime: 0,
     enabled: preferences.ready,
     refetchOnWindowFocus: false,
-    queryFn: ({ pageParam, signal }) => fetchEvents(sort, range, pageParam, signal, unreadOnly),
+    queryFn: ({ pageParam, signal }) => fetchEvents(sort, range, pageParam, signal),
     initialPageParam: undefined as string | undefined,
     getNextPageParam: (page) => page.next_cursor ?? undefined,
     retry: (count, error) => !(error instanceof FeedChangedError) && count < 2,
@@ -45,11 +42,11 @@ export default function FeedPage() {
   })
   const first = query.data?.pages[0]
   const restart = useCallback(async () => {
-    const currentKey = ['events', sort, range, unreadOnly]
+    const currentKey = ['events', sort, range]
     await client.cancelQueries({ queryKey: currentKey, exact: true })
     client.setQueryData<InfiniteData<EventsResponse>>(currentKey, (data) => data && ({ ...data, pages: data.pages.slice(0, 1), pageParams: data.pageParams.slice(0, 1) }))
     await client.refetchQueries({ queryKey: currentKey, exact: true, type: 'active' })
-  }, [client, sort, range, unreadOnly])
+  }, [client, sort, range])
   useEffect(() => {
     const timer = window.setInterval(() => { void restart() }, 5 * 60 * 1000)
     return () => window.clearInterval(timer)
@@ -60,30 +57,7 @@ export default function FeedPage() {
     document.addEventListener('visibilitychange', refresh)
     return () => { window.removeEventListener('focus', refresh); document.removeEventListener('visibilitychange', refresh) }
   }, [reload, restart])
-  function change(field: 'sort' | 'range' | 'unread_only', value: string | boolean) { void preferences.change(field, value) }
-  function updateRead(id: number, state: ReadState) {
-    client.setQueriesData<InfiniteData<EventsResponse>>({ queryKey: ['events'] }, (data) => data && ({ ...data, pages: data.pages.map((page) => ({ ...page, events: page.events.map((event) => event.id === id ? { ...event, is_read: state.is_read, read_at: state.read_at, read_version: state.version } : event) })) }))
-  }
-  async function toggleRead(event: EventOut) {
-    if (!preferences.online || writingReads.current.has(event.id)) return
-    writingReads.current.add(event.id); setPendingReads(new Set(writingReads.current)); setReadMessage('')
-    try {
-      const state = await saveReadState(event.id, !event.is_read, event.read_version ?? 0)
-      await client.cancelQueries({ queryKey: ['events'] })
-      updateRead(event.id, state)
-      if (unreadOnly && state.is_read) {
-        client.setQueryData<InfiniteData<EventsResponse>>(key, (data) => data && ({ ...data, pages: data.pages.map((page) => ({ ...page, events: page.events.filter((e) => e.id !== event.id) })) }))
-        await restart()
-      }
-    } catch (error) {
-      if (error instanceof StateConflict) {
-        await client.cancelQueries({ queryKey: ['events'] })
-        updateRead(event.id, error.current as ReadState)
-        setReadMessage('阅读状态已在其他设备更新，请重试。')
-        if (unreadOnly) await restart()
-      } else setReadMessage('阅读状态保存失败，请重试。')
-    } finally { writingReads.current.delete(event.id); setPendingReads(new Set(writingReads.current)) }
-  }
+  function change(field: 'sort' | 'range', value: string) { void preferences.change(field, value) }
   return (
     <div className="mx-auto max-w-[760px]">
       {import.meta.env.VITE_M3B_PREVIEW === 'true' && <p className="mb-4 rounded-ctl border border-line bg-amber-soft p-3 text-xs text-ink-2">本地验收预览 · 固定于 2026-10-14 13:53（北京时间）。包含40个真实事件快照及明确标记的模拟案例；不连接生产或付费处理。</p>}
@@ -98,11 +72,9 @@ export default function FeedPage() {
         <select disabled={!preferences.ready || preferences.saving || !preferences.online} aria-label="时间范围" value={range} onChange={(e) => change('range', e.target.value)} className="max-w-full rounded-ctl border border-line bg-surface px-3 py-2 text-sm text-ink">
           {RANGES.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
         </select>
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={unreadOnly} disabled={!preferences.ready || preferences.saving || !preferences.online} onChange={(e) => change('unread_only', e.target.checked)} />只看未读</label>
       </div>
       {preferences.message && <p role="status" className="mb-3 text-sm text-amber">{preferences.message}</p>}
-      {!preferences.online && <p role="status" className="mb-3 text-sm text-amber">网络不可用，阅读状态和偏好暂不能保存；不会离线排队。</p>}
-      {readMessage && <p role="alert" className="mb-3 text-sm text-amber">{readMessage}</p>}
+      {!preferences.online && <p role="status" className="mb-3 text-sm text-amber">网络不可用，偏好暂不能保存；不会离线排队。</p>}
       <div className="mb-5 space-y-1 text-xs leading-relaxed text-ink-3">
         <p>{SORTS.find((s) => s.value === sort)!.explanation}</p>
         <p>{first?.window_end && `有效窗口：${first.window_start ? beijingTime(first.window_start) : '不限起始时间'} — ${beijingTime(first.window_end)}（北京时间）`}{range === 'all' && sort === 'hot' && ' · 热度仅看最近 24 小时'}</p>
@@ -111,8 +83,8 @@ export default function FeedPage() {
       </div>
       {query.isPending && <p role="status" className="text-sm text-ink-3">加载中…</p>}
       {query.error != null && <div role="alert" className="mb-3 text-sm text-hot">{query.error instanceof FeedChangedError ? '事件数据已变化，请刷新并从第一页继续。' : '加载失败，请稍后重试'} <button type="button" onClick={() => void (query.error instanceof FeedChangedError ? restart() : query.refetch())} className="ml-2 text-accent-ink underline">重试</button></div>}
-      {!query.error && events?.length === 0 && <p className="text-sm text-ink-3">{unreadOnly ? '当前范围内暂无未读事件。' : '当前范围内暂无事件。'}{unreadOnly && <button type="button" onClick={() => change('unread_only', false)} className="ml-2 text-accent-ink underline">关闭只看未读</button>}<button type="button" onClick={() => change('range', 'all')} className="ml-2 text-accent-ink underline">查看全部</button></p>}
-      {events && <div className="flex flex-col gap-2.5">{events.map((event, index) => <div key={event.id}>{range === 'all' && event.earliest_reported_precision === 'unknown' && events[index - 1]?.earliest_reported_precision !== 'unknown' && <h2 className="mb-3 mt-4 text-sm font-semibold text-ink-3">报道时间未知</h2>}<EventCard event={event} sort={sort} footer={<div className="flex items-center justify-between mt-3 border-t border-line pt-3 text-xs"><span className="text-ink-3">{event.is_read ? '已读' : '未读'}</span><button type="button" disabled={!preferences.online || pendingReads.has(event.id)} onClick={() => void toggleRead(event)} aria-label={`${event.is_read ? '标为未读' : '标为已读'}：${event.title ?? '事件'}`} className="rounded-ctl px-3 py-2 text-accent-ink hover:bg-bg-sunk disabled:opacity-50">{pendingReads.has(event.id) ? '保存中…' : event.is_read ? '标为未读' : '标为已读'}</button></div>} /></div>)}</div>}
+      {!query.error && events?.length === 0 && <p className="text-sm text-ink-3">当前范围内暂无事件。<button type="button" onClick={() => change('range', 'all')} className="ml-2 text-accent-ink underline">查看全部</button></p>}
+      {events && <div className="flex flex-col gap-2.5">{events.map((event, index) => <div key={event.id}>{range === 'all' && event.earliest_reported_precision === 'unknown' && events[index - 1]?.earliest_reported_precision !== 'unknown' && <h2 className="mb-3 mt-4 text-sm font-semibold text-ink-3">报道时间未知</h2>}<EventCard event={event} sort={sort} /></div>)}</div>}
       {query.hasNextPage && <button type="button" disabled={query.isFetching || query.error instanceof FeedChangedError} onClick={() => void query.fetchNextPage()} className="mt-5 w-full rounded-ctl border border-line bg-surface py-3 text-sm text-accent-ink disabled:opacity-50">{query.isFetchingNextPage ? '加载中…' : '加载更多'}</button>}
     </div>
   )

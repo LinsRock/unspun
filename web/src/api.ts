@@ -77,9 +77,6 @@ export interface EventOut {
   invalid_time_count?: number
   active_publishers?: number
   heat?: number | null
-  is_read?: boolean
-  read_at?: string | null
-  read_version?: number
   public_impact_boosted?: boolean
 }
 
@@ -100,9 +97,8 @@ export async function fetchEvents(
   range: FeedRange = '7d',
   cursor?: string,
   signal?: AbortSignal,
-  unreadOnly = false,
 ): Promise<EventsResponse> {
-  const query = new URLSearchParams({ sort, range, limit: '50', unread_only: String(unreadOnly) })
+  const query = new URLSearchParams({ sort, range, limit: '50' })
   if (cursor) query.set('cursor', cursor)
   const res = await fetch(`/api/events?${query}`, { signal })
   if (res.status === 409) throw new FeedChangedError('Feed changed; restart pagination')
@@ -188,8 +184,7 @@ export async function fetchReport(): Promise<ReportResponse> {
   return res.json() as Promise<ReportResponse>
 }
 
-export interface ReadState { is_read: boolean; read_at: string | null; version: number }
-export interface FeedPreferences { sort: FeedSort; range: FeedRange; unread_only: boolean; version: number }
+export interface FeedPreferences { sort: FeedSort; range: FeedRange; version: number }
 export class StateConflict<T> extends Error {
   current: T
   constructor(current: T) { super('State changed on another device'); this.current = current }
@@ -207,4 +202,3 @@ async function stateRequest<T>(url: string, body?: unknown): Promise<T> {
 }
 export const fetchPreferences = () => stateRequest<FeedPreferences>('/api/feed-preferences')
 export const savePreferences = (body: FeedPreferences) => stateRequest<FeedPreferences>('/api/feed-preferences', body)
-export const saveReadState = (id: number, is_read: boolean, version: number) => stateRequest<ReadState>(`/api/events/${id}/read-state`, { is_read, version })

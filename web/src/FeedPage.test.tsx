@@ -10,7 +10,7 @@ import type { EventOut } from './api'
 const event: EventOut = { id: 1, title: '事件一', summary_zh: null, score_final: 60, score_decayed: null, score_breakdown: null, first_seen_at: '2026-10-14T00:00:00Z', changed_at: '2026-10-14T03:00:00Z', articles: [], viewpoint: null }
 beforeEach(() => { localStorage.clear(); onlineManager.setOnline(true) })
 function stubFetch(fetch: (url: string, options?: RequestInit) => unknown) {
-  vi.stubGlobal('fetch', (url: string, options?: RequestInit) => url === '/api/feed-preferences' ? Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', unread_only: false, version: options?.method === 'PUT' ? 1 : 0 }) }) : fetch(url, options))
+  vi.stubGlobal('fetch', (url: string, options?: RequestInit) => url === '/api/feed-preferences' ? Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', version: options?.method === 'PUT' ? 1 : 0 }) }) : fetch(url, options))
 }
 afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals() })
 function mount(path = '/') {
@@ -123,61 +123,25 @@ test('waits for server preferences before the first feed query and URL never wri
   vi.stubGlobal('fetch', fetch); mount('/?sort=hot&keep=yes')
   await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1))
   expect(screen.queryByText('事件一')).toBeNull()
-  await act(async () => { resolvePreferences({ ok: true, json: async () => ({ sort: 'important', range: 'all', unread_only: true, version: 3 }) }) })
+  await act(async () => { resolvePreferences({ ok: true, json: async () => ({ sort: 'important', range: 'all', version: 3 }) }) })
   await screen.findByText('事件一')
   const url = String(fetch.mock.calls[1]![0])
-  expect(url).toContain('sort=hot'); expect(url).toContain('range=all'); expect(url).toContain('unread_only=true')
+  expect(url).toContain('sort=hot'); expect(url).toContain('range=all'); expect(url).not.toContain('unread_only')
   expect(fetch).toHaveBeenCalledTimes(2)
 })
-test('explicit marking updates only after success and reports the server conflict state', async () => {
-  const fetch = vi.fn((url: string, options?: RequestInit) => {
-    if (url === '/api/feed-preferences') return Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', unread_only: false, version: 0 }) })
-    if (options?.method === 'PUT') return Promise.resolve({ ok: false, status: 409, json: async () => ({ detail: { current: { is_read: true, read_at: '2026-10-15T00:00:00Z', version: 2 } } }) })
-    return Promise.resolve(response([event]))
-  })
-  vi.stubGlobal('fetch', fetch); mount()
-  fireEvent.click(await screen.findByRole('button', { name: '标为已读：事件一' }))
-  await screen.findByText(/阅读状态已在其他设备更新/)
-  expect(screen.getByRole('button', { name: '标为未读：事件一' })).toBeTruthy()
-  const write = fetch.mock.calls.find((call) => call[1]?.method === 'PUT')!
-  expect(JSON.parse(write[1]!.body as string)).toEqual({ is_read: true, version: 0 })
-})
-test('offline disables writes and failed writes retain unread state', async () => {
-  const fetch = vi.fn((url: string, options?: RequestInit) => {
-    if (url === '/api/feed-preferences') return Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', unread_only: false, version: 0 }) })
-    if (options?.method === 'PUT') return Promise.reject(new Error('network'))
-    return Promise.resolve(response([event]))
-  })
-  vi.stubGlobal('fetch', fetch); mount()
-  fireEvent.click(await screen.findByRole('button', { name: '标为已读：事件一' }))
-  await screen.findByText(/阅读状态保存失败/)
-  expect(screen.getByRole('button', { name: '标为已读：事件一' })).toBeTruthy()
-  act(() => window.dispatchEvent(new Event('offline')))
-  expect((screen.getByRole('button', { name: '标为已读：事件一' }) as HTMLButtonElement).disabled).toBe(true)
-})
-test('unread-only marking refills from the first server page', async () => {
-  let marked = false
-  vi.stubGlobal('fetch', vi.fn((url: string, options?: RequestInit) => {
-    if (url === '/api/feed-preferences') return Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', unread_only: true, version: 0 }) })
-    if (options?.method === 'PUT') { marked = true; return Promise.resolve({ ok: true, json: async () => ({ is_read: true, read_at: '2026-10-15T00:00:00Z', version: 1 }) }) }
-    return Promise.resolve(response(marked ? [{ ...event, id: 2, title: '补齐事件' }] : [event]))
-  }))
-  mount(); fireEvent.click(await screen.findByRole('button', { name: '标为已读：事件一' }))
-  await screen.findByText('补齐事件'); expect(screen.queryByText('事件一')).toBeNull()
-})
 test('uses last successful local preferences only when server is unavailable', async () => {
-  localStorage.setItem('unspun.feed-preferences.v1', JSON.stringify({ sort: 'important', range: '24h', unread_only: true, version: 5 }))
+  localStorage.setItem('unspun.feed-preferences.v2', JSON.stringify({ sort: 'important', range: '24h', version: 5 }))
   const fetch = vi.fn((url: string) => url === '/api/feed-preferences' ? Promise.reject(new Error('offline')) : Promise.resolve(response()))
   vi.stubGlobal('fetch', fetch); mount()
   await screen.findByText(/偏好同步失败/)
   await waitFor(() => expect(String(fetch.mock.calls[1]?.[0])).toContain('sort=important'))
-  expect(String(fetch.mock.calls[1]![0])).toContain('unread_only=true')
+  expect(String(fetch.mock.calls[1]![0])).toContain('range=24h')
 })
 
 test('preference conflicts refresh the version without replacing explicit URL choices', async () => {
   const fetch = vi.fn((url: string, options?: RequestInit) => {
-    if (url === '/api/feed-preferences' && options?.method === 'PUT') return Promise.resolve({ ok: false, status: 409, json: async () => ({ detail: { current: { sort: 'hot', range: 'today', unread_only: true, version: 8 } } }) })
-    if (url === '/api/feed-preferences') return Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', unread_only: false, version: 0 }) })
+    if (url === '/api/feed-preferences' && options?.method === 'PUT') return Promise.resolve({ ok: false, status: 409, json: async () => ({ detail: { current: { sort: 'hot', range: 'today', version: 8 } } }) })
+    if (url === '/api/feed-preferences') return Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', version: 0 }) })
     return Promise.resolve(response([event]))
   })
   vi.stubGlobal('fetch', fetch); mount('/?sort=newest&range=all&other=keep')
@@ -189,4 +153,24 @@ test('preference conflicts refresh the version without replacing explicit URL ch
   await waitFor(() => expect(fetch.mock.calls.filter((call) => call[1]?.method === 'PUT')).toHaveLength(2))
   const lastWrite = fetch.mock.calls.filter((call) => call[1]?.method === 'PUT').at(-1)!
   expect(JSON.parse(lastWrite[1]!.body as string).version).toBe(8)
+})
+
+
+test('reading interactions retain events and stale unread URLs do not filter the feed', async () => {
+  const fetch = vi.fn().mockResolvedValue(response([event])); stubFetch(fetch)
+  mount('/?sort=newest&range=all&unread_only=true')
+  await screen.findByText('事件一')
+  expect(screen.queryByRole('checkbox', { name: '只看未读' })).toBeNull()
+  expect(screen.queryByRole('button', { name: /标为已读|标为未读/ })).toBeNull()
+  fireEvent.click(screen.getByText('系统处理时间'))
+  expect(screen.getByText('事件一')).toBeTruthy()
+  expect(fetch.mock.calls.every((call) => !String(call[0]).includes('unread_only'))).toBe(true)
+  expect(fetch.mock.calls.every((call) => call[1]?.method !== 'PUT')).toBe(true)
+})
+test('offline disables preference writes without removing displayed events', async () => {
+  const fetch = vi.fn().mockResolvedValue(response([event])); stubFetch(fetch); mount()
+  await screen.findByText('事件一')
+  act(() => window.dispatchEvent(new Event('offline')))
+  expect((screen.getByRole('combobox', { name: '时间范围' }) as HTMLSelectElement).disabled).toBe(true)
+  expect(screen.getByText('事件一')).toBeTruthy()
 })

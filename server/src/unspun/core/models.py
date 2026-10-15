@@ -301,21 +301,6 @@ class ExpenseAudit(Base):
     reason: Mapped[str] = mapped_column(Text)
 
 
-class EventReadState(Base):
-    __tablename__ = "event_read_states"
-    __table_args__ = (
-        CheckConstraint("version > 0", name="ck_event_read_version"),
-        CheckConstraint("is_read = (read_at IS NOT NULL)", name="ck_event_read_timestamp"),
-    )
-
-    event_id: Mapped[int] = mapped_column(
-        ForeignKey("events.id", ondelete="CASCADE"), primary_key=True
-    )
-    is_read: Mapped[bool]
-    read_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
-    version: Mapped[int]
-
-
 class FeedPreference(Base):
     __tablename__ = "feed_preferences"
     __table_args__ = (
@@ -328,5 +313,4 @@ class FeedPreference(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=False)
     sort: Mapped[str] = mapped_column(Text)
     range: Mapped[str] = mapped_column(Text)
-    unread_only: Mapped[bool]
     version: Mapped[int]
