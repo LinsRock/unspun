@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import type { ReactNode } from 'react'
 
 import type { ArticleOut, EventOut, FeedSort, ViewpointOut } from './api'
 import { safeHref } from './links'
@@ -191,7 +192,7 @@ function SourceChip({ article }: { article: EventOut['articles'][number] }) {
   )
 }
 
-export default function EventCard({ event, sort = 'newest' }: { event: EventOut; sort?: FeedSort }) {
+export default function EventCard({ event, sort = 'newest', footer }: { event: EventOut; sort?: FeedSort; footer?: ReactNode }) {
   const [showBreakdown, setShowBreakdown] = useState(false)
   const [showAllSources, setShowAllSources] = useState(false)
   const [showViewpoint, setShowViewpoint] = useState(false)
@@ -331,6 +332,7 @@ export default function EventCard({ event, sort = 'newest' }: { event: EventOut;
       {showViewpoint && hasViewpoint && viewpoint && (
         <ViewpointSection viewpoint={viewpoint} claims={viewpointClaims} />
       )}
+      {footer}
     </article>
   )
 }

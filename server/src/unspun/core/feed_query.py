@@ -47,7 +47,9 @@ class FeedPage:
     version: str
 
 
-def decode_cursor(value: str, sort: str, period: str, now: datetime) -> dict[str, Any]:
+def decode_cursor(
+    value: str, sort: str, period: str, now: datetime, unread_only: bool = False
+) -> dict[str, Any]:
     try:
         if len(value) > 2048:
             raise ValueError()
@@ -64,12 +66,15 @@ def decode_cursor(value: str, sort: str, period: str, now: datetime) -> dict[str
             "as_of",
             "key",
             "generation",
+            "unread_only",
         }:
             raise ValueError()
         if (
             payload["v"] != publisher_aliases()[1]
             or payload["sort"] != sort
             or payload["range"] != period
+            or type(payload["unread_only"]) is not bool
+            or payload["unread_only"] != unread_only
         ):
             raise ValueError()
         payload = cast(dict[str, Any], payload)
@@ -149,16 +154,23 @@ WITH visible AS (
  (t.earliest_lower IS NOT NULL AND ((:sort='hot' AND h.active_publishers > 0) OR (:sort!='hot' AND (CAST(:start AS timestamptz) IS NULL OR t.earliest_lower >= :start)))))
 )
 SELECT *, coalesce(tie_time,0) AS order_time FROM candidates
-WHERE (:has_cursor=false OR (boosted,known,metric,coalesce(tie_time,0),id) < (:k0,:k1,:k2,:k3,:k4))
+WHERE (:unread_only=false OR NOT EXISTS (SELECT 1 FROM event_read_states r WHERE r.event_id=candidates.id AND r.is_read))
+AND (:has_cursor=false OR (boosted,known,metric,coalesce(tie_time,0),id) < (:k0,:k1,:k2,:k3,:k4))
 ORDER BY boosted DESC, known DESC, metric DESC, coalesce(tie_time,0) DESC, id DESC LIMIT :limit
 """
 
 
 def feed_page(
-    session: Session, sort: str, period: str, limit: int, now: datetime, cursor: str | None
+    session: Session,
+    sort: str,
+    period: str,
+    limit: int,
+    now: datetime,
+    cursor: str | None,
+    unread_only: bool = False,
 ) -> FeedPage:
     aliases, version = publisher_aliases()
-    parsed = decode_cursor(cursor, sort, period, now) if cursor else None
+    parsed = decode_cursor(cursor, sort, period, now, unread_only) if cursor else None
     as_of = parsed["as_of"] if parsed else now
     start = window_start(period, as_of)
     generation = session.scalar(
@@ -172,6 +184,7 @@ def feed_page(
     key = parsed["key"] if parsed else [0, 0, 0, 0, 0]
     params = {
         "as_of": as_of,
+        "unread_only": unread_only,
         "aliases": json.dumps(aliases),
         "sort": sort,
         "period": period,
@@ -192,6 +205,7 @@ def feed_page(
             "range": period,
             "as_of": as_of.isoformat(),
             "generation": generation,
+            "unread_only": unread_only,
             "key": [
                 last["boosted"],
                 last["known"],

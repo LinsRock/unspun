@@ -215,3 +215,12 @@ async def test_feed_defaults_validation_and_fixed_cursor_snapshot(db_session: Se
             assert (await client.get("/api/events", params={"cursor": "bad"})).status_code == 400
     finally:
         app.dependency_overrides.clear()
+
+
+@pytest.fixture(autouse=True)
+def feed_identity():
+    from unspun.api.admin.auth import require_admin_identity
+
+    app.dependency_overrides[require_admin_identity] = lambda: "owner"
+    yield
+    app.dependency_overrides.pop(require_admin_identity, None)

@@ -63,7 +63,10 @@ class Article(Base):
     """One fetched item from a configured source."""
 
     __tablename__ = "articles"
-    __table_args__ = (Index("ix_articles_source_id", "source_id"),)
+    __table_args__ = (
+        Index("ix_articles_source_id", "source_id"),
+        Index("ix_articles_event_publication", "event_id", "reported_at", "fetched_at"),
+    )
 
     id: Mapped[int] = mapped_column(primary_key=True)
     source_id: Mapped[str] = mapped_column(Text)
@@ -296,3 +299,34 @@ class ExpenseAudit(Base):
     before: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
     after: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
     reason: Mapped[str] = mapped_column(Text)
+
+
+class EventReadState(Base):
+    __tablename__ = "event_read_states"
+    __table_args__ = (
+        CheckConstraint("version > 0", name="ck_event_read_version"),
+        CheckConstraint("is_read = (read_at IS NOT NULL)", name="ck_event_read_timestamp"),
+    )
+
+    event_id: Mapped[int] = mapped_column(
+        ForeignKey("events.id", ondelete="CASCADE"), primary_key=True
+    )
+    is_read: Mapped[bool]
+    read_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    version: Mapped[int]
+
+
+class FeedPreference(Base):
+    __tablename__ = "feed_preferences"
+    __table_args__ = (
+        CheckConstraint("id = 1", name="ck_feed_preferences_singleton"),
+        CheckConstraint("version > 0", name="ck_feed_preferences_version"),
+        CheckConstraint("sort IN ('newest','hot','important')", name="ck_feed_preferences_sort"),
+        CheckConstraint("range IN ('today','24h','7d','all')", name="ck_feed_preferences_range"),
+    )
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=False)
+    sort: Mapped[str] = mapped_column(Text)
+    range: Mapped[str] = mapped_column(Text)
+    unread_only: Mapped[bool]
+    version: Mapped[int]

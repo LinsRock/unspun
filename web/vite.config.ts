@@ -43,7 +43,8 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      '/api': process.env.UNSPUN_DEV_API_URL ?? 'http://localhost:8000',
+      // Preserve Host so same-origin write validation sees the browser's origin.
+      '/api': { target: process.env.UNSPUN_DEV_API_URL ?? 'http://localhost:8000', changeOrigin: false },
     },
   },
 })
