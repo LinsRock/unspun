@@ -5,6 +5,7 @@ import httpx
 import pytest
 from sqlalchemy.orm import Session
 
+from tests.reading_fixtures import approve_event
 from unspun.api.app import app
 from unspun.api.events import get_db, viewpoint_out
 from unspun.core.models import Article, Event, EventViewpoint
@@ -31,6 +32,9 @@ async def test_events_newest_order_and_legacy_score_compatibility(db_session: Se
         fetched_at=now - timedelta(minutes=1),
     )
     db_session.add_all([old_high, fresh_low, unscored, article])
+    db_session.flush()
+    for event in [old_high, fresh_low, unscored]:
+        approve_event(event)
     db_session.flush()
     ours = {old_high.id: "old-high", fresh_low.id: "fresh-low", unscored.id: "unscored"}
 
@@ -78,12 +82,13 @@ async def test_events_include_viewpoint_payload(db_session: Session) -> None:
     )
     db_session.add_all([event, a1, a2])
     db_session.flush()
+    approve_event(event)
     payload = {
         "claims": [
-            {"article_id": a1.id, "claim": "claim one"},
-            {"article_id": a2.id, "claim": "claim two"},
+            {"article_id": a1.id, "claim": "\u7b2c\u4e00\u6761\u4e2d\u6587\u8bf4\u6cd5"},
+            {"article_id": a2.id, "claim": "\u7b2c\u4e8c\u6761\u4e2d\u6587\u8bf4\u6cd5"},
         ],
-        "disagreements": [{"point": "p", "claim_indexes": [0, 1]}],
+        "disagreements": [{"point": "\u62a5\u9053\u5dee\u5f02", "claim_indexes": [0, 1]}],
     }
     event.viewpoint = EventViewpoint(payload=payload, input_fingerprint="f", model="m")
     db_session.flush()
@@ -192,6 +197,10 @@ async def test_feed_defaults_validation_and_fixed_cursor_snapshot(db_session: Se
             ),
         ]
     )
+    db_session.flush()
+
+    approve_event(recent)
+    approve_event(old)
     db_session.flush()
 
     def override() -> Generator[Session]:

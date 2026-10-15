@@ -30,10 +30,10 @@ class RepairLlm:
         session.add(LlmUsage(purpose=purpose, model=model, cost_usd=0.001))
         if purpose == "summary":
             return {
-                "title_zh": "Bridge reopened",
+                "title_zh": "\u6865\u6881\u6062\u590d\u5f00\u653e",
                 "facts": [
                     {
-                        "text": "The bridge reopened at 11:00.",
+                        "text": "\u6865\u6881\u4e8e11:00\u6062\u590d\u5f00\u653e\u3002",
                         "quote": "The bridge reopened at 11:00.",
                     }
                 ],
@@ -113,7 +113,7 @@ def test_repair_updates_dependencies_but_preserves_history_and_event_time(
     result = repair_event(db_session, RepairLlm(), event.id, apply=True)
     assert result["applied"] is True
     assert all(a.summary_grounding is not None and a.embedding is not None for a in event.articles)
-    assert event.summary_zh == "The bridge reopened at 11:00."
+    assert event.summary_zh == "\u6865\u6881\u4e8e11:00\u6062\u590d\u5f00\u653e\u3002"
     assert event.score_final is not None
     assert event.centroid is not None
     assert event.viewpoint is not None

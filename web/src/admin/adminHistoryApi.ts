@@ -86,6 +86,8 @@ export interface ArticleRow {
   cluster_status: string
   processing_status: string
   quality_status: string | null
+  reading_status?: string
+  reading_reason?: string | null
   event_id: number | null
 }
 
@@ -93,6 +95,7 @@ export interface ArticleDetailData extends ArticleRow {
   content: string | null
   summary_zh: string | null
   summary_grounding: unknown
+  reading?: { status: string; reason?: string | null; kind: string }
   summary_failures: number
   event: { id: number; title: string | null } | null
   call_cost: number | null
@@ -114,6 +117,7 @@ export interface EventRow {
 }
 
 export interface EventDetailData extends EventRow {
+  reading?: { status: string; title: string | null; kind: string; facts: { text: string }[] }
   summary_zh: string | null
   score_breakdown: unknown
   articles: { id: number; title: string; source_id: string; source_name: string | null; published_at: string | null; fetched_at: string; url: string; summary_zh: string | null }[]

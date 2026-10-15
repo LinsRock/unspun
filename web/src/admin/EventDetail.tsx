@@ -21,12 +21,12 @@ export default function EventDetail({ id, range, onClose, onArticle }: Props) {
       <Descriptions bordered size="small" column={1} items={[
         { key: 'earliest', label: '最早有效报道', children: displayTime(event.earliest_published_at) },
         { key: 'latest', label: '最新有效报道', children: displayTime(event.latest_published_at) },
-        { key: 'counts', label: '文章 / 独立来源', children: `${event.article_count} / ${event.source_count}` },
+        { key: 'counts', label: '文章 / 配置来源', children: `${event.article_count} / ${event.source_count}` },
         { key: 'score', label: '综合分', children: event.score_final ?? '未评分' },
         { key: 'scored', label: '评分时间', children: displayTime(event.scored_at) },
       ]} />
       {!event.earliest_published_at && <Alert type="info" showIcon title="关联文章缺少有效报道时间；系统发现时间不当作报道时间。" />}
-      <Typography.Title level={5}>事件摘要</Typography.Title><Typography.Paragraph>{event.summary_zh || '未记录'}</Typography.Paragraph>
+      <Typography.Title level={5}>当前发布内容</Typography.Title>{event.reading?.status === 'ready' ? <><Typography.Text strong>{event.reading.title}</Typography.Text>{event.reading.facts.map((fact, index) => <Typography.Paragraph key={index}>{fact.text}</Typography.Paragraph>)}</> : <Alert type="info" title="尚无通过中文发布审核的材料" description="原始记录继续保留；审核通过后再进入事件流。" />}
       <Typography.Title level={5}>分数组成与理由</Typography.Title>
       <ScoreBreakdown value={event.score_breakdown} />
       <Typography.Title level={5}>来源报道时间线</Typography.Title>

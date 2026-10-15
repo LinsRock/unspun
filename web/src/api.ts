@@ -7,6 +7,12 @@ export interface ArticleOut {
   source_name: string
   published_at: string | null
   content_quality?: 'grounded' | 'limited' | 'review_limited' | null
+  reading_status?: string | null
+  reading_reason?: string | null
+  content_basis?: string
+  reported_at?: string | null
+  reported_date?: string | null
+  publisher_group?: string | null
 }
 
 export interface ImportanceBreakdown {
@@ -78,6 +84,10 @@ export interface EventOut {
   active_publishers?: number
   heat?: number | null
   public_impact_boosted?: boolean
+  content_kind?: string | null
+  reading_status?: string | null
+  facts?: { text: string; quote: string; article_id: number }[]
+  evidence_article_ids?: number[]
 }
 
 export interface EventsResponse {

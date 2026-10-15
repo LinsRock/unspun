@@ -18,6 +18,7 @@ from unspun.core.db import get_engine
 from unspun.core.llm import LlmClient, LlmError, SupportsLlm
 from unspun.core.models import Article, Event, EventViewpoint
 from unspun.core.params import get_scoring_params
+from unspun.core.reading import event_reading, refresh_event_text
 from unspun.core.review_budget import require_grounding_budget
 from unspun.core.sources import load_sources
 from unspun.pipeline.score import score_event
@@ -75,6 +76,12 @@ def copy_article(article: Article) -> Article:
         "title",
         "title_zh",
         "content",
+        "content_basis",
+        "reported_at",
+        "reported_date",
+        "reported_precision",
+        "reported_basis",
+        "publisher_group",
         "lang",
         "published_at",
         "fetched_at",
@@ -144,14 +151,14 @@ def repair_event(
         summarize_article(session, billed, article)
         if (article.summary_grounding or {}).get("status") == "review_limited":
             raise LlmError("repair review budget exhausted; original event retained")
+    if event_reading(list(working.articles))["status"] != "ready":
+        raise LlmError("repair has no publishable Chinese material; original event retained")
     embed_articles(session, billed, list(working.articles))
     vectors = np.asarray([a.embedding for a in working.articles], dtype=np.float64)
     centroid = vectors.mean(axis=0)
     norm = float(np.linalg.norm(centroid))
     working.centroid = (centroid / norm if norm > 0 else centroid).tolist()
-    representative = min(working.articles, key=lambda a: a.id)
-    working.title = representative.title_zh or representative.title
-    working.summary_zh = representative.summary_zh
+    refresh_event_text(working)
     params = get_scoring_params()
     score_event(session, billed, working, params, sources)
     status = refresh_event_viewpoint(session, billed, working, params.viewpoints, sources)

@@ -14,8 +14,9 @@ from unspun.core.config import get_settings
 from unspun.core.db import session_scope
 from unspun.core.llm import LlmClient, SupportsLlm
 from unspun.core.logging import get_logger
-from unspun.core.models import Digest, Event
+from unspun.core.models import Article, Digest, Event
 from unspun.core.params import DigestParams, get_scoring_params
+from unspun.core.reading import chinese_text, ready_condition
 from unspun.core.sources import load_sources
 
 log = get_logger("unspun.pipeline.digest")
@@ -58,6 +59,7 @@ def select_digest_events(
             Event.changed_at >= now - timedelta(hours=WINDOW_HOURS),
             Event.changed_at <= now,
             Event.score_final.is_not(None),
+            select(Article.id).where(Article.event_id == Event.id, ready_condition()).exists(),
             Event.summary_zh.is_not(None),
             func.length(func.trim(Event.summary_zh)) > 0,
         )
@@ -84,7 +86,7 @@ def generate_digest(
     """
     rows = select_digest_events(session, now, top_n=params.top_n, half_life_hours=half_life_hours)
     names = {s.id: s.name for s in load_sources()}
-    events = [event_out(event, score, names) for event, score in rows]
+    events = [event_out(event, score, names, published=True) for event, score in rows]
     intro = EMPTY_INTRO
     if events:
         if client is None:
@@ -106,8 +108,8 @@ def generate_digest(
                 max_tokens=1024,
             )
             raw_intro = out.get("intro")
-            if not isinstance(raw_intro, str) or not raw_intro.strip():
-                raise ValueError("digest intro must be a nonempty string")
+            if not isinstance(raw_intro, str) or not chinese_text(raw_intro):
+                raise ValueError("digest intro must be readable Chinese")
             intro = raw_intro.strip()
         except Exception as exc:
             log.warning("digest_generation_failed", report_date=str(report_date), error=str(exc))

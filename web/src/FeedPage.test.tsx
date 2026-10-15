@@ -45,16 +45,16 @@ test('invalid URL filters recover without querying invalid values', async () => 
   await screen.findByText(/筛选参数无效/)
   await waitFor(() => expect(String(fetch.mock.calls[0]?.[0])).toContain('sort=newest'))
 })
-test('date-only reports stay dates and system processing is labelled separately', () => {
+test('date-only reports stay dates without exposing system processing', () => {
   render(<EventCard event={{ ...event, earliest_reported_at: null, earliest_reported_date: '2026-10-13', earliest_reported_precision: 'date' }} />)
   expect(screen.getByText(/最早报道 2026-10-13.*仅日期/)).toBeTruthy()
   expect(screen.queryByText(/最早报道.*00:00/)).toBeNull()
-  fireEvent.click(screen.getByText('系统处理时间'))
-  expect(screen.getByText(/系统处理于/)).toBeTruthy()
+  expect(screen.queryByText('系统处理时间')).toBeNull()
+  expect(screen.queryByText(/系统处理于/)).toBeNull()
 })
 test('unknown reports show discovery separately without inventing report time', () => {
   render(<EventCard event={event} />)
-  expect(screen.getByText(/报道时间未知.*首次发现/)).toBeTruthy()
+  expect(screen.getByText(/报道时间未知/)).toBeTruthy()
 })
 
 
@@ -85,9 +85,9 @@ test('five-minute refresh discards later pages and only fetches first page', asy
   expect(String(fetch.mock.calls[0]![0])).not.toContain('cursor=')
   expect(screen.queryByText('第二页')).toBeNull()
 })
-test('missing scores have an explicit label', () => {
+test('missing scores are not presented as zero importance', () => {
   render(<EventCard event={{ ...event, score_final: null }} />)
-  expect(screen.getByText('尚未评分')).toBeTruthy()
+  expect(screen.queryByText('0')).toBeNull()
 })
 
 test('generation conflict disables stale pagination and retries from first page', async () => {
@@ -162,7 +162,7 @@ test('reading interactions retain events and stale unread URLs do not filter the
   await screen.findByText('事件一')
   expect(screen.queryByRole('checkbox', { name: '只看未读' })).toBeNull()
   expect(screen.queryByRole('button', { name: /标为已读|标为未读/ })).toBeNull()
-  fireEvent.click(screen.getByText('系统处理时间'))
+  fireEvent.click(screen.getByText(/查看阅读规则/))
   expect(screen.getByText('事件一')).toBeTruthy()
   expect(fetch.mock.calls.every((call) => !String(call[0]).includes('unread_only'))).toBe(true)
   expect(fetch.mock.calls.every((call) => call[1]?.method !== 'PUT')).toBe(true)
@@ -173,4 +173,21 @@ test('offline disables preference writes without removing displayed events', asy
   act(() => window.dispatchEvent(new Event('offline')))
   expect((screen.getByRole('combobox', { name: '时间范围' }) as HTMLSelectElement).disabled).toBe(true)
   expect(screen.getByText('事件一')).toBeTruthy()
+})
+
+test('reading card does not repeat its title and opens per-fact provenance', () => {
+  const evidenceUrl = 'https://example.org/evidence'
+  const cited: EventOut = {
+    ...event, title: '一条经过审核的事件', summary_zh: '一条经过审核的事件', content_kind: 'brief',
+    facts: [{ text: '这条信息补充了标题之外的具体细节。', quote: 'The original evidence.', article_id: 9 }],
+    evidence_article_ids: [9],
+    articles: [{ id: 9, title: 'Original title', title_zh: null, source_name: '原始来源', source_id: 'source', url: evidenceUrl, published_at: null }],
+  }
+  render(<EventCard event={cited} />)
+  expect(screen.getAllByText('一条经过审核的事件')).toHaveLength(1)
+  expect(screen.getByText('快讯')).toBeTruthy()
+  expect(screen.queryByText('The original evidence.')).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: '查看第 1 条信息依据' }))
+  expect(screen.getByText('The original evidence.')).toBeTruthy()
+  expect(screen.getByRole('link', { name: '原始来源 ↗' }).getAttribute('href')).toBe(evidenceUrl)
 })

@@ -76,7 +76,11 @@ def test_valid_facts_replace_generated_summary_and_keep_evidence() -> None:
         item, {"title_zh": "Translated title", "facts": facts, "content_quality": "sufficient"}
     )
     assert item.summary_zh == "Two satellites launched."
-    assert item.summary_grounding == {
+    assert {
+        k: v
+        for k, v in (item.summary_grounding or {}).items()
+        if k not in ("reading", "title_verified", "draft")
+    } == {
         "version": "summary-grounded-v5",
         "status": "grounded",
         "facts": facts,
@@ -97,11 +101,17 @@ def test_valid_facts_replace_generated_summary_and_keep_evidence() -> None:
         {"facts": [{"text": "Invented", "quote": ""}]},
     ],
 )
-def test_invalid_facts_fall_back_once_to_original_title(response: dict[str, Any]) -> None:
+def test_invalid_facts_preserve_source_without_fabricating_summary(
+    response: dict[str, Any],
+) -> None:
     item = article(content="Video", title_zh="Old translation", summary_zh="Old summary")
     client = summarize(item, response)
-    assert item.summary_zh == item.title
-    assert item.summary_grounding == {
+    assert item.summary_zh == ""
+    assert {
+        k: v
+        for k, v in (item.summary_grounding or {}).items()
+        if k not in ("reading", "title_verified", "draft")
+    } == {
         "version": "summary-grounded-v5",
         "status": "limited",
         "facts": [],
@@ -124,7 +134,7 @@ def test_old_summary_and_truncated_content_cannot_supply_evidence() -> None:
             ]
         },
     )
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
 
 
 def test_unicode_and_whitespace_quotes_match_source() -> None:
@@ -196,7 +206,7 @@ def test_rejects_oversize_facts_and_tiny_excerpts() -> None:
             ]
         },
     )
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
 
 
 def test_caps_fact_count_and_concatenates_valid_facts() -> None:
@@ -232,14 +242,14 @@ def test_long_original_title_does_not_escape_prompt_bound() -> None:
     assert "hidden title" not in client.user
     assert "body beyond the limit" not in client.user
     assert client.user.endswith("t" * 6000)
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
 
 
 def test_numeric_title_is_not_meaningful_evidence_for_expanded_claim() -> None:
     item = article()
     item.title = "42"
     summarize(item, {"facts": [{"text": "The team launched 42 satellites.", "quote": "42"}]})
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
     assert item.summary_grounding is not None
     assert item.summary_grounding["facts"] == []
 
@@ -256,7 +266,7 @@ def test_publication_year_cannot_be_added_to_fact_without_original_evidence() ->
             "content_quality": "sufficient",
         },
     )
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
     assert item.summary_grounding is not None
     assert item.summary_grounding["facts"] == []
     assert item.summary_grounding["status"] == "limited"
@@ -274,7 +284,7 @@ def test_semantically_unsupported_fact_is_excluded_after_quote_match() -> None:
     client.grounding_response = {"supported_fact_indexes": []}
     with Session() as session:
         summarize_article(session, client, item)
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
     assert item.summary_grounding is not None
     assert item.summary_grounding["facts"] == []
     assert client.purposes == ["summary", "grounding"]
@@ -287,7 +297,7 @@ def test_malformed_semantic_verdict_falls_back_safely(verdict: dict[str, Any]) -
     client.grounding_response = verdict
     with Session() as session:
         summarize_article(session, client, item)
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
     assert item.summary_grounding is not None
     assert item.summary_grounding["status"] == "limited"
 
@@ -405,7 +415,7 @@ def test_hallucinated_title_is_rejected_in_same_flash_review_as_facts() -> None:
     client.grounding_response = {"supported_fact_indexes": [1]}
     with Session() as session:
         summarize_article(session, client, item)
-    assert item.title_zh == item.title
+    assert item.title_zh is None
     assert item.summary_grounding is not None
     assert item.summary_grounding["facts"] == facts
     assert item.summary_grounding["verification"] == {
@@ -434,8 +444,8 @@ def test_title_only_hallucination_cannot_bypass_semantic_review() -> None:
     client.grounding_response = {"supported_fact_indexes": []}
     with Session() as session:
         summarize_article(session, client, item)
-    assert item.title_zh == item.title
-    assert item.summary_zh == item.title
+    assert item.title_zh is None
+    assert item.summary_zh == ""
     assert client.purposes == ["summary", "grounding"]
 
 
@@ -448,7 +458,7 @@ def test_supported_title_translation_uses_single_review_and_original_title_quote
     with Session() as session:
         summarize_article(session, client, item)
     assert item.title_zh == translated
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
     assert client.purposes == ["summary", "grounding"]
 
 
@@ -464,7 +474,7 @@ def test_added_concepts_in_title_and_fact_are_filtered_before_judge() -> None:
     with Session() as session:
         summarize_article(session, client, item)
     assert item.title_zh == item.title
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
     assert client.purposes == ["summary", "grounding"]
 
 
@@ -489,7 +499,7 @@ def test_lost_upper_bound_in_title_and_fact_is_filtered_before_judge() -> None:
     with Session() as session:
         summarize_article(session, client, item)
     assert item.title_zh == item.title
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
     assert client.purposes == ["summary", "grounding"]
 
 
@@ -537,7 +547,7 @@ def test_review_can_correct_title_without_another_model_call() -> None:
     assert client.purposes == ["summary", "grounding"]
 
 
-def test_review_budget_exhaustion_returns_original_title_without_failure_or_retry() -> None:
+def test_review_budget_exhaustion_defers_without_publishing_or_counting_failure() -> None:
     from unspun.core.review_budget import GroundingBudgetExceeded
 
     class BudgetLlm(ResponseLlm):
@@ -573,11 +583,15 @@ def test_review_budget_exhaustion_returns_original_title_without_failure_or_retr
     )
     with Session() as session:
         summarize_article(session, client, item)
-    assert item.title_zh == item.title
-    assert item.summary_zh == item.title
+    assert item.title_zh is None
+    assert item.summary_zh is None
     assert item.summary_failures == 2
     assert client.purposes == ["summary", "grounding"]
-    assert item.summary_grounding == {
+    assert {
+        k: v
+        for k, v in (item.summary_grounding or {}).items()
+        if k not in ("reading", "title_verified", "draft")
+    } == {
         "version": "summary-grounded-v5",
         "status": "review_limited",
         "facts": [],
@@ -680,6 +694,6 @@ def test_editor_discards_unsupported_predicate_money_identity_and_dangling_claus
     }
     with Session() as session:
         summarize_article(session, client, item)
-    assert item.summary_zh == item.title
+    assert item.summary_zh == ""
     assert item.summary_grounding is not None
     assert item.summary_grounding["facts"] == []

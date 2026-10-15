@@ -1,11 +1,12 @@
 """Chinese titles/summaries (small model) and embeddings for new articles."""
 
+import copy
 import json
 from itertools import batched
 from typing import Any, cast
 
 import httpx
-from sqlalchemy import ColumnElement, select, update
+from sqlalchemy import ColumnElement, case, func, or_, select, update
 from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
@@ -29,7 +30,17 @@ from unspun.core.llm import LlmError, SupportsLlm
 from unspun.core.logging import get_logger
 from unspun.core.models import Article
 from unspun.core.params import get_scoring_params
-from unspun.core.review_budget import GroundingBudgetExceeded
+from unspun.core.reading import (
+    READING_VERSION,
+    attach_reading,
+    hydrate_legacy_reading,
+    input_hash,
+    input_hash_expression,
+    ready_condition,
+    refresh_event_text,
+)
+from unspun.core.review_budget import GroundingBudgetExceeded, require_grounding_budget
+from unspun.pipeline.cluster import refresh_centroid
 
 log = get_logger("unspun.pipeline.summarize")
 
@@ -87,13 +98,18 @@ def summarize_article(session: Session, client: SupportsLlm, article: Article) -
         f"Publication timestamp (not event date): {published}\n"
         f"Original title and body:\n{source}"
     )
-    out = client.chat_json(
-        session,
-        model=model,
-        system=SUMMARY_SYSTEM,
-        user=user,
-        purpose="summary",
-    )
+    previous = article.summary_grounding or {}
+    draft = previous.get("draft", {})
+    if draft.get("input_hash") == input_hash(article) and isinstance(draft.get("output"), dict):
+        out = draft["output"]
+    else:
+        out = client.chat_json(
+            session,
+            model=model,
+            system=SUMMARY_SYSTEM,
+            user=user,
+            purpose="summary",
+        )
     facts: list[dict[str, str]] = []
     raw_facts: Any = out.get("facts")
     if isinstance(raw_facts, list):
@@ -162,33 +178,43 @@ def summarize_article(session: Session, client: SupportsLlm, article: Article) -
     try:
         supported = verify_facts(session, client, source, review_facts, reviewer_model)
     except GroundingBudgetExceeded:
-        article.title_zh = article.title
-        article.summary_zh = article.title
+        article.title_zh = None
+        article.summary_zh = None
         article.summary_grounding = {
             "version": SUMMARY_VERSION,
             "status": "review_limited",
             "facts": [],
             "verification": {"model": reviewer_model, "method": "budget_fallback"},
+            "draft": {"input_hash": input_hash(article), "output": out},
         }
+        attach_reading(article)
         return
     article.title_zh = next(
-        (fact["text"] for fact in supported if fact.get("role") == "title"), article.title
+        (fact["text"] for fact in supported if fact.get("role") == "title"), None
     )
     facts = [
         {"text": fact["text"], "quote": fact["quote"]}
         for fact in supported
         if fact.get("role") == "fact"
     ]
-    article.summary_zh = " ".join(fact["text"] for fact in facts) if facts else article.title
+    article.summary_zh = " ".join(fact["text"] for fact in facts) if facts else ""
     article.summary_grounding = {
         "version": SUMMARY_VERSION,
         "status": "grounded" if facts and out.get("content_quality") == "sufficient" else "limited",
         "facts": facts,
+        "title_verified": any(fact.get("role") == "title" for fact in supported),
         "verification": {
             "model": reviewer_model,
             "method": "source_entailment_review" if reviewed else "title_fallback",
         },
     }
+
+    attach_reading(article)
+    reason = (article.summary_grounding or {}).get("reading", {}).get("reason")
+    if reason in {"language_invalid", "title_unverified"}:
+        article.summary_failures = (article.summary_failures or 0) + 1
+    else:
+        article.summary_failures = 0
 
 
 def embed_articles(session: Session, client: SupportsLlm, articles: list[Article]) -> None:
@@ -203,33 +229,53 @@ def embed_articles(session: Session, client: SupportsLlm, articles: list[Article
 
 def pending_summary_conditions() -> tuple[ColumnElement[bool], ...]:
     return (
-        Article.summary_zh.is_(None),
+        or_(
+            Article.summary_zh.is_(None),
+            func.coalesce(Article.summary_grounding["reading"]["input_hash"].astext, "")
+            != input_hash_expression(),
+            Article.summary_grounding["status"].astext == "review_limited",
+            Article.summary_grounding["reading"]["reason"].astext.in_(
+                ["language_invalid", "title_unverified"]
+            ),
+            (
+                func.coalesce(Article.summary_grounding["reading"]["version"].astext, "")
+                != READING_VERSION
+            ),
+        ),
         Article.summary_failures < get_scoring_params().pipeline.max_summary_failures,
     )
 
 
 def abandoned_summary_conditions() -> tuple[ColumnElement[bool], ...]:
     return (
-        Article.summary_zh.is_(None),
+        pending_summary_conditions()[0],
         Article.summary_failures >= get_scoring_params().pipeline.max_summary_failures,
     )
 
 
 def pending_embedding_conditions() -> tuple[ColumnElement[bool], ...]:
-    return (Article.summary_zh.is_not(None), Article.embedding.is_(None))
+    return (ready_condition(), Article.embedding.is_(None))
+
+
+def summary_ordering() -> tuple[Any, ...]:
+    return (
+        Article.published_at.desc().nulls_last(),
+        case((Article.summary_grounding["status"].astext == "review_limited", 0), else_=1),
+        Article.id.desc(),
+    )
 
 
 def pending_summary_ids(session: Session, limit: int) -> list[int]:
     # Newest first: when the pipeline is catching up on a backlog, current
     # news gets summarized before old leftovers. Unknown dates go last.
     # Tradeoff: if inflow stays above summary_batch_limit per cycle, the
-    # oldest items never drain; the report's pending count makes that
-    # visible, and the fix is raising the limit in config/scoring.yml.
+    # oldest items may not drain; the report makes that visible. Capacity
+    # changes require considering both the batch limit and review budget.
     return list(
         session.scalars(
             select(Article.id)
             .where(*pending_summary_conditions())
-            .order_by(Article.published_at.desc().nulls_last(), Article.id.desc())
+            .order_by(*summary_ordering())
             .limit(limit)
         )
     )
@@ -252,21 +298,102 @@ def record_summary_failure(article_id: int) -> None:
         log.exception("summary_failure_record_failed", article_id=article_id)
 
 
+def hydrate_legacy_publications(session: Session, limit: int = 500) -> int:
+    articles = session.scalars(
+        select(Article)
+        .where(
+            Article.summary_grounding["reading"]["version"].astext.is_(None),
+            Article.summary_grounding["version"].astext == SUMMARY_VERSION,
+            Article.summary_grounding["status"].astext.in_(["grounded", "limited"]),
+            Article.summary_grounding["verification"]["method"].astext
+            == "source_entailment_review",
+            Article.title_zh != Article.title,
+        )
+        .order_by(Article.id)
+        .limit(limit)
+        .with_for_update(skip_locked=True)
+    ).all()
+    hydrated = 0
+    for article in articles:
+        if hydrate_legacy_reading(article):
+            hydrated += 1
+            if article.event is not None:
+                refresh_event_text(article.event)
+    if hydrated:
+        log.info("legacy_publications_hydrated", articles=hydrated)
+    return hydrated
+
+
 def summarize_pending(client: SupportsLlm, limit: int | None = None) -> int:
     if limit is None:
         limit = get_scoring_params().pipeline.summary_batch_limit
     with session_scope() as session:
+        hydrate_legacy_publications(session)
         ids = pending_summary_ids(session, limit)
     done = 0
     for article_id in ids:
         try:
             failure: LlmError | json.JSONDecodeError | httpx.HTTPError | None = None
             with session_scope() as session:
-                article = session.get(Article, article_id)
-                if article is None or article.summary_zh is not None:
+                article = session.scalar(
+                    select(Article)
+                    .where(Article.id == article_id, *pending_summary_conditions())
+                    .with_for_update(skip_locked=True)
+                )
+                if article is None:
                     continue
                 try:
-                    summarize_article(session, client, article)
+                    # Check review capacity before paying for generation. A paused
+                    # batch remains pending and resumes on the next budget window.
+                    previous_text = (article.title_zh, article.summary_zh)
+                    fingerprint = input_hash(article)
+                    reusable = session.scalar(
+                        select(Article)
+                        .where(
+                            Article.id != article.id,
+                            ready_condition(),
+                            Article.summary_grounding["reading"]["input_hash"].astext
+                            == fingerprint,
+                        )
+                        .limit(1)
+                    )
+                    if reusable is not None:
+                        article.title_zh = reusable.title_zh
+                        article.summary_zh = reusable.summary_zh
+                        article.summary_grounding = copy.deepcopy(reusable.summary_grounding)
+                        article.summary_grounding = {
+                            **(article.summary_grounding or {}),
+                            "duplicate_of": reusable.id,
+                        }
+                        article.summary_failures = 0
+                    else:
+                        require_grounding_budget(session)
+                        summarize_article(session, client, article)
+                    if previous_text != (article.title_zh, article.summary_zh):
+                        article.embedding = None
+                    log.info(
+                        "article_publication_checked",
+                        article_id=article.id,
+                        reading=(article.summary_grounding or {}).get("reading", {}).get("status"),
+                        reason=(article.summary_grounding or {}).get("reading", {}).get("reason"),
+                    )
+                    if article.event is not None and refresh_event_text(article.event):
+                        # Updated verified material invalidates ranking interpretation.
+                        # Source publication dates and historical digests stay unchanged.
+                        article.event.scored_at = None
+                        article.event.score_final = None
+                        article.event.score_breakdown = None
+                    if (article.summary_grounding or {}).get("status") == "review_limited":
+                        failure = GroundingBudgetExceeded("review deferred")
+                except GroundingBudgetExceeded as exc:
+                    article.title_zh = None
+                    article.summary_zh = None
+                    article.summary_grounding = {
+                        **(article.summary_grounding or {}),
+                        "status": "review_limited",
+                    }
+                    attach_reading(article)
+                    failure = exc
                 except (LlmError, json.JSONDecodeError, httpx.HTTPError) as exc:
                     # The response was billed before parsing failed. Leave the
                     # usage rows in this transaction and discard generated fields.
@@ -274,6 +401,9 @@ def summarize_pending(client: SupportsLlm, limit: int | None = None) -> int:
                     failure = exc
             if failure is not None:
                 raise failure
+        except GroundingBudgetExceeded:
+            log.info("summary_review_deferred", article_id=article_id, reason="review_budget")
+            break
         except (LlmError, json.JSONDecodeError):
             # Content-level failures (truncation, bad JSON, empty summary)
             # count toward the give-up cap; transient transport or DB errors
@@ -311,6 +441,8 @@ def embed_pending(client: SupportsLlm, limit: int | None = None) -> int:
                     if (a := session.get(Article, article_id)) is not None
                 ]
                 embed_articles(session, client, articles)
+                for event in {a.event for a in articles if a.event is not None}:
+                    refresh_centroid(session, event)
                 done += len(articles)
         except Exception:
             log.exception("embed_batch_failed", article_ids=list(batch_ids))

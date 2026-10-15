@@ -89,3 +89,14 @@ All numbers that line up (scores, costs, counts, times) are mono + tabular.
 2. Metadata rows never contain actions; actions live in the card action row.
 3. Everything numeric is mono + tabular.
 4. Any new UI must work at 400px width with 16px gutters, no horizontal scroll.
+
+## Reading contract (2026-10-15)
+
+The reading workspace now shares the accepted operations blue-grey palette,
+224px navigation, 8px panels and theme controls. The older T-D1 card and warm
+paper guidance above is superseded for the live feed by reading.css. Cards show
+content form, original report time, headline, two cited facts and source entry.
+Additional facts, original quotes, source processing status, score and viewpoints
+expand on demand. Scores never imply verification. System processing times and
+model metadata belong to operations, not reading. See the dated product spec in
+docs/superpowers/specs/2026-10-15-reading-publication-design.md.

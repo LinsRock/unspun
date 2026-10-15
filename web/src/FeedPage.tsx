@@ -59,13 +59,14 @@ export default function FeedPage() {
   }, [reload, restart])
   function change(field: 'sort' | 'range', value: string) { void preferences.change(field, value) }
   return (
-    <div className="mx-auto max-w-[760px]">
+    <div>
+      {import.meta.env.VITE_READING_PREVIEW === 'true' && <p className="mb-5 rounded-ctl border border-line bg-accent-soft px-4 py-3 text-xs leading-relaxed text-ink-2">本地交互预览 · 下列“演示”内容均为模拟，不是真实新闻。另保留 40 个生产历史样本在后台；因缺少完整审核凭证，不作为已发布内容。预览时钟固定于 10 月 14 日。</p>}
       {import.meta.env.VITE_M3B_PREVIEW === 'true' && <p className="mb-4 rounded-ctl border border-line bg-amber-soft p-3 text-xs text-ink-2">本地验收预览 · 固定于 2026-10-14 13:53（北京时间）。包含40个真实事件快照及明确标记的模拟案例；不连接生产或付费处理。</p>}
-      <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
-        <h1 className="text-xl font-bold tracking-[0.01em]">实时事件流</h1>
-        <button type="button" onClick={() => { void reload(); void restart() }} disabled={query.isFetching} className="text-xs text-accent-ink hover:underline disabled:opacity-50">刷新</button>
+      <div className="feed-heading">
+        <div><h1>实时事件流</h1><p>看清发生了什么，再沿着证据深入。</p></div>
+        <button type="button" onClick={() => { void reload(); void restart() }} disabled={query.isFetching}>{query.isFetching ? '刷新中…' : '刷新'}</button>
       </div>
-      <div className="mb-3 flex flex-wrap items-center gap-3">
+      <div className="feed-controls">
         <div role="group" aria-label="事件排序" className="flex rounded-ctl bg-bg-sunk p-1">
           {SORTS.map((s) => <button key={s.value} type="button" disabled={!preferences.ready || preferences.saving || !preferences.online} aria-pressed={sort === s.value} onClick={() => change('sort', s.value)} className={`rounded-ctl px-3 py-2 text-sm ${sort === s.value ? 'bg-surface font-semibold text-accent-ink shadow-card' : 'text-ink-3 hover:text-ink'}`}>{s.label}</button>)}
         </div>
@@ -75,16 +76,18 @@ export default function FeedPage() {
       </div>
       {preferences.message && <p role="status" className="mb-3 text-sm text-amber">{preferences.message}</p>}
       {!preferences.online && <p role="status" className="mb-3 text-sm text-amber">网络不可用，偏好暂不能保存；不会离线排队。</p>}
-      <div className="mb-5 space-y-1 text-xs leading-relaxed text-ink-3">
+      <details className="feed-method">
+        <summary>{SORTS.find((s) => s.value === sort)!.label} · {RANGES.find((r) => r.value === range)!.label} <span className="ml-2">查看阅读规则</span></summary>
         <p>{SORTS.find((s) => s.value === sort)!.explanation}</p>
-        <p>{first?.window_end && `有效窗口：${first.window_start ? beijingTime(first.window_start) : '不限起始时间'} — ${beijingTime(first.window_end)}（北京时间）`}{range === 'all' && sort === 'hot' && ' · 热度仅看最近 24 小时'}</p>
-        <p>日期不明确的报道仅在“全部”中显示；仅日期的材料按保守时间范围筛选。</p>
-        {invalid && <p role="status">筛选参数无效，已恢复默认选择。</p>}
-      </div>
+        <p>只展示已审核的中文内容；信息有限但有实质事实的材料作为快讯。仅有标题或审核未完成的材料保留在后台。</p>
+        <p>{first?.window_end && `报道窗口：${first.window_start ? beijingTime(first.window_start) : '不限起始时间'} — ${beijingTime(first.window_end)}（北京时间）`}{range === 'all' && sort === 'hot' && ' · 热度仅看最近 24 小时'}</p>
+        <p>日期不明确的报道仅在“全部”中显示；仅日期的材料按保守时间范围筛选。新报道不自动代表新进展。</p>
+      </details>
+      {invalid && <p role="status" className="mb-4 text-xs text-amber">筛选参数无效，已恢复默认选择。</p>}
       {query.isPending && <p role="status" className="text-sm text-ink-3">加载中…</p>}
       {query.error != null && <div role="alert" className="mb-3 text-sm text-hot">{query.error instanceof FeedChangedError ? '事件数据已变化，请刷新并从第一页继续。' : '加载失败，请稍后重试'} <button type="button" onClick={() => void (query.error instanceof FeedChangedError ? restart() : query.refetch())} className="ml-2 text-accent-ink underline">重试</button></div>}
-      {!query.error && events?.length === 0 && <p className="text-sm text-ink-3">当前范围内暂无事件。<button type="button" onClick={() => change('range', 'all')} className="ml-2 text-accent-ink underline">查看全部</button></p>}
-      {events && <div className="flex flex-col gap-2.5">{events.map((event, index) => <div key={event.id}>{range === 'all' && event.earliest_reported_precision === 'unknown' && events[index - 1]?.earliest_reported_precision !== 'unknown' && <h2 className="mb-3 mt-4 text-sm font-semibold text-ink-3">报道时间未知</h2>}<EventCard event={event} sort={sort} /></div>)}</div>}
+      {events?.length === 0 && !query.error && <div className="feed-empty"><h2>这个范围内，暂无可发布的事件</h2><p>有依据、中文完整的内容审核通过后会出现在这里。</p><button type="button" onClick={() => change('range', 'all')} className="text-accent-ink underline">查看全部</button><a href="/admin/content" className="ml-5 text-xs text-ink-3 underline">查看后台内容状态</a></div>}
+      {events && <div className={events.length ? "feed-results" : undefined}>{events.map((event, index) => <div key={event.id}>{range === 'all' && event.earliest_reported_precision === 'unknown' && events[index - 1]?.earliest_reported_precision !== 'unknown' && <h2 className="mb-3 mt-4 text-sm font-semibold text-ink-3">报道时间未知</h2>}<EventCard event={event} sort={sort} /></div>)}</div>}
       {query.hasNextPage && <button type="button" disabled={query.isFetching || query.error instanceof FeedChangedError} onClick={() => void query.fetchNextPage()} className="mt-5 w-full rounded-ctl border border-line bg-surface py-3 text-sm text-accent-ink disabled:opacity-50">{query.isFetchingNextPage ? '加载中…' : '加载更多'}</button>}
     </div>
   )

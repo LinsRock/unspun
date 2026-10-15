@@ -86,7 +86,7 @@ def test_pending_summary_ids_skips_articles_at_failure_cap(db_session: Session) 
     assert fresh.id in ids
     assert failing.id in ids
     assert given_up.id not in ids
-    assert summarized.id not in ids
+    assert summarized.id in ids  # Legacy summaries lack publication-review provenance.
 
 
 def test_pending_summary_ids_orders_newest_published_first(db_session: Session) -> None:

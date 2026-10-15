@@ -44,7 +44,7 @@ export default function DigestPage() {
     <div className="mx-auto max-w-[760px]">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h1 className="text-xl font-bold tracking-[0.01em]">每日日报</h1>
-        <span className="text-xs text-ink-4">北京时间 08:00 生成</span>
+        <span className="text-xs text-ink-4">每日选编 · 北京时间</span>
       </div>
       <div className="mt-5 flex flex-wrap items-center gap-2">
         <button
@@ -150,7 +150,7 @@ export default function DigestPage() {
             </p>
             <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] tabular-nums text-ink-4">
               <span>
-                生成于 {digestTime(data.generated_at, data.payload.timezone)}
+                报道窗口至 {digestTime(data.payload.window_end, data.payload.timezone)}
               </span>
               <span>入选 {data.payload.events.length} 个事件</span>
             </div>

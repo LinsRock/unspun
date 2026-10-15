@@ -5,32 +5,7 @@ import { safeHref } from './links'
 import SectionHeading from './SectionHeading'
 import EvidenceQuote from './EvidenceQuote'
 import { relationLabel } from './relationLabels'
-import { contentQualityLabel } from './contentQualityLabel'
-
-// How many source chips a collapsed card shows (see DESIGN.md: event card).
-const COLLAPSED_SOURCES = 2
-
-// Score tiers (DESIGN.md): >= 80 hot, 65-79 amber, below neutral. Tier on the
-// rounded value so the badge color always matches the number shown.
-function scoreTierClasses(rounded: number): string {
-  if (rounded >= 80) return 'bg-hot-soft text-hot'
-  if (rounded >= 65) return 'bg-amber-soft text-amber'
-  return 'bg-bg-sunk text-ink-3'
-}
-
-function relativeTime(iso: string): string | null {
-  const t = new Date(iso).getTime()
-  if (Number.isNaN(t)) return null
-  const minutes = Math.max(0, Math.round((Date.now() - t) / 60_000))
-  if (minutes < 1) return '刚刚'
-  if (minutes < 60) return `${minutes} 分钟前`
-  const hours = Math.floor(minutes / 60)
-  if (hours < 24) return `${hours} 小时前`
-  return `${Math.floor(hours / 24)} 天前`
-}
-
-const SCORE_BADGE =
-  'min-w-10 shrink-0 rounded-ctl px-2 py-0.5 text-center font-mono text-sm font-bold tabular-nums'
+import { contentQualityLabel, readingReasonLabel } from './contentQualityLabel'
 
 function ScoreBar({
   label,
@@ -111,7 +86,6 @@ function ViewpointSection({
       refs: d.claim_indexes.flatMap((i) => indexToName.get(i) ?? []),
     }))
     .filter((d) => d.refs.length >= 2)
-  const generated = relativeTime(viewpoint.generated_at)
   return (
     <div className="mt-3">
       <SectionHeading>各源说法 · {claims.length}</SectionHeading>
@@ -165,172 +139,79 @@ function ViewpointSection({
           </ul>
         </div>
       )}
-      <div className="mt-2.5 font-mono text-[11px] tabular-nums text-ink-4">
-        {viewpoint.model}
-        {generated != null && ` · 生成于 ${generated}`}
-      </div>
+
     </div>
   )
 }
 
-function SourceChip({ article }: { article: EventOut['articles'][number] }) {
-  return (
-    <a
-      href={safeHref(article.url)}
-      target="_blank"
-      rel="noreferrer"
-      className="inline-flex max-w-full items-baseline gap-[5px] text-xs hover:underline"
-    >
-      <span className="shrink-0 font-semibold text-ink-4">
-        {article.source_name}
-      </span>
-      <span className="truncate text-accent-ink">
-        {article.title_zh ?? article.title}
-      </span>
-    </a>
-  )
+function reportTime(event: EventOut): string {
+  if (event.earliest_reported_precision === 'date' && event.earliest_reported_date) return `${event.earliest_reported_date}（仅日期）`
+  if (!event.earliest_reported_at) return '报道时间未知'
+  return new Date(event.earliest_reported_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
 }
 
 export default function EventCard({ event, sort = 'newest' }: { event: EventOut; sort?: FeedSort }) {
+  const [showEvidence, setShowEvidence] = useState(false)
   const [showBreakdown, setShowBreakdown] = useState(false)
-  const [showAllSources, setShowAllSources] = useState(false)
   const [showViewpoint, setShowViewpoint] = useState(false)
+  const [showMore, setShowMore] = useState(false)
+  const facts = event.facts ?? []
+  const visibleFacts = showMore ? facts : facts.slice(0, 2)
+  const byId = new Map(event.articles.map((article) => [article.id, article]))
+  const sourceNames = [...new Set(event.articles.filter((article) => !event.evidence_article_ids?.length || event.evidence_article_ids.includes(article.id)).map((article) => article.source_name))]
+  const kind = ({ brief: '快讯', report: '报道摘要', aggregation: '多篇综合', lead: '消息线索' } as Record<string, string>)[event.content_kind ?? ''] ?? '事件'
   const breakdown = event.score_breakdown
-  const reason = breakdown?.importance?.reason
-  const rounded =
-    event.score_final != null ? Math.round(event.score_final) : null
-  const updated = relativeTime(event.changed_at)
-  const reportTime = event.earliest_reported_precision === 'date'
-    ? event.earliest_reported_date && `${event.earliest_reported_date}（仅日期）`
-    : event.earliest_reported_at && new Date(event.earliest_reported_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
-  const recentReport = event.latest_reported_precision === 'date'
-    ? event.latest_reported_date && `${event.latest_reported_date}（仅日期）`
-    : event.latest_reported_at && new Date(event.latest_reported_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
-  const articles = showAllSources
-    ? event.articles
-    : event.articles.slice(0, COLLAPSED_SOURCES)
-  const hiddenCount = event.articles.length - COLLAPSED_SOURCES
   const viewpoint = event.viewpoint
-  const viewpointClaims = viewpoint
-    ? resolveClaims(viewpoint, event.articles)
-    : []
-  // A comparison needs at least two traceable sides to be worth a button.
-  const hasViewpoint = viewpointClaims.length >= 2
+  const claims = viewpoint ? resolveClaims(viewpoint, event.articles) : []
+  const hasViewpoint = claims.length >= 2 && viewpoint?.status !== 'review_limited'
+  const legacySummary = !facts.length && event.summary_zh !== event.title ? event.summary_zh : null
 
-  return (
-    <article className="rounded-card border border-line bg-surface px-4 py-3.5 shadow-card transition-colors hover:border-line-strong">
-      <div className="flex items-start gap-2.5">
-        <h2 className="min-w-0 flex-1 text-[15px] font-[650] leading-normal tracking-[0.01em]">
-          {event.title ?? '未命名事件'}
-        </h2>
-        {rounded != null &&
-          (breakdown ? (
-            <button
-              type="button"
-              onClick={() => setShowBreakdown((v) => !v)}
-              title="查看分数构成"
-              aria-expanded={showBreakdown}
-              className={`${SCORE_BADGE} ${scoreTierClasses(rounded)}`}
-            >
-              {rounded}
-            </button>
-          ) : (
-            <span className={`${SCORE_BADGE} ${scoreTierClasses(rounded)}`}>
-              {rounded}
-            </span>
-          ))}
+  return <article className="reading-event" aria-labelledby={`event-${event.id}`}>
+    <div className="event-overline">
+      <span className="event-kind">{kind}</span>
+      <span>{event.earliest_reported_precision === 'unknown' || !event.earliest_reported_precision ? '报道时间未知' : `最早报道 ${reportTime(event)}`}</span>
+      {sort === 'important' && event.public_impact_boosted && <span className="text-hot">紧急公共影响</span>}
+    </div>
+    <h2 id={`event-${event.id}`} className="event-headline">{event.title ?? '待整理事件'}</h2>
+    {facts.length > 0 && <ul className="event-facts">{visibleFacts.map((fact, index) => <li key={`${fact.article_id}-${index}`}><span>{fact.text}</span><button type="button" onClick={() => setShowEvidence(true)} aria-label={`查看第 ${index + 1} 条信息依据`} className="fact-reference">[{index + 1}]</button></li>)}</ul>}
+    {legacySummary && <p className="event-legacy-summary">{legacySummary}</p>}
+    {facts.length > 2 && <button type="button" className="event-more" aria-expanded={showMore} onClick={() => setShowMore(!showMore)}>{showMore ? '收起细节' : `展开另外 ${facts.length - 2} 条信息`}</button>}
+    <div className="event-footer">
+      <button type="button" className="event-evidence-trigger" aria-expanded={showEvidence} onClick={() => setShowEvidence(!showEvidence)}>
+        <span className="event-source-mark" aria-hidden="true">↗</span>
+        <span>{sourceNames.slice(0, 2).join(' · ') || '来源材料'}{sourceNames.length > 2 ? ` 等 ${sourceNames.length} 个来源` : ''}</span>
+        <span className="event-source-count">查看依据 · {event.articles.length} 篇</span>
+      </button>
+      <div className="event-actions">
+        {hasViewpoint && <button type="button" aria-expanded={showViewpoint} onClick={() => setShowViewpoint(!showViewpoint)}>观点对比</button>}
+        {breakdown && <button type="button" aria-expanded={showBreakdown} onClick={() => setShowBreakdown(!showBreakdown)}>关注依据</button>}
       </div>
-      {rounded == null && <p className="mt-1 text-xs text-ink-4">尚未评分</p>}
-      <div className="mt-[7px] font-mono text-[11.5px] tabular-nums text-ink-4">
-        {event.articles.length} 篇报道
-        {reportTime ? ` · 最早报道 ${reportTime}` : ` · 报道时间未知 · 首次发现 ${relativeTime(event.first_seen_at) ?? event.first_seen_at}`}
-        {recentReport && ` · 最近报道 ${recentReport}`}
+    </div>
+    {sort === 'hot' && event.heat != null && <p className="event-footnote">窗口内 {event.active_publishers ?? 0} 家媒体有报道活动；不代表独立验证。</p>}
+    {showBreakdown && breakdown && <section className="event-expanded" aria-label="关注依据">
+      <h3>为何进入关注范围</h3>
+      <p className="event-footnote">以下是排序参考，不代表事实已获独立验证。</p>
+      {breakdown.importance?.reason && <p className="mt-2 text-sm text-ink-2">{breakdown.importance.reason}</p>}
+      <div className="mt-4 grid gap-2">
+        {breakdown.importance && <ScoreBar label="重要性" value={breakdown.importance.score} />}
+        {breakdown.objective && <><ScoreBar label="来源质量" value={breakdown.objective.source_quality} /><ScoreBar label="报道广度" value={breakdown.objective.breadth} /><ScoreBar label="增长速度" value={breakdown.objective.growth} /></>}
       </div>
-      {((event.missing_time_count ?? 0) + (event.invalid_time_count ?? 0) > 0) && <p className="mt-1 text-[11px] text-ink-4">部分来源时间缺失或异常</p>}
-      {sort === 'hot' && event.heat != null && <p className="mt-1 text-xs text-ink-3">窗口内媒体活动：{event.active_publishers ?? 0} 家 · 热度 {event.heat.toFixed(2)}</p>}
-      {sort === 'important' && event.public_impact_boosted && <p className="mt-1 text-xs font-semibold text-hot">紧急公共影响优先</p>}
-      <details className="mt-1 text-[11px] text-ink-4">
-        <summary className="w-fit cursor-pointer">系统处理时间</summary>
-        <p>系统处理于 {updated ?? event.changed_at}；首次发现 {relativeTime(event.first_seen_at) ?? event.first_seen_at}</p>
-      </details>
-      {viewpoint?.status === 'review_limited' && (
-        <p className="mt-2 text-xs text-ink-3">观点对比待审核</p>
-      )}
-      {event.summary_zh && (
-        <p className="mt-2 text-[13.5px] leading-[1.7] text-ink-2">
-          {event.summary_zh}
-        </p>
-      )}
-      {showBreakdown && breakdown && (
-        <div className="mt-2.5 flex flex-col gap-[5px] rounded-ctl bg-bg-sunk px-3 py-2.5">
-          {breakdown.importance && (
-            <ScoreBar label="重要性" value={breakdown.importance.score} />
-          )}
-          {breakdown.objective && (
-            <>
-              <ScoreBar label="客观信号" value={breakdown.objective.score} />
-              <ScoreBar
-                sub
-                label="报道广度"
-                value={breakdown.objective.breadth}
-              />
-              <ScoreBar
-                sub
-                label="增长速度"
-                value={breakdown.objective.growth}
-              />
-              <ScoreBar
-                sub
-                label="来源质量"
-                value={breakdown.objective.source_quality}
-              />
-            </>
-          )}
-          {reason && (
-            <p className="mt-1.5 text-xs text-ink-3">
-              <b className="font-semibold text-ink-2">评分理由</b> {reason}
-            </p>
-          )}
-        </div>
-      )}
-      <ul className="mt-2.5 flex flex-wrap gap-x-3.5 gap-y-1">
-        {articles.map((a) => (
-          <li key={a.id} className="max-w-full">
-            <SourceChip article={a} />
-            {contentQualityLabel(a.content_quality) && (
-              <span className="ml-1.5 whitespace-nowrap text-[11px] text-ink-4">{contentQualityLabel(a.content_quality)}</span>
-            )}
-          </li>
-        ))}
-      </ul>
-      {((!showAllSources && hiddenCount > 0) || hasViewpoint) && (
-        <div className="mt-[9px] flex flex-wrap gap-2">
-          {!showAllSources && hiddenCount > 0 && (
-            <button
-              type="button"
-              onClick={() => setShowAllSources(true)}
-              className="flex min-w-[170px] flex-1 items-center justify-between gap-2 rounded-ctl bg-bg-sunk px-3 py-1.5 text-[12.5px] text-ink-3 hover:text-ink-2"
-            >
-              <span>另有 {hiddenCount} 篇来源报道</span>
-              <span>›</span>
-            </button>
-          )}
-          {hasViewpoint && (
-            <button
-              type="button"
-              onClick={() => setShowViewpoint((v) => !v)}
-              aria-expanded={showViewpoint}
-              className="flex min-w-[170px] flex-1 items-center justify-between gap-2 rounded-ctl bg-accent-soft px-3 py-1.5 text-[12.5px] font-semibold text-accent-ink hover:brightness-[0.96]"
-            >
-              <span>◫ 观点对比 · {viewpointClaims.length} 源说法</span>
-              <span>{showViewpoint ? '‹' : '›'}</span>
-            </button>
-          )}
-        </div>
-      )}
-      {showViewpoint && hasViewpoint && viewpoint && (
-        <ViewpointSection viewpoint={viewpoint} claims={viewpointClaims} />
-      )}
-    </article>
-  )
+      <p className="event-footnote">综合分 {event.score_final == null ? '尚未评分' : Math.round(event.score_final)} · 摘要质量由发布审核单独判断</p>
+    </section>}
+    {showEvidence && <section className="event-expanded" aria-label="事件依据">
+      <h3>信息从哪里来</h3>
+      <p className="event-footnote">原文摘录保留原语言；报道篇数不等于独立证据数。</p>
+      {facts.map((fact, index) => <div className="event-citation" key={`${fact.article_id}-${index}`}><span className="citation-number">{String(index + 1).padStart(2, '0')}</span><div><p>{fact.text}</p><blockquote lang="und">{fact.quote}</blockquote><a href={safeHref(byId.get(fact.article_id)?.url ?? '')} target="_blank" rel="noreferrer">{byId.get(fact.article_id)?.source_name ?? '原始材料'} ↗</a></div></div>)}
+      <h4 className="mt-5 text-xs font-semibold text-ink-3">来源材料 · {event.articles.length} 篇</h4>
+      <ul className="event-materials">{event.articles.map((article) => <li key={article.id}>
+        <a href={safeHref(article.url)} target="_blank" rel="noreferrer"><strong>{article.source_name}</strong><span>{article.title_zh ?? article.title} ↗</span></a>
+        {article.content_basis && <p>{({ original: '材料来自原文正文', feed_summary: '材料来自 RSS 导语', unknown: '正文来源未确认' } as Record<string, string>)[article.content_basis]}</p>}
+        {article.reading_status === 'ready' && event.evidence_article_ids && !event.evidence_article_ids.includes(article.id) && <p>同组相关材料，尚未确认共同事实，未纳入上述摘要。</p>}
+        {article.reading_status === 'withheld' ? <p>{readingReasonLabel(article.reading_reason)}；未用于上述摘要。</p> : contentQualityLabel(article.content_quality) && <p>{contentQualityLabel(article.content_quality)}</p>}
+      </li>)}</ul>
+      {((event.missing_time_count ?? 0) + (event.invalid_time_count ?? 0) > 0) && <p className="event-footnote">部分来源报道时间缺失或异常。</p>}
+    </section>}
+    {viewpoint?.status === 'review_limited' && showEvidence && <p className="event-footnote">观点对比审核因预算延期；当前摘要独立通过发布审核。</p>}
+    {showViewpoint && hasViewpoint && viewpoint && <ViewpointSection viewpoint={viewpoint} claims={claims} />}
+  </article>
 }

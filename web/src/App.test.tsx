@@ -101,18 +101,19 @@ test('renders event cards from the API', async () => {
     expect(screen.getByText('某重大事件')).toBeTruthy()
   })
   expect(screen.getByText('这是事件摘要。')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: /查看依据/ }))
   const link = screen.getByRole('link', { name: /BBC World/ })
   expect(link.getAttribute('href')).toBe('https://example.com/a')
-  expect(screen.getByText(/1 篇报道 · 报道时间未知/)).toBeTruthy()
+  expect(screen.getByText(/报道时间未知/)).toBeTruthy()
 })
 
 test('score badge toggles the breakdown with the scoring reason', async () => {
   stubEvents(sample)
   renderApp()
-  const badge = await screen.findByRole('button', { name: '73' })
+  const badge = await screen.findByRole('button', { name: '关注依据' })
   expect(screen.queryByText(/多国央行同步行动/)).toBeNull()
   fireEvent.click(badge)
-  expect(screen.getByText('评分理由')).toBeTruthy()
+  expect(screen.getByText('为何进入关注范围')).toBeTruthy()
   expect(screen.getByText(/多国央行同步行动/)).toBeTruthy()
   expect(screen.getByText('重要性')).toBeTruthy()
   expect(screen.getByText('报道广度')).toBeTruthy()
@@ -120,27 +121,17 @@ test('score badge toggles the breakdown with the scoring reason', async () => {
   expect(screen.queryByText(/多国央行同步行动/)).toBeNull()
 })
 
-test('collapses sources beyond two behind the more bar', async () => {
-  const multi: EventsResponse = {
-    events: [
-      {
-        ...baseEvent,
-        articles: [article(21), article(22), article(23), article(24)],
-      },
-    ],
-  }
-  stubEvents(multi)
+test('keeps source titles behind a reversible evidence disclosure', async () => {
+  stubEvents({ events: [{ ...baseEvent, articles: [article(21), article(22), article(23), article(24)] }] })
   renderApp()
   await screen.findByText('某重大事件')
-  expect(within(screen.getByRole('article')).getAllByRole('link')).toHaveLength(
-    2,
-  )
-  const more = screen.getByRole('button', { name: /另有 2 篇来源报道/ })
-  fireEvent.click(more)
-  expect(within(screen.getByRole('article')).getAllByRole('link')).toHaveLength(
-    4,
-  )
-  expect(screen.queryByRole('button', { name: /另有 2 篇来源报道/ })).toBeNull()
+  const card = within(screen.getByRole('article'))
+  expect(card.queryAllByRole('link')).toHaveLength(0)
+  const evidence = card.getByRole('button', { name: /查看依据/ })
+  fireEvent.click(evidence)
+  expect(card.getAllByRole('link')).toHaveLength(4)
+  fireEvent.click(evidence)
+  expect(card.queryAllByRole('link')).toHaveLength(0)
 })
 
 // URL constants stay on their own lines: the CI CJK comment scan treats any
@@ -177,7 +168,7 @@ test('viewpoint bar expands claims, each linked to its own article', async () =>
   renderApp()
   await screen.findByText('某重大事件')
   expect(screen.queryByText('财新的说法')).toBeNull()
-  const bar = screen.getByRole('button', { name: /观点对比 · 3 源说法/ })
+  const bar = screen.getByRole('button', { name: /观点对比/ })
   fireEvent.click(bar)
   // Every claim sits next to the link of exactly its own article.
   const cases: Array<[string, string, string]> = [
@@ -213,7 +204,7 @@ test('claims pointing at foreign articles are dropped', async () => {
   })
   renderApp()
   await screen.findByText('某重大事件')
-  fireEvent.click(screen.getByRole('button', { name: /观点对比 · 3 源说法/ }))
+  fireEvent.click(screen.getByRole('button', { name: /观点对比/ }))
   expect(screen.queryByText('张冠李戴的说法')).toBeNull()
 })
 
@@ -238,7 +229,7 @@ test('viewpoint claim links reject non-http urls', async () => {
   })
   renderApp()
   await screen.findByText('某重大事件')
-  fireEvent.click(screen.getByRole('button', { name: /观点对比 · 3 源说法/ }))
+  fireEvent.click(screen.getByRole('button', { name: /观点对比/ }))
   // No anchor at all: an href-less <a> would look clickable but go nowhere.
   const column = screen.getByText('财新的说法').closest('div')
   expect(column?.querySelector('a')).toBeNull()
@@ -256,7 +247,7 @@ test('shows the empty state when there are no events', async () => {
   stubEvents({ events: [] })
   renderApp()
   await waitFor(() => {
-    expect(screen.getByText(/暂无事件/)).toBeTruthy()
+    expect(screen.getByText(/暂无可发布的事件/)).toBeTruthy()
   })
 })
 
@@ -283,7 +274,7 @@ test('navigation links switch routes without showing admin content on the feed',
   expect(
     screen.queryByRole('heading', { level: 1, name: '运营总览' }),
   ).toBeNull()
-  fireEvent.click(screen.getByRole('link', { name: '管理后台' }))
+  fireEvent.click(screen.getAllByRole('link', { name: '管理后台' })[0]!)
   expect(await screen.findByRole('heading', { level: 1, name: '运营总览' }, { timeout: 5000 })).toBeTruthy()
   fireEvent.click(screen.getByRole('link', { name: '打开阅读端' }))
   await screen.findByText('某重大事件')

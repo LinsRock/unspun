@@ -63,6 +63,7 @@ afterEach(cleanup)
 
 test('feed comparison shows original evidence, limited input and temporal classification', () => {
   render(<EventCard event={event} />)
+  fireEvent.click(screen.getByRole('button', { name: /查看依据/ }))
   fireEvent.click(screen.getByRole('button', { name: /观点对比/ }))
   expect(screen.getAllByText('原文依据').length).toBe(2)
   expect(screen.getByText('Flights were suspended at 08:00.')).toBeTruthy()
@@ -108,6 +109,7 @@ test('limited source status remains visible without a comparison', () => {
   limited.articles = limited.articles.slice(0, 1)
   limited.viewpoint = null
   render(<EventCard event={limited} />)
+  fireEvent.click(screen.getByRole('button', { name: /查看依据/ }))
   expect(screen.getByText('信息有限')).toBeTruthy()
   cleanup()
   render(<DigestItem event={limited} rank={1} />)
@@ -119,6 +121,7 @@ test('cached empty comparison does not hide source limitations', () => {
   empty.viewpoint!.claims = []
   empty.viewpoint!.disagreements = []
   render(<EventCard event={empty} />)
+  fireEvent.click(screen.getByRole('button', { name: /查看依据/ }))
   expect(screen.getByText('信息有限')).toBeTruthy()
 })
 
@@ -128,11 +131,12 @@ test('review budget fallback is labelled separately from scarce source evidence'
   paused.articles = paused.articles.slice(0, 1)
   paused.articles[0]!.content_quality = 'review_limited'
   render(<EventCard event={paused} />)
-  expect(screen.getByText('未完成审核')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: /查看依据/ }))
+  expect(screen.getByText('摘要审核因预算延期')).toBeTruthy()
   expect(screen.queryByText('信息有限')).toBeNull()
   cleanup()
   render(<DigestItem event={paused} rank={1} />)
-  expect(screen.getByText('未完成审核')).toBeTruthy()
+  expect(screen.getByText('摘要审核因预算延期')).toBeTruthy()
 })
 
 test('pending comparison audit remains visible when source summaries are reviewed', () => {
@@ -142,7 +146,8 @@ test('pending comparison audit remains visible when source summaries are reviewe
   paused.viewpoint!.disagreements = []
   paused.viewpoint!.status = 'review_limited'
   render(<EventCard event={paused} />)
-  expect(screen.getByText('观点对比待审核')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: /查看依据/ }))
+  expect(screen.getByText(/观点对比审核因预算延期/)).toBeTruthy()
   cleanup()
   render(<DigestItem event={paused} rank={1} />)
   expect(screen.getByText('观点对比待审核')).toBeTruthy()

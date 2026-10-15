@@ -10,9 +10,10 @@ from pydantic import ValidationError
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session, sessionmaker
 
+from tests.reading_fixtures import approve_event
 from unspun.core import db
 from unspun.core.llm import LlmClient, LlmError
-from unspun.core.models import Article, Digest, Event, EventViewpoint, LlmUsage
+from unspun.core.models import Digest, Event, EventViewpoint, LlmUsage
 from unspun.core.params import DigestParams, load_scoring_params
 from unspun.pipeline import digest as digest_module
 from unspun.pipeline.digest import (
@@ -29,7 +30,9 @@ PARAMS = DigestParams()
 class FakeDigestLlm:
     def __init__(self, response: dict[str, Any] | None = None, fail: bool = False) -> None:
         self.calls = 0
-        self.response = response if response is not None else {"intro": "daily introduction"}
+        self.response = (
+            response if response is not None else {"intro": "\u6bcf\u65e5\u4e8b\u4ef6\u5bfc\u8bfb"}
+        )
         self.fail = fail
 
     def chat_json(
@@ -63,6 +66,8 @@ def seed(session: Session, title: str, hours: float, score: float | None = 50) -
         first_seen_at=NOW - timedelta(days=3),
     )
     session.add(event)
+    session.flush()
+    approve_event(event)
     session.flush()
     return event
 
@@ -102,15 +107,12 @@ def test_selection_is_windowed_decayed_top_n(db_session: Session) -> None:
 
 def test_generation_stores_snapshot_and_replaces_same_day(db_session: Session) -> None:
     event = seed(db_session, "original", 1, 80)
-    article = Article(
-        source_id="bbc-world", url="https://example.com/digest", title="source", event=event
-    )
-    db_session.add(article)
+    article = event.articles[0]
     db_session.flush()
     event.viewpoint = EventViewpoint(
         payload={
             "claims": [
-                {"article_id": article.id, "claim": "traceable"},
+                {"article_id": article.id, "claim": "\u6709\u4f9d\u636e\u7684\u8bf4\u6cd5"},
                 {"article_id": 999999, "claim": "foreign"},
             ],
             "disagreements": [],
@@ -125,17 +127,21 @@ def test_generation_stores_snapshot_and_replaces_same_day(db_session: Session) -
     row = db_session.scalar(select(Digest).where(Digest.report_date == date(2030, 10, 10)))
     assert row is not None
     snapshot = row.payload
-    assert snapshot["intro"] == "daily introduction"
+    assert snapshot["intro"] == "\u6bcf\u65e5\u4e8b\u4ef6\u5bfc\u8bfb"
     assert snapshot["events"][0]["articles"][0]["source_name"] == "BBC World"
     assert snapshot["events"][0]["viewpoint"]["claims"] == [
-        {"article_id": article.id, "claim": "traceable", "evidence_quote": None}
+        {
+            "article_id": article.id,
+            "claim": "\u6709\u4f9d\u636e\u7684\u8bf4\u6cd5",
+            "evidence_quote": None,
+        }
     ]
     event.title = "updated"
     db_session.flush()
-    assert row.payload["events"][0]["title"] == "original"
+    assert row.payload["events"][0]["title"] == article.title_zh
     assert generate_digest(db_session, client, date(2030, 10, 10), NOW, PARAMS, 24)
     db_session.flush()
-    assert row.payload["events"][0]["title"] == "updated"
+    assert row.payload["events"][0]["title"] == article.title_zh
     assert (
         db_session.scalar(
             select(func.count()).select_from(Digest).where(Digest.report_date == date(2030, 10, 10))
@@ -240,7 +246,9 @@ def test_scheduler_commits_usage_after_failure_and_retries_next_cycle(
     def handler(request: httpx.Request) -> httpx.Response:
         nonlocal calls
         calls += 1
-        content = "not JSON" if calls == 1 else '{"intro": "successful retry"}'
+        content = (
+            "not JSON" if calls == 1 else '{"intro": "\u91cd\u8bd5\u540e\u751f\u6210\u65e5\u62a5"}'
+        )
         return httpx.Response(
             200,
             json={
@@ -265,7 +273,9 @@ def test_scheduler_commits_usage_after_failure_and_retries_next_cycle(
     assert digest_pending(NOW + timedelta(minutes=30))
     with db.session_scope() as session:
         row = session.scalar(select(Digest).where(Digest.report_date == NOW.date()))
-        assert row is not None and row.payload["intro"] == "successful retry"
+        assert (
+            row is not None and row.payload["intro"] == "\u91cd\u8bd5\u540e\u751f\u6210\u65e5\u62a5"
+        )
         assert session.scalar(select(func.count()).select_from(LlmUsage)) == before + 2
     assert not digest_pending(NOW + timedelta(hours=1))
     assert calls == 2

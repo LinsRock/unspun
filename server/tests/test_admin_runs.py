@@ -3,8 +3,10 @@ from datetime import UTC, datetime, timedelta
 
 import httpx
 import pytest
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from tests.reading_fixtures import approve
 from unspun.api.app import app
 from unspun.api.events import get_db
 from unspun.core.config import Settings, get_settings
@@ -74,6 +76,9 @@ async def test_backlog_uses_pipeline_predicates(
             Event(title="a3 score pending"),
         ]
     )
+    db_session.flush()
+    for item in db_session.scalars(select(Article).where(Article.summary_zh == "done")):
+        approve(item)
     db_session.flush()
     async with admin_client as client:
         response = await client.get("/api/admin/backlog", params={"stage": "abandoned_summary"})

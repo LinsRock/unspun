@@ -8,6 +8,7 @@ from fastapi import HTTPException
 from sqlalchemy import delete, inspect
 from sqlalchemy.orm import Session
 
+from tests.reading_fixtures import approve_event
 from unspun.api.admin.auth import require_admin_identity
 from unspun.api.app import app
 from unspun.api.events import get_db
@@ -108,6 +109,8 @@ async def test_reading_state_is_absent_and_legacy_filter_does_not_hide_events(
 
     event = Event(title="remains visible", first_seen_at=datetime.now(UTC) - timedelta(minutes=1))
     authorized_db.add(event)
+    authorized_db.flush()
+    approve_event(event)
     authorized_db.flush()
     async with httpx.AsyncClient(
         transport=httpx.ASGITransport(app=app), base_url="https://test"

@@ -1,0 +1,82 @@
+{
+  "provenance": "synthetic interaction fixtures; not real news or production review results",
+  "events": [
+    {
+      "id": 80001,
+      "title": "演示 · 城际铁路试点夜间加班车，首阶段覆盖三座城市",
+      "hours": 1,
+      "score": 72,
+      "reason": "这项调整影响沿线夜间通勤，但试点覆盖范围仍有限，应关注实际运力与执行情况。",
+      "articles": [
+        {"source": "演示交通公告", "facts": ["试点将于下周启动，周五和周日各增加一班夜间列车，连接沿线三座城市；票价暂时沿用现行标准。", "首阶段运行四周，运营方将根据客流与换乘情况决定是否延长，公告尚未承诺扩大到其他线路。"]},
+        {"source": "演示地方报道", "facts": ["沿线车站将同步延长接驳服务，但具体末班时间仍需以各站后续公告为准。"]}
+      ]
+    },
+    {
+      "id": 80002,
+      "title": "演示 · 新型储能材料完成实验室测试，距离商用仍有验证环节",
+      "hours": 3,
+      "score": 61,
+      "reason": "研究提供了可复核的实验数据，但仍是实验室结果；当前价值在于技术方向，不能推断商业可行性。",
+      "articles": [
+        {"source": "演示研究简报", "facts": ["研究团队在室温条件下完成了一千次充放电循环，并公开实验参数与测量方法，供其他研究者复核。", "测试使用小尺寸样品，尚未开展规模化制造与长期安全评估；论文没有给出商业上市时间。"]}
+      ]
+    },
+    {
+      "id": 80003,
+      "title": "演示 · 城市美术馆开放数字馆藏检索",
+      "hours": 5,
+      "score": 42,
+      "reason": "公共文化资源的检索方式改善，实际使用价值取决于开放范围与版权条件。",
+      "articles": [
+        {"source": "演示美术馆公告", "facts": ["首批条目提供作品年代、材质和作者信息；高清图像下载仍需分别查看授权条件。"]}
+      ]
+    },
+    {
+      "id": 80004,
+      "title": "演示 · 同一消息转载不会变成三条新信息",
+      "hours": 7,
+      "score": 45,
+      "reason": "多篇转载可反映传播活动，但不构成多份独立证据。",
+      "articles": [
+        {"source": "演示原始公告", "facts": ["公共图书馆本周六延长开放至晚九点，预约规则维持不变。"]},
+        {"source": "演示转载甲", "facts": ["公共图书馆本周六延长开放至晚九点，预约规则维持不变。"]},
+        {"source": "演示转载乙", "facts": ["公共图书馆本周六延长开放至晚九点，预约规则维持不变。"]}
+      ]
+    },
+    {
+      "id": 80005,
+      "title": "演示 · 没有可靠日期的材料仍保留时间边界",
+      "hours": 9,
+      "unknown_time": true,
+      "score": 50,
+      "articles": [
+        {"source": "演示资料库", "facts": ["资料库公布了观测方法及数据下载入口，但页面没有提供可核实的原始发布日期。"]}
+      ]
+    },
+    {
+      "id": 80006,
+      "title": "演示 · 延期审核的材料不作为事件摘要依据",
+      "hours": 11,
+      "score": 51,
+      "articles": [
+        {"source": "演示已审核公告", "facts": ["研究机构开放了一组气象观测数据，并提供字段说明及缺失值标记。"]},
+        {"source": "演示待审核来源", "paused": true, "facts": ["This English material is waiting for semantic review."]}
+      ]
+    },
+    {
+      "id": 80007,
+      "title": "演示 · 只有标题的内容留在后台",
+      "hours": 0,
+      "score": 99,
+      "articles": [{"source": "演示线索来源", "facts": []}]
+    },
+    {
+      "id": 80008,
+      "title": "Untranslated English story must remain unpublished",
+      "hours": 0,
+      "score": 100,
+      "articles": [{"source": "演示英文来源", "facts": ["An entirely English fact cannot pass the Chinese publication gate."]}]
+    }
+  ]
+}
