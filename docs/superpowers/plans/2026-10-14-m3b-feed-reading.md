@@ -71,7 +71,7 @@ assert report["passed"] is False
 - [x] URL > 服务端 > 服务端不可达时本机最后同步偏好 > 默认值；显式链接不自动写入，操作控件才保存，冲突提示后用新版本重试。
 - [x] 删除阅读状态表定义、read-state API、未读查询、卡片按钮；旧unread_only链接不隐藏事件。
 - [x] 新建隔离数据库全量迁移、597项后端、82项前端、静态检查/构建和迁移一致性通过。
-- [ ] 修订版页面用户实际体验后再提PR，详见[B2预览](../../evaluations/m3b/b2-preview-acceptance.md)。
+- [x] 用户重启并体验修订版后回复“ok”，D-012验收通过，可提PR；详见[B2预览](../../evaluations/m3b/b2-preview-acceptance.md)。
 
 ## 本批验证与交付
 
