@@ -14,11 +14,13 @@ from zoneinfo import ZoneInfo
 import yaml
 from fastapi import HTTPException
 from sqlalchemy import text
+from sqlalchemy.dialects import postgresql
 from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
+from unspun.core.reading import ready_condition
 
-RANKING_VERSION = "original-impact-v1-24h-6h-0.5"
+RANKING_VERSION = "original-impact-v1-reading-v1-24h-6h-0.5"
 
 
 def publisher_aliases() -> tuple[dict[str, str], str]:
@@ -144,7 +146,7 @@ WITH visible AS (
  FROM events e LEFT JOIN times t ON t.event_id=e.id LEFT JOIN heat h ON h.event_id=e.id
  LEFT JOIN LATERAL (SELECT reported_at, reported_date, reported_precision FROM bounded WHERE event_id=e.id AND lower_bound IS NOT NULL ORDER BY lower_bound,id LIMIT 1) early ON true
  LEFT JOIN LATERAL (SELECT reported_at, reported_date, reported_precision FROM bounded WHERE event_id=e.id AND lower_bound IS NOT NULL ORDER BY lower_bound DESC,id DESC LIMIT 1) late ON true
- WHERE e.first_seen_at <= :as_of AND (
+ WHERE e.first_seen_at <= :as_of AND (:publishable_only = false OR EXISTS (SELECT 1 FROM articles WHERE articles.event_id=e.id AND articles.fetched_at<=:as_of AND __READY__)) AND (
  (t.earliest_lower IS NULL AND :period='all') OR
  (t.earliest_lower IS NOT NULL AND ((:sort='hot' AND h.active_publishers > 0) OR (:sort!='hot' AND (CAST(:start AS timestamptz) IS NULL OR t.earliest_lower >= :start)))))
 )
@@ -155,7 +157,14 @@ ORDER BY boosted DESC, known DESC, metric DESC, coalesce(tie_time,0) DESC, id DE
 
 
 def feed_page(
-    session: Session, sort: str, period: str, limit: int, now: datetime, cursor: str | None
+    session: Session,
+    sort: str,
+    period: str,
+    limit: int,
+    now: datetime,
+    cursor: str | None,
+    *,
+    publishable_only: bool = False,
 ) -> FeedPage:
     aliases, version = publisher_aliases()
     parsed = decode_cursor(cursor, sort, period, now) if cursor else None
@@ -163,7 +172,7 @@ def feed_page(
     start = window_start(period, as_of)
     generation = session.scalar(
         text(
-            """SELECT md5(coalesce(string_agg(id::text || coalesce(score_final::text,'') || coalesce(scored_at::text,'') || coalesce(public_impact::text,''), ',' ORDER BY id), '') || (SELECT coalesce(string_agg(id::text || ':' || event_id::text || coalesce(reported_at::text,'') || coalesce(reported_date::text,'') || reported_precision || coalesce(publisher_group,'') || md5(coalesce(content,'')) || content_basis, ',' ORDER BY id),'') FROM articles WHERE fetched_at <= :as_of)) FROM events WHERE first_seen_at <= :as_of"""
+            """SELECT md5(coalesce(string_agg(id::text || coalesce(score_final::text,'') || coalesce(scored_at::text,'') || coalesce(public_impact::text,''), ',' ORDER BY id), '') || (SELECT coalesce(string_agg(id::text || ':' || event_id::text || coalesce(reported_at::text,'') || coalesce(reported_date::text,'') || reported_precision || coalesce(publisher_group,'') || md5(coalesce(content,'')) || content_basis || md5(coalesce(summary_grounding::text,'')), ',' ORDER BY id),'') FROM articles WHERE fetched_at <= :as_of)) FROM events WHERE first_seen_at <= :as_of"""
         ),
         {"as_of": as_of},
     )
@@ -172,6 +181,7 @@ def feed_page(
     key = parsed["key"] if parsed else [0, 0, 0, 0, 0]
     params = {
         "as_of": as_of,
+        "publishable_only": publishable_only,
         "aliases": json.dumps(aliases),
         "sort": sort,
         "period": period,
@@ -181,7 +191,15 @@ def feed_page(
         "has_cursor": bool(parsed),
         **{f"k{i}": v for i, v in enumerate(key)},
     }
-    rows = [dict(row) for row in session.execute(text(_SQL), params).mappings()]
+    ready_sql = str(
+        ready_condition().compile(
+            dialect=postgresql.dialect(), compile_kwargs={"literal_binds": True}
+        )
+    )
+    rows = [
+        dict(row)
+        for row in session.execute(text(_SQL.replace("__READY__", ready_sql)), params).mappings()
+    ]
     next_cursor = None
     if len(rows) > limit:
         rows = rows[:limit]

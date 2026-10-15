@@ -12,11 +12,13 @@ from unspun.api.admin.ranges import resolve_range
 from unspun.api.admin.schemas import AdminRangeOut
 from unspun.api.events import get_db
 from unspun.core.models import Article, Event, PipelineRun
+from unspun.core.reading import publication_counts
 from unspun.pipeline.score import pending_score_conditions
 from unspun.pipeline.summarize import (
     abandoned_summary_conditions,
     pending_embedding_conditions,
     pending_summary_conditions,
+    summary_ordering,
 )
 
 router = APIRouter()
@@ -121,6 +123,7 @@ class BacklogCounts(BaseModel):
 class BacklogOut(BaseModel):
     scope: Literal["current"] = "current"
     consistency: Literal["live"] = "live"
+    publication_counts: dict[str, int] = {}
     counts: BacklogCounts
     stage: BacklogStage
     total: int
@@ -190,7 +193,7 @@ def get_backlog(
         articles = session.scalars(
             select(Article)
             .where(*conditions)
-            .order_by(Article.published_at.desc().nulls_last(), Article.id.desc())
+            .order_by(*summary_ordering())
             .offset((page - 1) * page_size)
             .limit(page_size)
         ).all()
@@ -205,6 +208,7 @@ def get_backlog(
             for row in articles
         ]
     return BacklogOut(
+        publication_counts=publication_counts(session),
         counts=counts,
         stage=stage,
         total=total,

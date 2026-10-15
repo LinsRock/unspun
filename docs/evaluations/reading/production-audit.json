@@ -1,0 +1,28 @@
+{
+  "captured_at": "2026-10-15T08:18:33.799487+00:00",
+  "scope": "production database read-only snapshot; no raw body export",
+  "article_count": 8843,
+  "event_count": 6193,
+  "article_review_statuses": {
+    "unrecorded": 4350,
+    "grounded": 233,
+    "limited": 52,
+    "review_limited": 4208
+  },
+  "english_event_titles": 1408,
+  "identical_event_title_summary": 2930,
+  "budget_deferred_articles_with_nonempty_summary": 4208,
+  "budget_deferred_articles_already_clustered": 4208,
+  "english_events_with_budget_deferred_article": 1402,
+  "grounding_spend_last_24h_usd": 0.40257771999999975,
+  "last_pipeline_run_at": "2026-10-15T06:38:00.165847+00:00",
+  "summary_failure_cap_articles": 18,
+  "followup_read_only_check": {
+    "review_versions": {
+      "unrecorded": 4350,
+      "summary-grounded-v5": 4493
+    },
+    "legacy_reviewed_chinese_title_candidates": 145,
+    "note": "Candidates still require current language, evidence and information-value checks; not a count of publishable events."
+  }
+}

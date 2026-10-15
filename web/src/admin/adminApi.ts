@@ -39,6 +39,7 @@ export interface PageResult<T> { total: number; page: number; page_size: number;
 export type BacklogStage = 'pending_summary' | 'abandoned_summary' | 'pending_embedding' | 'pending_score'
 export interface BacklogItem { id: number; title: string; source_id: string | null; stage: BacklogStage; failures: number | null }
 export interface BacklogResult extends PageResult<BacklogItem> {
+  publication_counts?: Record<string, number>
   scope: 'current'
   consistency: 'live'
   counts: { pending_summaries: number; abandoned_summaries: number; pending_embeddings: number; pending_scores: number }

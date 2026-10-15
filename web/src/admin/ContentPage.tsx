@@ -24,7 +24,7 @@ const articleStates = [
 const eventStates = [{ value: '', label: '全部处理状态' }, { value: 'pending', label: '待评分' }, { value: 'scored', label: '已评分' }]
 const articleStateLabel = (value: string) => articleStates.find(option => option.value === value)?.label || value
 const eventStateLabel = (value: string) => eventStates.find(option => option.value === value)?.label || value
-const qualityLabels: Record<string, string> = { grounded: '证据充分', limited: '证据有限', review_limited: '审核受限', unrecorded: '未记录' }
+const qualityLabels: Record<string, string> = { grounded: '摘要有证据', limited: '材料有限', review_limited: '审核预算延期', unrecorded: '审核未记录' }
 
 function detailId(value: string | null): number | null {
   if (value === null) return null
@@ -84,7 +84,7 @@ export default function ContentPage({ range }: Props) {
       {tab === 'articles' && <Select aria-label="文章时间口径" value={filters.time_basis} options={[{ value: 'fetched_at', label: '入库时间' }, { value: 'published_at', label: '报道时间' }]} onChange={value => update({ time_basis: value })} />}
       {tab === 'events' && <Select aria-label="事件时间状态" value={filters.time_status} options={[{ value: 'reported', label: '有有效报道时间' }, { value: 'missing', label: '缺失报道时间' }, { value: 'discovered', label: '系统新建事件' }]} onChange={value => update({ time_status: value })} />}
       {tab === 'articles' && <Select aria-label="文章语言" value={filters.lang || ''} options={[{ value: '', label: '全部语言' }, { value: 'zh', label: '中文' }, { value: 'en', label: '英文' }]} onChange={value => update({ lang: value })} />}
-      {tab === 'articles' && <Select aria-label="内容质量" value={filters.quality_status || ''} options={[{ value: '', label: '全部质量状态' }, { value: 'grounded', label: '证据充分' }, { value: 'limited', label: '证据有限' }, { value: 'review_limited', label: '审核受限' }, { value: 'unrecorded', label: '未记录' }]} onChange={value => update({ quality_status: value })} />}
+      {tab === 'articles' && <Select aria-label="内容质量" value={filters.quality_status || ''} options={[{ value: '', label: '全部质量状态' }, { value: 'grounded', label: '证据充分' }, { value: 'limited', label: '证据有限' }, { value: 'review_limited', label: '审核预算延期' }, { value: 'unrecorded', label: '未记录' }]} onChange={value => update({ quality_status: value })} />}
 </div></details>
       <Select aria-label="时间排序" value={filters.sort} options={[{ value: 'newest', label: '最新优先' }, { value: 'oldest', label: '最早优先' }]} onChange={value => update({ sort: value })} />
     </div>
@@ -97,7 +97,7 @@ export default function ContentPage({ range }: Props) {
     {query.isSuccess && <>
       <Typography.Text type="secondary">匹配 {query.data.total} {tab === 'articles' ? '篇文章' : '个事件'}</Typography.Text>
       {items.length ? tab === 'articles' ? <Table rowSelection={rowSelection} rowKey="id" dataSource={items as ArticleRow[]} pagination={false} scroll={{ x: 850 }} columns={[
-        { title: '文章', key: 'article', render: (_: unknown, row: ArticleRow) => <><button className="admin-title-button" onClick={() => update({ article_detail: String(row.id) })}>{row.title_zh || row.title}</button><small>#{row.id} · {qualityLabels[row.quality_status || 'unrecorded'] || row.quality_status}</small></> },
+        { title: '文章', key: 'article', render: (_: unknown, row: ArticleRow) => <><button className="admin-title-button" onClick={() => update({ article_detail: String(row.id) })}>{row.title_zh || row.title}</button><small>#{row.id} · {qualityLabels[row.quality_status || 'unrecorded'] || row.quality_status} · {row.reading_status === 'ready' ? '可发布' : '未发布'}</small></> },
         { title: '来源', key: 'source', render: (_: unknown, row: ArticleRow) => row.source_name || row.source_id },
         { title: '报道 / 入库', key: 'times', width: 180, render: (_: unknown, row: ArticleRow) => <>{displayTime(row.published_at)}<small>入库 {displayTime(row.fetched_at)}</small></> },
         { title: '处理状态', key: 'status', width: 135, render: (_: unknown, row: ArticleRow) => <Tag color={row.processing_status === 'failed' ? 'error' : row.processing_status === 'pending' ? 'warning' : ['summarized', 'embedded', 'clustered'].includes(row.processing_status) ? 'success' : 'default'}>{articleStateLabel(row.processing_status)}</Tag> },

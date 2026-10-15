@@ -28,10 +28,12 @@ const pages = [
 ] as const
 
 function readThemeColors() {
-  const dark = getComputedStyle(document.documentElement).colorScheme.includes('dark')
+  const style = getComputedStyle(document.documentElement)
+  const dark = style.colorScheme.includes('dark')
+  const token = (name: string, fallback: string) => style.getPropertyValue(name).trim() || fallback
   return {
-    dark, accent: dark ? '#95aaf2' : '#5067bd', accentContrast: dark ? '#11151e' : '#ffffff',
-    surface: dark ? '#1c2230' : '#ffffff', muted: dark ? '#98a6bd' : '#707b8e', secondarySurface: dark ? '#252d3d' : '#f3f5f8', ink: dark ? '#e5eaf3' : '#242b3a', line: dark ? '#333e50' : '#e3e7ee',
+    dark, accent: token('--accent', '#5067bd'), accentContrast: token('--accent-contrast', '#ffffff'),
+    surface: token('--surface', '#ffffff'), muted: token('--ink-3', '#707b8e'), secondarySurface: token('--surface-2', '#f3f5f8'), ink: token('--ink', '#242b3a'), line: token('--line', '#e3e7ee'),
   }
 }
 

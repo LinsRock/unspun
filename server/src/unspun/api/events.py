@@ -16,6 +16,7 @@ from unspun.core.feed_query import RANKING_VERSION, feed_page
 from unspun.core.logging import get_logger
 from unspun.core.models import Event, EventViewpoint
 from unspun.core.params import get_scoring_params
+from unspun.core.reading import chinese_text, current_reading, event_reading
 from unspun.core.sources import load_sources
 
 router = APIRouter()
@@ -51,6 +52,9 @@ class ArticleOut(BaseModel):
     reported_basis: str | None = None
     publisher_group: str | None = None
     content_quality: str | None = None
+    reading_status: str | None = None
+    reading_reason: str | None = None
+    content_basis: str = "unknown"
 
 
 class ViewpointClaimOut(BaseModel):
@@ -71,6 +75,12 @@ class ViewpointOut(BaseModel):
     disagreements: list[ViewpointDisagreementOut]
     model: str
     generated_at: datetime
+
+
+class ReadingFactOut(BaseModel):
+    text: str
+    quote: str
+    article_id: int
 
 
 class EventOut(BaseModel):
@@ -98,6 +108,10 @@ class EventOut(BaseModel):
     heat: float | None = None
     ranking_metric: float | None = None
     public_impact_boosted: bool = False
+    content_kind: str | None = None
+    reading_status: str | None = None
+    facts: list[ReadingFactOut] = []
+    evidence_article_ids: list[int] = []
 
 
 def viewpoint_out(row: EventViewpoint | None, article_ids: set[int]) -> ViewpointOut | None:
@@ -153,23 +167,50 @@ def event_out(
     decayed_score: float | None,
     source_names: dict[str, str],
     as_of: datetime | None = None,
+    *,
+    published: bool = False,
 ) -> EventOut:
     """Serialize a live event or a digest snapshot with the same provenance rules."""
     articles = [a for a in event.articles if as_of is None or a.fetched_at <= as_of]
+    reading = event_reading(articles) if published else None
+    viewpoint = viewpoint_out(
+        event.viewpoint, set(reading["article_ids"]) if reading else {a.id for a in articles}
+    )
+    if (
+        published
+        and viewpoint is not None
+        and (
+            any(not chinese_text(claim.claim) for claim in viewpoint.claims)
+            or any(not chinese_text(item.point) for item in viewpoint.disagreements)
+        )
+    ):
+        viewpoint = None
+    breakdown = event.score_breakdown
+    if published and breakdown and not chinese_text(breakdown.get("importance", {}).get("reason")):
+        breakdown = {**breakdown, "importance": {**breakdown.get("importance", {}), "reason": ""}}
     return EventOut(
         id=event.id,
-        title=event.title,
-        summary_zh=event.summary_zh,
+        title=reading["title"] if reading else event.title,
+        summary_zh=" ".join(f["text"] for f in reading["facts"]) if reading else event.summary_zh,
+        content_kind=reading["kind"] if reading else None,
+        reading_status=reading["status"] if reading else None,
+        facts=reading["facts"] if reading else [],
+        evidence_article_ids=reading["article_ids"] if reading else [],
         score_final=event.score_final,
         score_decayed=decayed_score,
-        score_breakdown=event.score_breakdown,
+        score_breakdown=breakdown,
         first_seen_at=event.first_seen_at,
         changed_at=event.changed_at,
         articles=[
             ArticleOut(
                 id=a.id,
                 title=a.title,
-                title_zh=a.title_zh,
+                title_zh=a.title_zh
+                if not published or current_reading(a).get("status") == "ready"
+                else None,
+                reading_status=current_reading(a).get("status"),
+                content_basis=a.content_basis,
+                reading_reason=current_reading(a).get("reason"),
                 url=a.url,
                 source_id=a.source_id,
                 source_name=source_names.get(a.source_id, a.source_id),
@@ -189,7 +230,7 @@ def event_out(
             )
             for a in sorted(articles, key=lambda a: a.id)
         ],
-        viewpoint=viewpoint_out(event.viewpoint, {a.id for a in articles}),
+        viewpoint=viewpoint,
     )
 
 
@@ -204,7 +245,7 @@ def list_events(
     session: Session = Depends(get_db),  # noqa: B008
     now: datetime = Depends(get_feed_now),  # noqa: B008
 ) -> EventsResponse:
-    page = feed_page(session, sort, range_, limit, now, cursor)
+    page = feed_page(session, sort, range_, limit, now, cursor, publishable_only=True)
     ids = [row["id"] for row in page.rows]
     events_by_id = {
         event.id: event
@@ -224,7 +265,7 @@ def list_events(
             if event.score_final is not None
             else None
         )
-        out = event_out(event, decayed, source_names, page.as_of)
+        out = event_out(event, decayed, source_names, page.as_of, published=True)
         for field in (
             "earliest_reported_at",
             "earliest_reported_date",

@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session, selectinload
 from unspun.api.admin.query import Page, PageSize, RangeDep, page_result
 from unspun.core.db import session_scope
 from unspun.core.models import Article, Event
+from unspun.core.reading import current_reading, event_reading, ready_condition
 from unspun.core.sources import load_sources
 
 router = APIRouter()
@@ -141,6 +142,13 @@ def list_articles(
         Article.embedding.is_not(None).label("has_embedding"),
         Article.event_id,
         quality_column.label("quality_status"),
+        ready_condition().label("reading_ready"),
+        case(
+            (quality_column == "review_limited", "review_budget"),
+            else_=func.coalesce(
+                Article.summary_grounding["reading"]["reason"].astext, "review_pending"
+            ),
+        ).label("reading_reason"),
     ).where(
         *_article_conditions(
             start,
@@ -185,6 +193,8 @@ def list_articles(
                 "cluster_status": "done" if row["event_id"] is not None else "pending",
                 "processing_status": status,
                 "quality_status": row["quality_status"] or "unrecorded",
+                "reading_status": "ready" if row["reading_ready"] else "withheld",
+                "reading_reason": row["reading_reason"] if not row["reading_ready"] else None,
                 "event_id": row["event_id"],
             }
         )
@@ -209,6 +219,7 @@ def read_article(session: Session, article_id: int) -> dict[str, Any] | None:
         "content": article.content,
         "summary_zh": article.summary_zh,
         "summary_grounding": article.summary_grounding,
+        "reading": current_reading(article),
         "summary_failures": article.summary_failures,
         "embedding_status": "done" if article.embedding is not None else "pending",
         "processing_status": _article_status(
@@ -423,6 +434,7 @@ def read_event(session: Session, event_id: int) -> dict[str, Any] | None:
         "id": event.id,
         "title": event.title,
         "summary_zh": event.summary_zh,
+        "reading": event_reading(list(event.articles)),
         "score_final": event.score_final,
         "score_breakdown": event.score_breakdown,
         "scored_at": event.scored_at,

@@ -5,6 +5,7 @@ import pytest
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from tests.reading_fixtures import approve
 from unspun.api.app import app
 from unspun.api.events import get_db
 from unspun.core.models import Article, Event, FetchLog, LlmUsage, PipelineRun
@@ -72,6 +73,10 @@ async def test_daily_report_backlog_and_last_run(db_session: Session) -> None:
             PipelineRun(summarized=4, embedded=3, clustered=2, new_events=1, scored=5),
         ]
     )
+    db_session.flush()
+
+    for item in db_session.scalars(select(Article).where(Article.summary_zh == "summary present")):
+        approve(item)
     db_session.flush()
 
     def override() -> Generator[Session]:

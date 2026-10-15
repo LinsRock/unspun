@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Alert, Button, Descriptions, Drawer, Spin, Typography } from 'antd'
 
+import { readingReasonLabel } from '../contentQualityLabel'
 import type { AdminRange } from './adminFilters'
 import { displayTime, getHistoryDetail, safeExternalUrl, type ArticleDetailData } from './adminHistoryApi'
 
@@ -24,6 +25,7 @@ export default function ArticleDetail({ id, range, onClose, onEvent }: Props) {
     {query.isPending && <Spin />}
     {query.isError && <Alert type="error" showIcon title="无法加载文章详情" action={<Button size="small" onClick={() => void query.refetch()}>重试</Button>} />}
     {article && <div className="admin-detail-stack">
+      <Alert type={article.reading?.status === 'ready' ? 'success' : 'info'} showIcon title={article.reading?.status === 'ready' ? '已通过中文发布审核' : readingReasonLabel(article.reading?.reason)} description="摘要审核检查生成内容与原文的对应关系；来源信誉与事件重要性分别判断。" />
       <Descriptions bordered size="small" column={1} items={[
         { key: 'source', label: '来源', children: article.source_name || article.source_id },
         { key: 'published', label: '报道时间', children: displayTime(article.published_at) },

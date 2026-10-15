@@ -52,8 +52,17 @@ Production repair follows normal PR deployment rather than manual data edits.
 The production default adds at most $0.40 of recorded review spend per rolling
 24 hours before it stops subsequent requests; one request or concurrent callers
 may slightly exceed that allowance. This cap covers grounding review only.
-Budget fallback stores original titles and a visible review-pending status;
-it never silently accepts unreviewed generated facts. An explicit repair aborts
-on this fallback rather than replacing good data. Evaluation overrides the
+Budget exhaustion clears publishable text and stores a retryable review-pending
+status. A completed generation draft can resume review without regeneration;
+the batch checks available review budget before paying for new generation.
+An explicit repair aborts on this fallback rather than replacing good data. Evaluation overrides the
 rolling allowance only in its isolated database to exercise all cases; its
 per-run CLI limits remain active.
+
+The reading-v1 gate adds deterministic language, quote, title-review and
+information-value checks without additional model calls. Narrow v5 metadata
+recovery uses the audited supported-title branch, then applies this gate; it
+does not infer approval for unchanged original titles or budget-paused drafts.
+The local reading preview labels all synthetic approvals and cannot connect
+to a production database. See the reading publication design and acceptance
+record under `docs/` for real read-only audit evidence and validation limits.

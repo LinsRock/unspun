@@ -71,7 +71,11 @@ def fetch_source(session: Session, client: httpx.Client, source: Source) -> int:
     known = set(
         session.scalars(select(Article.url).where(Article.url.in_([e.url for e in entries])))
     )
-    new_entries = [e for e in entries if e.url not in known]
+    new_entries: list[FeedEntry] = []
+    for entry in entries:
+        if entry.url not in known:
+            new_entries.append(entry)
+            known.add(entry.url)
     for entry in new_entries:
         fetched_at = datetime.now(UTC)
         content, publication, content_basis = _article_material(client, entry, fetched_at)

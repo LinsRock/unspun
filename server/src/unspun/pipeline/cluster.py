@@ -10,6 +10,7 @@ from unspun.core.db import session_scope
 from unspun.core.logging import get_logger
 from unspun.core.models import Article, Event
 from unspun.core.params import get_scoring_params
+from unspun.core.reading import ready_condition, refresh_event_text
 
 log = get_logger("unspun.pipeline.cluster")
 
@@ -28,7 +29,8 @@ def assign_article(session: Session, article: Article, threshold: float) -> bool
     if row is not None and (1.0 - float(row[1])) >= threshold:
         event: Event = row[0]
         article.event = event
-        _refresh_centroid(session, event)
+        refresh_centroid(session, event)
+        refresh_event_text(event)
         event.changed_at = datetime.now(UTC)
         return False
     event = Event(
@@ -38,10 +40,12 @@ def assign_article(session: Session, article: Article, threshold: float) -> bool
     )
     session.add(event)
     article.event = event
+    session.flush()
+    refresh_event_text(event)
     return True
 
 
-def _refresh_centroid(session: Session, event: Event) -> None:
+def refresh_centroid(session: Session, event: Event) -> None:
     # Autoflush makes this query see the article just attached.
     embeddings = list(
         session.scalars(
@@ -67,7 +71,9 @@ def cluster_pending(limit: int = CLUSTER_BATCH_LIMIT) -> tuple[int, int]:
         ids = list(
             session.scalars(
                 select(Article.id)
-                .where(Article.embedding.is_not(None), Article.event_id.is_(None))
+                .where(
+                    Article.embedding.is_not(None), Article.event_id.is_(None), ready_condition()
+                )
                 .order_by(Article.id)
                 .limit(limit)
             )
