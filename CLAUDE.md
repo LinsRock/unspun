@@ -2,6 +2,7 @@
 
 A single-user app for automatic discovery and curation of important developments and personally interesting articles, videos, posts, and discussions. Domestic platforms and Chinese-language sources come first; content can cover the world, with a small set of international sources supplementing coverage.
 Current phase: **product redefinition and refactoring proposal**, following the user's 2026-10-15 reset. Confirmed direction is in `docs/product-definition.md`; draft requirements, delivery batches, and implementation proposals are in `docs/requirement.md`, `docs/roadmaps.md`, and `docs/implementation-proposal.md`. Proposed defaults are not implementation approval. `docs/tasks/m3.md` records legacy work; do not resume its A-G sequence automatically. Original requirements and roadmap are preserved in the dated legacy files. M2's historical closure and outstanding evidence remain unchanged.
+The user confirmed a recommendation-first feed with a latest switch, and daily selections that update when important new content arrives (D-024). Requested sources and validation status live in `docs/source-plan.md`; this list is distinct from the enabled runtime configuration. WeChat public accounts and Xiaohongshu are later exploration items.
 
 ## Architecture
 

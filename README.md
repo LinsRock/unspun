@@ -6,4 +6,5 @@ A single-user app that automatically discovers and curates important development
 - Requirements: [docs/requirement.md](docs/requirement.md) (Chinese)
 - Roadmap: [docs/roadmaps.md](docs/roadmaps.md) (Chinese)
 - Refactoring proposal: [docs/implementation-proposal.md](docs/implementation-proposal.md) (Chinese)
+- Requested sources and validation: [docs/source-plan.md](docs/source-plan.md) (Chinese)
 - Engineering guide (architecture / commands / conventions): [CLAUDE.md](CLAUDE.md)

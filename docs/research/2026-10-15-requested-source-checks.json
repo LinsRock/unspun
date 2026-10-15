@@ -1,0 +1,290 @@
+{
+  "observed_on": "2026-10-15",
+  "environment": "agent_host_not_production",
+  "runtime_configuration_modified": false,
+  "continuous_stability_verified": false,
+  "full_text_completeness_verified": false,
+  "endpoint_checks": [
+    {
+      "source": "BBC",
+      "kind": "rss",
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "http_status": 200,
+      "items": 29
+    },
+    {
+      "source": "纽约时报",
+      "kind": "rss",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "http_status": 200,
+      "items": 59
+    },
+    {
+      "source": "华尔街日报",
+      "kind": "rss",
+      "url": "https://feeds.content.dowjones.io/public/rss/RSSWorldNews",
+      "http_status": 200,
+      "items": 73
+    },
+    {
+      "source": "豆瓣书评",
+      "kind": "rss",
+      "url": "https://www.douban.com/feed/review/book",
+      "http_status": 200,
+      "items": 20,
+      "first_item_published": "Wed, 30 Sep 2026 05:00:01 GMT",
+      "first_item_description_chars": 209
+    },
+    {
+      "source": "豆瓣影评",
+      "kind": "rss",
+      "url": "https://www.douban.com/feed/review/movie",
+      "http_status": 200,
+      "items": 20,
+      "first_item_published": "Wed, 14 Oct 2026 15:26:29 GMT",
+      "first_item_description_chars": 191
+    },
+    {
+      "source": "知乎日报",
+      "kind": "json_list",
+      "url": "https://news-at.zhihu.com/api/4/news/latest",
+      "http_status": 200,
+      "stories": 4,
+      "date": "20261015"
+    },
+    {
+      "source": "知乎日报",
+      "kind": "json_list",
+      "url": "https://daily.zhihu.com/api/4/stories/latest",
+      "http_status": 200,
+      "stories": 4,
+      "date": "20261015"
+    },
+    {
+      "source": "知乎日报",
+      "kind": "json_detail",
+      "url": "https://news-at.zhihu.com/api/4/news/9793247",
+      "http_status": 200,
+      "body_present": true,
+      "body_chars": 4083,
+      "original_url_present": true
+    }
+  ],
+  "upstream_repository": "https://github.com/DIYgod/RSSHub",
+  "upstream_commit_reference": "d24f5136487a388662ec6656e4f1ba4ff46b0ed8",
+  "upstream_route_checks": [
+    {
+      "file": "lib/routes/news/xhsxw.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/news/xhsxw.ts",
+      "source_sha256": "7466ba4be812382aaab27f58a82138ab1cf6b7e5700d718cdb6615b218186c58",
+      "declared_path": "['/xhsxw', '/whxw']",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/zaobao/realtime.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/zaobao/realtime.ts",
+      "source_sha256": "37123df9e092eeee9a01431c4d90ec8004fdcc45b1ee271170ae4f8fcde1fb44",
+      "declared_path": "'/realtime/:section?'",
+      "declared_require_puppeteer": null,
+      "declared_anti_crawler": null,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/infzm/index.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/infzm/index.ts",
+      "source_sha256": "3dad9fc87f1c18188efff9db7f9224e530e1f03e06e071e7982485bcd5dfe35a",
+      "declared_path": "'/:id'",
+      "declared_require_puppeteer": null,
+      "declared_anti_crawler": null,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/infzm/hot.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/infzm/hot.ts",
+      "source_sha256": "0e6d3bcf0c405320e5fe8e44590a73979c7e9193aa828fff84f98a8c32985ef8",
+      "declared_path": "'/hot'",
+      "declared_require_puppeteer": null,
+      "declared_anti_crawler": null,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/people/paper.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/people/paper.ts",
+      "source_sha256": "8521c431709a8754cbb76ad38edc1e77d2a09b404a89f3678f8901e79f9be6e9",
+      "declared_path": "'/paper/:page?'",
+      "declared_require_puppeteer": null,
+      "declared_anti_crawler": null,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/bjnews/cat.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/bjnews/cat.ts",
+      "source_sha256": "146a7a756befb63de01a9d948bb27379e87a56641ef50151cf04c6b944467bb3",
+      "declared_path": "'/cat/:cat'",
+      "declared_require_puppeteer": null,
+      "declared_anti_crawler": null,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/jiemian/lists.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/jiemian/lists.ts",
+      "source_sha256": "5e9b437a1e19767df21a1b83c4d06d093bb5ba596bb653ad6291217318f1b62a",
+      "declared_path": "'/lists/:id'",
+      "declared_require_puppeteer": null,
+      "declared_anti_crawler": null,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/163/news/rank.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/163/news/rank.ts",
+      "source_sha256": "b0970d42d5b1cbfe7ef899c52e38852def1811a77b27d6091e554a9bd9749c45",
+      "declared_path": "'/news/rank/:category/:type?/:time?'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/163/news/special.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/163/news/special.ts",
+      "source_sha256": "3aa492d1903f7f02b3635d4cc5588a44c5a926c29e9a8809d067100d63863f51",
+      "declared_path": "'/news/special/:type?'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/qq/news/user.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/qq/news/user.ts",
+      "source_sha256": "90019c014f37d9c80bc208d859f442871a9c69f08246b0349f5b5cf5417444bd",
+      "declared_path": "'/news/:uid/:detail?'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/36kr/index.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/36kr/index.ts",
+      "source_sha256": "7409a6c45116333b774c560b9043d154bdc4ab222836671c37e9eb1fde35db4c",
+      "declared_path": "'/:category/:subCategory?/:keyword?'",
+      "declared_require_puppeteer": null,
+      "declared_anti_crawler": null,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/zhihu/daily.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/zhihu/daily.ts",
+      "source_sha256": "6162d0d7fc0cced3c87e186e3e028e5bfb6e7ed844c757a0b9c6f3feab182e27",
+      "declared_path": "'/daily'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/zhihu/hot.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/zhihu/hot.ts",
+      "source_sha256": "bf33a02e5f1b50b1a40bd1b3b7b0fdd8f9288da1b0273e670fb340ed2b2d3dac",
+      "declared_path": "'/hot/:category?'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": true,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/douban/other/group.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/douban/other/group.ts",
+      "source_sha256": "051b7e3924db2e3d645e8ec9ef198a0d07964b3f3584604161d496f1ca864f72",
+      "declared_path": "'/group/:groupid/:type?'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/xueqiu/hots.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/xueqiu/hots.ts",
+      "source_sha256": "bfde59ce9fcb1ca41a76c098e43df4bf34b4dbbe04f9c25d613de325c958b5fd",
+      "declared_path": "'/hots'",
+      "declared_require_puppeteer": true,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/xueqiu/today.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/xueqiu/today.ts",
+      "source_sha256": "872a032cb511a4721b19cd33fcc00c092a26e75a30e866ef06c064513781209c",
+      "declared_path": "'/today'",
+      "declared_require_puppeteer": true,
+      "declared_anti_crawler": true,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/fortunechina/index.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/fortunechina/index.ts",
+      "source_sha256": "99311f5826ee2bb9caf200242257a522428aaf3814c0e980e400c46190a39b69",
+      "declared_path": "'/:category?'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/weibo/user.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/weibo/user.ts",
+      "source_sha256": "01bbc3eb43b658f4f8ef53accbd1b3522a4c774b634bd8266cfe645779db7571",
+      "declared_path": "'/user/:uid/:routeParams?'",
+      "declared_require_puppeteer": true,
+      "declared_anti_crawler": true,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/weibo/keyword.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/weibo/keyword.ts",
+      "source_sha256": "8894527f4713c44235a6b53933b32c115110508854b17c2b84c3b6d57f260ee9",
+      "declared_path": "'/keyword/:keyword/:routeParams?'",
+      "declared_require_puppeteer": true,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/wechat/mp.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/wechat/mp.ts",
+      "source_sha256": "c2e8fe5087d0d0323c8f99e0064552821429cbc9203ee6780daf34f8f8124272",
+      "declared_path": "'/mp/homepage/:biz/:hid/:cid?'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": true,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/wechat/sogou.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/wechat/sogou.ts",
+      "source_sha256": "a98332098211732501432b17b0c883d7e01c16980bbff8e51479171e725a7771",
+      "declared_path": "'/sogou/:id'",
+      "declared_require_puppeteer": false,
+      "declared_anti_crawler": true,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/xiaohongshu/user.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/xiaohongshu/user.ts",
+      "source_sha256": "29845a69208fe28e8a1f3bdfa1594c44f644960ebe30340419fc680e34f1319b",
+      "declared_path": "'/user/:user_id/:category/:routeParams?'",
+      "declared_require_puppeteer": true,
+      "declared_anti_crawler": true,
+      "runtime_executed": false
+    },
+    {
+      "file": "lib/routes/xiaohongshu/board.ts",
+      "upstream_url": "https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/xiaohongshu/board.ts",
+      "source_sha256": "dccd164ad67091924a7be0a4c442acb4396567401c02c3865e0347200902f5dd",
+      "declared_path": "'/board/:board_id'",
+      "declared_require_puppeteer": true,
+      "declared_anti_crawler": false,
+      "runtime_executed": false
+    }
+  ],
+  "notes": [
+    "RSS 或 JSON 返回成功不等于已经接入、稳定更新或全文完整。",
+    "上游路由核对不代表项目当前 RSSHub 镜像可运行。",
+    "豆瓣书评与影评的订阅描述已取得，单篇正文尚未验证；旧文也可能有阅读价值。",
+    "所有探测均为公开读取，没有登录、调用付费模型或修改生产。"
+  ]
+}
