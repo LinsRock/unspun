@@ -25,7 +25,7 @@ R0–R3 是本次重构的交付批次，用来区别历史 M1/M2/M3。按每批
 
 ## R0 定义与真实来源验证
 
-本轮已形成[产品定义](product-definition.md)、[需求](requirement.md)、[实现方案](implementation-proposal.md)和[有限来源初查](research/2026-10-15-source-feasibility.md)。其余采集验证、样本、阈值与原型均未完成。
+本轮已形成[产品定义](product-definition.md)、[需求](requirement.md)、[实现方案](implementation-proposal.md)和[有限来源初查](research/2026-10-15-source-feasibility.md)。随后已完成首批 19 项来源的[采集验证与真实候选准备](research/2026-10-15-r0-source-validation.md)，包含目标环境只读探测、历史日志和 43 个待评价候选；任务边界见 [R0 任务记录](tasks/r0.md)。新增路径的多日稳定性、用户样本评价、冻结基准、阈值与原型仍未完成，不将本项准备记为整个 R0 验收通过。
 
 下一步完成以下准备：
 
