@@ -1,7 +1,7 @@
-# Unspun · Personal Intelligence Station
+# Unspun
 
-A single-user intelligence aggregator: it pulls Chinese and English sources, then uses AI to cluster, score, and contrast viewpoints — built to break out of the filter bubble.
-Requirements live in `docs/requirement.md`; milestones and acceptance criteria in `docs/roadmaps.md`. Current phase: **M3 curated intelligence and daily publishing**; task board: `docs/tasks/m3.md`. M2 was closed by user decision on 2026-10-12; outstanding evidence is tracked on both milestone boards.
+A single-user app for automatic discovery and curation of important developments and personally interesting articles, videos, posts, and discussions. Domestic platforms and Chinese-language sources come first; content can cover the world, with a small set of international sources supplementing coverage.
+Current phase: **product redefinition and refactoring proposal**, following the user's 2026-10-15 reset. Confirmed direction is in `docs/product-definition.md`; draft requirements, delivery batches, and implementation proposals are in `docs/requirement.md`, `docs/roadmaps.md`, and `docs/implementation-proposal.md`. Proposed defaults are not implementation approval. `docs/tasks/m3.md` records legacy work; do not resume its A-G sequence automatically. Original requirements and roadmap are preserved in the dated legacy files. M2's historical closure and outstanding evidence remain unchanged.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ docker compose -f deploy/compose.yml -f deploy/compose.local.yml up --build
 
 Rules for AI sessions working on this repo across milestones:
 
-- **Sources of truth**: `docs/requirement.md` (product spec) and `docs/roadmaps.md` (milestones with acceptance criteria). Both are living documents owned by the user and still evolving — treat them as the current best understanding, not a frozen contract. Requirement changes land in `docs/` first; the task board is reconciled afterwards.
+- **Sources of truth**: `docs/product-definition.md` (confirmed direction and design suggestions), `docs/requirement.md` (product spec), and `docs/roadmaps.md` (delivery batches and acceptance). These are living documents owned by the user — distinguish confirmed requirements from proposed defaults and observed implementation. Requirement changes land in `docs/` first; the task board is reconciled afterwards.
 - **Task board**: each milestone has `docs/tasks/m<n>.md`. At milestone kickoff, break the scope into PR-sized tasks and get the user's confirmation before implementing. Write every task self-contained (goal, touched areas, acceptance, dependencies) so a fresh session can execute it without conversation history.
 - **Session protocol**: one session works one task and ends in one PR. Start by reading the task board and `docs/decisions.md`; plan before coding for non-trivial tasks; implement with tests; run the lint/typecheck/test commands above; run /code-review before opening the PR; tick the task off in the same PR that completes it.
 - **Decision log**: `docs/decisions.md` records significant technical choices and why they were made. Check it before proposing architecture or dependency changes; never silently reverse a recorded decision — propose the change to the user and update the log entry instead.
