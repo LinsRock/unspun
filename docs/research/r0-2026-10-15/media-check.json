@@ -1,0 +1,16 @@
+{
+  "id": "xinhua-video-range",
+  "source": "新华网",
+  "url": "https://vodpub6.v.news.cn/yqfbzx-original/20261015/202610151c6de712a4704e6eb1a07960669a1548_XxjnspC000002_20261015_CBVFN0A001.mp4",
+  "observed_at": "2026-10-15T10:46:00.158133+00:00",
+  "method": "GET",
+  "range": "bytes=0-1023",
+  "downloaded_full_video": false,
+  "transcription_performed": false,
+  "status": 206,
+  "content_type": "video/mp4",
+  "content_length": "1024",
+  "content_range": "bytes 0-1023/279001274",
+  "sample_bytes": 1024,
+  "environment": "agent_host"
+}

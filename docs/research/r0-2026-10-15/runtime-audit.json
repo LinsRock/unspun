@@ -1,0 +1,659 @@
+{
+  "observed_at": "2026-10-15 10:37:05.363491+00:00",
+  "transaction_read_only": "on",
+  "logs": [
+    {
+      "source_id": "36kr-newsflashes",
+      "polls": 292,
+      "ok": 289,
+      "errors": 3,
+      "new_articles": 981,
+      "first_poll": "2026-10-09 10:34:57.313756+00:00",
+      "last_poll": "2026-10-15 06:33:46.218811+00:00",
+      "last_success": "2026-10-15 06:33:46.218811+00:00",
+      "last_error": "2026-10-10 09:08:04.224345+00:00"
+    },
+    {
+      "source_id": "bbc-world",
+      "polls": 319,
+      "ok": 319,
+      "errors": 0,
+      "new_articles": 207,
+      "first_poll": "2026-10-09 03:53:19.755244+00:00",
+      "last_poll": "2026-10-15 06:33:00.837836+00:00",
+      "last_success": "2026-10-15 06:33:00.837836+00:00",
+      "last_error": null
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "polls": 318,
+      "ok": 318,
+      "errors": 0,
+      "new_articles": 79,
+      "first_poll": "2026-10-09 03:57:11.016018+00:00",
+      "last_poll": "2026-10-15 06:33:29.212732+00:00",
+      "last_success": "2026-10-15 06:33:29.212732+00:00",
+      "last_error": null
+    },
+    {
+      "source_id": "nyt-cn",
+      "polls": 318,
+      "ok": 318,
+      "errors": 0,
+      "new_articles": 45,
+      "first_poll": "2026-10-09 03:58:08.223753+00:00",
+      "last_poll": "2026-10-15 06:33:29.934801+00:00",
+      "last_success": "2026-10-15 06:33:29.934801+00:00",
+      "last_error": null
+    },
+    {
+      "source_id": "nyt-world",
+      "polls": 319,
+      "ok": 319,
+      "errors": 0,
+      "new_articles": 184,
+      "first_poll": "2026-10-09 03:53:29.922719+00:00",
+      "last_poll": "2026-10-15 06:33:01.988247+00:00",
+      "last_success": "2026-10-15 06:33:01.988247+00:00",
+      "last_error": null
+    },
+    {
+      "source_id": "thepaper",
+      "polls": 292,
+      "ok": 243,
+      "errors": 49,
+      "new_articles": 40,
+      "first_poll": "2026-10-09 10:34:36.199738+00:00",
+      "last_poll": "2026-10-15 06:33:39.547589+00:00",
+      "last_success": "2026-10-15 06:33:39.547589+00:00",
+      "last_error": "2026-10-10 17:38:19.693437+00:00"
+    },
+    {
+      "source_id": "wsj-world",
+      "polls": 257,
+      "ok": 257,
+      "errors": 0,
+      "new_articles": 154,
+      "first_poll": "2026-10-10 03:46:17.561694+00:00",
+      "last_poll": "2026-10-15 06:33:06.920213+00:00",
+      "last_success": "2026-10-15 06:33:06.920213+00:00",
+      "last_error": null
+    },
+    {
+      "source_id": "xinhua",
+      "polls": 255,
+      "ok": 255,
+      "errors": 0,
+      "new_articles": 1111,
+      "first_poll": "2026-10-10 03:47:15.206825+00:00",
+      "last_poll": "2026-10-15 06:34:14.753051+00:00",
+      "last_success": "2026-10-15 06:34:14.753051+00:00",
+      "last_error": null
+    },
+    {
+      "source_id": "zaobao-china",
+      "polls": 292,
+      "ok": 292,
+      "errors": 0,
+      "new_articles": 312,
+      "first_poll": "2026-10-09 10:34:50.799455+00:00",
+      "last_poll": "2026-10-15 06:33:44.416283+00:00",
+      "last_success": "2026-10-15 06:33:44.416283+00:00",
+      "last_error": null
+    },
+    {
+      "source_id": "zhihu-hot",
+      "polls": 252,
+      "ok": 252,
+      "errors": 0,
+      "new_articles": 575,
+      "first_poll": "2026-10-10 04:18:23.053567+00:00",
+      "last_poll": "2026-10-15 06:36:12.418512+00:00",
+      "last_success": "2026-10-15 06:36:12.418512+00:00",
+      "last_error": null
+    }
+  ],
+  "daily_logs": [
+    {
+      "source_id": "36kr-newsflashes",
+      "day": "2026-10-09",
+      "polls": 27,
+      "ok": 27,
+      "new_articles": 51
+    },
+    {
+      "source_id": "36kr-newsflashes",
+      "day": "2026-10-10",
+      "polls": 55,
+      "ok": 52,
+      "new_articles": 112
+    },
+    {
+      "source_id": "36kr-newsflashes",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 62
+    },
+    {
+      "source_id": "36kr-newsflashes",
+      "day": "2026-10-12",
+      "polls": 51,
+      "ok": 51,
+      "new_articles": 251
+    },
+    {
+      "source_id": "36kr-newsflashes",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 195
+    },
+    {
+      "source_id": "36kr-newsflashes",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 210
+    },
+    {
+      "source_id": "36kr-newsflashes",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 100
+    },
+    {
+      "source_id": "bbc-world",
+      "day": "2026-10-09",
+      "polls": 53,
+      "ok": 53,
+      "new_articles": 68
+    },
+    {
+      "source_id": "bbc-world",
+      "day": "2026-10-10",
+      "polls": 55,
+      "ok": 55,
+      "new_articles": 25
+    },
+    {
+      "source_id": "bbc-world",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 18
+    },
+    {
+      "source_id": "bbc-world",
+      "day": "2026-10-12",
+      "polls": 52,
+      "ok": 52,
+      "new_articles": 27
+    },
+    {
+      "source_id": "bbc-world",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 34
+    },
+    {
+      "source_id": "bbc-world",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 29
+    },
+    {
+      "source_id": "bbc-world",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 6
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "day": "2026-10-09",
+      "polls": 52,
+      "ok": 52,
+      "new_articles": 42
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "day": "2026-10-10",
+      "polls": 55,
+      "ok": 55,
+      "new_articles": 4
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 5
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "day": "2026-10-12",
+      "polls": 52,
+      "ok": 52,
+      "new_articles": 6
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 7
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 9
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 6
+    },
+    {
+      "source_id": "nyt-cn",
+      "day": "2026-10-09",
+      "polls": 52,
+      "ok": 52,
+      "new_articles": 22
+    },
+    {
+      "source_id": "nyt-cn",
+      "day": "2026-10-10",
+      "polls": 55,
+      "ok": 55,
+      "new_articles": 0
+    },
+    {
+      "source_id": "nyt-cn",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 0
+    },
+    {
+      "source_id": "nyt-cn",
+      "day": "2026-10-12",
+      "polls": 52,
+      "ok": 52,
+      "new_articles": 5
+    },
+    {
+      "source_id": "nyt-cn",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 5
+    },
+    {
+      "source_id": "nyt-cn",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 6
+    },
+    {
+      "source_id": "nyt-cn",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 7
+    },
+    {
+      "source_id": "nyt-world",
+      "day": "2026-10-09",
+      "polls": 53,
+      "ok": 53,
+      "new_articles": 90
+    },
+    {
+      "source_id": "nyt-world",
+      "day": "2026-10-10",
+      "polls": 55,
+      "ok": 55,
+      "new_articles": 15
+    },
+    {
+      "source_id": "nyt-world",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 13
+    },
+    {
+      "source_id": "nyt-world",
+      "day": "2026-10-12",
+      "polls": 52,
+      "ok": 52,
+      "new_articles": 14
+    },
+    {
+      "source_id": "nyt-world",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 22
+    },
+    {
+      "source_id": "nyt-world",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 25
+    },
+    {
+      "source_id": "nyt-world",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 5
+    },
+    {
+      "source_id": "thepaper",
+      "day": "2026-10-09",
+      "polls": 27,
+      "ok": 1,
+      "new_articles": 20
+    },
+    {
+      "source_id": "thepaper",
+      "day": "2026-10-10",
+      "polls": 55,
+      "ok": 32,
+      "new_articles": 20
+    },
+    {
+      "source_id": "thepaper",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 0
+    },
+    {
+      "source_id": "thepaper",
+      "day": "2026-10-12",
+      "polls": 51,
+      "ok": 51,
+      "new_articles": 0
+    },
+    {
+      "source_id": "thepaper",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 0
+    },
+    {
+      "source_id": "thepaper",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 0
+    },
+    {
+      "source_id": "thepaper",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 0
+    },
+    {
+      "source_id": "wsj-world",
+      "day": "2026-10-10",
+      "polls": 46,
+      "ok": 46,
+      "new_articles": 76
+    },
+    {
+      "source_id": "wsj-world",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 12
+    },
+    {
+      "source_id": "wsj-world",
+      "day": "2026-10-12",
+      "polls": 52,
+      "ok": 52,
+      "new_articles": 23
+    },
+    {
+      "source_id": "wsj-world",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 20
+    },
+    {
+      "source_id": "wsj-world",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 20
+    },
+    {
+      "source_id": "wsj-world",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 3
+    },
+    {
+      "source_id": "xinhua",
+      "day": "2026-10-10",
+      "polls": 45,
+      "ok": 45,
+      "new_articles": 187
+    },
+    {
+      "source_id": "xinhua",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 150
+    },
+    {
+      "source_id": "xinhua",
+      "day": "2026-10-12",
+      "polls": 51,
+      "ok": 51,
+      "new_articles": 210
+    },
+    {
+      "source_id": "xinhua",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 254
+    },
+    {
+      "source_id": "xinhua",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 240
+    },
+    {
+      "source_id": "xinhua",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 70
+    },
+    {
+      "source_id": "zaobao-china",
+      "day": "2026-10-09",
+      "polls": 27,
+      "ok": 27,
+      "new_articles": 38
+    },
+    {
+      "source_id": "zaobao-china",
+      "day": "2026-10-10",
+      "polls": 55,
+      "ok": 55,
+      "new_articles": 51
+    },
+    {
+      "source_id": "zaobao-china",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 38
+    },
+    {
+      "source_id": "zaobao-china",
+      "day": "2026-10-12",
+      "polls": 51,
+      "ok": 51,
+      "new_articles": 49
+    },
+    {
+      "source_id": "zaobao-china",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 47
+    },
+    {
+      "source_id": "zaobao-china",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 68
+    },
+    {
+      "source_id": "zaobao-china",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 21
+    },
+    {
+      "source_id": "zhihu-hot",
+      "day": "2026-10-10",
+      "polls": 42,
+      "ok": 42,
+      "new_articles": 108
+    },
+    {
+      "source_id": "zhihu-hot",
+      "day": "2026-10-11",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 100
+    },
+    {
+      "source_id": "zhihu-hot",
+      "day": "2026-10-12",
+      "polls": 51,
+      "ok": 51,
+      "new_articles": 109
+    },
+    {
+      "source_id": "zhihu-hot",
+      "day": "2026-10-13",
+      "polls": 49,
+      "ok": 49,
+      "new_articles": 113
+    },
+    {
+      "source_id": "zhihu-hot",
+      "day": "2026-10-14",
+      "polls": 48,
+      "ok": 48,
+      "new_articles": 101
+    },
+    {
+      "source_id": "zhihu-hot",
+      "day": "2026-10-15",
+      "polls": 14,
+      "ok": 14,
+      "new_articles": 44
+    }
+  ],
+  "article_counts": [
+    {
+      "source_id": "36kr-newsflashes",
+      "count": 981,
+      "first_fetch": "2026-10-09 10:34:57.313756+00:00",
+      "last_fetch": "2026-10-15 06:33:53.825388+00:00",
+      "max_published_at": "2026-10-15 06:23:41+00:00"
+    },
+    {
+      "source_id": "bbc-world",
+      "count": 207,
+      "first_fetch": "2026-10-09 03:53:19.755244+00:00",
+      "last_fetch": "2026-10-15 04:03:01.595771+00:00",
+      "max_published_at": "2026-10-15 03:33:08+00:00"
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "count": 79,
+      "first_fetch": "2026-10-09 03:57:11.016018+00:00",
+      "last_fetch": "2026-10-15 06:33:29.214750+00:00",
+      "max_published_at": "2026-10-15 06:09:59+00:00"
+    },
+    {
+      "source_id": "nyt-cn",
+      "count": 45,
+      "first_fetch": "2026-10-09 03:58:08.223753+00:00",
+      "last_fetch": "2026-10-15 06:33:29.935979+00:00",
+      "max_published_at": "2026-10-15 04:10:34+00:00"
+    },
+    {
+      "source_id": "nyt-world",
+      "count": 184,
+      "first_fetch": "2026-10-09 03:53:29.922719+00:00",
+      "last_fetch": "2026-10-15 05:03:01.643546+00:00",
+      "max_published_at": "2026-10-15 04:42:57+00:00"
+    },
+    {
+      "source_id": "thepaper",
+      "count": 40,
+      "first_fetch": "2026-10-09 10:34:36.199738+00:00",
+      "last_fetch": "2026-10-10 04:07:23.348361+00:00",
+      "max_published_at": "2026-10-09 10:13:56+00:00"
+    },
+    {
+      "source_id": "wsj-world",
+      "count": 154,
+      "first_fetch": "2026-10-10 03:46:17.561694+00:00",
+      "last_fetch": "2026-10-15 03:03:08.416093+00:00",
+      "max_published_at": "2026-10-15 02:35:00+00:00"
+    },
+    {
+      "source_id": "xinhua",
+      "count": 1111,
+      "first_fetch": "2026-10-10 03:47:15.206825+00:00",
+      "last_fetch": "2026-10-15 06:34:15.659763+00:00",
+      "max_published_at": "2026-10-15 06:29:28+00:00"
+    },
+    {
+      "source_id": "zaobao-china",
+      "count": 312,
+      "first_fetch": "2026-10-09 10:34:50.799455+00:00",
+      "last_fetch": "2026-10-15 06:33:44.417777+00:00",
+      "max_published_at": "2026-10-15 06:19:21+00:00"
+    },
+    {
+      "source_id": "zhihu-hot",
+      "count": 575,
+      "first_fetch": "2026-10-10 04:18:23.053567+00:00",
+      "last_fetch": "2026-10-15 06:36:12.666991+00:00",
+      "max_published_at": "2026-10-15 04:08:34+00:00"
+    }
+  ]
+}
