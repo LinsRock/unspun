@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-10-16T06:35:10.906204+00:00",
+  "source": "https://openrouter.ai/api/v1/embeddings/models",
+  "response_sha256": "3b317637807d6f00156cb83b0075b1ab9cab8ecac7cae0ebfe96647f7ec5c6c5",
+  "model": {
+    "id": "qwen/qwen3-embedding-8b",
+    "context_length": 40960,
+    "pricing": {
+      "prompt": "0.00000001",
+      "completion": "0"
+    },
+    "top_provider": {
+      "context_length": 40960,
+      "max_completion_tokens": 32000,
+      "is_moderated": false
+    }
+  }
+}

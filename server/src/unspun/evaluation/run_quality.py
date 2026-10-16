@@ -3,19 +3,34 @@
 import argparse
 import json
 import re
+import shlex
 import subprocess
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
+from decimal import Decimal
 from hashlib import sha256
 from pathlib import Path
 from threading import Lock
-from typing import Any
+from typing import Any, cast
 
+import httpx
 from pydantic import HttpUrl
 from sqlalchemy import func, select
 from sqlalchemy.engine import make_url
 from sqlalchemy.orm import Session
 
+from unspun.core.billing import (
+    EVALUATION_LIMIT,
+    BudgetExceeded,
+    CallContext,
+    CallJournal,
+    DatabaseJournal,
+    Reservation,
+    budget_status,
+    initialize_budget,
+    reservation_bound,
+    usd,
+)
 from unspun.core.config import get_settings
 from unspun.core.db import get_engine
 from unspun.core.grounding import SUMMARY_VERSION
@@ -29,36 +44,85 @@ from unspun.pipeline.summarize import summarize_article
 from unspun.pipeline.viewpoints import VIEWPOINT_VERSION, refresh_event_viewpoint
 
 
-class BudgetExceeded(RuntimeError):
-    pass
-
-
 class BudgetLedger:
+    """Per-run physical-call cap layered over the persistent shared allocation."""
+
     def __init__(self, budget_usd: float, max_calls: int) -> None:
-        if budget_usd <= 0 or max_calls <= 0:
-            raise ValueError("budget and call cap must be positive")
+        if not 0 < budget_usd <= float(EVALUATION_LIMIT) or max_calls <= 0:
+            raise ValueError("evaluation budget must fit the registered allocation")
         self.cost_usd = 0.0
         self.calls = 0
-        self._budget = budget_usd
+        self._budget = Decimal(str(budget_usd))
+        self._held = Decimal(0)
         self._max_calls = max_calls
         self._lock = Lock()
 
-    def reserve(self) -> None:
+    def reserve(self, amount: Decimal) -> None:
         with self._lock:
-            if self.cost_usd >= self._budget or self.calls >= self._max_calls:
-                raise BudgetExceeded("evaluation budget or call cap reached")
+            if (
+                Decimal(str(self.cost_usd)) + self._held + amount > self._budget
+                or self.calls >= self._max_calls
+            ):
+                raise BudgetExceeded("evaluation physical-call budget or call cap reached")
             self.calls += 1
+            self._held += amount
 
-    def charge(self, cost: float, actual_calls: int) -> None:
+    def cancel(self, amount: Decimal) -> None:
         with self._lock:
-            self.cost_usd += cost
-            self.calls += max(0, actual_calls - 1)
+            self.calls -= 1
+            self._held -= amount
+
+    def settle(self, amount: Decimal, cost: Decimal) -> None:
+        with self._lock:
+            self.cost_usd += float(cost)
+            self._held -= amount
+
+
+class EvaluationJournal:
+    def __init__(self, journal: CallJournal, ledger: BudgetLedger) -> None:
+        self.journal, self.ledger = journal, ledger
+        self.amounts: dict[str, Decimal] = {}
+
+    def reserve(
+        self, *, purpose: str, model: str, request: dict[str, Any], context: CallContext
+    ) -> Reservation:
+        amount = reservation_bound(model, request)
+        self.ledger.reserve(amount)
+        try:
+            reservation = self.journal.reserve(
+                purpose=purpose, model=model, request=request, context=context
+            )
+        except BaseException:
+            self.ledger.cancel(amount)
+            raise
+        if reservation.response is not None:
+            self.ledger.cancel(amount)
+        else:
+            self.amounts[reservation.id] = amount
+        return reservation
+
+    def finish(self, identity: str, data: dict[str, Any], http_status: int) -> bool:
+        try:
+            return self.journal.finish(identity, data, http_status)
+        finally:
+            usage = data.get("usage")
+            cost = usd(cast(dict[str, Any], usage).get("cost")) if isinstance(usage, dict) else None
+            if cost is not None and identity in self.amounts:
+                self.ledger.settle(self.amounts.pop(identity), cost)
+
+    def unknown(self, identity: str, reason: str, http_status: int | None = None) -> None:
+        self.journal.unknown(identity, reason, http_status)
 
 
 class BudgetedClient:
-    def __init__(self, ledger: BudgetLedger) -> None:
+    def __init__(self, ledger: BudgetLedger, transport: httpx.BaseTransport | None = None) -> None:
         self.ledger = ledger
-        self.client = LlmClient()
+        self.client = LlmClient(
+            transport=transport,
+            journal_factory=lambda session: EvaluationJournal(
+                DatabaseJournal(session.get_bind().engine), ledger
+            ),
+        )
 
     def chat_json(
         self,
@@ -70,27 +134,9 @@ class BudgetedClient:
         purpose: str,
         max_tokens: int = 1024,
     ) -> dict[str, Any]:
-        self.ledger.reserve()
-        previous = {id(item) for item in session.new}
-        try:
-            return self.client.chat_json(
-                session,
-                model=model,
-                system=system,
-                user=user,
-                purpose=purpose,
-                max_tokens=max_tokens,
-            )
-        finally:
-            usage = [
-                item
-                for item in session.new
-                if id(item) not in previous and isinstance(item, LlmUsage)
-            ]
-            self.ledger.charge(sum(item.cost_usd for item in usage), len(usage))
-            # Only usage rows are attached to this session. Evaluation articles
-            # and events are transient and never stored in the application DB.
-            session.commit()
+        return self.client.chat_json(
+            session, model=model, system=system, user=user, purpose=purpose, max_tokens=max_tokens
+        )
 
     def embed(self, session: Session, texts: list[str]) -> list[list[float]]:
         raise LlmError("quality evaluation does not perform embeddings")
@@ -108,11 +154,15 @@ def load_key_from_ssh(host: str) -> None:
     if not re.fullmatch(r"[a-zA-Z0-9_.-]+", host):
         raise ValueError("invalid SSH host alias")
     # Capture directly in memory; never echo, log, or persist the credential.
-    command = (
-        "cd ~/unspun && docker compose -f deploy/compose.yml -f deploy/compose.prod.yml "
-        "exec -T worker python -c "
-        "'from unspun.core.config import get_settings; print(get_settings().openrouter_api_key)'"
-    )
+    code = """from pathlib import Path
+values = {}
+for line in (Path.home() / 'unspun/.env').read_text().splitlines():
+    if '=' in line and not line.lstrip().startswith('#'):
+        key, value = line.split('=', 1)
+        values[key] = value.strip().strip(chr(34)).strip(chr(39))
+print(values['OPENROUTER_API_KEY'])
+"""
+    command = "python3 -c " + shlex.quote(code)
     result = subprocess.run(
         ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", host, command],
         capture_output=True,
@@ -240,12 +290,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--variant", choices=["baseline", "candidate", "both"], default="both")
     parser.add_argument("--key-source-ssh")
-    parser.add_argument("--budget-usd", type=float, default=1.0)
+    parser.add_argument("--budget-usd", type=float, default=float(EVALUATION_LIMIT))
     parser.add_argument("--max-calls", type=int, default=350)
     parser.add_argument("--workers", type=int, choices=[1, 2, 3], default=2)
     parser.add_argument("--case", action="append", dest="case_ids")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
+    if args.output.exists():
+        raise ValueError("evaluation output already exists; preserve prior evidence")
+    ledger = BudgetLedger(args.budget_usd, args.max_calls)
     require_isolated_database()
     if args.key_source_ssh:
         load_key_from_ssh(args.key_source_ssh)
@@ -255,8 +308,9 @@ def main() -> None:
         if {case["id"] for case in cases} != set(args.case_ids):
             raise ValueError("unknown quality case")
     with Session(get_engine()) as session:
+        initialize_budget(session, scope="evaluation")
+        session.commit()
         first_usage_id = session.scalar(select(func.coalesce(func.max(LlmUsage.id), 0))) or 0
-    ledger = BudgetLedger(args.budget_usd, args.max_calls)
     variants = ["baseline", "candidate"] if args.variant == "both" else [args.variant]
     tasks = [(case, variant) for variant in variants for case in cases]
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
@@ -275,6 +329,7 @@ def main() -> None:
                 select(LlmUsage).where(LlmUsage.id > first_usage_id).order_by(LlmUsage.id)
             ).all()
         ]
+        accounting = budget_status(session)
     report = {
         "generated_at": datetime.now(UTC).isoformat(),
         "live_model_calls": True,
@@ -290,7 +345,12 @@ def main() -> None:
         "budget_usd": args.budget_usd,
         "cost_usd": ledger.cost_usd,
         "calls": ledger.calls,
-        "budget_note": "Cap stops subsequent calls; in-flight calls/retries can exceed the cap.",
+        "budget_note": (
+            "Each physical request/retry reserves before HTTP; "
+            "unresolved holds remain charged against the allocation."
+        ),
+        "cost_basis": "known_fees_only",
+        "accounting": accounting,
         "usage_ledger": usage,
         "results": results,
     }

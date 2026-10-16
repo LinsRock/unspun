@@ -697,3 +697,63 @@ def test_editor_discards_unsupported_predicate_money_identity_and_dangling_claus
     assert item.summary_zh == ""
     assert item.summary_grounding is not None
     assert item.summary_grounding["facts"] == []
+
+
+@pytest.mark.parametrize("review", [False, True])
+def test_shared_budget_defers_without_abandoning_content_or_losing_draft(
+    db_session: Session, monkeypatch: pytest.MonkeyPatch, review: bool
+) -> None:
+    from unspun.core.billing import BudgetExceeded
+
+    item = article(content="Two satellites launched.")
+    db_session.add(item)
+    db_session.flush()
+    item_id = item.id
+    connection = db_session.connection()
+
+    @contextmanager
+    def scope() -> Generator[Session]:
+        with (
+            Session(bind=connection, join_transaction_mode="create_savepoint") as session,
+            session.begin(),
+        ):
+            yield session
+
+    class DeferredLlm(ResponseLlm):
+        def chat_json(
+            self,
+            session: Session,
+            *,
+            model: str,
+            system: str,
+            user: str,
+            purpose: str,
+            max_tokens: int = 1024,
+        ) -> dict[str, Any]:
+            if not review or purpose == "grounding":
+                raise BudgetExceeded("synthetic budget pause")
+            return super().chat_json(
+                session,
+                model=model,
+                system=system,
+                user=user,
+                purpose=purpose,
+                max_tokens=max_tokens,
+            )
+
+    def pending_ids(session: Session, limit: int) -> list[int]:
+        return [item_id]
+
+    monkeypatch.setattr(summary_pipeline, "session_scope", scope)
+    monkeypatch.setattr(summary_pipeline, "pending_summary_ids", pending_ids)
+    client = DeferredLlm(
+        {"facts": [{"text": "Two satellites launched.", "quote": "Two satellites launched."}]}
+    )
+    for _ in range(3):
+        assert summary_pipeline.summarize_pending(client) == 0
+    db_session.expire_all()
+    assert item.summary_failures == 0
+    if review:
+        assert item.summary_grounding and item.summary_grounding["status"] == "review_limited"
+        assert item.summary_grounding["draft"]["output"]["facts"]
+        assert client.purposes.count("summary") == 1

@@ -134,8 +134,8 @@ def daily_report(session: Session = Depends(get_db)) -> ReportResponse:  # noqa:
             purpose=row[0],
             model=row[1],
             calls=row[2],
-            prompt_tokens=row[3],
-            completion_tokens=row[4],
+            prompt_tokens=row[3] or 0,
+            completion_tokens=row[4] or 0,
             cost_usd=float(row[5]),
         )
         for row in spend

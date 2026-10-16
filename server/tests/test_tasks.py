@@ -541,3 +541,23 @@ def test_unregistered_and_disabled_paid_handlers_do_not_consume(task_db: TaskDB)
     assert not empty.threads
     with task_db.scope() as session:
         assert session.get(PipelineTask, identity).status == "pending"  # type: ignore[union-attr]
+
+
+def test_shared_client_budget_failure_does_not_exhaust_task(task_db: TaskDB) -> None:
+    from unspun.core.billing import BudgetExceeded
+
+    task_id = task_db.add(queue="paid")
+
+    class BudgetHandler:
+        def run(self, lease: Lease) -> Any:
+            raise BudgetExceeded("synthetic shared budget exhaustion")
+
+        def apply(self, session: Session, lease: Lease, result: Any) -> dict[str, Any]:
+            pytest.fail("budget failure cannot publish a result")
+
+    assert process_one(
+        "paid", {("paid", "probe"): BudgetHandler()}, worker="test", scope=task_db.scope
+    )
+    with task_db.scope() as session:
+        row = session.get(PipelineTask, task_id)
+        assert row and row.status == "budget_deferred" and row.failures == 0

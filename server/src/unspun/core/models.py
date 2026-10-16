@@ -24,6 +24,9 @@ from sqlalchemy import (
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
+from unspun.core.billing_models import BilledRequest as BilledRequest
+from unspun.core.billing_models import BudgetCarry as BudgetCarry
+from unspun.core.billing_models import BudgetPolicy as BudgetPolicy
 from unspun.core.db import Base
 from unspun.core.task_models import PipelineTask as PipelineTask
 from unspun.core.task_models import SourceState as SourceState
@@ -341,8 +344,8 @@ class LlmUsage(Base):
     # summary | importance | viewpoint | digest | embedding
     purpose: Mapped[str] = mapped_column(Text)
     model: Mapped[str] = mapped_column(Text)
-    prompt_tokens: Mapped[int] = mapped_column(default=0)
-    completion_tokens: Mapped[int] = mapped_column(default=0)
+    prompt_tokens: Mapped[int | None] = mapped_column(default=0)
+    completion_tokens: Mapped[int | None] = mapped_column(default=0)
     cost_usd: Mapped[float] = mapped_column(default=0.0)
 
 

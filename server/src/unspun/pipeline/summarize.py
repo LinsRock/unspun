@@ -9,6 +9,7 @@ import httpx
 from sqlalchemy import ColumnElement, case, func, or_, select, update
 from sqlalchemy.orm import Session
 
+from unspun.core.billing import BudgetExceeded
 from unspun.core.config import get_settings
 from unspun.core.content import require_legacy
 from unspun.core.db import session_scope
@@ -179,7 +180,7 @@ def summarize_article(session: Session, client: SupportsLlm, article: Article) -
     reviewer_model = get_settings().viewpoint_model
     try:
         supported = verify_facts(session, client, source, review_facts, reviewer_model)
-    except GroundingBudgetExceeded:
+    except (GroundingBudgetExceeded, BudgetExceeded):
         article.title_zh = None
         article.summary_zh = None
         article.summary_grounding = {
@@ -408,8 +409,8 @@ def summarize_pending(client: SupportsLlm, limit: int | None = None) -> int:
                     failure = exc
             if failure is not None:
                 raise failure
-        except GroundingBudgetExceeded:
-            log.info("summary_review_deferred", article_id=article_id, reason="review_budget")
+        except (GroundingBudgetExceeded, BudgetExceeded):
+            log.info("summary_review_deferred", article_id=article_id, reason="budget")
             break
         except (LlmError, json.JSONDecodeError):
             # Content-level failures (truncation, bad JSON, empty summary)

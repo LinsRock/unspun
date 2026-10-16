@@ -16,6 +16,7 @@ import httpx
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session, selectinload
 
+from unspun.core.billing import BudgetExceeded
 from unspun.core.config import get_settings
 from unspun.core.content import legacy_event_condition, require_legacy
 from unspun.core.db import session_scope
@@ -627,6 +628,8 @@ def refresh_event_viewpoint(
         )
     except GroundingBudgetExceeded:
         payload = _review_pause()
+    except BudgetExceeded:
+        raise
     except (LlmError, json.JSONDecodeError, httpx.HTTPError) as exc:
         log.warning("viewpoint_output_rejected", event_id=event.id, error=str(exc))
         return "rejected"
