@@ -4,6 +4,11 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
@@ -16,6 +21,30 @@ env:
   WEB_IMAGE: ghcr.io/linsrock/unspun-web
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      deployments: read
+    outputs:
+      server: ${{ steps.scope.outputs.server }}
+      web: ${{ steps.scope.outputs.web }}
+      prototype: ${{ steps.scope.outputs.prototype }}
+      deploy: ${{ steps.scope.outputs.deploy }}
+      server_image: ${{ steps.scope.outputs.server_image }}
+      web_image: ${{ steps.scope.outputs.web_image }}
+      release: ${{ steps.scope.outputs.release }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 -m unittest discover -s .github/tests -v
+      - id: scope
+        run: python3 .github/scripts/ci_scope.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+
   conventions:
     runs-on: ubuntu-latest
     permissions:
@@ -74,6 +103,8 @@ jobs:
           exit "$fail"
 
   server:
+    needs: changes
+    if: needs.changes.outputs.server == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -113,6 +144,8 @@ jobs:
           --output /tmp/m3b-ranking-report.json
 
   web:
+    needs: changes
+    if: needs.changes.outputs.web == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -139,6 +172,8 @@ jobs:
           PWA_BASE_URL=http://127.0.0.1:4173 pnpm test:pwa
 
   admin-prototype:
+    needs: changes
+    if: needs.changes.outputs.prototype == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -153,25 +188,43 @@ jobs:
       - run: pnpm build
 
   deploy-safety:
+    needs: changes
+    if: needs.changes.outputs.deploy == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: bash -n deploy/deploy.sh
       - run: python3 -m unittest discover -s deploy/tests -v
 
+  required-checks:
+    if: always()
+    needs: [changes, conventions, server, web, admin-prototype, deploy-safety]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/scripts/ci_scope.py --verify-needs
+        env:
+          CI_NEEDS: ${{ toJSON(needs) }}
+
   build-push:
-    if: github.ref == 'refs/heads/main'
-    needs: [conventions, server, web, deploy-safety]
+    if: >-
+      !cancelled() && github.ref == 'refs/heads/main' &&
+      needs.changes.result == 'success' && needs.required-checks.result == 'success' &&
+      needs.changes.outputs.release == 'true'
+    needs: [changes, required-checks]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3
+        if: needs.changes.outputs.server_image == 'true' || needs.changes.outputs.web_image == 'true'
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/setup-buildx-action@v3
+        if: needs.changes.outputs.server_image == 'true' || needs.changes.outputs.web_image == 'true'
       - uses: docker/build-push-action@v6
+        if: needs.changes.outputs.server_image == 'true'
         with:
           context: .
           file: deploy/server.Dockerfile
@@ -182,6 +235,7 @@ jobs:
           cache-from: type=gha,scope=server
           cache-to: type=gha,scope=server,mode=max
       - uses: docker/build-push-action@v6
+        if: needs.changes.outputs.web_image == 'true'
         with:
           context: .
           file: deploy/web.Dockerfile
@@ -198,13 +252,28 @@ jobs:
       cancel-in-progress: false
     # Enable by setting the repo variable DEPLOY_ENABLED=true once the
     # Cloudflare Access SSH app and the secrets below are configured.
-    if: github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
-    needs: build-push
+    if: >-
+      !cancelled() && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true' &&
+      needs.changes.result == 'success' && needs.build-push.result == 'success'
+    needs: [changes, build-push]
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v4
+      - name: Check release is current main
+        id: current
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          current=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')
+          if [ "$current" = "$GITHUB_SHA" ]; then
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "release=false" >> "$GITHUB_OUTPUT"
+            echo "A newer main revision will publish the cumulative changes."
+          fi
       - name: Install cloudflared
+        if: steps.current.outputs.release == 'true'
         run: |
           curl -fsSL -o cloudflared.deb \
             https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
@@ -212,6 +281,7 @@ jobs:
       # Pasted secrets often pick up stray newlines/spaces; trim them before
       # exporting for all later steps.
       - name: Export Access service token
+        if: steps.current.outputs.release == 'true'
         env:
           RAW_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
           RAW_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
@@ -221,23 +291,16 @@ jobs:
             printf 'TUNNEL_SERVICE_TOKEN_SECRET=%s\n' "$(printf %s "$RAW_SECRET" | tr -d '[:space:]')"
           } >> "$GITHUB_ENV"
       - name: Preflight Access check
+        if: steps.current.outputs.release == 'true'
         run: |
-          code=$(curl -s -o /dev/null -w '%{http_code}' \
+          code=$(curl --connect-timeout 5 --max-time 15 -s -o /dev/null -w '%{http_code}' \
             -H "CF-Access-Client-Id: ${TUNNEL_SERVICE_TOKEN_ID}" \
             -H "CF-Access-Client-Secret: ${TUNNEL_SERVICE_TOKEN_SECRET}" \
             "https://${{ secrets.VPS_SSH_HOSTNAME }}/")
           echo "Access preflight HTTP ${code} (302 = token rejected, anything else = allowed)"
           test "${code}" != "302"
-          # Probe the websocket handshake path too — diagnostic only, never
-          # fatal (ws requires HTTP/1.1).
-          ws=$(curl --http1.1 -s -o /dev/null -w '%{http_code}' \
-            -H "CF-Access-Client-Id: ${TUNNEL_SERVICE_TOKEN_ID}" \
-            -H "CF-Access-Client-Secret: ${TUNNEL_SERVICE_TOKEN_SECRET}" \
-            -H "Connection: Upgrade" -H "Upgrade: websocket" \
-            -H "Sec-WebSocket-Version: 13" -H "Sec-WebSocket-Key: c3NoLXByZWZsaWdodA==" \
-            "https://${{ secrets.VPS_SSH_HOSTNAME }}/" || echo "curl-err")
-          echo "WebSocket preflight HTTP ${ws}"
       - name: Configure SSH over Cloudflare Tunnel
+        if: steps.current.outputs.release == 'true'
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_ed25519
@@ -251,11 +314,16 @@ jobs:
             ProxyCommand cloudflared access ssh --hostname %h --header "CF-Access-Client-Id: $TUNNEL_SERVICE_TOKEN_ID" --header "CF-Access-Client-Secret: $TUNNEL_SERVICE_TOKEN_SECRET"
           EOF
       - name: Sync deploy files
+        if: steps.current.outputs.release == 'true'
         run: |
           scp -r deploy "vps:~/unspun/"
       - name: Deploy
+        if: steps.current.outputs.release == 'true'
+        env:
+          RELEASE_SERVER_IMAGE: ${{ needs.changes.outputs.server_image == 'true' && format('{0}:{1}', env.SERVER_IMAGE, github.sha) || '' }}
+          RELEASE_WEB_IMAGE: ${{ needs.changes.outputs.web_image == 'true' && format('{0}:{1}', env.WEB_IMAGE, github.sha) || '' }}
         run: |
-          ssh vps "SERVER_IMAGE=${SERVER_IMAGE}:${{ github.sha }} \
-                   WEB_IMAGE=${WEB_IMAGE}:${{ github.sha }} \
+          ssh vps "SERVER_IMAGE='${RELEASE_SERVER_IMAGE}' \
+                   WEB_IMAGE='${RELEASE_WEB_IMAGE}' \
                    APP_VERSION=${{ github.sha }} \
                    bash ~/unspun/deploy/deploy.sh"

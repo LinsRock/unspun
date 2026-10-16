@@ -1,18 +1,39 @@
 #!/usr/bin/env bash
 # Runs ON THE VPS (invoked by CI over SSH). Expects:
 #   ~/unspun/.env          runtime secrets (never in the repo)
-#   $SERVER_IMAGE / $WEB_IMAGE / $APP_VERSION exported by the caller
+#   $APP_VERSION exported by the caller; image overrides only for changed artifacts
 set -euo pipefail
 
 cd "$(dirname "$0")"
 
-export SERVER_IMAGE="${SERVER_IMAGE:?target server image is required}"
-export WEB_IMAGE="${WEB_IMAGE:?target web image is required}"
 export APP_VERSION="${APP_VERSION:?target application version is required}"
 export COMPOSE_PROJECT_NAME="${COMPOSE_PROJECT_NAME:-unspun}"
 
 compose=(docker compose --env-file "${UNSPUN_DEPLOY_ENV_FILE:-$HOME/unspun/.env}"
   -f compose.yml -f compose.prod.yml)
+
+current_image() {
+  local container image
+  container=$("${compose[@]}" ps -q "$1")
+  if [ -z "$container" ]; then
+    echo "no running $1 image to reuse; supply an explicit image" >&2
+    return 1
+  fi
+  image=$(docker inspect -f '{{.Config.Image}}' "$container")
+  if [[ ! "$image" =~ :[0-9a-f]{40}$ && ! "$image" =~ @sha256:[0-9a-f]{64}$ ]]; then
+    echo "refusing to reuse a mutable $1 image; supply an immutable image" >&2
+    return 1
+  fi
+  printf '%s\n' "$image"
+}
+
+# Resolve both references before pull/migrate. Never guess an absent artifact
+# from :latest, a default development image, or a previous Git commit tag.
+SERVER_IMAGE="${SERVER_IMAGE:-$(current_image api)}"
+export SERVER_IMAGE
+WEB_IMAGE="${WEB_IMAGE:-$(current_image web)}"
+export WEB_IMAGE
+
 migration_name="$COMPOSE_PROJECT_NAME-migration"
 deployment_token="$APP_VERSION-$$-$(date +%s)"
 migration_pid=""
