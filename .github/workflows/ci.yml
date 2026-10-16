@@ -152,9 +152,16 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
+  deploy-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash -n deploy/deploy.sh
+      - run: python3 -m unittest discover -s deploy/tests -v
+
   build-push:
     if: github.ref == 'refs/heads/main'
-    needs: [conventions, server, web]
+    needs: [conventions, server, web, deploy-safety]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -186,6 +193,9 @@ jobs:
           cache-to: type=gha,scope=web,mode=max
 
   deploy:
+    concurrency:
+      group: unspun-production-deploy
+      cancel-in-progress: false
     # Enable by setting the repo variable DEPLOY_ENABLED=true once the
     # Cloudflare Access SSH app and the secrets below are configured.
     if: github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'

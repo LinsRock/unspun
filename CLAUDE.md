@@ -48,7 +48,7 @@ docker compose -f deploy/compose.yml -f deploy/compose.local.yml up --build
 - Always branch + PR; CI must be green before merging. Merging to main builds images, pushes them to GHCR, and deploys to the VPS.
 - For R1, AI handles intermediate PRs and merges after review and green CI, including page changes. Verify real-API previews and keep acceptance evidence, then provide a consolidated preview for the user's final R1 acceptance (D-025); do not ask for approval of each PR or page. For other milestones, page changes still require a local preview and explicit user acceptance before opening a PR (D-012).
 - Keep the legacy production AI worker disabled during R1 preparation. Ordinary deployments, diagnosis, and rollback must not restart it. Enable only the controlled R1 processing path after its task, budget, and source gates are met; see D-025 and the worker shutdown record.
-- Deployment is the deploy job in `.github/workflows/ci.yml`: cloudflared SSHs into the VPS and runs `deploy/deploy.sh` (pull images, up, run migrations, health smoke check).
+- Deployment is the deploy job in `.github/workflows/ci.yml`: cloudflared SSHs into the VPS and runs `deploy/deploy.sh` (resolve release images, wait for DB, migrate with the target image, start services with zero legacy workers, check the target API version).
 - Environment variables use the `UNSPUN_` prefix and are defined in `server/src/unspun/core/config.py`.
 
 ## AI development loop

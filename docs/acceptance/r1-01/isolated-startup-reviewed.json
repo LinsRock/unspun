@@ -1,0 +1,56 @@
+{
+  "started_at": "2026-10-16T05:37:11.761071+00:00",
+  "image_revision": "a00a4986e4cc28fe1eb9333f3d33e8bcb76e69ea",
+  "cases": [
+    {
+      "mode": "normal",
+      "project": "unspun-r101-22b0175e-normal",
+      "exit_code": 0,
+      "services": {
+        "api": "running",
+        "db": "running",
+        "db-backup": "running",
+        "rsshub": "running",
+        "web": "running"
+      },
+      "migration_head": "000010",
+      "usage_rows": 0,
+      "fault_marker": "absent",
+      "health_after_restart": {
+        "status": "ok",
+        "version": "r101-isolated",
+        "database": "ok"
+      },
+      "passed": true
+    },
+    {
+      "mode": "failure",
+      "project": "unspun-r101-22b0175e-failure",
+      "before_head": "000010",
+      "exit_code": 1,
+      "services": {
+        "db": "running"
+      },
+      "migration_head": "000010",
+      "usage_rows": 0,
+      "fault_marker": "absent",
+      "retry_exit_code": 0,
+      "passed": true
+    },
+    {
+      "mode": "interrupt",
+      "project": "unspun-r101-22b0175e-interrupt",
+      "before_head": "000010",
+      "exit_code": 143,
+      "services": {
+        "db": "running"
+      },
+      "migration_head": "000010",
+      "usage_rows": 0,
+      "fault_marker": "absent",
+      "retry_exit_code": 0,
+      "passed": true
+    }
+  ],
+  "finished_at": "2026-10-16T05:39:42.760887+00:00"
+}
