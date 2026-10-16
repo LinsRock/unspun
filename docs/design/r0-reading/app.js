@@ -26,6 +26,7 @@ let version = 'early';
 let saveFailed = false;
 let materialWarning = false;
 let toastTimer;
+let experienceDraft = null;
 const scrollPositions = new Map();
 const returnTargets = new Map();
 const draftReviews = new Map();
@@ -196,6 +197,19 @@ function backButton() {
   return `<button class="back-link" data-action="back">${icon('back')}${returnTargets.get(location.hash)?.hash?.includes('/topic/') ? '返回话题' : returnTargets.get(location.hash)?.hash?.includes('/review') ? '返回选材评审' : returnTargets.get(location.hash)?.hash?.includes('/today') ? '返回当天精选' : '返回信息流'}</button>`;
 }
 
+function rememberReturnTarget(destination) {
+  const current = location.hash || '#/today';
+  const visited = new Set();
+  let ancestor = current;
+  while (ancestor && !visited.has(ancestor)) {
+    // Revisiting a parent must preserve its original route back to the list.
+    if (ancestor === destination) return;
+    visited.add(ancestor);
+    ancestor = returnTargets.get(ancestor)?.hash;
+  }
+  returnTargets.set(destination, { hash: current, scroll: window.scrollY });
+}
+
 function bodyContent(candidate, material) {
   const status = candidate.material_status;
   const title = {
@@ -269,13 +283,15 @@ function reviewPage(currentRoute) {
 }
 
 function experienceForm() {
-  const value = feedback.experience;
+  const value = { ...feedback.experience, ...experienceDraft };
   return `<section class="experience-panel" id="experience"><div class="section-heading"><div><span class="section-index">页面与选编</span><h2>这套阅读方式，合适吗？</h2></div></div><form id="experience-form"><div class="experience-grid"><label class="control-label">重要新增出现后，你希望何时更新精选？<select name="refresh_preference"><option value="">尚未选择</option>${[['immediate', '有重要新增就更新'], ['30_minutes', '至少间隔 30 分钟'], ['60_minutes', '至少间隔 60 分钟'], ['unknown', '还需要继续体验']].map(([key, label]) => `<option value="${key}" ${value.refresh_preference === key ? 'selected' : ''}>${label}</option>`).join('')}</select></label><label class="control-label">18:33 模拟版的这次更新<select name="update_assessment"><option value="">尚未评价</option>${[['worth_updating', '值得更新'], ['wait', '可以等一等'], ['not_needed', '不必为此更新'], ['unknown', '还无法判断']].map(([key, label]) => `<option value="${key}" ${value.update_assessment === key ? 'selected' : ''}>${label}</option>`).join('')}</select></label></div><label class="control-label" for="missing-content">这批候选还遗漏了什么？</label><textarea id="missing-content" name="missing" rows="2" maxlength="4000" placeholder="具体内容、作者、事件或领域；只记录反馈，不假装已经接入。">${escape(value.missing || '')}</textarea><label class="control-label" for="experience-notes">阅读密度、卡片、话题组织或详情的建议</label><textarea id="experience-notes" name="notes" rows="2" maxlength="4000">${escape(value.notes || '')}</textarea><div class="form-footer"><button class="primary-button" type="submit">保存体验反馈 ${icon('check')}</button><span>参数用于 R0 评审，尚未固定为产品规则。</span></div></form></section>`;
 }
 
 function notFound() { shell('<div class="empty-state"><h1>没有这个阅读条目</h1><p>可以回到当天精选，或从全部真实候选开始。</p><a href="#/today">返回当天精选</a></div>', 'detail'); }
 
 function render() {
+  const experienceFormElement = document.querySelector('#experience-form');
+  if (experienceFormElement) experienceDraft = Object.fromEntries(new FormData(experienceFormElement));
   const current = route();
   if (current.pathname === '/today' || current.pathname === '/') todayPage();
   else if (current.pathname === '/feed') feedPage(current);
@@ -287,10 +303,17 @@ function render() {
 }
 
 document.addEventListener('click', event => {
+  if (event.target.closest('.skip-link')) {
+    event.preventDefault();
+    const main = document.querySelector('#main');
+    main?.scrollIntoView();
+    main?.focus({ preventScroll: true });
+    return;
+  }
   const navigation = event.target.closest('a[href^="#/"]');
   if (navigation) {
     scrollPositions.set(location.hash, window.scrollY);
-    if (navigation.classList.contains('detail-link')) returnTargets.set(navigation.getAttribute('href'), { hash: location.hash || '#/today', scroll: window.scrollY });
+    if (navigation.classList.contains('detail-link')) rememberReturnTarget(navigation.getAttribute('href'));
   }
   const interest = event.target.closest('[data-interest]');
   if (interest) {
@@ -369,6 +392,7 @@ document.addEventListener('submit', event => {
     const { kind, id } = form.dataset;
     const value = draftReviews.get(`${kind}:${id}`) || reviewValue(kind, id);
     if (hasReview(value)) feedback[kind][id] = value;
+    else delete feedback[kind][id];
     draftReviews.delete(`${kind}:${id}`);
     saveFeedback();
     document.querySelector('[data-save-state]').textContent = saveFailed ? '本地保存失败，请导出' : '已保存，可修改或撤销';
@@ -379,6 +403,7 @@ document.addEventListener('submit', event => {
       if (value) feedback.experience[field] = value;
       else delete feedback.experience[field];
     }
+    experienceDraft = null;
     saveFeedback(); toast(saveFailed ? '保存失败，请导出反馈保留。' : '体验建议已保存，导出时会一并带上。');
   } else if (form.id === 'search-form') {
     const current = route();

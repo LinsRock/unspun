@@ -65,11 +65,14 @@ server/.venv/bin/python docs/design/r0-reading/prepare_materials.py \
 ```bash
 node --test docs/design/r0-reading/model.test.mjs
 node --test docs/design/r0-reading/dom.test.mjs
+R0_TEST_WITHOUT_MATERIALS=1 node --test docs/design/r0-reading/dom.test.mjs
 web/node_modules/.bin/oxlint docs/design/r0-reading/*.js docs/design/r0-reading/*.mjs
 server/.venv/bin/ruff check docs/design/r0-reading/prepare_materials.py
 ```
 
-DOM 集成检查复用现有 `web/node_modules` 的 jsdom，需要本地预览服务运行；不新增正式依赖。8 项数据/时间/反馈测试和 1 项完整路径集成检查通过，覆盖真实正文与预览、视频范围、日报及问题时间、受限入口、版本变化、排序、列表返回、反馈保存/撤销/导出，以及只读服务边界。
+DOM 集成检查复用现有 `web/node_modules` 的 jsdom，需要本地预览服务运行；不新增正式依赖。8 项数据/时间/反馈测试和 1 项完整路径集成检查通过，覆盖真实正文与预览、视频范围、日报及问题时间、受限入口、版本变化、排序、列表返回、反馈保存/清空/撤销/导出、未保存体验建议在重绘后保留、所属话题往返路径、跳过导航链接，以及只读服务边界。
+
+DOM 检查在有正文缓存时检查真实文本，在缓存缺失时检查明确的原文入口与空材料状态；不依赖作者机器上的临时归档才能通过。额外的 `R0_TEST_WITHOUT_MATERIALS=1` 路径以隔离响应验证缺失材料回退，不修改正在预览的本地缓存。正文指纹测试在没有本地材料文件时明确跳过。
 
 浏览器自动检查受工具连接限制：IAB 不可用、Chrome 创建/连接标签页超时、原生应用未取得窗口。用户在 2026-10-16 明确确认原型体验通过，这是独立的 D-012 验收依据；没有补记真实浏览器渲染、400px/360px 无横溢、深浅主题或键盘焦点的逐项自动检查证据。响应式样式已提供，DOM 检查不能替代这些专项证据。
 

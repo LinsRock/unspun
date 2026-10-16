@@ -19,11 +19,15 @@ test('reading and feedback paths work against the local server with no write API
   Object.defineProperty(window, 'scrollY', { get: () => scrollY });
   window.HTMLElement.prototype.scrollIntoView = () => {};
   const nativeFetch = globalThis.fetch;
+  const withoutMaterials = process.env.R0_TEST_WITHOUT_MATERIALS === '1';
+  const materialPack = withoutMaterials ? { materials: {} } : await (await nativeFetch(`${baseUrl}/data/materials.json`)).json();
   Object.assign(globalThis, {
     window, document: window.document, location: window.location,
     localStorage: window.localStorage, FormData: window.FormData,
     requestAnimationFrame: callback => { callback(); return 0; },
-    fetch: resource => nativeFetch(new URL(resource, baseUrl)),
+    fetch: resource => withoutMaterials && resource === '/data/materials.json'
+      ? Promise.resolve(new Response(JSON.stringify({ materials: {}, archive_available: false })))
+      : nativeFetch(new URL(resource, baseUrl)),
   });
   Object.defineProperty(globalThis, 'crypto', { value: webcrypto, configurable: true });
   const errors = [];
@@ -96,7 +100,11 @@ test('reading and feedback paths work against the local server with no write API
     click(window.document.querySelector('[href="#/content/C14"]'));
     await settle(() => window.document.querySelector('#review-form')?.dataset.id === 'C14', 'content detail');
     assert.equal(window.scrollY, 0);
-    assert.ok(window.document.querySelectorAll('.article-body p').length > 8);
+    if (materialPack.materials?.C14) assert.ok(window.document.querySelectorAll('.article-body p').length > 8);
+    else {
+      assert.ok(window.document.querySelector('.empty-material'));
+      assert.equal(window.document.querySelector('.article-body'), null);
+    }
     assert.match(contentText(), /2026-10-12 16:25/);
     assert.match(window.document.querySelector('.scope-note').textContent, /不据标题判断/);
 
@@ -133,7 +141,8 @@ test('reading and feedback paths work against the local server with no write API
 
     await go('#/content/C07', () => window.document.querySelector('#review-form')?.dataset.id === 'C07');
     assert.match(contentText(), /公开预览结束/);
-    assert.ok(window.document.querySelector('.article-body').textContent.length > 400);
+    if (materialPack.materials?.C07) assert.ok(window.document.querySelector('.article-body').textContent.length > 400);
+    else assert.ok(window.document.querySelector('.empty-material'));
     await go('#/content/C03', () => window.document.querySelector('#review-form')?.dataset.id === 'C03');
     assert.match(contentText(), /没有字幕或全片导读/);
     assert.ok(window.document.querySelector('.media-placeholder'));
@@ -186,6 +195,46 @@ test('reading and feedback paths work against the local server with no write API
     assert.equal(saved.contents.C14, undefined);
     assert.equal(window.document.querySelector('[data-review-count]').textContent, '0');
     assert.equal(window.document.querySelectorAll('#review-form input:checked').length, 0);
+
+    const setText = (selector, value) => {
+      const element = window.document.querySelector(selector);
+      element.value = value;
+      element.dispatchEvent(new window.Event('input', { bubbles: true }));
+    };
+    setText('#review-reason', 'DOM fixture: a reason-only review.');
+    submit('#review-form');
+    assert.ok(JSON.parse(localStorage.getItem(key)).contents.C14.reason);
+    setText('#review-reason', '');
+    submit('#review-form');
+    assert.equal(JSON.parse(localStorage.getItem(key)).contents.C14, undefined);
+    await go('#/content/C07', () => window.document.querySelector('#review-form')?.dataset.id === 'C07');
+    await go('#/content/C14', () => window.document.querySelector('#review-form')?.dataset.id === 'C14');
+    assert.equal(window.document.querySelector('#review-reason').value, '');
+
+    await go('#/review', () => window.document.querySelector('.candidate-list'));
+    setText('#experience-notes', 'DOM fixture: an unsaved experience suggestion.');
+    window.document.querySelector('[name="refresh_preference"]').value = '60_minutes';
+    click(window.document.querySelector('[data-candidate="C01"] [data-interest="yes"]'));
+    assert.equal(window.document.querySelector('#experience-notes').value, 'DOM fixture: an unsaved experience suggestion.');
+    assert.equal(window.document.querySelector('[name="refresh_preference"]').value, '60_minutes');
+    click(window.document.querySelector('[data-candidate="C01"] [data-interest="yes"]'));
+
+    await go('#/feed?sort=latest', () => window.document.querySelector('.feed-list'));
+    click(window.document.querySelector('[href="#/topic/health"]'));
+    await settle(() => window.document.querySelector('.topic-reader'), 'feed to topic');
+    click(window.document.querySelector('[href="#/content/C21"]'));
+    await settle(() => window.document.querySelector('#review-form')?.dataset.id === 'C21', 'topic to member');
+    click(window.document.querySelector('[href="#/topic/health"]'));
+    await settle(() => window.document.querySelector('.topic-reader'), 'member to ancestor topic');
+    click(window.document.querySelector('[data-action="back"]'));
+    await settle(() => window.document.querySelector('.feed-list'), 'ancestor topic back to feed');
+    assert.equal(window.location.hash, '#/feed?sort=latest');
+
+    click(window.document.querySelector('.skip-link'));
+    await delay(20);
+    assert.equal(window.location.hash, '#/feed?sort=latest');
+    assert.ok(window.document.querySelector('.feed-list'));
+    assert.equal(window.document.activeElement.id, 'main');
     const denied = await nativeFetch(`${baseUrl}/api/feedback`, { method: 'POST', body: '{}' });
     assert.equal(denied.status, 405);
     const hidden = await nativeFetch(`${baseUrl}/.env`);
