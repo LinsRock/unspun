@@ -1,0 +1,589 @@
+{
+  "schema_version": "unspun-r1-input-registry-v1",
+  "status": "registered_not_frozen",
+  "registered_on": "2026-10-16",
+  "base_revision": "1a151d47c44f5e026c2be56010273f9eae95f364",
+  "reference_date": "2026-10-15",
+  "expected_candidate_count": 43,
+  "expected_source_count": 17,
+  "expected_observation_count": 232,
+  "expected_legacy_events": 40,
+  "expected_legacy_articles": 53,
+  "files": [
+    {
+      "role": "r0_candidates",
+      "path": "docs/research/r0-2026-10-15/candidates.json",
+      "sha256": "55e835ffa071c2f8e285e5682c47837a1f97505c3fba229b0456e9869fe6e36c"
+    },
+    {
+      "role": "r0_observations",
+      "path": "docs/research/r0-2026-10-15/observations.json",
+      "sha256": "153dc70a4e5a17b2ad65f37ba03e313137d5ce442e215bb6d7dd9743a4675985"
+    },
+    {
+      "role": "r0_source_report",
+      "path": "docs/research/2026-10-15-r0-source-validation.md",
+      "sha256": "672d1db5a01c686177779b789fb96e296b496b7cc05219e0a08a1c416f359ab9"
+    },
+    {
+      "role": "r0_runtime_audit",
+      "path": "docs/research/r0-2026-10-15/runtime-audit.json",
+      "sha256": "cc41e51dd1fe7703299f06725bcdc9508a86d7918c6423bc1478d3e87ac15ada"
+    },
+    {
+      "role": "r0_runtime_environment",
+      "path": "docs/research/r0-2026-10-15/runtime-environment.json",
+      "sha256": "c9dd6494b864bfbd975d77c9fab8d59d3818cc7a31da4bdd01bc6c453b752eef"
+    },
+    {
+      "role": "r0_media_check",
+      "path": "docs/research/r0-2026-10-15/media-check.json",
+      "sha256": "764dba53ebb48e8c4b190e3779f8194c6b0b1332d1197f75229e37a059b100bb"
+    },
+    {
+      "role": "r0_layout",
+      "path": "docs/design/r0-reading/manifest.json",
+      "sha256": "6eea8830b382492189cd8755f28bd2e1a3c45c995e805a96622234c568521428"
+    },
+    {
+      "role": "r0_feedback_contract",
+      "path": "docs/design/r0-reading/model.mjs",
+      "sha256": "2e33881fd3899923648578b3f838c55d903707eabf5ed4baf19172f134015cc5"
+    },
+    {
+      "role": "r0_acceptance",
+      "path": "docs/acceptance/r0-reading-2026-10-16.md",
+      "sha256": "858deb157fb39604413389a5b10903c0fca55f1b22189824766a6dca054c7456"
+    },
+    {
+      "role": "legacy_raw_snapshot",
+      "path": "docs/evaluations/m3b/production-candidates.json",
+      "sha256": "38dcf2eceb099d2445528a476621428c88c86104e8b51c0d9420ca8d00078971"
+    },
+    {
+      "role": "legacy_technical_snapshot",
+      "path": "docs/evaluations/m3b/technical-candidates.json",
+      "sha256": "77de72c9554f7357a57cc16175f14e08bf02d36c9382d71ab6350099dafebf1a"
+    },
+    {
+      "role": "legacy_user_labels",
+      "path": "docs/evaluations/m3b/annotations.json",
+      "sha256": "321eec16e1e23c1ef50aa0fb061a742b2358b4ce63938dbf65f0a3d3d69e97dc"
+    },
+    {
+      "role": "legacy_technical_labels",
+      "path": "docs/evaluations/m3b/technical-annotations.json",
+      "sha256": "ec313c11ed370457a454672e64a448846c9a358c36fb66ea3d602d99a51fb25e"
+    },
+    {
+      "role": "legacy_priority_feedback",
+      "path": "docs/evaluations/m3b/priority-feedback.json",
+      "sha256": "8a7e4ef3298fc9a5ae359f99c1454f595b16686291915c64b2d31e55bc375236"
+    },
+    {
+      "role": "legacy_origin_review_a",
+      "path": "docs/evaluations/m3b/origin-review-a.json",
+      "sha256": "7bdadeff8371f00c49eac17ee9548e0513dff8f51c8e027a0967a497e641c64f"
+    },
+    {
+      "role": "legacy_origin_review_b",
+      "path": "docs/evaluations/m3b/origin-review-b.json",
+      "sha256": "eb5119f0f64224fa9a11df229c9b5ccc6aa3afb76245127c92cab0ad2807c816"
+    },
+    {
+      "role": "legacy_origin_review_c",
+      "path": "docs/evaluations/m3b/origin-review-c.json",
+      "sha256": "f95443c2c10c742d81be0cb076d1ae2d8f304d7fb96b61709cb2dbd5ae5a2abf"
+    },
+    {
+      "role": "legacy_generation_cases",
+      "path": "server/eval/quality_cases.json",
+      "sha256": "2540767410f803b92f07652cfa858d4159512aad570f5b9d6fb03cac18372974"
+    },
+    {
+      "role": "legacy_generation_report",
+      "path": "docs/evaluations/quality-semantic-fixes-results.json",
+      "sha256": "6c9caa6df425bb92166bcffd6f0b440bd0cc8ce23d9131ad2db4cd4f9b9b49a3"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C01",
+      "url": "https://www.news.cn/20261015/188a9f74385e4bfd972c69f883cea74c/c.html",
+      "material_status": "open_article_text",
+      "material_sha256": "bb39a3bb67f85e712cde30e4b422af229daef45d9d2e1f22b614bada4ac2f489",
+      "observations": [
+        "agent-articles:route-xinhua-article-0",
+        "vps-articles:route-xinhua-article-0"
+      ]
+    },
+    {
+      "id": "C02",
+      "url": "https://www.news.cn/20261015/56bed6be5b614059a603f46d54c66f1d/c.html",
+      "material_status": "open_article_text",
+      "material_sha256": "aefa8a0cb4926e80f0380003a32b224f8b692a57de1a35933e108aceff3b1f19",
+      "observations": [
+        "agent-articles:route-xinhua-article-1",
+        "vps-articles:route-xinhua-article-1"
+      ]
+    },
+    {
+      "id": "C03",
+      "url": "https://www.news.cn/20261015/1c6de712a4704e6eb1a07960669a1548/c.html",
+      "material_status": "video_description_only",
+      "material_sha256": "a25a19388f2399aa787baa90b4aa2b5ce3950a8a213e8d69d0737b8379cbfe23",
+      "observations": [
+        "agent-articles:xinhua-video",
+        "vps-articles:xinhua-video"
+      ]
+    },
+    {
+      "id": "C04",
+      "url": "https://www.zaobao.com/news/china/story20261015-9843138",
+      "material_status": "open_article_text",
+      "material_sha256": "2df133a3a31b94f2c164baabc112dfbdf6c12ae23523447db26fb6ff70f4a7d3",
+      "observations": [
+        "agent-articles:route-zaobao-china-article-1",
+        "vps-articles:route-zaobao-china-article-1"
+      ]
+    },
+    {
+      "id": "C05",
+      "url": "https://www.zaobao.com/news/world/story20261015-9842241",
+      "material_status": "open_article_text",
+      "material_sha256": "1dfc5ab3082711e1e595e4a8b79a78dedf4dfeedf2d5d6d11f6775f03a534449",
+      "observations": [
+        "agent-articles:route-zaobao-world-article-0",
+        "vps-articles:route-zaobao-world-article-0"
+      ]
+    },
+    {
+      "id": "C06",
+      "url": "https://www.zaobao.com/news/world/story20261015-9842470",
+      "material_status": "open_article_text",
+      "material_sha256": "aeb3bcb97a5d8733faf8cd1bf0f90c056302909a87ab0b7e87151a879ebb109d",
+      "observations": [
+        "agent-articles:route-zaobao-world-article-2",
+        "vps-articles:route-zaobao-world-article-2"
+      ]
+    },
+    {
+      "id": "C07",
+      "url": "https://www.infzm.com/contents/342639",
+      "material_status": "partial_preview",
+      "material_sha256": "daebcfd1fc6e12596d4856e5d49fe74c62d62ac40e921c8a0daa3d4b3969f517",
+      "observations": [
+        "agent-articles:route-infzm-article-1",
+        "vps-articles:route-infzm-article-1"
+      ]
+    },
+    {
+      "id": "C08",
+      "url": "https://www.infzm.com/contents/342625",
+      "material_status": "partial_preview",
+      "material_sha256": "2d3bebb911a1a35ef0cde290ccac0e2953e96de7d0ce6368f3a39e02e1939234",
+      "observations": [
+        "agent-articles:route-infzm-article-0",
+        "vps-articles:route-infzm-article-0"
+      ]
+    },
+    {
+      "id": "C09",
+      "url": "https://www.thepaper.cn/newsDetail_forward_34256501",
+      "material_status": "podcast_description_only",
+      "material_sha256": "7c804a57d44abee01f831535454a64a954ad987c861642a5cbd4e5a945675dba",
+      "observations": [
+        "agent-articles:thepaper-home-article-0",
+        "vps-articles:thepaper-home-article-0"
+      ]
+    },
+    {
+      "id": "C10",
+      "url": "https://www.thepaper.cn/newsDetail_forward_34256126",
+      "material_status": "open_article_text",
+      "material_sha256": "6cae966a035c3e91b9e495005eb6023972f97f3ecb219c40939a7de4a07dd29f",
+      "observations": [
+        "agent-articles:thepaper-home-article-1",
+        "vps-articles:thepaper-home-article-1"
+      ]
+    },
+    {
+      "id": "C11",
+      "url": "https://www.thepaper.cn/newsDetail_forward_32178049",
+      "material_status": "open_article_text",
+      "material_sha256": "c3cb527c09a5ceb6a7f0cc5b8fb50be9feddaa07694815c2bd4a037ba4cb98f8",
+      "observations": [
+        "agent-articles:thepaper-mirror-article-0",
+        "vps-articles:thepaper-mirror-article-0"
+      ]
+    },
+    {
+      "id": "C12",
+      "url": "https://paper.people.com.cn/rmrb/pc/content/202610/15/content_30185772.html",
+      "material_status": "open_article_text",
+      "material_sha256": "1161ef9da948037439f6fcff7bb07fd86213b4ce7c83f46dbbbf105ba92652ec",
+      "observations": [
+        "agent-articles:route-people-article-1",
+        "vps-articles:route-people-article-1"
+      ]
+    },
+    {
+      "id": "C13",
+      "url": "https://paper.people.com.cn/rmrb/pc/content/202610/15/content_30185771.html",
+      "material_status": "open_article_text",
+      "material_sha256": "c0cb088c06fa9732d894105440478fc551d8c005bda8232fd04f6a34385524e5",
+      "observations": [
+        "agent-articles:route-people-article-0",
+        "vps-articles:route-people-article-0"
+      ]
+    },
+    {
+      "id": "C14",
+      "url": "https://www.bjnews.com.cn/detail/1791793517169487.html",
+      "material_status": "open_article_text",
+      "material_sha256": "62cbd617e4e86f772b54a04264b2c59708fd913189efc93fe1a12994cd3e61f8",
+      "observations": [
+        "agent-articles:route-bjnews-article-1",
+        "vps-articles:route-bjnews-article-1"
+      ]
+    },
+    {
+      "id": "C15",
+      "url": "https://www.bjnews.com.cn/detail/1791850970169497.html",
+      "material_status": "open_article_text",
+      "material_sha256": "9413f00c8f9e0ab4f5033e38162d0116a52c1ca0c1029926bf436ccd076ad122",
+      "observations": [
+        "agent-articles:route-bjnews-article-0",
+        "vps-articles:route-bjnews-article-0"
+      ]
+    },
+    {
+      "id": "C16",
+      "url": "https://www.bjnews.com.cn/detail/1791766227168870.html",
+      "material_status": "open_article_text",
+      "material_sha256": "4c6593ee5577cbfb24a29c283a477b5093b6294f8b117f25bd2bacc35e7d54a6",
+      "observations": [
+        "agent-articles:bjnews-depth-article-0",
+        "vps-articles:bjnews-depth-article-0"
+      ]
+    },
+    {
+      "id": "C17",
+      "url": "https://www.jiemian.com/article/15194213.html",
+      "material_status": "open_article_text",
+      "material_sha256": "6e0ce7d3e0d2d2bef3636a376122492f8284aa8e81da6d52fea68c8bd3f0a4f8",
+      "observations": [
+        "agent-articles:route-jiemian-article-0",
+        "vps-articles:route-jiemian-article-0"
+      ]
+    },
+    {
+      "id": "C18",
+      "url": "https://www.jiemian.com/article/15194529.html",
+      "material_status": "open_article_text",
+      "material_sha256": "790aac4b37895d9a186a31fc7caad56a68c0327b697a0d87fd20dd29bcccdef0",
+      "observations": [
+        "agent-articles:route-jiemian-article-2",
+        "vps-articles:route-jiemian-article-2"
+      ]
+    },
+    {
+      "id": "C19",
+      "url": "https://www.163.com/news/article/GFH3NG6F00019K82.html",
+      "material_status": "open_article_text",
+      "material_sha256": "763444e27662d2f73412316d8406b0cee4cf7b226c924b58b2e3a391299890a6",
+      "observations": [
+        "agent-articles:route-netease-article-0",
+        "vps-articles:route-netease-article-0"
+      ]
+    },
+    {
+      "id": "C20",
+      "url": "https://news.qq.com/rain/a/20261015A02UWQ00",
+      "material_status": "open_article_text",
+      "material_sha256": "cff08d724df903cd97e5001c01faca07ab171d1a232c5e92c74db6e61a91c825",
+      "observations": [
+        "agent-followup:tencent-ageing-article",
+        "vps-followup:tencent-ageing-article"
+      ]
+    },
+    {
+      "id": "C21",
+      "url": "https://news.qq.com/rain/a/20261014A06SAE00",
+      "material_status": "open_article_text",
+      "material_sha256": "596c3b089a07e25ade014b5ba2c829469816f074d4b2a2cd3afcc6fc1ff3864d",
+      "observations": [
+        "agent-followup:tencent-health-article",
+        "vps-followup:tencent-health-article"
+      ]
+    },
+    {
+      "id": "C22",
+      "url": "https://news.qq.com/rain/a/20261015V07VUB00",
+      "material_status": "video_description_only",
+      "material_sha256": "521db859cb7006a4fcc9e68efa675cbae6b7c565ac1569735f21585f0f628cd7",
+      "observations": [
+        "agent-last:tencent-video-article",
+        "vps-last:tencent-video-article"
+      ]
+    },
+    {
+      "id": "C23",
+      "url": "https://www.36kr.com/newsflashes/4026960934359684",
+      "material_status": "brief_text",
+      "material_sha256": "6c7cd4032e1bc49b5dfc758cb39a3cf3726c3fb0668613005b3cd7251705d7de",
+      "observations": [
+        "agent-articles:route-36kr-flashes-article-0",
+        "vps-articles:route-36kr-flashes-article-0"
+      ]
+    },
+    {
+      "id": "C24",
+      "url": "http://daily.zhihu.com/story/9793247",
+      "material_status": "daily_edited_text",
+      "material_sha256": "8ece174fdcf084e73ba41f1f0642b1cf19103fed40e204102802de5c013a93a3",
+      "observations": [
+        "agent-articles:zhihu-daily-detail-9793247",
+        "vps-articles:zhihu-daily-detail-9793247",
+        "vps-last:zhihu-daily-alt-detail"
+      ]
+    },
+    {
+      "id": "C25",
+      "url": "http://daily.zhihu.com/story/9793253",
+      "material_status": "daily_edited_text",
+      "material_sha256": "69c2917c6a4170d53032a19a09404b82efa0f92a2509ced92a232ec73e3b8ec8",
+      "observations": [
+        "agent-articles:zhihu-daily-detail-9793253",
+        "vps-articles:zhihu-daily-detail-9793253",
+        "vps-last:zhihu-daily-alt-detail-9793253"
+      ]
+    },
+    {
+      "id": "C26",
+      "url": "http://daily.zhihu.com/story/9793262",
+      "material_status": "daily_edited_text",
+      "material_sha256": "7f1b917f9d0a5d9c41ac58b5dc639324a7b817f07e2067bb0e2a2491ebbb2f1f",
+      "observations": [
+        "agent-articles:zhihu-daily-detail-9793262",
+        "vps-articles:zhihu-daily-detail-9793262",
+        "vps-last:zhihu-daily-alt-detail-9793262"
+      ]
+    },
+    {
+      "id": "C27",
+      "url": "https://www.zhihu.com/question/2094096740613710016",
+      "material_status": "question_context_only",
+      "material_sha256": "4584db556c4621bce99c842a40c0dd1947cc33e2b169caff2bd8460b2b0708e7",
+      "observations": [
+        "agent-articles:route-zhihu-hot-article-0",
+        "vps-articles:route-zhihu-hot-article-0"
+      ]
+    },
+    {
+      "id": "C28",
+      "url": "https://www.zhihu.com/question/2094053673290528592",
+      "material_status": "question_context_only",
+      "material_sha256": "558e7095adc8ab27ce402145004c6f30120bc093eeee0a66e19f7b4ce8a59410",
+      "observations": [
+        "agent-articles:route-zhihu-hot-article-1",
+        "vps-articles:route-zhihu-hot-article-1"
+      ]
+    },
+    {
+      "id": "C29",
+      "url": "https://book.douban.com/review/17835717/",
+      "material_status": "open_article_text",
+      "material_sha256": "62e37a7e0235789ecf04d625c304628b5b13cb1059cd88b6e5b6345ac58d01bc",
+      "observations": [
+        "agent-articles:douban-book-article-0",
+        "vps-articles:douban-book-article-0"
+      ]
+    },
+    {
+      "id": "C30",
+      "url": "https://movie.douban.com/review/17856209/",
+      "material_status": "feed_summary_only",
+      "material_sha256": null,
+      "observations": [
+        "agent-articles:douban-movie-article-0",
+        "vps-articles:douban-movie-article-0"
+      ]
+    },
+    {
+      "id": "C31",
+      "url": "https://www.fortunechina.com/keji/c/2026-10/10/content_477218.htm",
+      "material_status": "open_article_text",
+      "material_sha256": "2fcfea64681ffe099da5a0edc6a41df0ed1de018112ee569d0946cd9463226c6",
+      "observations": [
+        "agent-articles:route-fortune-article-1",
+        "vps-articles:route-fortune-article-1"
+      ]
+    },
+    {
+      "id": "C32",
+      "url": "https://www.fortunechina.com/keji/c/2026-09/24/content_477001.htm",
+      "material_status": "open_article_text",
+      "material_sha256": "980fe4aa0cb54f2602f98063fdf02f2adc13a2096074eab2b3b193d4dc322322",
+      "observations": [
+        "agent-articles:route-fortune-article-2",
+        "vps-articles:route-fortune-article-2"
+      ]
+    },
+    {
+      "id": "C33",
+      "url": "https://www.bbc.com/zhongwen/articles/c674pq1e0dxqo/trad?at_medium=RSS&at_campaign=rss",
+      "material_status": "open_article_text",
+      "material_sha256": "aa5a437ad90f3d16d9d3e47490841e17a4e804730e79f987845a4da45758f77c",
+      "observations": [
+        "agent-articles:bbc-chinese-article-0",
+        "vps-articles:bbc-chinese-article-0"
+      ]
+    },
+    {
+      "id": "C34",
+      "url": "https://www.bbc.com/zhongwen/articles/cjkge2k03kgpo/trad?at_medium=RSS&at_campaign=rss",
+      "material_status": "open_article_text",
+      "material_sha256": "136b52f967ea491e88a5507c06ac30d4796699839adcd849dbf5a5316951466e",
+      "observations": [
+        "agent-articles:bbc-chinese-article-1",
+        "vps-articles:bbc-chinese-article-1"
+      ]
+    },
+    {
+      "id": "C35",
+      "url": "https://www.bbc.co.uk/news/articles/c8wy9veedgygo?at_medium=RSS&at_campaign=rss",
+      "material_status": "open_article_text",
+      "material_sha256": "2e61784ce1f6322a8a53395664205ad554f9433551298f541ac54ddb91b2fa3d",
+      "observations": [
+        "agent-articles:bbc-world-article-0",
+        "vps-articles:bbc-world-article-0"
+      ]
+    },
+    {
+      "id": "C36",
+      "url": "https://cn.nytimes.com/world/20261015/ukraine-starlink-energy/?utm_source=RSS",
+      "material_status": "open_article_text",
+      "material_sha256": "c92f3c96d21075b63011c50a6c4031bc3ebc289df9da65b738307c7fd28d4823",
+      "observations": [
+        "agent-articles:nyt-chinese-article-0",
+        "vps-articles:nyt-chinese-article-0"
+      ]
+    },
+    {
+      "id": "C37",
+      "url": "https://cn.nytimes.com/world/20261015/youth-aging-europe-pension-ukraine-starshield/?utm_source=RSS",
+      "material_status": "open_article_text",
+      "material_sha256": "1934970d1012f13e657c807389b3946d9553de2075dfb8c58544461f35d7ee7e",
+      "observations": [
+        "agent-articles:nyt-chinese-article-1",
+        "vps-articles:nyt-chinese-article-1"
+      ]
+    },
+    {
+      "id": "C38",
+      "url": "https://www.nytimes.com/2026/10/15/world/europe/ukraine-russia-oil-strikes-zelensky-us-intelligence.html",
+      "material_status": "feed_summary_only",
+      "material_sha256": null,
+      "observations": [
+        "agent-articles:nyt-world-article-0",
+        "vps-articles:nyt-world-article-0"
+      ]
+    },
+    {
+      "id": "C39",
+      "url": "https://www.wsj.com/world/uk/a-ludicrously-ugly-bridge-is-exhibit-a-that-britain-has-lost-its-mojo-7015a654?mod=rss_worldnews",
+      "material_status": "feed_summary_only",
+      "material_sha256": null,
+      "observations": [
+        "agent-articles:wsj-world-article-0",
+        "vps-articles:wsj-world-article-0"
+      ]
+    },
+    {
+      "id": "C40",
+      "url": "https://www.wsj.com/finance/investing/a-new-private-equity-firm-specializes-in-giving-companies-ai-glow-ups-86fcb48e?mod=rss_markets_main",
+      "material_status": "feed_summary_only",
+      "material_sha256": null,
+      "observations": [
+        "agent-articles:wsj-markets-article-1",
+        "vps-articles:wsj-markets-article-1"
+      ]
+    },
+    {
+      "id": "C41",
+      "url": "https://www.163.com/news/article/L99S9BUQ000189FH.html",
+      "material_status": "open_article_text",
+      "material_sha256": "3ae888d340eb0fa31a8c64fd2cc45a5d9a90a1b3ff3fe5f410c6c9a6f83aaf44",
+      "observations": [
+        "agent-coverage-final:netease-health-current",
+        "vps-coverage:netease-health-current"
+      ]
+    },
+    {
+      "id": "C42",
+      "url": "https://www.163.com/dy/article/L98SMR4P0514R9M0.html",
+      "material_status": "open_article_text",
+      "material_sha256": "57ff356ba7ca1e7f7d435ef5328ab222c14b52104f1b05eadc2a0e94cf356b72",
+      "observations": [
+        "agent-coverage-final:netease-ageing-current",
+        "vps-coverage:netease-ageing-current"
+      ]
+    },
+    {
+      "id": "C43",
+      "url": "https://www.fortunechina.com/shangye/c/2026-10/14/content_477387.htm",
+      "material_status": "open_article_text",
+      "material_sha256": "821aac717b6d57f558cbade7f63f3806f686597cf4017a8ec4bc62a0400a2970",
+      "observations": [
+        "agent-coverage-final:fortune-business-article",
+        "vps-coverage:fortune-business-article"
+      ]
+    }
+  ],
+  "boundaries": {
+    "stale_news_regression": [
+      "C11",
+      "C19"
+    ],
+    "same_article_reprint": [
+      "C21",
+      "C41"
+    ],
+    "partial_overlap_keep_separate": [
+      "C20",
+      "C42"
+    ],
+    "distinct_people_paper_article": [
+      "C12"
+    ],
+    "daily_edited_not_original_answer": [
+      "C24",
+      "C25",
+      "C26"
+    ],
+    "question_background_not_answers": [
+      "C27",
+      "C28"
+    ],
+    "media_description_not_transcript": [
+      "C03",
+      "C09",
+      "C22"
+    ],
+    "partial_preview_not_full_text": [
+      "C07",
+      "C08"
+    ],
+    "restricted_entry_without_saved_body": [
+      "C30",
+      "C38",
+      "C39",
+      "C40"
+    ],
+    "older_knowledge_not_automatically_stale_news": [
+      "C29",
+      "C31"
+    ]
+  }
+}
