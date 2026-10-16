@@ -89,11 +89,12 @@ class Article(Base):
             use_alter=True,
         ),
         Index("ix_articles_track", "processing_track"),
+        UniqueConstraint("url", "processing_track", name="uq_articles_track_url"),
     )
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement="ignore_fk")
     source_id: Mapped[str] = mapped_column(Text)
-    url: Mapped[str] = mapped_column(Text, unique=True)
+    url: Mapped[str] = mapped_column(Text)
     title: Mapped[str] = mapped_column(Text)
     # Legacy fields retain their original meaning; R1 material/outputs live below.
     processing_track: Mapped[str] = mapped_column(Text, default="legacy", server_default="legacy")

@@ -1,0 +1,51 @@
+{
+  "schema_version": "r1-source-observation-policy-v1",
+  "recorded_on": "2026-10-16",
+  "decision_owner": "ai-implementation-provisional",
+  "user_confirmed_thresholds": false,
+  "technical_g1_ready": false,
+  "publication_requires_g1_and_g2": true,
+  "environment": {
+    "required": "target-linux-image-and-target-network-or-recorded-equivalent",
+    "database_writes": 0,
+    "paid_requests": 0,
+    "rsshub_cache_seconds": 1800,
+    "rsshub_content_cache_seconds": 3600,
+    "development_single_probes_count_as_g2": false
+  },
+  "continuous_routes": {
+    "minimum_elapsed_seconds": 21600,
+    "timezone": "Asia/Shanghai",
+    "minimum_distinct_calendar_days": 2,
+    "planned_interval_seconds": 1800,
+    "minimum_scheduled_attempts": 13,
+    "maximum_gap_seconds": 4500,
+    "minimum_metadata_success_fraction": 0.9,
+    "maximum_consecutive_metadata_failures": 1,
+    "post_failure_successes_required": 2,
+    "sample_materials_per_success": 2,
+    "minimum_distinct_material_urls": 3,
+    "minimum_declared_scope_success_fraction": 0.9,
+    "critical_identity_author_time_scope_mistakes_allowed": 0
+  },
+  "publication_cadence": {
+    "live_news": "Require actual new upstream identities within the window and record their supported source times; HTTP 200 or changed fetch time alone is insufficient.",
+    "daily_edition": "Apply the continuous window and independently verify two real editorial dates. Record whether a new edition was actually observed; archive reads do not count as newly published editions.",
+    "slow_longform_reviews": "Do not require daily publication. Compare the current list with the origin and record actual latest item dates and lack of observed updates. A stale mirror is not current discovery.",
+    "previews_questions_media": "Judge only the declared public preview/background/description. No answer consensus, subscription fulltext, transcript, viewing conclusion, duration, or timecode claim without corresponding material."
+  },
+  "records_required": [
+    "exact source ID, route, image/revision, config fingerprint and observation timestamps",
+    "every scheduled success and failure; no dropped failed rounds or recycled R0 observations",
+    "source identities, titles, author role/basis, distinct time meanings and precision",
+    "material URL, HTTP/access result, scope, completeness basis, response/text fingerprints",
+    "cache-span evidence, real new identities, verified source dates, and quiet/stale distinction",
+    "explicit pass/observe/blocked per path, measured window only, no long-term stability claim"
+  ],
+  "notes": [
+    "Six hours, thirteen half-hour samples and two local dates are an R1 bounded integration gate, not proof of seven-day or long-term source stability.",
+    "The window crosses the deployed 30-minute feed and 60-minute body cache settings; retain unchanged fingerprints when upstream is quiet rather than forcing cache-bypass requests.",
+    "Only independently passing paths may be enabled. Failed paths remain off with evidence and do not authorize lower quality gates or higher budget.",
+    "These rules are frozen before the target observation window. Later revisions require a new version and reason, retaining the first results."
+  ]
+}

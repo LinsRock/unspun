@@ -28,9 +28,9 @@ def test_digest_unique_on_report_date_and_kind() -> None:
     assert [{col.name for col in c.columns} for c in uniques] == [{"report_date", "kind"}]
 
 
-def test_article_url_is_unique() -> None:
-    url = Base.metadata.tables["articles"].c.url
-    assert url.unique
+def test_article_url_is_unique_within_processing_track() -> None:
+    constraints = Base.metadata.tables["articles"].constraints
+    assert any(constraint.name == "uq_articles_track_url" for constraint in constraints)
 
 
 def test_embedding_columns_match_configured_dim() -> None:

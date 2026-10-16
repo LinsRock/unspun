@@ -3,6 +3,7 @@
 import calendar
 from dataclasses import dataclass
 from datetime import UTC, datetime
+from typing import Any
 from urllib.parse import urljoin, urlparse
 
 import feedparser
@@ -22,6 +23,12 @@ class FeedEntry:
     title: str
     published_at: datetime | None
     summary_html: str | None
+    external_id: str | None = None
+    author: str | None = None
+    published_raw: str | None = None
+    updated_at: datetime | None = None
+    updated_raw: str | None = None
+    content_html: str | None = None
 
 
 def make_client() -> httpx.Client:
@@ -74,12 +81,24 @@ def parse_feed(data: bytes, base_url: str | None = None) -> list[FeedEntry]:
         # feedparser normalizes timestamps to UTC struct_time.
         struct = e.get("published_parsed") or e.get("updated_parsed")
         published_at = datetime.fromtimestamp(calendar.timegm(struct), tz=UTC) if struct else None
+        raw_entry = dict[str, Any](e)
+        updated_struct = raw_entry.get("updated_parsed")
         entries.append(
             FeedEntry(
                 url=url,
                 title=title,
                 published_at=published_at,
                 summary_html=e.get("summary"),
+                external_id=e.get("id"),
+                author=e.get("author"),
+                published_raw=e.get("published"),
+                updated_at=datetime.fromtimestamp(calendar.timegm(updated_struct), tz=UTC)
+                if updated_struct
+                else None,
+                updated_raw=raw_entry.get("updated"),
+                content_html=next(
+                    (item.get("value") for item in e.get("content", []) if item.get("value")), None
+                ),
             )
         )
     return entries
