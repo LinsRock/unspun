@@ -1,0 +1,49 @@
+{
+  "observed_at": "2026-10-16T05:54:44.807192+00:00",
+  "isolated_database": "unspun_r1_02_upgrade_20261016",
+  "input_kind": "synthetic schema compatibility fixtures, not production data or actual model spend",
+  "before_head": "000010",
+  "after_head": "000011",
+  "before": {
+    "events": {
+      "count": 1,
+      "sha256": "02aa9093f822bcb470f312e72f0f29f922c21e8abcdc68fbacc190a62329e733"
+    },
+    "articles": {
+      "count": 1,
+      "sha256": "73c8fc55bd4d5059f855a30d53c22484d4e992fd56137c98123b0aff36c1ecfb"
+    },
+    "digests": {
+      "count": 1,
+      "sha256": "13d3718293b72fcbda22d128094ee8bace54cf7e84e56edadb4c213df8b42093"
+    },
+    "llm_usage": {
+      "count": 1,
+      "sha256": "3b7afb5d98fdd02bdb56351a5b6bcc8e280a8e199f50b674fd49d07df03821c4"
+    }
+  },
+  "after": {
+    "events": {
+      "count": 1,
+      "sha256": "02aa9093f822bcb470f312e72f0f29f922c21e8abcdc68fbacc190a62329e733"
+    },
+    "articles": {
+      "count": 1,
+      "sha256": "73c8fc55bd4d5059f855a30d53c22484d4e992fd56137c98123b0aff36c1ecfb"
+    },
+    "digests": {
+      "count": 1,
+      "sha256": "13d3718293b72fcbda22d128094ee8bace54cf7e84e56edadb4c213df8b42093"
+    },
+    "llm_usage": {
+      "count": 1,
+      "sha256": "3b7afb5d98fdd02bdb56351a5b6bcc8e280a8e199f50b674fd49d07df03821c4"
+    }
+  },
+  "historical_columns_byte_equal": true,
+  "historical_track": "legacy",
+  "historical_form": "unknown",
+  "historical_metadata_and_material_unknown": true,
+  "old_000010_models_can_read_000011": true,
+  "paid_calls": 0
+}

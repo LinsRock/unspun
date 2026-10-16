@@ -14,6 +14,7 @@ from sqlalchemy import (
     Date,
     DateTime,
     ForeignKey,
+    ForeignKeyConstraint,
     Index,
     Numeric,
     Text,
@@ -66,12 +67,40 @@ class Article(Base):
     __table_args__ = (
         Index("ix_articles_source_id", "source_id"),
         Index("ix_articles_event_publication", "event_id", "reported_at", "fetched_at"),
+        CheckConstraint("processing_track IN ('legacy','r1')", name="ck_articles_track"),
+        CheckConstraint(
+            "content_form IN ('unknown','article','post','question','video','audio')",
+            name="ck_articles_form",
+        ),
+        CheckConstraint(
+            "canonical_content_id IS NULL OR canonical_content_id != id",
+            name="ck_articles_canonical_not_self",
+        ),
+        ForeignKeyConstraint(
+            ["id", "current_material_id"],
+            ["content_materials.article_id", "content_materials.id"],
+            name="fk_articles_current_material",
+            use_alter=True,
+        ),
+        Index("ix_articles_track", "processing_track"),
     )
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement="ignore_fk")
     source_id: Mapped[str] = mapped_column(Text)
     url: Mapped[str] = mapped_column(Text, unique=True)
     title: Mapped[str] = mapped_column(Text)
+    # Legacy fields retain their original meaning; R1 material/outputs live below.
+    processing_track: Mapped[str] = mapped_column(Text, default="legacy", server_default="legacy")
+    content_form: Mapped[str] = mapped_column(Text, default="unknown", server_default="unknown")
+    genre: Mapped[str | None] = mapped_column(Text)
+    platform: Mapped[str | None] = mapped_column(Text)
+    publisher_name: Mapped[str | None] = mapped_column(Text)
+    r1_metadata: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    metadata_fingerprint: Mapped[str | None] = mapped_column(Text)
+    canonical_content_id: Mapped[int | None] = mapped_column(
+        ForeignKey("articles.id", name="fk_articles_canonical")
+    )
+    current_material_id: Mapped[int | None]
     lang: Mapped[str | None] = mapped_column(Text)
     published_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     reported_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
@@ -95,6 +124,135 @@ class Article(Base):
     event_id: Mapped[int | None] = mapped_column(ForeignKey("events.id"), index=True)
 
     event: Mapped[Event | None] = relationship(back_populates="articles")
+
+
+class ContentIdentity(Base):
+    """A platform identity is independent of the discovery route."""
+
+    __tablename__ = "content_identities"
+    __table_args__ = (UniqueConstraint("namespace", "external_id", name="uq_content_identity"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    article_id: Mapped[int] = mapped_column(ForeignKey("articles.id"), index=True)
+    namespace: Mapped[str] = mapped_column(Text)
+    external_id: Mapped[str] = mapped_column(Text)
+
+
+class ContentUrl(Base):
+    __tablename__ = "content_urls"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    article_id: Mapped[int] = mapped_column(ForeignKey("articles.id"), index=True)
+    url: Mapped[str] = mapped_column(Text, unique=True)
+    relation: Mapped[str] = mapped_column(Text)  # discovered | canonical | redirect | reprint
+
+
+class ContentObservation(Base):
+    """Repeated discoveries retain their route, times, and supplied signals."""
+
+    __tablename__ = "content_observations"
+    __table_args__ = (
+        UniqueConstraint(
+            "source_id", "item_key", "observation_fingerprint", name="uq_content_observation"
+        ),
+        Index("ix_content_observations_source_time", "source_id", "observed_at"),
+        CheckConstraint("rank IS NULL OR rank > 0", name="ck_content_observation_rank"),
+    )
+    id: Mapped[int] = mapped_column(primary_key=True)
+    article_id: Mapped[int] = mapped_column(ForeignKey("articles.id"), index=True)
+    source_id: Mapped[str] = mapped_column(Text)
+    item_key: Mapped[str] = mapped_column(Text)
+    discovered_url: Mapped[str] = mapped_column(Text)
+    observed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    observation_fingerprint: Mapped[str] = mapped_column(Text)
+    rank: Mapped[int | None]
+    signals: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    metadata_snapshot: Mapped[dict[str, Any]] = mapped_column(JSONB)
+
+
+class ContentMaterial(Base):
+    """Immutable observed text units, not an assertion of paywalled/media completeness."""
+
+    __tablename__ = "content_materials"
+    __table_args__ = (
+        UniqueConstraint("article_id", "id", name="uq_content_material_owner"),
+        UniqueConstraint("article_id", "input_fingerprint", name="uq_content_material_input"),
+        CheckConstraint(
+            "scope IN ('open_text_unit','editorial_edition','complete_brief','preview',"
+            "'question_background','media_description','feed_lead','none')",
+            name="ck_material_scope",
+        ),
+        CheckConstraint(
+            "access_status IN ('ok','restricted','unavailable','failed')", name="ck_material_access"
+        ),
+        CheckConstraint(
+            "completeness IN ('observed_unit','partial','none','unknown')",
+            name="ck_material_completeness",
+        ),
+        CheckConstraint("jsonb_typeof(paragraphs) = 'array'", name="ck_material_paragraphs"),
+    )
+    id: Mapped[int] = mapped_column(primary_key=True)
+    article_id: Mapped[int] = mapped_column(ForeignKey("articles.id"), index=True)
+    input_fingerprint: Mapped[str] = mapped_column(Text)
+    text_fingerprint: Mapped[str | None] = mapped_column(Text, index=True)
+    metadata_fingerprint: Mapped[str] = mapped_column(Text)
+    extractor_version: Mapped[str] = mapped_column(Text)
+    schema_version: Mapped[str] = mapped_column(Text)
+    scope: Mapped[str] = mapped_column(Text)
+    access_status: Mapped[str] = mapped_column(Text)
+    completeness: Mapped[str] = mapped_column(Text)
+    completeness_basis: Mapped[str] = mapped_column(Text)
+    source_url: Mapped[str] = mapped_column(Text)
+    retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    response_status: Mapped[int | None]
+    response_fingerprint: Mapped[str | None] = mapped_column(Text)
+    paragraphs: Mapped[list[dict[str, Any]]] = mapped_column(JSONB)
+    source_excerpt: Mapped[str | None] = mapped_column(Text)
+    evidence: Mapped[dict[str, Any]] = mapped_column(JSONB)
+
+
+class ContentDerivation(Base):
+    """Versioned R1 results never replace legacy summary/grounding fields."""
+
+    __tablename__ = "content_derivations"
+    __table_args__ = (
+        UniqueConstraint(
+            "article_id", "kind", "input_fingerprint", name="uq_content_derivation_input"
+        ),
+        ForeignKeyConstraint(
+            ["article_id", "material_id"],
+            ["content_materials.article_id", "content_materials.id"],
+            name="fk_content_derivation_material",
+        ),
+        CheckConstraint(
+            "kind IN ('features','admission','card','guide')", name="ck_derivation_kind"
+        ),
+        CheckConstraint(
+            "status IN ('pending','generating','review_pending','budget_deferred','ready',"
+            "'rejected','failed','invalidated')",
+            name="ck_derivation_status",
+        ),
+        CheckConstraint(
+            "status != 'ready' OR (payload IS NOT NULL AND jsonb_typeof(payload)='object' "
+            "AND review_evidence IS NOT NULL AND jsonb_typeof(review_evidence)='object')",
+            name="ck_derivation_ready_evidence",
+        ),
+        Index("ix_content_derivations_article_kind", "article_id", "kind"),
+    )
+    id: Mapped[int] = mapped_column(primary_key=True)
+    article_id: Mapped[int] = mapped_column(ForeignKey("articles.id"))
+    material_id: Mapped[int]
+    kind: Mapped[str] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(Text, default="pending", server_default="pending")
+    reason: Mapped[str | None] = mapped_column(Text)
+    input_fingerprint: Mapped[str] = mapped_column(Text)
+    metadata_fingerprint: Mapped[str] = mapped_column(Text)
+    contract_version: Mapped[str] = mapped_column(Text)
+    generation_model: Mapped[str | None] = mapped_column(Text)
+    review_contract: Mapped[str] = mapped_column(Text)
+    review_model: Mapped[str | None] = mapped_column(Text)
+    payload: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    review_evidence: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 
 class EventViewpoint(Base):

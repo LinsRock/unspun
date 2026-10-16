@@ -1,5 +1,6 @@
 import json
 from datetime import UTC, datetime, timedelta
+from itertools import count
 from pathlib import Path
 from typing import Any
 
@@ -285,12 +286,15 @@ class FakeViewpointLlm:
         raise NotImplementedError
 
 
+_seed_url_ids = count()
+
+
 def seed_event(session: Session, source_ids: list[str]) -> Event:
     event = Event()
     articles = [make_article(i, sid) for i, sid in enumerate(source_ids)]
     for a in articles:
         a.event = event
-        a.url = f"https://example.com/{id(a)}"  # unique across tests
+        a.url = f"https://example.com/seed-{next(_seed_url_ids)}"
     session.add_all([event, *articles])
     session.flush()
     return event

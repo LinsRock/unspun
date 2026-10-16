@@ -14,6 +14,7 @@ import numpy as np
 from sqlalchemy.orm import Session, selectinload
 
 from unspun.core.config import get_settings
+from unspun.core.content import require_legacy
 from unspun.core.db import get_engine
 from unspun.core.llm import LlmClient, LlmError, SupportsLlm
 from unspun.core.models import Article, Event, EventViewpoint
@@ -110,6 +111,7 @@ def repair_event(
     if event is None:
         raise ValueError(f"event {event_id} not found")
     originals = sorted(event.articles, key=lambda a: a.id)
+    require_legacy(*originals)
     if not originals:
         raise ValueError("event has no source articles")
     if len(originals) > max_articles:

@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session, selectinload
 
 from unspun.api.events import LN2, EventOut, event_out
 from unspun.core.config import get_settings
+from unspun.core.content import legacy_event_condition
 from unspun.core.db import session_scope
 from unspun.core.llm import LlmClient, SupportsLlm
 from unspun.core.logging import get_logger
@@ -59,6 +60,7 @@ def select_digest_events(
             Event.changed_at >= now - timedelta(hours=WINDOW_HOURS),
             Event.changed_at <= now,
             Event.score_final.is_not(None),
+            legacy_event_condition(),
             select(Article.id).where(Article.event_id == Event.id, ready_condition()).exists(),
             Event.summary_zh.is_not(None),
             func.length(func.trim(Event.summary_zh)) > 0,

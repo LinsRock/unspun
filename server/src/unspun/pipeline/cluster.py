@@ -6,6 +6,7 @@ import numpy as np
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from unspun.core.content import is_legacy, legacy_event_condition, require_legacy
 from unspun.core.db import session_scope
 from unspun.core.logging import get_logger
 from unspun.core.models import Article, Event
@@ -22,9 +23,13 @@ def assign_article(session: Session, article: Article, threshold: float) -> bool
 
     Returns True when a new event was created.
     """
+    require_legacy(article)
     dist = Event.centroid.cosine_distance(article.embedding)
     row = session.execute(
-        select(Event, dist.label("dist")).where(Event.centroid.is_not(None)).order_by(dist).limit(1)
+        select(Event, dist.label("dist"))
+        .where(Event.centroid.is_not(None), legacy_event_condition())
+        .order_by(dist)
+        .limit(1)
     ).first()
     if row is not None and (1.0 - float(row[1])) >= threshold:
         event: Event = row[0]
@@ -50,7 +55,9 @@ def refresh_centroid(session: Session, event: Event) -> None:
     embeddings = list(
         session.scalars(
             select(Article.embedding).where(
-                Article.event_id == event.id, Article.embedding.is_not(None)
+                Article.event_id == event.id,
+                Article.embedding.is_not(None),
+                Article.processing_track == "legacy",
             )
         )
     )
@@ -72,7 +79,10 @@ def cluster_pending(limit: int = CLUSTER_BATCH_LIMIT) -> tuple[int, int]:
             session.scalars(
                 select(Article.id)
                 .where(
-                    Article.embedding.is_not(None), Article.event_id.is_(None), ready_condition()
+                    Article.embedding.is_not(None),
+                    Article.event_id.is_(None),
+                    ready_condition(),
+                    Article.processing_track == "legacy",
                 )
                 .order_by(Article.id)
                 .limit(limit)
@@ -84,7 +94,7 @@ def cluster_pending(limit: int = CLUSTER_BATCH_LIMIT) -> tuple[int, int]:
         try:
             with session_scope() as session:
                 article = session.get(Article, article_id)
-                if article is None or article.event_id is not None:
+                if article is None or not is_legacy(article) or article.event_id is not None:
                     continue
                 if assign_article(session, article, threshold):
                     created += 1
