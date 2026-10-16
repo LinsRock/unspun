@@ -5,7 +5,7 @@ import json
 import re
 from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
-from typing import Any, Literal
+from typing import Any, Literal, cast
 from urllib.parse import unquote_plus, urlsplit, urlunsplit
 
 import httpx
@@ -202,15 +202,15 @@ def douban_preview(description: str) -> str | None:
         document = json.loads(value)
     except ValueError:
         document = None
-    if isinstance(document, dict) and isinstance(document.get("blocks"), list):
-        texts = [
-            block["text"].strip()
-            for block in document["blocks"]
-            if isinstance(block, dict)
-            and isinstance(block.get("text"), str)
-            and block["text"].strip()
-        ]
-        return "\n".join(texts) or None
+    if isinstance(document, dict):
+        blocks = cast(dict[str, Any], document).get("blocks")
+        if isinstance(blocks, list):
+            texts: list[str] = []
+            for block in cast(list[Any], blocks):
+                text = cast(dict[str, Any], block).get("text") if isinstance(block, dict) else None
+                if isinstance(text, str) and text.strip():
+                    texts.append(text.strip())
+            return "\n".join(texts) or None
     match = re.search(r'"text"\s*:\s*("[\s\S]*)', value)
     if not match:
         return None
