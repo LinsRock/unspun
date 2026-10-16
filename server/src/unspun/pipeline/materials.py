@@ -114,6 +114,10 @@ def _publication_times(
 def _metadata(
     page: TextPage, html: str, url: str, now: datetime, previous: ContentMetadata
 ) -> ContentMetadata:
+    if (urlsplit(url).hostname or "").endswith("paper.people.com.cn"):
+        from unspun.pipeline.editions import people_metadata
+
+        return people_metadata(page, previous)
     values = previous.model_dump()
     authors = list(previous.authors)
     byline = page.meta("author")
@@ -140,6 +144,26 @@ def _metadata(
             ),
         )
     host = urlsplit(url).hostname or ""
+    if host == "fortunechina.com" or host.endswith(".fortunechina.com"):
+        values["times"] = previous.times
+        date_node = page.by_class("date")
+        raw_date = date_node.text().strip() if date_node else ""
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw_date):
+            try:
+                on = date.fromisoformat(raw_date)
+            except ValueError:
+                on = None
+            if on and date(1970, 1, 1) <= on <= now.date() + timedelta(days=1):
+                values["times"] = _publication_times(
+                    previous.times,
+                    ContentTime(
+                        kind="original",
+                        precision="date",
+                        on=on,
+                        raw=raw_date,
+                        basis="fortune:visible-date",
+                    ),
+                )
     if host == "news.cn" or host.endswith(".news.cn"):
         values["times"] = previous.times
         raw_date = page.meta("publishdate")
@@ -218,6 +242,19 @@ def _body(page: TextPage, html: str, url: str) -> tuple[str, str]:
         node, basis = page.by_id("detailContent"), "xinhua:#detailContent"
     elif host == "people.com.cn" or host.endswith(".people.com.cn"):
         node, basis = page.by_id("ozoom"), "people:#ozoom"
+    elif host == "bjnews.com.cn" or host.endswith(".bjnews.com.cn"):
+        node, basis = page.by_class("content-name"), "bjnews:.content-name"
+        for candidate in page.nodes:
+            if candidate.attrs.get("label") == "\u56fe\u7247\u8bf4\u660e":
+                candidate.excluded = True
+    elif host == "book.douban.com":
+        node, basis = page.by_class("review-content"), "douban:.review-content"
+    elif host == "fortunechina.com" or host.endswith(".fortunechina.com"):
+        node = page.by_class("word-zh") or page.by_class("word-cn")
+        basis = "fortune:chinese-body"
+        for candidate in page.nodes:
+            if candidate.tag == "font" and candidate.attrs.get("color", "").lower() == "gray":
+                candidate.excluded = True
     if node is not None:
         return node.text(), basis
     # A missing known container must not promote a navigation/template shell.
@@ -259,6 +296,10 @@ def retrieve_material(
     if config is None:
         raise ValueError("R1 material capability is not declared")
     now = now or datetime.now(UTC)
+    if config.adapter == "zhihu_daily":
+        from unspun.pipeline.editions import retrieve_daily
+
+        return retrieve_daily(source, payload, client, now=now)
     metadata_raw = dict(payload["metadata"])
     title = str(metadata_raw.pop("title"))
     metadata = ContentMetadata.model_validate(metadata_raw)

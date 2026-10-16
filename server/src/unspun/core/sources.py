@@ -36,7 +36,7 @@ RSSHUB_SCHEME = "rsshub://"
 class R1Source(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
-    adapter: Literal["rss"] = "rss"
+    adapter: Literal["rss", "zhihu_daily", "people_daily"] = "rss"
     discovery: bool = False
     material: bool = False
     paid: bool = False
