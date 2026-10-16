@@ -46,9 +46,15 @@ if args[0] == "compose":
         if phase == "interrupt":
             signal.signal(signal.SIGTERM, lambda *_: sys.exit(143))
             while True: time.sleep(0.05)
-    if "ps" in args: print("isolated-rsshub-1")
+    if "ps" in args:
+        service = args[-1]
+        if service == "rsshub": print("isolated-rsshub-1")
+        elif os.environ.get("ACTIVE_" + service.upper()): print("active-" + service)
 if args[0] == "inspect":
-    if "io.unspun.deployment" in args[2]:
+    if ".Config.Image" in args[2]:
+        service = args[-1].removeprefix("active-")
+        print(os.environ["ACTIVE_" + service.upper()])
+    elif "io.unspun.deployment" in args[2]:
         if os.environ.get("OTHER_OWNER"): print("another-deployment")
         else:
             with open(os.environ["CALL_LOG"]) as log:
@@ -108,10 +114,34 @@ if args[0] == "inspect":
                     any("--remove-orphans" in args for args in self.calls())
                 )
 
-    def test_missing_target_image_stops_before_docker(self):
+    def test_unresolved_image_stops_before_pull_or_migration(self):
         result = self.run_deploy(SERVER_IMAGE="")
         self.assertNotEqual(result.returncode, 0)
-        self.assertFalse(self.log.exists())
+        self.assertFalse(any("pull" in args or "run" in args for args in self.calls()))
+
+    def test_web_only_release_reuses_immutable_running_server(self):
+        image = "ghcr.io/linsrock/unspun-server:" + "a" * 40
+        result = self.run_deploy(SERVER_IMAGE="", ACTIVE_API=image)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("SERVER_IMAGE=" + image, result.stdout)
+        self.assertIn("WEB_IMAGE=web:target", result.stdout)
+
+    def test_server_only_release_reuses_running_web_digest(self):
+        image = "ghcr.io/linsrock/unspun-web@sha256:" + "b" * 64
+        result = self.run_deploy(WEB_IMAGE="", ACTIVE_WEB=image)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("WEB_IMAGE=" + image, result.stdout)
+
+    def test_deploy_only_reuses_both_and_refuses_mutable_images(self):
+        result = self.run_deploy(
+            SERVER_IMAGE="", WEB_IMAGE="",
+            ACTIVE_API="server:" + "a" * 40, ACTIVE_WEB="web:" + "b" * 40,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.log.unlink()
+        result = self.run_deploy(SERVER_IMAGE="", ACTIVE_API="server:latest")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(any("pull" in args or "run" in args for args in self.calls()))
 
     def test_terminal_output_with_closed_stdin_can_migrate(self):
         master, slave = pty.openpty()
