@@ -1,0 +1,98 @@
+{
+  "schema_version": "unspun-r1-registration-report-v1",
+  "registry_sha256": "4b902face46bc6100f2aaf5e3713b880861ebb719336e37d433690131258965a",
+  "registration_valid": true,
+  "technical_status": "technical_not_ready",
+  "technical_ready": false,
+  "technical_blockers": [
+    "R1-00B technical expectations, holdout inputs and baseline outputs are not frozen",
+    "Source observation windows and tolerances are not fixed per path",
+    "Material fingerprints register identity; body availability and content were not checked"
+  ],
+  "user_quality_status": "user_quality_pending_final_acceptance",
+  "user_quality_passed": null,
+  "candidate_count": 43,
+  "source_count_with_samples": 17,
+  "observation_count": 232,
+  "reference_date": "2026-10-15",
+  "material_status_counts": {
+    "brief_text": 1,
+    "daily_edited_text": 3,
+    "feed_summary_only": 4,
+    "open_article_text": 28,
+    "partial_preview": 2,
+    "podcast_description_only": 1,
+    "question_context_only": 2,
+    "video_description_only": 2
+  },
+  "material_fingerprint_count": 39,
+  "missing_material_fingerprints": [
+    "C30",
+    "C38",
+    "C39",
+    "C40"
+  ],
+  "body_availability_checked": false,
+  "legacy": {
+    "event_count": 40,
+    "article_count": 53,
+    "subjective_labels_equal": true,
+    "subjective_origin": "legacy_user_labels; preserved without reinterpretation",
+    "technical_origin": "legacy_technical_labels; AI technical review is separate",
+    "worth_reading_true": 32,
+    "worth_reading_false": 8,
+    "ranking_regression_executed": false
+  },
+  "feedback": {
+    "status": "not_provided",
+    "reviews": {},
+    "quality_passed": null
+  },
+  "boundaries": {
+    "stale_news_regression": [
+      "C11",
+      "C19"
+    ],
+    "same_article_reprint": [
+      "C21",
+      "C41"
+    ],
+    "partial_overlap_keep_separate": [
+      "C20",
+      "C42"
+    ],
+    "distinct_people_paper_article": [
+      "C12"
+    ],
+    "daily_edited_not_original_answer": [
+      "C24",
+      "C25",
+      "C26"
+    ],
+    "question_background_not_answers": [
+      "C27",
+      "C28"
+    ],
+    "media_description_not_transcript": [
+      "C03",
+      "C09",
+      "C22"
+    ],
+    "partial_preview_not_full_text": [
+      "C07",
+      "C08"
+    ],
+    "restricted_entry_without_saved_body": [
+      "C30",
+      "C38",
+      "C39",
+      "C40"
+    ],
+    "older_knowledge_not_automatically_stale_news": [
+      "C29",
+      "C31"
+    ]
+  },
+  "pinned_file_count": 19,
+  "network_database_or_model_calls": false
+}
