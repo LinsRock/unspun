@@ -42,6 +42,10 @@ class Blocked(Exception):
     reason: str
 
 
+class DependencyPending(Deferred):
+    """A prerequisite wait consumes no execution-failure attempts."""
+
+
 SessionScope = Callable[[], AbstractContextManager[Session]]
 Handlers = Mapping[tuple[Queue, str], StageHandler]
 
@@ -81,6 +85,9 @@ def process_one(
     except BudgetExceeded as error:
         with scope() as session:
             fail(session, lease, error=str(error), retry_at=error.retry_at, disposition="budget")
+    except DependencyPending as error:
+        with scope() as session:
+            fail(session, lease, error=error.reason, retry_at=error.until, disposition="dependency")
     except Deferred as error:
         with scope() as session:
             fail(

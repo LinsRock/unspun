@@ -149,10 +149,13 @@ class LlmClient:
         # and return JSON cut off mid-string; one retry with a doubled budget
         # recovers those instead of failing the article every cycle.
         for attempt_max_tokens in (max_tokens, max_tokens * 2):
-            if purpose == "grounding":
+            if purpose == "grounding" and self._context.stage == "legacy":
                 from unspun.core.review_budget import require_grounding_budget
 
                 require_grounding_budget(session)
+            # R1 uses DatabaseJournal's same rolling cap plus reservations. It
+            # closes that independent transaction before HTTP; opening the old
+            # caller-session guard here would hold a task DB transaction open.
             data = self._post(
                 session,
                 "/chat/completions",

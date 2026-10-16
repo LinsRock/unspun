@@ -737,3 +737,68 @@ def test_redirect_to_an_alias_resolves_the_shared_canonical_root(ingestion_db: I
         assert row and row.canonical_content_id == first.article_id
         alias = session.scalar(select(ContentUrl).where(ContentUrl.url == second.payload["url"]))
         assert alias and alias.article_id == second.article_id
+
+
+def test_verified_feed_fields_keep_publication_and_question_creation_separate() -> None:
+    by_id = {source.id: source for source in load_sources()}
+    from unspun.pipeline.discovery import feed_item
+    from unspun.pipeline.feeds import FeedEntry
+
+    at = NOW - timedelta(hours=2)
+    entry = FeedEntry(
+        url="https://www.36kr.com/newsflashes/123",
+        title="Synthetic brief",
+        published_at=at,
+        published_raw=at.isoformat(),
+        summary_html="Actual synthetic brief body.",
+    )
+    brief = feed_item(by_id["36kr-newsflashes"], entry, 1)
+    assert brief.metadata.times[0].kind == "original"
+    assert brief.metadata.times[0].at == at
+    question = feed_item(
+        by_id["zhihu-hot"],
+        FeedEntry(
+            url="https://www.zhihu.com/question/123",
+            title="Question",
+            published_at=at,
+            published_raw=at.isoformat(),
+            summary_html="Question background",
+        ),
+        1,
+    )
+    assert question.metadata.times[0].kind == "question_created"
+    assert question.rank == 1
+    assert not any(t.kind == "original" for t in question.metadata.times)
+
+
+def test_feed_publication_change_does_not_refresh_recorded_original(
+    ingestion_db: IngestionDB,
+) -> None:
+    source = ingestion_db.source()
+    old = ContentTime(
+        kind="original", precision="time", at=NOW - timedelta(days=10), basis="upstream:publishTime"
+    )
+    first = ingestion_db.item(metadata=ContentMetadata(form="article", times=(old,)))
+    ingestion_db.persist(source, first)
+    second = first.model_copy(
+        update={
+            "metadata": ContentMetadata(
+                form="article",
+                times=(
+                    ContentTime(
+                        kind="original", precision="time", at=NOW, basis="upstream:publishTime"
+                    ),
+                ),
+            )
+        }
+    )
+    ingestion_db.persist(source, second, cycle="changed")
+    with ingestion_db.scope() as session:
+        row = session.scalar(select(Article).where(Article.source_id == source.id))
+        assert row
+        assert row.r1_metadata is not None and old.at is not None
+        times: list[dict[str, Any]] = row.r1_metadata["times"]
+        assert next(value for value in times if value["kind"] == "original")[
+            "at"
+        ] == old.at.isoformat().replace("+00:00", "Z")
+        assert any(value["kind"] == "modified" and "conflicts" in value["basis"] for value in times)

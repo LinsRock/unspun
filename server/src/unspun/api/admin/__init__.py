@@ -7,6 +7,7 @@ from unspun.api.admin.costs import router as costs_router
 from unspun.api.admin.expenses import router as expenses_router
 from unspun.api.admin.exports import router as exports_router
 from unspun.api.admin.overview import router as overview_router
+from unspun.api.admin.r1 import router as r1_router
 from unspun.api.admin.ranges import router as ranges_router
 from unspun.api.admin.runs import router as runs_router
 from unspun.api.admin.sources import router as sources_router
@@ -23,3 +24,4 @@ router.include_router(configuration_router)
 router.include_router(expenses_router)
 router.include_router(costs_router)
 router.include_router(overview_router)
+router.include_router(r1_router)

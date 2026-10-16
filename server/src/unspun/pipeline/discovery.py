@@ -134,6 +134,27 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
         )
         if item is not None
     )
+    # Verified deployed RSSHub 2026-10-09 route mappings: 36kr uses the
+    # upstream templateMaterial.publishTime; Zhihu hot uses target.created.
+    # Neither field is the time an item entered a hot list or was fetched.
+    if source.id == "36kr-newsflashes" and urlsplit(str(source.url)).path == "/36kr/newsflashes":
+        times = tuple(
+            value.model_copy(
+                update={"kind": "original", "basis": "rsshub:36kr:templateMaterial.publishTime"}
+            )
+            if value.kind == "feed"
+            else value
+            for value in times
+        )
+    elif source.id == "zhihu-hot" and urlsplit(str(source.url)).path == "/zhihu/hot":
+        times = tuple(
+            value.model_copy(
+                update={"kind": "question_created", "basis": "rsshub:zhihu-hot:target.created"}
+            )
+            if value.kind == "feed"
+            else value
+            for value in times
+        )
     author = visible_text(entry.author or "").strip()
     authors = (
         (Author(name=author[:300], role="unknown", platform=config.platform, basis="feed:author"),)
@@ -342,6 +363,31 @@ def persist_discovery(
             )
         )
         metadata = {"title": item.title, **item.metadata.model_dump(mode="json")}
+        if article is not None and article.source_id == source.id and article.r1_metadata:
+            recorded = ContentMetadata.model_validate(
+                {key: value for key, value in article.r1_metadata.items() if key != "title"}
+            )
+            originals = tuple(value for value in recorded.times if value.kind == "original")
+            incoming = tuple(value for value in item.metadata.times if value.kind == "original")
+            if (
+                originals
+                and incoming
+                and {(t.at, t.on, t.precision) for t in originals}
+                != {(t.at, t.on, t.precision) for t in incoming}
+            ):
+                stable_times = originals + tuple(
+                    value for value in item.metadata.times if value.kind != "original"
+                )
+                stable_times += tuple(
+                    value.model_copy(
+                        update={
+                            "kind": "modified",
+                            "basis": str(value.basis) + ":conflicts_with_recorded_original",
+                        }
+                    )
+                    for value in incoming
+                )
+                metadata["times"] = [value.model_dump(mode="json") for value in stable_times]
         metadata_fp = fingerprint(metadata)
         if article is None:
             article = Article(

@@ -277,11 +277,11 @@ def fail(
     error: str,
     now: datetime | None = None,
     retry_at: datetime | None = None,
-    disposition: Literal["retry", "budget", "blocked"] = "retry",
+    disposition: Literal["retry", "budget", "dependency", "blocked"] = "retry",
 ) -> bool:
     now = now or datetime.now(UTC)
-    if disposition == "budget" and (retry_at is None or retry_at <= now):
-        raise ValueError("budget deferral requires a future availability time")
+    if disposition in {"budget", "dependency"} and (retry_at is None or retry_at <= now):
+        raise ValueError("deferral requires a future availability time")
     current = _owned(session, lease, now)
     if current is None:
         return False
@@ -291,6 +291,8 @@ def fail(
     elif disposition == "budget":
         task.status, attempt.status = "budget_deferred", "deferred"
         # A budget wait is not a failed execution and does not exhaust recovery.
+    elif disposition == "dependency":
+        task.status, attempt.status = "retry_wait", "deferred"
     else:
         task.failures += 1
         task.status = "failed" if task.failures >= task.max_attempts else "retry_wait"
