@@ -349,7 +349,7 @@ def organize(
         parsed = GuideDraft.model_validate(out)
         genre = str((card or {}).get("genre", "news"))
         raw_claims = [claim for section in parsed.sections for claim in section.claims]
-    source = content.title + "\n" + content.model_text()
+    source = content.model_text()
     safe_claims: list[EvidenceClaim] = []
     safe_indices: list[int] = []
     for index, claim in enumerate(raw_claims):
@@ -621,12 +621,24 @@ class ContentHandler:
                 select(ContentDerivation).where(
                     ContentDerivation.article_id == content.article_id,
                     ContentDerivation.kind == "card",
-                    ContentDerivation.status == "ready",
                     ContentDerivation.material_id == content.material_id,
                     ContentDerivation.input_fingerprint == processing_fingerprint(content, "card"),
                 )
             )
-            card = card_row.payload if card_row else None
+            card = card_row.payload if card_row and card_row.status == "ready" else None
+            card_task = session.scalar(
+                select(PipelineTask)
+                .where(
+                    PipelineTask.article_id == content.article_id,
+                    PipelineTask.kind == "process_card",
+                    PipelineTask.input_fingerprint == processing_fingerprint(content, "card"),
+                )
+                .order_by(PipelineTask.id.desc())
+                .limit(1)
+            )
+            terminal_card = (card_row is not None and card_row.status == "rejected") or (
+                card_task is not None and card_task.status in {"failed", "blocked", "completed"}
+            )
             engine = session.get_bind().engine
         excluded = cheap_exclusion(content, datetime.now(UTC))
         if excluded:
@@ -638,6 +650,16 @@ class ContentHandler:
                 excluded,
                 {"include": False},
                 {"method": "deterministic_pre_filter", "approved": True, "reason": excluded},
+            )
+        if self.kind == "guide" and not card and terminal_card:
+            return ProcessingResult(
+                content,
+                self.kind,
+                lease.input_fingerprint,
+                "rejected",
+                "card_unavailable",
+                {"available": False, "sections": []},
+                {"method": "terminal_prerequisite", "approved": True},
             )
         if self.kind == "guide" and not card:
             self._checkpoint(lease, None, "pending", "card_pending")

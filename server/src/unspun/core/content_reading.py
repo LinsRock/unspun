@@ -18,8 +18,8 @@ from unspun.core.grounding import (
 )
 from unspun.core.reading import chinese_text
 
-CARD_VERSION = "r1-card-v5"
-GUIDE_VERSION = "r1-guide-v1"
+CARD_VERSION = "r1-card-v7"
+GUIDE_VERSION = "r1-guide-v3"
 REVIEW_VERSION = "r1-content-review-v2"
 RULES_VERSION = "r1-content-rules-v1"
 MODEL_INPUT_CHARS = 12000
@@ -91,9 +91,13 @@ class ContentInput(ContentContract):
 
 
 def publication_at(metadata: ContentMetadata) -> datetime | None:
-    # Original and editorial have supported meanings. Feed/modified/reprint and
+    # Original, editorial and question creation have supported meanings. Feed/modified/reprint and
     # observation times never manufacture a new first-publication timestamp.
-    times = [value for value in metadata.times if value.kind in {"original", "editorial"}]
+    times = [
+        value
+        for value in metadata.times
+        if value.kind in {"original", "editorial", "question_created"}
+    ]
     original = next((value for value in times if value.kind == "original"), None)
     value = original or next(iter(times), None)
     if value is None:
@@ -145,6 +149,12 @@ def claim_valid(claim: EvidenceClaim, source: str, scope: MaterialScope) -> bool
         return False
     if scope == "media_description" and claim.voice != "description":
         return False
+    # A source frame does not preserve uncertainty inside the assertion.
+    uncertainty = ("\u542c\u8bf4", "\u636e\u8bf4", "\u597d\u50cf", "\u4f3c\u4e4e")
+    if any(word in claim.quote for word in uncertainty) and not any(
+        word in claim.text for word in uncertainty
+    ):
+        return False
     return (
         quote_in_source(claim.quote, source)
         and usable_evidence(claim.quote)
@@ -157,7 +167,7 @@ def claim_valid(claim: EvidenceClaim, source: str, scope: MaterialScope) -> bool
 
 
 def card_valid(draft: CardDraft, content: ContentInput) -> bool:
-    source = content.title + "\n" + content.model_text()
+    source = content.model_text()
     if not chinese_text(draft.title_zh) or any(domain not in DOMAINS for domain in draft.domains):
         return False
     if any(topic not in source for topic in draft.topics):
@@ -183,10 +193,7 @@ def guide_valid(draft: GuideDraft, content: ContentInput) -> bool:
         return False
     return all(
         chinese_text(section.heading)
-        and all(
-            claim_valid(claim, content.title + "\n" + content.model_text(), content.scope)
-            for claim in section.claims
-        )
+        and all(claim_valid(claim, content.model_text(), content.scope) for claim in section.claims)
         for section in draft.sections
     )
 

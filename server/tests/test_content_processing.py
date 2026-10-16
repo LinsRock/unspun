@@ -540,3 +540,86 @@ def test_semantic_failure_is_a_failed_task_attempt_with_retained_evidence(
                 .where(PipelineTask.id == task_id)
                 .values(due_at=NOW - timedelta(days=1))
             )
+
+
+@pytest.mark.parametrize("word", ["\u542c\u8bf4", "\u636e\u8bf4", "\u597d\u50cf", "\u4f3c\u4e4e"])
+def test_source_frame_does_not_turn_hearsay_into_certainty(word: str) -> None:
+    from unspun.core.content_reading import EvidenceClaim, claim_valid
+
+    quoted = word + TEXT
+    claim = EvidenceClaim(text=TEXT, quote=quoted, voice="author")
+    assert not claim_valid(claim, quoted, "preview")
+    assert claim_valid(claim.model_copy(update={"text": quoted}), quoted, "preview")
+
+
+@pytest.mark.parametrize("terminal", ["rejected", "failed", "blocked"])
+def test_guide_stops_when_current_card_has_a_terminal_outcome(
+    ingestion_db: Any, terminal: str
+) -> None:
+    from unspun.core.task_models import PipelineTask
+    from unspun.pipeline.content_processing import ContentHandler
+    from unspun.pipeline.r1_worker import process_one
+
+    source = ingestion_db.source(paid=True)
+    with ingestion_db.scope() as session:
+        content = persisted_content(session)
+        article = session.get(Article, content.article_id)
+        assert article
+        article.source_id = source.id
+        card_task_id = enqueue_processing(session, article.id)
+        if terminal == "rejected":
+            result = organize(
+                Session(),
+                FakeClient(
+                    draft(
+                        include=False,
+                        claims=[],
+                        reading_reason=None,
+                        reading_value=0,
+                        reason="insufficient_material",
+                    )
+                ),
+                FakeClient({**approval(), "claim_checks": []}),
+                content,
+                now=NOW,
+            )
+            apply_processing(session, result)
+        task = session.get(PipelineTask, card_task_id)
+        assert task
+        task.status = "completed" if terminal == "rejected" else terminal
+        guide_task_id = enqueue_processing(session, article.id, "guide")
+    handler = ContentHandler({source.id: source}, kind="guide", scope=ingestion_db.scope)
+    assert process_one(
+        "guide",
+        {("guide", "process_guide"): handler},
+        worker="terminal-guide",
+        scope=ingestion_db.scope,
+    )
+    with ingestion_db.scope() as session:
+        guide = session.get(PipelineTask, guide_task_id)
+        assert guide and guide.status == "completed"
+        row = session.scalar(
+            select(ContentDerivation).where(
+                ContentDerivation.article_id == content.article_id,
+                ContentDerivation.kind == "guide",
+            )
+        )
+        assert row and row.status == "rejected" and row.reason == "card_unavailable"
+
+
+def test_credits_only_media_cannot_borrow_title_as_body_evidence() -> None:
+    out = draft()
+    out["claims"][0]["quote"] = TITLE
+    out["claims"][0]["text"] = TITLE
+    content = input_content(
+        scope="media_description",
+        paragraphs=(
+            Paragraph(
+                text="\u7f16\u5bfc\uff1a\u5510\u5b50\u6654\n\u65b0\u534e\u793e\u97f3\u89c6\u9891\u90e8\u5236\u4f5c"
+            ),
+        ),
+    )
+    review = FakeClient(approval())
+    with Session() as session:
+        result = organize(session, FakeClient(out), review, content, now=NOW)
+    assert result.status == "failed" and review.calls == 0

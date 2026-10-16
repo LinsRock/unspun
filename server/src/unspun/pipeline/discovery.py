@@ -156,6 +156,19 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
             for value in times
         )
     author = visible_text(entry.author or "").strip()
+    publisher = config.publisher
+    genre = "review" if config.platform == "douban" else None
+    if config.platform == "infzm":
+        publisher = next(
+            (
+                name
+                for name in ("\u5357\u65b9\u4eba\u7269\u5468\u520a", "\u5357\u65b9\u5468\u672b")
+                if author.startswith(name)
+            ),
+            None,
+        )
+        if visible_text(entry.title).strip().endswith("\u8bb0\u8005\u624b\u8bb0"):
+            genre = "opinion"
     authors = (
         (Author(name=author[:300], role="unknown", platform=config.platform, basis="feed:author"),)
         if author
@@ -199,9 +212,9 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
         identity_value=identity,
         metadata=ContentMetadata(
             form=form,
-            genre="review" if config.platform == "douban" else None,
+            genre=genre,
             platform=config.platform,
-            publisher=config.publisher,
+            publisher=publisher,
             authors=authors,
             times=times,
         ),
