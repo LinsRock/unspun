@@ -233,7 +233,7 @@ def _clean_body(text: str, url: str) -> tuple[list[str], list[str]]:
         # Verified R0 C21/C41 boundary: preserve the exact trailing CCTV credits
         # separately. Do not discard arbitrary similar paragraphs or overlap.
         match = re.search(
-            r"(\u603b\u76d1\u5236[丨｜][\s\S]{10,500}©20\d\d"
+            r"(\u603b\u76d1\u5236[\u4e28｜][\s\S]{10,500}©20\d\d"
             r"\u4e2d\u592e\u5e7f\u64ad\u7535\u89c6\u603b\u53f0"
             r"\u7248\u6743\u6240\u6709。\u672a\u7ecf\u8bb8\u53ef，"
             r"\u8bf7\u52ff\u8f6c\u8f7d\u4f7f\u7528。)\s*$",
