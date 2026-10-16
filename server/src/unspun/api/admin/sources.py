@@ -12,6 +12,7 @@ from unspun.api.admin.query import Page, PageSize, RangeDep, page_result
 from unspun.core.db import session_scope
 from unspun.core.models import Article, FetchLog
 from unspun.core.sources import load_sources
+from unspun.core.task_models import SourceState
 
 router = APIRouter()
 SourceSort = Literal["health", "articles", "failure_rate", "last_success", "name"]
@@ -21,6 +22,7 @@ SourceHealth = Literal["ok", "error", "no_runs"]
 def list_sources(session: Session, start: datetime, end: datetime) -> list[dict[str, Any]]:
     """Combine current IDs with historical IDs, without inventing old config."""
     current = {source.id: source for source in load_sources()}
+    runtime = {state.source_id: state for state in session.scalars(select(SourceState))}
     ids = (
         set(current)
         | set(session.scalars(select(FetchLog.source_id).distinct()))
@@ -83,7 +85,25 @@ def list_sources(session: Session, start: datetime, end: datetime) -> list[dict[
                 "region": source.region if source else None,
                 "kind": source.kind if source else None,
                 "configured": source is not None,
-                "enabled": source is not None,
+                "enabled": bool(
+                    source
+                    and (
+                        (source.discovery_owner == "legacy" and source.legacy_enabled)
+                        or (source.discovery_owner == "r1" and source.r1 and source.r1.discovery)
+                    )
+                ),
+                "discovery_owner": source.discovery_owner if source else None,
+                "r1_stages": source.r1.model_dump(mode="json") if source and source.r1 else None,
+                "r1_runtime": {
+                    "enabled": runtime[source_id].enabled,
+                    "last_success_at": runtime[source_id].last_success_at,
+                    "last_new_item_at": runtime[source_id].last_new_item_at,
+                    "last_item_count": runtime[source_id].last_item_count,
+                    "next_due_at": runtime[source_id].next_due_at,
+                    "consecutive_failures": runtime[source_id].consecutive_failures,
+                }
+                if source_id in runtime
+                else None,
                 "health": health,
                 "article_count": article_counts.get(source_id, 0),
                 "new_articles": counts.new_articles if counts else 0,

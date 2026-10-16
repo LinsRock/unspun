@@ -59,6 +59,8 @@ def drop_internal_urls(entries: list[FeedEntry], rsshub_base: str) -> list[FeedE
 
 def fetch_source(session: Session, client: httpx.Client, source: Source) -> int:
     """Fetch one source's feed and insert unseen articles; returns new count."""
+    if not source.legacy_enabled or source.discovery_owner != "legacy":
+        raise ValueError("source is not owned by legacy discovery")
     entries = parse_feed(
         fetch_bytes(client, str(source.url), timeout_seconds=source.timeout_seconds),
         base_url=str(source.url),
@@ -69,7 +71,11 @@ def fetch_source(session: Session, client: httpx.Client, source: Source) -> int:
     if not entries:
         return 0
     known = set(
-        session.scalars(select(Article.url).where(Article.url.in_([e.url for e in entries])))
+        session.scalars(
+            select(Article.url).where(
+                Article.processing_track == "legacy", Article.url.in_([e.url for e in entries])
+            )
+        )
     )
     new_entries: list[FeedEntry] = []
     for entry in entries:
@@ -103,7 +109,11 @@ def fetch_source(session: Session, client: httpx.Client, source: Source) -> int:
 
 
 def run_fetch_cycle() -> None:
-    sources = load_sources()
+    sources = [
+        source
+        for source in load_sources()
+        if source.legacy_enabled and source.discovery_owner == "legacy"
+    ]
     log.info("fetch_cycle_started", sources=len(sources))
     total_new = 0
     with make_client() as client:

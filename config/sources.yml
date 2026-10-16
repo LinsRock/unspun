@@ -39,6 +39,17 @@ sources:
     region: eu
     kind: public
     lang: en
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: article
+      material_scope: open_text_unit
+      platform: bbc
+      publisher: BBC
+      origin_hosts: [bbc.com, bbc.co.uk]
+      capability: declared_pending_target_observation
   - id: guardian-world
     name: The Guardian World
     url: https://www.theguardian.com/world/rss
@@ -53,6 +64,17 @@ sources:
     region: us
     kind: commercial
     lang: en
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: article
+      material_scope: preview
+      platform: nyt
+      publisher: New York Times
+      origin_hosts: [nytimes.com]
+      capability: declared_pending_target_observation
   - id: aljazeera
     name: Al Jazeera
     url: https://www.aljazeera.com/xml/rss/all.xml
@@ -104,6 +126,17 @@ sources:
     region: us
     kind: commercial
     lang: en
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: article
+      material_scope: preview
+      platform: wsj
+      publisher: Wall Street Journal
+      origin_hosts: [wsj.com]
+      capability: declared_pending_target_observation
   - id: fed-press
     name: Federal Reserve Press Releases
     url: https://www.federalreserve.gov/feeds/press_all.xml
@@ -382,6 +415,17 @@ sources:
     region: eu
     kind: public
     lang: zh
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: article
+      material_scope: open_text_unit
+      platform: bbc
+      publisher: BBC Chinese
+      origin_hosts: [bbc.com, bbc.co.uk]
+      capability: declared_pending_target_observation
   - id: dw-zh
     name: DW Chinese
     url: https://rss.dw.com/rdf/rss-chi-all
@@ -396,6 +440,17 @@ sources:
     region: us
     kind: commercial
     lang: zh
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: article
+      material_scope: open_text_unit
+      platform: nyt
+      publisher: New York Times Chinese
+      origin_hosts: [nytimes.com]
+      capability: declared_pending_target_observation
   - id: initium
     name: Initium Media
     url: https://theinitium.com/rss
@@ -444,6 +499,17 @@ sources:
     region: intl
     kind: commercial
     lang: zh
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: article
+      material_scope: open_text_unit
+      platform: zaobao
+      publisher: Lianhe Zaobao
+      origin_hosts: [zaobao.com, zaobao.com.sg]
+      capability: declared_pending_target_observation
     timeout_seconds: 60
   # Newsflashes are aggregated briefs (tier E), not original reporting; the
   # article route (/36kr/news) is broken upstream as of 2026-10-09 — revisit
@@ -455,6 +521,17 @@ sources:
     region: cn-mainland
     kind: commercial
     lang: zh
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: post
+      material_scope: complete_brief
+      platform: 36kr
+      publisher: 36Kr
+      origin_hosts: [36kr.com]
+      capability: declared_pending_target_observation
     max_items: 20
     timeout_seconds: 60
   # --- Via self-hosted RSSHub, M2 T3a; routes verified from the VPS 2026-10-10 ---
@@ -467,6 +544,17 @@ sources:
     region: cn-mainland
     kind: state
     lang: zh
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: article
+      material_scope: open_text_unit
+      platform: xinhua
+      publisher: Xinhua
+      origin_hosts: [news.cn, xinhuanet.com, cctv.com]
+      capability: declared_pending_target_observation
     max_items: 30
     timeout_seconds: 60
   - id: nhk-world
@@ -530,4 +618,15 @@ sources:
     region: cn-mainland
     kind: community
     lang: zh
+    r1:
+      discovery: false
+      material: false
+      paid: false
+      publish: false
+      form: question
+      material_scope: question_background
+      platform: zhihu
+      publisher: Zhihu
+      origin_hosts: [zhihu.com]
+      capability: declared_pending_target_observation
     timeout_seconds: 60

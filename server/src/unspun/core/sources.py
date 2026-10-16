@@ -4,9 +4,18 @@ from pathlib import Path
 from typing import Annotated, Literal, cast
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl, ValidationInfo, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    HttpUrl,
+    ValidationInfo,
+    field_validator,
+    model_validator,
+)
 
 from unspun.core.config import get_settings
+from unspun.core.content import ContentForm, MaterialScope
 
 Region = Literal["cn-mainland", "hk-tw", "us", "eu", "jp", "me", "intl"]
 Kind = Literal[
@@ -24,6 +33,24 @@ Kind = Literal[
 RSSHUB_SCHEME = "rsshub://"
 
 
+class R1Source(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    adapter: Literal["rss"] = "rss"
+    discovery: bool = False
+    material: bool = False
+    paid: bool = False
+    publish: bool = False
+    period_seconds: int = Field(default=1800, ge=60)
+    form: ContentForm = "article"
+    material_scope: MaterialScope = "open_text_unit"
+    platform: str | None = None
+    publisher: str | None = None
+    origin_hosts: tuple[str, ...] = ()
+    capability: str = "unverified"
+    version: str = "r1-discovery-v1"
+
+
 class Source(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -34,11 +61,26 @@ class Source(BaseModel):
     region: Region
     kind: Kind
     lang: Literal["zh", "en"]
-    max_items: int | None = None
+    max_items: int | None = Field(default=None, ge=1, le=200)
+    legacy_enabled: bool = True
+    discovery_owner: Literal["legacy", "r1"] = "legacy"
+    r1: R1Source | None = None
     # RSSHub routes fetch article pages on a cold cache and can take far
     # longer than a plain feed; sources that need it override the client
     # default here.
     timeout_seconds: Annotated[int, Field(gt=0)] | None = None
+
+    @model_validator(mode="after")
+    def single_owner(self) -> "Source":
+        if self.discovery_owner == "r1" and self.legacy_enabled:
+            raise ValueError("R1 ownership requires legacy discovery to be disabled")
+        if (
+            self.r1
+            and any((self.r1.discovery, self.r1.material, self.r1.paid, self.r1.publish))
+            and self.discovery_owner != "r1"
+        ):
+            raise ValueError("enabled R1 stages require R1 discovery ownership")
+        return self
 
     @field_validator("url", mode="before")
     @classmethod
