@@ -17,6 +17,7 @@ from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session, selectinload
 
 from unspun.core.config import get_settings
+from unspun.core.content import legacy_event_condition, require_legacy
 from unspun.core.db import session_scope
 from unspun.core.grounding import (
     SUMMARY_VERSION,
@@ -568,6 +569,7 @@ def refresh_event_viewpoint(
     survive, so this commits instead of raising — D-007), or "generated".
     """
     articles = list(event.articles)
+    require_legacy(*articles)
     if not is_eligible(articles, sources_by_id, params):
         return "skipped"
     model = get_settings().viewpoint_model
@@ -642,6 +644,7 @@ def candidate_viewpoint_ids(session: Session, min_sources: int) -> list[int]:
     base = (
         select(Event.id)
         .join(Article, Article.event_id == Event.id)
+        .where(Article.processing_track == "legacy", legacy_event_condition())
         .outerjoin(EventViewpoint, EventViewpoint.event_id == Event.id)
         .group_by(Event.id)
         .having(func.count(func.distinct(Article.source_id)) >= min_sources)

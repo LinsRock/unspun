@@ -10,6 +10,7 @@ from sqlalchemy import ColumnElement, case, func, or_, select, update
 from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
+from unspun.core.content import require_legacy
 from unspun.core.db import session_scope
 from unspun.core.grounding import (
     MAX_CONTENT_CHARS,
@@ -90,6 +91,7 @@ EMBED_BATCH_SIZE = 32  # texts per embedding API call, not a tuning knob
 
 
 def summarize_article(session: Session, client: SupportsLlm, article: Article) -> None:
+    require_legacy(article)
     model = get_settings().summary_model
     source = article_source_text(article, MAX_CONTENT_CHARS)
     published = article.published_at.isoformat() if article.published_at else "unknown"
@@ -218,6 +220,7 @@ def summarize_article(session: Session, client: SupportsLlm, article: Article) -
 
 
 def embed_articles(session: Session, client: SupportsLlm, articles: list[Article]) -> None:
+    require_legacy(*articles)
     texts = [f"{a.title_zh or a.title}\n{a.summary_zh or ''}" for a in articles]
     for article, vector in zip(articles, client.embed(session, texts), strict=True):
         article.embedding = vector
@@ -243,6 +246,7 @@ def pending_summary_conditions() -> tuple[ColumnElement[bool], ...]:
             ),
         ),
         Article.summary_failures < get_scoring_params().pipeline.max_summary_failures,
+        Article.processing_track == "legacy",
     )
 
 
@@ -250,11 +254,12 @@ def abandoned_summary_conditions() -> tuple[ColumnElement[bool], ...]:
     return (
         pending_summary_conditions()[0],
         Article.summary_failures >= get_scoring_params().pipeline.max_summary_failures,
+        Article.processing_track == "legacy",
     )
 
 
 def pending_embedding_conditions() -> tuple[ColumnElement[bool], ...]:
-    return (ready_condition(), Article.embedding.is_(None))
+    return (ready_condition(), Article.embedding.is_(None), Article.processing_track == "legacy")
 
 
 def summary_ordering() -> tuple[Any, ...]:
@@ -288,7 +293,7 @@ def record_summary_failure(article_id: int) -> None:
         with session_scope() as session:
             failures = session.execute(
                 update(Article)
-                .where(Article.id == article_id)
+                .where(Article.id == article_id, Article.processing_track == "legacy")
                 .values(summary_failures=Article.summary_failures + 1)
                 .returning(Article.summary_failures)
             ).scalar_one_or_none()
@@ -302,6 +307,7 @@ def hydrate_legacy_publications(session: Session, limit: int = 500) -> int:
     articles = session.scalars(
         select(Article)
         .where(
+            Article.processing_track == "legacy",
             Article.summary_grounding["reading"]["version"].astext.is_(None),
             Article.summary_grounding["version"].astext == SUMMARY_VERSION,
             Article.summary_grounding["status"].astext.in_(["grounded", "limited"]),
@@ -351,6 +357,7 @@ def summarize_pending(client: SupportsLlm, limit: int | None = None) -> int:
                         select(Article)
                         .where(
                             Article.id != article.id,
+                            Article.processing_track == "legacy",
                             ready_condition(),
                             Article.summary_grounding["reading"]["input_hash"].astext
                             == fingerprint,

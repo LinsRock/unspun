@@ -13,6 +13,7 @@ from sqlalchemy import ColumnElement, or_, select, text
 from sqlalchemy.orm import Session, selectinload
 
 from unspun.core.config import get_settings
+from unspun.core.content import legacy_event_condition, require_legacy
 from unspun.core.db import session_scope
 from unspun.core.llm import SupportsLlm
 from unspun.core.logging import get_logger
@@ -140,6 +141,7 @@ def score_event(
     sources_by_id: dict[str, Source],
 ) -> None:
     articles = list(event.articles)
+    require_legacy(*articles)
     obj_score, obj_parts = objective_score(articles, sources_by_id, params)
     out = client.chat_json(
         session,
@@ -188,6 +190,7 @@ def refresh_event_public_impact(
     Transient failures retry at most hourly, within the original 48-hour window.
     Evidence/payload failures remain cached until member inputs change.
     """
+    require_legacy(*event.articles)
     now = now or datetime.now(UTC)
     articles = [a for a in event.articles if a.fetched_at <= now]
     original = [
@@ -254,7 +257,10 @@ def refresh_event_public_impact(
 
 def pending_score_conditions() -> tuple[ColumnElement[bool], ...]:
     # Shared with the daily report so the backlog count matches this query.
-    return (or_(Event.scored_at.is_(None), Event.changed_at > Event.scored_at),)
+    return (
+        or_(Event.scored_at.is_(None), Event.changed_at > Event.scored_at),
+        legacy_event_condition(),
+    )
 
 
 def score_pending(client: SupportsLlm, limit: int | None = None) -> int:
@@ -303,10 +309,12 @@ def refresh_pending_public_impact(client: SupportsLlm, limit: int = 20) -> int:
                 THEN greatest(reported_date::timestamp AT TIME ZONE 'UTC' - interval '14 hours',
                               timestamptz '1970-01-01') END) AS earliest,
                 bool_or(content_basis='original' AND length(trim(content)) > 0) AS has_original
-            FROM articles WHERE fetched_at <= :now GROUP BY event_id
+            FROM articles WHERE fetched_at <= :now AND processing_track='legacy' GROUP BY event_id
         )
         SELECT e.id FROM events e JOIN original_times t ON t.event_id=e.id
-        WHERE e.scored_at IS NOT NULL AND e.scored_at >= e.changed_at
+        WHERE NOT EXISTS (SELECT 1 FROM articles a
+                          WHERE a.event_id=e.id AND a.processing_track='r1')
+            AND e.scored_at IS NOT NULL AND e.scored_at >= e.changed_at
             AND t.earliest >= :now - interval '48 hours' AND t.has_original
             AND e.public_impact->>'status'='unknown'
             AND e.public_impact->>'failure_kind' IN ('budget','generation')

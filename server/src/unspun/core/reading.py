@@ -202,7 +202,12 @@ def publication_counts(session: Session) -> dict[str, int]:
         ),
     )
     return {
-        key: count for key, count in session.execute(select(reason, func.count()).group_by(reason))
+        key: count
+        for key, count in session.execute(
+            select(reason, func.count())
+            .where(Article.processing_track == "legacy")
+            .group_by(reason)
+        )
     }
 
 
