@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-16T05:22:09.284687+00:00",
+  "image_revision": "a00a4986e4cc28fe1eb9333f3d33e8bcb76e69ea",
+  "cases": [
+    {
+      "mode": "normal",
+      "project": "unspun-r101-normal",
+      "exit_code": 1,
+      "error": "('normal', 1)"
+    }
+  ],
+  "finished_at": "2026-10-16T05:22:15.903016+00:00"
+}
