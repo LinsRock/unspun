@@ -28,6 +28,10 @@ from unspun.core.billing_models import BilledRequest as BilledRequest
 from unspun.core.billing_models import BudgetCarry as BudgetCarry
 from unspun.core.billing_models import BudgetPolicy as BudgetPolicy
 from unspun.core.db import Base
+from unspun.core.reader_models import ContentFeedback as ContentFeedback
+from unspun.core.reader_models import ReaderChange as ReaderChange
+from unspun.core.reader_models import ReaderInterest as ReaderInterest
+from unspun.core.reader_models import ReaderState as ReaderState
 from unspun.core.task_models import PipelineTask as PipelineTask
 from unspun.core.task_models import SourceState as SourceState
 from unspun.core.task_models import TaskAttempt as TaskAttempt
