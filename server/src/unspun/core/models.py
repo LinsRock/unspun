@@ -25,6 +25,9 @@ from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from unspun.core.db import Base
+from unspun.core.task_models import PipelineTask as PipelineTask
+from unspun.core.task_models import SourceState as SourceState
+from unspun.core.task_models import TaskAttempt as TaskAttempt
 
 # Embedding column width is part of the schema; changing it requires a
 # migration. Qwen3-Embedding supports MRL truncation to this size, and it
