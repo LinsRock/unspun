@@ -1,6 +1,7 @@
 """R1 metadata-first discovery; no body fetch, embedding, or model calls."""
 
 import ipaddress
+import json
 import re
 from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
@@ -112,6 +113,10 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
     url = public_url(entry.url)
     namespace, identity = "feed:" + source.id, entry.external_id or url
     host, path = urlsplit(url).hostname or "", urlsplit(url).path
+    if config.platform == "fortunechina" and not re.fullmatch(
+        r"/(?:shangye|keji)/c/\d{4}-\d{2}/\d{2}/content_\d+\.htm", path
+    ):
+        raise ValueError("fortune entry is not an article, including category/author shells")
     form = config.form
     if (host == "zhihu.com" or host.endswith(".zhihu.com")) and (
         match := re.fullmatch(r"/question/(\d+)/?", path)
@@ -135,8 +140,36 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
         if author
         else ()
     )
+    if author and config.platform in {"bjnews", "infzm"}:
+        labels = r"\u8bb0\u8005|\u7f16\u8f91|\u5b9e\u4e60\u751f"
+        matches = re.findall(
+            rf"({labels})[\uff1a:\s]+(.*?)(?=(?:\u5357\u65b9\u5468\u672b)?(?:{labels})|$)",
+            author,
+        )
+        if matches:
+            authors = tuple(
+                Author(
+                    name=name,
+                    role="reporter"
+                    if role == "\u8bb0\u8005"
+                    else "editor"
+                    if role == "\u7f16\u8f91"
+                    else "unknown",
+                    platform=config.platform,
+                    basis="feed:explicit-byline-role:" + role,
+                )
+                for role, names in matches
+                for name in re.split(r"[\s\u3001\uff0c,]+", names.strip())
+                if name
+            )
     excerpt = visible_text(entry.summary_html or "").strip() or None
     provided = visible_text(entry.content_html or entry.summary_html or "").strip() or None
+    if config.platform == "douban":
+        # content:encoded contains only the book/movie, rating, and reviewer.
+        # The description carries the actual bounded review preview, sometimes
+        # as a truncated Draft.js JSON string. Never render that transport JSON.
+        provided = douban_preview(entry.summary_html or "")
+        excerpt = provided
     return DiscoveryItem(
         url=HttpUrl(url),
         title=visible_text(entry.title).strip(),
@@ -145,6 +178,7 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
         identity_value=identity,
         metadata=ContentMetadata(
             form=form,
+            genre="review" if config.platform == "douban" else None,
             platform=config.platform,
             publisher=config.publisher,
             authors=authors,
@@ -157,11 +191,53 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
     )
 
 
+def douban_preview(description: str) -> str | None:
+    value = visible_text(description).partition("\n\n")[2].strip()
+    if not value:
+        # visible_text normalizes blank lines; the rating line is the boundary.
+        value = re.sub(r"^[\s\S]*?\u8bc4\u4ef7:[^\n]*\n?", "", visible_text(description)).strip()
+    if not value.startswith("{"):
+        return value or None
+    try:
+        document = json.loads(value)
+    except ValueError:
+        document = None
+    if isinstance(document, dict) and isinstance(document.get("blocks"), list):
+        texts = [
+            block["text"].strip()
+            for block in document["blocks"]
+            if isinstance(block, dict)
+            and isinstance(block.get("text"), str)
+            and block["text"].strip()
+        ]
+        return "\n".join(texts) or None
+    match = re.search(r'"text"\s*:\s*("[\s\S]*)', value)
+    if not match:
+        return None
+    encoded = match[1]
+    try:
+        decoded, _ = json.JSONDecoder().raw_decode(encoded)
+    except ValueError:
+        # Retain only a decodable observed string prefix, not missing blocks.
+        encoded = encoded.rstrip(".").rstrip("\u2026")
+        if encoded.endswith("\\"):
+            encoded = encoded[:-1]
+        try:
+            decoded = json.loads(encoded + '"')
+        except ValueError:
+            return None
+    return decoded.strip() if isinstance(decoded, str) and decoded.strip() else None
+
+
 def discover(
     source: Source, client: httpx.Client, *, now: datetime | None = None
 ) -> DiscoveryResult:
     if source.r1 is None:
         raise ValueError("R1 source capability is not declared")
+    if source.r1.adapter != "rss":
+        from unspun.pipeline.editions import discover_edition
+
+        return discover_edition(source, client, now=now)
     data = fetch_bytes(client, str(source.url), source.timeout_seconds)
     if len(data) > 2 * 1024 * 1024:
         raise ValueError("feed exceeds discovery input bound")

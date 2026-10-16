@@ -630,3 +630,141 @@ sources:
       origin_hosts: [zhihu.com]
       capability: declared_pending_target_observation
     timeout_seconds: 60
+  # --- R1 Chinese paths: declared only, all stages disabled pending G2 ---
+  - id: zhihu-daily
+    name: Zhihu Daily
+    url: https://daily.zhihu.com/api/4/stories/latest
+    weight: 0.5
+    region: cn-mainland
+    kind: community
+    lang: zh
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      adapter: zhihu_daily
+      material_scope: editorial_edition
+      platform: zhihu-daily
+      publisher: Zhihu Daily
+      origin_hosts: [daily.zhihu.com]
+      capability: declared_pending_target_observation
+  - id: people-frontpage
+    name: People's Daily Front Page
+    url: https://paper.people.com.cn/rmrb/pc/layout/index.html
+    weight: 0.8
+    region: cn-mainland
+    kind: state
+    lang: zh
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      adapter: people_daily
+      material_scope: editorial_edition
+      platform: people
+      publisher: People's Daily
+      origin_hosts: [paper.people.com.cn]
+      capability: declared_pending_target_observation
+  - id: zaobao-world
+    name: Zaobao World
+    url: rsshub://zaobao/realtime/world
+    weight: 0.8
+    region: hk-tw
+    kind: commercial
+    lang: zh
+    timeout_seconds: 60
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      platform: zaobao
+      publisher: Lianhe Zaobao
+      origin_hosts: [zaobao.com, zaobao.com.sg]
+      capability: declared_pending_target_observation
+  - id: bjnews-depth
+    name: Beijing News Depth
+    url: rsshub://bjnews/cat/depth
+    weight: 0.8
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    timeout_seconds: 60
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      platform: bjnews
+      publisher: The Beijing News
+      origin_hosts: [bjnews.com.cn]
+      capability: declared_pending_target_observation
+  - id: douban-book
+    name: Douban Book Reviews
+    url: https://www.douban.com/feed/review/book
+    weight: 0.4
+    region: cn-mainland
+    kind: community
+    lang: zh
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      platform: douban
+      publisher: Douban
+      origin_hosts: [book.douban.com, sec.douban.com]
+      capability: declared_pending_target_observation
+  - id: douban-movie
+    name: Douban Movie Reviews
+    url: https://www.douban.com/feed/review/movie
+    weight: 0.4
+    region: cn-mainland
+    kind: community
+    lang: zh
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      platform: douban
+      publisher: Douban
+      material_scope: preview
+      origin_hosts: [movie.douban.com, sec.douban.com]
+      capability: declared_preview_pending_target_observation
+  - id: fortune-business
+    name: Fortune China Business
+    url: rsshub://fortunechina/shangye
+    weight: 0.7
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    timeout_seconds: 60
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      platform: fortunechina
+      publisher: Fortune China
+      origin_hosts: [fortunechina.com]
+      capability: declared_pending_target_observation
+  - id: fortune-tech
+    name: Fortune China Technology
+    url: rsshub://fortunechina/keji
+    weight: 0.7
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    timeout_seconds: 60
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      platform: fortunechina
+      publisher: Fortune China
+      origin_hosts: [fortunechina.com]
+      capability: declared_pending_target_observation
+  - id: infzm-news
+    name: Southern Weekly News
+    url: rsshub://infzm/2
+    weight: 0.8
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    timeout_seconds: 60
+    legacy_enabled: false
+    discovery_owner: r1
+    r1:
+      platform: infzm
+      publisher: Southern Weekly
+      material_scope: preview
+      origin_hosts: [infzm.com]
+      capability: declared_preview_pending_target_observation
