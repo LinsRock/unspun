@@ -8,7 +8,10 @@ services:
     restart: unless-stopped
 
   worker:
-    restart: unless-stopped
+    # Keep the legacy AI pipeline stopped during the R1 rebuild. A normal
+    # deployment must not resume paid processing before the R1 rollout gates.
+    scale: 0
+    restart: "no"
 
   web:
     restart: unless-stopped
