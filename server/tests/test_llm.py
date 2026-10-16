@@ -8,6 +8,7 @@ import httpx
 import pytest
 from sqlalchemy.orm import Session
 
+from tests.billing_fakes import RecordingJournal
 from unspun.core.config import get_settings
 from unspun.core.llm import LlmClient, LlmError, parse_json_content, truncate_embedding
 from unspun.core.models import EMBEDDING_DIM
@@ -31,7 +32,7 @@ def llm_client_factory(
     get_settings.cache_clear()
 
     def factory(handler: Handler) -> LlmClient:
-        return LlmClient(transport=httpx.MockTransport(handler))
+        return LlmClient(transport=httpx.MockTransport(handler), journal_factory=RecordingJournal)
 
     yield factory
     get_settings.cache_clear()
@@ -72,7 +73,7 @@ def test_chat_json_retries_truncated_completion(
     with llm_client_factory(handler) as client:
         out = client.chat_json(
             cast(Session, session),
-            model="m",
+            model="google/gemini-2.5-flash-lite",
             system="s",
             user="u",
             purpose="summary",
@@ -97,7 +98,7 @@ def test_chat_json_keeps_parseable_completion_despite_length(
     with llm_client_factory(handler) as client:
         out = client.chat_json(
             cast(Session, session),
-            model="m",
+            model="google/gemini-2.5-flash-lite",
             system="s",
             user="u",
             purpose="summary",
@@ -116,7 +117,7 @@ def test_chat_json_raises_after_second_truncation(
     with llm_client_factory(handler) as client, pytest.raises(LlmError, match="truncated"):
         client.chat_json(
             cast(Session, session),
-            model="m",
+            model="google/gemini-2.5-flash-lite",
             system="s",
             user="u",
             purpose="summary",
@@ -163,7 +164,11 @@ def test_evidence_generation_uses_deterministic_sampling(
 
     with llm_client_factory(handler) as client:
         client.chat_json(
-            cast(Session, RecordingSession()), model="m", system="s", user="u", purpose=purpose
+            cast(Session, RecordingSession()),
+            model="google/gemini-2.5-flash-lite",
+            system="s",
+            user="u",
+            purpose=purpose,
         )
 
 
@@ -185,7 +190,11 @@ def test_grounding_cap_prevents_another_billed_truncation_retry(
         monkeypatch.setattr(get_settings(), "grounding_budget_24h_usd", 0.0005)
         with pytest.raises(GroundingBudgetExceeded):
             client.chat_json(
-                cast(Session, session), model="m", system="s", user="u", purpose="grounding"
+                cast(Session, session),
+                model="google/gemini-2.5-flash-lite",
+                system="s",
+                user="u",
+                purpose="grounding",
             )
     assert calls == 1
     assert len(session.added) == 1

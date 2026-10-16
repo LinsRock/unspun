@@ -12,6 +12,7 @@ from typing import Any, Protocol
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from unspun.core.billing import BudgetExceeded
 from unspun.core.db import session_scope
 from unspun.core.logging import configure_logging, get_logger
 from unspun.core.tasks import Lease, Queue, claim, complete, fail
@@ -77,6 +78,9 @@ def process_one(
             accepted = complete(session, lease, apply=lambda db: handler.apply(db, lease, result))
         if not accepted:
             log.info("stale_result_discarded", task_id=lease.task_id, version=lease.version)
+    except BudgetExceeded as error:
+        with scope() as session:
+            fail(session, lease, error=str(error), retry_at=error.retry_at, disposition="budget")
     except Deferred as error:
         with scope() as session:
             fail(

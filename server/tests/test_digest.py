@@ -10,6 +10,7 @@ from pydantic import ValidationError
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session, sessionmaker
 
+from tests.billing_fakes import RecordingJournal
 from tests.reading_fixtures import approve_event
 from unspun.core import db
 from unspun.core.llm import LlmClient, LlmError
@@ -262,6 +263,7 @@ def test_scheduler_commits_usage_after_failure_and_retries_next_cycle(
         "LlmClient",
         lambda: LlmClient(
             transport=httpx.MockTransport(handler),
+            journal_factory=RecordingJournal,
         ),
     )
     with db.session_scope() as session:

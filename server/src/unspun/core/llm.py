@@ -1,14 +1,21 @@
 """Thin OpenRouter client; every call records tokens and cost in llm_usage."""
 
+from __future__ import annotations
+
+import copy
 import json
 import math
-from typing import Any, Protocol
+from collections.abc import Callable
+from typing import TYPE_CHECKING, Any, Protocol, cast
 
 import httpx
 from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
-from unspun.core.models import EMBEDDING_DIM, LlmUsage
+from unspun.core.models import EMBEDDING_DIM
+
+if TYPE_CHECKING:
+    from unspun.core.billing import CallContext, CallJournal
 
 CHAT_TIMEOUT_SECONDS = 120
 
@@ -61,7 +68,20 @@ def parse_json_content(content: str) -> dict[str, Any]:
 
 
 class LlmClient:
-    def __init__(self, transport: httpx.BaseTransport | None = None) -> None:
+    def __init__(
+        self,
+        transport: httpx.BaseTransport | None = None,
+        *,
+        context: CallContext | None = None,
+        journal_factory: Callable[[Session], CallJournal] | None = None,
+    ) -> None:
+        from unspun.core.billing import CallContext, DatabaseJournal
+
+        self._context = context or CallContext()
+        self._journal_factory: Callable[[Session], CallJournal] = journal_factory or (
+            lambda session: DatabaseJournal(session.get_bind().engine)
+        )
+        self.call_ids: list[str] = []
         settings = get_settings()
         if not settings.openrouter_api_key:
             raise LlmError("UNSPUN_OPENROUTER_API_KEY is not set")
@@ -75,22 +95,45 @@ class LlmClient:
     def close(self) -> None:
         self._client.close()
 
-    def __enter__(self) -> "LlmClient":
+    def __enter__(self) -> LlmClient:
         return self
 
     def __exit__(self, *exc_info: object) -> None:
         self.close()
 
-    def _record(self, session: Session, purpose: str, model: str, usage: dict[str, Any]) -> None:
-        session.add(
-            LlmUsage(
-                purpose=purpose,
-                model=model,
-                prompt_tokens=int(usage.get("prompt_tokens") or 0),
-                completion_tokens=int(usage.get("completion_tokens") or 0),
-                cost_usd=float(usage.get("cost") or 0.0),
-            )
+    def _post(
+        self, session: Session, endpoint: str, purpose: str, model: str, payload: dict[str, Any]
+    ) -> dict[str, Any]:
+        from unspun.core.billing import UsageUnknown, provider_cap
+
+        payload = {**payload, "provider": provider_cap(model)}
+        journal = self._journal_factory(session)
+        reservation = journal.reserve(
+            purpose=purpose, model=model, request=payload, context=self._context
         )
+        self.call_ids.append(reservation.id)
+        if reservation.response is not None:
+            return copy.deepcopy(reservation.response)
+        try:
+            response = self._client.post(endpoint, json=payload)
+        except BaseException as error:
+            journal.unknown(reservation.id, type(error).__name__)
+            raise
+        try:
+            data: Any = response.json()
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            journal.unknown(reservation.id, "response JSON unavailable", response.status_code)
+            response.raise_for_status()
+            raise LlmError("provider response is not JSON") from None
+        if not isinstance(data, dict):
+            journal.unknown(reservation.id, "response object unavailable", response.status_code)
+            raise LlmError("provider response is not an object")
+        parsed = cast(dict[str, Any], data)
+        known = journal.finish(reservation.id, parsed, response.status_code)
+        response.raise_for_status()
+        if not known:
+            raise UsageUnknown("provider cost missing; reservation retained")
+        return parsed
 
     def chat_json(
         self,
@@ -110,9 +153,12 @@ class LlmClient:
                 from unspun.core.review_budget import require_grounding_budget
 
                 require_grounding_budget(session)
-            resp = self._client.post(
+            data = self._post(
+                session,
                 "/chat/completions",
-                json={
+                purpose,
+                model,
+                {
                     "model": model,
                     "messages": [
                         {"role": "system", "content": system},
@@ -128,9 +174,6 @@ class LlmClient:
                     ),
                 },
             )
-            resp.raise_for_status()
-            data: dict[str, Any] = resp.json()
-            self._record(session, purpose, model, data.get("usage") or {})
             choice: dict[str, Any] = data["choices"][0]
             content = str(choice["message"]["content"])
             if choice.get("finish_reason") == "length":
@@ -147,18 +190,28 @@ class LlmClient:
 
     def embed(self, session: Session, texts: list[str]) -> list[list[float]]:
         settings = get_settings()
-        resp = self._client.post(
-            "/embeddings",
-            json={
-                "model": settings.embedding_model,
-                "input": texts,
-                "dimensions": EMBEDDING_DIM,
-            },
-        )
-        resp.raise_for_status()
-        data: dict[str, Any] = resp.json()
-        self._record(session, "embedding", settings.embedding_model, data.get("usage") or {})
-        rows = sorted(data["data"], key=lambda r: r["index"])
-        if len(rows) != len(texts):
-            raise LlmError(f"asked for {len(texts)} embeddings, got {len(rows)}")
-        return [truncate_embedding(list(r["embedding"])) for r in rows]
+        batches: list[list[str]] = []
+        size = 0
+        for text in texts:
+            length = len(text.encode())
+            if length > 32768:
+                raise LlmError("single embedding input exceeds the registered input bound")
+            if not batches or size + length > 32768:
+                batches.append([])
+                size = 0
+            batches[-1].append(text)
+            size += length
+        vectors: list[list[float]] = []
+        for batch in batches:
+            data = self._post(
+                session,
+                "/embeddings",
+                "embedding",
+                settings.embedding_model,
+                {"model": settings.embedding_model, "input": batch, "dimensions": EMBEDDING_DIM},
+            )
+            rows = sorted(data["data"], key=lambda r: r["index"])
+            if [row["index"] for row in rows] != list(range(len(batch))):
+                raise LlmError("embedding response indexes do not match the requested batch")
+            vectors.extend(truncate_embedding(list(r["embedding"])) for r in rows)
+        return vectors

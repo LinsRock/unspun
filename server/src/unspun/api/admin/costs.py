@@ -14,6 +14,8 @@ from sqlalchemy.orm import Session
 from unspun.api.admin.exports import EXPORT_LIMIT, csv_lines
 from unspun.api.admin.query import Page, PageSize, RangeDep, page_result
 from unspun.api.events import get_db
+from unspun.core.billing import PRODUCTION_LIMIT, budget_status
+from unspun.core.billing_models import BilledRequest
 from unspun.core.expense_allocation import Cadence, allocate_days, period_for_index
 from unspun.core.expenses import cost_breakdown, payment_spend
 from unspun.core.models import ExpenseEntry, ExpenseRule, LlmUsage
@@ -45,13 +47,16 @@ def _calls(
 def _rollup(rows: list[LlmUsage]) -> dict[str, object]:
     return {
         "count": len(rows),
-        "prompt_tokens": sum(row.prompt_tokens for row in rows),
-        "completion_tokens": sum(row.completion_tokens for row in rows),
+        "unknown_token_calls": sum(
+            row.prompt_tokens is None or row.completion_tokens is None for row in rows
+        ),
+        "prompt_tokens": sum(row.prompt_tokens or 0 for row in rows),
+        "completion_tokens": sum(row.completion_tokens or 0 for row in rows),
         "cost_usd": sum((_money(row.cost_usd) for row in rows), Decimal(0)),
     }
 
 
-def _call_row(row: LlmUsage) -> dict[str, object]:
+def _call_row(row: LlmUsage, request: BilledRequest | None = None) -> dict[str, object]:
     return {
         "id": row.id,
         "created_at": row.created_at,
@@ -60,8 +65,25 @@ def _call_row(row: LlmUsage) -> dict[str, object]:
         "prompt_tokens": row.prompt_tokens,
         "completion_tokens": row.completion_tokens,
         "cost_usd": _money(row.cost_usd),
-        "association": "not_recorded",
+        "association": "recorded" if request else "not_recorded",
+        "request_id": request.id if request else None,
+        "task_id": request.task_id if request else None,
+        "task_attempt_id": request.task_attempt_id if request else None,
+        "article_id": request.article_id if request else None,
+        "source_id": request.source_id if request else None,
+        "stage": request.stage if request else None,
+        "phase": request.phase if request else None,
     }
+
+
+def _call_rows(session: Session, rows: list[LlmUsage]) -> list[dict[str, object]]:
+    linked = {
+        row.usage_id: row
+        for row in session.scalars(
+            select(BilledRequest).where(BilledRequest.usage_id.in_([item.id for item in rows]))
+        )
+    }
+    return [_call_row(row, linked.get(row.id)) for row in rows]
 
 
 def _coverage_days(period: RangeDep) -> tuple[date, date]:
@@ -177,7 +199,8 @@ def get_costs(
         "budget": {
             "period": "current_month",
             "currency": "USD",
-            "limit": Decimal(50),
+            "limit": PRODUCTION_LIMIT,
+            "enforcement": budget_status(session),
             "spent": _money(month_spent or 0),
         },
         "fixed_day_basis": "overlapping_beijing_days",
@@ -242,7 +265,7 @@ def export_calls(
         "association",
     ]
     return StreamingResponse(
-        csv_lines([_call_row(row) for row in rows], columns),
+        csv_lines(_call_rows(session, rows), columns),
         media_type="text/csv; charset=utf-8",
         headers={
             "Content-Disposition": 'attachment; filename="llm-calls.csv"',
@@ -262,12 +285,52 @@ def get_calls(
 ) -> dict[str, object]:
     rows = _calls(session, period.start, period.end, model, purpose)
     return page_result(
-        [_call_row(row) for row in rows[(page - 1) * page_size : page * page_size]],
+        _call_rows(session, rows[(page - 1) * page_size : page * page_size]),
         period,
         page,
         page_size,
         total=len(rows),
     )
+
+
+@router.get("/costs/requests")
+def get_physical_requests(
+    period: RangeDep, session: Db, page: Page = 1, page_size: PageSize = 25
+) -> dict[str, object]:
+    query = select(BilledRequest).where(
+        BilledRequest.started_at >= period.start, BilledRequest.started_at < period.end
+    )
+    count = session.scalar(select(func.count()).select_from(query.subquery())) or 0
+    rows = session.scalars(
+        query.order_by(BilledRequest.started_at.desc(), BilledRequest.id.desc())
+        .offset((page - 1) * page_size)
+        .limit(page_size)
+    )
+    items = [
+        {
+            key: getattr(row, key)
+            for key in (
+                "id",
+                "status",
+                "purpose",
+                "stage",
+                "phase",
+                "model",
+                "task_id",
+                "task_attempt_id",
+                "article_id",
+                "source_id",
+                "usage_id",
+                "reserved_usd",
+                "provider_generation_id",
+                "error",
+                "started_at",
+                "ended_at",
+            )
+        }
+        for row in rows
+    ]
+    return page_result(items, period, page, page_size, total=count)
 
 
 @router.get("/renewals")
