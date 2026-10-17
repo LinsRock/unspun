@@ -1,0 +1,63 @@
+{
+  "schema_version": "r1-provider-header-audit-v1",
+  "recorded_at": "2026-10-17T08:25:38.612386+00:00",
+  "provider_contract_source": "https://openrouter.ai/docs/api_reference/streaming",
+  "models_prompts_price_bounds_or_allocations_changed": false,
+  "test_database": "unspun_r1_header_tests_20261017",
+  "migrated_head": "000015",
+  "full_suite": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "862",
+    "time": "19.114",
+    "timestamp": "2026-10-17T16:23:29.406932+08:00",
+    "hostname": "ZCN-70.local"
+  },
+  "full_suite_sha256": "4d7cb65e3bef61f1272a9317d56f74a21c7d8864f41ca36ebdc75a499e8e6dc6",
+  "incremental_checks_after_audit_preservation": [
+    "44 billing/LLM tests passed",
+    "Ruff check and format passed",
+    "Pyright 0 errors, 0 warnings"
+  ],
+  "covered_failures": [
+    "header committed before interrupted body iteration",
+    "header ID and HTTP status retained on incomplete response",
+    "reconciled fee without original output remains settled_without_result",
+    "reconciliation idempotency and association preservation",
+    "missing body ID does not erase header ID",
+    "header/body mismatch retains unknown hold",
+    "generation identity cannot change or belong to another request"
+  ],
+  "new_paid_generations_for_fix": 0,
+  "v9_evaluation_attempt": {
+    "cases": 21,
+    "statuses": {
+      "error": 18,
+      "rejected": 3
+    },
+    "actual_new_physical_calls": 19,
+    "known_fee_usd": "0.0068895",
+    "new_unknown_request": "bdbdbb331ac546eb84d6f42b502f362b",
+    "new_unknown_model": "google/gemini-2.5-flash",
+    "new_unknown_started_at": "2026-10-17T08:17:31.488417Z",
+    "new_unknown_error": "RemoteProtocolError",
+    "new_unknown_hold_usd": "0.170674",
+    "quality_passed": false,
+    "T01_T06_loaded_or_called": false
+  },
+  "evaluation_cost_snapshot": {
+    "database": "unspun_quality_r1_20261016",
+    "allocation_usd": "0.60",
+    "physical_rows": 302,
+    "known_rows": 298,
+    "known_cost_usd": "0.2986712",
+    "unknown_rows": 4,
+    "unknown_hold_usd": "0.256662",
+    "available_usd": "0.0446668",
+    "original_three_unidentified_holds_unchanged": true
+  },
+  "production_old_worker_enabled": false,
+  "production_r1_paid_or_publish_enabled": false
+}

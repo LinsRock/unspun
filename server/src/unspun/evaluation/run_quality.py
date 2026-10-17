@@ -101,6 +101,9 @@ class EvaluationJournal:
             self.amounts[reservation.id] = amount
         return reservation
 
+    def identify(self, identity: str, generation_id: str, http_status: int) -> None:
+        self.journal.identify(identity, generation_id, http_status)
+
     def finish(self, identity: str, data: dict[str, Any], http_status: int) -> bool:
         try:
             return self.journal.finish(identity, data, http_status)
