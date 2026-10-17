@@ -1,0 +1,2528 @@
+{
+  "schema_version": "r1-final-content-quality-v1",
+  "at": "2026-10-17T10:44:01.437179+00:00",
+  "contracts": {
+    "card": "r1-card-v9",
+    "guide": "r1-guide-v5",
+    "review": "r1-content-review-v2"
+  },
+  "models": {
+    "generation": "google/gemini-2.5-flash-lite",
+    "review": "google/gemini-2.5-flash"
+  },
+  "technical_gate_passed": true,
+  "user_quality_passed": null,
+  "production_published": false,
+  "unchanged_floor": "At least 0.80 ready among technically sufficient inputs, zero critical published errors. All original failures and unknown fees retained.",
+  "card": {
+    "regression": {
+      "cases": 21,
+      "sufficient": 18,
+      "ready": 18,
+      "expected_prepaid_rejections": [
+        "C11",
+        "C19",
+        "C41"
+      ],
+      "outcomes": [
+        {
+          "id": "C01",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "d36ffa5965e6eb9e1bf3f344596fdc79ccbd084b836667ec34bc4443b6423db4",
+          "material_sha256": "bb39a3bb67f85e712cde30e4b422af229daef45d9d2e1f22b614bada4ac2f489",
+          "physical_call_ids": [
+            "457ba65479af433381daa9de6e5da351",
+            "1200abc292424d2596152e427c73f88e"
+          ]
+        },
+        {
+          "id": "C03",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "d876cccc1362f7dfec981eb0d32cb621d005af040d122f40d9e7146527baa527",
+          "material_sha256": "a25a19388f2399aa787baa90b4aa2b5ce3950a8a213e8d69d0737b8379cbfe23",
+          "physical_call_ids": [
+            "5964930929984f348d6a8eb923f699c7",
+            "d96373a0eeed4cb5bc1a5a5cb47000de"
+          ]
+        },
+        {
+          "id": "C07",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "7e6863d9de3be8fad7d0eb35fcea073e3a3dece6fc07d899baef42023d755295",
+          "material_sha256": "daebcfd1fc6e12596d4856e5d49fe74c62d62ac40e921c8a0daa3d4b3969f517",
+          "physical_call_ids": [
+            "48245188d66446ad825279a325850350",
+            "0300980eff9f44f28adf9ab927a6f905"
+          ]
+        },
+        {
+          "id": "C08",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "3f3c9817e2bc2b912d367187203771955b10b4d6471a318824dd97d8a6c9fa50",
+          "material_sha256": "2d3bebb911a1a35ef0cde290ccac0e2953e96de7d0ce6368f3a39e02e1939234",
+          "physical_call_ids": [
+            "f2ed9fa8facc45e99bc8f28111bfa35a",
+            "6c3d34982b9a4062a95dd1db1ef57c0b"
+          ]
+        },
+        {
+          "id": "C09",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "5ec76caf8926169760f4c583f8e1f5bb4f516116d6a0b53d40d1c8d54ddd3b07",
+          "material_sha256": "7c804a57d44abee01f831535454a64a954ad987c861642a5cbd4e5a945675dba",
+          "physical_call_ids": [
+            "5029f5b5d4eb4345b70f95c8f7ae4641",
+            "81d998967b8b4df0ab965388bee19097"
+          ]
+        },
+        {
+          "id": "C11",
+          "status": "rejected",
+          "reason": "stale_report",
+          "input_fingerprint": "c4849b9d297bd198d61cf866d1e398c11aed4bab4fccc050c0f8f3706c0cb421",
+          "material_sha256": "c3cb527c09a5ceb6a7f0cc5b8fb50be9feddaa07694815c2bd4a037ba4cb98f8",
+          "physical_call_ids": []
+        },
+        {
+          "id": "C12",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "bb74c3115f1d6e556d8a64f39049563d09b48f3047afbcfc0ea5d6d0684f05bb",
+          "material_sha256": "1161ef9da948037439f6fcff7bb07fd86213b4ce7c83f46dbbbf105ba92652ec",
+          "physical_call_ids": [
+            "a9bd614dc788493d9a1e34c045f51ade",
+            "b543f7dd371a48d6bf7b9d6789dbcc0d"
+          ]
+        },
+        {
+          "id": "C19",
+          "status": "rejected",
+          "reason": "stale_report",
+          "input_fingerprint": "93b330492f40b49bb930702a90dd537408bf75e1923ae0ccf53cc8db539809e1",
+          "material_sha256": "763444e27662d2f73412316d8406b0cee4cf7b226c924b58b2e3a391299890a6",
+          "physical_call_ids": []
+        },
+        {
+          "id": "C20",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "de5f57b79621ecdbf4e03f670fa9078f569096fbb7af31ae145da4ea5b31aa87",
+          "material_sha256": "cff08d724df903cd97e5001c01faca07ab171d1a232c5e92c74db6e61a91c825",
+          "physical_call_ids": [
+            "0e7a227ac11743c099eb7b7225664281",
+            "11b170be69fc4367b7774d8330b4bc0e"
+          ]
+        },
+        {
+          "id": "C21",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "e07dd54024580b5cd35848bbaa4b34d93aa3390d92bcd63672d70abe94a05efb",
+          "material_sha256": "596c3b089a07e25ade014b5ba2c829469816f074d4b2a2cd3afcc6fc1ff3864d",
+          "physical_call_ids": [
+            "e9a32942508e4a4cbaa6987dfad52921",
+            "21cc690bb03a49e7b221b3247f1f3254"
+          ]
+        },
+        {
+          "id": "C23",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "258329046bd48d76f9105c3f9ffc946b0f3ba67ecb350d8cf8294a6646ea0408",
+          "material_sha256": "6c7cd4032e1bc49b5dfc758cb39a3cf3726c3fb0668613005b3cd7251705d7de",
+          "physical_call_ids": [
+            "c2472d1c64244904a96b42f347a0289f",
+            "16eb1925c0a34176a3fa8361152ca0f6"
+          ]
+        },
+        {
+          "id": "C24",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "d024bc6c3cbf1f4245e159cee52f13cdca0f8c9438450e5fbb05d5b8e4a1c31c",
+          "material_sha256": "8ece174fdcf084e73ba41f1f0642b1cf19103fed40e204102802de5c013a93a3",
+          "physical_call_ids": [
+            "04001c0bb0be4b43bec7a62393d09acc",
+            "23603b69dfc748edbcf917843998d864"
+          ]
+        },
+        {
+          "id": "C27",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "da4b912723057723c756d633b648704cfcdb05501487766dcb5ba941d41cfb78",
+          "material_sha256": "4584db556c4621bce99c842a40c0dd1947cc33e2b169caff2bd8460b2b0708e7",
+          "physical_call_ids": [
+            "651814ffb90f4b9ca7b019f46f6401eb",
+            "4d991d0eabaf4b6d9dbbe81bbe8f53f2"
+          ]
+        },
+        {
+          "id": "C29",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "76a2763c70e16bcb3ab1014e722adb662c1b31ac3d27a413070ded7327a0f48b",
+          "material_sha256": "62e37a7e0235789ecf04d625c304628b5b13cb1059cd88b6e5b6345ac58d01bc",
+          "physical_call_ids": [
+            "9eeb57f632c34606abff3d73cfed06de",
+            "1057611672ee46b8b4dd8ad01d21355c"
+          ]
+        },
+        {
+          "id": "C31",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "3c08fc0d8d71145922dce954bd8886fcefe05c366eeec8e45e5aa184c8755314",
+          "material_sha256": "2fcfea64681ffe099da5a0edc6a41df0ed1de018112ee569d0946cd9463226c6",
+          "physical_call_ids": [
+            "45745b0043c24728893ae1b05dfcb975",
+            "ecbb3f19134441f6b451125611565dc6"
+          ]
+        },
+        {
+          "id": "C32",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "5aee13d4e85853d73985024c38ee3eafb1e2e80fb6fb6652616195d9f6859807",
+          "material_sha256": "980fe4aa0cb54f2602f98063fdf02f2adc13a2096074eab2b3b193d4dc322322",
+          "physical_call_ids": [
+            "129d2b3396214aa698583b10be1cfb0d",
+            "f4f40efaf7fe4a9b8f7d9345063dec87"
+          ]
+        },
+        {
+          "id": "C35",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "c7b32a4212f8b5d13d3afdf322348b9d50bcc06caddf02777ef28a8119d80f2e",
+          "material_sha256": "2e61784ce1f6322a8a53395664205ad554f9433551298f541ac54ddb91b2fa3d",
+          "physical_call_ids": [
+            "66b64af14add4964a0f994e55ec9a56f",
+            "a95a72709b574a2ca43297e79824dc31"
+          ]
+        },
+        {
+          "id": "C37",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "0b1953a6f2cc74a65251b04c3b9a577cac8678fc9be309ce4c92f2ac5c80ba64",
+          "material_sha256": "1934970d1012f13e657c807389b3946d9553de2075dfb8c58544461f35d7ee7e",
+          "physical_call_ids": [
+            "41c67cfc76c04f4ca0e20ee5cc731754",
+            "3ba1030f8acc45b3859099d23c082b00"
+          ]
+        },
+        {
+          "id": "C41",
+          "status": "rejected",
+          "reason": "canonical_duplicate",
+          "input_fingerprint": "f1df78cb606e3501f079537a7121ce9cff750f6b1618728f9b8bd9c0d9a600aa",
+          "material_sha256": "3ae888d340eb0fa31a8c64fd2cc45a5d9a90a1b3ff3fe5f410c6c9a6f83aaf44",
+          "physical_call_ids": []
+        },
+        {
+          "id": "C42",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "eeaffa80d7e7156f1226e755d60d47f5b3f01b3faf25f89c46b7af290a61f8f2",
+          "material_sha256": "57ff356ba7ca1e7f7d435ef5328ab222c14b52104f1b05eadc2a0e94cf356b72",
+          "physical_call_ids": [
+            "d7c5883c0c974f35b59307332b139f86",
+            "085d748e27ca43cc9f8c109e3a902616"
+          ]
+        },
+        {
+          "id": "C43",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "77d5e744827e8dbde90663e54baf81537c48230aac80379004df580cb44cc98a",
+          "material_sha256": "821aac717b6d57f558cbade7f63f3806f686597cf4017a8ec4bc62a0400a2970",
+          "physical_call_ids": [
+            "fd96199179954834bc48e3893347e17c",
+            "ccf0e20a3f4a41048398d1b38b784bd0"
+          ]
+        }
+      ]
+    },
+    "independent_T": {
+      "cases": 6,
+      "ready": 5,
+      "ready_fraction": "5/6",
+      "outcomes": [
+        {
+          "id": "T01",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "a98d0cdccc1681e1f649523b90d03be01bff522c1e5560021a55f760b12430a0",
+          "material_sha256": "a859b3297f821a5e3b15ab3fa5f0f4b5693b1b0fea43508a094ced1a1e070db1",
+          "physical_call_ids": [
+            "91df9e846fff4728b2ebda2fbefab902",
+            "d6bd93b263094410a2526340642fedc1"
+          ]
+        },
+        {
+          "id": "T02",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "ec0df39bf2bede4f2affcd0424d731c135a3e5bf8ec3e77ef1b409f15480c8a1",
+          "material_sha256": "5a7bf14ddc9748d8026c0976b29c90e735b423c8227f8a91732fcf2d87eb71d8",
+          "physical_call_ids": [
+            "d31fb9d76a8f420588781d9c82e1d979",
+            "f186c5cc64f94ab28273c58e27af14b8"
+          ]
+        },
+        {
+          "id": "T03",
+          "status": "error",
+          "error_kind": "ValidationError",
+          "input_fingerprint": "653e202cb1ed20c29d6a18e96e94320227479f69c40e0d11a55433244d9db74e",
+          "material_sha256": "55c45e73558afa7cb2eac4155ec294fbdaa68c3859df9e0ef62a8b89c0bc4491",
+          "physical_call_ids": [
+            "a58a5500ce1e42f9ba68a6bcacae1958"
+          ]
+        },
+        {
+          "id": "T04",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "b3ebf2adf946ca76db571ccb9952577ce5058e180ab0694cfbaf5a964a387e3e",
+          "material_sha256": "f2d82c672534c47dea2072571dd2e2770faf6c0f9fde3ea0ea061100cd900f85",
+          "physical_call_ids": [
+            "f96aa42b495b4c149349723df4e8a007",
+            "798cd9b2db8041879582440a549a6254"
+          ]
+        },
+        {
+          "id": "T05",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "561f26f537aad5c38d0850a67f08c7725a6dbea900155f8f2e14df1d44a9c8eb",
+          "material_sha256": "0f3185c4dcee2b94783824e8511e33ee111bdcb9f25d1f442a5e83c6f48b49ce",
+          "physical_call_ids": [
+            "f564a1e2224546048d5847a3ea6dba86",
+            "9f6e1e70e47649e7a1b3fa145572baa1"
+          ]
+        },
+        {
+          "id": "T06",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "c05b1fd98ab1b5eb2ba6ace3b833cb58965a8abb748af791604dca0db7756452",
+          "material_sha256": "ac987ddf7d3749763b2c37ec881fe484488f9e0493640c38dfe180aae98b5e00",
+          "physical_call_ids": [
+            "9a0601e1ffe34fc99cd6a9b57a11a472",
+            "3e82854ed4bf4a658dcf151820723401"
+          ]
+        }
+      ],
+      "retained_failure": "T03 registered transport recovery returned five claims; unchanged maximum is three. No content retry or tuning followed."
+    },
+    "additional_U": {
+      "cases": 12,
+      "ready": 10,
+      "ready_fraction": "10/12",
+      "outcomes": [
+        {
+          "id": "U01",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "27e717250ec16ece1682d24eb19b244705015ff701954974320ccefb183f8426",
+          "material_sha256": "c53c9626ba83d8ebf395123508b53f7f053ea2962d92b31896a777c9873cfdcb",
+          "physical_call_ids": [
+            "b3291d6f9c63470b8ba36a357175d59a",
+            "cd40ea9238b54f2f9167a3e19cddcf0d"
+          ]
+        },
+        {
+          "id": "U02",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "b158db5a6beb764e4bf4c9f92e76e9bb5845f1e725b56d1080e56afb319ea027",
+          "material_sha256": "a81d6b3f47d144030e7d74cd3996cb0e899bdc237eabb7c3a703d10f84d3bfbf",
+          "physical_call_ids": [
+            "576bbfe3a2304b26895723a5eb386f57",
+            "7b33669b18e24f37a1fcee99c67d6a94"
+          ]
+        },
+        {
+          "id": "U03",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "d32a9b339912b91dc2efe911c463527c2f15e74d876e51767cc66edba9c96a04",
+          "material_sha256": "d4a045b73c7fc801a64bbf44a5dd9f5a449fc1cfcb31a7c84221c396019f7033",
+          "physical_call_ids": [
+            "eea7d180769a4456ba1b68c9706796a2",
+            "7940a19e40004a93874ecfdcec02deeb"
+          ]
+        },
+        {
+          "id": "U04",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "c28aa5d86ff0edfbe594d2a38f99e57bde269e0e14e1024e27e9d17ed54b3fee",
+          "material_sha256": "2ce95064f8670771390f8e45f042fd340e8f6e1c05a6a7cabe860a08758af6c8",
+          "physical_call_ids": [
+            "a3a877b1289b4156a2e66127c093206f",
+            "5826b649ae7844168b616f740d7b0c85"
+          ]
+        },
+        {
+          "id": "U05",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "20ebb471a6de26eeea63b643f46f737ee44de0629612c656f31254ab294630d4",
+          "material_sha256": "647da285a1b143b12fd316e587c0a95bf1ba411def95b42a63e3aad727fd737c",
+          "physical_call_ids": [
+            "e2c00f8c2c5f46cdb0e04d954cb0fa28",
+            "a927e487b0284b8b801eda586bc038fe"
+          ]
+        },
+        {
+          "id": "U06",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "cec48884c17d462941ecf211bb01d0e9b4176d82bee79964fcb813cc0d7c83c6",
+          "material_sha256": "fe60e09bd612ffcf64a545a6d6b6f71a95d350b301e27ca5017a32146bbad753",
+          "physical_call_ids": [
+            "686050755587476f82cb44aa6ac4c2fa",
+            "ac3ea82db4cb4fb09e949cc00973945c"
+          ]
+        },
+        {
+          "id": "U07",
+          "status": "failed",
+          "reason": "contract_or_evidence_invalid",
+          "input_fingerprint": "02c301e0105af8ef5ee532ca33476d2888f4de1152f52c09865f02af20a532e8",
+          "material_sha256": "84e27febc5870cac13fc49402b79df8453deeca008abaa018bb9179590019c14",
+          "physical_call_ids": [
+            "b7566f37c5624effa38bd24b08cb8cd4"
+          ]
+        },
+        {
+          "id": "U08",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "11cd3a52ea139a687174ae4e6eb0d5a1f0a7892b31af3809a325676d7bd5f412",
+          "material_sha256": "a33b6fc0a23f0cbcef25e2393cdc5fb15e6e9152423c1b1aa19c540adfe22f57",
+          "physical_call_ids": [
+            "9805d8f4e66e4cea81e24b83988b02e9",
+            "219d6466e7b1448c81645ebb8f43fac8"
+          ]
+        },
+        {
+          "id": "U09",
+          "status": "failed",
+          "reason": "contract_or_evidence_invalid",
+          "input_fingerprint": "7cfc6b45674497766d5779c88153c4b1d3392cf12f58d9eef35ef23a396f80cb",
+          "material_sha256": "222ed95c3dc10ec8cd4be0e7b93f633948529c2400f9e1bbe3b109f73aaac44b",
+          "physical_call_ids": [
+            "b409e14e8ade4a08bad643a1f374549d"
+          ]
+        },
+        {
+          "id": "U10",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "59443c93589f90f6925f6f7b1dd9a8d4c2ba80da3a52aae76c59278f05a38d18",
+          "material_sha256": "07bee0c895429e39d5dcb8d6436935e2e10c2f510eafa2be18ea830025086b25",
+          "physical_call_ids": [
+            "53eaca6cfbe94b4e914708da8bcd9fb5",
+            "17df42f58a1b417183a2f0819096bfa6"
+          ]
+        },
+        {
+          "id": "U11",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "b58028a4d9679049e774ff371bd239be286ff6e9a47eeab7865a87805fb8b1d5",
+          "material_sha256": "c41488d1174f740c0e7f5c78e9cfb42dce891ad9e4fa768d6ac4bed3423a2754",
+          "physical_call_ids": [
+            "8d9e9800543a4313b15f9314c8dc08dc",
+            "ade521568f4145cf9aec6d4b636d3b87"
+          ]
+        },
+        {
+          "id": "U12",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "e3d69c8fa32687ae7257a5f86c824fbb253e9fb43a9fc380ccdf2abb9bd5570d",
+          "material_sha256": "4838f3a50996c232a4d06e388f8da17b9a2a8b7aba4af53daa10163af0383346",
+          "physical_call_ids": [
+            "ac3760b32dbc4c1f9054168a447c59ce",
+            "b1f17be242f64cb3a5297fb321f6caa9"
+          ]
+        }
+      ],
+      "retained_failures": {
+        "U07": "Unsupported domain history rejected by unchanged schema.",
+        "U09": "Unsupported domain politics rejected by unchanged schema."
+      }
+    },
+    "aggregate": {
+      "evaluated_distinct_candidates": 39,
+      "technically_sufficient": 36,
+      "ready": 33,
+      "expected_cheap_rejections": 3,
+      "unpublished_technical_failures": 3,
+      "not_full_R0_43_recall": true
+    },
+    "cost": {
+      "physical_requests": 73,
+      "known_requests": 69,
+      "known_fees_usd": "0.0389946",
+      "unknown_requests": 4,
+      "unknown_holds_usd": "0.398879000000",
+      "request_ids": [
+        "0300980eff9f44f28adf9ab927a6f905",
+        "04001c0bb0be4b43bec7a62393d09acc",
+        "085d748e27ca43cc9f8c109e3a902616",
+        "0e7a227ac11743c099eb7b7225664281",
+        "1057611672ee46b8b4dd8ad01d21355c",
+        "11b170be69fc4367b7774d8330b4bc0e",
+        "11d92ba4336740e08c40dca7fff1cce3",
+        "1200abc292424d2596152e427c73f88e",
+        "129d2b3396214aa698583b10be1cfb0d",
+        "16eb1925c0a34176a3fa8361152ca0f6",
+        "17df42f58a1b417183a2f0819096bfa6",
+        "219d6466e7b1448c81645ebb8f43fac8",
+        "21cc690bb03a49e7b221b3247f1f3254",
+        "23603b69dfc748edbcf917843998d864",
+        "3ba1030f8acc45b3859099d23c082b00",
+        "3e82854ed4bf4a658dcf151820723401",
+        "41c67cfc76c04f4ca0e20ee5cc731754",
+        "45745b0043c24728893ae1b05dfcb975",
+        "457ba65479af433381daa9de6e5da351",
+        "48245188d66446ad825279a325850350",
+        "4d991d0eabaf4b6d9dbbe81bbe8f53f2",
+        "5029f5b5d4eb4345b70f95c8f7ae4641",
+        "53eaca6cfbe94b4e914708da8bcd9fb5",
+        "576bbfe3a2304b26895723a5eb386f57",
+        "5826b649ae7844168b616f740d7b0c85",
+        "5964930929984f348d6a8eb923f699c7",
+        "651814ffb90f4b9ca7b019f46f6401eb",
+        "66b64af14add4964a0f994e55ec9a56f",
+        "686050755587476f82cb44aa6ac4c2fa",
+        "6c3d34982b9a4062a95dd1db1ef57c0b",
+        "7940a19e40004a93874ecfdcec02deeb",
+        "798cd9b2db8041879582440a549a6254",
+        "7b33669b18e24f37a1fcee99c67d6a94",
+        "81d998967b8b4df0ab965388bee19097",
+        "8d9e9800543a4313b15f9314c8dc08dc",
+        "91df9e846fff4728b2ebda2fbefab902",
+        "9805d8f4e66e4cea81e24b83988b02e9",
+        "9a0601e1ffe34fc99cd6a9b57a11a472",
+        "9eeb57f632c34606abff3d73cfed06de",
+        "9f6e1e70e47649e7a1b3fa145572baa1",
+        "a3a877b1289b4156a2e66127c093206f",
+        "a58a5500ce1e42f9ba68a6bcacae1958",
+        "a927e487b0284b8b801eda586bc038fe",
+        "a95a72709b574a2ca43297e79824dc31",
+        "a9bd614dc788493d9a1e34c045f51ade",
+        "ac3760b32dbc4c1f9054168a447c59ce",
+        "ac3ea82db4cb4fb09e949cc00973945c",
+        "ade521568f4145cf9aec6d4b636d3b87",
+        "b1f17be242f64cb3a5297fb321f6caa9",
+        "b3291d6f9c63470b8ba36a357175d59a",
+        "b3b9eefb524b4754ba2fc57cd20c77f0",
+        "b409e14e8ade4a08bad643a1f374549d",
+        "b543f7dd371a48d6bf7b9d6789dbcc0d",
+        "b7566f37c5624effa38bd24b08cb8cd4",
+        "bdbdbb331ac546eb84d6f42b502f362b",
+        "c2472d1c64244904a96b42f347a0289f",
+        "ccf0e20a3f4a41048398d1b38b784bd0",
+        "cd40ea9238b54f2f9167a3e19cddcf0d",
+        "d31fb9d76a8f420588781d9c82e1d979",
+        "d6bd93b263094410a2526340642fedc1",
+        "d7c5883c0c974f35b59307332b139f86",
+        "d96373a0eeed4cb5bc1a5a5cb47000de",
+        "e2c00f8c2c5f46cdb0e04d954cb0fa28",
+        "e9a32942508e4a4cbaa6987dfad52921",
+        "ecbb3f19134441f6b451125611565dc6",
+        "eea7d180769a4456ba1b68c9706796a2",
+        "f186c5cc64f94ab28273c58e27af14b8",
+        "f2ed9fa8facc45e99bc8f28111bfa35a",
+        "f4f40efaf7fe4a9b8f7d9345063dec87",
+        "f564a1e2224546048d5847a3ea6dba86",
+        "f96aa42b495b4c149349723df4e8a007",
+        "fd96199179954834bc48e3893347e17c",
+        "ffefcd48948944c48a3da4a60f17fbb6"
+      ],
+      "known_lower_bound_per_100_evaluated_candidates_usd": "0.099986153846",
+      "known_lower_bound_per_ready_item_usd": "0.001181654545",
+      "per_100_if_all_current_unknown_holds_were_spent_usd": "1.122752820513",
+      "unknown_holds_are_not_actual_fees": true
+    }
+  },
+  "guide": {
+    "previous_v4_same_inputs": {
+      "model_ready": 7,
+      "ai_accepted": 6,
+      "cases": 8,
+      "failures": {
+        "C01": "Four claims in one section.",
+        "C35": "Incorrect Musk assertion ownership despite model approval."
+      }
+    },
+    "v5_regression": {
+      "ready": 8,
+      "cases": 8,
+      "outcomes": [
+        {
+          "id": "C01",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "5b6d7a3b007c47777cbf818708835fec0f21ab16a98e221b04b0239cf6eb1ecf",
+          "material_sha256": "bb39a3bb67f85e712cde30e4b422af229daef45d9d2e1f22b614bada4ac2f489",
+          "physical_call_ids": [
+            "2573299c54b84578a85370ce63563667",
+            "da7451ecf0db46a7a51c779aa10d4223"
+          ]
+        },
+        {
+          "id": "C03",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "f327794caecb74ad45f6d549be4778002c839227203cd8a699d8e338ee68a93f",
+          "material_sha256": "a25a19388f2399aa787baa90b4aa2b5ce3950a8a213e8d69d0737b8379cbfe23",
+          "physical_call_ids": [
+            "1dad740b534647c7a546b516838bd0de",
+            "f368cde4a64e4124ba8ec4e291acc902"
+          ]
+        },
+        {
+          "id": "C07",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "1d29815b33d79f5b692b282bc184cd97ff9a2ee29b418a22313fefb4a23b5e88",
+          "material_sha256": "daebcfd1fc6e12596d4856e5d49fe74c62d62ac40e921c8a0daa3d4b3969f517",
+          "physical_call_ids": [
+            "5ca36b1b44c246d8afc90edda64eff5b",
+            "57f00e6b5c1341bb99b6394a605374c0"
+          ]
+        },
+        {
+          "id": "C08",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "641d18e86b8723a25196fbf7e686eec4f79aac44b6d00690efb2738d0d26aa7a",
+          "material_sha256": "2d3bebb911a1a35ef0cde290ccac0e2953e96de7d0ce6368f3a39e02e1939234",
+          "physical_call_ids": [
+            "446ca548f680425692661ea88dffce13",
+            "8b87ee2ecc9746e6aebd6c1cdd883a09"
+          ]
+        },
+        {
+          "id": "C12",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "a0d881dda879995e6dd093b17512e6e2eec4dde75e52018f54a7d7d42f78372f",
+          "material_sha256": "1161ef9da948037439f6fcff7bb07fd86213b4ce7c83f46dbbbf105ba92652ec",
+          "physical_call_ids": [
+            "c4a16fea4a03435e8179dd39a47e6d7d",
+            "ed3bd3119582492991b9e895e5c4298c"
+          ]
+        },
+        {
+          "id": "C24",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "628411397e07e2b31014838f66cb13a8a9a1ae629de6fbcb0ff7ad52c0a2b3c1",
+          "material_sha256": "8ece174fdcf084e73ba41f1f0642b1cf19103fed40e204102802de5c013a93a3",
+          "physical_call_ids": [
+            "4d7aa9dfb41b41719626c14a261cc957",
+            "0c500e0563e24b4885b9665484217a6f"
+          ]
+        },
+        {
+          "id": "C29",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "5508902ab78ec19736d71aa4c8acbd60e2517415130651b332a711dda153109b",
+          "material_sha256": "62e37a7e0235789ecf04d625c304628b5b13cb1059cd88b6e5b6345ac58d01bc",
+          "physical_call_ids": [
+            "b553b5f8ce454592be0494ccd4e314bd",
+            "4a89db8207704b73a1ed3359b486352d"
+          ]
+        },
+        {
+          "id": "C35",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "c7b80fe3a26e9f78294d40d96c3d203b5d035fb4f9cfd389a8eb4df511e05560",
+          "material_sha256": "2e61784ce1f6322a8a53395664205ad554f9433551298f541ac54ddb91b2fa3d",
+          "physical_call_ids": [
+            "ff02243863d64f8482b17cdfcdc42db9",
+            "813f329ee1a84f10b3a8165d9cf01f97"
+          ]
+        }
+      ]
+    },
+    "independent_U": {
+      "cases": 12,
+      "material_capable": 8,
+      "ready": 7,
+      "ready_fraction": "7/8",
+      "outcomes": [
+        {
+          "id": "U01",
+          "status": "rejected",
+          "reason": "insufficient_increment",
+          "input_fingerprint": "e4b6f1355d20ed5aef100ff8e4585dd6f50c4ecd85ba8effc53a09c39e904402",
+          "material_sha256": "c53c9626ba83d8ebf395123508b53f7f053ea2962d92b31896a777c9873cfdcb",
+          "physical_call_ids": []
+        },
+        {
+          "id": "U02",
+          "status": "rejected",
+          "reason": "insufficient_increment",
+          "input_fingerprint": "c92667cb1daa54339c2524e19860165f8bda0a63844724726a6a20ef466bb811",
+          "material_sha256": "a81d6b3f47d144030e7d74cd3996cb0e899bdc237eabb7c3a703d10f84d3bfbf",
+          "physical_call_ids": []
+        },
+        {
+          "id": "U03",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "b436528c7165e94869bed1062c5f3d2b954ee424239eb2f2fb57137b4caac436",
+          "material_sha256": "d4a045b73c7fc801a64bbf44a5dd9f5a449fc1cfcb31a7c84221c396019f7033",
+          "physical_call_ids": [
+            "2afefbe7b8d54ea89aacdf42a8258ace",
+            "bc9944ce6d8e4ad7a5df68b8604d1269"
+          ]
+        },
+        {
+          "id": "U04",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "a78a88d00619ad1785cbf3a17610939086c21586dc071990ac401b8c4b51c3b7",
+          "material_sha256": "2ce95064f8670771390f8e45f042fd340e8f6e1c05a6a7cabe860a08758af6c8",
+          "physical_call_ids": [
+            "9f533b1ef0e44d7b9fd16e8aade69561",
+            "d7483d0bb71840728a1bd299d63ac551"
+          ]
+        },
+        {
+          "id": "U05",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "4f3d35391d7e4bd96b01405fe0edae1df36b52de89628188f7850d7fd038f901",
+          "material_sha256": "647da285a1b143b12fd316e587c0a95bf1ba411def95b42a63e3aad727fd737c",
+          "physical_call_ids": [
+            "4e27a35ee9964153ae4fcbc157933a42",
+            "790956ab986f4c31bc90a57801252ef6"
+          ]
+        },
+        {
+          "id": "U06",
+          "status": "rejected",
+          "reason": "insufficient_increment",
+          "input_fingerprint": "7924993116ce8ff41c222311c702e3576946e3d5e03ec7bc060eff69719f3980",
+          "material_sha256": "fe60e09bd612ffcf64a545a6d6b6f71a95d350b301e27ca5017a32146bbad753",
+          "physical_call_ids": []
+        },
+        {
+          "id": "U07",
+          "status": "error",
+          "error_kind": "DependencyPending",
+          "input_fingerprint": "09af2bb2aaa951658ec83ae1a86b6bfa1c1fc66aabec31e680f8402635f8180b",
+          "material_sha256": "84e27febc5870cac13fc49402b79df8453deeca008abaa018bb9179590019c14",
+          "physical_call_ids": []
+        },
+        {
+          "id": "U08",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "00d1af424c0e8cc058d58ff8364014eab4e03dfae11914f6367e07c3327b3b1f",
+          "material_sha256": "a33b6fc0a23f0cbcef25e2393cdc5fb15e6e9152423c1b1aa19c540adfe22f57",
+          "physical_call_ids": [
+            "b70b24ad99dc428bac201198c3d196fc",
+            "ce96202cc21a472da7b36626ac7c344f"
+          ]
+        },
+        {
+          "id": "U09",
+          "status": "error",
+          "error_kind": "DependencyPending",
+          "input_fingerprint": "2799999f721615dc5389869f1d4808d6b7e70314b9eb5a18933dceabbd864bf8",
+          "material_sha256": "222ed95c3dc10ec8cd4be0e7b93f633948529c2400f9e1bbe3b109f73aaac44b",
+          "physical_call_ids": []
+        },
+        {
+          "id": "U10",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "f7d194367afcea1658416fd91d06879194dd3fe33aea366309f0af4f2eedfd46",
+          "material_sha256": "07bee0c895429e39d5dcb8d6436935e2e10c2f510eafa2be18ea830025086b25",
+          "physical_call_ids": [
+            "7e553c858449450f90ebfc9635137d7b",
+            "9bf8a0fa391a4c5aa0b3bdd1557574ae"
+          ]
+        },
+        {
+          "id": "U12",
+          "status": "ready",
+          "reason": "supported_material",
+          "input_fingerprint": "705a59bb7680591b5472c5dbbf04999a94439799875bb90dd77843b155a11e92",
+          "material_sha256": "4838f3a50996c232a4d06e388f8da17b9a2a8b7aba4af53daa10163af0383346",
+          "physical_call_ids": [
+            "caa5d9e97c7b46f8a463fbee1677849d",
+            "312abd75e71d4440aa46861bb7fe604f"
+          ]
+        }
+      ],
+      "runtime_case": {
+        "id": "U11",
+        "status": "ready",
+        "article_id": 11,
+        "task_id": 1,
+        "attempts": 1,
+        "input_fingerprint": "d190a7f084866ae7471e2978e427c8b39467b341cdfe7156a9e61136c2ce446b",
+        "physical_call_ids": [
+          "e9a7cde58c9c4f9ab773acee774b1107",
+          "d85c7ec74b2d4f519c6c66fe52e68a22"
+        ]
+      },
+      "short_material_deterministic_rejections": [
+        "U01",
+        "U02",
+        "U06"
+      ],
+      "dependency_failures": [
+        "U07",
+        "U09"
+      ],
+      "U07_is_not_a_content_rejection": true,
+      "U09_counted_as_capable_failure": true
+    },
+    "cost": {
+      "physical_requests": 30,
+      "known_requests": 30,
+      "known_fees_usd": "0.0260716",
+      "unknown_requests": 0,
+      "unknown_holds_usd": "0",
+      "request_ids": [
+        "0c500e0563e24b4885b9665484217a6f",
+        "1dad740b534647c7a546b516838bd0de",
+        "2573299c54b84578a85370ce63563667",
+        "2afefbe7b8d54ea89aacdf42a8258ace",
+        "312abd75e71d4440aa46861bb7fe604f",
+        "446ca548f680425692661ea88dffce13",
+        "4a89db8207704b73a1ed3359b486352d",
+        "4d7aa9dfb41b41719626c14a261cc957",
+        "4e27a35ee9964153ae4fcbc157933a42",
+        "57f00e6b5c1341bb99b6394a605374c0",
+        "5ca36b1b44c246d8afc90edda64eff5b",
+        "790956ab986f4c31bc90a57801252ef6",
+        "7e553c858449450f90ebfc9635137d7b",
+        "813f329ee1a84f10b3a8165d9cf01f97",
+        "8b87ee2ecc9746e6aebd6c1cdd883a09",
+        "9bf8a0fa391a4c5aa0b3bdd1557574ae",
+        "9f533b1ef0e44d7b9fd16e8aade69561",
+        "b553b5f8ce454592be0494ccd4e314bd",
+        "b70b24ad99dc428bac201198c3d196fc",
+        "bc9944ce6d8e4ad7a5df68b8604d1269",
+        "c4a16fea4a03435e8179dd39a47e6d7d",
+        "caa5d9e97c7b46f8a463fbee1677849d",
+        "ce96202cc21a472da7b36626ac7c344f",
+        "d7483d0bb71840728a1bd299d63ac551",
+        "d85c7ec74b2d4f519c6c66fe52e68a22",
+        "da7451ecf0db46a7a51c779aa10d4223",
+        "e9a7cde58c9c4f9ab773acee774b1107",
+        "ed3bd3119582492991b9e895e5c4298c",
+        "f368cde4a64e4124ba8ec4e291acc902",
+        "ff02243863d64f8482b17cdfcdc42db9"
+      ],
+      "new_ready_guides": 15,
+      "per_new_ready_guide_usd": "0.001738106667"
+    },
+    "actual_api_consumer": {
+      "database": "unspun_quality_r1_20261016",
+      "article_id": 11,
+      "scope": "editorial_edition",
+      "qualified_source": "zhihu-daily",
+      "duplicate_POSTs_share_task": true,
+      "repeated_GETs_no_paid_request": true,
+      "completed_reuse_no_claim_no_new_call": true,
+      "new_physical_calls": 2,
+      "known_cost_usd": "0.0021675",
+      "production_changed": false
+    },
+    "latest_order_invariant_on_guide_apply": true
+  },
+  "ledger": {
+    "at": "2026-10-17T10:31:23.877664+00:00",
+    "database": "unspun_quality_r1_20261016",
+    "schema": "000015",
+    "policy": {
+      "scope": "evaluation",
+      "limit_usd": "1.500000000000",
+      "version": "r1-budget-v3",
+      "stage_caps": {}
+    },
+    "requests": 401,
+    "known_fees": 394,
+    "known_cost_usd": "0.3690100",
+    "unknown_requests": 7,
+    "unknown_holds_usd": "0.484867000000",
+    "available_usd": "0.646123000000"
+  },
+  "unknown_requests": [
+    {
+      "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+      "stage": "card",
+      "phase": "baseline",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null,
+      "source_id": null,
+      "object_key": null,
+      "request_fingerprint": "36e095ee229afb47fb743c7b5aa2bada73e3f8633a5a70b8bc2f3cd6b6dcfd99",
+      "reserved_usd": "0.028261000000",
+      "provider_generation_id": null,
+      "http_status": null,
+      "started_at": "2026-10-16T08:31:09.170417+00:00",
+      "ended_at": "2026-10-16T08:31:09.358923+00:00",
+      "known_cost_usd": null,
+      "error": "ConnectError"
+    },
+    {
+      "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null,
+      "source_id": null,
+      "object_key": null,
+      "request_fingerprint": "557d53ec5d593a62cf259e9a80079d33f0a2e152bfcdf92120c31165eac8e16c",
+      "reserved_usd": "0.028967000000",
+      "provider_generation_id": null,
+      "http_status": null,
+      "started_at": "2026-10-16T10:21:19.943998+00:00",
+      "ended_at": "2026-10-16T10:21:20.118797+00:00",
+      "known_cost_usd": null,
+      "error": "ConnectError"
+    },
+    {
+      "id": "5c68c196f8514836a38280edc782806a",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null,
+      "source_id": null,
+      "object_key": null,
+      "request_fingerprint": "0bf4e0bb1fbace9b11ee966d7b033abdf79b474ab7787d53a7cbdc421d601ae8",
+      "reserved_usd": "0.028760000000",
+      "provider_generation_id": null,
+      "http_status": null,
+      "started_at": "2026-10-16T19:16:57.144859+00:00",
+      "ended_at": "2026-10-16T20:05:26.280927+00:00",
+      "known_cost_usd": null,
+      "error": "ConnectTimeout"
+    },
+    {
+      "id": "bdbdbb331ac546eb84d6f42b502f362b",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "usage_unknown",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null,
+      "source_id": null,
+      "object_key": null,
+      "request_fingerprint": "f8d57f73e2dd5461535353389e6d97b617b8a0347602506914dcda252591cd90",
+      "reserved_usd": "0.170674000000",
+      "provider_generation_id": null,
+      "http_status": null,
+      "started_at": "2026-10-17T08:17:31.488417+00:00",
+      "ended_at": "2026-10-17T08:18:14.477320+00:00",
+      "known_cost_usd": null,
+      "error": "RemoteProtocolError"
+    },
+    {
+      "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "usage_unknown",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null,
+      "source_id": null,
+      "object_key": null,
+      "request_fingerprint": "f8d57f73e2dd5461535353389e6d97b617b8a0347602506914dcda252591cd90",
+      "reserved_usd": "0.170674000000",
+      "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+      "http_status": 403,
+      "started_at": "2026-10-17T09:21:37.534326+00:00",
+      "ended_at": "2026-10-17T09:21:39.396995+00:00",
+      "known_cost_usd": null,
+      "error": "provider cost missing or invalid"
+    },
+    {
+      "id": "11d92ba4336740e08c40dca7fff1cce3",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null,
+      "source_id": null,
+      "object_key": null,
+      "request_fingerprint": "dee04a117b7c135e142218f0176e2e609427b78910e2e5f871e6475b71c33abe",
+      "reserved_usd": "0.028794000000",
+      "provider_generation_id": null,
+      "http_status": null,
+      "started_at": "2026-10-17T09:26:36.998722+00:00",
+      "ended_at": "2026-10-17T09:27:24.208238+00:00",
+      "known_cost_usd": null,
+      "error": "RemoteProtocolError"
+    },
+    {
+      "id": "ffefcd48948944c48a3da4a60f17fbb6",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null,
+      "source_id": null,
+      "object_key": null,
+      "request_fingerprint": "38b07ba0e610568a562db5f1a434276d4519344b9aeb58be05e52dbaf46a96b8",
+      "reserved_usd": "0.028737000000",
+      "provider_generation_id": null,
+      "http_status": null,
+      "started_at": "2026-10-17T09:27:27.721999+00:00",
+      "ended_at": "2026-10-17T09:28:08.650801+00:00",
+      "known_cost_usd": null,
+      "error": "RemoteProtocolError"
+    }
+  ],
+  "current_contract_requests": [
+    {
+      "id": "457ba65479af433381daa9de6e5da351",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225049-j7iUSBPrA8vSweVl0Mk9",
+      "known_cost_usd": "0.0003594",
+      "reserved_usd": "0.028925000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "bdbdbb331ac546eb84d6f42b502f362b",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "usage_unknown",
+      "provider_generation_id": null,
+      "known_cost_usd": null,
+      "reserved_usd": "0.170674000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "5964930929984f348d6a8eb923f699c7",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225095-YFRKN8bram0CiQbAfDDN",
+      "known_cost_usd": "0.0003232",
+      "reserved_usd": "0.028776000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "48245188d66446ad825279a325850350",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225097-gW9sl5y0oIgPyPEZYx1m",
+      "known_cost_usd": "0.0002706",
+      "reserved_usd": "0.028823000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "f2ed9fa8facc45e99bc8f28111bfa35a",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225100-ouM4Hez4P0xy6HqULSOR",
+      "known_cost_usd": "0.0003076",
+      "reserved_usd": "0.028797000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "5029f5b5d4eb4345b70f95c8f7ae4641",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225102-PEYfqUMsdQzLmi6Ecctd",
+      "known_cost_usd": "0.0003394",
+      "reserved_usd": "0.028836000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "a9bd614dc788493d9a1e34c045f51ade",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225104-Sg7jAbevC9Ir6V1imnXi",
+      "known_cost_usd": "0.0003491",
+      "reserved_usd": "0.029416000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "0e7a227ac11743c099eb7b7225664281",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225107-Fv6Fn1qqFyqdKip1lJtE",
+      "known_cost_usd": "0.0005867",
+      "reserved_usd": "0.031001000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "e9a32942508e4a4cbaa6987dfad52921",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225109-gXRQN3F9aC0pbxXHSlkI",
+      "known_cost_usd": "0.0004083",
+      "reserved_usd": "0.029639000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "c2472d1c64244904a96b42f347a0289f",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225111-899oSVbgYvMwd07ZaSCe",
+      "known_cost_usd": "0.0002492",
+      "reserved_usd": "0.028601000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "04001c0bb0be4b43bec7a62393d09acc",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225113-aZEXoLASStCkUHUrERHK",
+      "known_cost_usd": "0.000394",
+      "reserved_usd": "0.029247000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "651814ffb90f4b9ca7b019f46f6401eb",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225115-4OV7aN2Zj9w2fw9yr5Aa",
+      "known_cost_usd": "0.0004524",
+      "reserved_usd": "0.029745000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "9eeb57f632c34606abff3d73cfed06de",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225117-tcimserc7BiYmewCNILq",
+      "known_cost_usd": "0.0004314",
+      "reserved_usd": "0.029773000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "45745b0043c24728893ae1b05dfcb975",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225119-Q1pkpDpNfYX9jgqXubaC",
+      "known_cost_usd": "0.0005187",
+      "reserved_usd": "0.030280000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "129d2b3396214aa698583b10be1cfb0d",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225123-KWExi1nh8eoU4IcR8tne",
+      "known_cost_usd": "0.0004037",
+      "reserved_usd": "0.029419000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "66b64af14add4964a0f994e55ec9a56f",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225126-RBegu5fQeuYBjALx66AW",
+      "known_cost_usd": "0.000345",
+      "reserved_usd": "0.029432000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "41c67cfc76c04f4ca0e20ee5cc731754",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225130-JIKz44oGnjX6QZ2t7wMf",
+      "known_cost_usd": "0.0003621",
+      "reserved_usd": "0.029683000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "d7c5883c0c974f35b59307332b139f86",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225131-dALfnNPtxx8OaBAbr4sz",
+      "known_cost_usd": "0.0003763",
+      "reserved_usd": "0.029222000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "fd96199179954834bc48e3893347e17c",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792225133-XMtUvk7lMZjbU1ZND9oZ",
+      "known_cost_usd": "0.0004124",
+      "reserved_usd": "0.029308000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "usage_unknown",
+      "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+      "known_cost_usd": null,
+      "reserved_usd": "0.170674000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "1200abc292424d2596152e427c73f88e",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229125-Ul3F1EO292527VpqwoPD",
+      "known_cost_usd": "0.0008517",
+      "reserved_usd": "0.170674000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "d96373a0eeed4cb5bc1a5a5cb47000de",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229127-IGHWqxlAMSEpGwX7SMT4",
+      "known_cost_usd": "0.0006161",
+      "reserved_usd": "0.170122000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "0300980eff9f44f28adf9ab927a6f905",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229128-Cpj8NKGO0EcTJQNVRpJS",
+      "known_cost_usd": "0.000607",
+      "reserved_usd": "0.170083000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "6c3d34982b9a4062a95dd1db1ef57c0b",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229130-Fbjwmci898l3sdHE8aPs",
+      "known_cost_usd": "0.0006959",
+      "reserved_usd": "0.170339000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "81d998967b8b4df0ab965388bee19097",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229131-TvnEN8XWSapiPMOcbj3e",
+      "known_cost_usd": "0.0007744",
+      "reserved_usd": "0.170570000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "b543f7dd371a48d6bf7b9d6789dbcc0d",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229132-AwTDT5dsN1AZm13dxrWN",
+      "known_cost_usd": "0.0008726",
+      "reserved_usd": "0.171429000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "11b170be69fc4367b7774d8330b4bc0e",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229134-J6PaocPxkPZe2t3YjkOC",
+      "known_cost_usd": "0.0015527",
+      "reserved_usd": "0.174844000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "21cc690bb03a49e7b221b3247f1f3254",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229135-7JbmiqwtunU2U51TD9pk",
+      "known_cost_usd": "0.0010109",
+      "reserved_usd": "0.172225000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "16eb1925c0a34176a3fa8361152ca0f6",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229136-0gET9ZRTRfZb8PrK78KN",
+      "known_cost_usd": "0.0005576",
+      "reserved_usd": "0.169787000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "23603b69dfc748edbcf917843998d864",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229138-5UUPnmDGo4E2cDwiYAII",
+      "known_cost_usd": "0.0008275",
+      "reserved_usd": "0.171110000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "4d991d0eabaf4b6d9dbbe81bbe8f53f2",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229139-mxI0zNGZ298FtZOKViZl",
+      "known_cost_usd": "0.0010382",
+      "reserved_usd": "0.172129000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "1057611672ee46b8b4dd8ad01d21355c",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229140-RrsYn2PtJrFyojRZnj8r",
+      "known_cost_usd": "0.0010556",
+      "reserved_usd": "0.172245000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ecbb3f19134441f6b451125611565dc6",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229142-MlhyT1eIkRMKxNUuCfxp",
+      "known_cost_usd": "0.0011888",
+      "reserved_usd": "0.173452000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "f4f40efaf7fe4a9b8f7d9345063dec87",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229144-DEqtkj6HOpLTLM2Hi4Og",
+      "known_cost_usd": "0.000947",
+      "reserved_usd": "0.172022000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "a95a72709b574a2ca43297e79824dc31",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229145-2e6SjDmwxHpOJx972ci5",
+      "known_cost_usd": "0.0008099",
+      "reserved_usd": "0.171479000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "3ba1030f8acc45b3859099d23c082b00",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229147-4MA4jevRYnXGHUaC848y",
+      "known_cost_usd": "0.0008968",
+      "reserved_usd": "0.171880000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "085d748e27ca43cc9f8c109e3a902616",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229148-0ubs1JbIMRuA5sZd0aQN",
+      "known_cost_usd": "0.0007858",
+      "reserved_usd": "0.170862000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ccf0e20a3f4a41048398d1b38b784bd0",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229150-JlvTYYyMLKRnhJQMpTgZ",
+      "known_cost_usd": "0.000962",
+      "reserved_usd": "0.171733000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "91df9e846fff4728b2ebda2fbefab902",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229191-fVVzTynMCGUFqQkJlyEA",
+      "known_cost_usd": "0.0003504",
+      "reserved_usd": "0.028778000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "d6bd93b263094410a2526340642fedc1",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229193-amfBP6V8vz0mUEKUtU0I",
+      "known_cost_usd": "0.0005856",
+      "reserved_usd": "0.169814000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "d31fb9d76a8f420588781d9c82e1d979",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229194-zLQHDabdDnG45G76g9fg",
+      "known_cost_usd": "0.0002969",
+      "reserved_usd": "0.028644000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "f186c5cc64f94ab28273c58e27af14b8",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229196-190pToFtBgGHZQbLe1xw",
+      "known_cost_usd": "0.0006358",
+      "reserved_usd": "0.170047000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "11d92ba4336740e08c40dca7fff1cce3",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "provider_generation_id": null,
+      "known_cost_usd": null,
+      "reserved_usd": "0.028794000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "f96aa42b495b4c149349723df4e8a007",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229244-YdHwkvJzxpMJ3nlJqQQx",
+      "known_cost_usd": "0.0003256",
+      "reserved_usd": "0.029072000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "798cd9b2db8041879582440a549a6254",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229246-FIXL8VZtMhjCBVv4QacP",
+      "known_cost_usd": "0.0007582",
+      "reserved_usd": "0.170917000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ffefcd48948944c48a3da4a60f17fbb6",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "provider_generation_id": null,
+      "known_cost_usd": null,
+      "reserved_usd": "0.028737000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "9a0601e1ffe34fc99cd6a9b57a11a472",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229289-zMLz6FDV43himmhWAXun",
+      "known_cost_usd": "0.0002615",
+      "reserved_usd": "0.028605000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "3e82854ed4bf4a658dcf151820723401",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229290-ECkjGudU2rGTLhoFdJ9S",
+      "known_cost_usd": "0.0005789",
+      "reserved_usd": "0.169833000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "a58a5500ce1e42f9ba68a6bcacae1958",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229454-gIX7sKHs3YbrUVeuQziJ",
+      "known_cost_usd": "0.0003797",
+      "reserved_usd": "0.028794000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "f564a1e2224546048d5847a3ea6dba86",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229512-qWGOoUBRay1GR0PE32D5",
+      "known_cost_usd": "0.0003188",
+      "reserved_usd": "0.028737000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "9f6e1e70e47649e7a1b3fa145572baa1",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792229514-ip1oHPLSaMhnWGAYmiwR",
+      "known_cost_usd": "0.0007245",
+      "reserved_usd": "0.170298000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "2573299c54b84578a85370ce63563667",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231518-BxoMJ9A3HA1Otl1lqyD6",
+      "known_cost_usd": "0.0005221",
+      "reserved_usd": "0.028889000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "da7451ecf0db46a7a51c779aa10d4223",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231521-VYGt3cqOyeRmO8hfstnW",
+      "known_cost_usd": "0.0014581",
+      "reserved_usd": "0.172630000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "1dad740b534647c7a546b516838bd0de",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231523-rhc4tUo7Fu3jrMUFXnV3",
+      "known_cost_usd": "0.0003731",
+      "reserved_usd": "0.028693000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "f368cde4a64e4124ba8ec4e291acc902",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231525-9uzhO44uo894mHRymYeV",
+      "known_cost_usd": "0.0010286",
+      "reserved_usd": "0.171607000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "5ca36b1b44c246d8afc90edda64eff5b",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231527-0y03BKQbrHpCuVbtmPwZ",
+      "known_cost_usd": "0.0003414",
+      "reserved_usd": "0.028701000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "57f00e6b5c1341bb99b6394a605374c0",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231530-eF3PprFDEm1GFi3UEbv5",
+      "known_cost_usd": "0.00093",
+      "reserved_usd": "0.171357000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "446ca548f680425692661ea88dffce13",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231532-JmuLX8A7puYcMNeWGOzw",
+      "known_cost_usd": "0.000328",
+      "reserved_usd": "0.028758000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "8b87ee2ecc9746e6aebd6c1cdd883a09",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231534-Y91KO9IOjEzTRziHK5pK",
+      "known_cost_usd": "0.0009369",
+      "reserved_usd": "0.171260000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "c4a16fea4a03435e8179dd39a47e6d7d",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231535-MUndmPFngodRcIAraHrn",
+      "known_cost_usd": "0.0004855",
+      "reserved_usd": "0.029307000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ed3bd3119582492991b9e895e5c4298c",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231538-OfZJFZ6HtO4C7il8Rh33",
+      "known_cost_usd": "0.001328",
+      "reserved_usd": "0.173230000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "4d7aa9dfb41b41719626c14a261cc957",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231540-wRrVRacJZlAJTgpR0HrE",
+      "known_cost_usd": "0.0005444",
+      "reserved_usd": "0.029163000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "0c500e0563e24b4885b9665484217a6f",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231543-cndWuXXsnaF2UQycsS8Z",
+      "known_cost_usd": "0.0009968",
+      "reserved_usd": "0.171750000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "b553b5f8ce454592be0494ccd4e314bd",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231545-AVPxBznzO0qGmKgInwGN",
+      "known_cost_usd": "0.000751",
+      "reserved_usd": "0.029677000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "4a89db8207704b73a1ed3359b486352d",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231550-PILBcT8sIFGVReETxm91",
+      "known_cost_usd": "0.0021372",
+      "reserved_usd": "0.176618000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ff02243863d64f8482b17cdfcdc42db9",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231551-1q1GGamofmEwM89HfTPR",
+      "known_cost_usd": "0.0004757",
+      "reserved_usd": "0.029345000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "813f329ee1a84f10b3a8165d9cf01f97",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231556-oxRBrKmrCRE46eHmJ2fg",
+      "known_cost_usd": "0.0012764",
+      "reserved_usd": "0.173146000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "b3291d6f9c63470b8ba36a357175d59a",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231662-tzhPrEWWrSQnpUr6ZFjm",
+      "known_cost_usd": "0.0001963",
+      "reserved_usd": "0.028553000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "cd40ea9238b54f2f9167a3e19cddcf0d",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231664-FKpy1HIM11q8hV14VIXn",
+      "known_cost_usd": "0.0004044",
+      "reserved_usd": "0.169250000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "576bbfe3a2304b26895723a5eb386f57",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231665-uWH0d5S4GVI3jNAnA5Sw",
+      "known_cost_usd": "0.0001921",
+      "reserved_usd": "0.028548000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "7b33669b18e24f37a1fcee99c67d6a94",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231667-BuJRfRgMvqyyJG6X9ZGL",
+      "known_cost_usd": "0.0004018",
+      "reserved_usd": "0.169185000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "eea7d180769a4456ba1b68c9706796a2",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231669-yhJkg3kqpwbVBMKIabQe",
+      "known_cost_usd": "0.0003121",
+      "reserved_usd": "0.028781000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "7940a19e40004a93874ecfdcec02deeb",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231672-byi2JyuNYtbSmPq8nfjE",
+      "known_cost_usd": "0.0006784",
+      "reserved_usd": "0.170319000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "a3a877b1289b4156a2e66127c093206f",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231674-y0qoFB7Av7LlRvQKEMti",
+      "known_cost_usd": "0.0003112",
+      "reserved_usd": "0.028872000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "5826b649ae7844168b616f740d7b0c85",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231676-RdQfhupIRDerla8rowSD",
+      "known_cost_usd": "0.0007178",
+      "reserved_usd": "0.170459000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "e2c00f8c2c5f46cdb0e04d954cb0fa28",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231678-AtqNHoWfLVTvFLV3XUkK",
+      "known_cost_usd": "0.000376",
+      "reserved_usd": "0.029206000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "a927e487b0284b8b801eda586bc038fe",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231681-kNqKtqCJfbYr3EQxp3oZ",
+      "known_cost_usd": "0.000871",
+      "reserved_usd": "0.171397000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "686050755587476f82cb44aa6ac4c2fa",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231683-N9F6rBTy52Ukb0t9YiYw",
+      "known_cost_usd": "0.0002789",
+      "reserved_usd": "0.028632000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ac3ea82db4cb4fb09e949cc00973945c",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231685-mmDhRjVxUIJd6oaKGNg9",
+      "known_cost_usd": "0.0004863",
+      "reserved_usd": "0.169411000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "b7566f37c5624effa38bd24b08cb8cd4",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231686-GeUIoaYVR0f4SHGZHSCR",
+      "known_cost_usd": "0.000263",
+      "reserved_usd": "0.028632000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "9805d8f4e66e4cea81e24b83988b02e9",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231688-7CN1ZBlYoOWeAOSmf8kT",
+      "known_cost_usd": "0.0002847",
+      "reserved_usd": "0.028772000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "219d6466e7b1448c81645ebb8f43fac8",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231691-LA7UDxOMaLQcNMOQngnX",
+      "known_cost_usd": "0.0006397",
+      "reserved_usd": "0.170017000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "b409e14e8ade4a08bad643a1f374549d",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231693-UHBjaXaFze2MeqdkkPr9",
+      "known_cost_usd": "0.0003554",
+      "reserved_usd": "0.029501000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "53eaca6cfbe94b4e914708da8bcd9fb5",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231696-TdGVH81uKeVps17lbcDG",
+      "known_cost_usd": "0.000342",
+      "reserved_usd": "0.028952000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "17df42f58a1b417183a2f0819096bfa6",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231698-2xWgqSTwBbJhegE5pN8F",
+      "known_cost_usd": "0.0007687",
+      "reserved_usd": "0.170367000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "8d9e9800543a4313b15f9314c8dc08dc",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231700-QWPH3jUmjfE41g0OxlGB",
+      "known_cost_usd": "0.0004661",
+      "reserved_usd": "0.029498000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ade521568f4145cf9aec6d4b636d3b87",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231702-64uMdoh7WB2vBlhDs2Ta",
+      "known_cost_usd": "0.0011369",
+      "reserved_usd": "0.172154000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ac3760b32dbc4c1f9054168a447c59ce",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231704-2pPEkpMlCIZsVuybEe33",
+      "known_cost_usd": "0.0004162",
+      "reserved_usd": "0.029251000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "b1f17be242f64cb3a5297fb321f6caa9",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792231706-mSxGv1kg0iMDMr7KLQXj",
+      "known_cost_usd": "0.0009397",
+      "reserved_usd": "0.171543000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "e9a7cde58c9c4f9ab773acee774b1107",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232289-oy3bZ22Cl40wX5BZUVQg",
+      "known_cost_usd": "0.0006728",
+      "reserved_usd": "0.029532000000",
+      "task_id": 1,
+      "task_attempt_id": 1,
+      "article_id": 11
+    },
+    {
+      "id": "d85c7ec74b2d4f519c6c66fe52e68a22",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232293-nJB2Let34X40yfd8Al8M",
+      "known_cost_usd": "0.0014947",
+      "reserved_usd": "0.173487000000",
+      "task_id": 1,
+      "task_attempt_id": 1,
+      "article_id": 11
+    },
+    {
+      "id": "2afefbe7b8d54ea89aacdf42a8258ace",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232436-3Fbt0v4AeycjYRoQtYPa",
+      "known_cost_usd": "0.0003966",
+      "reserved_usd": "0.028757000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "bc9944ce6d8e4ad7a5df68b8604d1269",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232438-V89V41WaSNdy25EWRriU",
+      "known_cost_usd": "0.0011729",
+      "reserved_usd": "0.171977000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "9f533b1ef0e44d7b9fd16e8aade69561",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232440-jqWV0BM8z62g2ISkVjTm",
+      "known_cost_usd": "0.0004751",
+      "reserved_usd": "0.028817000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "d7483d0bb71840728a1bd299d63ac551",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232443-ztivrkBhjFqnPovW4Jl2",
+      "known_cost_usd": "0.0012135",
+      "reserved_usd": "0.172122000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "4e27a35ee9964153ae4fcbc157933a42",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232444-j1i7x3XvdEItfcmdKqhI",
+      "known_cost_usd": "0.0005699",
+      "reserved_usd": "0.029236000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "790956ab986f4c31bc90a57801252ef6",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232447-fvhLXOz6JKkmYfMP7dTY",
+      "known_cost_usd": "0.0014534",
+      "reserved_usd": "0.173655000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "b70b24ad99dc428bac201198c3d196fc",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232449-IO6O289df0gIBE4TqAys",
+      "known_cost_usd": "0.0003459",
+      "reserved_usd": "0.028658000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "ce96202cc21a472da7b36626ac7c344f",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232452-piaN0G9JaVQFTvuFDI99",
+      "known_cost_usd": "0.001043",
+      "reserved_usd": "0.171308000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "7e553c858449450f90ebfc9635137d7b",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232453-jXyq8v5UbdXWDr16oGDD",
+      "known_cost_usd": "0.0003992",
+      "reserved_usd": "0.028838000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "9bf8a0fa391a4c5aa0b3bdd1557574ae",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232456-3S0ebEl3jhmhzZsA1Wzy",
+      "known_cost_usd": "0.0010648",
+      "reserved_usd": "0.171344000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "caa5d9e97c7b46f8a463fbee1677849d",
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232458-RkeBPAo8X7jOi0kzmKe3",
+      "known_cost_usd": "0.00053",
+      "reserved_usd": "0.029297000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    },
+    {
+      "id": "312abd75e71d4440aa46861bb7fe604f",
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "provider_generation_id": "gen-1792232462-paw037kmb6CvViANsAvU",
+      "known_cost_usd": "0.0013266",
+      "reserved_usd": "0.172999000000",
+      "task_id": null,
+      "task_attempt_id": null,
+      "article_id": null
+    }
+  ],
+  "checks": {
+    "fresh_migrated_database": "unspun_r1_guide_attribution_tests_20261017",
+    "schema": "000015",
+    "pytest_passed": 864,
+    "pytest_skipped": 0,
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "pyright": "passed",
+    "legacy_events": 40,
+    "legacy_strict_passed": true,
+    "legacy_report_sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3",
+    "original_paid_database_not_used_for_pytest": true,
+    "reader_incremental_migration_preserved_billing_table_hashes": true
+  },
+  "human_ratings": {
+    "original_candidates": 43,
+    "filled": false,
+    "all_fields_null": true,
+    "file_sha256": "55e835ffa071c2f8e285e5682c47837a1f97505c3fba229b0456e9869fe6e36c",
+    "subjective_metric_denominator": 0
+  },
+  "artifacts": [
+    {
+      "private_file": "candidate-regression-v9.jsonl",
+      "sha256": "4c0a954a61886e95ae5de7c65bab1d1e50f112e79037775cf701b1ab1babe095",
+      "bytes": 9064
+    },
+    {
+      "private_file": "candidate-regression-v9-resume1.jsonl",
+      "sha256": "206829cbc5e10b23e4800699bd3f88a994db0f201a49450940d8201ef332c893",
+      "bytes": 1024
+    },
+    {
+      "private_file": "candidate-regression-v9-resume2.jsonl",
+      "sha256": "205d04592ca39f618f00caacafcf0bcbfdd87af4200b33a3cc911464edd4e08b",
+      "bytes": 75739
+    },
+    {
+      "private_file": "candidate-heldout-T-v9.jsonl",
+      "sha256": "73d6e6ddc7a2ae03f7ed191619529445f1558867a1cbbedafd6f117822e349b6",
+      "bytes": 17061
+    },
+    {
+      "private_file": "candidate-heldout-T-v9-transport-recovery1.jsonl",
+      "sha256": "27c619319add0e5a54d75ed5457db2779626088f2b6a15591d0d895b8e1bd2ef",
+      "bytes": 708
+    },
+    {
+      "private_file": "candidate-heldout-T-v9-transport-recovery2.jsonl",
+      "sha256": "abd31993f20cc8bb5ce7fda9152db0370474e57fc536eb9708a3a139e4e22f38",
+      "bytes": 4467
+    },
+    {
+      "private_file": "guide-holdout-U-cards-v9.jsonl",
+      "sha256": "9f3c9d14f15c36b0b9c5e869f53ed576b670595dee89cef84f0474ffa19cc36c",
+      "bytes": 45240
+    },
+    {
+      "private_file": "guide-v5-card-v9-regression.jsonl",
+      "sha256": "3f0082447802ead599401ecb816345542ac8f0af10b6581754dad0116f4e2f7b",
+      "bytes": 53936
+    },
+    {
+      "private_file": "guide-holdout-U-v5.jsonl",
+      "sha256": "8f9a8995040b4f2db9a8af4f3bed8fc6e0fb913c3772d46bd16a583a66209695",
+      "bytes": 40242
+    },
+    {
+      "private_file": "guide-v4-card-v9-regression.jsonl",
+      "sha256": "6185f09ddc318536bf1a9f7f26cdbe7543e0eccf17715ceb7c5debf00839a085",
+      "bytes": 43525
+    },
+    {
+      "private_file": "guide-holdout-U-all-v5.private.json",
+      "sha256": "594219b5d5c4f559c09e6ddcf8e328c8016bae0dbcc68c2f4ce6d0b2b32132a7",
+      "bytes": 46591
+    },
+    {
+      "private_file": "post-debug-holdout-v6.private.json",
+      "sha256": "d9bf5b23d1b3e11602cb2c2eb617c923d86e63766fe33c4acf09db74d381892d",
+      "bytes": 19221
+    },
+    {
+      "private_file": "guide-v5-legacy-ranking.json",
+      "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3",
+      "bytes": 253902
+    },
+    {
+      "private_file": "guide-attribution-suite.xml",
+      "sha256": "82cfd243d49f55e0c9fb891c1245cef5d947e2917b7f0f84a93c6e0eb847f27c",
+      "bytes": 118561
+    },
+    {
+      "private_file": "pre-reader-migration-ledger.json",
+      "sha256": "c6548ff794e7d8cfc50fbbd9fd7518d71af84c4c0f1b1efe05748c0a163e8b1d",
+      "bytes": 652
+    },
+    {
+      "private_file": "post-reader-migration-ledger.json",
+      "sha256": "234f1467cd9d39b9d48659b1f4bab1953b65ff1f00c4108808c177091490dd50",
+      "bytes": 652
+    },
+    {
+      "private_file": "preview-guide-before.json",
+      "sha256": "cb872945599e457ee544e9837a3ca25fc139545994d21e2993f0c02b24414d12",
+      "bytes": 537
+    },
+    {
+      "private_file": "preview-guide-queued.json",
+      "sha256": "d6b0b53b572232e9bcb6247a5a2635393a763cc5e7e71541bfad5cb493b16470",
+      "bytes": 615
+    },
+    {
+      "private_file": "preview-guide-consumed.json",
+      "sha256": "09d2baabb5c6df9cc7d3c27c1eec367a48e297b00184f75df23f3622b70a4e5c",
+      "bytes": 8959
+    },
+    {
+      "private_file": "preview-guide-reuse.json",
+      "sha256": "5824cb02220053a7ad0c0fb1a7138c188a7d5389d9122ef0c2abe1af3cff4c7b",
+      "bytes": 384
+    },
+    {
+      "private_file": "guide-apply-and-latest-invariance.json",
+      "sha256": "b10e93c94fdccb3fe360158c0cc8d540dbe4a049169c3beec17518c1d2b71c0f",
+      "bytes": 2650
+    },
+    {
+      "private_file": "regression-v9-ai-audit.json",
+      "sha256": "1766724daf4da8a1e6a7f0540d683317a2c5363f587d9bf8277062df4fce3da4",
+      "bytes": 893
+    },
+    {
+      "private_file": "final-quality-accounting.json",
+      "sha256": "0e06ba972f18cab27869755420257e46d7cffc7363851443afcfa176dca38522",
+      "bytes": 287557
+    }
+  ],
+  "ai_semantic_review": {
+    "role": "ai-technical-review; no user worth/interest labels",
+    "reviewed_versions": [
+      "r1-card-v9",
+      "r1-guide-v5",
+      "r1-content-review-v2"
+    ],
+    "published_critical_errors": 0,
+    "checks": [
+      "Published quotes and adjacent source context, named-speaker attribution and headings, uncertainty and quantities, actual material scope, original/editorial time precision, guide increment beyond card, English/Chinese projection boundaries. Model approval and exact matching alone are not treated as semantic review."
+    ],
+    "guide_regression": {
+      "reviewed": 8,
+      "accepted": 8,
+      "C35": "Musk and Zelensky ownership is retained in headings, claims and supporting excerpts; the failed v4 assertion remains archived."
+    },
+    "guide_new_inputs": {
+      "U03": "Surgical detail and equipment/training add source details; medical statements remain source reports.",
+      "U04": "Sanctions/background and exception scope retain source qualifications; no external truth-verification claim.",
+      "U05": "Named Chilean researcher and company-provided numbers remain attributed.",
+      "U08": "Statistics retain both annual windows and the named minister quotation.",
+      "U10": "Description only; unsupported/deterministically invalid generated claims 2 and 5 were dropped before publication. Remaining four claims stay within description and add biography/safety detail.",
+      "U11": "Actual editorial-edition API/worker guide; source body supports the ecological and pest-monitoring details, distinct from original answer or watched media.",
+      "U12": "Public preview only; source fire mechanism and school measures add detail without claiming full text."
+    },
+    "retained_noncritical_limits": [
+      "T02 second claim repeats part of the first claim; evidence is supported but information density is limited.",
+      "U11 evergreen explanatory material was classified news; no declared-genre constraint was overridden. Do not treat this as accepted subjective classification or urgent-news coverage.",
+      "Some card/guide projected quotes remain long or retain source anaphora; reading density is pending final user acceptance.",
+      "Fresh English guide-positive U09 was not generated because its card contract failed. English guide regression C35 passed; do not substitute it for fresh English holdout success."
+    ],
+    "user_quality_passed": null
+  }
+}

@@ -1,6 +1,8 @@
-# R1-09 评论类型候选修正 · 未通过最终质量门槛
+# R1-09 评论类型候选修正 · 原失败与后续通过记录
 
-此分支仅为 `r1-card-v9` 候选，尚未合并或部署，G1 最终质量未通过。修改前已登记[原版本、输入及不变期望](../evaluations/r1/card-v9-candidate.json)：C12 的原冻结材料类型为“评论”，既有 `declared_genre` 规则要求 `opinion`；原已知物理响应却返回 `genre=commentary`，仅此字段触发 `ValidationError`。这是实际格式失败，不能只写成预算延期。
+当前结果：v9 卡片及 v5 导读已完成真实回归、独立留出与费用对账，达到原技术门槛，见[最终报告](r1-final-content-quality-2026-10-17.md)。下文保持此前阻塞截面，原失败及未知费用不删除。
+
+历史截面：此分支仅为 `r1-card-v9` 候选，尚未合并或部署，G1 最终质量未通过。修改前已登记[原版本、输入及不变期望](../evaluations/r1/card-v9-candidate.json)：C12 的原冻结材料类型为“评论”，既有 `declared_genre` 规则要求 `opinion`；原已知物理响应却返回 `genre=commentary`，仅此字段触发 `ValidationError`。这是实际格式失败，不能只写成预算延期。
 
 候选澄清来源评论/社论应输出已有枚举 `opinion`，并保留原来的观点归属；卡片策略版本升为 v9。没有给输出 schema 添加别名，没有重写旧响应/标签，也没有放宽中文、引文、归属或准入规则。[只读旧响应检查](r1-card-v9-candidate/baseline-check.json)确认该错误响应在候选下仍被严格拒绝。是否能让新模型响应遵守契约，必须用真实评测确认，不能由此推定成功。
 
