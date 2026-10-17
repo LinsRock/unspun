@@ -23,10 +23,10 @@ from unspun.core.models import LlmUsage
 from unspun.core.task_models import PipelineTask, TaskAttempt
 from unspun.core.tasks import Lease
 
-POLICY_VERSION = "r1-budget-v2"
+POLICY_VERSION = "r1-budget-v3"
 PRICE_VERSION = "openrouter-text-2026-10-16-v1"
 MONTHLY_LIMIT = Decimal("15.00")
-EVALUATION_LIMIT = Decimal("1.00")
+EVALUATION_LIMIT = Decimal("1.50")
 PRODUCTION_LIMIT = MONTHLY_LIMIT - EVALUATION_LIMIT
 STAGE_CAPS = {"legacy": str(PRODUCTION_LIMIT), "card": "10", "guide": "2", "embedding": "1"}
 PENDING = ("reserved", "usage_unknown")
