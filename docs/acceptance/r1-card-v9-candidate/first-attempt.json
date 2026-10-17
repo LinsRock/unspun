@@ -1,0 +1,457 @@
+{
+  "schema_version": "r1-card-v9-first-attempt",
+  "evaluation_database": "unspun_quality_r1_20261016",
+  "allocation_usd": "0.60",
+  "cases": [
+    {
+      "id": "C01",
+      "split": "regression",
+      "input_fingerprint": "d36ffa5965e6eb9e1bf3f344596fdc79ccbd084b836667ec34bc4443b6423db4",
+      "material_sha256": "bb39a3bb67f85e712cde30e4b422af229daef45d9d2e1f22b614bada4ac2f489",
+      "at": "2026-10-17T08:17:28.581284+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "RemoteProtocolError",
+      "error": "Server disconnected without sending a response.",
+      "physical_call_ids": [
+        "457ba65479af433381daa9de6e5da351",
+        "bdbdbb331ac546eb84d6f42b502f362b"
+      ]
+    },
+    {
+      "id": "C03",
+      "split": "regression",
+      "input_fingerprint": "d876cccc1362f7dfec981eb0d32cb621d005af040d122f40d9e7146527baa527",
+      "material_sha256": "a25a19388f2399aa787baa90b4aa2b5ce3950a8a213e8d69d0737b8379cbfe23",
+      "at": "2026-10-17T08:18:14.484101+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "5964930929984f348d6a8eb923f699c7"
+      ]
+    },
+    {
+      "id": "C07",
+      "split": "regression",
+      "input_fingerprint": "7e6863d9de3be8fad7d0eb35fcea073e3a3dece6fc07d899baef42023d755295",
+      "material_sha256": "daebcfd1fc6e12596d4856e5d49fe74c62d62ac40e921c8a0daa3d4b3969f517",
+      "at": "2026-10-17T08:18:16.782586+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "48245188d66446ad825279a325850350"
+      ]
+    },
+    {
+      "id": "C08",
+      "split": "regression",
+      "input_fingerprint": "3f3c9817e2bc2b912d367187203771955b10b4d6471a318824dd97d8a6c9fa50",
+      "material_sha256": "2d3bebb911a1a35ef0cde290ccac0e2953e96de7d0ce6368f3a39e02e1939234",
+      "at": "2026-10-17T08:18:19.622868+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "f2ed9fa8facc45e99bc8f28111bfa35a"
+      ]
+    },
+    {
+      "id": "C09",
+      "split": "regression",
+      "input_fingerprint": "5ec76caf8926169760f4c583f8e1f5bb4f516116d6a0b53d40d1c8d54ddd3b07",
+      "material_sha256": "7c804a57d44abee01f831535454a64a954ad987c861642a5cbd4e5a945675dba",
+      "at": "2026-10-17T08:18:21.374512+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "5029f5b5d4eb4345b70f95c8f7ae4641"
+      ]
+    },
+    {
+      "id": "C11",
+      "split": "regression",
+      "input_fingerprint": "c4849b9d297bd198d61cf866d1e398c11aed4bab4fccc050c0f8f3706c0cb421",
+      "material_sha256": "c3cb527c09a5ceb6a7f0cc5b8fb50be9feddaa07694815c2bd4a037ba4cb98f8",
+      "at": "2026-10-17T08:18:23.916545+00:00",
+      "status": "rejected",
+      "reason": "stale_report",
+      "error_kind": null,
+      "error": null,
+      "physical_call_ids": []
+    },
+    {
+      "id": "C12",
+      "split": "regression",
+      "input_fingerprint": "bb74c3115f1d6e556d8a64f39049563d09b48f3047afbcfc0ea5d6d0684f05bb",
+      "material_sha256": "1161ef9da948037439f6fcff7bb07fd86213b4ce7c83f46dbbbf105ba92652ec",
+      "at": "2026-10-17T08:18:23.978219+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "a9bd614dc788493d9a1e34c045f51ade"
+      ]
+    },
+    {
+      "id": "C19",
+      "split": "regression",
+      "input_fingerprint": "93b330492f40b49bb930702a90dd537408bf75e1923ae0ccf53cc8db539809e1",
+      "material_sha256": "763444e27662d2f73412316d8406b0cee4cf7b226c924b58b2e3a391299890a6",
+      "at": "2026-10-17T08:18:27.016937+00:00",
+      "status": "rejected",
+      "reason": "stale_report",
+      "error_kind": null,
+      "error": null,
+      "physical_call_ids": []
+    },
+    {
+      "id": "C20",
+      "split": "regression",
+      "input_fingerprint": "de5f57b79621ecdbf4e03f670fa9078f569096fbb7af31ae145da4ea5b31aa87",
+      "material_sha256": "cff08d724df903cd97e5001c01faca07ab171d1a232c5e92c74db6e61a91c825",
+      "at": "2026-10-17T08:18:27.084834+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "0e7a227ac11743c099eb7b7225664281"
+      ]
+    },
+    {
+      "id": "C21",
+      "split": "regression",
+      "input_fingerprint": "e07dd54024580b5cd35848bbaa4b34d93aa3390d92bcd63672d70abe94a05efb",
+      "material_sha256": "596c3b089a07e25ade014b5ba2c829469816f074d4b2a2cd3afcc6fc1ff3864d",
+      "at": "2026-10-17T08:18:29.056804+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "e9a32942508e4a4cbaa6987dfad52921"
+      ]
+    },
+    {
+      "id": "C23",
+      "split": "regression",
+      "input_fingerprint": "258329046bd48d76f9105c3f9ffc946b0f3ba67ecb350d8cf8294a6646ea0408",
+      "material_sha256": "6c7cd4032e1bc49b5dfc758cb39a3cf3726c3fb0668613005b3cd7251705d7de",
+      "at": "2026-10-17T08:18:30.947291+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "c2472d1c64244904a96b42f347a0289f"
+      ]
+    },
+    {
+      "id": "C24",
+      "split": "regression",
+      "input_fingerprint": "d024bc6c3cbf1f4245e159cee52f13cdca0f8c9438450e5fbb05d5b8e4a1c31c",
+      "material_sha256": "8ece174fdcf084e73ba41f1f0642b1cf19103fed40e204102802de5c013a93a3",
+      "at": "2026-10-17T08:18:33.005927+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "04001c0bb0be4b43bec7a62393d09acc"
+      ]
+    },
+    {
+      "id": "C27",
+      "split": "regression",
+      "input_fingerprint": "da4b912723057723c756d633b648704cfcdb05501487766dcb5ba941d41cfb78",
+      "material_sha256": "4584db556c4621bce99c842a40c0dd1947cc33e2b169caff2bd8460b2b0708e7",
+      "at": "2026-10-17T08:18:35.170637+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "651814ffb90f4b9ca7b019f46f6401eb"
+      ]
+    },
+    {
+      "id": "C29",
+      "split": "regression",
+      "input_fingerprint": "76a2763c70e16bcb3ab1014e722adb662c1b31ac3d27a413070ded7327a0f48b",
+      "material_sha256": "62e37a7e0235789ecf04d625c304628b5b13cb1059cd88b6e5b6345ac58d01bc",
+      "at": "2026-10-17T08:18:37.119093+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "9eeb57f632c34606abff3d73cfed06de"
+      ]
+    },
+    {
+      "id": "C31",
+      "split": "regression",
+      "input_fingerprint": "3c08fc0d8d71145922dce954bd8886fcefe05c366eeec8e45e5aa184c8755314",
+      "material_sha256": "2fcfea64681ffe099da5a0edc6a41df0ed1de018112ee569d0946cd9463226c6",
+      "at": "2026-10-17T08:18:39.241529+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "45745b0043c24728893ae1b05dfcb975"
+      ]
+    },
+    {
+      "id": "C32",
+      "split": "regression",
+      "input_fingerprint": "5aee13d4e85853d73985024c38ee3eafb1e2e80fb6fb6652616195d9f6859807",
+      "material_sha256": "980fe4aa0cb54f2602f98063fdf02f2adc13a2096074eab2b3b193d4dc322322",
+      "at": "2026-10-17T08:18:42.812938+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "129d2b3396214aa698583b10be1cfb0d"
+      ]
+    },
+    {
+      "id": "C35",
+      "split": "regression",
+      "input_fingerprint": "c7b32a4212f8b5d13d3afdf322348b9d50bcc06caddf02777ef28a8119d80f2e",
+      "material_sha256": "2e61784ce1f6322a8a53395664205ad554f9433551298f541ac54ddb91b2fa3d",
+      "at": "2026-10-17T08:18:46.314574+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "66b64af14add4964a0f994e55ec9a56f"
+      ]
+    },
+    {
+      "id": "C37",
+      "split": "regression",
+      "input_fingerprint": "0b1953a6f2cc74a65251b04c3b9a577cac8678fc9be309ce4c92f2ac5c80ba64",
+      "material_sha256": "1934970d1012f13e657c807389b3946d9553de2075dfb8c58544461f35d7ee7e",
+      "at": "2026-10-17T08:18:49.507269+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "41c67cfc76c04f4ca0e20ee5cc731754"
+      ]
+    },
+    {
+      "id": "C41",
+      "split": "regression",
+      "input_fingerprint": "f1df78cb606e3501f079537a7121ce9cff750f6b1618728f9b8bd9c0d9a600aa",
+      "material_sha256": "3ae888d340eb0fa31a8c64fd2cc45a5d9a90a1b3ff3fe5f410c6c9a6f83aaf44",
+      "at": "2026-10-17T08:18:51.362227+00:00",
+      "status": "rejected",
+      "reason": "canonical_duplicate",
+      "error_kind": null,
+      "error": null,
+      "physical_call_ids": []
+    },
+    {
+      "id": "C42",
+      "split": "regression",
+      "input_fingerprint": "eeaffa80d7e7156f1226e755d60d47f5b3f01b3faf25f89c46b7af290a61f8f2",
+      "material_sha256": "57ff356ba7ca1e7f7d435ef5328ab222c14b52104f1b05eadc2a0e94cf356b72",
+      "at": "2026-10-17T08:18:51.434954+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "d7c5883c0c974f35b59307332b139f86"
+      ]
+    },
+    {
+      "id": "C43",
+      "split": "regression",
+      "input_fingerprint": "77d5e744827e8dbde90663e54baf81537c48230aac80379004df580cb44cc98a",
+      "material_sha256": "821aac717b6d57f558cbade7f63f3806f686597cf4017a8ec4bc62a0400a2970",
+      "at": "2026-10-17T08:18:53.357438+00:00",
+      "status": "error",
+      "reason": null,
+      "error_kind": "BudgetExceeded",
+      "error": "monthly budget including reservations exhausted",
+      "physical_call_ids": [
+        "fd96199179954834bc48e3893347e17c"
+      ]
+    }
+  ],
+  "draft_schema_checks": {
+    "checks": [
+      {
+        "input_id": "C01",
+        "physical_request_id": "457ba65479af433381daa9de6e5da351",
+        "generation_id": "gen-1792225049-j7iUSBPrA8vSweVl0Mk9",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C03",
+        "physical_request_id": "5964930929984f348d6a8eb923f699c7",
+        "generation_id": "gen-1792225095-YFRKN8bram0CiQbAfDDN",
+        "schema_valid": true,
+        "genre": "description",
+        "review_complete": false
+      },
+      {
+        "input_id": "C07",
+        "physical_request_id": "48245188d66446ad825279a325850350",
+        "generation_id": "gen-1792225097-gW9sl5y0oIgPyPEZYx1m",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C08",
+        "physical_request_id": "f2ed9fa8facc45e99bc8f28111bfa35a",
+        "generation_id": "gen-1792225100-ouM4Hez4P0xy6HqULSOR",
+        "schema_valid": true,
+        "genre": "opinion",
+        "review_complete": false
+      },
+      {
+        "input_id": "C09",
+        "physical_request_id": "5029f5b5d4eb4345b70f95c8f7ae4641",
+        "generation_id": "gen-1792225102-PEYfqUMsdQzLmi6Ecctd",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C12",
+        "physical_request_id": "a9bd614dc788493d9a1e34c045f51ade",
+        "generation_id": "gen-1792225104-Sg7jAbevC9Ir6V1imnXi",
+        "schema_valid": true,
+        "genre": "opinion",
+        "review_complete": false
+      },
+      {
+        "input_id": "C20",
+        "physical_request_id": "0e7a227ac11743c099eb7b7225664281",
+        "generation_id": "gen-1792225107-Fv6Fn1qqFyqdKip1lJtE",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C21",
+        "physical_request_id": "e9a32942508e4a4cbaa6987dfad52921",
+        "generation_id": "gen-1792225109-gXRQN3F9aC0pbxXHSlkI",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C23",
+        "physical_request_id": "c2472d1c64244904a96b42f347a0289f",
+        "generation_id": "gen-1792225111-899oSVbgYvMwd07ZaSCe",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C24",
+        "physical_request_id": "04001c0bb0be4b43bec7a62393d09acc",
+        "generation_id": "gen-1792225113-aZEXoLASStCkUHUrERHK",
+        "schema_valid": true,
+        "genre": "knowledge",
+        "review_complete": false
+      },
+      {
+        "input_id": "C27",
+        "physical_request_id": "651814ffb90f4b9ca7b019f46f6401eb",
+        "generation_id": "gen-1792225115-4OV7aN2Zj9w2fw9yr5Aa",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C29",
+        "physical_request_id": "9eeb57f632c34606abff3d73cfed06de",
+        "generation_id": "gen-1792225117-tcimserc7BiYmewCNILq",
+        "schema_valid": true,
+        "genre": "review",
+        "review_complete": false
+      },
+      {
+        "input_id": "C31",
+        "physical_request_id": "45745b0043c24728893ae1b05dfcb975",
+        "generation_id": "gen-1792225119-Q1pkpDpNfYX9jgqXubaC",
+        "schema_valid": true,
+        "genre": "analysis",
+        "review_complete": false
+      },
+      {
+        "input_id": "C32",
+        "physical_request_id": "129d2b3396214aa698583b10be1cfb0d",
+        "generation_id": "gen-1792225123-KWExi1nh8eoU4IcR8tne",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C35",
+        "physical_request_id": "66b64af14add4964a0f994e55ec9a56f",
+        "generation_id": "gen-1792225126-RBegu5fQeuYBjALx66AW",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C37",
+        "physical_request_id": "41c67cfc76c04f4ca0e20ee5cc731754",
+        "generation_id": "gen-1792225130-JIKz44oGnjX6QZ2t7wMf",
+        "schema_valid": true,
+        "genre": "opinion",
+        "review_complete": false
+      },
+      {
+        "input_id": "C42",
+        "physical_request_id": "d7c5883c0c974f35b59307332b139f86",
+        "generation_id": "gen-1792225131-dALfnNPtxx8OaBAbr4sz",
+        "schema_valid": true,
+        "genre": "news",
+        "review_complete": false
+      },
+      {
+        "input_id": "C43",
+        "physical_request_id": "fd96199179954834bc48e3893347e17c",
+        "generation_id": "gen-1792225133-XMtUvk7lMZjbU1ZND9oZ",
+        "schema_valid": true,
+        "genre": "analysis",
+        "review_complete": false
+      }
+    ],
+    "schema_valid_drafts": 18,
+    "reviewed_ready_results": 0,
+    "quality_passed": false,
+    "database_writes": 0,
+    "model_requests": 0,
+    "private_T_materials_loaded": false
+  },
+  "new_paid_physical_requests": 19,
+  "new_known_fees_usd": "0.0068895",
+  "new_unknown_request": "bdbdbb331ac546eb84d6f42b502f362b",
+  "new_unknown_held_usd": "0.170674",
+  "g1_quality_passed": false,
+  "fresh_T_private_materials_loaded_or_called": false,
+  "next_step": "Obtain authenticated cost evidence for the interrupted review, then reuse the existing generation responses and complete reviews within the same allocation."
+}
