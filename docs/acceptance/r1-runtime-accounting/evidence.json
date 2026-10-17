@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-17T11:40:58.872019+00:00",
+  "api_url": "http://127.0.0.1:8114/api/admin/costs?start=2026-10-01T00%3A00%3A00Z&end=2026-11-01T00%3A00%3A00Z",
+  "new_model_calls": 0,
+  "enforcement": {
+    "enabled": true,
+    "scope": "evaluation",
+    "monthly_limit_usd": "1.500000000000",
+    "evaluation_allocation_usd": "1.50",
+    "stage_caps": {},
+    "coverage_started_at": "2026-10-16T08:31:00.825129Z",
+    "incident": null,
+    "unresolved_calls": 7,
+    "reserved_usd": "0.484867000000",
+    "provider_limit_usd": null,
+    "provider_observed_at": null,
+    "cost_basis": "llm_usage_known_fees_only",
+    "unit_costs": {
+      "basis": "all_time_current_contract_runtime_tasks; not discovery recall or user worth",
+      "cohorts": {
+        "card": {
+          "contract_version": "r1-card-v9",
+          "attempted_candidates": 0,
+          "ready_outputs": 0,
+          "physical_requests": 0,
+          "known_requests": 0,
+          "known_cost_usd": "0",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        },
+        "guide": {
+          "contract_version": "r1-guide-v5",
+          "attempted_candidates": 1,
+          "ready_outputs": 1,
+          "physical_requests": 2,
+          "known_requests": 2,
+          "known_cost_usd": "0.0021675",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        }
+      },
+      "per_100_candidates": {
+        "status": "unmeasured",
+        "denominator": "distinct_r1_candidates_with_attempted_card_tasks",
+        "denominator_count": 0,
+        "value_usd": null,
+        "known_plus_holds_scenario_usd": null,
+        "holds_are_not_actual_fees": true
+      },
+      "per_admitted_item": {
+        "status": "unmeasured",
+        "denominator": "distinct_current_contract_ready_admissions",
+        "denominator_count": 0,
+        "value_usd": null,
+        "known_plus_holds_scenario_usd": null,
+        "holds_are_not_actual_fees": true
+      },
+      "per_new_guide": {
+        "status": "measured",
+        "denominator": "distinct_current_contract_ready_guide_versions",
+        "denominator_count": 1,
+        "value_usd": "0.0021675",
+        "known_plus_holds_scenario_usd": "0.0021675",
+        "holds_are_not_actual_fees": true
+      },
+      "excluded_physical_requests": 399,
+      "exclusion_basis": "Other contracts or missing/mismatched runtime task links; retained in the overall ledger, never assigned to these cohorts.",
+      "monthly_projection": {
+        "status": "unmeasured",
+        "basis": "requires_registered_observed_eligible_daily_volume"
+      }
+    }
+  },
+  "api_app_version": "r1-runtime-cost-final-local-preview",
+  "code_sha256": "925441aebb00b0a096874c0da846788745e3b24eb131824fef1e03d15b678928",
+  "billing_tables_unchanged": {
+    "billed_requests": {
+      "rows": 401,
+      "sha256": "127368ff002eed574dd82c7625af0cfc2ef7ce0e84ecf32fa08b181e5a163cbf"
+    },
+    "budget_policy": {
+      "rows": 1,
+      "sha256": "a05f16f6a3dd34d4bb98ef10b037828fd432f27c513dd65be82d29d68da508b8"
+    },
+    "budget_carry": {
+      "rows": 1,
+      "sha256": "7e5a9b7a49cc57b4a39cbe82e2f2a0a1694690b4814decaafbd102e3d1d8b8d4"
+    },
+    "llm_usage": {
+      "rows": 394,
+      "sha256": "8ae4afb3e8b30fe56f6fde7a4862b882155e3f8f162f0a99bd4948c2b4c05775"
+    }
+  },
+  "checks": {
+    "database": "unspun_r1_runtime_cost_tests_20261017_1135",
+    "schema": "000015",
+    "backend_passed": 872,
+    "backend_skipped": 0,
+    "frontend_passed": 89,
+    "ruff": "passed",
+    "format": "passed",
+    "pyright": "passed",
+    "web_lint_typecheck_build": "passed"
+  }
+}
