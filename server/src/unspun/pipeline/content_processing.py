@@ -80,8 +80,9 @@ CARD_SYSTEM = (
     'REQUIRES reason="supported_material". For exclusion, reason is '
     "insufficient_material, stale_report or no_reading_increment, reading_value=0, "
     "claims=[], reading_reason=null. Return ALL keys including reason as the final field."
-    " Source metadata explicitly marked commentary, review, analysis or knowledge must "
-    "retain that type and its attribution; never turn commentary into a real news event. "
+    " Source genre metadata marked commentary or editorial must output genre=opinion, "
+    "never commentary or editorial. Explicit review, analysis or knowledge metadata "
+    "retains its allowed genre and attribution; never turn commentary into a real news event. "
     "Analysis uses the provisional 90-day window. Unknown metadata is not evidence of a "
     "news genre."
 )

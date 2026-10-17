@@ -18,7 +18,7 @@ from unspun.core.grounding import (
 )
 from unspun.core.reading import chinese_text
 
-CARD_VERSION = "r1-card-v8"
+CARD_VERSION = "r1-card-v9"
 GUIDE_VERSION = "r1-guide-v4"
 REVIEW_VERSION = "r1-content-review-v2"
 RULES_VERSION = "r1-content-rules-v1"

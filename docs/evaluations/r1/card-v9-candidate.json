@@ -1,0 +1,30 @@
+{
+  "schema_version": "r1-card-v9-candidate-v1",
+  "registered_at": "2026-10-17T07:26:37.407869+00:00",
+  "baseline_contract": "r1-card-v8",
+  "baseline_system_sha256": "f0dd4cc549e784285370049d3427cc246d3c012078501cd2ba8827aa38ce4cd1",
+  "candidate_contract": "r1-card-v9",
+  "frozen_input_id": "C12",
+  "material_sha256": "1161ef9da948037439f6fcff7bb07fd86213b4ce7c83f46dbbbf105ba92652ec",
+  "baseline_input_fingerprint": "4169f9ef780dcc71a2e968697fb71837ab89c80f589e902c5a9cddc324090e96",
+  "known_physical_request_ids": [
+    "82e69b9c95dd4f5c9be95e085574e6a6"
+  ],
+  "raw_metadata_genre": "评论",
+  "existing_expected_genre": "opinion",
+  "observed_response_genre": "commentary",
+  "baseline_result": "ValidationError on genre only",
+  "proposed_change": "Clarify commentary/editorial -> opinion in the prompt; preserve strict enum, attribution, evidence and Chinese checks.",
+  "labels_or_numeric_thresholds_changed": false,
+  "schema_aliases_added": false,
+  "models": [
+    "google/gemini-2.5-flash-lite",
+    "google/gemini-2.5-flash"
+  ],
+  "evaluation_database": "unspun_quality_r1_20261016",
+  "evaluation_allocation_usd": "0.60",
+  "new_paid_requests": 0,
+  "heldout_T01_T06_loaded_or_called": false,
+  "g1_quality_passed": false,
+  "merge_requires": "Reconcile original unknown costs; run original frozen regressions and fresh heldout evaluation, guide compatibility and real unit costs within the same allocation."
+}
