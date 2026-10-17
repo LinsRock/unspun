@@ -79,7 +79,7 @@ describe('R1 reading', () => {
     setup('/interests')
     await screen.findByText('还没有关注。可以先浏览，再逐渐留下偏好。')
     fireEvent.change(screen.getByLabelText('关注类型'), { target: { value: 'source' } })
-    fireEvent.change(screen.getByLabelText('来源 ID，例如 xinhua'), { target: { value: 'unknown-source' } })
+    fireEvent.change(screen.getByLabelText('来源名称'), { target: { value: 'unknown-source' } })
     fireEvent.click(screen.getByRole('button', { name: '保存关注' }))
     await screen.findByText('采集未开放／未接入；只保存偏好')
     fireEvent.click(screen.getByRole('button', { name: '取消关注' }))

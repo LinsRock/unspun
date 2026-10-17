@@ -15,3 +15,7 @@ export function guideMessage(status: string, reason: string | null): string {
   if (reason === 'card_unavailable') return '卡片未通过当前审核，导读暂不可用。'
   return ({ not_requested: '尚未生成导读。按需整理，不影响正文阅读。', pending: '导读排队中，可先阅读正文。', generating: '正在整理导读。', review_pending: '导读已整理，正在审核。', budget_deferred: '导读因预算暂缓，已有草稿会保留。', failed: '导读处理失败，尚无可发布结果。正文与原文仍可阅读。', blocked: '导读当前不可用，原文入口仍保留。', rejected: '现有材料不适合生成额外导读。', unavailable: '暂不提供导读。' } as Record<string, string>)[status] ?? '导读状态待更新。'
 }
+
+export const SOURCE_NAMES: Record<string, string> = { xinhua: '新华社', 'zaobao-china': '早报中国', 'zaobao-world': '早报国际', '36kr-newsflashes': '36氪快讯', 'people-frontpage': '人民日报头版', 'bjnews-depth': '新京报深读', 'zhihu-daily': '知乎日报', 'zhihu-hot': '知乎热榜', 'douban-book': '豆瓣书评', 'douban-movie': '豆瓣影评', 'fortune-business': '财富商业', 'fortune-tech': '财富科技', 'infzm-news': '南方周末公开预览', 'bbc-world': 'BBC 国际', 'bbc-zhongwen': 'BBC 中文', 'nyt-world': '纽约时报国际', 'nyt-cn': '纽约时报中文', 'wsj-world': '华尔街日报国际' }
+export const PLATFORM_NAMES: Record<string, string> = { zhihu: '知乎', 'zhihu-daily': '知乎日报', douban: '豆瓣', xinhua: '新华社', zaobao: '联合早报', people: '人民日报', bjnews: '新京报', fortune: '财富', infzm: '南方周末', bbc: 'BBC', nyt: '纽约时报', wsj: '华尔街日报' }
+export function resourceValue(value: string, names: Record<string, string>): string { return Object.entries(names).find(([, name]) => name === value)?.[0] ?? value }
