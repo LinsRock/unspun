@@ -6,6 +6,8 @@
 
 **R1 当前证据：**18 条已适配路径完成目标等价镜像/网络的跨日只读观察截面，保留 540 次成功与失败及两个真实日报编辑日期，见[窗口与缺口](acceptance/r1-source-observation-2026-10-17.md)。材料回退、无新条目、混合范围及修正后字段复核均单列；原 7 路及接续复核的 36氪快讯、人民日报、知乎热榜，共 10 路完成有界来源技术复核，其余 8 路未通过/待复核；整体 G2、最终卡片质量及生产启用没有记作完成，生产新付费和发布保持关闭。豆瓣验证页和 BBC 视频范围问题及修复见[接续复核](acceptance/r1-source-material-gates-2026-10-17.md)。下面的指定范围仍不是启用清单。
 
+**专项接续：**S1–S3 已增加 `thepaper-sidebar`、`netease-home`、`tencent-headlines`、`tencent-selected` 四条观察适配，当前适配总数 22。新增路径的有界目标响应/材料与旧样本边界见[交付证据](acceptance/r1-public-source-discovery-2026-10-17.md)，尚无对应连续 G2 通过结论，所有阶段、付费及发布范围保持关闭。上段 10/18 只描述原首轮，不能当作 22 路或 19 项指定来源的整体覆盖率。
+
 ## 用户指定来源与接入范围
 
 分类沿用用户表达，用于整理来源，不限制该来源的内容只能归入这个领域。多个栏目属于同一发布方；同一报道在多个平台出现时保留传播关系并去重。
@@ -15,12 +17,12 @@
 | 新闻 | 新华网 | 国内、国际要闻与重要发布 | 已配置 `xinhua`，使用 [news/xhsxw 路径](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/news/xhsxw.ts)；核实该栏目对目标范围的覆盖，再补必要栏目 |
 | 新闻 | 联合早报 | 中国与国际两个范围 | 已有中国实时频道；按[上游实时频道](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/zaobao/realtime.ts)补国际频道，分别采集和验收，不能用中国频道代替两者 |
 | 新闻 | 南方周末 | 新闻、深度报道与有价值的观点文章 | 未配置；上游有[频道路径](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/infzm/index.ts)和热门路径，先验证新闻及深度内容样本 |
-| 新闻 | 澎湃新闻 | 要闻、社会与深度内容 | 已配置第三方镜像精选源；重新验证更新、正文和原始出处，评估原站路径 |
+| 新闻 | 澎湃新闻 | 要闻、社会与深度内容 | 原站右栏/详情已适配但全关，待 G2；旧镜像单独保留历史，不承接新版发现 |
 | 新闻 | 人民日报 | 日报重要报道和官方发布 | 未配置；优先验证[人民日报数字报](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/people/paper.ts)，人民网其他栏目作为补充范围另行核实 |
 | 新闻 | 新京报 | 要闻、社会与深度报道 | 未配置；上游有[栏目路径](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/bjnews/cat.ts)，需确定栏目及正文能力 |
 | 新闻 | 界面新闻 | 新闻、财经商业与相关深度内容 | 未配置；历史记录有海外 VPS 访问失败，本轮不据此永久放弃，重新验证[当前栏目路径](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/jiemian/lists.ts) |
-| 新闻 | 网易新闻 | 综合热点，按价值选取社会、财经、科技等内容 | 未配置；上游有[新闻排行榜](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/163/news/rank.ts)和专题路径，验证目标栏目与原始发布方 |
-| 新闻 | 腾讯新闻 | 综合热点与有价值的报道 | 未配置；本轮核对到的是[账号文章路径](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/qq/news/user.ts)，综合栏目或热点发现需进一步验证，不能用任意账号替代全站覆盖 |
+| 新闻 | 网易新闻 | 综合热点，按价值选取社会、财经、科技等内容 | 当前首页新闻容器/详情已适配但全关，待 G2；旧排行榜/移动接口不作为新版输入，原作缺证保留未知 |
+| 新闻 | 腾讯新闻 | 综合热点与有价值的报道 | PC 要闻池/精选集合已适配但全关，待 G2；视频正文仍缺，热点未接通，不用任意账号代替综合发现 |
 | 科技 | 36氪 | 科技商业快讯与文章 | 已有快讯；按[上游分类路径](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/36kr/index.ts)将文章单独作为新增范围验证，不能把快讯接入记成已支持完整文章 |
 | 知识 | 知乎日报 | 日报精选内容及可得正文 | 未配置；本轮[列表接口](https://daily.zhihu.com/api/4/stories/latest)和一篇详情返回成功，取得正文与原内容入口，继续核实时效与完整度 |
 | 知识 | 知乎热榜 | 发现公共话题，再筛选有内容的回答与讨论 | 已有热榜；现有[问题与摘要路径](https://github.com/DIYgod/RSSHub/blob/d24f5136487a388662ec6656e4f1ba4ff46b0ed8/lib/routes/zhihu/hot.ts)不等于回答全文，需补充有阅读价值的材料获取 |

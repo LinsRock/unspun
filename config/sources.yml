@@ -31,6 +31,80 @@
 # Chromium). Reddit starts with r/worldnews only: other subreddits hit
 # 429 rate limits from the VPS; expand once worldnews proves stable.
 sources:
+  # R1-S1-S3 adapters are registered for bounded observation only. The legacy
+  # Paper mirror remains a separate historical route with unchanged ownership.
+  - id: thepaper-sidebar
+    name: The Paper current sidebar
+    url: https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar
+    weight: 1.0
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    legacy_enabled: false
+    max_items: 50
+    timeout_seconds: 20
+    r1:
+      adapter: thepaper
+      platform: thepaper
+      origin_hosts: [thepaper.cn]
+      paid_scopes: []
+      publish_scopes: []
+      version: r1-public-sources-v1
+      capability: current-sidebar-observation-only
+  - id: netease-home
+    name: NetEase current headlines
+    url: https://news.163.com/
+    weight: 1.0
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    legacy_enabled: false
+    max_items: 50
+    timeout_seconds: 20
+    r1:
+      adapter: netease
+      platform: netease
+      origin_hosts: [163.com]
+      paid_scopes: []
+      publish_scopes: []
+      version: r1-public-sources-v1
+      capability: current-home-headlines-observation-only
+  - id: tencent-headlines
+    name: Tencent PC headlines
+    url: https://i.news.qq.com/web_feed/get_command_pagination?page=1
+    weight: 1.0
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    legacy_enabled: false
+    max_items: 50
+    timeout_seconds: 20
+    r1:
+      adapter: tencent
+      platform: tencent
+      origin_hosts: [qq.com]
+      paid_scopes: []
+      publish_scopes: []
+      version: r1-public-sources-v1
+      capability: public-pc-headlines-observation-only
+  - id: tencent-selected
+    name: Tencent selected collection
+    url: https://i.news.qq.com/web_feed/getCollectionArticles?tagId=aUepxrtchGM%3D
+    weight: 1.0
+    region: cn-mainland
+    kind: commercial
+    lang: zh
+    legacy_enabled: false
+    max_items: 50
+    timeout_seconds: 20
+    r1:
+      adapter: tencent
+      platform: tencent
+      origin_hosts: [qq.com]
+      paid_scopes: []
+      publish_scopes: []
+      version: r1-public-sources-v1
+      capability: public-selected-collection-observation-only
   # --- General & international (en) ---
   - id: bbc-world
     name: BBC World

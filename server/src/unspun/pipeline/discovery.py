@@ -268,6 +268,10 @@ def discover(
 ) -> DiscoveryResult:
     if source.r1 is None:
         raise ValueError("R1 source capability is not declared")
+    if source.r1.adapter in {"thepaper", "netease", "tencent"}:
+        from unspun.pipeline.public_sources import discover_public
+
+        return discover_public(source, client, now=now)
     if source.r1.adapter != "rss":
         from unspun.pipeline.editions import discover_edition
 

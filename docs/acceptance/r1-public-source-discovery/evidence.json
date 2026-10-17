@@ -1,0 +1,1384 @@
+{
+  "database_writes": 0,
+  "model_requests": 0,
+  "replay_network_requests": 0,
+  "records": [
+    {
+      "name": "thepaper-sidebar",
+      "request_url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+      "started_at": "2026-10-17T06:53:01.143694+00:00",
+      "status": 200,
+      "url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+      "encoding": "utf-8",
+      "sha256": "e03ac8edbea76a92329a165e49f5c81df324f0598917f9ca5e0ad794b6ca7e0b",
+      "completed_at": "2026-10-17T06:53:02.710139+00:00"
+    },
+    {
+      "name": "netease-home",
+      "request_url": "https://news.163.com/",
+      "started_at": "2026-10-17T06:53:01.145121+00:00",
+      "status": 200,
+      "url": "https://news.163.com/",
+      "encoding": "utf-8",
+      "sha256": "b67914201b7a6d0bcde6c88e15bf4c5ba07bb791fd863b95834c98d2fb3a56e0",
+      "completed_at": "2026-10-17T06:53:05.734895+00:00"
+    },
+    {
+      "name": "tencent-headlines",
+      "request_url": "https://i.news.qq.com/web_feed/get_command_pagination?page=1",
+      "started_at": "2026-10-17T06:53:02.710256+00:00",
+      "status": 200,
+      "url": "https://i.news.qq.com/web_feed/get_command_pagination?page=1",
+      "encoding": "utf-8",
+      "sha256": "5a50b42760e2e4e93b1e5b2dcf6ad1dbb171b9b63bba4976551d77f93ce31703",
+      "completed_at": "2026-10-17T06:53:03.062696+00:00"
+    },
+    {
+      "name": "tencent-selected",
+      "request_url": "https://i.news.qq.com/web_feed/getCollectionArticles?tagId=aUepxrtchGM%3D",
+      "started_at": "2026-10-17T06:53:03.062783+00:00",
+      "status": 200,
+      "url": "https://i.news.qq.com/web_feed/getCollectionArticles?tagId=aUepxrtchGM%3D",
+      "encoding": "utf-8",
+      "sha256": "3f616757821607b8b35d328fa175de118b5ec105452bdb52edc7d7de2a39d706",
+      "completed_at": "2026-10-17T06:53:03.396813+00:00"
+    },
+    {
+      "name": "thepaper-article",
+      "request_url": "https://www.thepaper.cn/newsDetail_forward_34263974",
+      "started_at": "2026-10-17T06:53:03.396898+00:00",
+      "status": 200,
+      "url": "https://www.thepaper.cn/newsDetail_forward_34263974",
+      "encoding": "utf-8",
+      "sha256": "7b9d7745fc4f484ab484cf2c6dca091adcfa669f35aa7d3fbd7b4100094e88b2",
+      "completed_at": "2026-10-17T06:53:03.742595+00:00"
+    },
+    {
+      "name": "thepaper-podcast",
+      "request_url": "https://www.thepaper.cn/newsDetail_forward_34256501",
+      "started_at": "2026-10-17T06:53:03.742693+00:00",
+      "status": 200,
+      "url": "https://www.thepaper.cn/newsDetail_forward_34256501",
+      "encoding": "utf-8",
+      "sha256": "536442fa0bece292e0f0f270114899c39d56ca35581f0e990a9fb63a5f1aff0f",
+      "completed_at": "2026-10-17T06:53:04.111158+00:00"
+    },
+    {
+      "name": "thepaper-editor",
+      "request_url": "https://www.thepaper.cn/newsDetail_forward_34270443",
+      "started_at": "2026-10-17T06:53:04.111300+00:00",
+      "status": 200,
+      "url": "https://www.thepaper.cn/newsDetail_forward_34270443",
+      "encoding": "utf-8",
+      "sha256": "199f0df833639003d49f8de932fe281faee5cee27435912d7560b08cf4867fc3",
+      "completed_at": "2026-10-17T06:53:04.494865+00:00"
+    },
+    {
+      "name": "netease-article",
+      "request_url": "https://www.163.com/news/article/L9EQ37VT000189FH.html",
+      "started_at": "2026-10-17T06:53:04.494959+00:00",
+      "status": 200,
+      "url": "https://www.163.com/news/article/L9EQ37VT000189FH.html",
+      "encoding": "utf-8",
+      "sha256": "9c9ce09c1e3a8b67867b8f30476026c254ba9c62c1ce133a0ca61481f22ca21f",
+      "completed_at": "2026-10-17T06:53:04.989987+00:00"
+    },
+    {
+      "name": "netease-article-2",
+      "request_url": "https://www.163.com/news/article/L9EQ60LL000189FH.html",
+      "started_at": "2026-10-17T06:53:04.990134+00:00",
+      "status": 200,
+      "url": "https://www.163.com/news/article/L9EQ60LL000189FH.html",
+      "encoding": "utf-8",
+      "sha256": "6b10a5698a18fdbb8bf5183d02ce1f5e5f99d0f4360bb84d5bfc6566c7fe7bcf",
+      "completed_at": "2026-10-17T06:53:05.364388+00:00"
+    },
+    {
+      "name": "netease-article-3",
+      "request_url": "https://www.163.com/news/article/L9EQAMDS000189FH.html",
+      "started_at": "2026-10-17T06:53:05.364530+00:00",
+      "status": 200,
+      "url": "https://www.163.com/news/article/L9EQAMDS000189FH.html",
+      "encoding": "utf-8",
+      "sha256": "00dc6b158577d69bf87aa643d2567326ad4266ed6a88d4857415cda367c08fde",
+      "completed_at": "2026-10-17T06:53:05.600137+00:00"
+    },
+    {
+      "name": "tencent-article-0",
+      "request_url": "https://new.qq.com/rain/a/20261016A0E3X600",
+      "started_at": "2026-10-17T06:53:05.600258+00:00",
+      "status": 200,
+      "url": "https://news.qq.com/rain/a/20261016A0E3X600",
+      "encoding": "utf-8",
+      "sha256": "33e6739692d46791fe3e888df58997a189dad4d96db3fdc9d66a64e3a75f49ce",
+      "completed_at": "2026-10-17T06:53:06.406002+00:00"
+    },
+    {
+      "name": "tencent-article-1",
+      "request_url": "https://new.qq.com/rain/a/20261017A03B4900",
+      "started_at": "2026-10-17T06:53:05.735057+00:00",
+      "status": 200,
+      "url": "https://news.qq.com/rain/a/20261017A03B4900",
+      "encoding": "utf-8",
+      "sha256": "4ae77283446e343be375442e640a974a9bf067e99984d1e8764a5d8f130377a7",
+      "completed_at": "2026-10-17T06:53:06.426859+00:00"
+    },
+    {
+      "name": "tencent-article-2",
+      "request_url": "https://new.qq.com/rain/a/20261016A04VJY00",
+      "started_at": "2026-10-17T06:53:06.406103+00:00",
+      "status": 200,
+      "url": "https://news.qq.com/rain/a/20261016A04VJY00",
+      "encoding": "utf-8",
+      "sha256": "8133c01c1911237ab6268497280128941e174e59f31a85b301c35fdae86daab1",
+      "completed_at": "2026-10-17T06:53:07.201239+00:00"
+    },
+    {
+      "name": "tencent-video-0",
+      "request_url": "https://view.inews.qq.com/a/20261017V03N7T00",
+      "started_at": "2026-10-17T06:53:06.427048+00:00",
+      "status": 200,
+      "url": "https://news.qq.com/rain/a/20261017V03N7T00?id=20261017V03N7T00&path=a&app=news&suid=&redirect_pc=1",
+      "encoding": "utf-8",
+      "sha256": "358b657bc8c641912cbed5f05a6d2ee271cc6024b0d400ebd60e3e4ab7f0459c",
+      "completed_at": "2026-10-17T06:53:07.171910+00:00"
+    },
+    {
+      "name": "tencent-video-1",
+      "request_url": "https://view.inews.qq.com/a/20261017V03MRJ00",
+      "started_at": "2026-10-17T06:53:07.172014+00:00",
+      "status": 200,
+      "url": "https://news.qq.com/rain/a/20261017V03MRJ00?id=20261017V03MRJ00&path=a&app=news&suid=&redirect_pc=1",
+      "encoding": "utf-8",
+      "sha256": "1a2dbb5e1305ab18513084675e4fa0a904d20b986e42cfef1d26f8406a8a1bf7",
+      "completed_at": "2026-10-17T06:53:07.776206+00:00"
+    },
+    {
+      "name": "tencent-video-2",
+      "request_url": "https://view.inews.qq.com/a/20261017V03LNX00",
+      "started_at": "2026-10-17T06:53:07.201433+00:00",
+      "status": 200,
+      "url": "https://news.qq.com/rain/a/20261017V03LNX00?id=20261017V03LNX00&path=a&app=news&suid=&redirect_pc=1",
+      "encoding": "utf-8",
+      "sha256": "609e0c824a099eadf20f6b7fa6b951251721829c2601dcd2a8de60a7e09ab263",
+      "completed_at": "2026-10-17T06:53:07.935129+00:00"
+    }
+  ],
+  "sources": {
+    "thepaper-sidebar": {
+      "item_count": 34,
+      "ids": [
+        "34270443",
+        "34269922",
+        "34269748",
+        "34269908",
+        "34263273",
+        "34269605",
+        "34269367",
+        "34269364",
+        "34269052",
+        "34268992",
+        "34263974",
+        "34264638",
+        "34265063",
+        "34262076",
+        "34265292",
+        "34264666",
+        "34265196",
+        "34265525",
+        "34262998",
+        "34264265",
+        "34267914",
+        "34264769",
+        "34261269",
+        "34265066",
+        "34264950",
+        "34240677",
+        "34262723",
+        "34262712",
+        "34262732",
+        "34263494",
+        "34256501",
+        "34244403",
+        "34249243",
+        "34251041"
+      ],
+      "forms": {
+        "article": 24,
+        "unknown": 6,
+        "audio": 4
+      },
+      "items_fingerprint": "b5850545e187ddd3787d673240e2d9a09bfb3f624cf629cadcd0eb7046871840",
+      "metadata_example": {
+        "id": "34270443",
+        "url": "https://www.thepaper.cn/newsDetail_forward_34270443",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "article",
+          "genre": null,
+          "platform": "thepaper",
+          "publisher": null,
+          "authors": [],
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-17T06:08:25.442000Z",
+              "on": null,
+              "basis": "thepaper:rightSidebar:pubTimeLong",
+              "raw": "1792217305442"
+            }
+          ],
+          "original_url": null,
+          "media_url": null,
+          "duration_seconds": null,
+          "original_relation_basis": null
+        }
+      }
+    },
+    "netease-home": {
+      "item_count": 26,
+      "ids": [
+        "L9EQ37VT000189FH",
+        "L9EQ60LL000189FH",
+        "L9EQAMDS000189FH",
+        "L9EQCSRP000189FH",
+        "L9EGK3EP000189FH",
+        "L9EGI9MR000189FH",
+        "L9D9KB4F05346RC6",
+        "L9EGNVGQ000189FH",
+        "L9EGN63A000189FH",
+        "L9BE71UB0514R9M0",
+        "L9EGLAOQ000189FH",
+        "L9EGTU01000189FH",
+        "L9EGR53S000189FH",
+        "L9C8AJMO05346RC6",
+        "L9EGOOGT000189FH",
+        "L9EH048M000189FH",
+        "L9A5N0KK05346RC6",
+        "L9ERSDAN000189FH",
+        "L9E5HRK60514R9M0",
+        "L9ERQL87000189FH",
+        "L9ERPN4H000189FH",
+        "L9EH3SF9000189FH",
+        "L9D433E7051497H3",
+        "L9EH1NBV000189FH",
+        "L9CKRNMT05346RC6",
+        "L9E0O7DP0514R9M0"
+      ],
+      "forms": {
+        "article": 26
+      },
+      "items_fingerprint": "e91f47f2a9423923b15045c6f06a36ac0ecbb8934d91206ef8bf46a4a0457b14",
+      "metadata_example": {
+        "id": "L9EQ37VT000189FH",
+        "url": "https://www.163.com/news/article/L9EQ37VT000189FH.html",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "article",
+          "genre": null,
+          "platform": "netease",
+          "publisher": null,
+          "authors": [],
+          "times": [],
+          "original_url": null,
+          "media_url": null,
+          "duration_seconds": null,
+          "original_relation_basis": null
+        }
+      }
+    },
+    "tencent-headlines": {
+      "item_count": 10,
+      "ids": [
+        "20261016A0E3X600",
+        "20261017A03B4900",
+        "20261016A04VJY00",
+        "20261016A0D6V400",
+        "20261016A0DZIK00",
+        "20261016A06AL800",
+        "20261016A07CVK00",
+        "20261016A0DSST00",
+        "20261016A0APAZ00",
+        "20261016A0AST400"
+      ],
+      "forms": {
+        "article": 10
+      },
+      "items_fingerprint": "0303c3237d4e49214ae3c19223b3db1f3af20dd4e7369b000391b547b4add7a6",
+      "metadata_example": {
+        "id": "20261016A0E3X600",
+        "url": "https://new.qq.com/rain/a/20261016A0E3X600",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "article",
+          "genre": null,
+          "platform": "tencent",
+          "publisher": null,
+          "authors": [],
+          "times": [],
+          "original_url": null,
+          "media_url": null,
+          "duration_seconds": null,
+          "original_relation_basis": null
+        }
+      }
+    },
+    "tencent-selected": {
+      "item_count": 10,
+      "ids": [
+        "20261017V03N7T00",
+        "20261017V03MRJ00",
+        "20261017V03LNX00",
+        "20261017V03RPG00",
+        "20261017V03UGT00",
+        "20261017V059JA00",
+        "20261016V0BWHC00",
+        "20261016V0AG5800",
+        "20261016V0BG5500",
+        "20261016V0AR7D00"
+      ],
+      "forms": {
+        "video": 10
+      },
+      "items_fingerprint": "86ad29c87591a6cace8a084f6e839fc7e1bd7d04364b6076f68ca18407acfc6b",
+      "metadata_example": {
+        "id": "20261017V03N7T00",
+        "url": "https://view.inews.qq.com/a/20261017V03N7T00",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "video",
+          "genre": null,
+          "platform": "tencent",
+          "publisher": null,
+          "authors": [
+            {
+              "name": "央视网",
+              "role": "account",
+              "platform": "tencent",
+              "platform_id": "5278151",
+              "basis": "tencent:list:media_info"
+            }
+          ],
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-17T09:04:08+08:00",
+              "on": null,
+              "basis": "tencent:list:platform-publish-time:Asia/Shanghai",
+              "raw": "2026-10-17 09:04:08"
+            }
+          ],
+          "original_url": null,
+          "media_url": "https://view.inews.qq.com/a/20261017V03N7T00",
+          "duration_seconds": 112.0,
+          "original_relation_basis": null
+        }
+      }
+    }
+  },
+  "materials": [
+    {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "thepaper:detail:content",
+      "source_url": "https://www.thepaper.cn/newsDetail_forward_34263974",
+      "retrieved_at": "2026-10-17T06:54:41.465185Z",
+      "response_status": 200,
+      "response_fingerprint": "7b9d7745fc4f484ab484cf2c6dca091adcfa669f35aa7d3fbd7b4100094e88b2",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "thepaper",
+        "publisher": "央视新闻",
+        "authors": [
+          {
+            "name": "张磊",
+            "role": "author",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          },
+          {
+            "name": "马凌峰",
+            "role": "author",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T10:02:30.528000Z",
+            "on": null,
+            "basis": "thepaper:rightSidebar:pubTimeLong",
+            "raw": "1792144950528"
+          },
+          {
+            "kind": "reprint",
+            "precision": "time",
+            "at": "2026-10-16T10:02:30.528000Z",
+            "on": null,
+            "basis": "thepaper:detail:publishTime:originalFlag=2",
+            "raw": "1792144950528"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "thepaper-sidebar",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "thepaper-article",
+      "character_count": 379,
+      "text_fingerprint": "716bb15fa9f16f4361ced54f2972c4d9c77c664209bd9835112d2cf53d3f1211"
+    },
+    {
+      "scope": "media_description",
+      "access_status": "ok",
+      "completeness": "partial",
+      "basis": "thepaper:detail:content",
+      "source_url": "https://www.thepaper.cn/newsDetail_forward_34256501",
+      "retrieved_at": "2026-10-17T06:54:41.467729Z",
+      "response_status": 200,
+      "response_fingerprint": "536442fa0bece292e0f0f270114899c39d56ca35581f0e990a9fb63a5f1aff0f",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "audio",
+        "genre": null,
+        "platform": "thepaper",
+        "publisher": "澎湃新闻",
+        "authors": [
+          {
+            "name": "张无为",
+            "role": "editor",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-15T09:14:06.047000Z",
+            "on": null,
+            "basis": "thepaper:rightSidebar:pubTimeLong",
+            "raw": "1792055646047"
+          },
+          {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-15T09:14:06.047000Z",
+            "on": null,
+            "basis": "thepaper:detail:publishTime:originalFlag=1",
+            "raw": "1792055646047"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://thepaperaudioinput.oss-cn-shanghai.aliyuncs.com/input/1792053126485_kXkBnB_1792053393347.mp3",
+        "duration_seconds": 1636.032,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "thepaper-sidebar",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "thepaper-podcast",
+      "character_count": 386,
+      "text_fingerprint": "3e527422062c784634e04cac68d811083fbec6f832e2a5bad08e765983e2dab0"
+    },
+    {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "thepaper:detail:content",
+      "source_url": "https://www.thepaper.cn/newsDetail_forward_34270443",
+      "retrieved_at": "2026-10-17T06:54:41.470824Z",
+      "response_status": 200,
+      "response_fingerprint": "199f0df833639003d49f8de932fe281faee5cee27435912d7560b08cf4867fc3",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "thepaper",
+        "publisher": "央视新闻",
+        "authors": [
+          {
+            "name": "韩冰",
+            "role": "author",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          },
+          {
+            "name": "许浒",
+            "role": "author",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T06:08:25.442000Z",
+            "on": null,
+            "basis": "thepaper:rightSidebar:pubTimeLong",
+            "raw": "1792217305442"
+          },
+          {
+            "kind": "reprint",
+            "precision": "time",
+            "at": "2026-10-17T06:08:25.442000Z",
+            "on": null,
+            "basis": "thepaper:detail:publishTime:originalFlag=2",
+            "raw": "1792217305442"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "thepaper-sidebar",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "thepaper-editor",
+      "character_count": 296,
+      "text_fingerprint": "191cc70bf5b90789b05a7f1d09b115be1c709c72d7c20afd986277fa168caafe"
+    },
+    {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "netease:.post_body",
+      "source_url": "https://www.163.com/news/article/L9EQ37VT000189FH.html",
+      "retrieved_at": "2026-10-17T06:54:41.472416Z",
+      "response_status": 200,
+      "response_fingerprint": "9c9ce09c1e3a8b67867b8f30476026c254ba9c62c1ce133a0ca61481f22ca21f",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "netease",
+        "publisher": "新华网",
+        "authors": [],
+        "times": [
+          {
+            "kind": "reprint",
+            "precision": "time",
+            "at": "2026-10-17T13:35:13+08:00",
+            "on": null,
+            "basis": "netease:platform-publication:original-unverified",
+            "raw": "2026-10-17T13:35:13+08:00"
+          }
+        ],
+        "original_url": "https://www.news.cn/politics/leaders/20261016/5408a8da83d24956b8a97bc9c48f8cae/c.html",
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": "netease:visible-source-link"
+      },
+      "evidence": {
+        "source_id": "netease-home",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "netease-article",
+      "character_count": 1411,
+      "text_fingerprint": "31c9bb8bfc42a61840776cffcaef3f0237fb06edf71315bd7e5d5eaed8c003ad"
+    },
+    {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "netease:.post_body",
+      "source_url": "https://www.163.com/news/article/L9EQ60LL000189FH.html",
+      "retrieved_at": "2026-10-17T06:54:41.478334Z",
+      "response_status": 200,
+      "response_fingerprint": "6b10a5698a18fdbb8bf5183d02ce1f5e5f99d0f4360bb84d5bfc6566c7fe7bcf",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "netease",
+        "publisher": "央视网",
+        "authors": [],
+        "times": [
+          {
+            "kind": "reprint",
+            "precision": "time",
+            "at": "2026-10-17T13:36:44+08:00",
+            "on": null,
+            "basis": "netease:platform-publication:original-unverified",
+            "raw": "2026-10-17T13:36:44+08:00"
+          }
+        ],
+        "original_url": "https://news.cctv.com/2026/10/16/ARTIrR6cX1IhkvcvV2kpEpSU261016.shtml",
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": "netease:visible-source-link"
+      },
+      "evidence": {
+        "source_id": "netease-home",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "netease-article-2",
+      "character_count": 1188,
+      "text_fingerprint": "826a335f733985f9e903e072085a57dfe0ffcc5e107513c5a7f1048309f07dfc"
+    },
+    {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "netease:.post_body",
+      "source_url": "https://www.163.com/news/article/L9EQAMDS000189FH.html",
+      "retrieved_at": "2026-10-17T06:54:41.484319Z",
+      "response_status": 200,
+      "response_fingerprint": "00dc6b158577d69bf87aa643d2567326ad4266ed6a88d4857415cda367c08fde",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "netease",
+        "publisher": "央视网",
+        "authors": [],
+        "times": [
+          {
+            "kind": "reprint",
+            "precision": "time",
+            "at": "2026-10-17T13:39:17+08:00",
+            "on": null,
+            "basis": "netease:platform-publication:original-unverified",
+            "raw": "2026-10-17T13:39:17+08:00"
+          }
+        ],
+        "original_url": "https://news.cctv.com/2026/10/15/ARTI7GJXFXvAHVUpaEPsKAVk261014.shtml",
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": "netease:visible-source-link"
+      },
+      "evidence": {
+        "source_id": "netease-home",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "netease-article-3",
+      "character_count": 1693,
+      "text_fingerprint": "8eaf772424acd9049aad7214d63c97721123042059ddacb1c8dba189d4342170"
+    },
+    {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261016A0E3X600",
+      "retrieved_at": "2026-10-17T06:54:41.490373Z",
+      "response_status": 200,
+      "response_fingerprint": "33e6739692d46791fe3e888df58997a189dad4d96db3fdc9d66a64e3a75f49ce",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [
+          {
+            "name": "新华社新闻",
+            "role": "account",
+            "platform": "tencent",
+            "platform_id": null,
+            "basis": "tencent:visible-account"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T22:15:53+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-16 22:15:53"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-headlines",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "tencent-article-0",
+      "character_count": 1442,
+      "text_fingerprint": "c946fe56d15b4ff8ad6c7bd5cfb0a691d41b95640f3107b9141857d6d13c311f"
+    },
+    {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261017A03B4900",
+      "retrieved_at": "2026-10-17T06:54:41.491310Z",
+      "response_status": 200,
+      "response_fingerprint": "4ae77283446e343be375442e640a974a9bf067e99984d1e8764a5d8f130377a7",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [
+          {
+            "name": "央视网",
+            "role": "account",
+            "platform": "tencent",
+            "platform_id": null,
+            "basis": "tencent:visible-account"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T08:09:00+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-17 08:09:00"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-headlines",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "tencent-article-1",
+      "character_count": 1131,
+      "text_fingerprint": "dd3d4a97d852a02ac51b87b50a818e4d199b50a85d766372aa2161aab8409b0d"
+    },
+    {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261016A04VJY00",
+      "retrieved_at": "2026-10-17T06:54:41.492422Z",
+      "response_status": 200,
+      "response_fingerprint": "8133c01c1911237ab6268497280128941e174e59f31a85b301c35fdae86daab1",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [
+          {
+            "name": "央视网",
+            "role": "account",
+            "platform": "tencent",
+            "platform_id": null,
+            "basis": "tencent:visible-account"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T10:34:07+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-16 10:34:07"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-headlines",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "tencent-article-2",
+      "character_count": 1640,
+      "text_fingerprint": "147c3d51269c42c2418670ea8f2248f794bbbb9fa970cf05cb34c71639bad0d2"
+    },
+    {
+      "scope": "none",
+      "access_status": "unavailable",
+      "completeness": "none",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261017V03N7T00?id=20261017V03N7T00&path=a&app=news&suid=&redirect_pc=1",
+      "retrieved_at": "2026-10-17T06:54:41.494059Z",
+      "response_status": 200,
+      "response_fingerprint": "358b657bc8c641912cbed5f05a6d2ee271cc6024b0d400ebd60e3e4ab7f0459c",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [
+          {
+            "name": "央视网",
+            "role": "account",
+            "platform": "tencent",
+            "platform_id": "5278151",
+            "basis": "tencent:list:media_info"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T09:04:08+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-17 09:04:08"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://view.inews.qq.com/a/20261017V03N7T00",
+        "duration_seconds": 112.0,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-selected",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "tencent-video-0",
+      "character_count": 0,
+      "text_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "scope": "none",
+      "access_status": "unavailable",
+      "completeness": "none",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261017V03MRJ00?id=20261017V03MRJ00&path=a&app=news&suid=&redirect_pc=1",
+      "retrieved_at": "2026-10-17T06:54:41.494512Z",
+      "response_status": 200,
+      "response_fingerprint": "1a2dbb5e1305ab18513084675e4fa0a904d20b986e42cfef1d26f8406a8a1bf7",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [
+          {
+            "name": "四川观察",
+            "role": "account",
+            "platform": "tencent",
+            "platform_id": "5521704",
+            "basis": "tencent:list:media_info"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T09:02:54+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-17 09:02:54"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://view.inews.qq.com/a/20261017V03MRJ00",
+        "duration_seconds": 83.0,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-selected",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "tencent-video-1",
+      "character_count": 0,
+      "text_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "scope": "none",
+      "access_status": "unavailable",
+      "completeness": "none",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261017V03LNX00?id=20261017V03LNX00&path=a&app=news&suid=&redirect_pc=1",
+      "retrieved_at": "2026-10-17T06:54:41.494944Z",
+      "response_status": 200,
+      "response_fingerprint": "609e0c824a099eadf20f6b7fa6b951251721829c2601dcd2a8de60a7e09ab263",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [
+          {
+            "name": "央视网",
+            "role": "account",
+            "platform": "tencent",
+            "platform_id": "5278151",
+            "basis": "tencent:list:media_info"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T08:59:40+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-17 08:59:40"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://view.inews.qq.com/a/20261017V03LNX00",
+        "duration_seconds": 120.0,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-selected",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "name": "tencent-video-2",
+      "character_count": 0,
+      "text_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "recorded_at": "2026-10-17T06:56:25.048620+00:00",
+  "environment": {
+    "target_image": "75c03745dd778852a14d4013a04e7d0e3bbd1688",
+    "target_network": "unspun_default",
+    "memory_mib": 256,
+    "cpus": 0.5,
+    "explicit_database_or_model_env": false
+  },
+  "test_database": "unspun_r1_public_sources_tests_20261017",
+  "migration_head": "000015",
+  "test_totals": {
+    "tests": 858,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "raw_capture_sha256": "e664119ba0e53e1c5339c4edfe4fc7ec4cb8d964af47b25a63af74cc931eae68",
+  "r0_replay": {
+    "C09": {
+      "scope": "media_description",
+      "access_status": "ok",
+      "completeness": "partial",
+      "basis": "thepaper:detail:content",
+      "source_url": "https://www.thepaper.cn/newsDetail_forward_34256501",
+      "retrieved_at": "2026-10-17T08:00:00Z",
+      "response_status": 200,
+      "response_fingerprint": "789c81340ac8133fc1be80af45b498d80b8fe60f5e1539a3233a232c57215f99",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "audio",
+        "genre": null,
+        "platform": "thepaper",
+        "publisher": "澎湃新闻",
+        "authors": [
+          {
+            "name": "张无为",
+            "role": "editor",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-15T09:14:06.047000Z",
+            "on": null,
+            "basis": "thepaper:detail:publishTime:originalFlag=1",
+            "raw": "1792055646047"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://thepaperaudioinput.oss-cn-shanghai.aliyuncs.com/input/1792053126485_kXkBnB_1792053393347.mp3",
+        "duration_seconds": 1636.032,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "thepaper-sidebar",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "character_count": 386,
+      "raw_file": "thepaper-home-article-0.body",
+      "body_fingerprint": "da0a07b1956e8a5e907107e3c73bb9d0a4dc532c50f0b155d47bbecf243c85ba",
+      "raw_sha256": "789c81340ac8133fc1be80af45b498d80b8fe60f5e1539a3233a232c57215f99"
+    },
+    "C10": {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "thepaper:detail:content",
+      "source_url": "https://www.thepaper.cn/newsDetail_forward_34256126",
+      "retrieved_at": "2026-10-17T08:00:00Z",
+      "response_status": 200,
+      "response_fingerprint": "5976510fb6a4a76b09d265112e979c1cfc8f746b9d7fa1d09f34e3ec7f213bc0",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "thepaper",
+        "publisher": "新华社客户端",
+        "authors": [
+          {
+            "name": "马卓言",
+            "role": "author",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          },
+          {
+            "name": "冯歆然",
+            "role": "author",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "reprint",
+            "precision": "time",
+            "at": "2026-10-15T07:22:40.760000Z",
+            "on": null,
+            "basis": "thepaper:detail:publishTime:originalFlag=2",
+            "raw": "1792048960760"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "thepaper-sidebar",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "character_count": 179,
+      "raw_file": "thepaper-home-article-1.body",
+      "body_fingerprint": "c9df3955cdbb545f69c686846b93f4b6e63c4977347f30abb51dc828a6d56db9",
+      "raw_sha256": "5976510fb6a4a76b09d265112e979c1cfc8f746b9d7fa1d09f34e3ec7f213bc0"
+    },
+    "C11": {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "thepaper:detail:content",
+      "source_url": "https://www.thepaper.cn/newsDetail_forward_32178049",
+      "retrieved_at": "2026-10-17T08:00:00Z",
+      "response_status": 200,
+      "response_fingerprint": "e5f8d1476fabf955056ce795dfae83926d1e1c85818c42ba9dd6d53b4b15d7a8",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "thepaper",
+        "publisher": "澎湃新闻",
+        "authors": [
+          {
+            "name": "南博一",
+            "role": "reporter",
+            "platform": "thepaper",
+            "platform_id": null,
+            "basis": "thepaper:detail:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "original",
+            "precision": "time",
+            "at": "2025-12-15T05:15:13.606000Z",
+            "on": null,
+            "basis": "thepaper:detail:publishTime:originalFlag=1",
+            "raw": "1765775713606"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "thepaper-sidebar",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "character_count": 1254,
+      "raw_file": "thepaper-mirror-article-0.body",
+      "body_fingerprint": "8d78311ca0136a2897d05c17eee267176a92fed1827243251bdbf7d39a5e6d40",
+      "raw_sha256": "e5f8d1476fabf955056ce795dfae83926d1e1c85818c42ba9dd6d53b4b15d7a8"
+    },
+    "C20": {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261015A02UWQ00",
+      "retrieved_at": "2026-10-17T08:00:00Z",
+      "response_status": 200,
+      "response_fingerprint": "dfa8578f96db22391f4c8216807ad62750f384d9d286262c259740015d35e91c",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [
+          {
+            "name": "人民日报",
+            "role": "account",
+            "platform": "tencent",
+            "platform_id": null,
+            "basis": "tencent:visible-account"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-15T07:29:17+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-15 07:29:17"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-headlines",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "character_count": 4542,
+      "raw_file": "tencent-ageing-article.body",
+      "body_fingerprint": "568c976c52cc28851711425b481a901cf89dbd5f63d2a98660ac15579116e4bd",
+      "raw_sha256": "dfa8578f96db22391f4c8216807ad62750f384d9d286262c259740015d35e91c"
+    },
+    "C21": {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261014A06SAE00",
+      "retrieved_at": "2026-10-17T08:00:00Z",
+      "response_status": 200,
+      "response_fingerprint": "54a6341c84e9049076c4cb1316fdc342fd144359b77a2328b94869c2810a1d57",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [
+          {
+            "name": "央视新闻",
+            "role": "account",
+            "platform": "tencent",
+            "platform_id": null,
+            "basis": "tencent:visible-account"
+          },
+          {
+            "name": "杨彩云",
+            "role": "author",
+            "platform": "tencent",
+            "platform_id": null,
+            "basis": "r1-public-sources-v1:explicit-visible-credit"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-14T12:35:59+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-14 12:35:59"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-headlines",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false,
+        "trailing_credits": {
+          "count": 8,
+          "fingerprint": "bb3f1ace0cebf11ae34577074e9efa6b013aa4383773e17410447b3477aa348c"
+        }
+      },
+      "character_count": 1930,
+      "raw_file": "tencent-health-article.body",
+      "body_fingerprint": "c93e3fa952bfe0fed2bd2b421e79473839c36a8901cdc318ec7a778af2dc7769",
+      "raw_sha256": "54a6341c84e9049076c4cb1316fdc342fd144359b77a2328b94869c2810a1d57"
+    },
+    "C22": {
+      "scope": "none",
+      "access_status": "unavailable",
+      "completeness": "none",
+      "basis": "tencent:#article-content",
+      "source_url": "https://news.qq.com/rain/a/20261015V07VUB00",
+      "retrieved_at": "2026-10-17T08:00:00Z",
+      "response_status": 200,
+      "response_fingerprint": "223333fae0bc81de13599ced376852405628aa5638caf9b3ee39e013ce47152a",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "tencent",
+        "publisher": null,
+        "authors": [],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-15T14:21:26+08:00",
+            "on": null,
+            "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+            "raw": "2026-10-15 14:21:26"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "tencent-headlines",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "character_count": 0,
+      "raw_file": "tencent-video-article.body",
+      "body_fingerprint": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+      "raw_sha256": "223333fae0bc81de13599ced376852405628aa5638caf9b3ee39e013ce47152a"
+    },
+    "C41": {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "netease:.post_body",
+      "source_url": "https://www.163.com/news/article/L99S9BUQ000189FH.html",
+      "retrieved_at": "2026-10-17T08:00:00Z",
+      "response_status": 200,
+      "response_fingerprint": "768ae7b4ab049c0f5727f11a2ecec2349f0c74ea8142dcc5f65527c759746135",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "netease",
+        "publisher": "央视新闻客户端",
+        "authors": [],
+        "times": [
+          {
+            "kind": "reprint",
+            "precision": "time",
+            "at": "2026-10-15T15:37:19+08:00",
+            "on": null,
+            "basis": "netease:platform-publication:original-unverified",
+            "raw": "2026-10-15T15:37:19+08:00"
+          }
+        ],
+        "original_url": "https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=14095265847420546907&toc_style_id=feeds_default&share_to=wechat&track_id=00577d15-71c8-422e-916d-4f3e27e64539_1791952651390",
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": "netease:visible-source-link"
+      },
+      "evidence": {
+        "source_id": "netease-home",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "character_count": 1930,
+      "raw_file": "netease-health-current.body",
+      "body_fingerprint": "c93e3fa952bfe0fed2bd2b421e79473839c36a8901cdc318ec7a778af2dc7769",
+      "raw_sha256": "768ae7b4ab049c0f5727f11a2ecec2349f0c74ea8142dcc5f65527c759746135"
+    },
+    "C42": {
+      "scope": "open_text_unit",
+      "access_status": "ok",
+      "completeness": "observed_unit",
+      "basis": "netease:.post_body",
+      "source_url": "https://www.163.com/dy/article/L98SMR4P0514R9M0.html",
+      "retrieved_at": "2026-10-17T08:00:00Z",
+      "response_status": 200,
+      "response_fingerprint": "5c15ef29f5e930ac5fb282e72742ddce172c3574d183149ba1bfd3dd8d73320f",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "netease",
+        "publisher": "人民网",
+        "authors": [],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-15T06:25:26+08:00",
+            "on": null,
+            "basis": "netease:platform-publication:original-unverified",
+            "raw": "2026-10-15T06:25:26+08:00"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "evidence": {
+        "source_id": "netease-home",
+        "extractor_version": "r1-material-v3",
+        "feed_text_truncated": false
+      },
+      "character_count": 1322,
+      "raw_file": "netease-ageing-current.body",
+      "body_fingerprint": "0ec52d776dc8b31dc9c37f5727923b7d1c89d821507b9029986f7cff9b775f66",
+      "raw_sha256": "5c15ef29f5e930ac5fb282e72742ddce172c3574d183149ba1bfd3dd8d73320f"
+    }
+  },
+  "r0_relationships": {
+    "C21_C41_same": true,
+    "C20_C42_distinct": true
+  },
+  "g2_passed": false,
+  "production_enabled": false
+}
