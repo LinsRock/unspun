@@ -76,6 +76,31 @@ else
   exit "$status"
 fi
 
+# The configured target image decides whether paid R1 stages exist. This probe
+# only builds the runtime description; it makes no DB or provider requests.
+r1_paid_mode=$("${compose[@]}" run -T --rm --no-deps r1-worker python -c '
+from unspun.core.config import get_settings
+from unspun.core.sources import load_sources
+from unspun.pipeline.r1_runtime import build_runtime
+runtime = build_runtime(load_sources(), get_settings())
+print("paid" if runtime.stage_sources["paid"] else "unpaid")
+')
+case "$r1_paid_mode" in
+  paid)
+    # Cutover observes provider counters and preserves prior spend. Repeated
+    # initialization does not resize or replace an already-enabled policy.
+    "${compose[@]}" run -T --rm --no-deps r1-worker \
+      python -m unspun.core.billing_admin initialize-production
+    "${compose[@]}" run -T --rm --no-deps r1-worker \
+      python -m unspun.pipeline.r1_worker --check
+    ;;
+  unpaid) ;;
+  *)
+    echo "R1 configuration probe returned an invalid paid-stage mode" >&2
+    exit 1
+    ;;
+esac
+
 # Never restart the legacy paid loop, including when rolling back an image.
 # Approved R1 consumers must be wired separately through their rollout PR.
 "${compose[@]}" up -d --remove-orphans --scale worker=0

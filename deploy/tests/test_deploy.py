@@ -39,6 +39,11 @@ if args[0] == "compose":
     if "pull" in args and phase == "pull": sys.exit(41)
     if "--wait" in args and phase == "db": sys.exit(42)
     if "run" in args:
+        if "-c" in args and "build_runtime" in args[-1]:
+            print(os.environ.get("R1_PAID_MODE", "unpaid"))
+            sys.exit(0)
+        if "initialize-production" in args and phase == "budget": sys.exit(44)
+        if "--check" in args and phase == "r1-check": sys.exit(45)
         if sys.stdout.isatty() and not sys.stdin.isatty() and "-T" not in args:
             print("the input device is not a TTY", file=sys.stderr)
             sys.exit(1)
@@ -113,6 +118,45 @@ if args[0] == "inspect":
                 self.assertFalse(
                     any("--remove-orphans" in args for args in self.calls())
                 )
+
+    def test_closed_paid_stages_do_not_initialize_budget_or_start_legacy_worker(self):
+        result = self.run_deploy()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertFalse(any("initialize-production" in args for args in self.calls()))
+        start = next(args for args in self.calls() if "--remove-orphans" in args)
+        self.assertIn("worker=0", start)
+
+    def test_paid_rollout_initializes_and_checks_before_starting_services(self):
+        result = self.run_deploy(R1_PAID_MODE="paid")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        calls = self.calls()
+        migration = next(i for i, args in enumerate(calls) if "alembic" in args)
+        budget = next(i for i, args in enumerate(calls) if "initialize-production" in args)
+        check = next(i for i, args in enumerate(calls) if "--check" in args)
+        start = next(i for i, args in enumerate(calls) if "--remove-orphans" in args)
+        self.assertLess(migration, budget)
+        self.assertLess(budget, check)
+        self.assertLess(check, start)
+        self.assertIn("--no-deps", calls[budget])
+        self.assertEqual(calls[budget][-5:], [
+            "r1-worker", "python", "-m", "unspun.core.billing_admin", "initialize-production",
+        ])
+
+    def test_budget_or_r1_preflight_failure_does_not_start_target_services(self):
+        for phase, code in (("budget", 44), ("r1-check", 45)):
+            with self.subTest(phase=phase):
+                self.log.unlink(missing_ok=True)
+                result = self.run_deploy(R1_PAID_MODE="paid", FAIL_PHASE=phase)
+                self.assertEqual(result.returncode, code, result.stderr)
+                self.assertFalse(any("--remove-orphans" in args for args in self.calls()))
+
+    def test_invalid_paid_probe_stops_before_budget_or_services(self):
+        result = self.run_deploy(R1_PAID_MODE="unexpected")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(any(
+            "initialize-production" in args or "--remove-orphans" in args
+            for args in self.calls()
+        ))
 
     def test_unresolved_image_stops_before_pull_or_migration(self):
         result = self.run_deploy(SERVER_IMAGE="")
