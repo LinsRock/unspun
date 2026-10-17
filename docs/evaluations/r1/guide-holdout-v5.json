@@ -1,0 +1,453 @@
+{
+  "schema_version": "r1-guide-holdout-v5",
+  "frozen_at": "2026-10-17T09:37:41.830594+00:00",
+  "inputs": [
+    {
+      "id": "U01",
+      "source_id": "wsj-world",
+      "url": "https://www.wsj.com/world/middle-east/iran-houthi-saudi-arabia-attacks-38b82107?mod=rss_worldnews",
+      "title": "Iran Is Giving Houthis Targeting and Intelligence for Attacks on Saudi Arabia",
+      "material_sha256": "c53c9626ba83d8ebf395123508b53f7f053ea2962d92b31896a777c9873cfdcb",
+      "scope": "preview",
+      "genre": "unknown",
+      "publisher": "Wall Street Journal",
+      "author": "Summer Said",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "wsj",
+        "publisher": "Wall Street Journal",
+        "authors": [
+          {
+            "name": "Summer Said",
+            "role": "unknown",
+            "platform": "wsj",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T02:00:00Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 02:00:00 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T05:18:55.478526+00:00",
+      "extractor_version": "r1-material-v1",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5",
+      "original_runtime_article_id": 1,
+      "guide_expected_boundary": "insufficient_increment_without_http"
+    },
+    {
+      "id": "U02",
+      "source_id": "wsj-world",
+      "url": "https://www.wsj.com/world/ukraine-russia-jet-drones-defenses-ca520fcd?mod=rss_worldnews",
+      "title": "Ukraine Hurries to Build Defenses Against Russia’s Jet-Powered Drones",
+      "material_sha256": "a81d6b3f47d144030e7d74cd3996cb0e899bdc237eabb7c3a703d10f84d3bfbf",
+      "scope": "preview",
+      "genre": "unknown",
+      "publisher": "Wall Street Journal",
+      "author": "Oksana Grytsenko",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "wsj",
+        "publisher": "Wall Street Journal",
+        "authors": [
+          {
+            "name": "Oksana Grytsenko",
+            "role": "unknown",
+            "platform": "wsj",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T19:30:00Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 19:30:00 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T05:18:55.479586+00:00",
+      "extractor_version": "r1-material-v1",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5",
+      "original_runtime_article_id": 2,
+      "guide_expected_boundary": "insufficient_increment_without_http"
+    },
+    {
+      "id": "U03",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/ee5b0166cffc4bf68d25241518080776/c.html",
+      "title": "中国援巴巴多斯医疗队完成复杂冠脉介入手术",
+      "material_sha256": "d4a045b73c7fc801a64bbf44a5dd9f5a449fc1cfcb31a7c84221c396019f7033",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "李佳旭,谭慧婷",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "李佳旭,谭慧婷",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T05:14:00Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 05:14:00 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T05:18:55.558733+00:00",
+      "extractor_version": "r1-material-v1",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5",
+      "original_runtime_article_id": 3,
+      "guide_expected_boundary": "evidence_attribution_and_real_increment"
+    },
+    {
+      "id": "U04",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/1847a127cb5f4d9ba80063cd4185263b/c.html",
+      "title": "特朗普签署行政令豁免对俄多项制裁",
+      "material_sha256": "2ce95064f8670771390f8e45f042fd340e8f6e1c05a6a7cabe860a08758af6c8",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "刘亚南,徐静",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "刘亚南,徐静",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          },
+          {
+            "name": "刘亚南",
+            "role": "reporter",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "xinhua:visible-wire-byline"
+          },
+          {
+            "name": "徐静",
+            "role": "reporter",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "xinhua:visible-wire-byline"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T05:11:23Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 05:11:23 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T05:18:55.574051+00:00",
+      "extractor_version": "r1-material-v1",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5",
+      "original_runtime_article_id": 4,
+      "guide_expected_boundary": "evidence_attribution_and_real_increment"
+    },
+    {
+      "id": "U05",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/977f41c525714fc38b5de34c632a9046/c.html",
+      "title": "通讯｜守护沙海里的生命——中智合作保护“沙漠开花”生态",
+      "material_sha256": "647da285a1b143b12fd316e587c0a95bf1ba411def95b42a63e3aad727fd737c",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "朱雨博",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "朱雨博",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T05:00:29Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 05:00:29 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T05:18:55.704968+00:00",
+      "extractor_version": "r1-material-v1",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5",
+      "original_runtime_article_id": 5,
+      "guide_expected_boundary": "evidence_attribution_and_real_increment"
+    },
+    {
+      "id": "U06",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/8551faa5bf294a9db326b8ff50c4cc38/c.html",
+      "title": "青海果洛：高原秋意拂过雪山湖畔",
+      "material_sha256": "fe60e09bd612ffcf64a545a6d6b6f71a95d350b301e27ca5017a32146bbad753",
+      "scope": "media_description",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "李占轶",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "李占轶",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T04:55:52Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 04:55:52 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/202610178551faa5bf294a9db326b8ff50c4cc38_XxjfceC000030_20261017_CBVFN0A001.mp4",
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T05:18:55.726586+00:00",
+      "extractor_version": "r1-material-v1",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5",
+      "original_runtime_article_id": 6,
+      "guide_expected_boundary": "insufficient_increment_without_http"
+    },
+    {
+      "id": "U07",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/c148152f1f574fcfbc5442b5762f815c/c.html",
+      "title": "再走娄山关 感受长征精神",
+      "material_sha256": "84e27febc5870cac13fc49402b79df8453deeca008abaa018bb9179590019c14",
+      "scope": "media_description",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "危颖",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "危颖",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T04:54:56Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 04:54:56 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017c148152f1f574fcfbc5442b5762f815c_XxjfceC000041_20261017_CBVFN0A001.mp4",
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T05:18:55.935258+00:00",
+      "extractor_version": "r1-material-v1",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5",
+      "original_runtime_article_id": 7,
+      "guide_expected_boundary": "insufficient_increment_without_http"
+    },
+    {
+      "id": "U08",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/da5e21a6b18d4cf5bc76beb692e77493/c.html",
+      "title": "巴西亚马孙地区毁林面积降至38年最低",
+      "material_sha256": "a33b6fc0a23f0cbcef25e2393cdc5fb15e6e9152423c1b1aa19c540adfe22f57",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "杨舒怡",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "杨舒怡",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T04:53:34Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 04:53:34 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T05:18:55.949242+00:00",
+      "extractor_version": "r1-material-v1",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5",
+      "original_runtime_article_id": 8,
+      "guide_expected_boundary": "evidence_attribution_and_real_increment"
+    }
+  ],
+  "private_materials_sha256": "3aae1d7edd31ad4dc48f2274008001190995679ca6b1f033b541bc9ecbf1e3ef",
+  "previously_used_for_card_or_guide_tuning": false,
+  "user_quality_passed": null,
+  "source_g2_passed": false,
+  "notes": [
+    "Eight original runtime observations are novel to every prior frozen/debug set. They are not a new source window or production publication.",
+    "Four short preview/media inputs must decline guide creation without model calls; four longer open-text inputs retain the usability floor and critical evidence/attribution rules.",
+    "Preserve the original material-v1 capture, metadata, scope and actual time; no source capability upgrade is inferred."
+  ]
+}

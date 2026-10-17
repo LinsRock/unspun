@@ -19,7 +19,7 @@ from unspun.core.grounding import (
 from unspun.core.reading import chinese_text
 
 CARD_VERSION = "r1-card-v9"
-GUIDE_VERSION = "r1-guide-v4"
+GUIDE_VERSION = "r1-guide-v5"
 REVIEW_VERSION = "r1-content-review-v2"
 RULES_VERSION = "r1-content-rules-v1"
 MODEL_INPUT_CHARS = 12000

@@ -1,0 +1,40 @@
+{
+  "schema_version": "r1-heldout-transport-recovery-v1",
+  "registered_at": "2026-10-17T09:30:23.220457+00:00",
+  "original_first_run_sha256": "73d6e6ddc7a2ae03f7ed191619529445f1558867a1cbbedafd6f117822e349b6",
+  "first_run": {
+    "ready": 4,
+    "denominator": 6,
+    "technical_passed": false,
+    "network_errors": 2
+  },
+  "models_prompts_thresholds_or_frozen_materials_changed": false,
+  "transport": "Local SSH SOCKS connection using the existing VPS network; no production database/container/host-port changes. HTTPS remains end to end.",
+  "same_evaluation_database": "unspun_quality_r1_20261016",
+  "same_total_all_runs_usd": "1.00",
+  "all_prior_unknowns_and_holds_retained": true,
+  "maximum_new_physical_attempts_per_item": {
+    "generation": 1,
+    "review": 1
+  },
+  "stop_batch_on_error": true,
+  "T_not_used_for_rule_tuning": true,
+  "retries": [
+    {
+      "case": "T03",
+      "previous_request_id": "11d92ba4336740e08c40dca7fff1cce3",
+      "error": "RemoteProtocolError",
+      "reserved_usd": "0.028794000000",
+      "expected_generation_request_fingerprint": "dee04a117b7c135e142218f0176e2e609427b78910e2e5f871e6475b71c33abe",
+      "explicit_context_suffix": "transport-retry-1:11d92ba4336740e08c40dca7fff1cce3"
+    },
+    {
+      "case": "T05",
+      "previous_request_id": "ffefcd48948944c48a3da4a60f17fbb6",
+      "error": "RemoteProtocolError",
+      "reserved_usd": "0.028737000000",
+      "expected_generation_request_fingerprint": "38b07ba0e610568a562db5f1a434276d4519344b9aeb58be05e52dbaf46a96b8",
+      "explicit_context_suffix": "transport-retry-1:ffefcd48948944c48a3da4a60f17fbb6"
+    }
+  ]
+}
