@@ -106,7 +106,12 @@ def guide_state(session: Session, item: Item) -> dict[str, Any]:
         .limit(1)
     )
     source = next((s for s in load_sources() if s.id == item.article.source_id), None)
-    requestable = bool(source and source.r1 and source.r1.paid and source.discovery_owner == "r1")
+    requestable = bool(
+        source
+        and source.r1
+        and source.r1.allows_paid(item.content.scope)
+        and source.discovery_owner == "r1"
+    )
     payload = None
     status, reason = "not_requested", None
     if row:

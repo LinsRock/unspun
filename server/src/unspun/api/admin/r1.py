@@ -300,6 +300,8 @@ def source_states() -> dict[str, Any]:
                         key: getattr(source.r1, key)
                         for key in ("discovery", "material", "paid", "publish")
                     },
+                    "paid_material_scopes": source.r1.paid_scopes,
+                    "publication_material_scopes": source.r1.publish_scopes,
                     "runtime_initialized": state is not None,
                     "runtime_owner": state.owner if state else None,
                     "last_success_at": state.last_success_at if state else None,

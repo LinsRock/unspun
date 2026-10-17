@@ -601,6 +601,10 @@ class ContentHandler:
             raise Blocked("paid task requires an R1 content identity")
         with self.scope() as session:
             content = load_content(session, lease.article_id)
+            if not source.r1.allows_paid(content.scope):
+                raise DependencyPending(
+                    "paid_material_scope_disabled", datetime.now(UTC) + timedelta(hours=6)
+                )
             if processing_fingerprint(content, self.kind) != lease.input_fingerprint:
                 raise Blocked("content input changed before processing")
             row = derivation(

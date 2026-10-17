@@ -29,7 +29,7 @@ from unspun.core.tasks import Lease, enqueue
 from unspun.pipeline.feeds import FeedEntry, fetch_bytes, make_client, parse_feed
 
 DISCOVERY_VERSION = "r1-discovery-v1"
-MATERIAL_VERSION = "r1-material-v2"
+MATERIAL_VERSION = "r1-material-v3"
 
 
 def public_url(value: str) -> str:

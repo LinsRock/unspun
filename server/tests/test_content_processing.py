@@ -378,6 +378,56 @@ def test_committed_draft_survives_budget_deferral_and_restart(
 from tests.test_ingestion import ingestion_db as ingestion_db  # noqa: E402
 
 
+def test_scope_pause_makes_no_model_call_and_resumes_without_losing_task(
+    ingestion_db: Any, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from sqlalchemy import update
+
+    from unspun.core.task_models import PipelineTask
+    from unspun.pipeline.content_processing import ContentHandler, load_content
+    from unspun.pipeline.r1_worker import Handlers, process_one
+
+    source = ingestion_db.source(paid=True, paid_scopes=["preview"])
+    with ingestion_db.scope() as session:
+        content = persisted_content(session)
+        article = session.get(Article, content.article_id)
+        assert article
+        article.source_id = source.id
+        session.flush()
+        task_id = enqueue_processing(session, article.id)
+
+    def forbidden_client(**_: Any) -> Any:
+        pytest.fail("scope-paused work must not create a model client")
+
+    monkeypatch.setattr("unspun.pipeline.content_processing.LlmClient", forbidden_client)
+    sources = {source.id: source}
+    handler = ContentHandler(sources, scope=ingestion_db.scope)
+    handlers: Handlers = {("paid", "process_card"): handler}
+    assert process_one("paid", handlers, worker="paused", scope=ingestion_db.scope)
+    with ingestion_db.scope() as session:
+        task = session.get(PipelineTask, task_id)
+        assert task and task.status == "retry_wait" and task.failures == 0
+        assert task.last_error == "paid_material_scope_disabled"
+        assert not task.lease_until
+        refreshed = load_content(session, content.article_id)
+        with Session() as detached:
+            result = organize(detached, FakeClient(draft()), FakeClient(approval()), refreshed)
+        apply_processing(session, result)
+        session.execute(
+            update(PipelineTask)
+            .where(PipelineTask.id == task_id)
+            .values(due_at=NOW - timedelta(days=1))
+        )
+    assert source.r1
+    sources[source.id] = source.model_copy(
+        update={"r1": source.r1.model_copy(update={"paid_scopes": ("open_text_unit",)})}
+    )
+    assert process_one("paid", handlers, worker="resumed", scope=ingestion_db.scope)
+    with ingestion_db.scope() as session:
+        task = session.get(PipelineTask, task_id)
+        assert task and task.status == "completed" and task.failures == 0 and task.attempts == 2
+
+
 def test_review_selects_only_supported_claims_and_keeps_full_rejected_evidence() -> None:
     out = draft(reading_value=2)
     other = {

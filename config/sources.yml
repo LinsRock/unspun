@@ -40,6 +40,8 @@ sources:
     kind: public
     lang: en
     r1:
+      paid_scopes: []
+      publish_scopes: []
       discovery: false
       material: false
       paid: false
@@ -65,6 +67,8 @@ sources:
     kind: commercial
     lang: en
     r1:
+      paid_scopes: [preview]
+      publish_scopes: [preview]
       discovery: false
       material: false
       paid: false
@@ -127,6 +131,8 @@ sources:
     kind: commercial
     lang: en
     r1:
+      paid_scopes: [preview]
+      publish_scopes: [preview]
       discovery: false
       material: false
       paid: false
@@ -416,6 +422,8 @@ sources:
     kind: public
     lang: zh
     r1:
+      paid_scopes: [open_text_unit]
+      publish_scopes: [open_text_unit]
       discovery: false
       material: false
       paid: false
@@ -441,6 +449,8 @@ sources:
     kind: commercial
     lang: zh
     r1:
+      paid_scopes: []
+      publish_scopes: []
       discovery: false
       material: false
       paid: false
@@ -500,6 +510,8 @@ sources:
     kind: commercial
     lang: zh
     r1:
+      paid_scopes: [open_text_unit]
+      publish_scopes: [open_text_unit]
       discovery: false
       material: false
       paid: false
@@ -522,6 +534,8 @@ sources:
     kind: commercial
     lang: zh
     r1:
+      paid_scopes: [complete_brief]
+      publish_scopes: [complete_brief]
       discovery: false
       material: false
       paid: false
@@ -545,6 +559,8 @@ sources:
     kind: state
     lang: zh
     r1:
+      paid_scopes: []
+      publish_scopes: []
       discovery: false
       material: false
       paid: false
@@ -619,6 +635,8 @@ sources:
     kind: community
     lang: zh
     r1:
+      paid_scopes: [question_background]
+      publish_scopes: [question_background]
       discovery: false
       material: false
       paid: false
@@ -641,6 +659,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: [editorial_edition]
+      publish_scopes: [editorial_edition]
       adapter: zhihu_daily
       material_scope: editorial_edition
       platform: zhihu-daily
@@ -657,6 +677,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: [editorial_edition]
+      publish_scopes: [editorial_edition]
       adapter: people_daily
       material_scope: editorial_edition
       platform: people
@@ -674,6 +696,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: [open_text_unit]
+      publish_scopes: [open_text_unit]
       platform: zaobao
       publisher: Lianhe Zaobao
       origin_hosts: [zaobao.com, zaobao.com.sg]
@@ -689,6 +713,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: []
+      publish_scopes: []
       platform: bjnews
       publisher: The Beijing News
       origin_hosts: [bjnews.com.cn]
@@ -703,6 +729,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: [open_text_unit]
+      publish_scopes: [open_text_unit]
       platform: douban
       publisher: Douban
       origin_hosts: [book.douban.com, sec.douban.com]
@@ -717,6 +745,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: []
+      publish_scopes: []
       platform: douban
       publisher: Douban
       material_scope: preview
@@ -733,6 +763,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: []
+      publish_scopes: []
       platform: fortunechina
       publisher: Fortune China
       origin_hosts: [fortunechina.com]
@@ -748,6 +780,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: []
+      publish_scopes: []
       platform: fortunechina
       publisher: Fortune China
       origin_hosts: [fortunechina.com]
@@ -763,6 +797,8 @@ sources:
     legacy_enabled: false
     discovery_owner: r1
     r1:
+      paid_scopes: []
+      publish_scopes: []
       platform: infzm
       publisher: Southern Weekly
       material_scope: preview
