@@ -1,0 +1,357 @@
+{
+  "schema_version": "r1-post-debug-holdout-v2",
+  "frozen_at": "2026-10-16T09:28:16.238406+00:00",
+  "reviewer_kind": "ai-technical",
+  "reason": "The first holdout was evaluated once. Retain those results and retire it before the final genre/attribution and recovery fixes; this new input set is never used for tuning. Critical thresholds and the 80% readiness floor are unchanged.",
+  "original_suite": "technical-suite-v1.json",
+  "private_materials_sha256": "d6d4ec0fbeb8ed48109a77cc7b11d094109e9126c5031a1e2f2bdc60627ae87e",
+  "inputs": [
+    {
+      "id": "N01",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261016/98bdeee0b9d1466781cb55bbcabd9a54/c.html",
+      "title": "记者手记：AI成为文化和科技融合发展关键助力",
+      "material_sha256": "676571535d71ff8ab04fbf833563d90fc6eb57e24db34dff56f53dd763808eb7",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "常竣斐",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "常竣斐",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T09:15:15Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 09:15:15 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-16"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T09:15:15+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T09:28:08.982996+00:00",
+      "response_sha256": "1577e04f547e202a37e005ccc53813dea5205b2404eb496be861c6ac70bf50fd",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v2",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "N02",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261016/181bdcf0c1184d958d079cd675903c54/c.html",
+      "title": "胡航：创新工作方法保障三峡船闸安全稳定高效运行",
+      "material_sha256": "a9c371ddba41b49a329bd3d8cb7b3742406b584e070de26665fa1f0b68e51f1e",
+      "scope": "media_description",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "赵文轩",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "赵文轩",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T08:47:51Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 08:47:51 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-16"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261016/20261016181bdcf0c1184d958d079cd675903c54_XxjfceC000128_20261016_CBVFN0A001.mp4",
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T08:47:51+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T09:28:09.724455+00:00",
+      "response_sha256": "71f69ca6b7a8f31181756997eea880d80647312e0ffdca1697bd0cfc2845582f",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v2",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": true
+      }
+    },
+    {
+      "id": "N03",
+      "source_id": "zhihu-daily",
+      "url": "https://daily.zhihu.com/story/9793275",
+      "title": "历史上谁曾经成功潜入过皇宫？",
+      "material_sha256": "47d8f89c3fdec0269c806155bc2b5d72aaec5621448293128aab12ca2b186048",
+      "scope": "editorial_edition",
+      "genre": "editorial_edition",
+      "publisher": "Zhihu Daily",
+      "author": "赵学浩",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": "editorial_edition",
+        "platform": "zhihu-daily",
+        "publisher": "Zhihu Daily",
+        "authors": [
+          {
+            "name": "赵学浩",
+            "role": "author",
+            "platform": "zhihu-daily",
+            "platform_id": null,
+            "basis": "page:zhihu-daily:body-author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "editorial",
+            "precision": "time",
+            "at": "2026-10-15T23:01:00Z",
+            "on": null,
+            "basis": "zhihu-daily:detail:publish_time",
+            "raw": "1792105260"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "editorial",
+        "value": "2026-10-15T23:01:00+00:00",
+        "basis": "zhihu-daily:detail:publish_time"
+      },
+      "observed_at": "2026-10-16T09:28:10.233798+00:00",
+      "response_sha256": "c1d5726053c2eba3628fde5547c8ee89729a51006545ed5b237138d2a2339a31",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v2",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "N04",
+      "source_id": "infzm-news",
+      "url": "https://www.infzm.com/contents/342735",
+      "title": "休学，那是城市才有的概念 | 记者手记",
+      "material_sha256": "dc4eb7889a92f85c38c6cf4338e02a16115f8a56b538f8a9c05dd8341d9e0097",
+      "scope": "preview",
+      "genre": "unknown",
+      "publisher": "Southern Weekly",
+      "author": "陈佳慧",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "infzm",
+        "publisher": "Southern Weekly",
+        "authors": [
+          {
+            "name": "陈佳慧",
+            "role": "reporter",
+            "platform": "infzm",
+            "platform_id": null,
+            "basis": "feed:explicit-byline-role:记者"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T07:15:53Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 07:15:53 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T07:15:53+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T09:28:14.752540+00:00",
+      "response_sha256": "77d5ad23eac10ad36c80d313d3541a0b7a867ce3f8f25da954ebf95c6b15d8a3",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v2",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "N05",
+      "source_id": "zhihu-hot",
+      "url": "https://www.zhihu.com/question/2094414413922918526",
+      "title": "如何看待首批百余名 AI 学者发起学生「慢科研」联合倡议，并承诺不以论文数量选拔学生？",
+      "material_sha256": "fc052d393c4ca0d8fe9271bea0ff90e00cc1ff0e44a3a9a733f90090bcfcbc56",
+      "scope": "question_background",
+      "genre": "unknown",
+      "publisher": "Zhihu",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "question",
+        "genre": null,
+        "platform": "zhihu",
+        "publisher": "Zhihu",
+        "authors": [],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T05:08:28Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 05:08:28 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T05:08:28+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T09:28:15.226923+00:00",
+      "response_sha256": "85f6b1062cb140027d71cb623ffef64873f7f0f4d57a9a5838643bd22c9a2b40",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v2",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": true
+      }
+    },
+    {
+      "id": "N06",
+      "source_id": "36kr-newsflashes",
+      "url": "https://www.36kr.com/newsflashes/4028347073942147",
+      "title": "阿里云回应虚拟数字人产品退市：属于战略调整、产品迭代的正常下架",
+      "material_sha256": "3fdd187a302831d45fd22e584231d5bc4c4c9bf1e29183a295eebf947c58e726",
+      "scope": "complete_brief",
+      "genre": "unknown",
+      "publisher": "36Kr",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "post",
+        "genre": null,
+        "platform": "36kr",
+        "publisher": "36Kr",
+        "authors": [],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T09:26:33Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 09:26:33 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T09:26:33+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T09:28:16.237793+00:00",
+      "response_sha256": "a63eeccabbfffc0839f160bd71590ece85d16b8aaa8ced4dac4383cac79955b6",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v2",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    }
+  ],
+  "code_sha256_before_evaluation": {
+    "src/unspun/core/content_reading.py": "12ee1522c369eb2c32f976ace0679d30487f094dfa9f400804e89c0128b3edf8",
+    "src/unspun/pipeline/content_processing.py": "be0f1fb9f59172b518fdd937d7a9ad1f7a985bec4bf6910a7b44f5484edfcc15"
+  },
+  "user_quality_passed": null
+}

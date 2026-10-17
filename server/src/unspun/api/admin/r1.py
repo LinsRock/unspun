@@ -3,7 +3,7 @@
 from typing import Any, Literal
 
 from fastapi import APIRouter, HTTPException, Query
-from sqlalchemy import select
+from sqlalchemy import func, select
 
 from unspun.core.db import session_scope
 from unspun.core.models import Article, ContentDerivation, ContentMaterial, ContentObservation
@@ -28,11 +28,22 @@ def tasks(
         if article_id:
             query = query.where(PipelineTask.article_id == article_id)
         rows = list(session.scalars(query.order_by(PipelineTask.id.desc()).limit(limit)))
+        recent_attempts = (
+            select(
+                TaskAttempt.id,
+                func.row_number()
+                .over(partition_by=TaskAttempt.task_id, order_by=TaskAttempt.id.desc())
+                .label("position"),
+            )
+            .where(TaskAttempt.task_id.in_([r.id for r in rows]))
+            .subquery()
+        )
         attempts = (
             list(
                 session.scalars(
                     select(TaskAttempt)
-                    .where(TaskAttempt.task_id.in_([r.id for r in rows]))
+                    .join(recent_attempts, recent_attempts.c.id == TaskAttempt.id)
+                    .where(recent_attempts.c.position <= 5)
                     .order_by(TaskAttempt.id)
                 )
             )
@@ -57,6 +68,7 @@ def tasks(
                     "lease_until": r.lease_until,
                     "last_error": r.last_error,
                     "result": r.result,
+                    "attempt_record_limit": 5,
                     "attempt_records": [
                         {
                             "id": a.id,
@@ -85,11 +97,25 @@ def contents(
         if source_id:
             query = query.where(Article.source_id == source_id)
         rows = list(session.scalars(query.order_by(Article.id.desc()).limit(limit)))
+        latest = (
+            select(
+                ContentDerivation.id,
+                func.row_number()
+                .over(
+                    partition_by=(ContentDerivation.article_id, ContentDerivation.kind),
+                    order_by=ContentDerivation.id.desc(),
+                )
+                .label("position"),
+            )
+            .where(ContentDerivation.article_id.in_([r.id for r in rows]))
+            .subquery()
+        )
         versions = (
             list(
                 session.scalars(
                     select(ContentDerivation)
-                    .where(ContentDerivation.article_id.in_([r.id for r in rows]))
+                    .join(latest, latest.c.id == ContentDerivation.id)
+                    .where(latest.c.position == 1)
                     .order_by(ContentDerivation.id.desc())
                 )
             )
@@ -106,6 +132,7 @@ def contents(
                     "current_material_id": r.current_material_id,
                     "metadata_fingerprint": r.metadata_fingerprint,
                     "metadata": r.r1_metadata,
+                    "derivation_scope": "latest_per_kind",
                     "derivations": [
                         {
                             "id": v.id,
@@ -142,6 +169,7 @@ def content_details(article_id: int) -> dict[str, Any]:
                 select(ContentMaterial)
                 .where(ContentMaterial.article_id == article_id)
                 .order_by(ContentMaterial.id.desc())
+                .limit(20)
             )
         )
         observations = list(
@@ -157,6 +185,7 @@ def content_details(article_id: int) -> dict[str, Any]:
                 select(ContentDerivation)
                 .where(ContentDerivation.article_id == article_id)
                 .order_by(ContentDerivation.id.desc())
+                .limit(100)
             )
         )
         return {

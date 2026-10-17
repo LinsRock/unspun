@@ -1,0 +1,364 @@
+{
+  "schema_version": "r1-post-debug-holdout-v5",
+  "frozen_at": "2026-10-16T10:23:28.773255+00:00",
+  "reviewer_kind": "ai-technical",
+  "reason": "H01-H06 and N01-N06 are retired to regression. N04 lost hearsay qualifiers and P02 borrowed title evidence for credits-only material, both despite model approval. Deterministic qualifier and body-only evidence fences were added without weakening thresholds. P01-P06 are also retired. Insufficient credits-only material is not a sufficient-media sample. These six new identities are frozen before first evaluation and never used for tuning. Critical thresholds and the 80% readiness floor are unchanged.",
+  "original_suite": "technical-suite-v1.json",
+  "private_materials_sha256": "b4e11b39ecee02e668b8d5ab27488f54c01cd01a365fec89299df7bdc90ad574",
+  "inputs": [
+    {
+      "id": "Q01",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261016/b94d853ca5644712b6391923766317c4/c.html",
+      "title": "国际观察丨“昆蒙框架”履约滞后 COP17如何“开药方”",
+      "material_sha256": "162bb8235388532d6b40b583cfcb361e08a752310ed9dd57c9797e2243a7bdc0",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "郭爽,钟忠",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "郭爽,钟忠",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T10:11:52Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 10:11:52 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-16"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T10:11:52+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T10:23:27.930048+00:00",
+      "response_sha256": "e0dc3d2b5ef4bcd07b4bb9c7482577c2a87d38d58fcd3031b6c933f6c6c75dc6",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v5",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "Q02",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261016/f6cc7a2efc574caaaa82f5eca37adc3d/c.html",
+      "title": "葡萄熟了 上慢火车 赶巴扎去",
+      "material_sha256": "c272b68c55b7fbe2d44430bdb1a72f99c9e9a0ab1aa1afbf3dde4ed0e15bc9e7",
+      "scope": "media_description",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "郭燕,郝玉,马锴",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "郭燕,郝玉,马锴",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T10:09:36Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 10:09:36 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-16"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261016/20261016f6cc7a2efc574caaaa82f5eca37adc3d_XxjfceC000074_20261016_CBVFN0A001.mp4",
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T10:09:36+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T10:23:28.248607+00:00",
+      "response_sha256": "1a5b14feb900eb9cedb1ad0566abfecc5c956a21b5a45c3e376f5701c42d45bf",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v5",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": true
+      }
+    },
+    {
+      "id": "Q03",
+      "source_id": "zhihu-daily",
+      "url": "https://daily.zhihu.com/story/9793285",
+      "title": "瞎扯 · 如何正确地吐槽",
+      "material_sha256": "c260f1d545a147bd421def02b33efb615bf70f3f0f37fa925a0942a6a6c575c1",
+      "scope": "editorial_edition",
+      "genre": "editorial_edition",
+      "publisher": "Zhihu Daily",
+      "author": "知乎日报",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": "editorial_edition",
+        "platform": "zhihu-daily",
+        "publisher": "Zhihu Daily",
+        "authors": [
+          {
+            "name": "知乎日报",
+            "role": "author",
+            "platform": "zhihu-daily",
+            "platform_id": null,
+            "basis": "page:zhihu-daily:body-author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261016"
+          }
+        ],
+        "original_url": "https://www.zhihu.com/question/318545387/answer/2081764592968000389",
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": "zhihu-daily:body:answer-link"
+      },
+      "publication": {
+        "kind": "editorial",
+        "value": "2026-10-16",
+        "basis": "zhihu-daily:list:date"
+      },
+      "observed_at": "2026-10-16T10:23:28.700456+00:00",
+      "response_sha256": "115b6bd44a078faf014254b96d84029172a8f021e8a56c3e279d3fb008b59ac4",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v5",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "Q04",
+      "source_id": "infzm-news",
+      "url": "https://www.infzm.com/contents/342733",
+      "title": "走出休学阴影：练习和解的父母与孩子丨休学之后",
+      "material_sha256": "34c3abd813a278cd73134b4d1beb9d98f4b3c625df41946ca4fa82c714a0a467",
+      "scope": "preview",
+      "genre": "unknown",
+      "publisher": "南方周末",
+      "author": "陈佳慧",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "infzm",
+        "publisher": "南方周末",
+        "authors": [
+          {
+            "name": "陈佳慧",
+            "role": "reporter",
+            "platform": "infzm",
+            "platform_id": null,
+            "basis": "feed:explicit-byline-role:记者"
+          },
+          {
+            "name": "邬谨涵",
+            "role": "unknown",
+            "platform": "infzm",
+            "platform_id": null,
+            "basis": "feed:explicit-byline-role:实习生"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T07:00:00Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 07:00:00 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T07:00:00+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T10:23:28.737392+00:00",
+      "response_sha256": "d9a7e32b456f131dacf0124086fedff5ecf9aae72405acba141f2265a028e14a",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v5",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "Q05",
+      "source_id": "zhihu-hot",
+      "url": "https://www.zhihu.com/question/2094360204083315679",
+      "title": "全球智能手机出货量第三季度同比降 22% ，创有纪录以来最大降幅，背后是什么原因？",
+      "material_sha256": "c7bc56eee4ae4fcbc6b159ceda5be7a75b0e52d3f4724910e95dbb9b0d16ce03",
+      "scope": "question_background",
+      "genre": "unknown",
+      "publisher": "Zhihu",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "question",
+        "genre": null,
+        "platform": "zhihu",
+        "publisher": "Zhihu",
+        "authors": [],
+        "times": [
+          {
+            "kind": "question_created",
+            "precision": "time",
+            "at": "2026-10-16T01:33:03Z",
+            "on": null,
+            "basis": "rsshub:zhihu-hot:target.created",
+            "raw": "Fri, 16 Oct 2026 01:33:03 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "question_created",
+        "value": "2026-10-16T01:33:03+00:00",
+        "basis": "rsshub:zhihu-hot:target.created"
+      },
+      "observed_at": "2026-10-16T10:23:28.761693+00:00",
+      "response_sha256": "cdd5a7a811c439a82aaebaadae5d850e6b0bbbe38302e20a210ecb920764ca88",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v5",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": true
+      }
+    },
+    {
+      "id": "Q06",
+      "source_id": "36kr-newsflashes",
+      "url": "https://www.36kr.com/newsflashes/4028395891774080",
+      "title": "机构今日买入瑞芯微等17股，抛售药明康德5.95亿元",
+      "material_sha256": "371723c076b305dc7e8af80d5f2312e56c946d654111e41d2056a22ffcf77f69",
+      "scope": "complete_brief",
+      "genre": "unknown",
+      "publisher": "36Kr",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "post",
+        "genre": null,
+        "platform": "36kr",
+        "publisher": "36Kr",
+        "authors": [],
+        "times": [
+          {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-16T10:16:12Z",
+            "on": null,
+            "basis": "rsshub:36kr:templateMaterial.publishTime",
+            "raw": "Fri, 16 Oct 2026 10:16:12 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "original",
+        "value": "2026-10-16T10:16:12+00:00",
+        "basis": "rsshub:36kr:templateMaterial.publishTime"
+      },
+      "observed_at": "2026-10-16T10:23:28.772597+00:00",
+      "response_sha256": "00b0cce376d6be6f595e5add4ab3c9cdf6747a3687aa7bf7773b6da4ae90917c",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v5",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    }
+  ],
+  "code_sha256_before_evaluation": {
+    "src/unspun/core/content_reading.py": "657ff5ea472dcb5a2fd2caadeeebebee0431ee92e28ccf9c8e46ae8e5cd7d355",
+    "src/unspun/pipeline/content_processing.py": "4603d8249c158e06253016c94a0592941f5b2bbb626be6a2eb87b1deaeabe905"
+  },
+  "user_quality_passed": null
+}

@@ -623,3 +623,16 @@ def test_credits_only_media_cannot_borrow_title_as_body_evidence() -> None:
     with Session() as session:
         result = organize(session, FakeClient(out), review, content, now=NOW)
     assert result.status == "failed" and review.calls == 0
+
+
+def test_chinese_publication_uses_reviewed_body_excerpt_not_added_paraphrase() -> None:
+    content = input_content()
+    out = draft()
+    out["claims"][0]["text"] = (
+        "\u7814\u7a76\u8005\u5df2\u7ecf\u8bc1\u660e\u7ed3\u679c\u5b8c\u5168\u53ef\u9760\u3002"
+    )
+    with Session() as session:
+        result = organize(session, FakeClient(out), FakeClient(approval()), content, now=NOW)
+    assert result.status == "ready"
+    assert result.payload["claims"][0]["text"].endswith(TEXT)
+    assert result.review["generation_output"]["claims"][0]["text"] != TEXT

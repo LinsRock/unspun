@@ -1,0 +1,11 @@
+{
+  "schema_version": "r1-holdout-collection-rejections-v1",
+  "attempts": [
+    {
+      "path": "post-debug-holdout-v2.json",
+      "sha256": "9ace17bfce009ebd5d0cc7c1ae93bab9c7c669b0733e1c2e73181618400ca2bb",
+      "status": "invalid_not_used_for_generation",
+      "reason": "N03 matched retired H03 by underlying Daily story ID despite a different API/page URL. Corrected the identity check; the successful collection is post-debug-holdout-v3.json. Original records and private materials remain intact."
+    }
+  ]
+}

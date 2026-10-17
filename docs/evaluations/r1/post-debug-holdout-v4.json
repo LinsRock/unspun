@@ -1,0 +1,385 @@
+{
+  "schema_version": "r1-post-debug-holdout-v4",
+  "frozen_at": "2026-10-16T10:20:48.772194+00:00",
+  "reviewer_kind": "ai-technical",
+  "reason": "H01-H06 and N01-N06 are retired to regression. N04 lost hearsay qualifiers despite model approval. A deterministic qualifier fence was added without weakening thresholds. These six new identities are frozen before first evaluation and never used for tuning. Critical thresholds and the 80% readiness floor are unchanged.",
+  "original_suite": "technical-suite-v1.json",
+  "private_materials_sha256": "aa27895c7f5bfab0a0e7edf06ec97a10c865c098fb757a88ec6870e44cb04db6",
+  "inputs": [
+    {
+      "id": "P01",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261016/9c6e89cf14494b93b62a26b1cd911b16/c.html",
+      "title": "王毅会见巴勒斯坦外长法尔辛",
+      "material_sha256": "664e520d79e14e986059c0b90d4d5db64aff921136926723d9e2a0543f9aee3f",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "国际部,周良,刘书辰",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "国际部,周良,刘书辰",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          },
+          {
+            "name": "周良",
+            "role": "reporter",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "xinhua:visible-wire-byline"
+          },
+          {
+            "name": "刘书辰",
+            "role": "reporter",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "xinhua:visible-wire-byline"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T10:18:58Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 10:18:58 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-16"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T10:18:58+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T10:20:46.361064+00:00",
+      "response_sha256": "be724f93c9e1a72564044b73cd7dabc6f86b18cbdbbd0e55453188b8f9dacc00",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v4",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "P02",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261016/4ff8449415d94d75a9f97074caccc888/c.html",
+      "title": "新华社消息丨习近平在内蒙古乌兰察布考察时强调 统筹高质量发展和高水平保护 坚定不移走生态优先绿色发展之路",
+      "material_sha256": "e2dec2e9c3e5d1eb67d07208d19a184657ecb580076ae39d1fb8552d95e9bf3e",
+      "scope": "media_description",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "姜赛,田里",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "姜赛,田里",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T10:19:40Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 10:19:40 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-16"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261016/202610164ff8449415d94d75a9f97074caccc888_XxjfceC000142_20261016_CBVFN0A001.mp4",
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T10:19:40+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T10:20:46.578815+00:00",
+      "response_sha256": "04e3c42540f9998d85e332f59773439c66e08a3b791ad7cedd9695bb542825fa",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v4",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": true
+      }
+    },
+    {
+      "id": "P03",
+      "source_id": "zhihu-daily",
+      "url": "https://daily.zhihu.com/story/9793282",
+      "title": "「国之大者，在祀与戎」，为什么祭祀能和战争并列成为国家大事？",
+      "material_sha256": "2993d1f20c77327cd8508a45d23ec8ed93683a2d4777575fc9067fd8148b58e4",
+      "scope": "editorial_edition",
+      "genre": "editorial_edition",
+      "publisher": "Zhihu Daily",
+      "author": "冯素文",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": "editorial_edition",
+        "platform": "zhihu-daily",
+        "publisher": "Zhihu Daily",
+        "authors": [
+          {
+            "name": "冯素文",
+            "role": "author",
+            "platform": "zhihu-daily",
+            "platform_id": null,
+            "basis": "page:zhihu-daily:body-author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261016"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "editorial",
+        "value": "2026-10-16",
+        "basis": "zhihu-daily:list:date"
+      },
+      "observed_at": "2026-10-16T10:20:47.104880+00:00",
+      "response_sha256": "b4ee1b44953d0f093724026d8333566a0caf560198bbe7c32a5317bcb9d9c317",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v4",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "P04",
+      "source_id": "infzm-news",
+      "url": "https://www.infzm.com/contents/342740",
+      "title": "“低暴力、快节奏”：7个月9宗，香港金店的“快闪式”遭窃",
+      "material_sha256": "3402c1051e6ae8c091e16dec61029ea75ddb407504ad70c4d47e604235d8c3b9",
+      "scope": "preview",
+      "genre": "unknown",
+      "publisher": "南方周末",
+      "author": "王瑭琳",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "infzm",
+        "publisher": "南方周末",
+        "authors": [
+          {
+            "name": "王瑭琳",
+            "role": "reporter",
+            "platform": "infzm",
+            "platform_id": null,
+            "basis": "feed:explicit-byline-role:记者"
+          },
+          {
+            "name": "蒋斯淇",
+            "role": "unknown",
+            "platform": "infzm",
+            "platform_id": null,
+            "basis": "feed:explicit-byline-role:实习生"
+          },
+          {
+            "name": "李宝怡",
+            "role": "unknown",
+            "platform": "infzm",
+            "platform_id": null,
+            "basis": "feed:explicit-byline-role:实习生"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T07:09:45Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 07:09:45 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T07:09:45+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T10:20:47.400916+00:00",
+      "response_sha256": "d9a7e32b456f131dacf0124086fedff5ecf9aae72405acba141f2265a028e14a",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v4",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "P05",
+      "source_id": "zhihu-hot",
+      "url": "https://www.zhihu.com/question/2094365742414283664",
+      "title": "四川雷波县学生分低教师拍照事件最新调查结果公布，县长被调离，如何看待该处罚结果？还有哪些信息值得关注？",
+      "material_sha256": "f3be3c7ce6f0aaa7905eddfa92983cf174af62b9cbe943c6e14e42d60cbc8de1",
+      "scope": "question_background",
+      "genre": "unknown",
+      "publisher": "Zhihu",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "question",
+        "genre": null,
+        "platform": "zhihu",
+        "publisher": "Zhihu",
+        "authors": [],
+        "times": [
+          {
+            "kind": "question_created",
+            "precision": "time",
+            "at": "2026-10-16T01:55:04Z",
+            "on": null,
+            "basis": "rsshub:zhihu-hot:target.created",
+            "raw": "Fri, 16 Oct 2026 01:55:04 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "question_created",
+        "value": "2026-10-16T01:55:04+00:00",
+        "basis": "rsshub:zhihu-hot:target.created"
+      },
+      "observed_at": "2026-10-16T10:20:47.964486+00:00",
+      "response_sha256": "cdd5a7a811c439a82aaebaadae5d850e6b0bbbe38302e20a210ecb920764ca88",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v4",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": true
+      }
+    },
+    {
+      "id": "P06",
+      "source_id": "36kr-newsflashes",
+      "url": "https://www.36kr.com/newsflashes/4028397514216065",
+      "title": "从传感器到触觉生态，一目科技代表Physical AI入选2026 AI Cloud 100 China",
+      "material_sha256": "af377f433d46ca279922250e1fee2222ea5c21fac3c54fa4bf775d6b4bce13eb",
+      "scope": "complete_brief",
+      "genre": "unknown",
+      "publisher": "36Kr",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "post",
+        "genre": null,
+        "platform": "36kr",
+        "publisher": "36Kr",
+        "authors": [],
+        "times": [
+          {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-16T10:17:51Z",
+            "on": null,
+            "basis": "rsshub:36kr:templateMaterial.publishTime",
+            "raw": "Fri, 16 Oct 2026 10:17:51 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "original",
+        "value": "2026-10-16T10:17:51+00:00",
+        "basis": "rsshub:36kr:templateMaterial.publishTime"
+      },
+      "observed_at": "2026-10-16T10:20:48.771608+00:00",
+      "response_sha256": "00b0cce376d6be6f595e5add4ab3c9cdf6747a3687aa7bf7773b6da4ae90917c",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v4",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    }
+  ],
+  "code_sha256_before_evaluation": {
+    "src/unspun/core/content_reading.py": "328d0036489ae3538754f86dd5dfd6fa559d210d21dac7f91565f30ce61f1036",
+    "src/unspun/pipeline/content_processing.py": "819be42a2ac3a9a270794011bd59d2cbd838ebfecd74616253ecb4cc295bb209"
+  },
+  "user_quality_passed": null
+}

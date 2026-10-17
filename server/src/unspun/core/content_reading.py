@@ -18,8 +18,8 @@ from unspun.core.grounding import (
 )
 from unspun.core.reading import chinese_text
 
-CARD_VERSION = "r1-card-v7"
-GUIDE_VERSION = "r1-guide-v3"
+CARD_VERSION = "r1-card-v8"
+GUIDE_VERSION = "r1-guide-v4"
 REVIEW_VERSION = "r1-content-review-v2"
 RULES_VERSION = "r1-content-rules-v1"
 MODEL_INPUT_CHARS = 12000
@@ -150,7 +150,14 @@ def claim_valid(claim: EvidenceClaim, source: str, scope: MaterialScope) -> bool
     if scope == "media_description" and claim.voice != "description":
         return False
     # A source frame does not preserve uncertainty inside the assertion.
-    uncertainty = ("\u542c\u8bf4", "\u636e\u8bf4", "\u597d\u50cf", "\u4f3c\u4e4e")
+    uncertainty = (
+        "\u542c\u8bf4",
+        "\u636e\u8bf4",
+        "\u597d\u50cf",
+        "\u4f3c\u4e4e",
+        "\u770b\u8d77\u6765",
+        "\u4eff\u4f5b",
+    )
     if any(word in claim.quote for word in uncertainty) and not any(
         word in claim.text for word in uncertainty
     ):
@@ -213,6 +220,11 @@ def declared_genre(metadata: ContentMetadata) -> Genre | None:
 
 def attributed_claim(claim: EvidenceClaim, content: ContentInput, genre: str) -> EvidenceClaim:
     """Attach the known source boundary; never add a factual assertion."""
+    # For Chinese materials publish the reviewed verbatim passage itself.
+    # Keep the model paraphrase in generation_output for audit. This prevents
+    # an approved but over-specific paraphrase from adding facts to a card.
+    if chinese_text(claim.quote):
+        claim = claim.model_copy(update={"text": claim.quote})
     if content.scope == "media_description":
         return claim.model_copy(
             update={

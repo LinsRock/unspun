@@ -334,7 +334,11 @@ def organize(
     )
     if checkpoint is not None:
         checkpoint(out)
-    normalization: dict[str, Any] = {"generation_output": out, "dropped_claims": []}
+    normalization: dict[str, Any] = {
+        "generation_output": out,
+        "dropped_claims": [],
+        "chinese_publication_projection": "reviewed_verbatim_body_quote",
+    }
     if kind == "card":
         parsed = CardDraft.model_validate(out)
         genre = declared_genre(content.metadata) or parsed.genre
@@ -617,15 +621,6 @@ class ContentHandler:
                     row.review_evidence,
                 )
             draft = (row.payload or {}).get("draft")
-            card_row = session.scalar(
-                select(ContentDerivation).where(
-                    ContentDerivation.article_id == content.article_id,
-                    ContentDerivation.kind == "card",
-                    ContentDerivation.material_id == content.material_id,
-                    ContentDerivation.input_fingerprint == processing_fingerprint(content, "card"),
-                )
-            )
-            card = card_row.payload if card_row and card_row.status == "ready" else None
             card_task = session.scalar(
                 select(PipelineTask)
                 .where(
@@ -636,6 +631,15 @@ class ContentHandler:
                 .order_by(PipelineTask.id.desc())
                 .limit(1)
             )
+            card_row = session.scalar(
+                select(ContentDerivation).where(
+                    ContentDerivation.article_id == content.article_id,
+                    ContentDerivation.kind == "card",
+                    ContentDerivation.material_id == content.material_id,
+                    ContentDerivation.input_fingerprint == processing_fingerprint(content, "card"),
+                )
+            )
+            card = card_row.payload if card_row and card_row.status == "ready" else None
             terminal_card = (card_row is not None and card_row.status == "rejected") or (
                 card_task is not None and card_task.status in {"failed", "blocked", "completed"}
             )
