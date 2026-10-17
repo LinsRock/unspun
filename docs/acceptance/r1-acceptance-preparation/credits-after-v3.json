@@ -1,0 +1,78 @@
+{
+  "target_image": "ghcr.io/linsrock/unspun-server:75c03745dd778852a14d4013a04e7d0e3bbd1688",
+  "new_paid_requests": 0,
+  "database_configured": false,
+  "results": [
+    {
+      "identity": "news-20261016e2380c01a116427fbb789260d2729f2e",
+      "url": "http://www.news.cn/20261016/e2380c01a116427fbb789260d2729f2e/c.html",
+      "material_version": "r1-material-v3",
+      "scope": "none",
+      "access_status": "unavailable",
+      "characters": 0,
+      "credits_preserved": true,
+      "response_sha256": "687d666d0030ef35e7a14ef2eef27612856317a276c894f2d16d776dbf895521"
+    },
+    {
+      "identity": "news-202610164ff8449415d94d75a9f97074caccc888",
+      "url": "http://www.news.cn/20261016/4ff8449415d94d75a9f97074caccc888/c.html",
+      "material_version": "r1-material-v3",
+      "scope": "none",
+      "access_status": "unavailable",
+      "characters": 0,
+      "credits_preserved": true,
+      "response_sha256": "04e3c42540f9998d85e332f59773439c66e08a3b791ad7cedd9695bb542825fa"
+    },
+    {
+      "identity": "news-20261016e64e234c592e43c689d65b80994222bd",
+      "url": "http://www.news.cn/20261016/e64e234c592e43c689d65b80994222bd/c.html",
+      "material_version": "r1-material-v3",
+      "scope": "none",
+      "access_status": "unavailable",
+      "characters": 0,
+      "credits_preserved": true,
+      "response_sha256": "74d0b2acfdbdf926968cc84b2e28c8f294929ac9e6108a856efe80c9e84df27f"
+    },
+    {
+      "identity": "news-2026101669ef428dbc524e8398f6d7902b84d217",
+      "url": "http://www.news.cn/20261016/69ef428dbc524e8398f6d7902b84d217/c.html",
+      "material_version": "r1-material-v3",
+      "scope": "none",
+      "access_status": "unavailable",
+      "characters": 0,
+      "credits_preserved": true,
+      "response_sha256": "4e162169ec9981b4b6c9a17666872730c92778f8f046fefdb0dfce0746abf360"
+    },
+    {
+      "identity": "news-20261016fa3daf8f94014e90bdd0ee5180300ae4",
+      "url": "http://www.news.cn/20261016/fa3daf8f94014e90bdd0ee5180300ae4/c.html",
+      "material_version": "r1-material-v3",
+      "scope": "none",
+      "access_status": "unavailable",
+      "characters": 0,
+      "credits_preserved": true,
+      "response_sha256": "c6f999030c5f5ea9e2ec88b18eeef2eaf1957fe2833219542f6dfe105a8a4c4a"
+    },
+    {
+      "identity": "news-202610168cb0bab9fb7f4bbdb1f5aea828bf87cd",
+      "url": "http://www.news.cn/20261016/8cb0bab9fb7f4bbdb1f5aea828bf87cd/c.html",
+      "material_version": "r1-material-v3",
+      "scope": "none",
+      "access_status": "unavailable",
+      "characters": 0,
+      "credits_preserved": true,
+      "response_sha256": "871bd42d23ed2dfd2c22aedb902027c1175b845d0cd7c65f0d58b4406a769633"
+    },
+    {
+      "identity": "news-20261016d8efca30802f4cb1b12054a51bca859f",
+      "url": "http://www.news.cn/20261016/d8efca30802f4cb1b12054a51bca859f/c.html",
+      "material_version": "r1-material-v3",
+      "scope": "none",
+      "access_status": "unavailable",
+      "characters": 0,
+      "credits_preserved": true,
+      "response_sha256": "56f1d47c21d5041f3e96ccb9316d76e76c773c499103514ca974ae6286990a3c"
+    }
+  ],
+  "private_sha256": "d9a0919b257c8b3fe904bc1c494d413ff85ab20b4987f329e9a8776b68252ff2"
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": "r1-v3-material-window-start-v1",
+  "started_command_at": "2026-10-17T06:02:30.620021+00:00",
+  "container": "unspun-r1-observe-v3-75c0374",
+  "container_id": "9f7478ac4f140e5302bb7ae172c855df93789b8f7fb0a72fd784e2d8fc7ca631",
+  "image": "ghcr.io/linsrock/unspun-server:75c03745dd778852a14d4013a04e7d0e3bbd1688",
+  "policy": "docs/evaluations/r1/material-window-v2.json",
+  "policy_sha256": "09efab0ce17083c9bf887622a0f0fa15f59c19591a61ceb03d5d58d62108018e",
+  "command": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "unspun-r1-observe-v3-75c0374",
+    "--label",
+    "io.unspun.role=readonly-observation",
+    "--label",
+    "io.unspun.policy=09efab0ce17083c9bf887622a0f0fa15f59c19591a61ceb03d5d58d62108018e",
+    "--memory=256m",
+    "--memory-swap=256m",
+    "--cpus=0.5",
+    "--network",
+    "unspun_default",
+    "-e",
+    "UNSPUN_RSSHUB_URL=http://rsshub:1200",
+    "-e",
+    "UNSPUN_CONFIG_DIR=/app/config",
+    "-e",
+    "UNSPUN_APP_VERSION=75c03745dd778852a14d4013a04e7d0e3bbd1688",
+    "ghcr.io/linsrock/unspun-server:75c03745dd778852a14d4013a04e7d0e3bbd1688",
+    "python",
+    "-m",
+    "unspun.evaluation.observe_sources",
+    "--source",
+    "xinhua",
+    "--source",
+    "bbc-world",
+    "--output-dir",
+    "/tmp/r1-observations",
+    "--rounds",
+    "26",
+    "--interval-seconds",
+    "1800",
+    "--sample-items",
+    "2"
+  ],
+  "planned_rounds": 26,
+  "planned_interval_seconds": 1800,
+  "nominal_last_round_not_completion": "2026-10-17T18:32:30.620021+00:00",
+  "actual_rounds_completed": 1,
+  "future_rounds_counted_as_passed": false,
+  "database_configured": false,
+  "model_key_configured": false,
+  "production_worker_started": false,
+  "g2_passed": false,
+  "snapshot_at": "2026-10-17T06:05:48.371067+00:00",
+  "actual_rounds_completed_per_source": {
+    "xinhua": 1,
+    "bbc-world": 1
+  },
+  "actual_records_in_archived_snapshot": 2,
+  "records": [
+    {
+      "file": "./20261017T060259.927904Z-xinhua.json",
+      "sha256": "40f657884ba33610f9e0a0fe4aaabc61e885fc582821c6289ba166b734827de4",
+      "source_id": "xinhua",
+      "status": "ok",
+      "started_at": "2026-10-17T06:02:40.268914+00:00",
+      "completed_at": "2026-10-17T06:02:59.927173+00:00",
+      "item_count": 30,
+      "materials": [
+        {
+          "scope": "media_description",
+          "access_status": "ok",
+          "form": "video",
+          "character_count": 105,
+          "response_sha256": "515410b77b581bf9c387e210e3fec5d36452f6d551be91ae3609d5c29a3b2dd6"
+        },
+        {
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "form": "article",
+          "character_count": 1038,
+          "response_sha256": "8a11139af660b1074f9f3ad66529eecd81bb8c3fc1e2c99e6eab736f782353ed"
+        }
+      ]
+    },
+    {
+      "file": "./20261017T060241.565848Z-bbc-world.json",
+      "sha256": "1e52bc62696d6d315524000b5504752b6dcaefadbc055fe4ff6b0eac8bdbffd8",
+      "source_id": "bbc-world",
+      "status": "ok",
+      "started_at": "2026-10-17T06:02:40.269855+00:00",
+      "completed_at": "2026-10-17T06:02:41.563582+00:00",
+      "item_count": 32,
+      "materials": [
+        {
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "form": "article",
+          "character_count": 2404,
+          "response_sha256": "ee610ca866d3d1d93d3f92ac778f7346c33ce033e6051ee6e4d78abdc288e12b"
+        },
+        {
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "form": "article",
+          "character_count": 4449,
+          "response_sha256": "668f74802cc28e2f916fc449537ebaec3f36954a5b61ed427b1087a626237579"
+        }
+      ]
+    }
+  ],
+  "initial_archive_sha256": "8ad45d1d5522727f8fcbb79f25dfdcb6caf635f1a6a2a5815397be0a58e3f4a3",
+  "initial_critical_audit_passed": null,
+  "runtime": {
+    "checked_at": "2026-10-17T06:07:19.238345+00:00",
+    "container": "unspun-r1-observe-v3-75c0374",
+    "container_id": "9f7478ac4f140e5302bb7ae172c855df93789b8f7fb0a72fd784e2d8fc7ca631",
+    "image_id": "sha256:0e241261508b8e10f6582b5c6aa89c6e9c62baae4f91a1e9fb193fa4d9b403f6",
+    "same_image_as_running_api": true,
+    "state": "running",
+    "started_at": "2026-10-17T06:02:33.277985619Z",
+    "memory_bytes": 268435456,
+    "memory_swap_bytes": 268435456,
+    "nano_cpus": 500000000,
+    "database_configured": false,
+    "model_key_configured": false,
+    "host_ports": {},
+    "restart_policy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    }
+  },
+  "actual_round_count_basis": "initial archived snapshot only"
+}

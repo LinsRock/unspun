@@ -1,0 +1,448 @@
+{
+  "replay_kind": "read_only_exact_request_fingerprint_earliest_known_response",
+  "recorded_at": "2026-10-17T05:55:40.833975+00:00",
+  "counts": {
+    "ready": 7,
+    "not_replayed": 10,
+    "rejected": 3,
+    "error": 1
+  },
+  "before": {
+    "physical_requests": 283,
+    "known_fees": "0.2908490999999999",
+    "unknown_requests": 5,
+    "unknown_reservations": "0.284981000000"
+  },
+  "after": {
+    "physical_requests": 283,
+    "known_fees": "0.2908490999999999",
+    "unknown_requests": 5,
+    "unknown_reservations": "0.284981000000"
+  },
+  "new_paid_requests": 0,
+  "database_writes": 0,
+  "fresh_holdout_loaded": false,
+  "quality_passed": false,
+  "results": [
+    {
+      "id": "C01",
+      "status": "ready",
+      "reason": "supported_material",
+      "input_fingerprint": "1a05aeb1f942f00e3acb43bb9810b51d70d17234c0577fa478194317918c73c3",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "25416187abd853d288d02493e43689f4bab510df44db838ba0d622b08b81cac2",
+          "existing_call_id": "b52eceaacbef4c3bb5726304869ff732",
+          "provider_generation_id": "gen-1792143689-iofl1JWfwkO3KNPudN5C"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "247e9ceec399197ec4a4bebd36891083de7d34f02849eb49c76399d437046620",
+          "existing_call_id": "2ff324d5984246b6aa796e82510123fe",
+          "provider_generation_id": "gen-1792178215-8G8kHOfySpwptuefvbf8"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "848b86e6d9388edd5c3665024352d70c3c16876a71a8fbae2bd060a8055bc160",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "0bf4e0bb1fbace9b11ee966d7b033abdf79b474ab7787d53a7cbdc421d601ae8",
+          "existing_call_id": "d27a139092e14fffa62441ab61db85eb",
+          "provider_generation_id": "gen-1792143693-eg3tz4ztjxdnDByf55h9"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "ba97dc5eee6dea6fbce66f16abe8b3e9409a89887958807e220872716d4d2999",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "status": "ready",
+      "reason": "supported_material",
+      "input_fingerprint": "d5c30b827509bde035a90f0434254871318f71a13e12a4c53afe996040543be5",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "c821266c96874da4c507780aca627367ae98f16356205bd0c970b2a33d110230",
+          "existing_call_id": "eee7f33f97bb46e1b397e5d5bfe5eff3",
+          "provider_generation_id": "gen-1792143696-d4wcVz5PV6Qxj9ETuh5m"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "3f6680f8f0bf68ec3398b323eee99821a598fdf11c65d45880986f37e175f913",
+          "existing_call_id": "c84d923f51a54560b6ddf0fbb7d711b9",
+          "provider_generation_id": "gen-1792181129-82zMi1qkDH0S8szhLQfC"
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "status": "ready",
+      "reason": "supported_material",
+      "input_fingerprint": "04b3a5379cc99a5e2f25ca019616e77f0cb3eab677702e7645caf35397ed0e02",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "f94411c1d0219a43fbfe32a82144200f44396ad3055d1b0562bb286a3222e6fd",
+          "existing_call_id": "bdc75bece9b54c5bae459753190bdc82",
+          "provider_generation_id": "gen-1792143700-ITbbjLw1TrM0ActtlkLX"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "3e72a650055ea315c487bac1d41d4b70990149fc96fe4694be057921bd2882a7",
+          "existing_call_id": "4a204e44324d49fd8ef7eaa81a06b9d7",
+          "provider_generation_id": "gen-1792181133-exAnckbVnH6rOKFjZ9dA"
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "status": "ready",
+      "reason": "supported_material",
+      "input_fingerprint": "1426a11e931171260e9229a47683bb5a8ce8f50610046e08f8b7adec7e9580c4",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "d83efca752aa9e0464b955a05e9f96b547acd19cbedd28116d6191ee9c09c875",
+          "existing_call_id": "5efa4db987004efea7421014492266f0",
+          "provider_generation_id": "gen-1792143704-zmynS4DKvykebZa9qq1X"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "617989e44b061f3dd29fa9d1999e89a350f645c5f4934bb6c6bd7e3729e9e2b1",
+          "existing_call_id": "d7418c61a884445d9e794b5c00d85771",
+          "provider_generation_id": "gen-1792181137-cBsUR9Z8MhZFqTmbg26y"
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "status": "rejected",
+      "reason": "stale_report",
+      "input_fingerprint": "8b602cfd95fb1e15299c2e2a2a761eb3ae9071779407ab1ba59756c5be1b4c37",
+      "requests": []
+    },
+    {
+      "id": "C12",
+      "status": "error",
+      "reason": "ValidationError",
+      "input_fingerprint": "4169f9ef780dcc71a2e968697fb71837ab89c80f589e902c5a9cddc324090e96",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "0767dd2c6711e086d7315a009047a3f6657c0f4b639cd597c48baf1bf735625f",
+          "existing_call_id": "2b00ce450d3946bf8a8445d0b19aca20",
+          "provider_generation_id": "gen-1792143708-1m1ouDXIXwNInrkMTLNy"
+        }
+      ]
+    },
+    {
+      "id": "C19",
+      "status": "rejected",
+      "reason": "stale_report",
+      "input_fingerprint": "f1f962d4f51256902216663c050548e113035bfc6aed06c07b406f366e48b202",
+      "requests": []
+    },
+    {
+      "id": "C20",
+      "status": "ready",
+      "reason": "supported_material",
+      "input_fingerprint": "6f62579ed89c1cb531be295a5d9c1e5fac435a1f9994609d7029fd54fb43af97",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "1b57021aba0260c34a1e953db0cdc1ab996880f928f5ea545bd41ce3c79d372c",
+          "existing_call_id": "c2b113f5a2e84e26831e88ab7d856665",
+          "provider_generation_id": "gen-1792143711-pG1xm2fotofC2Sr2aOrY"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "7aeb98df9f8e48f4cc82bfc26cd88da47b0b11d5f42415f7fa4a6b3b8489f608",
+          "existing_call_id": "7943bb5e599d419995cea683bc665bb8",
+          "provider_generation_id": "gen-1792181144-24zD3Pmi4E9YRF5B60E0"
+        }
+      ]
+    },
+    {
+      "id": "C21",
+      "status": "ready",
+      "reason": "supported_material",
+      "input_fingerprint": "0b6363352d92ff32a1e3b8c51e602dddccd0ef9814cd7bd73dc80474c578a1b6",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "6ea28b1e3700d03ae3f73a9e030fc5b071629c422e08363c87e4f777cf08b9d4",
+          "existing_call_id": "52400ed89e1b4e64b669150d070dcf7c",
+          "provider_generation_id": "gen-1792143716-NKJftZfAGYzCeYHL2Kys"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "b94cd241ff4802a69e689b3df4137f3b7f3392f78b6e411f000e9f39508c104e",
+          "existing_call_id": "287c9a4310524315b57adde3ee32d86a",
+          "provider_generation_id": "gen-1792181147-TtAMEGKveQb4i3IrLWkX"
+        }
+      ]
+    },
+    {
+      "id": "C23",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "3147c4e9b2ac194b1aeee6c8e5e4f9c9f375ca29553c07f51a4d7b86abd3aa8c",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "02cae1a9b29fbd3c8e141b99897c37efb3accbe752abcd6627fdb6cb5f58c118",
+          "existing_call_id": "0098c61630c04c3c87bce64e92739aeb",
+          "provider_generation_id": "gen-1792143720-0hVgXHvVta8RtNrHuYUY"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "2b4f62846b064597f42c35850e19afe1a778ecf8c5821371594dc9c931414772",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C24",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "c6787bba7c392a073999bcbc20fe56a19ed59d15f0915acf9131977130f3efda",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "4619d99f5e4b7df70dfa2ec4e492d1855a974809c5eed6910316c69eb0fd99de",
+          "existing_call_id": "09f4edf775e24f4f871a39c2b61d0f86",
+          "provider_generation_id": "gen-1792143723-xmqtQ0zb9QHjUOLQv0WV"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "c60ef81475120df3b1cc8b11d54dab2eb52f21dc7a6b1409fd29150d2362dd78",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C27",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "0fce876f84ad7b3d7092356595f89a910aa2be21dc9d932e6c629a6799857466",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "05c67b06115576664ea53da2ff19d76e7e6c5a077ffdd98ea28693686ef9a485",
+          "existing_call_id": "c009d658363147b1999484f085b12541",
+          "provider_generation_id": "gen-1792184052-PfZij5lHBvWmMvnHlBN8"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "fbdcfaed47a52ef5bd8725f3d0447724d789fe4e2ea87ae85e648cbb6d51ead6",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C29",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "dfc173289126b4ff2b660eec731075910dc26fdae0c6c1b1e11c5f8bac6f8079",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "5a21dc6bdc3daeb009ccfb48af26ade066208e769949baf2e4ce2c804841f563",
+          "existing_call_id": "1832d6f7ef6a409e8c96860cb789b474",
+          "provider_generation_id": "gen-1792143732-Y1gFo902YNkbvRhHPQQy"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "6611cfaa33303a1ca57def85575f95ef3e3794afc61de41f9ce1b9fe7c3730f3",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C31",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "dde15216de009665099190d0afddf9941d96463937250ad4711fa378b9a1d473",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "51457e42caf4c27f8aaf7dd00af1361e6df321af8a8e24ad6f993e7c19d12501",
+          "existing_call_id": "e6ddc8ff48cb4016972a122616b01b0a",
+          "provider_generation_id": "gen-1792143738-cXzeVpt7S8NHCGVEN1ki"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "b4fb22171fa7e2b3b4a4147addbd9379885cabef25f745140dd168710d1750a5",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C32",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "8833b8239c67d9c36b5d0d021beb9e9ff36c03a20feed3f4f6ccd73578c5c7de",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "997ff47774b9e8958d9e983876109678a260388543eb1c7b017ad499e7281693",
+          "existing_call_id": "c7c5ccdc95e0436a818115d7623210f8",
+          "provider_generation_id": "gen-1792143742-76y5Q19BIBlPWAWawc9t"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "ffa69da22bf80f5cb453e1082db557311ebff8eb4ce8167d593065ab8d021ca7",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C35",
+      "status": "ready",
+      "reason": "supported_material",
+      "input_fingerprint": "50d7b06c0c4a7d30d7e229f9c6c0bfb661d1c26b83963db737555fed2bd1f914",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "6a5baa48ce5d30b34b32676069fdc90101dfa464d7fca19ae7a901b7ea2a84eb",
+          "existing_call_id": "5c2022b7a54b4ea68c46471c5391966f",
+          "provider_generation_id": "gen-1792143746-5YQKkByOOdgcphA7Kee0"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "60576dad63a911160a5bfbc23895bee6ebe3ec89ff58783c16fccdb4184776c0",
+          "existing_call_id": "3d695e1a0fcb401496407cd5c5c93029",
+          "provider_generation_id": "gen-1792143748-svI8moRQvWPtnAEP39M6"
+        }
+      ]
+    },
+    {
+      "id": "C37",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "1da2038a3392ccd8d42ff605c82bb70c2890f1ff8181843fa499ec669f008e41",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "95d3b17ec00cc3a6532d10f0f7685fec3c7293071d52d6f9e454b37c4c2025a8",
+          "existing_call_id": "7b2a1758bede4e7bb21ee65b4a2e13c0",
+          "provider_generation_id": "gen-1792143750-Ezm38uqepjrTzDyhLdzZ"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "5e6ee2e094c3defb9d05b008b7a231ec2c1ac1a2bef7863afeaec19d9428701f",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C41",
+      "status": "rejected",
+      "reason": "canonical_duplicate",
+      "input_fingerprint": "a140ed7efbca5d3c1876f7a8b54fa9b46dd543fbc705ee4a3652431276a25685",
+      "requests": []
+    },
+    {
+      "id": "C42",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "4208745b65ebfef87504aae6a387d910316412d5846766c41ef2a4437c5919ae",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "80bbc7d48ee9d741abca1a8d1a33f16a5ee173f1714c2bf809bbbd763d395109",
+          "existing_call_id": "ce825b8e9f064294b907262b381768dd",
+          "provider_generation_id": "gen-1792143754-7HuEVnQ6J4kr79MNMENs"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "acfd6af8bacc464eb1be659c912aa04f2fe11880fbfd387bf1b13577f23c046e",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    },
+    {
+      "id": "C43",
+      "status": "not_replayed",
+      "reason": "no_exact_known_response",
+      "input_fingerprint": "9e39da805d9e10ed4c3e3fcdeb280fbe55ae64d6ef8f56f50f199af685f5f80a",
+      "requests": [
+        {
+          "phase": "generate",
+          "model": "google/gemini-2.5-flash-lite",
+          "request_fingerprint": "6be402995b66a0ee04c27d00943d228d547c99c9ed74c7b365aa61d12a1e5596",
+          "existing_call_id": "29bd45dc28dd45c6bb7ca2c6c63ec01a",
+          "provider_generation_id": "gen-1792143758-Oi03Ma4GpVT2EXeRqItF"
+        },
+        {
+          "phase": "review",
+          "model": "google/gemini-2.5-flash",
+          "request_fingerprint": "792a06829a16aee14d33e16b4350d25a0f71792f3f7b3804627aac60b639ca58",
+          "existing_call_id": null,
+          "provider_generation_id": null
+        }
+      ]
+    }
+  ],
+  "private_artifacts": [
+    {
+      "name": "replay_exact_requests_v8.py",
+      "sha256": "f367abc27a9b20b52a409a130f49a547970efdd28c3b64270cd129e3fa23a148"
+    },
+    {
+      "name": "exact-request-replay-v8.jsonl",
+      "sha256": "f3cdb61ee19408e803e4330390f842cf5d638fc2a2cd512d039f1bbdacec74ed"
+    }
+  ]
+}

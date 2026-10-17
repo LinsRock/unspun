@@ -1,0 +1,206 @@
+{
+  "checked_at": "2026-10-17T05:32:47.469139+00:00",
+  "source_database": "unspun_quality_r1_20261016",
+  "database_writes": 0,
+  "new_paid_requests": 0,
+  "historical_evaluation_request_groups": [
+    {
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "usage_unknown",
+      "physical_records": 1,
+      "known_cost_usd": null,
+      "unresolved_reserved_usd": "0.169787000000"
+    },
+    {
+      "stage": "guide",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "physical_records": 6,
+      "known_cost_usd": "0.0035071999999999994"
+    },
+    {
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "physical_records": 128,
+      "known_cost_usd": "0.05105599999999998"
+    },
+    {
+      "stage": "card",
+      "phase": "baseline",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "physical_records": 27,
+      "known_cost_usd": "0.14996609999999996"
+    },
+    {
+      "stage": "card",
+      "phase": "baseline",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "physical_records": 1,
+      "known_cost_usd": null,
+      "unresolved_reserved_usd": "0.028261000000"
+    },
+    {
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "physical_records": 3,
+      "known_cost_usd": null,
+      "unresolved_reserved_usd": "0.086933000000"
+    },
+    {
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "physical_records": 84,
+      "known_cost_usd": "0.06934660000000001"
+    },
+    {
+      "stage": "guide",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "responded",
+      "physical_records": 5,
+      "known_cost_usd": "0.0071323"
+    },
+    {
+      "stage": "card",
+      "phase": "baseline",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "responded",
+      "physical_records": 28,
+      "known_cost_usd": "0.009840900000000001"
+    }
+  ],
+  "known_ledger_rows": 278,
+  "known_total_usd": "0.2908490999999999",
+  "unresolved_reserved_usd": "0.284981000000",
+  "final_contract_unit_costs": "not_measured_until_final_quality_run",
+  "user_ratings_imported": 0,
+  "source_volume_scenario": {
+    "paths": [
+      {
+        "source_id": "36kr-newsflashes",
+        "new_ids_after_first_observation": 77,
+        "elapsed_seconds": 34196.049595,
+        "raw_path_ids_per_24h_if_same_rate": "194.55",
+        "initial_observed_ids": 20
+      },
+      {
+        "source_id": "bbc-zhongwen",
+        "new_ids_after_first_observation": 4,
+        "elapsed_seconds": 34177.198119,
+        "raw_path_ids_per_24h_if_same_rate": "10.11",
+        "initial_observed_ids": 38
+      },
+      {
+        "source_id": "nyt-world",
+        "new_ids_after_first_observation": 10,
+        "elapsed_seconds": 34178.203292,
+        "raw_path_ids_per_24h_if_same_rate": "25.28",
+        "initial_observed_ids": 50
+      },
+      {
+        "source_id": "wsj-world",
+        "new_ids_after_first_observation": 7,
+        "elapsed_seconds": 34177.88941,
+        "raw_path_ids_per_24h_if_same_rate": "17.70",
+        "initial_observed_ids": 50
+      },
+      {
+        "source_id": "zaobao-china",
+        "new_ids_after_first_observation": 18,
+        "elapsed_seconds": 34200.000203,
+        "raw_path_ids_per_24h_if_same_rate": "45.47",
+        "initial_observed_ids": 24
+      },
+      {
+        "source_id": "zhihu-hot",
+        "new_ids_after_first_observation": 34,
+        "elapsed_seconds": 34178.035093,
+        "raw_path_ids_per_24h_if_same_rate": "85.95",
+        "initial_observed_ids": 29
+      },
+      {
+        "source_id": "douban-book",
+        "new_ids_after_first_observation": 4,
+        "elapsed_seconds": 70196.603815,
+        "raw_path_ids_per_24h_if_same_rate": "4.92",
+        "initial_observed_ids": 20
+      },
+      {
+        "source_id": "people-frontpage",
+        "new_ids_after_first_observation": 5,
+        "elapsed_seconds": 70199.999404,
+        "raw_path_ids_per_24h_if_same_rate": "6.15",
+        "initial_observed_ids": 6
+      },
+      {
+        "source_id": "zaobao-world",
+        "new_ids_after_first_observation": 27,
+        "elapsed_seconds": 70199.874012,
+        "raw_path_ids_per_24h_if_same_rate": "33.23",
+        "initial_observed_ids": 24
+      },
+      {
+        "source_id": "zhihu-daily",
+        "new_ids_after_first_observation": 4,
+        "elapsed_seconds": 70199.999873,
+        "raw_path_ids_per_24h_if_same_rate": "4.92",
+        "initial_observed_ids": 4
+      }
+    ],
+    "raw_path_ids_per_day_sum": "428.28",
+    "historical_one_generation_plus_one_review_mean_usd": "0.001224429761904761867559523810",
+    "30_day_naive_cost_before_filters_dedup_guides_retries_or_unknown_fees": "15.731963",
+    "not_a_final_contract_projection": true,
+    "within_existing_budget_gate_passed": false,
+    "notes": [
+      "This combines different bounded windows and raw path identities, before cross-source dedup and eligibility. It is a scenario, not measured current-contract production cost.",
+      "Historical mixed-version request means exclude unknown charges, include failed quality outputs and do not establish cost per accepted item.",
+      "No user-labeled relevance or recall denominator exists. The scenario does not authorize activation or a larger budget.",
+      "The unfiltered card scenario alone exceeds the existing $10/month card stage cap, even before guides, retries, unknown fees and prior monthly spend. Activation cost gate is not passed."
+    ],
+    "existing_card_monthly_stage_cap_usd": "10",
+    "existing_guide_monthly_stage_cap_usd": "2"
+  },
+  "bounded_rollout_candidate_scenario": {
+    "candidate_only_not_enabled": true,
+    "fixed_source_ids": [
+      "bbc-zhongwen",
+      "nyt-world",
+      "wsj-world",
+      "zaobao-china",
+      "douban-book",
+      "people-frontpage",
+      "zaobao-world",
+      "zhihu-daily",
+      "xinhua"
+    ],
+    "xinhua_material_scope_only": "media_description",
+    "others_actual_bounded_scopes_only": true,
+    "why_36kr_and_zhihu_hot_not_in_paid_candidate": "Unfiltered ten-path scenario exceeds the existing card stage ceiling; both requested paths remain registered with bounded technical source evidence, not silently removed.",
+    "historical_xinhua_all_media_ids_new_after_first": 39,
+    "includes_credits_only_in_conservative_raw_count": true,
+    "same_rate_raw_path_ids_per_day": "246.3063157894736842105263158",
+    "30_day_card_request_mean_scenario_usd": "9.047544",
+    "initial_raw_path_ids": 226,
+    "initial_request_mean_scenario_usd": "0.276721",
+    "not_a_validated_final_projection": true,
+    "remaining_gates": [
+      "current v8/v4 quality and actual unit costs",
+      "fresh xinhua v3 mixed-scope G2",
+      "provider and project current-month headroom including all known/unknown costs",
+      "guide demand, retry and initial-backlog costs",
+      "actual deployment and post-restart consumption"
+    ]
+  }
+}

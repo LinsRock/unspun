@@ -1,0 +1,266 @@
+{
+  "schema_version": "r1-postdeploy-material-check-v1",
+  "target_image": "ghcr.io/linsrock/unspun-server:00600c3225f2bc7cc2e3597b223fd1d49c1b58ce",
+  "continuous_window_claimed": false,
+  "source_g2_promoted_by_fix": false,
+  "observations": [
+    {
+      "type": "environment",
+      "at": "2026-10-17T05:38:27.345492+00:00",
+      "material_version": "r1-material-v2",
+      "database_configured": false,
+      "model_key_configured": false,
+      "active_production_source_stages": 0
+    },
+    {
+      "type": "current-probe",
+      "result": {
+        "source_id": "bbc-world",
+        "status": "ok",
+        "started_at": "2026-10-17T05:38:27.345704+00:00",
+        "completed_at": "2026-10-17T05:38:28.444339+00:00",
+        "paid_requests": 0,
+        "database_writes": 0,
+        "materials": [
+          {
+            "scope": "open_text_unit",
+            "access_status": "ok",
+            "completeness": "unknown",
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "article",
+              "genre": null,
+              "platform": "bbc",
+              "publisher": "BBC",
+              "authors": [],
+              "times": [
+                {
+                  "kind": "feed",
+                  "precision": "time",
+                  "at": "2026-10-17T02:33:09Z",
+                  "on": null,
+                  "basis": "feed:feed",
+                  "raw": "Sat, 17 Oct 2026 02:33:09 GMT"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "basis": "generic:trafilatura",
+            "response_fingerprint": "cab3d8fa3536e023f00546349a362e7e48ebc02a9a640b67ae86942ec79a1f27",
+            "character_count": 2404
+          },
+          {
+            "scope": "open_text_unit",
+            "access_status": "ok",
+            "completeness": "unknown",
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "article",
+              "genre": null,
+              "platform": "bbc",
+              "publisher": "BBC",
+              "authors": [],
+              "times": [
+                {
+                  "kind": "feed",
+                  "precision": "time",
+                  "at": "2026-10-17T05:02:50Z",
+                  "on": null,
+                  "basis": "feed:feed",
+                  "raw": "Sat, 17 Oct 2026 05:02:50 GMT"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "basis": "generic:trafilatura",
+            "response_fingerprint": "0e8ec90b60ca63aed7dfe466cb3e5fc8b0e302a72e09002686288d504573df0d",
+            "character_count": 4449
+          }
+        ]
+      }
+    },
+    {
+      "type": "current-probe",
+      "result": {
+        "source_id": "douban-movie",
+        "status": "ok",
+        "started_at": "2026-10-17T05:38:28.448435+00:00",
+        "completed_at": "2026-10-17T05:38:35.558087+00:00",
+        "paid_requests": 0,
+        "database_writes": 0,
+        "materials": [
+          {
+            "scope": "none",
+            "access_status": "restricted",
+            "completeness": "none",
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "article",
+              "genre": "review",
+              "platform": "douban",
+              "publisher": "Douban",
+              "authors": [
+                {
+                  "name": "乱拳打死老师傅",
+                  "role": "unknown",
+                  "platform": "douban",
+                  "platform_id": null,
+                  "basis": "feed:author"
+                }
+              ],
+              "times": [
+                {
+                  "kind": "feed",
+                  "precision": "time",
+                  "at": "2026-10-16T14:00:30Z",
+                  "on": null,
+                  "basis": "feed:feed",
+                  "raw": "Fri, 16 Oct 2026 14:00:30 GMT"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "basis": "origin:douban-security-redirect",
+            "response_fingerprint": "ed7a83e6735568a884c8be12a28aa5f245a4b47be5395181f3e9eb67f9c9cb8f",
+            "character_count": 0
+          },
+          {
+            "scope": "none",
+            "access_status": "restricted",
+            "completeness": "none",
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "article",
+              "genre": "review",
+              "platform": "douban",
+              "publisher": "Douban",
+              "authors": [
+                {
+                  "name": "微醺330",
+                  "role": "unknown",
+                  "platform": "douban",
+                  "platform_id": null,
+                  "basis": "feed:author"
+                }
+              ],
+              "times": [
+                {
+                  "kind": "feed",
+                  "precision": "time",
+                  "at": "2026-10-16T05:43:26Z",
+                  "on": null,
+                  "basis": "feed:feed",
+                  "raw": "Fri, 16 Oct 2026 05:43:26 GMT"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "basis": "origin:douban-security-redirect",
+            "response_fingerprint": "ec5734cdfbd71ca6a7730a77343032bcd92edd647176b836acd6e95858a23776",
+            "character_count": 0
+          }
+        ]
+      }
+    },
+    {
+      "type": "specific-origin",
+      "source_id": "bbc-world",
+      "result": {
+        "scope": "media_description",
+        "access_status": "ok",
+        "completeness": "partial",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "video",
+          "genre": null,
+          "platform": "bbc",
+          "publisher": "BBC",
+          "authors": [],
+          "times": [],
+          "original_url": null,
+          "media_url": null,
+          "duration_seconds": null,
+          "original_relation_basis": null
+        },
+        "basis": "generic:trafilatura",
+        "response_fingerprint": "bef6b35fcd181ef2531a9af40f08517476ec9b5b6a1400b1b7c4d98d9916fb8d",
+        "character_count": 760,
+        "evidence": {
+          "source_id": "bbc-world",
+          "extractor_version": "r1-material-v2",
+          "feed_text_truncated": false
+        }
+      }
+    },
+    {
+      "type": "specific-origin",
+      "source_id": "douban-movie",
+      "result": {
+        "scope": "none",
+        "access_status": "restricted",
+        "completeness": "none",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "article",
+          "genre": "review",
+          "platform": "douban",
+          "publisher": "Douban",
+          "authors": [
+            {
+              "name": "乱拳打死老师傅",
+              "role": "unknown",
+              "platform": "douban",
+              "platform_id": null,
+              "basis": "feed:author"
+            }
+          ],
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-16T14:00:30Z",
+              "on": null,
+              "basis": "feed:feed",
+              "raw": "Fri, 16 Oct 2026 14:00:30 GMT"
+            }
+          ],
+          "original_url": null,
+          "media_url": null,
+          "duration_seconds": null,
+          "original_relation_basis": null
+        },
+        "basis": "origin:douban-security-redirect",
+        "response_fingerprint": "1e3d8437a4f02c45cbfaf9e33116a9a1348d07f0561e521f780f91896138f45c",
+        "character_count": 0,
+        "evidence": {
+          "source_id": "douban-movie",
+          "extractor_version": "r1-material-v2",
+          "feed_text_truncated": false,
+          "security_redirect": true
+        }
+      }
+    }
+  ],
+  "private_artifacts": [
+    {
+      "name": "postdeploy_probe.py",
+      "sha256": "cecb065700b6db35ca14ce054f090df7308732c11d65ef7b5b5b2dd99a036665"
+    },
+    {
+      "name": "postdeploy-probes.jsonl",
+      "sha256": "f731bdc97d91827df11e7858ee6ec5a7f6ec2ec22ded653d76904d537a9dfc23"
+    }
+  ]
+}
