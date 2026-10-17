@@ -1,0 +1,278 @@
+{
+  "schema_version": "r1-header-fix-postdeploy-v1",
+  "main_revision": "2e17b1593cf9d36bf8bcec12366cfcef559e1dba",
+  "ci": "https://github.com/LinsRock/unspun/actions/runs/39017593326",
+  "ci_conclusion": "success",
+  "deploy_step": "success",
+  "production_readonly_probe": {
+    "at": "2026-10-17T08:39:15.190680+00:00",
+    "health": {
+      "status": "ok",
+      "version": "2e17b1593cf9d36bf8bcec12366cfcef559e1dba",
+      "database": "ok"
+    },
+    "api_image": "ghcr.io/linsrock/unspun-server:2e17b1593cf9d36bf8bcec12366cfcef559e1dba",
+    "web_image": "ghcr.io/linsrock/unspun-web:b649a93dd6870eb6f3f61fac50835dc76483f71c",
+    "legacy_worker_running": false,
+    "r1_worker_running": false,
+    "database": {
+      "schema": "000015",
+      "r1_tasks": 0,
+      "r1_billed_requests": 0,
+      "r1_worker_enabled": false,
+      "source_stages": [
+        {
+          "id": "thepaper-sidebar",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "netease-home",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "tencent-headlines",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "tencent-selected",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "bbc-world",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "nyt-world",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "wsj-world",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "bbc-zhongwen",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "nyt-cn",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "zaobao-china",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "36kr-newsflashes",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "xinhua",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "zhihu-hot",
+          "owner": "legacy",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "zhihu-daily",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "people-frontpage",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "zaobao-world",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "bjnews-depth",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "douban-book",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "douban-movie",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "fortune-business",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "fortune-tech",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        },
+        {
+          "id": "infzm-news",
+          "owner": "r1",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false
+        }
+      ]
+    },
+    "model_calls": 0,
+    "database_writes": 0,
+    "read_only": true
+  },
+  "local_preview_readonly_probe": {
+    "at": "2026-10-17T08:34:22.132408+00:00",
+    "checks": [
+      {
+        "route": "/api/health",
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "version": "2e17b15-local-preview",
+          "database": "ok"
+        }
+      },
+      {
+        "route": "/api/feed",
+        "status": 200,
+        "body": {
+          "items": [],
+          "next_cursor": null,
+          "sort": "recommended",
+          "as_of": "2026-10-17T08:34:22.045375Z",
+          "ranking_version": "r1-reader-v1",
+          "preview": false,
+          "empty_reason": "no_reviewed_published_contents"
+        }
+      },
+      {
+        "route": "/api/reader-preferences",
+        "status": 200,
+        "body": {
+          "version": 16,
+          "sort": "recommended",
+          "interests": [],
+          "feedback": [],
+          "replayed": false,
+          "unchanged": false
+        }
+      },
+      {
+        "route": "/api/interests",
+        "status": 200,
+        "body": {
+          "version": 16,
+          "sort": "recommended",
+          "interests": [],
+          "feedback": [],
+          "replayed": false,
+          "unchanged": false
+        }
+      },
+      {
+        "route": "/api/feedback",
+        "status": 200,
+        "body": {
+          "version": 16,
+          "sort": "recommended",
+          "interests": [],
+          "feedback": [],
+          "replayed": false,
+          "unchanged": false
+        }
+      }
+    ],
+    "database": "unspun_r1_api_20261016",
+    "preference_writes": 0,
+    "model_calls": 0
+  },
+  "web_preview_routes": {
+    "http://127.0.0.1:5179/reading": 200,
+    "http://127.0.0.1:5179/interests": 200
+  },
+  "new_paid_calls_after_the_reported_attempt": 0,
+  "r1_final_acceptance_ready": false
+}
