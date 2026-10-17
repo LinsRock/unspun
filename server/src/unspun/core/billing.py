@@ -18,6 +18,7 @@ from sqlalchemy.orm import Session
 from unspun.core.billing_models import BilledRequest, BudgetCarry, BudgetPolicy
 from unspun.core.config import get_settings
 from unspun.core.content import fingerprint
+from unspun.core.content_costs import content_unit_costs
 from unspun.core.llm import LlmError
 from unspun.core.models import LlmUsage
 from unspun.core.task_models import PipelineTask, TaskAttempt
@@ -541,16 +542,5 @@ def budget_status(session: Session) -> dict[str, Any]:
         else None,
         "provider_observed_at": policy.provider_observed_at if policy else None,
         "cost_basis": "llm_usage_known_fees_only",
-        "unit_costs": {
-            "per_100_candidates": {"status": "unmeasured", "denominator": "distinct_r1_candidates"},
-            "per_admitted_item": {
-                "status": "unmeasured",
-                "denominator": "distinct_ready_admissions",
-            },
-            "per_new_guide": {"status": "unmeasured", "denominator": "distinct_ready_guides"},
-            "monthly_projection": {
-                "status": "unmeasured",
-                "basis": "observed_eligible_daily_volume",
-            },
-        },
+        "unit_costs": content_unit_costs(session),
     }

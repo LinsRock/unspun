@@ -1,0 +1,713 @@
+{
+  "schema_version": "r1-reader-final-api-v1",
+  "role": "ai-technical; not user ratings",
+  "ranking_version": "r1-reader-v1",
+  "snapshots": {
+    "feedback-baseline": {
+      "at": "2026-10-17T10:36:07.161451+00:00",
+      "reader": {
+        "version": 0,
+        "sort": "recommended",
+        "interests": [],
+        "feedback": [],
+        "replayed": false,
+        "unchanged": false
+      },
+      "recommended_ids": [
+        16,
+        17,
+        11,
+        5,
+        4,
+        3,
+        23,
+        18,
+        19,
+        13,
+        14,
+        22,
+        12,
+        24,
+        15,
+        21,
+        20,
+        10,
+        8,
+        6,
+        2,
+        1
+      ],
+      "ranking_reasons_for_wsj": {
+        "1": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [],
+          "diversity": 0,
+          "score": 1,
+          "total_score": 1
+        },
+        "2": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [],
+          "diversity": 0,
+          "score": 1,
+          "total_score": 1
+        }
+      }
+    },
+    "source-followed": {
+      "at": "2026-10-17T10:36:25.188810+00:00",
+      "reader": {
+        "version": 1,
+        "sort": "recommended",
+        "interests": [
+          {
+            "resource_key": "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a",
+            "label": "wsj-world",
+            "target": {
+              "kind": "source",
+              "value": "wsj-world",
+              "platform": null,
+              "author_id": null
+            },
+            "support": {
+              "matching": "existing_source_id",
+              "collection": "declared_disabled",
+              "dedicated_author_collection": false
+            }
+          }
+        ],
+        "feedback": [],
+        "replayed": false,
+        "unchanged": false
+      },
+      "recommended_ids": [
+        16,
+        17,
+        11,
+        5,
+        4,
+        3,
+        23,
+        18,
+        19,
+        13,
+        14,
+        22,
+        12,
+        24,
+        15,
+        21,
+        2,
+        1,
+        20,
+        10,
+        8,
+        6
+      ],
+      "ranking_reasons_for_wsj": {
+        "1": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0.5,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [
+            "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a"
+          ],
+          "diversity": 0,
+          "score": 1.5,
+          "total_score": 1.5
+        },
+        "2": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0.5,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [
+            "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a"
+          ],
+          "diversity": 0,
+          "score": 1.5,
+          "total_score": 1.5
+        }
+      }
+    },
+    "positive-feedback": {
+      "at": "2026-10-17T10:36:59.615937+00:00",
+      "reader": {
+        "version": 2,
+        "sort": "recommended",
+        "interests": [
+          {
+            "resource_key": "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a",
+            "label": "wsj-world",
+            "target": {
+              "kind": "source",
+              "value": "wsj-world",
+              "platform": null,
+              "author_id": null
+            },
+            "support": {
+              "matching": "existing_source_id",
+              "collection": "declared_disabled",
+              "dedicated_author_collection": false
+            }
+          }
+        ],
+        "feedback": [
+          {
+            "content_id": 2,
+            "value": "interested",
+            "version": 2
+          }
+        ],
+        "replayed": false,
+        "unchanged": false
+      },
+      "recommended_ids": [
+        2,
+        16,
+        17,
+        11,
+        5,
+        4,
+        3,
+        23,
+        18,
+        19,
+        13,
+        14,
+        22,
+        12,
+        24,
+        15,
+        21,
+        1,
+        20,
+        10,
+        8,
+        6
+      ],
+      "ranking_reasons_for_wsj": {
+        "1": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0.5,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [
+            "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a"
+          ],
+          "diversity": 0,
+          "score": 1.5,
+          "total_score": 1.5
+        },
+        "2": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0.5,
+          "feedback": 2.0,
+          "feedback_value": "interested",
+          "similar_feedback": 0,
+          "matched_interests": [
+            "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a"
+          ],
+          "diversity": 0,
+          "score": 3.5,
+          "total_score": 3.5
+        }
+      }
+    },
+    "negative-feedback": {
+      "at": "2026-10-17T10:37:44.237277+00:00",
+      "reader": {
+        "version": 3,
+        "sort": "recommended",
+        "interests": [
+          {
+            "resource_key": "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a",
+            "label": "wsj-world",
+            "target": {
+              "kind": "source",
+              "value": "wsj-world",
+              "platform": null,
+              "author_id": null
+            },
+            "support": {
+              "matching": "existing_source_id",
+              "collection": "declared_disabled",
+              "dedicated_author_collection": false
+            }
+          }
+        ],
+        "feedback": [
+          {
+            "content_id": 2,
+            "value": "not_interested",
+            "version": 3
+          }
+        ],
+        "replayed": false,
+        "unchanged": false
+      },
+      "recommended_ids": [
+        16,
+        17,
+        11,
+        5,
+        4,
+        3,
+        23,
+        18,
+        19,
+        13,
+        14,
+        22,
+        12,
+        24,
+        15,
+        21,
+        1,
+        20,
+        10,
+        8,
+        6,
+        2
+      ],
+      "ranking_reasons_for_wsj": {
+        "1": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0.5,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [
+            "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a"
+          ],
+          "diversity": 0,
+          "score": 1.5,
+          "total_score": 1.5
+        },
+        "2": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0.5,
+          "feedback": -3.0,
+          "feedback_value": "not_interested",
+          "similar_feedback": 0,
+          "matched_interests": [
+            "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a"
+          ],
+          "diversity": 0,
+          "score": -1.5,
+          "total_score": -1.5
+        }
+      }
+    },
+    "latest-selected": {
+      "at": "2026-10-17T10:37:54.793569+00:00",
+      "reader": {
+        "version": 4,
+        "sort": "latest",
+        "interests": [
+          {
+            "resource_key": "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a",
+            "label": "wsj-world",
+            "target": {
+              "kind": "source",
+              "value": "wsj-world",
+              "platform": null,
+              "author_id": null
+            },
+            "support": {
+              "matching": "existing_source_id",
+              "collection": "declared_disabled",
+              "dedicated_author_collection": false
+            }
+          }
+        ],
+        "feedback": [
+          {
+            "content_id": 2,
+            "value": "not_interested",
+            "version": 3
+          }
+        ],
+        "replayed": false,
+        "unchanged": false
+      },
+      "recommended_ids": [
+        16,
+        17,
+        11,
+        5,
+        4,
+        3,
+        23,
+        18,
+        19,
+        13,
+        14,
+        22,
+        12,
+        24,
+        15,
+        21,
+        1,
+        20,
+        10,
+        8,
+        6,
+        2
+      ],
+      "ranking_reasons_for_wsj": {
+        "1": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0.5,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [
+            "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a"
+          ],
+          "diversity": 0,
+          "score": 1.5,
+          "total_score": 1.5
+        },
+        "2": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0.5,
+          "feedback": -3.0,
+          "feedback_value": "not_interested",
+          "similar_feedback": 0,
+          "matched_interests": [
+            "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a"
+          ],
+          "diversity": 0,
+          "score": -1.5,
+          "total_score": -1.5
+        }
+      }
+    },
+    "restored-baseline": {
+      "at": "2026-10-17T11:27:02.122039+00:00",
+      "reader": {
+        "version": 8,
+        "sort": "latest",
+        "interests": [],
+        "feedback": [],
+        "replayed": false,
+        "unchanged": false
+      },
+      "recommended_ids": [
+        16,
+        17,
+        11,
+        5,
+        4,
+        3,
+        23,
+        18,
+        19,
+        13,
+        14,
+        22,
+        12,
+        24,
+        15,
+        21,
+        20,
+        10,
+        8,
+        6,
+        2,
+        1
+      ],
+      "ranking_reasons_for_wsj": {
+        "1": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [],
+          "diversity": 0,
+          "score": 1,
+          "total_score": 1
+        },
+        "2": {
+          "reading_value": 1,
+          "current_value": 0,
+          "current_reason": "publication_unknown",
+          "interest": 0,
+          "feedback": 0,
+          "feedback_value": null,
+          "similar_feedback": 0,
+          "matched_interests": [],
+          "diversity": 0,
+          "score": 1,
+          "total_score": 1
+        }
+      }
+    }
+  },
+  "latest_ids": [
+    21,
+    20,
+    11,
+    10,
+    8,
+    6,
+    5,
+    4,
+    3,
+    24,
+    23,
+    13,
+    14,
+    16,
+    15,
+    18,
+    17,
+    19,
+    22,
+    12,
+    2,
+    1
+  ],
+  "latest_invariant": true,
+  "recommendation_restored": true,
+  "actual_API_details_and_undo": {
+    "at": "2026-10-17T11:27:01.935791+00:00",
+    "base": "http://127.0.0.1:5179",
+    "api_actual_no_mocks": true,
+    "undo_transport": "Direct same-origin API after browser tool ended at media URL; not claimed as new UI undo evidence. Concurrent browse versions 5/6 and latest selection were preserved.",
+    "reader_before": {
+      "version": 6,
+      "sort": "latest",
+      "interests": [
+        {
+          "resource_key": "source:194a99573eb8db7b8af24365b29473f0ec04421aca507697644b9ddbf697894a",
+          "label": "wsj-world",
+          "target": {
+            "kind": "source",
+            "value": "wsj-world",
+            "platform": null,
+            "author_id": null
+          },
+          "support": {
+            "matching": "existing_source_id",
+            "collection": "declared_disabled",
+            "dedicated_author_collection": false
+          }
+        }
+      ],
+      "feedback": [
+        {
+          "content_id": 2,
+          "value": "not_interested",
+          "version": 3
+        }
+      ],
+      "replayed": false,
+      "unchanged": false
+    },
+    "steps": [
+      {
+        "path": "/api/feedback",
+        "method": "DELETE",
+        "version": 7,
+        "interests": 1,
+        "feedback": 0,
+        "sort": "latest"
+      },
+      {
+        "path": "/api/interests",
+        "method": "DELETE",
+        "version": 8,
+        "interests": 0,
+        "feedback": 0,
+        "sort": "latest"
+      }
+    ],
+    "stale_cursor_status": 409,
+    "details": [
+      {
+        "article_id": 3,
+        "source_id": "xinhua",
+        "scope": "open_text_unit",
+        "guide_status": "ready",
+        "paragraphs": 1,
+        "source_url": "http://www.news.cn/20261017/ee5b0166cffc4bf68d25241518080776/c.html",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "article",
+          "genre": null,
+          "platform": "xinhua",
+          "publisher": "Xinhua",
+          "authors": [
+            {
+              "name": "李佳旭,谭慧婷",
+              "role": "unknown",
+              "platform": "xinhua",
+              "platform_id": null,
+              "basis": "feed:author"
+            }
+          ],
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-17T05:14:00Z",
+              "on": null,
+              "basis": "feed:feed",
+              "raw": "Sat, 17 Oct 2026 05:14:00 GMT"
+            },
+            {
+              "kind": "original",
+              "precision": "date",
+              "at": null,
+              "on": "2026-10-17",
+              "basis": "xinhua:meta:publishdate",
+              "raw": "2026-10-17"
+            }
+          ],
+          "original_url": null,
+          "media_url": null,
+          "duration_seconds": null,
+          "original_relation_basis": null
+        },
+        "material_payload_sha256": "1b1b4acf6ec80357fc94225eb533b6b7fb2eaa961660a1ab439c91d8881a1cc2"
+      },
+      {
+        "article_id": 2,
+        "source_id": "wsj-world",
+        "scope": "preview",
+        "guide_status": "unavailable",
+        "paragraphs": 1,
+        "source_url": "https://www.wsj.com/world/ukraine-russia-jet-drones-defenses-ca520fcd?mod=rss_worldnews",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "article",
+          "genre": null,
+          "platform": "wsj",
+          "publisher": "Wall Street Journal",
+          "authors": [
+            {
+              "name": "Oksana Grytsenko",
+              "role": "unknown",
+              "platform": "wsj",
+              "platform_id": null,
+              "basis": "feed:author"
+            }
+          ],
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-16T19:30:00Z",
+              "on": null,
+              "basis": "feed:feed",
+              "raw": "Fri, 16 Oct 2026 19:30:00 GMT"
+            }
+          ],
+          "original_url": null,
+          "media_url": null,
+          "duration_seconds": null,
+          "original_relation_basis": null
+        },
+        "material_payload_sha256": "5a67e9ba12cf35f1e62ebfd87a1b2349c781dc55a299410621798edd664ac712"
+      },
+      {
+        "article_id": 10,
+        "source_id": "xinhua",
+        "scope": "media_description",
+        "guide_status": "ready",
+        "paragraphs": 1,
+        "source_url": "http://www.news.cn/20261017/b232cb44a59644248cfc40542f8809f9/c.html",
+        "metadata": {
+          "schema_version": "r1-metadata-v1",
+          "form": "video",
+          "genre": null,
+          "platform": "xinhua",
+          "publisher": "Xinhua",
+          "authors": [
+            {
+              "name": "李钢",
+              "role": "unknown",
+              "platform": "xinhua",
+              "platform_id": null,
+              "basis": "feed:author"
+            }
+          ],
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-17T09:36:09Z",
+              "on": null,
+              "basis": "feed:feed",
+              "raw": "Sat, 17 Oct 2026 09:36:09 GMT"
+            },
+            {
+              "kind": "original",
+              "precision": "date",
+              "at": null,
+              "on": "2026-10-17",
+              "basis": "xinhua:meta:publishdate",
+              "raw": "2026-10-17"
+            }
+          ],
+          "original_url": null,
+          "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017b232cb44a59644248cfc40542f8809f9_XxjpsgC000224_20261017_CBMFN0A001.mp4",
+          "duration_seconds": null,
+          "original_relation_basis": null
+        },
+        "material_payload_sha256": "f645ac5da9a3994cc55c15f1bb401dbd3737a124d6b18ac7b30e2c3a8ee9f348"
+      }
+    ],
+    "restored_reader": {
+      "version": 8,
+      "sort": "latest",
+      "interests": [],
+      "feedback": [],
+      "replayed": false,
+      "unchanged": false
+    },
+    "new_model_calls": 0,
+    "new_budget_allocations": 0
+  },
+  "event_id_null_for_all_24_real_preview_articles": true,
+  "new_paid_calls": 0,
+  "original_43_user_ratings_still_empty": true,
+  "not_new_UI_undo_or_mobile_acceptance": true
+}
