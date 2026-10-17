@@ -115,7 +115,11 @@ class LlmClient:
         if reservation.response is not None:
             return copy.deepcopy(reservation.response)
         try:
-            response = self._client.post(endpoint, json=payload)
+            with self._client.stream("POST", endpoint, json=payload) as response:
+                generation_id = response.headers.get("X-Generation-Id")
+                if generation_id:
+                    journal.identify(reservation.id, generation_id, response.status_code)
+                response.read()
         except BaseException as error:
             journal.unknown(reservation.id, type(error).__name__)
             raise
@@ -129,7 +133,11 @@ class LlmClient:
             journal.unknown(reservation.id, "response object unavailable", response.status_code)
             raise LlmError("provider response is not an object")
         parsed = cast(dict[str, Any], data)
-        known = journal.finish(reservation.id, parsed, response.status_code)
+        try:
+            known = journal.finish(reservation.id, parsed, response.status_code)
+        except BaseException as error:
+            journal.unknown(reservation.id, type(error).__name__, response.status_code)
+            raise
         response.raise_for_status()
         if not known:
             raise UsageUnknown("provider cost missing; reservation retained")

@@ -21,6 +21,9 @@ class RecordingJournal:
         self.requests[identity] = (purpose, model)
         return Reservation(identity)
 
+    def identify(self, identity: str, generation_id: str, http_status: int) -> None:
+        pass
+
     def finish(self, identity: str, data: dict[str, Any], http_status: int) -> bool:
         usage = data["usage"]
         purpose, model = self.requests[identity]

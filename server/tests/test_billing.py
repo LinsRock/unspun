@@ -5,7 +5,7 @@ import subprocess
 import sys
 import threading
 import uuid
-from collections.abc import Callable, Generator
+from collections.abc import Callable, Generator, Iterator
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
@@ -264,6 +264,93 @@ def test_anonymous_timeout_cannot_be_declared_free(billing_db: BillingDB) -> Non
     with pytest.raises(UsageUnknown, match="no provider"):
         billing_db.journal.reconcile(identity, {"total_cost": 0})
     assert billing_db.requests()[0].status == "usage_unknown"
+
+
+def test_interrupted_body_keeps_header_id_and_settles_without_a_result(
+    billing_db: BillingDB,
+) -> None:
+    generation_id = "gen-interrupted-body"
+    context = CallContext(logical_key="header-recovery")
+
+    class InterruptedBody(httpx.SyncByteStream):
+        def __iter__(self) -> Iterator[bytes]:
+            # The independently committed header must survive process/body failure.
+            row = billing_db.requests()[0]
+            assert row.provider_generation_id == generation_id and row.http_status == 200
+            assert row.response_payload is None and not billing_db.usage()
+            yield b'{"id":"gen-interrupted-body",'
+            raise httpx.RemoteProtocolError("synthetic incomplete body")
+
+    def handler(_: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            200, headers={"X-Generation-Id": generation_id}, stream=InterruptedBody()
+        )
+
+    with pytest.raises(httpx.RemoteProtocolError):
+        invoke(billing_db, handler, context=context)
+    row = billing_db.requests()[0]
+    assert row.status == "usage_unknown" and row.http_status == 200
+    assert row.provider_generation_id == generation_id and not billing_db.usage()
+    evidence = {"id": generation_id, "total_cost": 0.002}
+    billing_db.journal.reconcile(row.id, evidence)
+    with Session(billing_db.engine) as session, session.begin():
+        audited = session.get(BilledRequest, row.id)
+        assert audited and audited.reconciliation
+        audited.reconciliation = {**audited.reconciliation, "association": "retained-audit"}
+    billing_db.journal.reconcile(row.id, evidence)
+    settled = billing_db.requests()[0]
+    assert settled.status == "settled_without_result" and settled.http_status == 200
+    assert settled.reconciliation and settled.reconciliation["original_response"] is None
+    assert settled.reconciliation["association"] == "retained-audit"
+    assert settled.error == "RemoteProtocolError"
+    assert len(billing_db.usage()) == 1 and billing_db.usage()[0].cost_usd == 0.002
+    # Fee confirmation cannot turn the absent output into a reusable success.
+    assert billing_db.reserve(context) != row.id
+
+
+def test_header_id_survives_missing_body_id_and_unknown_cost(billing_db: BillingDB) -> None:
+    payload = reply(cost=None)
+    del payload["id"]
+    generation_id = "gen-header-only"
+    context = CallContext(logical_key="header-only")
+    with pytest.raises(UsageUnknown):
+        invoke(
+            billing_db,
+            lambda _: httpx.Response(200, headers={"X-Generation-Id": generation_id}, json=payload),
+            context=context,
+        )
+    row = billing_db.requests()[0]
+    assert row.provider_generation_id == generation_id
+    billing_db.journal.reconcile(row.id, {"id": generation_id, "total_cost": 0.002})
+    assert (
+        invoke(
+            billing_db, lambda _: pytest.fail("complete response must be reused"), context=context
+        )
+        == {}
+    )
+    assert len(billing_db.usage()) == 1
+
+
+def test_header_body_id_mismatch_retains_hold_without_charging(billing_db: BillingDB) -> None:
+    with pytest.raises(LlmError, match="does not match its header"):
+        invoke(
+            billing_db,
+            lambda _: httpx.Response(200, headers={"X-Generation-Id": "gen-header"}, json=reply()),
+        )
+    row = billing_db.requests()[0]
+    assert row.status == "usage_unknown" and row.provider_generation_id == "gen-header"
+    assert not billing_db.usage()
+
+
+def test_header_identifier_cannot_change_or_belong_to_two_requests(billing_db: BillingDB) -> None:
+    first, second = billing_db.reserve(), billing_db.reserve()
+    billing_db.journal.identify(first, "gen-unique", 200)
+    billing_db.journal.identify(first, "gen-unique", 200)
+    with pytest.raises(LlmError, match="identifier changed"):
+        billing_db.journal.identify(first, "gen-different", 200)
+    with pytest.raises(LlmError, match="another request"):
+        billing_db.journal.identify(second, "gen-unique", 200)
+    assert not billing_db.usage()
 
 
 def test_known_http_failure_billed_then_explicit_retry_allowed(billing_db: BillingDB) -> None:

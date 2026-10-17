@@ -64,6 +64,7 @@ class CallJournal(Protocol):
     def reserve(
         self, *, purpose: str, model: str, request: dict[str, Any], context: CallContext
     ) -> Reservation: ...
+    def identify(self, identity: str, generation_id: str, http_status: int) -> None: ...
     def finish(self, identity: str, data: dict[str, Any], http_status: int) -> bool: ...
     def unknown(self, identity: str, reason: str, http_status: int | None = None) -> None: ...
 
@@ -389,7 +390,33 @@ class DatabaseJournal:
             session.flush()
             return Reservation(row.id)
 
+    def identify(self, identity: str, generation_id: str, http_status: int) -> None:
+        """Persist a provider response header before reading its fallible body."""
+        if not generation_id or len(generation_id) > 256:
+            raise LlmError("invalid provider generation identifier")
+        with Session(self.engine) as session, session.begin():
+            session.scalar(select(BudgetPolicy).where(BudgetPolicy.id == 1).with_for_update())
+            row = session.get(BilledRequest, identity, with_for_update=True)
+            if row is None:
+                raise LlmError("physical request reservation is missing")
+            if row.provider_generation_id not in (None, generation_id):
+                raise LlmError("provider generation identifier changed")
+            other = session.scalar(
+                select(BilledRequest.id).where(
+                    BilledRequest.provider_generation_id == generation_id,
+                    BilledRequest.id != identity,
+                )
+            )
+            if other is not None:
+                raise LlmError("provider generation identifier belongs to another request")
+            row.provider_generation_id, row.http_status = generation_id, http_status
+
     def finish(self, identity: str, data: dict[str, Any], http_status: int) -> bool:
+        return self._finish(identity, data, http_status, response_received=True)
+
+    def _finish(
+        self, identity: str, data: dict[str, Any], http_status: int, *, response_received: bool
+    ) -> bool:
         overrun = False
         with Session(self.engine) as session, session.begin():
             policy = session.scalar(
@@ -405,7 +432,10 @@ class DatabaseJournal:
             cost = usd(usage.get("cost"))
             row.http_status, row.response_payload, row.usage_payload = http_status, data, usage
             generation_id = data.get("id")
-            row.provider_generation_id = generation_id if isinstance(generation_id, str) else None
+            if isinstance(generation_id, str):
+                if row.provider_generation_id not in (None, generation_id):
+                    raise LlmError("provider response identifier does not match its header")
+                row.provider_generation_id = generation_id
             row.ended_at = datetime.now(UTC)
             if cost is None:
                 row.status, row.error = "usage_unknown", "provider cost missing or invalid"
@@ -424,7 +454,11 @@ class DatabaseJournal:
                 )
                 .returning(LlmUsage.id)
             )
-            row.status = "responded" if 200 <= http_status < 300 else "settled_without_result"
+            row.status = (
+                "responded"
+                if response_received and 200 <= http_status < 300
+                else "settled_without_result"
+            )
             if row.status == "settled_without_result":
                 row.logical_key = None
             overrun = cost > row.reserved_usd
@@ -439,7 +473,9 @@ class DatabaseJournal:
             row = session.get(BilledRequest, identity, with_for_update=True)
             if row is not None and row.usage_id is None:
                 row.status, row.error = "usage_unknown", reason[:1000]
-                row.http_status, row.ended_at = http_status, datetime.now(UTC)
+                if http_status is not None:
+                    row.http_status = http_status
+                row.ended_at = datetime.now(UTC)
 
     def reconcile(self, identity: str, evidence: dict[str, Any]) -> bool:
         """Settle only an identified generation; never infer a free timeout.
@@ -456,7 +492,13 @@ class DatabaseJournal:
             cost = usd(evidence.get("total_cost"))
             if cost is None:
                 raise UsageUnknown("provider reconciliation has no confirmed cost")
-            original = copy.deepcopy(row.response_payload or {})
+            original_response = copy.deepcopy(
+                row.reconciliation.get("original_response", row.response_payload)
+                if row.reconciliation is not None
+                else row.response_payload
+            )
+            original = copy.deepcopy(original_response or {})
+            response_received = original_response is not None
             original["id"] = row.provider_generation_id
             original["usage"] = {
                 "cost": str(cost),
@@ -465,13 +507,14 @@ class DatabaseJournal:
             }
             status = row.http_status or 0
             row.reconciliation = {
+                **(row.reconciliation or {}),
                 "provider": evidence,
-                "original_response": row.response_payload,
+                "original_response": original_response,
                 "observed_at": datetime.now(UTC).isoformat(),
             }
         # finish() serializes with reservations and is idempotent. An interruption
         # between these commits leaves the hold intact and can safely be retried.
-        return self.finish(identity, original, status)
+        return self._finish(identity, original, status, response_received=response_received)
 
 
 def budget_status(session: Session) -> dict[str, Any]:
