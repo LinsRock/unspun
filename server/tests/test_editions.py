@@ -317,3 +317,53 @@ def test_daily_multiple_answers_preserve_each_body_and_author_and_failed_refresh
         )
         == "Real first paragraph.\nSecond paragraph."
     )
+
+
+@pytest.mark.parametrize(
+    "byline,expected",
+    [
+        ("\u672c\u62a5\u8bc4\u8bba\u5458", [("\u672c\u62a5\u8bc4\u8bba\u5458", "author")]),
+        (
+            "\u672c\u62a5\u8bb0\u8005 ReporterA ReporterB",
+            [("ReporterA", "reporter"), ("ReporterB", "reporter")],
+        ),
+    ],
+)
+def test_people_actual_sec_byline_precedes_edition_date(
+    byline: str, expected: list[tuple[str, str]]
+) -> None:
+    from unspun.core.content import ContentMetadata, ContentTime
+    from unspun.core.html_text import TextPage
+    from unspun.pipeline.editions import people_metadata
+
+    html = '<meta name="author" content="\u7b2c001\u7248"><p class="sec">' + byline
+    html += (
+        '<span class="date">\u300a\u4eba\u6c11\u65e5\u62a5\u300b'
+        "\uff082026\u5e7410\u670816\u65e5 \u7b2c01\u7248\uff09</span></p>"
+    )
+    metadata = ContentMetadata(
+        form="article",
+        times=(
+            ContentTime(
+                kind="editorial", precision="date", on=date(2026, 10, 16), basis="observed-layout"
+            ),
+        ),
+    )
+    result = people_metadata(TextPage(html), metadata)
+    assert [(a.name, a.role) for a in result.authors] == expected
+    with pytest.raises(ValueError, match="edition date"):
+        people_metadata(
+            TextPage(html),
+            metadata.model_copy(
+                update={
+                    "times": (
+                        ContentTime(
+                            kind="editorial",
+                            precision="date",
+                            on=date(2026, 10, 15),
+                            basis="different-layout",
+                        ),
+                    )
+                }
+            ),
+        )

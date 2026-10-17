@@ -1,0 +1,356 @@
+{
+  "schema_version": "r1-post-debug-holdout-v6",
+  "frozen_at": "2026-10-16T22:39:02.462580+00:00",
+  "reviewer_kind": "ai-technical",
+  "reason": "H01-H06 and N01-N06 are retired to regression. N04 lost hearsay qualifiers and P02 borrowed title evidence for credits-only material, both despite model approval. Deterministic qualifier and body-only evidence fences were added without weakening thresholds. P01-P06 and Q01-Q06 are also retired. Chinese publication now uses the reviewed verbatim body quotation rather than the generated paraphrase; raw generation remains audit evidence. Insufficient credits-only material is not a sufficient-media sample. These six new identities are frozen before first evaluation and never used for tuning. Critical thresholds and the 80% readiness floor are unchanged.",
+  "original_suite": "technical-suite-v1.json",
+  "private_materials_sha256": "d9bf5b23d1b3e11602cb2c2eb617c923d86e63766fe33c4acf09db74d381892d",
+  "inputs": [
+    {
+      "id": "T01",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/cf4e31ed02e74108bbeacad4f94c5ea3/c.html",
+      "title": "伦敦股市16日上涨",
+      "material_sha256": "a859b3297f821a5e3b15ab3fa5f0f4b5693b1b0fea43508a094ced1a1e070db1",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "张亚东",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "张亚东",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          },
+          {
+            "name": "张亚东",
+            "role": "reporter",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "xinhua:visible-wire-byline"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T17:49:03Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 17:49:03 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T17:49:03+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T22:39:01.357552+00:00",
+      "response_sha256": "7c822e50966103f0289a3a6161791eb7c8c168857731bde4e255066b889b40a2",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v6",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "T02",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/ca3a21768ca0404685b3566f271d89de/c.html",
+      "title": "和总书记面对面｜沙退湖清 好日子跟着好生态一起来了",
+      "material_sha256": "5a7bf14ddc9748d8026c0976b29c90e735b423c8227f8a91732fcf2d87eb71d8",
+      "scope": "media_description",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T16:48:49Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 16:48:49 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017ca3a21768ca0404685b3566f271d89de_0a00fc714ece4a9085e1f11c01e3e778.mp4",
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T16:48:49+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T22:39:01.747372+00:00",
+      "response_sha256": "5ec762a3dcc6b467cb5fd3b7c004b441bbb23839aba2feda6879560a476b651c",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v6",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": true
+      }
+    },
+    {
+      "id": "T03",
+      "source_id": "zhihu-daily",
+      "url": "https://daily.zhihu.com/story/9793266",
+      "title": "瞎扯 · 如何正确地吐槽",
+      "material_sha256": "55c45e73558afa7cb2eac4155ec294fbdaa68c3859df9e0ef62a8b89c0bc4491",
+      "scope": "editorial_edition",
+      "genre": "editorial_edition",
+      "publisher": "Zhihu Daily",
+      "author": "知乎日报",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": "editorial_edition",
+        "platform": "zhihu-daily",
+        "publisher": "Zhihu Daily",
+        "authors": [
+          {
+            "name": "知乎日报",
+            "role": "author",
+            "platform": "zhihu-daily",
+            "platform_id": null,
+            "basis": "page:zhihu-daily:body-author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-15",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261015"
+          }
+        ],
+        "original_url": "https://www.zhihu.com/question/1899205306006896848/answer/2003538898354209978",
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": "zhihu-daily:body:answer-link"
+      },
+      "publication": {
+        "kind": "editorial",
+        "value": "2026-10-15",
+        "basis": "zhihu-daily:list:date"
+      },
+      "observed_at": "2026-10-16T22:39:02.319709+00:00",
+      "response_sha256": "0c313bfba560d2ae9585ad2fd13485d0811e297ed1e2984c22c93dd6648874c6",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v6",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "T04",
+      "source_id": "infzm-news",
+      "url": "https://www.infzm.com/contents/342722",
+      "title": "一家重资产的“软件公司”：AI不聊天，而是进车间",
+      "material_sha256": "f2d82c672534c47dea2072571dd2e2770faf6c0f9fde3ea0ea061100cd900f85",
+      "scope": "preview",
+      "genre": "unknown",
+      "publisher": "南方周末",
+      "author": "南方周末研究员 曹妍",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "infzm",
+        "publisher": "南方周末",
+        "authors": [
+          {
+            "name": "南方周末研究员 曹妍",
+            "role": "unknown",
+            "platform": "infzm",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-16T12:00:00Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Fri, 16 Oct 2026 12:00:00 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "feed",
+        "value": "2026-10-16T12:00:00+00:00",
+        "basis": "feed:feed"
+      },
+      "observed_at": "2026-10-16T22:39:02.384150+00:00",
+      "response_sha256": "b590d1a1afc6d1ea88e623b21a0996f130175f18cdccbe03970f8f681ba6570a",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v6",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    },
+    {
+      "id": "T05",
+      "source_id": "zhihu-hot",
+      "url": "https://www.zhihu.com/question/2094528208381145766",
+      "title": "iPhone Duo一分钟全线售罄，下单发货已排到明年，你抢到了吗？折叠机能否支撑苹果股价再创新高？",
+      "material_sha256": "0f3185c4dcee2b94783824e8511e33ee111bdcb9f25d1f442a5e83c6f48b49ce",
+      "scope": "question_background",
+      "genre": "unknown",
+      "publisher": "Zhihu",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "question",
+        "genre": null,
+        "platform": "zhihu",
+        "publisher": "Zhihu",
+        "authors": [],
+        "times": [
+          {
+            "kind": "question_created",
+            "precision": "time",
+            "at": "2026-10-16T12:40:39Z",
+            "on": null,
+            "basis": "rsshub:zhihu-hot:target.created",
+            "raw": "Fri, 16 Oct 2026 12:40:39 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "question_created",
+        "value": "2026-10-16T12:40:39+00:00",
+        "basis": "rsshub:zhihu-hot:target.created"
+      },
+      "observed_at": "2026-10-16T22:39:02.431724+00:00",
+      "response_sha256": "fd44bb05da7366deb38df66bbb01df427af9e83bcdb885d9eefedda85c825322",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v6",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": true
+      }
+    },
+    {
+      "id": "T06",
+      "source_id": "36kr-newsflashes",
+      "url": "https://www.36kr.com/newsflashes/4028613885317764",
+      "title": "联讯仪器：拟发行H股股票并在港交所主板上市",
+      "material_sha256": "ac987ddf7d3749763b2c37ec881fe484488f9e0493640c38dfe180aae98b5e00",
+      "scope": "complete_brief",
+      "genre": "unknown",
+      "publisher": "36Kr",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "post",
+        "genre": null,
+        "platform": "36kr",
+        "publisher": "36Kr",
+        "authors": [],
+        "times": [
+          {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-16T13:57:57Z",
+            "on": null,
+            "basis": "rsshub:36kr:templateMaterial.publishTime",
+            "raw": "Fri, 16 Oct 2026 13:57:57 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "publication": {
+        "kind": "original",
+        "value": "2026-10-16T13:57:57+00:00",
+        "basis": "rsshub:36kr:templateMaterial.publishTime"
+      },
+      "observed_at": "2026-10-16T22:39:02.461384+00:00",
+      "response_sha256": "d3786e1859317a1ec0b3a8b58d6fb4e745ef14beb4e1c8e738c6d16cd619ca90",
+      "live_generation_sample": true,
+      "split": "post_debug_holdout_v6",
+      "technical_expectations": {
+        "reviewer_kind": "ai-technical",
+        "claims_require_full_quote_support": true,
+        "scope_and_attribution_required": true,
+        "no_user_score": true,
+        "no_video_viewing_or_question_answers": false
+      }
+    }
+  ],
+  "code_sha256_before_evaluation": {
+    "src/unspun/core/content_reading.py": "96b7ae7ba56d55727a521812a297b51927ee3c7857ef35d6592974172c2ac9be",
+    "src/unspun/pipeline/content_processing.py": "4ff998e8e59fdcbe79cca600b466f5b95693cd0f8f23730d31668246f788c145"
+  },
+  "user_quality_passed": null
+}

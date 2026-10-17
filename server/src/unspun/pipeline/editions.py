@@ -176,6 +176,40 @@ def people_metadata(page: TextPage, previous: ContentMetadata) -> ContentMetadat
     # Actual pages expose stale 2013 publishdate and an edition number as author.
     # Only visible bylines and the observed edition date may add semantics.
     authors: list[Author] = []
+    edition_line = page.by_class("sec")
+    if edition_line:
+        raw = " ".join(edition_line.text().split())
+        # The actual template puts the byline before the edition's date span,
+        # rather than in meta author or a dedicated .author element.
+        byline = raw.partition("\u300a\u4eba\u6c11\u65e5\u62a5\u300b")[0].strip()
+        if byline.startswith("\u672c\u62a5\u8bb0\u8005"):
+            authors.extend(
+                Author(
+                    name=name,
+                    role="reporter",
+                    platform=previous.platform,
+                    basis="page:people:visible-edition-byline",
+                )
+                for name in re.split(r"[\s\u3001]+", byline[4:].strip())
+                if name
+            )
+        elif byline and "\u65e5" not in byline and len(byline) <= 100:
+            authors.append(
+                Author(
+                    name=byline,
+                    role="author",
+                    platform=previous.platform,
+                    basis="page:people:visible-edition-byline",
+                )
+            )
+        match = re.search(r"(\d{4})\u5e74(\d{1,2})\u6708(\d{1,2})\u65e5", raw)
+        observed_dates = {value.on for value in previous.times if value.kind == "editorial"}
+        if (
+            match
+            and observed_dates
+            and date(*(int(value) for value in match.groups())) not in observed_dates
+        ):
+            raise ValueError("article edition date conflicts with the observed front page")
     node = page.by_class("author")
     if node:
         value = " ".join(node.text().split())

@@ -1,0 +1,23 @@
+{
+  "schema_version": "r1-technical-readiness-v1",
+  "technical_ready": true,
+  "user_quality_passed": null,
+  "user_quality_status": "user_quality_pending_final_acceptance",
+  "reviewer_kind": "ai-technical",
+  "suite_sha256": "d7fa1c7f4b0650b9e2411b7aa9814effc947118eda1d4a5c093cbea58f3f6d9a",
+  "regression_inputs": 43,
+  "holdout_inputs": 6,
+  "baseline_samples": 27,
+  "baseline_failed_attempts": 1,
+  "material_scope_counts": {
+    "open_text_unit": 29,
+    "media_description": 4,
+    "preview": 3,
+    "complete_brief": 2,
+    "editorial_edition": 4,
+    "question_background": 3,
+    "none": 4
+  },
+  "g2_passed": false,
+  "note": "Benchmark readiness permits implementation; candidate technical quality, source gates and final user acceptance are separate."
+}

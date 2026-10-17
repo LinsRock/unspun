@@ -134,7 +134,41 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
         )
         if item is not None
     )
+    # Verified deployed RSSHub 2026-10-09 route mappings: 36kr uses the
+    # upstream templateMaterial.publishTime; Zhihu hot uses target.created.
+    # Neither field is the time an item entered a hot list or was fetched.
+    if source.id == "36kr-newsflashes" and urlsplit(str(source.url)).path == "/36kr/newsflashes":
+        times = tuple(
+            value.model_copy(
+                update={"kind": "original", "basis": "rsshub:36kr:templateMaterial.publishTime"}
+            )
+            if value.kind == "feed"
+            else value
+            for value in times
+        )
+    elif source.id == "zhihu-hot" and urlsplit(str(source.url)).path == "/zhihu/hot":
+        times = tuple(
+            value.model_copy(
+                update={"kind": "question_created", "basis": "rsshub:zhihu-hot:target.created"}
+            )
+            if value.kind == "feed"
+            else value
+            for value in times
+        )
     author = visible_text(entry.author or "").strip()
+    publisher = config.publisher
+    genre = "review" if config.platform == "douban" else None
+    if config.platform == "infzm":
+        publisher = next(
+            (
+                name
+                for name in ("\u5357\u65b9\u4eba\u7269\u5468\u520a", "\u5357\u65b9\u5468\u672b")
+                if author.startswith(name)
+            ),
+            None,
+        )
+        if visible_text(entry.title).strip().endswith("\u8bb0\u8005\u624b\u8bb0"):
+            genre = "opinion"
     authors = (
         (Author(name=author[:300], role="unknown", platform=config.platform, basis="feed:author"),)
         if author
@@ -178,9 +212,9 @@ def feed_item(source: Source, entry: FeedEntry, rank: int) -> DiscoveryItem:
         identity_value=identity,
         metadata=ContentMetadata(
             form=form,
-            genre="review" if config.platform == "douban" else None,
+            genre=genre,
             platform=config.platform,
-            publisher=config.publisher,
+            publisher=publisher,
             authors=authors,
             times=times,
         ),
@@ -342,6 +376,31 @@ def persist_discovery(
             )
         )
         metadata = {"title": item.title, **item.metadata.model_dump(mode="json")}
+        if article is not None and article.source_id == source.id and article.r1_metadata:
+            recorded = ContentMetadata.model_validate(
+                {key: value for key, value in article.r1_metadata.items() if key != "title"}
+            )
+            originals = tuple(value for value in recorded.times if value.kind == "original")
+            incoming = tuple(value for value in item.metadata.times if value.kind == "original")
+            if (
+                originals
+                and incoming
+                and {(t.at, t.on, t.precision) for t in originals}
+                != {(t.at, t.on, t.precision) for t in incoming}
+            ):
+                stable_times = originals + tuple(
+                    value for value in item.metadata.times if value.kind != "original"
+                )
+                stable_times += tuple(
+                    value.model_copy(
+                        update={
+                            "kind": "modified",
+                            "basis": str(value.basis) + ":conflicts_with_recorded_original",
+                        }
+                    )
+                    for value in incoming
+                )
+                metadata["times"] = [value.model_dump(mode="json") for value in stable_times]
         metadata_fp = fingerprint(metadata)
         if article is None:
             article = Article(

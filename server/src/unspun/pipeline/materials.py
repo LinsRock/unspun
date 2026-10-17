@@ -667,4 +667,10 @@ class MaterialHandler:
         return result
 
     def apply(self, session: Session, lease: Lease, result: MaterialResult) -> dict[str, Any]:
-        return apply_material(session, lease, result)
+        applied = apply_material(session, lease, result)
+        source = self.sources[lease.source_id or ""]
+        if source.r1 and source.r1.paid and not applied.get("stale_metadata"):
+            from unspun.pipeline.content_processing import enqueue_processing
+
+            applied["card_task_id"] = enqueue_processing(session, int(applied["article_id"]))
+        return applied
