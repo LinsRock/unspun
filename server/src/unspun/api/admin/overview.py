@@ -112,7 +112,11 @@ def get_overview(
     processing_counts: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     for timestamp, status, count in session.execute(
         select(article_bucket, processing_status, func.count(Article.id))
-        .where(Article.fetched_at >= period.start, Article.fetched_at < period.end)
+        .where(
+            Article.processing_track == "legacy",
+            Article.fetched_at >= period.start,
+            Article.fetched_at < period.end,
+        )
         .group_by(article_bucket, processing_status)
         .order_by(article_bucket)
     ):
