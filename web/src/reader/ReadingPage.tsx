@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
 import { getFeed, ReaderError } from './api'
@@ -15,8 +15,18 @@ export default function ReadingPage() {
   const sort: Sort = params.get('sort') === 'latest' ? 'latest' : params.get('sort') === 'recommended' ? 'recommended' : profile.data?.sort ?? 'recommended'
   const query = useInfiniteQuery({ queryKey: ['r1-feed', sort, profile.data?.version], enabled: !!profile.data, queryFn: ({ pageParam, signal }) => getFeed(sort, pageParam, signal), initialPageParam: undefined as string | undefined, getNextPageParam: page => page.next_cursor ?? undefined, retry: false, refetchOnWindowFocus: false, staleTime: 60_000 })
   const restored = useRef(false)
-  useEffect(() => { if (query.data && !restored.current) { restored.current = true; requestAnimationFrame(() => window.scrollTo(0, positions.get(sort) ?? 0)) } }, [query.data, sort])
-  useEffect(() => () => { positions.set(sort, window.scrollY) }, [sort])
+  useEffect(() => {
+    if (!query.data || restored.current) return
+    const frame = requestAnimationFrame(() => {
+      restored.current = true
+      window.scrollTo(0, positions.get(sort) ?? 0)
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [query.data, sort])
+  useLayoutEffect(() => () => {
+    if (restored.current) positions.set(sort, window.scrollY)
+  }, [sort])
+  const rememberPosition = () => { positions.set(sort, window.scrollY) }
   const seen = new Set<number>(); const items = query.data?.pages.flatMap(p => p.items).filter(item => !seen.has(item.id) && !!seen.add(item.id)) ?? []
   async function changeSort(next: Sort) { setParams({ sort: next }); restored.current = false; await profile.change('/api/reader-preferences', 'PUT', { sort: next }) }
   async function feedback(item: ContentItem, value: Feedback) {
@@ -27,7 +37,7 @@ export default function ReadingPage() {
   return <div className="r1-reader">
     <div className="feed-heading"><div><p className="r1-eyebrow">READING / 发现</p><h1>值得停下来读一读</h1><p>从具体内容出发，沿着来源继续深入。</p></div><button onClick={refresh} disabled={query.isFetching}>刷新</button></div>
     {query.data?.pages[0]?.preview && <p className="r1-notice" role="status">隔离技术预览 · 来源仍在观察，尚未正式发布。</p>}
-    <div className="feed-controls"><div role="group" aria-label="阅读排序" className="r1-segment">{(['recommended', 'latest'] as const).map(value => <button key={value} aria-pressed={sort === value} disabled={profile.saving || !profile.data || !profile.online} onClick={() => void changeSort(value)}>{value === 'recommended' ? '推荐' : '最新'}</button>)}</div><Link to="/interests">我的关注 <span aria-hidden="true">↗</span></Link></div>
+    <div className="feed-controls"><div role="group" aria-label="阅读排序" className="r1-segment">{(['recommended', 'latest'] as const).map(value => <button key={value} aria-pressed={sort === value} disabled={profile.saving || !profile.data || !profile.online} onClick={() => void changeSort(value)}>{value === 'recommended' ? '推荐' : '最新'}</button>)}</div><Link to="/interests" onClick={rememberPosition}>我的关注 <span aria-hidden="true">↗</span></Link></div>
     <p className="r1-method">{sort === 'recommended' ? '根据已审核内容、当前价值和你的明确偏好排列；未设置关注也可浏览。' : '按有依据的原始发布时间排列，未知时间列后；抓取和导读更新不会顶到最新。'}</p>
     {profile.message && <p role="status" className="r1-notice">{profile.message}</p>}
     {!profile.online && <p role="status" className="r1-notice">网络不可用，反馈和关注暂不能保存；不会离线排队。</p>}
@@ -38,7 +48,7 @@ export default function ReadingPage() {
       const selected = profile.data?.feedback.find(f => f.content_id === item.id)?.value
       return <article className="r1-content-card" key={item.id}>
         <div className="r1-overline"><span>{GENRES[item.card.genre] ?? '内容'}</span><span>{item.source_name}</span><time>{publication(item.metadata)}</time></div>
-        <h2><Link to={`/reading/${item.id}`} state={{ returnTo: location.pathname + location.search }}>{item.title}</Link></h2>
+        <h2><Link to={`/reading/${item.id}`} onClick={rememberPosition} state={{ returnTo: location.pathname + location.search }}>{item.title}</Link></h2>
         <p className="r1-scope">{SCOPES[item.material_scope] ?? '材料范围待核对'}{item.metadata.publisher && item.metadata.publisher !== item.source_name ? ` · 发布方 ${item.metadata.publisher}` : ''}</p>
         <ul className="r1-claims">{item.card.claims.map((claim, index) => <li key={index}>{claim.text}</li>)}</ul>
         <div className="r1-card-footer"><div className="r1-tags">{item.card.domains.map(domain => <span key={domain}>{DOMAINS[domain] ?? domain}</span>)}</div><div className="r1-feedback" role="group" aria-label={`${item.title}的反馈`}><button disabled={profile.saving || !profile.online} aria-pressed={selected === 'interested'} onClick={() => void feedback(item, 'interested')}>感兴趣{selected === 'interested' ? ' · 撤销' : ''}</button><button disabled={profile.saving || !profile.online} aria-pressed={selected === 'not_interested'} onClick={() => void feedback(item, 'not_interested')}>不感兴趣{selected === 'not_interested' ? ' · 撤销' : ''}</button></div></div>
