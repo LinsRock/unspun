@@ -2,6 +2,8 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import { StrictMode, useLayoutEffect } from 'react'
+import type { ReactElement } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import ReadingPage from './ReadingPage'
 import ContentPage from './ContentPage'
@@ -19,9 +21,9 @@ const detail: ContentDetail = {
 }
 let state: ReaderState
 let calls: { path: string; method: string; body?: Record<string, unknown> }[]
-function setup(path = '/reading') {
+function setup(path = '/reading', content: ReactElement = <ContentPage />) {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false }, mutations: { retry: false } } })
-  return render(<QueryClientProvider client={client}><MemoryRouter initialEntries={[path]}><Routes><Route path="/reading" element={<ReadingPage />} /><Route path="/reading/:id" element={<ContentPage />} /><Route path="/interests" element={<InterestsPage />} /></Routes></MemoryRouter></QueryClientProvider>)
+  return render(<StrictMode><QueryClientProvider client={client}><MemoryRouter initialEntries={[path]}><Routes><Route path="/reading" element={<ReadingPage />} /><Route path="/reading/:id" element={content} /><Route path="/interests" element={<InterestsPage />} /></Routes></MemoryRouter></QueryClientProvider></StrictMode>)
 }
 beforeEach(() => {
   state = structuredClone(empty); calls = []
@@ -49,6 +51,36 @@ beforeEach(() => {
 afterEach(() => { cleanup(); vi.unstubAllGlobals() })
 
 describe('R1 reading', () => {
+  it('restores the second page and its last scroll position after a short detail', async () => {
+    const second = { ...detail, id: 11, title: '模拟样本：第二页内容' }
+    const original = vi.mocked(fetch).getMockImplementation()!
+    vi.stubGlobal('fetch', vi.fn(async (input: string, options?: RequestInit) => {
+      if (String(input).startsWith('/api/feed?')) {
+        const next = new URL(String(input), 'https://example.org').searchParams.has('cursor')
+        return Response.json({ items: [next ? second : detail], next_cursor: next ? null : 'second-page', sort: 'recommended', as_of: '2026-10-16T10:00:00Z', ranking_version: 'synthetic', preview: true, empty_reason: null } satisfies FeedPage)
+      }
+      if (input === '/api/contents/11') return Response.json(second)
+      return original(input, options)
+    }))
+    function ShortDetail() {
+      // Model the browser clamping a shorter document before passive cleanup.
+      useLayoutEffect(() => { vi.stubGlobal('scrollY', 0) }, [])
+      return <ContentPage />
+    }
+    setup('/reading', <ShortDetail />)
+    fireEvent.click(await screen.findByRole('button', { name: '继续阅读' }))
+    const link = await screen.findByRole('link', { name: second.title })
+    vi.stubGlobal('scrollY', 2400)
+    fireEvent.scroll(window)
+    fireEvent.click(link)
+    await screen.findByRole('heading', { name: second.title })
+    fireEvent.click(screen.getByRole('link', { name: '← 返回阅读列表' }))
+    await screen.findByRole('link', { name: second.title })
+    expect(screen.queryByRole('button', { name: '继续阅读' })).toBeNull()
+    await waitFor(() => expect(window.scrollTo).toHaveBeenLastCalledWith(0, 2400))
+    vi.stubGlobal('scrollY', 0)
+    fireEvent.scroll(window)
+  })
   it('uses real API contracts, preserves scope and saves then revokes feedback', async () => {
     setup()
     await screen.findByRole('heading', { name: detail.title })
