@@ -1,11 +1,13 @@
 """Authenticated R1 reader interests/feedback; GET never creates tasks or preferences."""
 
-from typing import Any, Literal
+from typing import Annotated, Any, Literal
 
 from fastapi import APIRouter, Depends
 from pydantic import Field
+from sqlalchemy.orm import Session
 
 from unspun.api.admin.auth import require_admin_identity
+from unspun.api.events import get_db
 from unspun.api.feed_preferences import Db, require_write
 from unspun.core.reader import InterestTarget, Mutation, mutate, snapshot
 
@@ -32,7 +34,7 @@ class BrowseInput(Mutation):
 @router.get("/api/reader-preferences")
 @router.get("/api/interests")
 @router.get("/api/feedback")
-def get_reader(session: Db) -> dict[str, Any]:
+def get_reader(session: Annotated[Session, Depends(get_db)]) -> dict[str, Any]:
     return snapshot(session)
 
 

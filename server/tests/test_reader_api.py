@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 
 from unspun.api.admin.auth import require_admin_identity
 from unspun.api.app import app
+from unspun.api.events import get_db
 from unspun.api.feed_preferences import get_write_db
 from unspun.core.config import Settings, get_settings
 
@@ -23,6 +24,7 @@ async def test_reader_requires_access_identity_and_same_origin(db_session: Sessi
         yield db_session
 
     app.dependency_overrides[get_write_db] = db
+    app.dependency_overrides[get_db] = db
     try:
         async with httpx.AsyncClient(
             transport=httpx.ASGITransport(app=app), base_url="https://test"
@@ -58,5 +60,5 @@ async def test_reader_requires_access_identity_and_same_origin(db_session: Sessi
             assert replayed.status_code == 200 and replayed.json()["interests"] == []
             assert replayed.json()["version"] == 2
     finally:
-        for dependency in [get_settings, get_write_db, require_admin_identity]:
+        for dependency in [get_settings, get_write_db, get_db, require_admin_identity]:
             app.dependency_overrides.pop(dependency, None)

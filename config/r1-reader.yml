@@ -1,0 +1,18 @@
+# Provisional implementation values; these are not user ratings.
+version: r1-reader-v1
+interest_weights:
+  domain: 1.0
+  term: 1.0
+  source: 0.5
+  author: 1.0
+interest_cap: 2.0
+positive_feedback: 2.0
+negative_feedback: -3.0
+similar_negative_cap: 0.25
+source_window: 10
+source_soft_limit: 3
+source_penalty: 0.75
+domain_soft_limit: 4
+domain_penalty: 0.5
+cursor_minutes: 15
+max_candidates: 1000
