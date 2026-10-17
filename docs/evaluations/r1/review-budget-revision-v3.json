@@ -1,0 +1,41 @@
+{
+  "schema_version": "r1-review-budget-revision-v3",
+  "registered_at": "2026-10-17T09:23:47.440867+00:00",
+  "authorization": "User authorized a budget increase and full R1 completion",
+  "previous_registration": "budget-revision-v2.json",
+  "evaluation_database": "unspun_quality_r1_20261016",
+  "evaluation_total_all_runs_usd": "1.00",
+  "project_monthly_usd": "15.00",
+  "production_monthly_usd": "14.00",
+  "evaluation_grounding_24h_explicit_usd": "1.00",
+  "production_grounding_24h_hard_max_usd": "0.40",
+  "default_grounding_setting_unchanged": true,
+  "known_cost_usd": "0.2986712",
+  "unknown_count": 5,
+  "unknown_reserved_usd": "0.427336",
+  "available_total_usd": "0.2739928",
+  "all_unknown_holds_retained": true,
+  "new_failure": {
+    "request_id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+    "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+    "http_status": 403,
+    "provider_error": "This model is not available in your region.",
+    "generation_lookup_status": 404,
+    "actual_fee": null,
+    "response_body_recovered": true,
+    "models_changed": false
+  },
+  "bounded_retry": {
+    "previous_request_id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+    "context_suffix": "review-explicit-retry-2:b3b9eefb524b4754ba2fc57cd20c77f0",
+    "max_new_attempts": 1,
+    "expected_request_fingerprint": "f8d57f73e2dd5461535353389e6d97b617b8a0347602506914dcda252591cd90",
+    "transport": "Restore existing configured proxy transport; direct regional rejection retained as failure.",
+    "generation_results_reused": 18,
+    "stop_batch_on_any_transport_or_provider_error": true
+  },
+  "T_private_loaded": false,
+  "quality_thresholds_changed": false,
+  "user_ratings_filled": 0,
+  "production_enabled": false
+}
