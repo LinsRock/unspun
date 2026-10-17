@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-17T04:56:50.993025+00:00",
+  "record_files": 550,
+  "metadata_contracts_checked": 12212,
+  "passed": true,
+  "database_connections": 0,
+  "model_calls": 0,
+  "note": "Validates declared fields, roles and honest time precision, not external truth or source long-term stability."
+}
