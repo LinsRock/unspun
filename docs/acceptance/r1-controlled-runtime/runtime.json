@@ -1,0 +1,346 @@
+{
+  "schema_version": "r1-controlled-runtime-evidence-v1",
+  "captured_at": "2026-10-17T05:20:15.120658+00:00",
+  "database": "unspun_r1_runtime_preview_20261017",
+  "migration_head": "000015",
+  "environment": "local-host-current-code-self-hosted-rsshub",
+  "target_environment_g2_claimed": false,
+  "paid_requests": 0,
+  "known_usage_rows": 0,
+  "production_stages_enabled": false,
+  "initial_tasks": [
+    {
+      "id": 1,
+      "kind": "discover",
+      "source": "wsj-world",
+      "article_id": null,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 2,
+      "kind": "discover",
+      "source": "xinhua",
+      "article_id": null,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 3,
+      "kind": "fetch_material",
+      "source": "wsj-world",
+      "article_id": 1,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 4,
+      "kind": "fetch_material",
+      "source": "wsj-world",
+      "article_id": 2,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 5,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 3,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 6,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 4,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 7,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 5,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 8,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 6,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 9,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 7,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 10,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 8,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    }
+  ],
+  "after_restart_tasks": [
+    {
+      "id": 1,
+      "kind": "discover",
+      "source": "wsj-world",
+      "article_id": null,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 2,
+      "kind": "discover",
+      "source": "xinhua",
+      "article_id": null,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 3,
+      "kind": "fetch_material",
+      "source": "wsj-world",
+      "article_id": 1,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 4,
+      "kind": "fetch_material",
+      "source": "wsj-world",
+      "article_id": 2,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 5,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 3,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 6,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 4,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 7,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 5,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 8,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 6,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 9,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 7,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": 10,
+      "kind": "fetch_material",
+      "source": "xinhua",
+      "article_id": 8,
+      "status": "completed",
+      "attempts": 1,
+      "error": null
+    }
+  ],
+  "restart_changed_task_rows": false,
+  "articles": [
+    {
+      "id": 2,
+      "url": "https://www.wsj.com/world/ukraine-russia-jet-drones-defenses-ca520fcd?mod=rss_worldnews",
+      "source": "wsj-world",
+      "form": "article",
+      "event_id": null,
+      "material_id": 2,
+      "metadata_fingerprint": "fc0028f8e49210da5373e77aa59ab3c57838c534d608aa1e2cc3ec22505c521c"
+    },
+    {
+      "id": 3,
+      "url": "http://www.news.cn/20261017/ee5b0166cffc4bf68d25241518080776/c.html",
+      "source": "xinhua",
+      "form": "article",
+      "event_id": null,
+      "material_id": 4,
+      "metadata_fingerprint": "91f32235d5e7fbdf35a1446c2476b5065b33b2a9fd9b1b7bee4173db9c449822"
+    },
+    {
+      "id": 5,
+      "url": "http://www.news.cn/20261017/977f41c525714fc38b5de34c632a9046/c.html",
+      "source": "xinhua",
+      "form": "article",
+      "event_id": null,
+      "material_id": 5,
+      "metadata_fingerprint": "6f34a5a4e0ff019674a9868c5a9b8ef530670051b1cb1a006c8cb98c56940179"
+    },
+    {
+      "id": 6,
+      "url": "http://www.news.cn/20261017/8551faa5bf294a9db326b8ff50c4cc38/c.html",
+      "source": "xinhua",
+      "form": "video",
+      "event_id": null,
+      "material_id": 6,
+      "metadata_fingerprint": "7beb22e27aab013d8c59edcbcd960bf4a5eff546f442fce3130f004d75adf21b"
+    },
+    {
+      "id": 7,
+      "url": "http://www.news.cn/20261017/c148152f1f574fcfbc5442b5762f815c/c.html",
+      "source": "xinhua",
+      "form": "video",
+      "event_id": null,
+      "material_id": 7,
+      "metadata_fingerprint": "d99b3e256f9e58bb733e218edc6217c8e0005bddba60ba95f01d32d81fb3e7cc"
+    },
+    {
+      "id": 8,
+      "url": "http://www.news.cn/20261017/da5e21a6b18d4cf5bc76beb692e77493/c.html",
+      "source": "xinhua",
+      "form": "article",
+      "event_id": null,
+      "material_id": 8,
+      "metadata_fingerprint": "647b7a965cf5283fc5a4d613bda3146a5e6fcf19cd5ff06dae59c04bb3888474"
+    },
+    {
+      "id": 1,
+      "url": "https://www.wsj.com/world/middle-east/iran-houthi-saudi-arabia-attacks-38b82107?mod=rss_worldnews",
+      "source": "wsj-world",
+      "form": "article",
+      "event_id": null,
+      "material_id": 1,
+      "metadata_fingerprint": "b743ba2c1aec3584033c0e14faefeb74744341d83bf451688164fb1ef1d444f6"
+    },
+    {
+      "id": 4,
+      "url": "http://www.news.cn/20261017/1847a127cb5f4d9ba80063cd4185263b/c.html",
+      "source": "xinhua",
+      "form": "article",
+      "event_id": null,
+      "material_id": 3,
+      "metadata_fingerprint": "6aeed0d78265c0a0e52fd92e488c96f6d88544741498ca0fff5be2d71bbd6d98"
+    }
+  ],
+  "materials": [
+    {
+      "article_id": 1,
+      "scope": "preview",
+      "status": "ok",
+      "text_fingerprint": "89861c62d127dd5e28a199463b989ebc97728f30b49ee22a9755d76988e0133e"
+    },
+    {
+      "article_id": 2,
+      "scope": "preview",
+      "status": "ok",
+      "text_fingerprint": "6c3ce5c25a12d55a14bde12cc151e629217787c806c66b4ad5511f96a461c586"
+    },
+    {
+      "article_id": 4,
+      "scope": "open_text_unit",
+      "status": "ok",
+      "text_fingerprint": "66d8f500e66af6eb6c26a2c3f2888f13f61ab2641d9129b9a6e68682909b5805"
+    },
+    {
+      "article_id": 3,
+      "scope": "open_text_unit",
+      "status": "ok",
+      "text_fingerprint": "b65ccae765ed92473428f7a74f2d465a6797c926d3ac0cb41a8b21b82f6508f5"
+    },
+    {
+      "article_id": 5,
+      "scope": "open_text_unit",
+      "status": "ok",
+      "text_fingerprint": "30d946c431a196ba4fc5f9e6f7e75cbd1eefd20d394cf89b262864c93ff8a543"
+    },
+    {
+      "article_id": 6,
+      "scope": "media_description",
+      "status": "ok",
+      "text_fingerprint": "6d1e4c8e0addb107627ab8335f266c36d055d06a1882ae5c24136b97b9d5735f"
+    },
+    {
+      "article_id": 7,
+      "scope": "media_description",
+      "status": "ok",
+      "text_fingerprint": "a33eb1ae4cf1edde517b0793ce1b6b5e0aefb4847faaa23ce4d8393a7cbfbfd1"
+    },
+    {
+      "article_id": 8,
+      "scope": "open_text_unit",
+      "status": "ok",
+      "text_fingerprint": "d41ad144fe5664ad7a9186edaf4f476e7670c3b903318e058fd1efc8ced8eebd"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "sources.yml",
+      "sha256": "e6252070db8000f3a072a0c49b26a632bf9714d8d0455d822b34c1e645203783"
+    },
+    {
+      "name": "first-run.log",
+      "sha256": "172df15027e91a64a0ad7f3c3e831bfe954116ee8edeaa69e4e29060563b09a6"
+    },
+    {
+      "name": "first-snapshot.json",
+      "sha256": "d344612e37dd535ae70d8e24796cc9f34f54127012f99ea31ee3da7b7cc2e98f"
+    },
+    {
+      "name": "restart-run.log",
+      "sha256": "d5058f57871991279649e58e56ed563f30d075fe9a3a58d663bb428b32b3306e"
+    },
+    {
+      "name": "full-suite.xml",
+      "sha256": "c839bca57dee26da8fad9c6605405139c3bc4848379f10ed569d856b37d18999"
+    },
+    {
+      "name": "legacy-ranking.json",
+      "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3"
+    }
+  ]
+}

@@ -153,8 +153,9 @@ def claim(
     worker: str,
     now: datetime | None = None,
     lease_seconds: int = 120,
+    source_ids: set[str] | None = None,
 ) -> Lease | None:
-    if not kinds:
+    if not kinds or source_ids == set():
         return None
     if not 1 <= lease_seconds <= 3600:
         raise ValueError("lease must be between 1 and 3600 seconds")
@@ -172,6 +173,7 @@ def claim(
         .where(
             PipelineTask.queue == queue,
             PipelineTask.kind.in_(kinds),
+            *([PipelineTask.source_id.in_(source_ids)] if source_ids is not None else []),
             PipelineTask.status.in_(["pending", "retry_wait", "budget_deferred"]),
             PipelineTask.due_at <= now,
             PipelineTask.failures < PipelineTask.max_attempts,
