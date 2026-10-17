@@ -1,6 +1,7 @@
 """Independent, versioned material retrieval and deterministic exact-body reuse."""
 
 import hashlib
+import json
 import re
 import unicodedata
 from datetime import UTC, date, datetime, timedelta
@@ -232,6 +233,23 @@ def _metadata(
             values["form"] = media[0]
         except ValueError:
             pass
+    elif host in {"www.bbc.co.uk", "www.bbc.com", "bbc.co.uk", "bbc.com"}:
+        # BBC's primary VideoObject has no og:video or HTML video element.
+        # Use its page-declared type, never a URL suffix or an embedded advert.
+        documents: list[dict[str, Any]] = []
+        for raw in re.findall(
+            r"<script\b[^>]*\btype=[\"\x27]application/ld\+json[\"\x27][^>]*>(.*?)</script>",
+            html,
+            flags=re.IGNORECASE | re.DOTALL,
+        ):
+            try:
+                document = json.loads(raw)
+            except ValueError:
+                continue
+            if isinstance(document, dict):
+                documents.append(cast(dict[str, Any], document))
+        if len(documents) == 1 and documents[0].get("@type") == "VideoObject":
+            values["form"] = "video"
     return ContentMetadata.model_validate(values)
 
 
@@ -335,6 +353,12 @@ def retrieve_material(
                 access = "restricted"
             elif status >= 400:
                 access = "unavailable"
+            elif urlsplit(url).hostname == "sec.douban.com":
+                # The 200 security redirect is not review text. Its extracted
+                # body can contain only the spaced logo and no captcha words.
+                # Never let its template metadata replace article provenance.
+                access, basis = "restricted", "origin:douban-security-redirect"
+                evidence["security_redirect"] = True
             elif 200 <= status < 300:
                 page = TextPage(response.text)
                 metadata = _metadata(page, response.text, url, now, metadata)
