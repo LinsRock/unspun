@@ -396,7 +396,8 @@ def retrieve_material(
         and all(
             re.fullmatch(
                 r"(?:\u8bb0\u8005|\u7f16\u5bfc|\u7f16\u8f91|\u5236\u4f5c)[\uff1a:]"
-                r"[\u3400-\u9fff\u3001\uff0c,\s\u00b7]{1,60}"
+                r"\s*[\u3400-\u9fff]{2,4}"
+                r"(?:[\u3001\uff0c,\s]+[\u3400-\u9fff]{2,4})*\s*"
                 r"|\u65b0\u534e\u793e[\u3400-\u9fff]{0,30}(?:\u5236\u4f5c|\u51fa\u54c1)",
                 unit.strip(),
             )

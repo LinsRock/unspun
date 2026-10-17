@@ -643,12 +643,19 @@ def test_bbc_primary_schema_sets_description_scope_without_inferring_viewed_vide
     assert result.metadata.duration_seconds is None and result.metadata.media_url is None
 
 
-@pytest.mark.parametrize("has_description", [False, True])
+@pytest.mark.parametrize(
+    "description",
+    [
+        None,
+        "An actual description of the source material.",
+        "\u8bb0\u8005\uff1a\u8bf7\u4ecb\u7ecd\u4e00\u4e0b\u672c\u6b21\u4f1a\u8bae\u7684\u4e3b\u8981\u5185\u5bb9\uff1f",
+    ],
+)
 def test_xinhua_media_credits_alone_are_not_reading_material(
-    ingestion_db: IngestionDB, has_description: bool
+    ingestion_db: IngestionDB, description: str | None
 ) -> None:
     source = ingestion_db.source(origin_hosts=["news.cn"], platform="xinhua")
-    intro = "<p>An actual description of the source material.</p>" if has_description else ""
+    intro = f"<p>{description}</p>" if description else ""
     html = (
         '<span video_src="https://media.example.org/clip.mp4"></span>'
         '<div id="detailContent">' + intro + "<p>\u8bb0\u8005\uff1a\u738b\u96e8\u8427</p>"
@@ -668,9 +675,9 @@ def test_xinhua_media_credits_alone_are_not_reading_material(
             now=NOW,
         )
     assert result.metadata.form == "video"
-    assert result.scope == ("media_description" if has_description else "none")
-    assert bool(result.paragraphs) is has_description
-    assert bool(result.evidence.get("media_credits_only")) is not has_description
+    assert result.scope == ("media_description" if description else "none")
+    assert bool(result.paragraphs) is bool(description)
+    assert bool(result.evidence.get("media_credits_only")) is not bool(description)
 
 
 def test_rss_metadata_keeps_feed_date_and_modified_time_distinct(ingestion_db: IngestionDB) -> None:

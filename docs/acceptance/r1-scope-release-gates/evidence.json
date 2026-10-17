@@ -129,7 +129,7 @@
     "database": "unspun_r1_scope_tests_20261017",
     "created_fresh": true,
     "migration_head": "000015",
-    "passed": 836,
+    "passed": 837,
     "skipped": 0
   },
   "xinhua_origin_audit": {
@@ -1299,6 +1299,10 @@
     {
       "name": "legacy-ranking-final.json",
       "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3"
+    },
+    {
+      "name": "full-suite-v3.xml",
+      "sha256": "b9ce81e7ad71a99e8909679b430e8ecf1ad08fa36f0a8c56f4acf7532fcc67b4"
     }
   ]
 }
