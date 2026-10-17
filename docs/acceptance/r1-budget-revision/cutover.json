@@ -1,0 +1,191 @@
+{
+  "applied_at": "2026-10-17T09:20:38.681837+00:00",
+  "authorization": "User-authorized budget increase; D-027 and budget-revision-v2 registration",
+  "database": "unspun_quality_r1_20261016",
+  "changed_fields": [
+    "monthly_limit_usd",
+    "version"
+  ],
+  "new_model_calls": 0,
+  "same_ledger_and_all_unknown_holds": true,
+  "before": {
+    "tables": {
+      "billed_requests": {
+        "rows": 302,
+        "sha256": "39ce744ec2ebb22a1b139721ca8e356d88dfafc919be0e2d725360dd41e636f0"
+      },
+      "llm_usage": {
+        "rows": 298,
+        "sha256": "7b15d723b60e35cb4f8d90eb2fb3d68553e639aed729f6bc30f0e8f17e39926b"
+      },
+      "budget_carry": {
+        "rows": 1,
+        "sha256": "7e5a9b7a49cc57b4a39cbe82e2f2a0a1694690b4814decaafbd102e3d1d8b8d4"
+      }
+    },
+    "policy": {
+      "id": 1,
+      "scope": "evaluation",
+      "enabled": true,
+      "monthly_limit_usd": "0.600000000000",
+      "stage_caps": {},
+      "version": "r1-budget-v1",
+      "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+      "incident": null,
+      "provider_limit_usd": null,
+      "provider_usage_usd": null,
+      "provider_limit_kind": null,
+      "key_fingerprint": "configured-key-matches",
+      "provider_observed_at": null
+    },
+    "budget": {
+      "enabled": true,
+      "scope": "evaluation",
+      "monthly_limit_usd": "0.600000000000",
+      "evaluation_allocation_usd": "1.00",
+      "stage_caps": {},
+      "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+      "incident": null,
+      "unresolved_calls": 4,
+      "reserved_usd": "0.256662000000",
+      "provider_limit_usd": null,
+      "provider_observed_at": null,
+      "cost_basis": "llm_usage_known_fees_only",
+      "unit_costs": {
+        "per_100_candidates": {
+          "status": "unmeasured",
+          "denominator": "distinct_r1_candidates"
+        },
+        "per_admitted_item": {
+          "status": "unmeasured",
+          "denominator": "distinct_ready_admissions"
+        },
+        "per_new_guide": {
+          "status": "unmeasured",
+          "denominator": "distinct_ready_guides"
+        },
+        "monthly_projection": {
+          "status": "unmeasured",
+          "basis": "observed_eligible_daily_volume"
+        }
+      }
+    },
+    "unresolved": [
+      {
+        "id": "5c68c196f8514836a38280edc782806a",
+        "model": "google/gemini-2.5-flash-lite",
+        "reserved_usd": "0.028760000000",
+        "status": "usage_unknown"
+      },
+      {
+        "id": "bdbdbb331ac546eb84d6f42b502f362b",
+        "model": "google/gemini-2.5-flash",
+        "reserved_usd": "0.170674000000",
+        "status": "usage_unknown"
+      },
+      {
+        "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+        "model": "google/gemini-2.5-flash-lite",
+        "reserved_usd": "0.028261000000",
+        "status": "usage_unknown"
+      },
+      {
+        "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+        "model": "google/gemini-2.5-flash-lite",
+        "reserved_usd": "0.028967000000",
+        "status": "usage_unknown"
+      }
+    ],
+    "schema": "000014"
+  },
+  "after": {
+    "tables": {
+      "billed_requests": {
+        "rows": 302,
+        "sha256": "39ce744ec2ebb22a1b139721ca8e356d88dfafc919be0e2d725360dd41e636f0"
+      },
+      "llm_usage": {
+        "rows": 298,
+        "sha256": "7b15d723b60e35cb4f8d90eb2fb3d68553e639aed729f6bc30f0e8f17e39926b"
+      },
+      "budget_carry": {
+        "rows": 1,
+        "sha256": "7e5a9b7a49cc57b4a39cbe82e2f2a0a1694690b4814decaafbd102e3d1d8b8d4"
+      }
+    },
+    "policy": {
+      "id": 1,
+      "scope": "evaluation",
+      "enabled": true,
+      "monthly_limit_usd": "1.000000000000",
+      "stage_caps": {},
+      "version": "r1-budget-v2",
+      "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+      "incident": null,
+      "provider_limit_usd": null,
+      "provider_usage_usd": null,
+      "provider_limit_kind": null,
+      "key_fingerprint": "configured-key-matches",
+      "provider_observed_at": null
+    },
+    "budget": {
+      "enabled": true,
+      "scope": "evaluation",
+      "monthly_limit_usd": "1.000000000000",
+      "evaluation_allocation_usd": "1.00",
+      "stage_caps": {},
+      "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+      "incident": null,
+      "unresolved_calls": 4,
+      "reserved_usd": "0.256662000000",
+      "provider_limit_usd": null,
+      "provider_observed_at": null,
+      "cost_basis": "llm_usage_known_fees_only",
+      "unit_costs": {
+        "per_100_candidates": {
+          "status": "unmeasured",
+          "denominator": "distinct_r1_candidates"
+        },
+        "per_admitted_item": {
+          "status": "unmeasured",
+          "denominator": "distinct_ready_admissions"
+        },
+        "per_new_guide": {
+          "status": "unmeasured",
+          "denominator": "distinct_ready_guides"
+        },
+        "monthly_projection": {
+          "status": "unmeasured",
+          "basis": "observed_eligible_daily_volume"
+        }
+      }
+    },
+    "unresolved": [
+      {
+        "id": "5c68c196f8514836a38280edc782806a",
+        "model": "google/gemini-2.5-flash-lite",
+        "reserved_usd": "0.028760000000",
+        "status": "usage_unknown"
+      },
+      {
+        "id": "bdbdbb331ac546eb84d6f42b502f362b",
+        "model": "google/gemini-2.5-flash",
+        "reserved_usd": "0.170674000000",
+        "status": "usage_unknown"
+      },
+      {
+        "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+        "model": "google/gemini-2.5-flash-lite",
+        "reserved_usd": "0.028261000000",
+        "status": "usage_unknown"
+      },
+      {
+        "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+        "model": "google/gemini-2.5-flash-lite",
+        "reserved_usd": "0.028967000000",
+        "status": "usage_unknown"
+      }
+    ],
+    "schema": "000014"
+  }
+}
