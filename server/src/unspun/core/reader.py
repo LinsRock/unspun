@@ -46,7 +46,7 @@ class InterestTarget(BaseModel):
     @model_validator(mode="after")
     def valid_target(self) -> "InterestTarget":
         if (
-            "\x00" in self.value
+            any("\x00" in item for item in (self.value, self.platform or "", self.author_id or ""))
             or (self.platform and not self.platform.strip())
             or (self.author_id and not self.author_id.strip())
         ):
@@ -59,7 +59,10 @@ class InterestTarget(BaseModel):
             raise ValueError("author requires a platform")
         if self.kind != "author" and (self.platform or self.author_id):
             raise ValueError("platform fields require author kind")
-        if self.kind == "term" and len(self.value.strip()) > 60:
+        normalized_value = unicodedata.normalize("NFKC", self.value).strip()
+        if len(normalized_value) > 200:
+            raise ValueError("normalized interest target is too long")
+        if self.kind == "term" and len(normalized_value) > 60:
             raise ValueError("interest term is too long")
         return self
 

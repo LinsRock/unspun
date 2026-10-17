@@ -240,3 +240,12 @@ def test_latest_feedback_wins_after_merge_and_update_keeps_one_active_record(
     )
     assert changed["feedback"] == [{"content_id": root.id, "value": "not_interested", "version": 3}]
     assert db_session.scalar(select(func.count()).select_from(ContentFeedback)) == 1
+
+
+def test_normalized_terms_remain_revocable_within_the_target_contract() -> None:
+    from pydantic import ValidationError
+
+    with pytest.raises(ValidationError):
+        InterestTarget(kind="term", value="\u337f" * 30)
+    with pytest.raises(ValidationError):
+        InterestTarget(kind="author", value="Name", platform="bad\x00platform")
