@@ -1,0 +1,38 @@
+{
+  "schema_version": "r1-guide-v5-candidate-v1",
+  "registered_at": "2026-10-17T09:59:23.725885+00:00",
+  "baseline_contract": "r1-guide-v4",
+  "candidate_contract": "r1-guide-v5",
+  "card_contract_unchanged": "r1-card-v9",
+  "review_contract_unchanged": "r1-content-review-v2",
+  "baseline_system_sha256": "1e11529aabd5c84fec6857ba6fb349f9378f5aa901be3b82a9fed9a292019b67",
+  "baseline_outputs_sha256": "6185f09ddc318536bf1a9f7f26cdbe7543e0eccf17715ceb7c5debf00839a085",
+  "baseline_technical_acceptance": {
+    "model_ready": 7,
+    "ai_accepted": 6,
+    "denominator": 8,
+    "failures": {
+      "C01": "Four claims in one section exceed the unchanged strict maximum of three.",
+      "C35": "Guide claim turns a Musk statement about Starshield into a factual assertion; model review incorrectly accepted it."
+    }
+  },
+  "change": "Require the named speaker in each quoted/reported assertion and its heading, with the speaker introduction retained in supporting source excerpts. Enforce the existing three-claims-per-section contract in prompt wording.",
+  "same_regression_inputs": [
+    "C01",
+    "C03",
+    "C07",
+    "C08",
+    "C12",
+    "C24",
+    "C29",
+    "C35"
+  ],
+  "independent_guide_holdout": "guide-holdout-v5.json",
+  "holdout_private_sha256": "3aae1d7edd31ad4dc48f2274008001190995679ca6b1f033b541bc9ecbf1e3ef",
+  "models_prices_schema_thresholds_unchanged": true,
+  "card_T_not_used_for_rule_tuning": true,
+  "original_database_and_unknowns_retained": true,
+  "user_quality_passed": null,
+  "production_published": false,
+  "merge_requires": "Zero critical supported-output attribution errors, original-regression usability floor, independent guide material/increment boundaries and actual unit costs. Preserve every failed attempt."
+}

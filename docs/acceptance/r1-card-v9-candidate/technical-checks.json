@@ -1,0 +1,18 @@
+{
+  "test_database": "unspun_r1_genre_candidate_tests_20261017",
+  "migration_head": "000015",
+  "test_totals": {
+    "tests": 858,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "xml_sha256": "7e05e37ba2c3fe4efc0672fe224e06e18f40b4e9883a543dc155915dd7477c63",
+  "ruff": true,
+  "format": true,
+  "pyright_strict": true,
+  "legacy_40_event_regression": true,
+  "new_paid_requests": 0,
+  "g1_quality_passed": false,
+  "fresh_holdout_called": false
+}

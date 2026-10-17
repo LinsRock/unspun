@@ -1,0 +1,227 @@
+{
+  "schema_version": "r1-guide-holdout-extra-v5",
+  "frozen_at": "2026-10-17T10:02:40.048862+00:00",
+  "inputs": [
+    {
+      "id": "U09",
+      "source_id": "bbc-world",
+      "url": "https://www.bbc.co.uk/news/articles/cxr5yvzv7rp0o?at_medium=RSS&at_campaign=rss",
+      "title": "Trump waives several Russia sanctions as row with Zelensky intensifies",
+      "material_sha256": "222ed95c3dc10ec8cd4be0e7b93f633948529c2400f9e1bbe3b109f73aaac44b",
+      "scope": "open_text_unit",
+      "genre": "unknown",
+      "publisher": "BBC",
+      "author": null,
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "bbc",
+        "publisher": "BBC",
+        "authors": [],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T09:42:13Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 09:42:13 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T10:02:16.214110+00:00",
+      "response_sha256": "7d4b3ad5af4b0a9adc1519a25eeb5a7d5f401d9043960fae01c2ac5270140e69",
+      "extractor_version": "r1-material-v3",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5_extra",
+      "technical_expectations": {
+        "critical_errors": 0,
+        "real_increment_required": true,
+        "named_speaker_attribution_required": true,
+        "scope_boundaries_required": true,
+        "no_user_score": true
+      }
+    },
+    {
+      "id": "U10",
+      "source_id": "xinhua",
+      "url": "http://www.news.cn/20261017/b232cb44a59644248cfc40542f8809f9/c.html",
+      "title": "老去的只是年龄，不是人生",
+      "material_sha256": "07bee0c895429e39d5dcb8d6436935e2e10c2f510eafa2be18ea830025086b25",
+      "scope": "media_description",
+      "genre": "unknown",
+      "publisher": "Xinhua",
+      "author": "李钢",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "xinhua",
+        "publisher": "Xinhua",
+        "authors": [
+          {
+            "name": "李钢",
+            "role": "unknown",
+            "platform": "xinhua",
+            "platform_id": null,
+            "basis": "feed:author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T09:36:09Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 09:36:09 GMT"
+          },
+          {
+            "kind": "original",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "xinhua:meta:publishdate",
+            "raw": "2026-10-17"
+          }
+        ],
+        "original_url": null,
+        "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017b232cb44a59644248cfc40542f8809f9_XxjpsgC000224_20261017_CBMFN0A001.mp4",
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T10:02:38.294695+00:00",
+      "response_sha256": "f1baf23382ceb7989e2422be1afafed42648c73fc2ce14d0c8f15378eea8a32b",
+      "extractor_version": "r1-material-v3",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5_extra",
+      "technical_expectations": {
+        "critical_errors": 0,
+        "real_increment_required": true,
+        "named_speaker_attribution_required": true,
+        "scope_boundaries_required": true,
+        "no_user_score": true
+      }
+    },
+    {
+      "id": "U11",
+      "source_id": "zhihu-daily",
+      "url": "https://daily.zhihu.com/story/9793291",
+      "title": "我国有哪些成功控制外来入侵生物物种的案例和经验？",
+      "material_sha256": "c41488d1174f740c0e7f5c78e9cfb42dce891ad9e4fa768d6ac4bed3423a2754",
+      "scope": "editorial_edition",
+      "genre": "editorial_edition",
+      "publisher": "Zhihu Daily",
+      "author": "野狸子",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": "editorial_edition",
+        "platform": "zhihu-daily",
+        "publisher": "Zhihu Daily",
+        "authors": [
+          {
+            "name": "野狸子",
+            "role": "author",
+            "platform": "zhihu-daily",
+            "platform_id": null,
+            "basis": "page:zhihu-daily:body-author"
+          }
+        ],
+        "times": [
+          {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261017"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T10:02:38.908064+00:00",
+      "response_sha256": "f723702f6ecacf91c90ff0e77be4d91807faad9b44573c202f632b5b939b2a4e",
+      "extractor_version": "r1-material-v3",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5_extra",
+      "technical_expectations": {
+        "critical_errors": 0,
+        "real_increment_required": true,
+        "named_speaker_attribution_required": true,
+        "scope_boundaries_required": true,
+        "no_user_score": true
+      }
+    },
+    {
+      "id": "U12",
+      "source_id": "infzm-news",
+      "url": "https://www.infzm.com/contents/342772",
+      "title": "“烈火烧进泥炭地”：跨境烟霾笼罩东南亚多国",
+      "material_sha256": "4838f3a50996c232a4d06e388f8da17b9a2a8b7aba4af53daa10163af0383346",
+      "scope": "preview",
+      "genre": "unknown",
+      "publisher": "南方周末",
+      "author": "陈相成",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "infzm",
+        "publisher": "南方周末",
+        "authors": [
+          {
+            "name": "陈相成",
+            "role": "reporter",
+            "platform": "infzm",
+            "platform_id": null,
+            "basis": "feed:explicit-byline-role:记者"
+          }
+        ],
+        "times": [
+          {
+            "kind": "feed",
+            "precision": "time",
+            "at": "2026-10-17T06:00:00Z",
+            "on": null,
+            "basis": "feed:feed",
+            "raw": "Sat, 17 Oct 2026 06:00:00 GMT"
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "observed_at": "2026-10-17T10:02:40.048657+00:00",
+      "response_sha256": "b3790acee546d8c0c96b9c5f856a4d09179cd2934e43c31ec18b7d473697cd66",
+      "extractor_version": "r1-material-v3",
+      "live_generation_sample": true,
+      "split": "guide_holdout_v5_extra",
+      "technical_expectations": {
+        "critical_errors": 0,
+        "real_increment_required": true,
+        "named_speaker_attribution_required": true,
+        "scope_boundaries_required": true,
+        "no_user_score": true
+      }
+    }
+  ],
+  "private_materials_sha256": "a9e609e6d3f5dad9ef5b6d3e54ca977e84789ed40e50950ee6902910bc787ed4",
+  "code_sha256_before_evaluation": {
+    "src/unspun/core/content_reading.py": "3225ce093ba50ebf4f8c1c80510481256d199d8be19ba1b9a443cd93bb508d2a",
+    "src/unspun/pipeline/content_processing.py": "cef2f5a51505143a988c525ab819fec4c02797db70cb6bde5553fc038e746d91"
+  },
+  "previously_used_for_tuning": false,
+  "models_called": 0,
+  "user_quality_passed": null,
+  "source_g2_claimed": false
+}

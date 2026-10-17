@@ -1,0 +1,19 @@
+{
+  "schema_version": "r1-guide-runtime-holdout-v5",
+  "registered_at": "2026-10-17T10:13:11.131978+00:00",
+  "case": "U11",
+  "original_frozen_manifest": "guide-holdout-extra-v5.json",
+  "article_id": 11,
+  "guide_input_fingerprint": "d190a7f084866ae7471e2978e427c8b39467b341cdfe7156a9e61136c2ce446b",
+  "execution": "Actual loopback API GET/POST, one persisted guide task and one bounded controlled consumer attempt; no scheduler or production worker.",
+  "same_evaluation_database": "unspun_quality_r1_20261016",
+  "same_evaluation_allocation_usd": "1.50",
+  "qualified_source_scope": "zhihu-daily/editorial_edition",
+  "production_source_flags_changed": false,
+  "maximum_consumer_attempts": 1,
+  "maximum_physical_calls_including_registered_length_retries": 4,
+  "no_network_retry": true,
+  "prior_guide_calls_for_U11": 0,
+  "keep_all_failures_and_unknowns": true,
+  "user_rating": null
+}
