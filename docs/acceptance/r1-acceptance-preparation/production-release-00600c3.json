@@ -1,0 +1,63 @@
+{
+  "checked_at": "2026-10-17T05:39:32.437548+00:00",
+  "health": {
+    "status": "ok",
+    "version": "00600c3225f2bc7cc2e3597b223fd1d49c1b58ce",
+    "database": "ok"
+  },
+  "services": [
+    {
+      "name": "unspun-api-1",
+      "image": "ghcr.io/linsrock/unspun-server:00600c3225f2bc7cc2e3597b223fd1d49c1b58ce",
+      "state": "running"
+    },
+    {
+      "name": "unspun-web-1",
+      "image": "ghcr.io/linsrock/unspun-web:b649a93dd6870eb6f3f61fac50835dc76483f71c",
+      "state": "running"
+    },
+    {
+      "name": "unspun-r1-observe-0a1a5ee",
+      "image": "ghcr.io/linsrock/unspun-server:0a1a5ee2ce831fc4a00f8b2c55610416c2974b5f",
+      "state": "running"
+    },
+    {
+      "name": "unspun-rsshub-1",
+      "image": "diygod/rsshub:2026-10-09",
+      "state": "running"
+    },
+    {
+      "name": "unspun-db-backup-1",
+      "image": "pgvector/pgvector:pg17",
+      "state": "running"
+    },
+    {
+      "name": "unspun-db-1",
+      "image": "pgvector/pgvector:pg17",
+      "state": "running"
+    },
+    {
+      "name": "unspun-edge-cloudflared-1",
+      "image": "cloudflare/cloudflared:latest",
+      "state": "running"
+    }
+  ],
+  "migration_head": "000015",
+  "production_r1_paid_records": 0,
+  "production_r1_tasks": 0,
+  "runtime_preflight": {
+    "config_fingerprint": "c2042eaaf8683fe43c310a16101d138f1ca42aca61e33d56bfd7fda40eb6baba",
+    "legacy_worker_started": false,
+    "publication": [],
+    "stages": {
+      "discovery": [],
+      "guide": [],
+      "material": [],
+      "paid": []
+    },
+    "version": "r1-runtime-v1"
+  },
+  "legacy_worker_running": false,
+  "r1_worker_running": false,
+  "read_only": true
+}
