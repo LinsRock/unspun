@@ -1,0 +1,993 @@
+{
+  "schema_version": "r1-user-log-reconciliation-v2",
+  "read_only_check": {
+    "checked_at": "2026-10-17T08:16:21.499872+00:00",
+    "ledger_writes": 0,
+    "physical_rows": 283,
+    "supplied_ids": 48,
+    "matched_known": 46,
+    "unmatched_generation_ids": [
+      "gen-1792181152-5lwdB37AStFYvxaLixJP",
+      "gen-1792184068-oRC0C1Gxrs3fkY8p0xJu"
+    ],
+    "unknown_requests": [
+      {
+        "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+        "provider_generation_id": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "started_at": "2026-10-16 08:31:09.170417+00:00",
+        "ended_at": "2026-10-16 08:31:09.358923+00:00",
+        "reserved_usd": "0.028261000000",
+        "error": "ConnectError",
+        "phase": "baseline",
+        "request_fingerprint": "36e095ee229afb47fb743c7b5aa2bada73e3f8633a5a70b8bc2f3cd6b6dcfd99",
+        "cost_usd": null
+      },
+      {
+        "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+        "provider_generation_id": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "started_at": "2026-10-16 10:21:19.943998+00:00",
+        "ended_at": "2026-10-16 10:21:20.118797+00:00",
+        "reserved_usd": "0.028967000000",
+        "error": "ConnectError",
+        "phase": "generate",
+        "request_fingerprint": "557d53ec5d593a62cf259e9a80079d33f0a2e152bfcdf92120c31165eac8e16c",
+        "cost_usd": null
+      },
+      {
+        "id": "5c68c196f8514836a38280edc782806a",
+        "provider_generation_id": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "started_at": "2026-10-16 19:16:57.144859+00:00",
+        "ended_at": "2026-10-16 20:05:26.280927+00:00",
+        "reserved_usd": "0.028760000000",
+        "error": "ConnectTimeout",
+        "phase": "generate",
+        "request_fingerprint": "0bf4e0bb1fbace9b11ee966d7b033abdf79b474ab7787d53a7cbdc421d601ae8",
+        "cost_usd": null
+      },
+      {
+        "id": "23c9efa3cd654a859ecd1036ee7b1435",
+        "provider_generation_id": null,
+        "model": "google/gemini-2.5-flash",
+        "status": "usage_unknown",
+        "started_at": "2026-10-16 20:05:52.214261+00:00",
+        "ended_at": "2026-10-16 20:54:07.824948+00:00",
+        "reserved_usd": "0.169787000000",
+        "error": "ReadTimeout",
+        "phase": "review",
+        "request_fingerprint": "2b4f62846b064597f42c35850e19afe1a778ecf8c5821371594dc9c931414772",
+        "cost_usd": null
+      },
+      {
+        "id": "90c0c92c02a14c1a83f81335b22e9d63",
+        "provider_generation_id": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "started_at": "2026-10-16 20:54:28.164829+00:00",
+        "ended_at": "2026-10-16 21:33:32.229886+00:00",
+        "reserved_usd": "0.029206000000",
+        "error": "ReadTimeout",
+        "phase": "generate",
+        "request_fingerprint": "80bbc7d48ee9d741abca1a8d1a33f16a5ee173f1714c2bf809bbbd763d395109",
+        "cost_usd": null
+      }
+    ],
+    "results": [
+      {
+        "generation_id": "gen-1792139519-oTO0adBMQ4nga2rmc28x",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:59.414Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.000553,
+        "ledger": {
+          "id": "bf61679986994dfca1b737a844ee3b89",
+          "provider_generation_id": "gen-1792139519-oTO0adBMQ4nga2rmc28x",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:58.913512+00:00",
+          "cost_usd": 0.000553
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139512-6FM897VXlyB9FyEGAOIq",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:52.675Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.009755,
+        "ledger": {
+          "id": "06b23132d0454fc1b2d72383d3ae5d6a",
+          "provider_generation_id": "gen-1792139512-6FM897VXlyB9FyEGAOIq",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:52.338606+00:00",
+          "cost_usd": 0.009755
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139510-zVZbdH5Yiinqbkvtypag",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:50.085Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0005047,
+        "ledger": {
+          "id": "3e51ebc9b24042d6ac203ea90da19b46",
+          "provider_generation_id": "gen-1792139510-zVZbdH5Yiinqbkvtypag",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:49.604637+00:00",
+          "cost_usd": 0.0005047
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139503-OWkcTEJVHMyF2CW9wnAj",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:43.57Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0069401,
+        "ledger": {
+          "id": "63356cc62e804b63ae0224d2f96d7e96",
+          "provider_generation_id": "gen-1792139503-OWkcTEJVHMyF2CW9wnAj",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:43.246573+00:00",
+          "cost_usd": 0.0069401
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139501-q90DjrPuGyiDuITdw1LP",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:41.433Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003452,
+        "ledger": {
+          "id": "a6203ac1c66f4b158bfba6974b955c18",
+          "provider_generation_id": "gen-1792139501-q90DjrPuGyiDuITdw1LP",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:40.906090+00:00",
+          "cost_usd": 0.0003452
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139495-vlNpDYHqVArH2hgdTQSL",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:35.762Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0066895,
+        "ledger": {
+          "id": "e46746f89f394a568cd95b645c2e0aef",
+          "provider_generation_id": "gen-1792139495-vlNpDYHqVArH2hgdTQSL",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:35.446582+00:00",
+          "cost_usd": 0.0066895
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139493-K2OgWt27geaCgOPj4fEL",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:32.942Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0004517,
+        "ledger": {
+          "id": "16453bf6942b458cb22b6bf505c9a6e5",
+          "provider_generation_id": "gen-1792139493-K2OgWt27geaCgOPj4fEL",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:32.447724+00:00",
+          "cost_usd": 0.0004517
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139487-LRVdOVg5tc9CZFnCSEKt",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:27.348Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0040771,
+        "ledger": {
+          "id": "3c7297c209044e1db81dff310b088b2e",
+          "provider_generation_id": "gen-1792139487-LRVdOVg5tc9CZFnCSEKt",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:27.075604+00:00",
+          "cost_usd": 0.0040771
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139485-ibduoWdoD019gjoTvvBK",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:25.482Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0002611,
+        "ledger": {
+          "id": "ce8bb1e4295b41ecb996d16bd6a22764",
+          "provider_generation_id": "gen-1792139485-ibduoWdoD019gjoTvvBK",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:25.043808+00:00",
+          "cost_usd": 0.0002611
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139479-9worZIMgRgxCVjVGSPQY",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:19.577Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0044941,
+        "ledger": {
+          "id": "46014536d90d49babb80f3359204ba4b",
+          "provider_generation_id": "gen-1792139479-9worZIMgRgxCVjVGSPQY",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:18.974120+00:00",
+          "cost_usd": 0.0044941
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139477-uAQiu4AYHQrSXXtxjRXm",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:17.077Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0002919,
+        "ledger": {
+          "id": "a28e0324356b4943b9ee6d31d526ec3d",
+          "provider_generation_id": "gen-1792139477-uAQiu4AYHQrSXXtxjRXm",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:16.525454+00:00",
+          "cost_usd": 0.0002919
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139472-ou2xwIIn8hocteZiPEEt",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:12.068Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0037338,
+        "ledger": {
+          "id": "d547414791f34c1099c2dae8481ebcfc",
+          "provider_generation_id": "gen-1792139472-ou2xwIIn8hocteZiPEEt",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:11.781779+00:00",
+          "cost_usd": 0.0037338
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139470-kFiJDXHI2qhrsNcbjOYN",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:09.865Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0002909,
+        "ledger": {
+          "id": "9166b58575fd440882802df2f02bb1c5",
+          "provider_generation_id": "gen-1792139470-kFiJDXHI2qhrsNcbjOYN",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:09.387903+00:00",
+          "cost_usd": 0.0002909
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139464-RnAG8hdIHAV0rL0Dl74i",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:04.105Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0043186,
+        "ledger": {
+          "id": "306277a86a2e4352b240ba523e35a7b3",
+          "provider_generation_id": "gen-1792139464-RnAG8hdIHAV0rL0Dl74i",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:03.809197+00:00",
+          "cost_usd": 0.0043186
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792139461-I7ZLip3lmI3iTr26CNps",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T08:31:01.472Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003305,
+        "ledger": {
+          "id": "14e28dfcdd1f4b7a9bc158c896bdfb1b",
+          "provider_generation_id": "gen-1792139461-I7ZLip3lmI3iTr26CNps",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 08:31:00.982718+00:00",
+          "cost_usd": 0.0003305
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146086-kw0OOwtL1kf1hmmiqu8i",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:26.737Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0008443,
+        "ledger": {
+          "id": "bfab7ac249804eb29beab0af278dd327",
+          "provider_generation_id": "gen-1792146086-kw0OOwtL1kf1hmmiqu8i",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:26.236427+00:00",
+          "cost_usd": 0.0008443
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146084-PvsrGvcKWZxekRKB5DMS",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:24.755Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003049,
+        "ledger": {
+          "id": "cf75408f95bc45c88182a836cb5e3e8e",
+          "provider_generation_id": "gen-1792146084-PvsrGvcKWZxekRKB5DMS",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:24.238948+00:00",
+          "cost_usd": 0.0003049
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146083-pnsYo5QoRhLpfYUNUgFW",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:23.182Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0007721,
+        "ledger": {
+          "id": "e3880c31a2a04ff0904ecae023c2fb7e",
+          "provider_generation_id": "gen-1792146083-pnsYo5QoRhLpfYUNUgFW",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:22.657424+00:00",
+          "cost_usd": 0.0007721
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146080-LfWgfQ2fLLSj07o66KXn",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:20.669Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003748,
+        "ledger": {
+          "id": "6798dd7573c54b87aff3a377f4a1e142",
+          "provider_generation_id": "gen-1792146080-LfWgfQ2fLLSj07o66KXn",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:20.175215+00:00",
+          "cost_usd": 0.0003748
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146078-MtABpHYWMvESlrStAgPZ",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:17.848Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0021413,
+        "ledger": {
+          "id": "156392b3bd3c426792cf41b746f994fb",
+          "provider_generation_id": "gen-1792146078-MtABpHYWMvESlrStAgPZ",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:17.306636+00:00",
+          "cost_usd": 0.0021413
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146075-oDPKHOE2rXIgnjBgCrQ8",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:15.336Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.000739,
+        "ledger": {
+          "id": "358fa062ed1d4282a90bdd0aaf6abc43",
+          "provider_generation_id": "gen-1792146075-oDPKHOE2rXIgnjBgCrQ8",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:14.780225+00:00",
+          "cost_usd": 0.000739
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146073-wYKGEuvOabKu8xG548qP",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:13.774Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.000533,
+        "ledger": {
+          "id": "af371bda605f45aeb371ca5df09fb923",
+          "provider_generation_id": "gen-1792146073-wYKGEuvOabKu8xG548qP",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:13.256778+00:00",
+          "cost_usd": 0.000533
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146072-rBU2Z7oFg95d5ryluktq",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:12.044Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0002414,
+        "ledger": {
+          "id": "1ef8edfda63f4f8890b91acaeba5402e",
+          "provider_generation_id": "gen-1792146072-rBU2Z7oFg95d5ryluktq",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:11.538781+00:00",
+          "cost_usd": 0.0002414
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146070-f55tgRvTLwKxelo8MwKG",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:10.574Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0006721,
+        "ledger": {
+          "id": "1bf9154fc6634d4092af466828bb664d",
+          "provider_generation_id": "gen-1792146070-f55tgRvTLwKxelo8MwKG",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:10.067161+00:00",
+          "cost_usd": 0.0006721
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792146068-ZOybES4hhbSOyi33hGGv",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T10:21:08.629Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003067,
+        "ledger": {
+          "id": "e72686f75a764f2797034cca340c6a93",
+          "provider_generation_id": "gen-1792146068-ZOybES4hhbSOyi33hGGv",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 10:21:08.110778+00:00",
+          "cost_usd": 0.0003067
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792178215-8G8kHOfySpwptuefvbf8",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T19:16:55.309Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0005808,
+        "ledger": {
+          "id": "2ff324d5984246b6aa796e82510123fe",
+          "provider_generation_id": "gen-1792178215-8G8kHOfySpwptuefvbf8",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 19:16:53.983342+00:00",
+          "cost_usd": 0.0005808
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792178212-P4LgGeQGgbh4mOKnxWi7",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T19:16:52.253Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003337,
+        "ledger": {
+          "id": "a9353563b0764b2aa031068e2be3cff8",
+          "provider_generation_id": "gen-1792178212-P4LgGeQGgbh4mOKnxWi7",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 19:16:50.914314+00:00",
+          "cost_usd": 0.0003337
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181152-5lwdB37AStFYvxaLixJP",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:52.512Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0005576,
+        "ledger": null
+      },
+      {
+        "generation_id": "gen-1792181149-yrMWLVLZByXOJ1kZH9ml",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:49.444Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0002487,
+        "ledger": {
+          "id": "a6dc50b2b894478ab5827bd86d63342b",
+          "provider_generation_id": "gen-1792181149-yrMWLVLZByXOJ1kZH9ml",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:49.126028+00:00",
+          "cost_usd": 0.0002487
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181147-TtAMEGKveQb4i3IrLWkX",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:47.708Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0010109,
+        "ledger": {
+          "id": "287c9a4310524315b57adde3ee32d86a",
+          "provider_generation_id": "gen-1792181147-TtAMEGKveQb4i3IrLWkX",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:47.381432+00:00",
+          "cost_usd": 0.0010109
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181145-fGO1LbAtzeOhCITAjWEx",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:45.68Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0004066,
+        "ledger": {
+          "id": "91ff281528de4734b5659bb27ff254cd",
+          "provider_generation_id": "gen-1792181145-fGO1LbAtzeOhCITAjWEx",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:45.359986+00:00",
+          "cost_usd": 0.0004066
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181144-24zD3Pmi4E9YRF5B60E0",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:43.954Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0017381,
+        "ledger": {
+          "id": "7943bb5e599d419995cea683bc665bb8",
+          "provider_generation_id": "gen-1792181144-24zD3Pmi4E9YRF5B60E0",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:43.587277+00:00",
+          "cost_usd": 0.0017381
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181141-cCiwBVcs0KhOnEKVzBSX",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:41.18Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0006722,
+        "ledger": {
+          "id": "c708a3f96da04c7eb6456b12494ab6d2",
+          "provider_generation_id": "gen-1792181141-cCiwBVcs0KhOnEKVzBSX",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:40.832748+00:00",
+          "cost_usd": 0.0006722
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181139-rfcscVzAk3MUtU03vz8f",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:38.917Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003922,
+        "ledger": {
+          "id": "82e69b9c95dd4f5c9be95e085574e6a6",
+          "provider_generation_id": "gen-1792181139-rfcscVzAk3MUtU03vz8f",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:38.615262+00:00",
+          "cost_usd": 0.0003922
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181137-cBsUR9Z8MhZFqTmbg26y",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:37.429Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0007744,
+        "ledger": {
+          "id": "d7418c61a884445d9e794b5c00d85771",
+          "provider_generation_id": "gen-1792181137-cBsUR9Z8MhZFqTmbg26y",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:37.104422+00:00",
+          "cost_usd": 0.0007744
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181135-KU9lSw9jjuoVAbWyyfdZ",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:35.506Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003349,
+        "ledger": {
+          "id": "90fcc1db6f31473fb59e46ab2d866ccd",
+          "provider_generation_id": "gen-1792181135-KU9lSw9jjuoVAbWyyfdZ",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:34.180584+00:00",
+          "cost_usd": 0.0003349
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181133-exAnckbVnH6rOKFjZ9dA",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:32.95Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.000694,
+        "ledger": {
+          "id": "4a204e44324d49fd8ef7eaa81a06b9d7",
+          "provider_generation_id": "gen-1792181133-exAnckbVnH6rOKFjZ9dA",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:32.651325+00:00",
+          "cost_usd": 0.000694
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181131-IL4XTvXRdMqQV4K2NX5y",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:30.934Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003071,
+        "ledger": {
+          "id": "041b5ba5ecc14fd79251ebf0cd3051c9",
+          "provider_generation_id": "gen-1792181131-IL4XTvXRdMqQV4K2NX5y",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:30.430320+00:00",
+          "cost_usd": 0.0003071
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181129-82zMi1qkDH0S8szhLQfC",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:28.931Z",
+        "provider_model": "google/gemini-2.5-flash",
+        "provider_cost_usd": 0.0006079,
+        "ledger": {
+          "id": "c84d923f51a54560b6ddf0fbb7d711b9",
+          "provider_generation_id": "gen-1792181129-82zMi1qkDH0S8szhLQfC",
+          "model": "google/gemini-2.5-flash",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:28.491324+00:00",
+          "cost_usd": 0.0006079
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792181127-phNOEsKlgbfBaHvSdRmt",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:05:26.693Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0002713,
+        "ledger": {
+          "id": "ad1f0ceb8584433691a0e3a263a58bf9",
+          "provider_generation_id": "gen-1792181127-phNOEsKlgbfBaHvSdRmt",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:05:26.365384+00:00",
+          "cost_usd": 0.0002713
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792184068-oRC0C1Gxrs3fkY8p0xJu",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:54:28.468Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.000375,
+        "ledger": null
+      },
+      {
+        "generation_id": "gen-1792184066-6my3eP7xnRf0NxJJ109P",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:54:26.221Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003928,
+        "ledger": {
+          "id": "1380b21d20a849c6be20ec03dc355e68",
+          "provider_generation_id": "gen-1792184066-6my3eP7xnRf0NxJJ109P",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:54:25.913242+00:00",
+          "cost_usd": 0.0003928
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792184064-4hVhowAcm4kPtZJ5VIcO",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:54:24.164Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003393,
+        "ledger": {
+          "id": "579a46a1e0d9489dac2d3289d39033d2",
+          "provider_generation_id": "gen-1792184064-4hVhowAcm4kPtZJ5VIcO",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:54:23.861390+00:00",
+          "cost_usd": 0.0003393
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792184061-3GzX8TQ8rCX5Fv4Vi7U2",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:54:21.637Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0003928,
+        "ledger": {
+          "id": "52c765f63752494cbece7cb5957a91b3",
+          "provider_generation_id": "gen-1792184061-3GzX8TQ8rCX5Fv4Vi7U2",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:54:21.339600+00:00",
+          "cost_usd": 0.0003928
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792184059-huymWHLNkXL61OlhoDKg",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:54:19.243Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0005286,
+        "ledger": {
+          "id": "d77ff1d812c4477889320272530419c7",
+          "provider_generation_id": "gen-1792184059-huymWHLNkXL61OlhoDKg",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:54:18.865325+00:00",
+          "cost_usd": 0.0005286
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792184055-yaubawk8mT6GEpYC2cAM",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:54:14.964Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0005261,
+        "ledger": {
+          "id": "e1d089df9c5a43fcaaace6bc441104cf",
+          "provider_generation_id": "gen-1792184055-yaubawk8mT6GEpYC2cAM",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:54:14.650141+00:00",
+          "cost_usd": 0.0005261
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792184052-PfZij5lHBvWmMvnHlBN8",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:54:12.107Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0005013,
+        "ledger": {
+          "id": "c009d658363147b1999484f085b12541",
+          "provider_generation_id": "gen-1792184052-PfZij5lHBvWmMvnHlBN8",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:54:11.819030+00:00",
+          "cost_usd": 0.0005013
+        },
+        "cost_matches": true
+      },
+      {
+        "generation_id": "gen-1792184048-KQOoCoukcvGIrLTUYVqt",
+        "provider_status": 200,
+        "provider_created_at": "2026-10-16T20:54:08.214Z",
+        "provider_model": "google/gemini-2.5-flash-lite",
+        "provider_cost_usd": 0.0004011,
+        "ledger": {
+          "id": "522a6d8899894a62b068fd958875f78b",
+          "provider_generation_id": "gen-1792184048-KQOoCoukcvGIrLTUYVqt",
+          "model": "google/gemini-2.5-flash-lite",
+          "status": "responded",
+          "started_at": "2026-10-16 20:54:07.905222+00:00",
+          "cost_usd": 0.0004011
+        },
+        "cost_matches": true
+      }
+    ]
+  },
+  "settlement": {
+    "settled_at": "2026-10-17T08:17:07.574218+00:00",
+    "evaluation_database": "unspun_quality_r1_20261016",
+    "allocation_changed": false,
+    "new_provider_requests": 0,
+    "supplied_ids": 48,
+    "already_known": 46,
+    "known_costs_all_match": true,
+    "before": {
+      "enabled": true,
+      "scope": "evaluation",
+      "monthly_limit_usd": "0.600000000000",
+      "evaluation_allocation_usd": "0.60",
+      "stage_caps": {},
+      "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+      "incident": null,
+      "unresolved_calls": 5,
+      "reserved_usd": "0.284981000000",
+      "provider_limit_usd": null,
+      "provider_observed_at": null,
+      "cost_basis": "llm_usage_known_fees_only",
+      "unit_costs": {
+        "per_100_candidates": {
+          "status": "unmeasured",
+          "denominator": "distinct_r1_candidates"
+        },
+        "per_admitted_item": {
+          "status": "unmeasured",
+          "denominator": "distinct_ready_admissions"
+        },
+        "per_new_guide": {
+          "status": "unmeasured",
+          "denominator": "distinct_ready_guides"
+        },
+        "monthly_projection": {
+          "status": "unmeasured",
+          "basis": "observed_eligible_daily_volume"
+        }
+      }
+    },
+    "settlements": [
+      {
+        "request_id": "23c9efa3cd654a859ecd1036ee7b1435",
+        "generation_id": "gen-1792181152-5lwdB37AStFYvxaLixJP",
+        "status": "settled_without_result",
+        "actual_cost_usd": "0.0005576",
+        "reserved_before_usd": "0.169787000000",
+        "association": {
+          "origin": "user-provided-partial-upstream-log-2026-10-17",
+          "reviewed_at": "2026-10-17T08:16:56.923986+00:00",
+          "generation_id": "gen-1792181152-5lwdB37AStFYvxaLixJP",
+          "model_matches": true,
+          "original_error": "ReadTimeout",
+          "local_request_id": "23c9efa3cd654a859ecd1036ee7b1435",
+          "original_ended_at": "2026-10-16T20:54:07.824948+00:00",
+          "original_started_at": "2026-10-16T20:05:52.214261+00:00",
+          "original_http_status": null,
+          "provider_response_sha256": "46272ef3637c0e8823ba996a3a2c15ede0965608c458605bb8fd5689de5f4c36",
+          "original_response_present": false,
+          "original_request_fingerprint": "2b4f62846b064597f42c35850e19afe1a778ecf8c5821371594dc9c931414772",
+          "provider_created_after_local_start_seconds": 0.297739,
+          "unique_same_model_request_within_one_second": [
+            "23c9efa3cd654a859ecd1036ee7b1435"
+          ]
+        },
+        "response_recovered": false
+      },
+      {
+        "request_id": "90c0c92c02a14c1a83f81335b22e9d63",
+        "generation_id": "gen-1792184068-oRC0C1Gxrs3fkY8p0xJu",
+        "status": "settled_without_result",
+        "actual_cost_usd": "0.000375",
+        "reserved_before_usd": "0.029206000000",
+        "association": {
+          "origin": "user-provided-partial-upstream-log-2026-10-17",
+          "reviewed_at": "2026-10-17T08:16:56.945713+00:00",
+          "generation_id": "gen-1792184068-oRC0C1Gxrs3fkY8p0xJu",
+          "model_matches": true,
+          "original_error": "ReadTimeout",
+          "local_request_id": "90c0c92c02a14c1a83f81335b22e9d63",
+          "original_ended_at": "2026-10-16T21:33:32.229886+00:00",
+          "original_started_at": "2026-10-16T20:54:28.164829+00:00",
+          "original_http_status": null,
+          "provider_response_sha256": "de088a011a80429b4269026403dd5cb084125cc6ae064293cce4df40d4ad93f4",
+          "original_response_present": false,
+          "original_request_fingerprint": "80bbc7d48ee9d741abca1a8d1a33f16a5ee173f1714c2bf809bbbd763d395109",
+          "provider_created_after_local_start_seconds": 0.303171,
+          "unique_same_model_request_within_one_second": [
+            "90c0c92c02a14c1a83f81335b22e9d63"
+          ]
+        },
+        "response_recovered": false
+      }
+    ],
+    "after": {
+      "enabled": true,
+      "scope": "evaluation",
+      "monthly_limit_usd": "0.600000000000",
+      "evaluation_allocation_usd": "0.60",
+      "stage_caps": {},
+      "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+      "incident": null,
+      "unresolved_calls": 3,
+      "reserved_usd": "0.085988000000",
+      "provider_limit_usd": null,
+      "provider_observed_at": null,
+      "cost_basis": "llm_usage_known_fees_only",
+      "unit_costs": {
+        "per_100_candidates": {
+          "status": "unmeasured",
+          "denominator": "distinct_r1_candidates"
+        },
+        "per_admitted_item": {
+          "status": "unmeasured",
+          "denominator": "distinct_ready_admissions"
+        },
+        "per_new_guide": {
+          "status": "unmeasured",
+          "denominator": "distinct_ready_guides"
+        },
+        "monthly_projection": {
+          "status": "unmeasured",
+          "basis": "observed_eligible_daily_volume"
+        }
+      }
+    },
+    "unresolved": [
+      {
+        "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+        "model": "google/gemini-2.5-flash-lite",
+        "error": "ConnectError",
+        "reserved_usd": "0.028261000000"
+      },
+      {
+        "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+        "model": "google/gemini-2.5-flash-lite",
+        "error": "ConnectError",
+        "reserved_usd": "0.028967000000"
+      },
+      {
+        "id": "5c68c196f8514836a38280edc782806a",
+        "model": "google/gemini-2.5-flash-lite",
+        "error": "ConnectTimeout",
+        "reserved_usd": "0.028760000000"
+      }
+    ],
+    "original_failures_remain_results": true
+  },
+  "provider_generation_gets": 48,
+  "new_paid_generations": 0,
+  "known_cost_before_usd": "0.2908491",
+  "known_cost_after_usd": "0.2917817",
+  "known_usage_rows_after": 280,
+  "physical_rows_after": 283,
+  "held_after_usd": "0.085988",
+  "available_after_usd": "0.2222303",
+  "as_of": "2026-10-17T08:17:07.574218+00:00",
+  "subsequent_evaluation_costs_not_in_this_snapshot": true
+}
