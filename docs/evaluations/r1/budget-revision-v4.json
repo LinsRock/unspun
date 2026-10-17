@@ -1,0 +1,19 @@
+{
+  "schema_version": "r1-budget-revision-v4",
+  "registered_at": "2026-10-17T09:38:09.538586+00:00",
+  "authorization": "Same user-authorized budget increase and full R1 completion",
+  "evaluation_total_all_runs_usd": "1.50",
+  "previous_evaluation_total_all_runs_usd": "1.00",
+  "production_monthly_usd": "13.50",
+  "project_monthly_usd": "15.00",
+  "evaluation_database": "unspun_quality_r1_20261016",
+  "policy_version": "r1-budget-v3",
+  "evaluation_grounding_explicit_24h_usd": "1.00",
+  "production_grounding_hard_max_24h_usd": "0.40",
+  "reason": "Retain all seven unknown holds and complete the independently reviewed guide attribution correction without shrinking reservation bounds.",
+  "same_ledger_no_reset": true,
+  "all_unknowns_retained": true,
+  "new_paid_requests_in_financial_revision": 0,
+  "no_quality_threshold_or_model_change": true,
+  "database_cutover_requires_before_after_row_hashes": true
+}
