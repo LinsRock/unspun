@@ -364,7 +364,11 @@ class DatabaseJournal:
                         or 0
                     )
                 )
-                cap = min(Decimal("0.40"), Decimal(str(get_settings().grounding_budget_24h_usd)))
+                # An explicitly configured isolated evaluation increase still
+                # fits its single cumulative allocation. Production keeps the
+                # original independent review ceiling even with a larger setting.
+                ceiling = EVALUATION_LIMIT if policy.scope == "evaluation" else Decimal("0.40")
+                cap = min(ceiling, Decimal(str(get_settings().grounding_budget_24h_usd)))
                 if spent + held + amount > cap:
                     raise BudgetExceeded(
                         "rolling grounding budget including reservations exhausted"

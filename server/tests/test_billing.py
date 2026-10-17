@@ -177,6 +177,40 @@ def test_allocation_revision_requires_cutover_and_keeps_unknown_holds(
     assert billing_db.usage()[0].cost_usd == 0.29
 
 
+def test_evaluation_review_increase_cannot_raise_production_ceiling(billing_db: BillingDB) -> None:
+    get_settings().grounding_budget_24h_usd = 1.0
+    for _ in range(2):
+        reservation = billing_db.journal.reserve(
+            purpose="grounding",
+            model="google/gemini-2.5-flash",
+            request=REQUEST,
+            context=CallContext(),
+        )
+        billing_db.journal.unknown(reservation.id, "retained rejection without provider cost")
+    held = {r.id: r.reserved_usd for r in billing_db.requests()}
+    billing_db.policy(
+        scope="production", monthly_limit_usd=Decimal("14"), stage_caps={"legacy": "14"}
+    )
+    with pytest.raises(BudgetExceeded, match="rolling grounding"):
+        billing_db.journal.reserve(
+            purpose="grounding",
+            model="google/gemini-2.5-flash",
+            request=REQUEST,
+            context=CallContext(),
+        )
+    billing_db.policy(scope="evaluation", monthly_limit_usd=EVALUATION_LIMIT, stage_caps={})
+    billing_db.journal.reserve(
+        purpose="grounding",
+        model="google/gemini-2.5-flash",
+        request=REQUEST,
+        context=CallContext(),
+    )
+    assert {
+        r.id: r.reserved_usd for r in billing_db.requests() if r.status == "usage_unknown"
+    } == held
+    assert len(billing_db.requests()) == 3
+
+
 def test_fee_survives_json_failure_and_business_rollback(billing_db: BillingDB) -> None:
     with (
         Session(billing_db.engine) as session,
