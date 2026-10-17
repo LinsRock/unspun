@@ -68,7 +68,7 @@
   .reading-brand-mark { width: 29px; height: 31px; font-size: 25px; }
   .reading-brand small, .reading-sidebar-note, .reading-sidebar-footer > a { display: none; }
   .reading-sidebar-footer { margin: 0; border: 0; padding: 0; }
-  .reading-nav { position: fixed; inset: auto 0 0; grid-template-columns: repeat(3, 1fr); background: var(--surface); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); z-index: 20; gap: 0; }
+  .reading-nav { position: fixed; inset: auto 0 0; grid-template-columns: repeat(5, minmax(0, 1fr)); background: var(--surface); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); z-index: 20; gap: 0; }
   .reading-nav a { flex-direction: column; gap: 4px; border-radius: 0; font-size: 11px; padding: 10px 4px; }
   .reading-main { margin-left: 0; }
   .reading-topbar { display: none; }

@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-10-17T04:34:30.759Z",
+  "base": "http://127.0.0.1:5178",
+  "api": "http://127.0.0.1:8112",
+  "data": "empty publication gate plus real isolated reader mutations; no content fixtures or model calls",
+  "initial_version": 0,
+  "final_version": 4,
+  "stale_device_conflict": true,
+  "saved_then_revoked": true,
+  "mobile_width": 390,
+  "horizontal_overflow": false,
+  "browser_errors": [],
+  "published_items": 0
+}
