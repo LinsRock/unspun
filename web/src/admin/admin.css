@@ -462,3 +462,9 @@
   .admin-cost-summary .admin-cost-metrics small { font-size: 10px; }
   .admin-cost-amount strong { font-size: 32px; }
 }
+
+.admin-r1-panel { border-bottom:1px solid var(--line); padding-bottom:28px; margin-bottom:28px; }
+.admin-r1-panel h2 { font-size:18px; font-weight:600; }
+.admin-r1-panel h3 { font-size:14px; font-weight:600; margin:24px 0 12px; }
+.admin-r1-panel .admin-list-header p { font-size:12px; color:var(--ink-3); margin:8px 0 18px; }
+.admin-r1-panel details p { margin:8px 0; overflow-wrap:anywhere; }
