@@ -10,7 +10,9 @@ import type { ContentDetail, FeedPage, ReaderState } from './api'
 
 const empty: ReaderState = { version: 0, sort: 'recommended', interests: [], feedback: [] }
 const detail: ContentDetail = {
-  id: 10, title: '模拟样本：公开媒体简介', original_title: 'Synthetic media description', url: 'https://example.org/video', source_id: 'synthetic', source_name: '模拟来源', channels: [],
+  id: 10, title: '模拟样本：公开媒体简介', original_title: 'Synthetic media description', 
+  url: 'https://example.org/video',
+  source_id: 'synthetic', source_name: '模拟来源', channels: [],
   metadata: { form: 'video', genre: null, platform: 'synthetic', publisher: null, authors: [], times: [{ kind: 'editorial', precision: 'date', at: null, on: '2026-10-16', basis: 'synthetic' }], original_url: null, media_url: 'https://example.org/video', duration_seconds: null },
   material_scope: 'media_description', material_id: 1, input_fingerprint: 'synthetic', card: { title_zh: '模拟样本', genre: 'description', domains: ['science'], claims: [{ text: '简介中介绍了一项测量。', quote: '简介中介绍了一项测量。', voice: 'description' }], reading_value: 1, reading_reason: null }, feedback: null, ranking: { reading_value: 1, current_value: .5, interest: 0, feedback: 0 }, preview: true, requested_alias_id: null,
   material: { scope: 'media_description', paragraphs: [{ kind: 'paragraph', text: '简介只说明了测量过程，没有实际视频内容。<img src=x onerror=alert(1)>' }], retrieved_at: '2026-10-16T10:00:00Z', extractor_version: 'synthetic' }, guide: { status: 'not_requested', reason: null, requestable: true, task_id: null, payload: null },
