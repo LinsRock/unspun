@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     access_audience: str = ""
     admin_local_preview: bool = False
     r1_local_preview: bool = False
+    r1_worker_enabled: bool = False
     log_json: bool = True
     # Default fits local dev (run from server/); the container image sets
     # UNSPUN_CONFIG_DIR=/app/config.

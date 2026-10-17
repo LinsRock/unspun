@@ -1,0 +1,94 @@
+{
+  "checked_at": "2026-10-17T05:16:06.398892+00:00",
+  "mode": "read-only",
+  "new_paid_requests": 0,
+  "key": {
+    "limit": 15,
+    "limit_remaining": 5.89249409,
+    "limit_reset": "monthly",
+    "usage": 9.10750591,
+    "usage_daily": 0,
+    "usage_monthly": 9.10750591,
+    "is_management_key": false
+  },
+  "activity_status": 403,
+  "budget": {
+    "enabled": true,
+    "scope": "evaluation",
+    "monthly_limit_usd": "0.600000000000",
+    "evaluation_allocation_usd": "0.60",
+    "stage_caps": {},
+    "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+    "incident": null,
+    "unresolved_calls": 5,
+    "reserved_usd": "0.284981000000",
+    "provider_limit_usd": null,
+    "provider_observed_at": null,
+    "cost_basis": "llm_usage_known_fees_only",
+    "unit_costs": {
+      "per_100_candidates": {
+        "status": "unmeasured",
+        "denominator": "distinct_r1_candidates"
+      },
+      "per_admitted_item": {
+        "status": "unmeasured",
+        "denominator": "distinct_ready_admissions"
+      },
+      "per_new_guide": {
+        "status": "unmeasured",
+        "denominator": "distinct_ready_guides"
+      },
+      "monthly_projection": {
+        "status": "unmeasured",
+        "basis": "observed_eligible_daily_volume"
+      }
+    }
+  },
+  "unknown_calls": [
+    {
+      "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+      "model": "google/gemini-2.5-flash-lite",
+      "started_at": "2026-10-16T08:31:09.170417+00:00",
+      "reserved_usd": "0.028261000000",
+      "provider_generation_id": null,
+      "error": "ConnectError",
+      "status": "usage_unknown"
+    },
+    {
+      "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+      "model": "google/gemini-2.5-flash-lite",
+      "started_at": "2026-10-16T10:21:19.943998+00:00",
+      "reserved_usd": "0.028967000000",
+      "provider_generation_id": null,
+      "error": "ConnectError",
+      "status": "usage_unknown"
+    },
+    {
+      "id": "5c68c196f8514836a38280edc782806a",
+      "model": "google/gemini-2.5-flash-lite",
+      "started_at": "2026-10-16T19:16:57.144859+00:00",
+      "reserved_usd": "0.028760000000",
+      "provider_generation_id": null,
+      "error": "ConnectTimeout",
+      "status": "usage_unknown"
+    },
+    {
+      "id": "90c0c92c02a14c1a83f81335b22e9d63",
+      "model": "google/gemini-2.5-flash-lite",
+      "started_at": "2026-10-16T20:54:28.164829+00:00",
+      "reserved_usd": "0.029206000000",
+      "provider_generation_id": null,
+      "error": "ReadTimeout",
+      "status": "usage_unknown"
+    },
+    {
+      "id": "23c9efa3cd654a859ecd1036ee7b1435",
+      "model": "google/gemini-2.5-flash",
+      "started_at": "2026-10-16T20:05:52.214261+00:00",
+      "reserved_usd": "0.169787000000",
+      "provider_generation_id": null,
+      "error": "ReadTimeout",
+      "status": "usage_unknown"
+    }
+  ]
+}

@@ -13,6 +13,12 @@ services:
     scale: 0
     restart: "no"
 
+  r1-worker:
+    scale: 0
+    restart: "no"
+    mem_limit: 512m
+    memswap_limit: 512m
+
   web:
     restart: unless-stopped
     ports:

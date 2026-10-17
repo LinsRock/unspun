@@ -37,6 +37,21 @@ services:
       db:
         condition: service_healthy
 
+  r1-worker:
+    image: ${SERVER_IMAGE:-unspun-server:dev}
+    command: ["python", "-m", "unspun.pipeline.r1_worker"]
+    # R1-16 activates this service in a reviewed rollout after G1/G2.
+    scale: 0
+    stop_grace_period: 35s
+    environment:
+      UNSPUN_DATABASE_URL: postgresql+psycopg://unspun:${POSTGRES_PASSWORD:-unspun}@db:5432/unspun
+      UNSPUN_APP_VERSION: ${APP_VERSION:-dev}
+      UNSPUN_OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      UNSPUN_R1_WORKER_ENABLED: "false"
+    depends_on:
+      db:
+        condition: service_healthy
+
   web:
     image: ${WEB_IMAGE:-unspun-web:dev}
     depends_on:

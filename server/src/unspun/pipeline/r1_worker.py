@@ -6,7 +6,7 @@ import uuid
 from collections.abc import Callable, Mapping
 from contextlib import AbstractContextManager
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import datetime
 from typing import Any, Protocol
 
 from sqlalchemy.exc import IntegrityError
@@ -14,7 +14,7 @@ from sqlalchemy.orm import Session
 
 from unspun.core.billing import BudgetExceeded
 from unspun.core.db import session_scope
-from unspun.core.logging import configure_logging, get_logger
+from unspun.core.logging import get_logger
 from unspun.core.tasks import Lease, Queue, claim, complete, fail
 
 log = get_logger("unspun.r1.worker")
@@ -57,12 +57,18 @@ def process_one(
     worker: str,
     scope: SessionScope = session_scope,
     lease_seconds: int = 300,
+    source_ids: set[str] | None = None,
 ) -> bool:
     kinds = {kind for (lane, kind) in handlers if lane == queue}
     try:
         with scope() as session:
             lease = claim(
-                session, queue=queue, kinds=kinds, worker=worker, lease_seconds=lease_seconds
+                session,
+                queue=queue,
+                kinds=kinds,
+                worker=worker,
+                lease_seconds=lease_seconds,
+                source_ids=source_ids,
             )
     except IntegrityError as error:
         # Two different pending tasks can race for one canonical object. The
@@ -117,6 +123,8 @@ class WorkerPool:
         scope: SessionScope = session_scope,
         poll_seconds: float = 1,
         scheduler: Callable[[], None] | None = None,
+        stage_sources: Mapping[Queue, set[str]] | None = None,
+        lease_seconds: int = 300,
     ) -> None:
         if not 0.01 <= poll_seconds <= 60:
             raise ValueError("poll interval must be between 0.01 and 60 seconds")
@@ -135,6 +143,8 @@ class WorkerPool:
             raise ValueError("each queue must have between zero and eight slots")
         self.handlers, self.scope, self.poll_seconds = handlers, scope, poll_seconds
         self.scheduler = scheduler
+        self.stage_sources = stage_sources
+        self.lease_seconds = lease_seconds
         self.slots = dict(limits)
         self.stopping = threading.Event()
         self.threads: list[threading.Thread] = []
@@ -148,6 +158,12 @@ class WorkerPool:
                     self.handlers,
                     scope=self.scope,
                     worker=f"{self.worker_id}:{queue}:{slot}",
+                    source_ids=(
+                        self.stage_sources.get(queue, set())
+                        if self.stage_sources is not None
+                        else None
+                    ),
+                    lease_seconds=self.lease_seconds,
                 )
             except Exception as error:
                 log.error("queue_poll_failed", queue=queue, error_type=type(error).__name__)
@@ -187,11 +203,9 @@ class WorkerPool:
 
 
 def main() -> None:
-    configure_logging()
-    # Actual handlers are wired by their tasks; production startup belongs to
-    # R1-16 after isolation, budget and per-route gates. Never call legacy main.
-    log.error("r1_handlers_not_configured", at=datetime.now(UTC).isoformat())
-    raise SystemExit(2)
+    from unspun.pipeline.r1_runtime import main as run
+
+    run()
 
 
 if __name__ == "__main__":
