@@ -1,0 +1,52 @@
+{
+  "schema_version": "r1-jiemian-cache-v2",
+  "registered_at": "2026-10-17T07:14:40.160520+00:00",
+  "tasks": [
+    "R1-S5"
+  ],
+  "reviewer_kind": "ai-technical",
+  "user_confirmed_thresholds": false,
+  "rsshub_image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+  "rsshub_tag": "diygod/rsshub:2026-10-09",
+  "rsshub_resources": {
+    "memory_mib": 512,
+    "cpus": 0.5,
+    "maximum_lifetime_seconds": 900,
+    "cache": "fresh private memory",
+    "host_ports": []
+  },
+  "client_resources": {
+    "memory_mib": 256,
+    "cpus": 0.5,
+    "parallel_requests": 2,
+    "timeout_seconds": 25,
+    "maximum_response_bytes": 2097152
+  },
+  "feed_routes": [
+    "/jiemian/lists/801?limit=3"
+  ],
+  "feed_rounds": 2,
+  "direct_urls": [
+    "https://www.jiemian.com/article/15194213.html",
+    "https://www.jiemian.com/article/15194529.html"
+  ],
+  "historical_controls": [],
+  "database_writes": 0,
+  "model_requests": 0,
+  "new_credentials": false,
+  "production_image_or_config_change": false,
+  "browser_installation": false,
+  "cookie_export": false,
+  "source_publication": false,
+  "scope": "Bounded diagnosis only. Failures and unavailable browser/session checks remain explicit. No G2 pass inferred from this window; no production timeout increase.",
+  "maximum_source_client_requests": 4,
+  "maximum_bootstrap_health_requests": 12,
+  "rsshub_upstream_request_count": "not separately instrumented",
+  "cache_configuration": {
+    "NODE_ENV": "production",
+    "CACHE_TYPE": "memory",
+    "CACHE_EXPIRE": "1800",
+    "CACHE_CONTENT_EXPIRE": "3600"
+  },
+  "reason": "Match production TTL explicitly; retain v1 default-TTL failures. No threshold change or G2 claim."
+}
