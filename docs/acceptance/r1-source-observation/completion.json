@@ -1,0 +1,849 @@
+{
+  "schema_version": "r1-original-window-completion-v1",
+  "recorded_at": "2026-10-17T08:27:37.139499+00:00",
+  "previous_window_sha256": "d547a28ffa7d4ef910c8e2a18e679a0a79ef45d81270b8787dc2883deedcbd1f",
+  "all_360_prior_chinese_record_hashes_unchanged": true,
+  "additional_records": [
+    {
+      "file": "20261017T044717.406037Z-people-frontpage.json",
+      "sha256": "7d3cf9443bcd4e0a1630857d72ad5b7cf8404b8fc6086421eb2c3d7b9efde819"
+    },
+    {
+      "file": "20261017T044718.303082Z-zhihu-daily.json",
+      "sha256": "a954ffb513f4f7dddf5d8fe28136bffcf682500f41707279be1782466c0e947b"
+    },
+    {
+      "file": "20261017T044724.791491Z-zaobao-world.json",
+      "sha256": "d718ffac10f306b062e8fee29ac2fde3fe6fa4dff4cd333bf5afab11c3e1a6a9"
+    },
+    {
+      "file": "20261017T044729.732046Z-douban-book.json",
+      "sha256": "6af7511e23db767c9ac65b737a2e85dca7ccd5600d1558f31c64b97d8f01bec5"
+    },
+    {
+      "file": "20261017T044733.745415Z-douban-movie.json",
+      "sha256": "1095c11d6ed5b82b8a30580fb3c3f4b4f09b383746de5c29bb2da5792a7107cc"
+    },
+    {
+      "file": "20261017T044734.913945Z-bjnews-depth.json",
+      "sha256": "5540534e7d7e6021df8ea66defc2f30768ebcc8949e776fca9bb8ca3cea1203f"
+    },
+    {
+      "file": "20261017T044736.586477Z-fortune-business.json",
+      "sha256": "3d38385c94df54e68a55ff2e1d79fbeaee34226306663b6cdffd698fd17eb29f"
+    },
+    {
+      "file": "20261017T044738.991399Z-infzm-news.json",
+      "sha256": "ab62e4f264dfdd14398e2cec3b2dd40ad93ec51faff5cde5928e5c8ef4508192"
+    },
+    {
+      "file": "20261017T044739.170833Z-fortune-tech.json",
+      "sha256": "1f5ef280d4805a4bb838ca8e9659d2e3914cde5ec5aba68a5f1539ac53a45b63"
+    },
+    {
+      "file": "20261017T051717.643920Z-people-frontpage.json",
+      "sha256": "5c15970c53fe52a055bcc876b86defd4def8f6ef43d7addf65714fc3cd706f2f"
+    },
+    {
+      "file": "20261017T051718.282153Z-zhihu-daily.json",
+      "sha256": "4c33dc56f61aff5d9b8cd670b53f5901311ef07545204ee79eb06b7bcc68b02a"
+    },
+    {
+      "file": "20261017T051721.071291Z-zaobao-world.json",
+      "sha256": "19b287efa2d31079e3271248978121aea56da48377c0e2040475a0bf8b671882"
+    },
+    {
+      "file": "20261017T051722.007150Z-bjnews-depth.json",
+      "sha256": "0f80285279b2fd050f370d1b1d3156f286d273ea3c377e550d67f485a0c5dded"
+    },
+    {
+      "file": "20261017T051725.015698Z-douban-book.json",
+      "sha256": "ea724f3097cf86619ab2f4bb25323a9ace5b20b0341148b70963af1067975035"
+    },
+    {
+      "file": "20261017T051726.409509Z-fortune-business.json",
+      "sha256": "5f54fae36363b61458d888eac876b1ffcb9262291be6cd016d9ad7ec1f493c82"
+    },
+    {
+      "file": "20261017T051726.899498Z-douban-movie.json",
+      "sha256": "308979dbc52ca47056f421fe76da972aaf47bdd8cc3b4389be508514838562e0"
+    },
+    {
+      "file": "20261017T051727.497693Z-infzm-news.json",
+      "sha256": "a194e641e05c9e2345859c1a499281f9d324fc52af3780237d339cfa11a746bf"
+    },
+    {
+      "file": "20261017T051727.868909Z-fortune-tech.json",
+      "sha256": "da9b20cc9a6b8af81fdec84b4582a4c2ef27ca7e85c252ca4a8404a1646593af"
+    },
+    {
+      "file": "20261017T054717.838572Z-people-frontpage.json",
+      "sha256": "2b43f7ee01b70f5abe28bd2bb3de0628fca3f42fd3d90d72f6ef0d0569fe11b5"
+    },
+    {
+      "file": "20261017T054718.270126Z-zhihu-daily.json",
+      "sha256": "b2dc55a180501c10389fd699a814aa5b4e7f0082d424f66c0d24aff2923ee257"
+    },
+    {
+      "file": "20261017T054721.291928Z-zaobao-world.json",
+      "sha256": "9c9bc4e2e393a487e27423fae29c6d03f5d9a619a999db7ee8737849fde91b87"
+    },
+    {
+      "file": "20261017T054722.303094Z-bjnews-depth.json",
+      "sha256": "d8ae07d9036c6acc5d54ebcc8a7a14983a9e8fcbfe23b9326d795e73a0ec5dc1"
+    },
+    {
+      "file": "20261017T054726.135585Z-douban-book.json",
+      "sha256": "85a28b1af089ed38a076ef622392d82a86c9eee692f1648a1b7705af0f799dbe"
+    },
+    {
+      "file": "20261017T054726.382706Z-douban-movie.json",
+      "sha256": "d612b4ce6b5e2656b4d323a68f3111922c886c8c4563e91c77fa63af66320a7d"
+    },
+    {
+      "file": "20261017T054727.982310Z-fortune-business.json",
+      "sha256": "93531ad255973db9311b55f1b22b59b7bd91f1956dbe11772c8254f53cff45c3"
+    },
+    {
+      "file": "20261017T054728.609650Z-fortune-tech.json",
+      "sha256": "87dd1792058fd5990a72315e1e942e15ddc64cdc836e8cc6f3c4ed6fbd853fd1"
+    },
+    {
+      "file": "20261017T054728.768023Z-infzm-news.json",
+      "sha256": "a83cdfcf99b572587ceafa5bc9a8d8f9756097461995470b773280216fcbe326"
+    },
+    {
+      "file": "20261017T061717.733431Z-people-frontpage.json",
+      "sha256": "3f46063e2d0e1066f25cb121b5dc4675f77dced358d7563f0cadf68bdbb07f3f"
+    },
+    {
+      "file": "20261017T061718.175094Z-zhihu-daily.json",
+      "sha256": "7e19eebfc9c4f4d910abbbe1728556832dc7aa8bc52dd9ffbf0afd819483cb44"
+    },
+    {
+      "file": "20261017T061720.382091Z-zaobao-world.json",
+      "sha256": "6ac2fa544964db1be9274e0285156d1067f2345f24045ecb58ffbf6819f2ff01"
+    },
+    {
+      "file": "20261017T061721.395834Z-bjnews-depth.json",
+      "sha256": "31ec746a3e039e18f5cb48924692517cc96fe0ba1f974ce75eefc47d2a73938c"
+    },
+    {
+      "file": "20261017T061751.383339Z-douban-movie.json",
+      "sha256": "216e791b6be3acaecd9d1a2d1bc653c015844d6bcc77d5af4acb8ec4b0daaa40"
+    },
+    {
+      "file": "20261017T061752.303630Z-douban-book.json",
+      "sha256": "7adc6ad1ba6347c9a315360650376b202e2e9259d8f059ac1ad3f7f1016ee8cb"
+    },
+    {
+      "file": "20261017T061753.566058Z-fortune-business.json",
+      "sha256": "87e3c3f7d4384b0c6c34885e6dfba9ba990e4714260bc7f9c52fb3bd4bdff29b"
+    },
+    {
+      "file": "20261017T061753.892432Z-fortune-tech.json",
+      "sha256": "8d2ca687570b04768eacf6077138cc3eef140030626ded4536603c49733d88b6"
+    },
+    {
+      "file": "20261017T061755.572043Z-infzm-news.json",
+      "sha256": "25e602768ff7677c29f87d164e10de771d5143e854f78a3dee69f0d00cb00945"
+    },
+    {
+      "file": "20261017T064717.555049Z-people-frontpage.json",
+      "sha256": "f920960d61dec0c2d7a758d7044ef0ea335a410125b472fae4678fa339249a8c"
+    },
+    {
+      "file": "20261017T064718.238481Z-zhihu-daily.json",
+      "sha256": "5b6293548ceaa3b3050f1289eca09ee992c92e148c68ef03cb32c96ef9d49f63"
+    },
+    {
+      "file": "20261017T064720.391724Z-zaobao-world.json",
+      "sha256": "e23c57f567cbb4e2a4e6723c65393dee06eeabeba099504b3873529471bd4025"
+    },
+    {
+      "file": "20261017T064724.077164Z-douban-book.json",
+      "sha256": "6681a2d6badc4e7c72ede1ae1f6e0cba1e7ca386ce0f0598c1212acf861b9b5d"
+    },
+    {
+      "file": "20261017T064731.622067Z-douban-movie.json",
+      "sha256": "6dd25a90b80f584ce734ceb55936565fe28fb8e18824d114fada2bb83ccda440"
+    },
+    {
+      "file": "20261017T064732.509436Z-fortune-business.json",
+      "sha256": "88ed0d823d81790a6472215f5e9af2d8adbadc467645b832f3d4f02e5fd24ffc"
+    },
+    {
+      "file": "20261017T064733.485365Z-fortune-tech.json",
+      "sha256": "a9b0565a8c75fbe30d5b21d207cd7cb11b6c20986a34286a2dc86401505685ce"
+    },
+    {
+      "file": "20261017T064733.995400Z-infzm-news.json",
+      "sha256": "d0d2df42b2171c18692d55aaba08780fd62f3f441da78c758d85d1c523f87506"
+    },
+    {
+      "file": "20261017T064939.009388Z-bjnews-depth.json",
+      "sha256": "77b133b230ba97f3461933f0531b1caa78272197c1d09c55bb55e5eccb20a2b0"
+    },
+    {
+      "file": "20261017T071717.671014Z-people-frontpage.json",
+      "sha256": "e793ad1ff3693e9100c16f65fea3af4932cb5511ad604eef9489224baa934e62"
+    },
+    {
+      "file": "20261017T071718.099667Z-zhihu-daily.json",
+      "sha256": "83dc00d4ada700048e3a99c9b57802cf8e30f3988e0e86915f2e4e8698128dbc"
+    },
+    {
+      "file": "20261017T071720.286381Z-zaobao-world.json",
+      "sha256": "056eee8f1a116837e603a6048f194deb56ce4ce913a2533d5793aaa271b33541"
+    },
+    {
+      "file": "20261017T071723.003104Z-bjnews-depth.json",
+      "sha256": "174d9fae0c4e0ba08337c86ca5829648e57b2b583d04490134524a16bf4295d3"
+    },
+    {
+      "file": "20261017T071724.313793Z-douban-book.json",
+      "sha256": "020198b5ea6d7cc51d3a5956f261b282fc352cd8a397a80014c5db8085fbb99e"
+    },
+    {
+      "file": "20261017T071725.470002Z-fortune-business.json",
+      "sha256": "0bd3e413e6f068853eb87e8aa7d0133466b973c31380b1710c40c6f61074fa52"
+    },
+    {
+      "file": "20261017T071727.000871Z-fortune-tech.json",
+      "sha256": "7e4164290ca17e396070d2bff9811c9cb18df548ce1b339adad554e60405c70e"
+    },
+    {
+      "file": "20261017T071727.436059Z-douban-movie.json",
+      "sha256": "1a77c4379090d419080bbb3ec7f7028d070205df23e720d2f9375127289a1483"
+    },
+    {
+      "file": "20261017T071728.397363Z-infzm-news.json",
+      "sha256": "fcf7da59dfc77830e8dc82ae1406719eadbfb5a22a0db931dac41b5fe05c8f74"
+    },
+    {
+      "file": "20261017T074718.119152Z-people-frontpage.json",
+      "sha256": "65c13153abcca44597d1934c2f43d3964d1f96b2f8a4635d3df50b5b64a97a08"
+    },
+    {
+      "file": "20261017T074718.285159Z-zhihu-daily.json",
+      "sha256": "0cee9cdf34bede6539ea7028b6aa5d401ec72d45a37382af05e99ac8691319a0"
+    },
+    {
+      "file": "20261017T074724.291373Z-zaobao-world.json",
+      "sha256": "ceb182ec9a4ad3341566caf64947f2cb9c75fc6159fce58dc9876c28f0d3dfe8"
+    },
+    {
+      "file": "20261017T074727.767541Z-bjnews-depth.json",
+      "sha256": "3a52ce7e8ded44b4a04d2ac108e4805526394e455a2e5c0e8eb820ee3385424e"
+    },
+    {
+      "file": "20261017T074739.688406Z-douban-movie.json",
+      "sha256": "9a8e1e328c579968f538193bb0e9e38982b3a2a399ecff4e64ec3f5bb25a0920"
+    },
+    {
+      "file": "20261017T074741.298168Z-fortune-business.json",
+      "sha256": "303432c2615ca04eedef101b9664c389c312278ee3cea61e876e403c82772f96"
+    },
+    {
+      "file": "20261017T074742.895773Z-fortune-tech.json",
+      "sha256": "3ddaa6cb5dd7b7aef24a145fdee3c425ecd8e67187408cc3e1d74ae2b0f3be3f"
+    },
+    {
+      "file": "20261017T074747.397412Z-infzm-news.json",
+      "sha256": "0d3b75ec370482cb09b996b48b789ffb8d0f408e4a2b4a507a2ae1eddece6102"
+    },
+    {
+      "file": "20261017T074757.184201Z-douban-book.json",
+      "sha256": "25049a8f6eaf393ae9d469e3cc751106392ef17358adf7e5e2742baff5cf1c1d"
+    },
+    {
+      "file": "20261017T081717.893412Z-people-frontpage.json",
+      "sha256": "9de296c57ccd24ac2da9e543f5be58e13973d6d7ae0e33184c4f80e914225848"
+    },
+    {
+      "file": "20261017T081718.312915Z-zhihu-daily.json",
+      "sha256": "2ead0956705438915d888bc5f052c4de2c784d78f39d8b45b0b6fcee96bb6278"
+    },
+    {
+      "file": "20261017T081721.095909Z-zaobao-world.json",
+      "sha256": "40be4c0193f78b687175b2e999b10a387c12d6083054d41d358433e60bc57e27"
+    },
+    {
+      "file": "20261017T081723.192024Z-bjnews-depth.json",
+      "sha256": "135263e4df1e1c26f6d9463210a84f5ecc99a1a0d92b04ee92ef3fef23b79b55"
+    },
+    {
+      "file": "20261017T081726.580837Z-douban-book.json",
+      "sha256": "5969f6fe8f602ae5acfe92c94604c825609a61cad65fdcc1391cdb1d0b8b69d5"
+    },
+    {
+      "file": "20261017T081727.478783Z-fortune-business.json",
+      "sha256": "ba96b5a190aac1f56f0f3e3beceefec36be2d9ad9124a85d062d30a4af6860c1"
+    },
+    {
+      "file": "20261017T081727.766345Z-douban-movie.json",
+      "sha256": "45c58c403984b94a65be1e1224a9739ee1dc2af0050a42bd90ebf21473b282df"
+    },
+    {
+      "file": "20261017T081728.505341Z-infzm-news.json",
+      "sha256": "03be5708f1f689d5d7e33c9903df0881ef01ffb90b1dac0559363bb34e0009f7"
+    },
+    {
+      "file": "20261017T081729.063331Z-fortune-tech.json",
+      "sha256": "8727ba7752459829aa2c36e85816e9502a5ccda1a407c5fbd6705948f1e54aac"
+    }
+  ],
+  "additional_metadata_contracts_checked": 1136,
+  "previous_attempts": 540,
+  "final_attempts": 612,
+  "final_metadata_successes": 607,
+  "final_metadata_failures": 5,
+  "chinese_archive": {
+    "job": {
+      "container": "unspun-r1-observe-0a1a5ee",
+      "not_before": "2026-10-17T08:22:00+00:00",
+      "deadline": "2026-10-17T08:35:00+00:00",
+      "expected_sources": 9,
+      "expected_rounds_per_source": 48
+    },
+    "g2_evaluation": "not_audited",
+    "new_model_requests": 0,
+    "database_writes": 0,
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "StartedAt": "2026-10-16T08:47:09.55788842Z",
+      "FinishedAt": "2026-10-17T08:17:29.898266877Z",
+      "Error": ""
+    },
+    "archive_sha256": "382dd968138497eded012a9e37576c4e39187b6122ee55a2e305dea939c6b746",
+    "archive_bytes": 25462272,
+    "actual_records": 432,
+    "per_source_counts": {
+      "people-frontpage": 48,
+      "zhihu-daily": 48,
+      "zaobao-world": 48,
+      "douban-book": 48,
+      "douban-movie": 48,
+      "bjnews-depth": 48,
+      "fortune-business": 48,
+      "fortune-tech": 48,
+      "infzm-news": 48
+    },
+    "per_source_statuses": {
+      "people-frontpage": {
+        "ok": 48
+      },
+      "zhihu-daily": {
+        "ok": 48
+      },
+      "zaobao-world": {
+        "ok": 48
+      },
+      "douban-book": {
+        "ok": 48
+      },
+      "douban-movie": {
+        "ok": 48
+      },
+      "bjnews-depth": {
+        "ok": 45,
+        "error": 3
+      },
+      "fortune-business": {
+        "ok": 48
+      },
+      "fortune-tech": {
+        "ok": 48
+      },
+      "infzm-news": {
+        "error": 1,
+        "ok": 47
+      }
+    },
+    "actual_ranges": {
+      "people-frontpage": {
+        "first": "2026-10-16T08:47:16.878634+00:00",
+        "last": "2026-10-17T08:17:16.878118+00:00"
+      },
+      "zhihu-daily": {
+        "first": "2026-10-16T08:47:16.876959+00:00",
+        "last": "2026-10-17T08:17:16.876933+00:00"
+      },
+      "zaobao-world": {
+        "first": "2026-10-16T08:47:17.771254+00:00",
+        "last": "2026-10-17T08:17:17.892214+00:00"
+      },
+      "douban-book": {
+        "first": "2026-10-16T08:47:23.775379+00:00",
+        "last": "2026-10-17T08:17:21.095262+00:00"
+      },
+      "douban-movie": {
+        "first": "2026-10-16T08:47:26.803312+00:00",
+        "last": "2026-10-17T08:17:23.191562+00:00"
+      },
+      "bjnews-depth": {
+        "first": "2026-10-16T08:47:18.498092+00:00",
+        "last": "2026-10-17T08:17:18.311929+00:00"
+      },
+      "fortune-business": {
+        "first": "2026-10-16T08:47:30.785853+00:00",
+        "last": "2026-10-17T08:17:26.579932+00:00"
+      },
+      "fortune-tech": {
+        "first": "2026-10-16T08:47:32.890301+00:00",
+        "last": "2026-10-17T08:17:27.478125+00:00"
+      },
+      "infzm-news": {
+        "first": "2026-10-16T08:47:34.986460+00:00",
+        "last": "2026-10-17T08:17:27.729387+00:00"
+      }
+    },
+    "invalid_files": [],
+    "expected_counts_completed": true,
+    "archived_at": "2026-10-17T08:22:12.063262+00:00"
+  },
+  "final_chinese_paths": [
+    {
+      "source_id": "bjnews-depth",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:18.498092+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:18.311929+00:00",
+      "elapsed_seconds": 84599.813837,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 45,
+      "metadata_success_fraction": 0.9375,
+      "max_gap_seconds": 1800.256344,
+      "max_consecutive_failures": 1,
+      "successes_after_last_failure": 18,
+      "failures": [
+        {
+          "at": "2026-10-16T10:47:18.158253+00:00",
+          "error_kind": "HTTPStatusError"
+        },
+        {
+          "at": "2026-10-16T16:17:18.173893+00:00",
+          "error_kind": "ReadTimeout"
+        },
+        {
+          "at": "2026-10-16T23:17:18.295961+00:00",
+          "error_kind": "HTTPStatusError"
+        }
+      ],
+      "first_success_identity_count": 15,
+      "new_distinct_ids_after_first_success": 1,
+      "editorial_dates": [],
+      "material_versions_observed": 90,
+      "material_scope_counts": {
+        "open_text_unit": 80,
+        "feed_lead": 10
+      },
+      "primary_declared_scope": "open_text_unit",
+      "primary_scope_fraction": 0.8888888888888888,
+      "material_distinct_urls": 15,
+      "config_contract_sha256": "763f7e4a20e91a58aab07feabc84424597873263a6e0f044920570e54bc2814c",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": false
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "primary_declared_scope_at_least_90pct",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    },
+    {
+      "source_id": "douban-book",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:23.775379+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:21.095262+00:00",
+      "elapsed_seconds": 84597.319883,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 48,
+      "metadata_success_fraction": 1.0,
+      "max_gap_seconds": 1804.41113,
+      "max_consecutive_failures": 0,
+      "successes_after_last_failure": null,
+      "failures": [],
+      "first_success_identity_count": 20,
+      "new_distinct_ids_after_first_success": 4,
+      "editorial_dates": [],
+      "material_versions_observed": 96,
+      "material_scope_counts": {
+        "open_text_unit": 95,
+        "feed_lead": 1
+      },
+      "primary_declared_scope": "open_text_unit",
+      "primary_scope_fraction": 0.9895833333333334,
+      "material_distinct_urls": 24,
+      "config_contract_sha256": "179312feee962d2376bb41ca77c05b2d7420275374f7357c65e4c96281ac94d3",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": true
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    },
+    {
+      "source_id": "douban-movie",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:26.803312+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:23.191562+00:00",
+      "elapsed_seconds": 84596.38825,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 48,
+      "metadata_success_fraction": 1.0,
+      "max_gap_seconds": 1806.538053,
+      "max_consecutive_failures": 0,
+      "successes_after_last_failure": null,
+      "failures": [],
+      "first_success_identity_count": 20,
+      "new_distinct_ids_after_first_success": 20,
+      "editorial_dates": [],
+      "material_versions_observed": 96,
+      "material_scope_counts": {
+        "preview": 95,
+        "none": 1
+      },
+      "primary_declared_scope": "preview",
+      "primary_scope_fraction": 0.9895833333333334,
+      "material_distinct_urls": 30,
+      "config_contract_sha256": "17e5a894e1e9a0e7d42916b6e8599a33f69136ee6541fe5e34a1a610c2e38427",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": true
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "media_or_challenge_origin_identity_scope_requires_manual_check",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    },
+    {
+      "source_id": "fortune-business",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:30.785853+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:26.579932+00:00",
+      "elapsed_seconds": 84595.794079,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 48,
+      "metadata_success_fraction": 1.0,
+      "max_gap_seconds": 1825.24797,
+      "max_consecutive_failures": 0,
+      "successes_after_last_failure": null,
+      "failures": [],
+      "first_success_identity_count": 12,
+      "new_distinct_ids_after_first_success": 2,
+      "editorial_dates": [],
+      "material_versions_observed": 96,
+      "material_scope_counts": {
+        "open_text_unit": 80,
+        "feed_lead": 16
+      },
+      "primary_declared_scope": "open_text_unit",
+      "primary_scope_fraction": 0.8333333333333334,
+      "material_distinct_urls": 14,
+      "config_contract_sha256": "e0762fc61a3af16405d0586084671ab5a648e863669718c76f8e9d8a6dd6c85b",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": false
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "primary_declared_scope_at_least_90pct",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    },
+    {
+      "source_id": "fortune-tech",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:32.890301+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:27.478125+00:00",
+      "elapsed_seconds": 84594.587824,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 48,
+      "metadata_success_fraction": 1.0,
+      "max_gap_seconds": 1825.920694,
+      "max_consecutive_failures": 0,
+      "successes_after_last_failure": null,
+      "failures": [],
+      "first_success_identity_count": 14,
+      "new_distinct_ids_after_first_success": 1,
+      "editorial_dates": [],
+      "material_versions_observed": 96,
+      "material_scope_counts": {
+        "open_text_unit": 82,
+        "feed_lead": 14
+      },
+      "primary_declared_scope": "open_text_unit",
+      "primary_scope_fraction": 0.8541666666666666,
+      "material_distinct_urls": 14,
+      "config_contract_sha256": "e0762fc61a3af16405d0586084671ab5a648e863669718c76f8e9d8a6dd6c85b",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": false
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "primary_declared_scope_at_least_90pct",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    },
+    {
+      "source_id": "infzm-news",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:34.986460+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:27.729387+00:00",
+      "elapsed_seconds": 84592.742927,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 47,
+      "metadata_success_fraction": 0.9791666666666666,
+      "max_gap_seconds": 1825.528105,
+      "max_consecutive_failures": 1,
+      "successes_after_last_failure": 47,
+      "failures": [
+        {
+          "at": "2026-10-16T08:47:34.986460+00:00",
+          "error_kind": "HTTPStatusError"
+        }
+      ],
+      "first_success_identity_count": 10,
+      "new_distinct_ids_after_first_success": 5,
+      "editorial_dates": [],
+      "material_versions_observed": 94,
+      "material_scope_counts": {
+        "preview": 94
+      },
+      "primary_declared_scope": "preview",
+      "primary_scope_fraction": 1.0,
+      "material_distinct_urls": 15,
+      "config_contract_sha256": "e117546ab29a2a51c04264e4f93d4c3ab6a08d01d7c168068d782e3bfd468470",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": true
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "current_adapter_fields_changed_after_observer_image_requires_equivalence_or_new_probe",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    },
+    {
+      "source_id": "people-frontpage",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:16.878634+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:16.878118+00:00",
+      "elapsed_seconds": 84599.999484,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 48,
+      "metadata_success_fraction": 1.0,
+      "max_gap_seconds": 1800.008198,
+      "max_consecutive_failures": 0,
+      "successes_after_last_failure": null,
+      "failures": [],
+      "first_success_identity_count": 6,
+      "new_distinct_ids_after_first_success": 5,
+      "editorial_dates": [
+        "2026-10-16",
+        "2026-10-17"
+      ],
+      "material_versions_observed": 96,
+      "material_scope_counts": {
+        "editorial_edition": 96
+      },
+      "primary_declared_scope": "editorial_edition",
+      "primary_scope_fraction": 1.0,
+      "material_distinct_urls": 11,
+      "config_contract_sha256": "96bb892ec8d49fbec2b65a8ad3d833d4fbe98ac44beac0ba8dcb9d369106d5e6",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": true
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "current_adapter_fields_changed_after_observer_image_requires_equivalence_or_new_probe",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    },
+    {
+      "source_id": "zaobao-world",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:17.771254+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:17.892214+00:00",
+      "elapsed_seconds": 84600.12096,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 48,
+      "metadata_success_fraction": 1.0,
+      "max_gap_seconds": 1800.572415,
+      "max_consecutive_failures": 0,
+      "successes_after_last_failure": null,
+      "failures": [],
+      "first_success_identity_count": 24,
+      "new_distinct_ids_after_first_success": 29,
+      "editorial_dates": [],
+      "material_versions_observed": 96,
+      "material_scope_counts": {
+        "open_text_unit": 96
+      },
+      "primary_declared_scope": "open_text_unit",
+      "primary_scope_fraction": 1.0,
+      "material_distinct_urls": 40,
+      "config_contract_sha256": "9ef8e72cdea3c63346ee15051bc9d0c9380bfeba646d44ea4577b254d886d956",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": true
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    },
+    {
+      "source_id": "zhihu-daily",
+      "group": "chinese",
+      "started_at": "2026-10-16T08:47:16.876959+00:00",
+      "last_observed_attempt_at": "2026-10-17T08:17:16.876933+00:00",
+      "elapsed_seconds": 84599.999974,
+      "local_dates": 2,
+      "scheduled_attempts": 48,
+      "metadata_successes": 48,
+      "metadata_success_fraction": 1.0,
+      "max_gap_seconds": 1800.008027,
+      "max_consecutive_failures": 0,
+      "successes_after_last_failure": null,
+      "failures": [],
+      "first_success_identity_count": 4,
+      "new_distinct_ids_after_first_success": 4,
+      "editorial_dates": [
+        "2026-10-16",
+        "2026-10-17"
+      ],
+      "material_versions_observed": 96,
+      "material_scope_counts": {
+        "editorial_edition": 96
+      },
+      "primary_declared_scope": "editorial_edition",
+      "primary_scope_fraction": 1.0,
+      "material_distinct_urls": 8,
+      "config_contract_sha256": "cbb96fa1f48dc748c2e76550a6423df37d3ea59c58b6394b2ad19f4c72220b98",
+      "numeric_checks": {
+        "elapsed_6h": true,
+        "two_local_dates": true,
+        "at_least_13_attempts": true,
+        "gap_at_most_4500s": true,
+        "metadata_success_at_least_90pct": true,
+        "consecutive_failures_at_most_one": true,
+        "two_successes_after_last_error": true,
+        "two_materials_per_success": true,
+        "three_distinct_material_urls": true,
+        "primary_declared_scope_at_least_90pct": true
+      },
+      "critical_audit_passed": null,
+      "g2_passed": false,
+      "status": "observe_or_blocked_no_activation",
+      "remaining_issues": [
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ]
+    }
+  ],
+  "g2_new_paths_qualified": 0,
+  "previous_qualified_paths_unchanged": 10,
+  "new_v3_window_affected": false,
+  "production_activation": false,
+  "new_model_requests": 0,
+  "database_connections": 0,
+  "database_writes": 0,
+  "note": "This completes the original observation archive and numerical audit. Existing critical-field failures and newer extractor windows remain authoritative; no newly qualified source is claimed."
+}
