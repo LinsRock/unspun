@@ -389,6 +389,22 @@ def retrieve_material(
     if payload.get("provided_truncated") and basis.startswith("feed:"):
         scope = "feed_lead"
     units, removed = _clean_body(text_body, url)
+    if (
+        metadata.form in {"video", "audio"}
+        and metadata.platform == "xinhua"
+        and units
+        and all(
+            re.fullmatch(
+                r"(?:\u8bb0\u8005|\u7f16\u5bfc|\u7f16\u8f91|\u5236\u4f5c)[\uff1a:]"
+                r"[\u3400-\u9fff\u3001\uff0c,\s\u00b7]{1,60}"
+                r"|\u65b0\u534e\u793e[\u3400-\u9fff]{0,30}(?:\u5236\u4f5c|\u51fa\u54c1)",
+                unit.strip(),
+            )
+            for unit in units
+        )
+    ):
+        evidence["media_credits_only"] = units
+        units = ()
     if removed:
         evidence["trailing_credits"] = removed
     if metadata.form == "question":
@@ -693,8 +709,20 @@ class MaterialHandler:
     def apply(self, session: Session, lease: Lease, result: MaterialResult) -> dict[str, Any]:
         applied = apply_material(session, lease, result)
         source = self.sources[lease.source_id or ""]
-        if source.r1 and source.r1.paid and not applied.get("stale_metadata"):
+        current = (
+            session.get(ContentMaterial, int(applied["material_id"]))
+            if applied.get("material_id") is not None
+            else None
+        )
+        if (
+            source.r1
+            and current
+            and source.r1.allows_paid(current.scope)
+            and not applied.get("stale_metadata")
+        ):
             from unspun.pipeline.content_processing import enqueue_processing
 
             applied["card_task_id"] = enqueue_processing(session, int(applied["article_id"]))
+        elif source.r1 and source.r1.paid and current and not applied.get("stale_metadata"):
+            applied["card_enqueue_reason"] = "paid_material_scope_disabled"
         return applied

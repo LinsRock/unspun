@@ -41,6 +41,8 @@ class R1Source(BaseModel):
     material: bool = False
     paid: bool = False
     publish: bool = False
+    paid_scopes: tuple[MaterialScope, ...] | None = None
+    publish_scopes: tuple[MaterialScope, ...] | None = None
     period_seconds: int = Field(default=1800, ge=60)
     form: ContentForm = "article"
     material_scope: MaterialScope = "open_text_unit"
@@ -49,6 +51,12 @@ class R1Source(BaseModel):
     origin_hosts: tuple[str, ...] = ()
     capability: str = "unverified"
     version: str = "r1-discovery-v1"
+
+    def allows_paid(self, scope: str) -> bool:
+        return self.paid and (self.paid_scopes is None or scope in self.paid_scopes)
+
+    def allows_publication(self, scope: str) -> bool:
+        return self.publish and (self.publish_scopes is None or scope in self.publish_scopes)
 
 
 class Source(BaseModel):

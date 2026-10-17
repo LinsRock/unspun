@@ -31,7 +31,14 @@ def enabled_sources(monkeypatch: pytest.MonkeyPatch) -> None:
                     update={
                         "discovery_owner": "r1",
                         "legacy_enabled": False,
-                        "r1": raw.r1.model_copy(update={"publish": True, "paid": True}),
+                        "r1": raw.r1.model_copy(
+                            update={
+                                "publish": True,
+                                "paid": True,
+                                "paid_scopes": None,
+                                "publish_scopes": None,
+                            }
+                        ),
                     }
                 )
             )
@@ -161,6 +168,44 @@ def test_no_preferences_and_domain_term_source_author_matches_are_explained(
     assert items[0]["id"] == science.id and items[0]["ranking"]["interest"] == 2
     assert len(items[0]["ranking"]["matched_interests"]) == 4
     assert [x["id"] for x in feed(db_session, sort="latest")["items"]] == [culture.id, science.id]
+
+
+def test_partial_source_scope_cannot_leak_into_feed_detail_or_guide_requests(
+    db_session: Session, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from unspun.api.contents import find_item, guide_state
+
+    source = next(source for source in load_sources() if source.id == "xinhua")
+    assert source.r1
+    source = source.model_copy(
+        update={
+            "discovery_owner": "r1",
+            "legacy_enabled": False,
+            "r1": source.r1.model_copy(
+                update={
+                    "paid": True,
+                    "publish": True,
+                    "paid_scopes": ("media_description",),
+                    "publish_scopes": ("media_description",),
+                }
+            ),
+        }
+    )
+    sources = [source]
+    monkeypatch.setattr("unspun.core.content_feed.load_sources", lambda: sources)
+    monkeypatch.setattr("unspun.api.contents.load_sources", lambda: sources)
+    article = ready(db_session)
+    assert feed(db_session)["items"] == []
+    with pytest.raises(HTTPException) as error:
+        find_item(db_session, article.id, False)
+    assert error.value.status_code == 404
+    assert source.r1
+    sources[0] = source.model_copy(
+        update={"r1": source.r1.model_copy(update={"publish_scopes": ("open_text_unit",)})}
+    )
+    assert [item["id"] for item in feed(db_session)["items"]] == [article.id]
+    item, _ = find_item(db_session, article.id, False)
+    assert guide_state(db_session, item)["requestable"] is False
 
 
 def test_feedback_revoke_changes_recommended_and_similar_penalty_is_bounded(

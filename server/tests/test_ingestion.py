@@ -401,6 +401,31 @@ def test_feed_units_keep_actual_scope_without_pretending_to_fetch_origin(
     assert result.completeness == ("observed_unit" if scope == "complete_brief" else "partial")
 
 
+@pytest.mark.parametrize("scope", ["preview", "open_text_unit"])
+def test_material_retention_does_not_expand_the_paid_scope(
+    ingestion_db: IngestionDB, scope: str
+) -> None:
+    from unspun.pipeline.materials import MaterialHandler
+
+    source = ingestion_db.source(paid=True, paid_scopes=["preview"])
+    ingestion_db.persist(source, ingestion_db.item())
+    lease = ingestion_db.take()
+    handler = MaterialHandler({source.id: source})
+    with ingestion_db.scope() as session:
+        assert complete(
+            session,
+            lease,
+            apply=lambda db: handler.apply(db, lease, material(lease, "Actual unit.", scope=scope)),
+        )
+    with ingestion_db.scope() as session:
+        article = session.get(Article, lease.article_id)
+        assert article and article.current_material_id
+        current = session.get(ContentMaterial, article.current_material_id)
+        assert current and current.scope == scope
+        cards = list(session.scalars(select(PipelineTask).where(PipelineTask.queue == "paid")))
+        assert len(cards) == (1 if scope == "preview" else 0)
+
+
 @pytest.mark.parametrize("status", [401, 403, 429, 503])
 def test_origin_failure_preserves_feed_lead_and_access_result(
     ingestion_db: IngestionDB, status: int
@@ -616,6 +641,36 @@ def test_bbc_primary_schema_sets_description_scope_without_inferring_viewed_vide
     assert result.metadata.form == expected
     assert result.scope == ("media_description" if expected == "video" else "open_text_unit")
     assert result.metadata.duration_seconds is None and result.metadata.media_url is None
+
+
+@pytest.mark.parametrize("has_description", [False, True])
+def test_xinhua_media_credits_alone_are_not_reading_material(
+    ingestion_db: IngestionDB, has_description: bool
+) -> None:
+    source = ingestion_db.source(origin_hosts=["news.cn"], platform="xinhua")
+    intro = "<p>An actual description of the source material.</p>" if has_description else ""
+    html = (
+        '<span video_src="https://media.example.org/clip.mp4"></span>'
+        '<div id="detailContent">' + intro + "<p>\u8bb0\u8005\uff1a\u738b\u96e8\u8427</p>"
+        "<p>\u7f16\u5bfc\uff1a\u5510\u5b50\u6654</p>"
+        "<p>\u65b0\u534e\u793e\u97f3\u89c6\u9891\u90e8\u5236\u4f5c</p></div>"
+    )
+    with httpx.Client(
+        transport=httpx.MockTransport(lambda _: httpx.Response(200, text=html))
+    ) as client:
+        result = retrieve_material(
+            source,
+            {
+                "url": "https://www.news.cn/item",
+                "metadata": {"title": "Synthetic video", "platform": "xinhua"},
+            },
+            client,
+            now=NOW,
+        )
+    assert result.metadata.form == "video"
+    assert result.scope == ("media_description" if has_description else "none")
+    assert bool(result.paragraphs) is has_description
+    assert bool(result.evidence.get("media_credits_only")) is not has_description
 
 
 def test_rss_metadata_keeps_feed_date_and_modified_time_distinct(ingestion_db: IngestionDB) -> None:

@@ -1,0 +1,72 @@
+{
+  "schema_version": "r1-material-window-v2",
+  "registered_at": "2026-10-17T05:49:35.763027+00:00",
+  "reviewer_kind": "ai-technical",
+  "user_confirmed_thresholds": false,
+  "previous_policy": "docs/evaluations/r1/source-observation-v1.json",
+  "previous_policy_sha256": "955e29153f5241c843ed8f155215e89c836c111f1637677efd2a138149239ea0",
+  "previous_failures_retained": true,
+  "numeric_thresholds_changed": false,
+  "critical_errors_allowed": 0,
+  "required_material_extractor": "r1-material-v3",
+  "sources": {
+    "xinhua": {
+      "declared_material_scopes": [
+        "open_text_unit",
+        "media_description"
+      ],
+      "excluded": [
+        "none",
+        "feed_lead",
+        "credits_only"
+      ],
+      "source_of_expected_types": "R1 first-loop source plan and pre-generation frozen article/video-description cases"
+    },
+    "bbc-world": {
+      "declared_material_scopes": [
+        "open_text_unit",
+        "media_description"
+      ],
+      "excluded": [
+        "none",
+        "feed_lead"
+      ],
+      "source_of_expected_types": "Observed primary NewsArticle and VideoObject; v2 misclassification remains failed evidence"
+    }
+  },
+  "sampling": {
+    "planned_rounds": 26,
+    "interval_seconds": 1800,
+    "sample_items_per_success": 2,
+    "maximum_parallel_sources": 2,
+    "minimum_elapsed_seconds": 21600,
+    "minimum_distinct_shanghai_dates": 2,
+    "minimum_scheduled_attempts": 13,
+    "maximum_gap_seconds": 4500,
+    "minimum_metadata_success_fraction": 0.9,
+    "maximum_consecutive_metadata_failures": 1,
+    "post_failure_successes_required": 2,
+    "minimum_distinct_material_urls": 3,
+    "minimum_declared_scope_success_fraction": 0.9
+  },
+  "scope_success_definition": "Each actual sampled material must have an allowed declared scope, actual non-credit material and matching form/identity/time/author basis. none, empty material, errors and restricted shells remain in the sampled-material denominator. Audit article and media examples separately; the declared union is fixed before this new window.",
+  "environment": {
+    "target_linux_image_and_network": true,
+    "memory_mib": 256,
+    "cpus": 0.5,
+    "database_configured": false,
+    "model_key_configured": false,
+    "paid_requests": 0
+  },
+  "not_authorized_by_observation": [
+    "production worker activation",
+    "paid processing",
+    "source publication",
+    "final user acceptance"
+  ],
+  "notes": [
+    "This is a fresh, prospective window with explicit mixed-material declarations, not a retrospective pass for the prior primary-scope failure.",
+    "The 175-origin one-off audit describes historical discovered IDs at the later read time; it is not a replacement continuous window.",
+    "Keep the old window, all new failures and actual completed count. Do not pre-count 26 planned rounds as successes."
+  ]
+}

@@ -101,6 +101,7 @@ def reviewed(
     enabled = {
         s.id for s in sources if s.r1 and s.discovery_owner == "r1" and (s.r1.publish or preview)
     }
+    by_source = {source.id: source for source in sources}
     rows = list(
         session.execute(
             select(Article, ContentDerivation)
@@ -153,6 +154,9 @@ def reviewed(
     for article, row in rows:
         try:
             content = load_content(session, article.id)
+            config = by_source[article.source_id].r1
+            if not preview and (config is None or not config.allows_publication(content.scope)):
+                continue
             expected = processing_fingerprint(content, "card")
             if (
                 row.input_fingerprint != expected
