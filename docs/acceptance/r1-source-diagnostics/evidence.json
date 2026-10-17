@@ -1,0 +1,947 @@
+{
+  "recorded_at": "2026-10-17T07:18:45.143960+00:00",
+  "trials": [
+    {
+      "started_at": "2026-10-17T07:03:51.680318+00:00",
+      "policy": {
+        "schema_version": "r1-source-diagnostics-v1",
+        "registered_at": "2026-10-17T07:01:07.417888+00:00",
+        "tasks": [
+          "R1-S4",
+          "R1-S5",
+          "R1-S6"
+        ],
+        "reviewer_kind": "ai-technical",
+        "user_confirmed_thresholds": false,
+        "rsshub_image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+        "rsshub_tag": "diygod/rsshub:2026-10-09",
+        "rsshub_resources": {
+          "memory_mib": 512,
+          "cpus": 0.5,
+          "maximum_lifetime_seconds": 900,
+          "cache": "fresh private memory",
+          "host_ports": []
+        },
+        "client_resources": {
+          "memory_mib": 256,
+          "cpus": 0.5,
+          "parallel_requests": 2,
+          "timeout_seconds": 25,
+          "maximum_response_bytes": 2097152
+        },
+        "feed_routes": [
+          "/36kr/news?limit=3",
+          "/36kr/newsflashes?limit=3",
+          "/jiemian/lists/801?limit=3",
+          "/weibo/search/hot",
+          "/weibo/user/2803301701",
+          "/xueqiu/today",
+          "/xueqiu/hots",
+          "/zhihu/question/2094096740613710016"
+        ],
+        "feed_rounds": 2,
+        "direct_urls": [
+          "https://www.36kr.com/information/web_news",
+          "https://www.jiemian.com/lists/801.html",
+          "https://www.jiemian.com/article/15194213.html",
+          "https://www.jiemian.com/article/15194529.html",
+          "https://weibo.com/ajax/side/hotSearch",
+          "https://xueqiu.com/today",
+          "https://www.zhihu.com/question/2094096740613710016"
+        ],
+        "historical_controls": [
+          "https://feedx.net/rss/thepaper.xml",
+          "https://news.163.com/special/0001386F/rank_news.html",
+          "https://c.m.163.com/nc/article/headline/T1348647909107/0-10.html",
+          "https://i.news.qq.com/web_feed/getHotModuleList"
+        ],
+        "database_writes": 0,
+        "model_requests": 0,
+        "new_credentials": false,
+        "production_image_or_config_change": false,
+        "browser_installation": false,
+        "cookie_export": false,
+        "source_publication": false,
+        "scope": "Bounded diagnosis only. Failures and unavailable browser/session checks remain explicit. No G2 pass inferred from this window; no production timeout increase.",
+        "maximum_source_client_requests": 27,
+        "maximum_bootstrap_health_requests": 12,
+        "rsshub_upstream_request_count": "not separately instrumented"
+      },
+      "production_modified": false,
+      "container_id": "ea5f5d4a9d5b0f22280b4d3583f21ecb031580fe8c3be8ea7ce0d984186f7266",
+      "container": {
+        "image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+        "memory_limit": 536870912,
+        "cpu_limit": 500000000,
+        "pids_limit": 256,
+        "ports": {},
+        "restart": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        }
+      },
+      "browser": {
+        "version": "1.0.0",
+        "configured_executable": false,
+        "binaries": {
+          "/usr/bin/chromium": false,
+          "/usr/bin/chromium-browser": false,
+          "/usr/bin/google-chrome": false,
+          "/opt/google/chrome/chrome": false
+        },
+        "modules": {
+          "puppeteer": {
+            "installed": false,
+            "error_kind": "ERR_MODULE_NOT_FOUND"
+          },
+          "puppeteer-core": {
+            "installed": false,
+            "error_kind": "ERR_MODULE_NOT_FOUND"
+          },
+          "playwright": {
+            "installed": false,
+            "error_kind": "ERR_MODULE_NOT_FOUND"
+          },
+          "playwright-core": {
+            "installed": false,
+            "error_kind": "ERR_MODULE_NOT_FOUND"
+          }
+        },
+        "source_files": {},
+        "memory_peak": {
+          "path": "/sys/fs/cgroup/memory.peak",
+          "bytes": 40607744
+        }
+      },
+      "stats": "236.8MiB / 512MiB 0.05%",
+      "final_memory_peak_bytes": 378068992,
+      "cleanup_stop_returncode": 0,
+      "container_removed": false,
+      "completed_at": "2026-10-17T07:05:51.162012+00:00",
+      "raw_capture_sha256": "dcd426fe0c133f4ae569f67dd45cacc7664b8a8b42800452acc0328d00b756e2",
+      "bootstrap": [
+        {
+          "attempt": 1,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 2,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 3,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 4,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 5,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 6,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 7,
+          "status": 200
+        }
+      ],
+      "records": [
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/36kr/news?limit=3",
+          "started_at": "2026-10-17T07:04:03.162885+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/36kr/news?limit=3",
+          "bytes": 5778,
+          "sha256": "d5ed5dfc3fb377c7ef75ebd3a43af80a7ba905d03fcbf680174e84bf0ced98df",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 4.296,
+          "completed_at": "2026-10-17T07:04:07.458633+00:00",
+          "analysis": {
+            "visible_character_count": 816,
+            "error_first_line": "TypeError: Cannot read properties of null (reading '1')",
+            "error_message_sha256": "3758617b674f6e5f0c77a743d1b14420a4fff9a77a38d097bc16b66ae99a53fa",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/36kr/newsflashes?limit=3",
+          "started_at": "2026-10-17T07:04:03.164470+00:00",
+          "status": 200,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/36kr/newsflashes?limit=3",
+          "bytes": 2634,
+          "sha256": "a6c6c38d991a600709de609c284c54f04a0a979482b1501b820612f6a1abf45e",
+          "content_type": "application/xml; charset=utf-8",
+          "tls_version": null,
+          "elapsed_seconds": 2.184,
+          "completed_at": "2026-10-17T07:04:05.348122+00:00",
+          "analysis": {
+            "visible_character_count": 978,
+            "feed_item_count": 3,
+            "publication_times": [
+              "2026-10-17 06:46:38+00:00",
+              "2026-10-17 06:21:33+00:00",
+              "2026-10-17 05:58:42+00:00"
+            ]
+          }
+        },
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/jiemian/lists/801?limit=3",
+          "started_at": "2026-10-17T07:04:05.348210+00:00",
+          "error_kind": "ReadTimeout",
+          "error_message": "timed out",
+          "elapsed_seconds": 25.143,
+          "completed_at": "2026-10-17T07:04:30.491177+00:00"
+        },
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/weibo/search/hot",
+          "started_at": "2026-10-17T07:04:07.459023+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/weibo/search/hot",
+          "bytes": 6668,
+          "sha256": "e29a87ed0e98106b524f96e8c3bbe8412b92e97e3ff760b112101e5a63591f05",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 2.718,
+          "completed_at": "2026-10-17T07:04:10.176967+00:00",
+          "analysis": {
+            "visible_character_count": 1435,
+            "error_first_line": "Error: browserType.launch: Executable doesn't exist at /app/node_modules/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
+            "error_message_sha256": "0b5ed65703acbd1bd95a31be956f3086396dc81493e2083789c42d32ecc96d70",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/weibo/user/2803301701",
+          "started_at": "2026-10-17T07:04:10.177033+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/weibo/user/2803301701",
+          "bytes": 5804,
+          "sha256": "06515ac1384071f136e15cc41ffb1c1558bc488b8411bcaff9cc5b577f992b85",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.123,
+          "completed_at": "2026-10-17T07:04:10.299758+00:00",
+          "analysis": {
+            "visible_character_count": 850,
+            "error_first_line": "Error: Cooling down before new visitor Cookies from https://m.weibo.cn/ may be fetched",
+            "error_message_sha256": "7052ecd9b9695ab0ce26b6ba9b7ad4a949d85dbf2782ac046bd13c35ba9ad343",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/xueqiu/today",
+          "started_at": "2026-10-17T07:04:10.299826+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/xueqiu/today",
+          "bytes": 6649,
+          "sha256": "8523c69ab808cfa0970f3d0a0b6f881c14c8c3c81bf8b44bc44a6adfa9d63ea7",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.186,
+          "completed_at": "2026-10-17T07:04:10.486222+00:00",
+          "analysis": {
+            "visible_character_count": 1416,
+            "error_first_line": "Error: browserType.launch: Executable doesn't exist at /app/node_modules/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
+            "error_message_sha256": "0b5ed65703acbd1bd95a31be956f3086396dc81493e2083789c42d32ecc96d70",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/xueqiu/hots",
+          "started_at": "2026-10-17T07:04:10.486315+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/xueqiu/hots",
+          "bytes": 6647,
+          "sha256": "b911d27c7b46541d41b898c58816816e6eb4cd38dc6fe5a95d1730b9c97a1fb5",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.199,
+          "completed_at": "2026-10-17T07:04:10.685042+00:00",
+          "analysis": {
+            "visible_character_count": 1414,
+            "error_first_line": "Error: browserType.launch: Executable doesn't exist at /app/node_modules/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
+            "error_message_sha256": "0b5ed65703acbd1bd95a31be956f3086396dc81493e2083789c42d32ecc96d70",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/zhihu/question/2094096740613710016",
+          "started_at": "2026-10-17T07:04:10.685107+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/zhihu/question/2094096740613710016",
+          "bytes": 6578,
+          "sha256": "7e9606b5f17fb47a015249175e2d0878e3bce2ce8d617a89324f8c706add8d98",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 6.797,
+          "completed_at": "2026-10-17T07:04:17.482085+00:00",
+          "analysis": {
+            "visible_character_count": 1602,
+            "error_first_line": "FetchError: [GET] \"https://www.zhihu.com/api/v4/questions/2094096740613710016/answers?include=data%5B*%5D.is_normal%2Cadmin_closed_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_r",
+            "error_message_sha256": "6ecd886d046d18b80d5cba241c8f655a376ca98be5de028638c1c8cb738b3cde",
+            "upstream_403_mentioned": true
+          }
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://www.36kr.com/information/web_news",
+          "started_at": "2026-10-17T07:04:30.493778+00:00",
+          "status": 200,
+          "url": "https://36kr.com/information/web_news/",
+          "bytes": 25361,
+          "sha256": "e4df62720622703a5d57d77fdfefbe6161b02f000094a82d1cc9014498bdcb39",
+          "content_type": "text/html",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 1.718,
+          "completed_at": "2026-10-17T07:04:32.212112+00:00",
+          "analysis": {
+            "visible_character_count": 97,
+            "initial_state_present": false,
+            "security_check_visible": true
+          }
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://www.jiemian.com/lists/801.html",
+          "started_at": "2026-10-17T07:04:30.494455+00:00",
+          "status": 200,
+          "url": "https://www.jiemian.com/lists/801.html",
+          "bytes": 106771,
+          "sha256": "0975ebe4686b42357d307cc8f76288cace3011084b8f82c536098c3537f7fd32",
+          "content_type": "text/html; charset=utf-8",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 50.569,
+          "completed_at": "2026-10-17T07:05:21.063622+00:00",
+          "analysis": {
+            "visible_character_count": 3127
+          }
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://www.jiemian.com/article/15194213.html",
+          "started_at": "2026-10-17T07:04:32.212310+00:00",
+          "status": 200,
+          "url": "https://www.jiemian.com/article/15194213.html",
+          "bytes": 99980,
+          "sha256": "ead682bb4044cd51e9f9845ffab364dab0430bba7aaba3699fec80073fd71224",
+          "content_type": "text/html; charset=utf-8",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 1.389,
+          "completed_at": "2026-10-17T07:04:33.600845+00:00",
+          "analysis": {
+            "visible_character_count": 5684,
+            "extracted_character_count": 2408,
+            "extracted_text_sha256": "c311f5e629ec21d492fd0aa14e9becde568532a979c2ee34cf9e9622f79ede8b",
+            "metadata_author": null,
+            "metadata_published_time": null
+          }
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://www.jiemian.com/article/15194529.html",
+          "started_at": "2026-10-17T07:04:33.601048+00:00",
+          "error_kind": "ReadTimeout",
+          "error_message": "The read operation timed out",
+          "elapsed_seconds": 30.977,
+          "completed_at": "2026-10-17T07:05:04.577808+00:00"
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://weibo.com/ajax/side/hotSearch",
+          "started_at": "2026-10-17T07:05:04.577872+00:00",
+          "status": 403,
+          "url": "https://weibo.com/ajax/side/hotSearch",
+          "bytes": 21,
+          "sha256": "18e11a797e00b786f40daa25b22dd4cee77ad3efc4b71e0dea081993d7adca44",
+          "content_type": "application/json; charset=utf-8",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 0.335,
+          "completed_at": "2026-10-17T07:05:04.913167+00:00",
+          "analysis": {
+            "visible_character_count": 21
+          }
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://xueqiu.com/today",
+          "started_at": "2026-10-17T07:05:04.913479+00:00",
+          "status": 200,
+          "url": "https://xueqiu.com/today",
+          "bytes": 110310,
+          "sha256": "bdd0c6d55d395d5ecc9165d1fd2a7faef3f0b72b84ec06e4d6013aa7e2a57dd0",
+          "content_type": "text/html",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 0.646,
+          "completed_at": "2026-10-17T07:05:05.559517+00:00",
+          "analysis": {
+            "visible_character_count": 0
+          }
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://www.zhihu.com/question/2094096740613710016",
+          "started_at": "2026-10-17T07:05:05.559777+00:00",
+          "status": 403,
+          "url": "https://www.zhihu.com/question/2094096740613710016",
+          "bytes": 650,
+          "sha256": "5182916bffca67272f6ea4b1844537d85dd600dcd34a50b6103ba2a017b47db5",
+          "content_type": "text/html",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 0.338,
+          "completed_at": "2026-10-17T07:05:05.898020+00:00",
+          "analysis": {
+            "visible_character_count": 43
+          }
+        },
+        {
+          "phase": "control",
+          "request_url": "https://feedx.net/rss/thepaper.xml",
+          "started_at": "2026-10-17T07:05:21.064898+00:00",
+          "status": 200,
+          "url": "https://feedx.net/rss/thepaper.xml",
+          "bytes": 76979,
+          "sha256": "9086ecca9e0ef4729a679bb447267a358dd10adcc9576a8472a41a23d052f3c6",
+          "content_type": "text/xml",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 1.331,
+          "completed_at": "2026-10-17T07:05:22.395949+00:00",
+          "analysis": {
+            "visible_character_count": 33635,
+            "feed_item_count": 20,
+            "publication_times": [
+              "2025-12-16 02:23:04+00:00",
+              "2025-12-15 14:23:05+00:00",
+              "2025-12-15 08:23:03+00:00",
+              "2025-12-15 07:23:03+00:00",
+              "2025-12-15 06:53:04+00:00",
+              "2025-12-15 06:53:04+00:00",
+              "2025-12-15 06:53:04+00:00",
+              "2025-12-15 06:23:04+00:00",
+              "2025-12-15 06:23:04+00:00",
+              "2025-12-15 06:23:04+00:00",
+              "2025-12-15 06:23:04+00:00",
+              "2025-12-15 05:53:04+00:00",
+              "2025-12-15 05:53:04+00:00",
+              "2025-12-15 05:53:04+00:00",
+              "2025-12-15 05:23:03+00:00",
+              "2025-12-15 05:23:03+00:00",
+              "2025-12-15 05:23:03+00:00",
+              "2025-12-15 05:23:03+00:00",
+              "2025-12-15 05:23:03+00:00",
+              "2025-12-15 04:53:04+00:00"
+            ]
+          }
+        },
+        {
+          "phase": "control",
+          "request_url": "https://news.163.com/special/0001386F/rank_news.html",
+          "started_at": "2026-10-17T07:05:21.065672+00:00",
+          "status": 200,
+          "url": "https://news.163.com/special/0001386F/rank_news.html",
+          "bytes": 158511,
+          "sha256": "5dc606e71589b25a3a2fc78c4185db87249cc6e79f44af658114019859e67f99",
+          "content_type": "text/html; charset=utf-8",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 1.673,
+          "completed_at": "2026-10-17T07:05:22.738991+00:00",
+          "analysis": {
+            "visible_character_count": 26360
+          }
+        },
+        {
+          "phase": "control",
+          "request_url": "https://c.m.163.com/nc/article/headline/T1348647909107/0-10.html",
+          "started_at": "2026-10-17T07:05:22.396153+00:00",
+          "status": 200,
+          "url": "https://c.m.163.com/nc/article/headline/T1348647909107/0-10.html",
+          "bytes": 1019,
+          "sha256": "b31f2f16bb17c92ef68ff394844e954b3e18f60a298dc017c33f16771cb1e4dc",
+          "content_type": "application/json;charset=utf-8",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 0.325,
+          "completed_at": "2026-10-17T07:05:22.721532+00:00",
+          "analysis": {
+            "visible_character_count": 747,
+            "dated_fields": [
+              {
+                "ptime": "2018-12-22 19,45,19",
+                "lmodify": "2019-03-14 23,11,18"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "control",
+          "request_url": "https://i.news.qq.com/web_feed/getHotModuleList",
+          "started_at": "2026-10-17T07:05:22.721817+00:00",
+          "status": 200,
+          "url": "https://i.news.qq.com/web_feed/getHotModuleList",
+          "bytes": 39,
+          "sha256": "2688ad4580e6c6aac5dfbf15a9ff85ee33ccee15f15f83dd240f19f846965b04",
+          "content_type": "application/json",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 0.602,
+          "completed_at": "2026-10-17T07:05:23.323411+00:00",
+          "analysis": {
+            "visible_character_count": 39,
+            "business_payload": {
+              "code": 10004,
+              "message": "empty from "
+            }
+          }
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/36kr/news?limit=3",
+          "started_at": "2026-10-17T07:05:23.324736+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/36kr/news?limit=3",
+          "bytes": 5778,
+          "sha256": "d5ed5dfc3fb377c7ef75ebd3a43af80a7ba905d03fcbf680174e84bf0ced98df",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 2.036,
+          "completed_at": "2026-10-17T07:05:25.360384+00:00",
+          "analysis": {
+            "visible_character_count": 816,
+            "error_first_line": "TypeError: Cannot read properties of null (reading '1')",
+            "error_message_sha256": "3758617b674f6e5f0c77a743d1b14420a4fff9a77a38d097bc16b66ae99a53fa",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/36kr/newsflashes?limit=3",
+          "started_at": "2026-10-17T07:05:23.326566+00:00",
+          "status": 200,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/36kr/newsflashes?limit=3",
+          "bytes": 2634,
+          "sha256": "a6c6c38d991a600709de609c284c54f04a0a979482b1501b820612f6a1abf45e",
+          "content_type": "application/xml; charset=utf-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.366,
+          "completed_at": "2026-10-17T07:05:23.692643+00:00",
+          "analysis": {
+            "visible_character_count": 978,
+            "feed_item_count": 3,
+            "publication_times": [
+              "2026-10-17 06:46:38+00:00",
+              "2026-10-17 06:21:33+00:00",
+              "2026-10-17 05:58:42+00:00"
+            ]
+          }
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/jiemian/lists/801?limit=3",
+          "started_at": "2026-10-17T07:05:23.692714+00:00",
+          "error_kind": "ReadTimeout",
+          "error_message": "timed out",
+          "elapsed_seconds": 25.117,
+          "completed_at": "2026-10-17T07:05:48.809944+00:00"
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/weibo/search/hot",
+          "started_at": "2026-10-17T07:05:25.360914+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/weibo/search/hot",
+          "bytes": 5797,
+          "sha256": "663365dd103f721ff98304cbceb5820cf4fc47d70cc23afaf7c4ee78ed11f701",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.115,
+          "completed_at": "2026-10-17T07:05:25.476165+00:00",
+          "analysis": {
+            "visible_character_count": 843,
+            "error_first_line": "Error: Cooling down before new visitor Cookies from https://m.weibo.cn/ may be fetched",
+            "error_message_sha256": "7052ecd9b9695ab0ce26b6ba9b7ad4a949d85dbf2782ac046bd13c35ba9ad343",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/weibo/user/2803301701",
+          "started_at": "2026-10-17T07:05:25.476237+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/weibo/user/2803301701",
+          "bytes": 5804,
+          "sha256": "06515ac1384071f136e15cc41ffb1c1558bc488b8411bcaff9cc5b577f992b85",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.164,
+          "completed_at": "2026-10-17T07:05:25.639926+00:00",
+          "analysis": {
+            "visible_character_count": 850,
+            "error_first_line": "Error: Cooling down before new visitor Cookies from https://m.weibo.cn/ may be fetched",
+            "error_message_sha256": "7052ecd9b9695ab0ce26b6ba9b7ad4a949d85dbf2782ac046bd13c35ba9ad343",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/xueqiu/today",
+          "started_at": "2026-10-17T07:05:25.639994+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/xueqiu/today",
+          "bytes": 6649,
+          "sha256": "8523c69ab808cfa0970f3d0a0b6f881c14c8c3c81bf8b44bc44a6adfa9d63ea7",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.14,
+          "completed_at": "2026-10-17T07:05:25.779830+00:00",
+          "analysis": {
+            "visible_character_count": 1416,
+            "error_first_line": "Error: browserType.launch: Executable doesn't exist at /app/node_modules/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
+            "error_message_sha256": "0b5ed65703acbd1bd95a31be956f3086396dc81493e2083789c42d32ecc96d70",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/xueqiu/hots",
+          "started_at": "2026-10-17T07:05:25.779903+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/xueqiu/hots",
+          "bytes": 6647,
+          "sha256": "b911d27c7b46541d41b898c58816816e6eb4cd38dc6fe5a95d1730b9c97a1fb5",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.181,
+          "completed_at": "2026-10-17T07:05:25.961013+00:00",
+          "analysis": {
+            "visible_character_count": 1414,
+            "error_first_line": "Error: browserType.launch: Executable doesn't exist at /app/node_modules/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
+            "error_message_sha256": "0b5ed65703acbd1bd95a31be956f3086396dc81493e2083789c42d32ecc96d70",
+            "upstream_403_mentioned": false
+          }
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/zhihu/question/2094096740613710016",
+          "started_at": "2026-10-17T07:05:25.961079+00:00",
+          "status": 503,
+          "url": "http://unspun-r1-rsshub-diag-20261017t0701:1200/zhihu/question/2094096740613710016",
+          "bytes": 6578,
+          "sha256": "7e9606b5f17fb47a015249175e2d0878e3bce2ce8d617a89324f8c706add8d98",
+          "content_type": "text/html; charset=UTF-8",
+          "tls_version": null,
+          "elapsed_seconds": 0.582,
+          "completed_at": "2026-10-17T07:05:26.543025+00:00",
+          "analysis": {
+            "visible_character_count": 1602,
+            "error_first_line": "FetchError: [GET] \"https://www.zhihu.com/api/v4/questions/2094096740613710016/answers?include=data%5B*%5D.is_normal%2Cadmin_closed_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_r",
+            "error_message_sha256": "6ecd886d046d18b80d5cba241c8f655a376ca98be5de028638c1c8cb738b3cde",
+            "upstream_403_mentioned": true
+          }
+        }
+      ]
+    },
+    {
+      "started_at": "2026-10-17T07:14:43.315827+00:00",
+      "policy": {
+        "schema_version": "r1-jiemian-cache-v2",
+        "registered_at": "2026-10-17T07:14:40.160520+00:00",
+        "tasks": [
+          "R1-S5"
+        ],
+        "reviewer_kind": "ai-technical",
+        "user_confirmed_thresholds": false,
+        "rsshub_image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+        "rsshub_tag": "diygod/rsshub:2026-10-09",
+        "rsshub_resources": {
+          "memory_mib": 512,
+          "cpus": 0.5,
+          "maximum_lifetime_seconds": 900,
+          "cache": "fresh private memory",
+          "host_ports": []
+        },
+        "client_resources": {
+          "memory_mib": 256,
+          "cpus": 0.5,
+          "parallel_requests": 2,
+          "timeout_seconds": 25,
+          "maximum_response_bytes": 2097152
+        },
+        "feed_routes": [
+          "/jiemian/lists/801?limit=3"
+        ],
+        "feed_rounds": 2,
+        "direct_urls": [
+          "https://www.jiemian.com/article/15194213.html",
+          "https://www.jiemian.com/article/15194529.html"
+        ],
+        "historical_controls": [],
+        "database_writes": 0,
+        "model_requests": 0,
+        "new_credentials": false,
+        "production_image_or_config_change": false,
+        "browser_installation": false,
+        "cookie_export": false,
+        "source_publication": false,
+        "scope": "Bounded diagnosis only. Failures and unavailable browser/session checks remain explicit. No G2 pass inferred from this window; no production timeout increase.",
+        "maximum_source_client_requests": 4,
+        "maximum_bootstrap_health_requests": 12,
+        "rsshub_upstream_request_count": "not separately instrumented",
+        "cache_configuration": {
+          "NODE_ENV": "production",
+          "CACHE_TYPE": "memory",
+          "CACHE_EXPIRE": "1800",
+          "CACHE_CONTENT_EXPIRE": "3600"
+        },
+        "reason": "Match production TTL explicitly; retain v1 default-TTL failures. No threshold change or G2 claim."
+      },
+      "production_modified": false,
+      "container_id": "e84d9ccb39938595bb98c8b997690926fd77e678b50849d21a6db010fbc36778",
+      "container": {
+        "image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+        "memory_limit": 536870912,
+        "cpu_limit": 500000000,
+        "pids_limit": 256,
+        "ports": {},
+        "restart": {
+          "Name": "no",
+          "MaximumRetryCount": 0
+        }
+      },
+      "browser": {
+        "version": "1.0.0",
+        "configured_executable": false,
+        "binaries": {
+          "/usr/bin/chromium": false,
+          "/usr/bin/chromium-browser": false,
+          "/usr/bin/google-chrome": false,
+          "/opt/google/chrome/chrome": false
+        },
+        "modules": {
+          "puppeteer": {
+            "installed": false,
+            "error_kind": "ERR_MODULE_NOT_FOUND"
+          },
+          "puppeteer-core": {
+            "installed": false,
+            "error_kind": "ERR_MODULE_NOT_FOUND"
+          },
+          "playwright": {
+            "installed": false,
+            "error_kind": "ERR_MODULE_NOT_FOUND"
+          },
+          "playwright-core": {
+            "installed": false,
+            "error_kind": "ERR_MODULE_NOT_FOUND"
+          }
+        },
+        "source_files": {},
+        "memory_peak": {
+          "path": "/sys/fs/cgroup/memory.peak",
+          "bytes": 35627008
+        }
+      },
+      "stats": "181.1MiB / 512MiB 0.05%",
+      "final_memory_peak_bytes": 251944960,
+      "cleanup_stop_returncode": 0,
+      "container_removed": false,
+      "completed_at": "2026-10-17T07:16:12.994316+00:00",
+      "raw_capture_sha256": "d6c8de46ecaeb8a41934d5b87a176333846557496802f9e78006e1a21cc8f344",
+      "bootstrap": [
+        {
+          "attempt": 1,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 2,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 3,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 4,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 5,
+          "error_kind": "ConnectError"
+        },
+        {
+          "attempt": 6,
+          "status": 200
+        }
+      ],
+      "records": [
+        {
+          "phase": "cold",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0717:1200/jiemian/lists/801?limit=3",
+          "started_at": "2026-10-17T07:14:53.572251+00:00",
+          "error_kind": "ReadTimeout",
+          "error_message": "timed out",
+          "elapsed_seconds": 25.137,
+          "completed_at": "2026-10-17T07:15:18.708889+00:00"
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://www.jiemian.com/article/15194213.html",
+          "started_at": "2026-10-17T07:15:18.710509+00:00",
+          "error_kind": "ReadTimeout",
+          "error_message": "The read operation timed out",
+          "elapsed_seconds": 27.077,
+          "completed_at": "2026-10-17T07:15:45.787549+00:00"
+        },
+        {
+          "phase": "direct",
+          "request_url": "https://www.jiemian.com/article/15194529.html",
+          "started_at": "2026-10-17T07:15:18.711438+00:00",
+          "status": 200,
+          "url": "https://www.jiemian.com/article/15194529.html",
+          "bytes": 96355,
+          "sha256": "829702ebb7dd8a48ad75f5e4b715dc64b3a67dd2953a279047b74bfcaeed8386",
+          "content_type": "text/html; charset=utf-8",
+          "tls_version": "TLSv1.3",
+          "elapsed_seconds": 16.806,
+          "completed_at": "2026-10-17T07:15:35.517695+00:00",
+          "analysis": {
+            "visible_character_count": 4453,
+            "extracted_character_count": 1865,
+            "extracted_text_sha256": "cb59fcac69e2f794dae7496f24cfd54f390231c827498c1599e1b0eeddb8e008",
+            "metadata_author": null,
+            "metadata_published_time": null
+          }
+        },
+        {
+          "phase": "repeat",
+          "request_url": "http://unspun-r1-rsshub-diag-20261017t0717:1200/jiemian/lists/801?limit=3",
+          "started_at": "2026-10-17T07:15:45.788692+00:00",
+          "error_kind": "ReadTimeout",
+          "error_message": "timed out",
+          "elapsed_seconds": 25.12,
+          "completed_at": "2026-10-17T07:16:10.908537+00:00"
+        }
+      ]
+    }
+  ],
+  "parser_guard_replay": {
+    "node_version": "v24.21.0",
+    "upstream_commit": "d24f5136487a388662ec6656e4f1ba4ff46b0ed8",
+    "network_requests": 0,
+    "article_state_obtained": false,
+    "error_kind": "Error",
+    "error_message": "36kr page does not contain initial state. The source may be serving an anti-bot challenge."
+  },
+  "browser_filesystem_check": {
+    "expected_executable": {
+      "path": "/app/node_modules/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell",
+      "exists": false
+    },
+    "directories": {
+      "/app/dist": [
+        "005-CH_eBzFc.mjs",
+        "0818tuan-DuvBwVeI.mjs",
+        "0x80-bsbVXijC.mjs",
+        "0xxx-CfAH46L4.mjs",
+        "10000link-info-CZAq9OJ2.mjs",
+        "10jqka-realtimenews-BhNwC7Vh.mjs",
+        "121-weather-live-AZ9NB2Eq.mjs",
+        "12306-D9jRIqt4.mjs",
+        "12306-zxdt-CtzGffVI.mjs",
+        "12371-zxfb-LyazRD7D.mjs",
+        "141jav-szWxzUnP.mjs",
+        "141ppv-CGANuZyP.mjs",
+        "163-artist-Bbu3sn03.mjs",
+        "163-artist-songs-csm5IiIe.mjs",
+        "163-djradio-DtsVdgG4.mjs",
+        "163-ds-BeBlM1p9.mjs",
+        "163-dy-CsZt6JU-.mjs",
+        "163-dy2-DquPier8.mjs",
+        "163-exclusive-BG72uebm.mjs",
+        "163-playlist-XAENUBfC.mjs"
+      ]
+    }
+  },
+  "cleanup_followup": {
+    "checked_at": "2026-10-17T07:17:48.596365+00:00",
+    "absent": {
+      "unspun-r1-rsshub-diag-20261017t0701": true,
+      "unspun-r1-rsshub-diag-20261017t0717": true
+    }
+  },
+  "evaluation_ledger": {
+    "requests": 283,
+    "known_rows": 278,
+    "known_cost": 0.2908491,
+    "unknown_rows": 5,
+    "unknown_reserved": 0.284981,
+    "allocation": 0.6,
+    "schema": "000014",
+    "available_usd": "0.0241699",
+    "unknown_requests": [
+      {
+        "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "phase": "baseline",
+        "started_at_utc": "2026-10-16T08:31:09.170417+00:00",
+        "started_at_shanghai": "2026-10-16 16:31:09",
+        "reserved_usd": 0.028261,
+        "provider_generation_id": null
+      },
+      {
+        "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "phase": "generate",
+        "started_at_utc": "2026-10-16T10:21:19.943998+00:00",
+        "started_at_shanghai": "2026-10-16 18:21:19",
+        "reserved_usd": 0.028967,
+        "provider_generation_id": null
+      },
+      {
+        "id": "5c68c196f8514836a38280edc782806a",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "phase": "generate",
+        "started_at_utc": "2026-10-16T19:16:57.144859+00:00",
+        "started_at_shanghai": "2026-10-17 03:16:57",
+        "reserved_usd": 0.02876,
+        "provider_generation_id": null
+      },
+      {
+        "id": "23c9efa3cd654a859ecd1036ee7b1435",
+        "model": "google/gemini-2.5-flash",
+        "purpose": "grounding",
+        "phase": "review",
+        "started_at_utc": "2026-10-16T20:05:52.214261+00:00",
+        "started_at_shanghai": "2026-10-17 04:05:52",
+        "reserved_usd": 0.169787,
+        "provider_generation_id": null
+      },
+      {
+        "id": "90c0c92c02a14c1a83f81335b22e9d63",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "phase": "generate",
+        "started_at_utc": "2026-10-16T20:54:28.164829+00:00",
+        "started_at_shanghai": "2026-10-17 04:54:28",
+        "reserved_usd": 0.029206,
+        "provider_generation_id": null
+      }
+    ]
+  },
+  "production_source_activation": false,
+  "g2_passed": false,
+  "new_model_requests": 0,
+  "database_writes": 0
+}

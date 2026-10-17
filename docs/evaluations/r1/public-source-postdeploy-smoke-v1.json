@@ -1,0 +1,20 @@
+{
+  "schema_version": "r1-public-source-postdeploy-smoke-v1",
+  "registered_at": "2026-10-17T07:10:20.680801+00:00",
+  "image": "811cea96b654d7502599a56aa9d289e934fc5374",
+  "sources": [
+    "thepaper-sidebar",
+    "netease-home",
+    "tencent-headlines",
+    "tencent-selected"
+  ],
+  "rounds": 1,
+  "sample_items_per_source": 2,
+  "maximum_parallel_sources": 2,
+  "memory_mib": 256,
+  "cpus": 0.5,
+  "database_or_model_env_configured": false,
+  "paid_requests": 0,
+  "production_activation": false,
+  "g2_pass_inferred": false
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "r1-source-diagnostics-v1",
+  "registered_at": "2026-10-17T07:01:07.417888+00:00",
+  "tasks": [
+    "R1-S4",
+    "R1-S5",
+    "R1-S6"
+  ],
+  "reviewer_kind": "ai-technical",
+  "user_confirmed_thresholds": false,
+  "rsshub_image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+  "rsshub_tag": "diygod/rsshub:2026-10-09",
+  "rsshub_resources": {
+    "memory_mib": 512,
+    "cpus": 0.5,
+    "maximum_lifetime_seconds": 900,
+    "cache": "fresh private memory",
+    "host_ports": []
+  },
+  "client_resources": {
+    "memory_mib": 256,
+    "cpus": 0.5,
+    "parallel_requests": 2,
+    "timeout_seconds": 25,
+    "maximum_response_bytes": 2097152
+  },
+  "feed_routes": [
+    "/36kr/news?limit=3",
+    "/36kr/newsflashes?limit=3",
+    "/jiemian/lists/801?limit=3",
+    "/weibo/search/hot",
+    "/weibo/user/2803301701",
+    "/xueqiu/today",
+    "/xueqiu/hots",
+    "/zhihu/question/2094096740613710016"
+  ],
+  "feed_rounds": 2,
+  "direct_urls": [
+    "https://www.36kr.com/information/web_news",
+    "https://www.jiemian.com/lists/801.html",
+    "https://www.jiemian.com/article/15194213.html",
+    "https://www.jiemian.com/article/15194529.html",
+    "https://weibo.com/ajax/side/hotSearch",
+    "https://xueqiu.com/today",
+    "https://www.zhihu.com/question/2094096740613710016"
+  ],
+  "historical_controls": [
+    "https://feedx.net/rss/thepaper.xml",
+    "https://news.163.com/special/0001386F/rank_news.html",
+    "https://c.m.163.com/nc/article/headline/T1348647909107/0-10.html",
+    "https://i.news.qq.com/web_feed/getHotModuleList"
+  ],
+  "database_writes": 0,
+  "model_requests": 0,
+  "new_credentials": false,
+  "production_image_or_config_change": false,
+  "browser_installation": false,
+  "cookie_export": false,
+  "source_publication": false,
+  "scope": "Bounded diagnosis only. Failures and unavailable browser/session checks remain explicit. No G2 pass inferred from this window; no production timeout increase.",
+  "maximum_source_client_requests": 27,
+  "maximum_bootstrap_health_requests": 12,
+  "rsshub_upstream_request_count": "not separately instrumented"
+}
