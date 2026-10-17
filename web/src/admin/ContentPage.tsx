@@ -10,6 +10,7 @@ import SelectionExport from './SelectionExport'
 import ArticleDetail from './ArticleDetail'
 import EventDetail from './EventDetail'
 import HistoryExport from './HistoryExport'
+import R1StatusPanel from './R1StatusPanel'
 
 interface Props { range: AdminRange }
 
@@ -74,6 +75,8 @@ export default function ContentPage({ range }: Props) {
   const eventId = detailId(search.get('event_detail'))
   const items = query.data?.items || []
   return <section aria-label="文章与事件历史查询" className="admin-history">
+    <R1StatusPanel />
+    <h2>旧事件流水线历史</h2>
     <div className="admin-list-header">
     <Tabs activeKey={tab} onChange={value => update({ tab: value, keyword: null, processing_status: null, article_detail: null, event_detail: null })} items={[{ key: 'articles', label: '文章' }, { key: 'events', label: '事件' }]} /><HistoryExport resource={tab} range={range} filters={filters} /></div>
 

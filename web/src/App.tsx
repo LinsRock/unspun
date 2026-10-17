@@ -7,9 +7,15 @@ import ReportPanel from './ReportPanel'
 import ThemeToggle from './ThemeToggle'
 import './reading.css'
 
+const ReadingPage = lazy(() => import('./reader/ReadingPage'))
+const ContentPage = lazy(() => import('./reader/ContentPage'))
+const InterestsPage = lazy(() => import('./reader/InterestsPage'))
+
 const AdminLayout = lazy(() => import('./admin/AdminLayout'))
 
 const pages = [
+  { to: '/reading', label: '发现阅读', symbol: '◉' },
+  { to: '/interests', label: '我的关注', symbol: '☆' },
   { to: '/', label: '实时事件流', symbol: '▤' },
   { to: '/digest', label: '每日日报', symbol: '▥' },
   { to: '/admin', label: '管理后台', symbol: '▦' },
@@ -37,9 +43,13 @@ export default function App() {
         <div className="reading-sidebar-footer"><Link to="/admin">管理后台 <span aria-hidden="true">↗</span></Link><ThemeToggle /></div>
       </header>
       <main id="page-content" className="reading-main">
-        <div className="reading-topbar"><span>阅读空间 / {location.pathname === '/digest' ? '每日日报' : '实时事件流'}</span><span>中文阅读 · 原文可溯</span></div>
+        <div className="reading-topbar"><span>阅读空间 / {location.pathname.startsWith('/reading') ? '发现阅读' : location.pathname === '/interests' ? '我的关注' : location.pathname === '/digest' ? '每日日报' : '实时事件流'}</span><span>中文阅读 · 原文可溯</span></div>
         <div className="reading-page">
+          <Suspense fallback={<p role="status">正在打开阅读空间…</p>}>
           <Routes>
+            <Route path="/reading" element={<ReadingPage />} />
+            <Route path="/reading/:id" element={<ContentPage />} />
+            <Route path="/interests" element={<InterestsPage />} />
             <Route path="/" element={<FeedPage />} />
             <Route path="/digest" element={<DigestPage />} />
             <Route
@@ -67,6 +77,7 @@ export default function App() {
               }
             />
           </Routes>
+          </Suspense>
         </div>
       </main>
     </div>
