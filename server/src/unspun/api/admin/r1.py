@@ -5,9 +5,17 @@ from typing import Any, Literal
 from fastapi import APIRouter, HTTPException, Query
 from sqlalchemy import func, select
 
+from unspun.core.billing_models import BilledRequest
 from unspun.core.db import session_scope
-from unspun.core.models import Article, ContentDerivation, ContentMaterial, ContentObservation
-from unspun.core.task_models import PipelineTask, TaskAttempt
+from unspun.core.models import (
+    Article,
+    ContentDerivation,
+    ContentMaterial,
+    ContentObservation,
+    LlmUsage,
+)
+from unspun.core.sources import load_sources
+from unspun.core.task_models import PipelineTask, SourceState, TaskAttempt
 
 router = APIRouter(prefix="/r1")
 
@@ -188,7 +196,32 @@ def content_details(article_id: int) -> dict[str, Any]:
                 .limit(100)
             )
         )
+        calls = list(
+            session.execute(
+                select(BilledRequest, LlmUsage.cost_usd)
+                .outerjoin(LlmUsage, LlmUsage.id == BilledRequest.usage_id)
+                .where(BilledRequest.article_id == article_id)
+                .order_by(BilledRequest.started_at.desc())
+                .limit(100)
+            )
+        )
         return {
+            "calls": [
+                {
+                    "id": c.id,
+                    "stage": c.stage,
+                    "phase": c.phase,
+                    "status": c.status,
+                    "task_id": c.task_id,
+                    "known_cost_usd": cost,
+                    "reserved_usd": str(c.reserved_usd)
+                    if c.status in {"reserved", "usage_unknown"}
+                    else None,
+                    "error": c.error,
+                }
+                for c, cost in calls
+            ],
+            "call_record_limit": 100,
             "id": article.id,
             "title": article.title,
             "url": article.url,
@@ -238,3 +271,45 @@ def content_details(article_id: int) -> dict[str, Any]:
                 for v in versions
             ],
         }
+
+
+@router.get("/sources")
+def source_states() -> dict[str, Any]:
+    with session_scope() as session:
+        items: list[dict[str, Any]] = []
+        for source in load_sources():
+            if source.r1 is None:
+                continue
+            state = session.get(SourceState, source.id)
+            materials = list(
+                session.scalars(
+                    select(ContentMaterial)
+                    .join(Article, Article.id == ContentMaterial.article_id)
+                    .where(Article.processing_track == "r1", Article.source_id == source.id)
+                    .order_by(ContentMaterial.id.desc())
+                    .limit(100)
+                )
+            )
+            failed = sum(m.access_status == "failed" or m.scope == "none" for m in materials)
+            items.append(
+                {
+                    "id": source.id,
+                    "name": source.name,
+                    "configured_owner": source.discovery_owner,
+                    "stages": {
+                        key: getattr(source.r1, key)
+                        for key in ("discovery", "material", "paid", "publish")
+                    },
+                    "runtime_initialized": state is not None,
+                    "runtime_owner": state.owner if state else None,
+                    "last_success_at": state.last_success_at if state else None,
+                    "last_new_item_at": state.last_new_item_at if state else None,
+                    "next_due_at": state.next_due_at if state else None,
+                    "consecutive_failures": state.consecutive_failures if state else None,
+                    "sampled_material_versions": len(materials),
+                    "failed_material_versions": failed,
+                    "material_failure_fraction": failed / len(materials) if materials else None,
+                    "failure_denominator": "latest_100_material_versions_not_distinct_contents",
+                }
+            )
+        return {"items": items}

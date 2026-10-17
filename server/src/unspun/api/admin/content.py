@@ -62,7 +62,11 @@ def _article_conditions(
 ) -> list[Any]:
     time_column = Article.fetched_at if time_basis == "fetched_at" else Article.published_at
     quality_column = Article.summary_grounding["status"].astext
-    conditions: list[Any] = [time_column >= start, time_column < end]
+    conditions: list[Any] = [
+        Article.processing_track == "legacy",
+        time_column >= start,
+        time_column < end,
+    ]
     if keyword:
         pattern = f"%{_escape_like(keyword)}%"
         conditions.append(

@@ -3,9 +3,11 @@ from pydantic import BaseModel
 from sqlalchemy import text
 
 from unspun.api.admin import router as admin_router
+from unspun.api.contents import router as contents_router
 from unspun.api.digest import router as digest_router
 from unspun.api.events import router as events_router
 from unspun.api.feed_preferences import router as preferences_router
+from unspun.api.reader import router as reader_router
 from unspun.api.report import router as report_router
 from unspun.core.config import get_settings
 from unspun.core.db import get_engine
@@ -20,6 +22,8 @@ app.include_router(preferences_router)
 app.include_router(digest_router)
 app.include_router(report_router)
 app.include_router(admin_router)
+app.include_router(reader_router)
+app.include_router(contents_router)
 
 
 class HealthResponse(BaseModel):
