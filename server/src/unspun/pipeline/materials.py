@@ -93,7 +93,7 @@ def get_page(client: httpx.Client, url: str, source: Source) -> httpx.Response:
     raise ValueError("material redirect limit reached")
 
 
-def _publication_times(
+def publication_times(
     previous: tuple[ContentTime, ...], observed: ContentTime
 ) -> tuple[ContentTime, ...]:
     known = [value for value in previous if value.kind == observed.kind]
@@ -134,7 +134,7 @@ def _metadata(
     values["authors"] = tuple(authors)
     publication = extract_publication(html, url, now)
     if publication.precision != "unknown":
-        values["times"] = _publication_times(
+        values["times"] = publication_times(
             previous.times,
             ContentTime(
                 kind="original",
@@ -155,7 +155,7 @@ def _metadata(
             except ValueError:
                 on = None
             if on and date(1970, 1, 1) <= on <= now.date() + timedelta(days=1):
-                values["times"] = _publication_times(
+                values["times"] = publication_times(
                     previous.times,
                     ContentTime(
                         kind="original",
@@ -178,7 +178,7 @@ def _metadata(
                 "reprint" if source_name and "\u65b0\u534e" not in source_name else "original"
             )
             if published and date(1970, 1, 1) <= published <= now.date() + timedelta(days=1):
-                values["times"] = _publication_times(
+                values["times"] = publication_times(
                     previous.times,
                     ContentTime(
                         kind=kind,
@@ -361,8 +361,15 @@ def retrieve_material(
                 evidence["security_redirect"] = True
             elif 200 <= status < 300:
                 page = TextPage(response.text)
-                metadata = _metadata(page, response.text, url, now, metadata)
-                text_body, basis = _body(page, response.text, url)
+                if config.adapter in {"thepaper", "netease", "tencent"}:
+                    from unspun.pipeline.public_sources import public_material
+
+                    metadata, text_body, basis = public_material(
+                        page, response.text, url, metadata, now
+                    )
+                else:
+                    metadata = _metadata(page, response.text, url, now, metadata)
+                    text_body, basis = _body(page, response.text, url)
                 lower = " ".join(text_body.split()).lower()
                 challenge = any(
                     token in lower
