@@ -10,7 +10,13 @@ from typing import Any, Literal, cast
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from unspun.core.billing import CallContext, DatabaseJournal, budget_status, initialize_budget
+from unspun.core.billing import (
+    EVALUATION_LIMIT,
+    CallContext,
+    DatabaseJournal,
+    budget_status,
+    initialize_budget,
+)
 from unspun.core.billing_models import BilledRequest
 from unspun.core.content import (
     Author,
@@ -130,7 +136,7 @@ def main() -> None:
         initialize_budget(session, scope="evaluation")
         session.commit()
         previous = set(session.scalars(select(BilledRequest.id)))
-    ledger = BudgetLedger(0.60, 150)
+    ledger = BudgetLedger(float(EVALUATION_LIMIT), 150)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x") as output:
         for item, content in contents:
