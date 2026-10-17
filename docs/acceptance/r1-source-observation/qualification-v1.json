@@ -1,0 +1,381 @@
+{
+  "schema_version": "r1-source-qualification-v1",
+  "reviewed_at": "2026-10-17T04:56:15.229156+00:00",
+  "window_report_sha256": "d547a28ffa7d4ef910c8e2a18e679a0a79ef45d81270b8787dc2883deedcbd1f",
+  "thresholds_changed": false,
+  "current_probe_image": "ghcr.io/linsrock/unspun-server:3294c19c8b2da33336c68d07d4ed99d4f4dbe658",
+  "current_probe_container": "unspun-r1-observe-3294c19",
+  "current_probe_no_database_or_model_key": true,
+  "current_archive_private": "current-second.tar.gz",
+  "current_archive_sha256": "cabe21c96caae70022f14883315532d9887fc3cc52eb4cd7a07d4425e9d80a0f",
+  "current_records": [
+    {
+      "source_id": "people-frontpage",
+      "file": "20261017T045036.412180Z-people-frontpage.json",
+      "sha256": "c902073bf534b0b8c37c03bb065fff4adcc288772909d025d05878827d699d91",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:35.667220+00:00",
+      "completed_at": "2026-10-17T04:50:36.409795+00:00"
+    },
+    {
+      "source_id": "douban-book",
+      "file": "20261017T045035.771373Z-douban-book.json",
+      "sha256": "be8ba79da80083f8789b15f106e73cb446a9ce1c2e4285bdc86b7fafc1781523",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:33.368115+00:00",
+      "completed_at": "2026-10-17T04:50:35.770650+00:00"
+    },
+    {
+      "source_id": "36kr-newsflashes",
+      "file": "20261017T045038.031652Z-36kr-newsflashes.json",
+      "sha256": "e597d48f929a2e5abafa2e6a3590ec1d8c42fa7dd91558695ab7bf65b6481cf5",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:35.770902+00:00",
+      "completed_at": "2026-10-17T04:50:38.029640+00:00"
+    },
+    {
+      "source_id": "zhihu-daily",
+      "file": "20261017T045035.668102Z-zhihu-daily.json",
+      "sha256": "6fcb159617fe8a85b1e13a0e826ed51dc3d1c20ff581b754c676488d5f6b8e43",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:34.565112+00:00",
+      "completed_at": "2026-10-17T04:50:35.665719+00:00"
+    },
+    {
+      "source_id": "nyt-world",
+      "file": "20261017T045032.683643Z-nyt-world.json",
+      "sha256": "943a0280f03d74587b519d799ab0d9c44c01fcd1c2b5eb429e41e9540f409b68",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:32.254431+00:00",
+      "completed_at": "2026-10-17T04:50:32.680777+00:00"
+    },
+    {
+      "source_id": "zhihu-hot",
+      "file": "20261017T045037.180454Z-zhihu-hot.json",
+      "sha256": "ed28f903e08ed0786b12548bb73943fe7c70eeabac812899d91e4446581e4a2b",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:36.411690+00:00",
+      "completed_at": "2026-10-17T04:50:37.179013+00:00"
+    },
+    {
+      "source_id": "zaobao-china",
+      "file": "20261017T045034.565959Z-zaobao-china.json",
+      "sha256": "e83693e8a5d252b57b8991e9bbf25c64a24ec028f897f78f1839ff4b15e392db",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:28.092234+00:00",
+      "completed_at": "2026-10-17T04:50:34.563515+00:00"
+    },
+    {
+      "source_id": "wsj-world",
+      "file": "20261017T045033.368718Z-wsj-world.json",
+      "sha256": "5a537fed9a09da88f9e6ed6e0d87fa3e53b9c68767d5f9bcaf9469cac9121665",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:32.683086+00:00",
+      "completed_at": "2026-10-17T04:50:33.366300+00:00"
+    },
+    {
+      "source_id": "zaobao-world",
+      "file": "20261017T045030.777257Z-zaobao-world.json",
+      "sha256": "8247100df94b6c26bf1159ea82cefc8935ca45b75936f35d50b690a10a79e15b",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:28.093504+00:00",
+      "completed_at": "2026-10-17T04:50:30.774072+00:00"
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "file": "20261017T045032.255408Z-bbc-zhongwen.json",
+      "sha256": "16dd9ba1bc9594de5170feb2b78de17d1d1ea307f7ecfcab76644247d62ff85c",
+      "status": "ok",
+      "started_at": "2026-10-17T04:50:30.776168+00:00",
+      "completed_at": "2026-10-17T04:50:32.217981+00:00"
+    }
+  ],
+  "paths": [
+    {
+      "source_id": "36kr-newsflashes",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "current_adapter_fields_changed_after_observer_image_requires_equivalence_or_new_probe",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "bbc-world",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "media_or_challenge_origin_identity_scope_requires_manual_check",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": 0,
+      "basis": [
+        "Frozen numeric window met without excluding failed rounds",
+        "Real new upstream identities and actual scope/time meanings checked",
+        "First and last sampled origin materials reviewed: original date kept separate from feed/editorial time; unknown authors/completeness remain unknown; previews do not assert fulltext",
+        "Current 3294c19 target image re-probe succeeded; route, identity and material extraction for this path are unchanged from observed image; later changes concern other routes or derived processing"
+      ],
+      "remaining_limits": [
+        "G1 candidate quality remains blocked; no paid/publication activation",
+        "Only observed public text/preview/editorial scope; no long-term stability or external truth verification",
+        "Original publication and author may remain unknown; no timestamps or roles are inferred"
+      ]
+    },
+    {
+      "source_id": "nyt-cn",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "no_new_upstream_identity_observed_in_live_news_window",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "nyt-world",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": 0,
+      "basis": [
+        "Frozen numeric window met without excluding failed rounds",
+        "Real new upstream identities and actual scope/time meanings checked",
+        "First and last sampled origin materials reviewed: original date kept separate from feed/editorial time; unknown authors/completeness remain unknown; previews do not assert fulltext",
+        "Current 3294c19 target image re-probe succeeded; route, identity and material extraction for this path are unchanged from observed image; later changes concern other routes or derived processing"
+      ],
+      "remaining_limits": [
+        "G1 candidate quality remains blocked; no paid/publication activation",
+        "Only observed public text/preview/editorial scope; no long-term stability or external truth verification",
+        "Original publication and author may remain unknown; no timestamps or roles are inferred"
+      ]
+    },
+    {
+      "source_id": "wsj-world",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": 0,
+      "basis": [
+        "Frozen numeric window met without excluding failed rounds",
+        "Real new upstream identities and actual scope/time meanings checked",
+        "First and last sampled origin materials reviewed: original date kept separate from feed/editorial time; unknown authors/completeness remain unknown; previews do not assert fulltext",
+        "Current 3294c19 target image re-probe succeeded; route, identity and material extraction for this path are unchanged from observed image; later changes concern other routes or derived processing"
+      ],
+      "remaining_limits": [
+        "G1 candidate quality remains blocked; no paid/publication activation",
+        "Only observed public text/preview/editorial scope; no long-term stability or external truth verification",
+        "Original publication and author may remain unknown; no timestamps or roles are inferred"
+      ]
+    },
+    {
+      "source_id": "xinhua",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "primary_declared_scope_at_least_90pct",
+        "mixed_article_and_media_scopes_require_separate_explicit_capability_assessment",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "zaobao-china",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": 0,
+      "basis": [
+        "Frozen numeric window met without excluding failed rounds",
+        "Real new upstream identities and actual scope/time meanings checked",
+        "First and last sampled origin materials reviewed: original date kept separate from feed/editorial time; unknown authors/completeness remain unknown; previews do not assert fulltext",
+        "Current 3294c19 target image re-probe succeeded; route, identity and material extraction for this path are unchanged from observed image; later changes concern other routes or derived processing"
+      ],
+      "remaining_limits": [
+        "G1 candidate quality remains blocked; no paid/publication activation",
+        "Only observed public text/preview/editorial scope; no long-term stability or external truth verification",
+        "Original publication and author may remain unknown; no timestamps or roles are inferred"
+      ]
+    },
+    {
+      "source_id": "zhihu-hot",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "current_adapter_fields_changed_after_observer_image_requires_equivalence_or_new_probe",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "bjnews-depth",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "primary_declared_scope_at_least_90pct",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "douban-book",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": 0,
+      "basis": [
+        "Frozen numeric window met without excluding failed rounds",
+        "Real new upstream identities and actual scope/time meanings checked",
+        "First and last sampled origin materials reviewed: original date kept separate from feed/editorial time; unknown authors/completeness remain unknown; previews do not assert fulltext",
+        "Current 3294c19 target image re-probe succeeded; route, identity and material extraction for this path are unchanged from observed image; later changes concern other routes or derived processing"
+      ],
+      "remaining_limits": [
+        "G1 candidate quality remains blocked; no paid/publication activation",
+        "Only observed public text/preview/editorial scope; no long-term stability or external truth verification",
+        "Original publication and author may remain unknown; no timestamps or roles are inferred"
+      ]
+    },
+    {
+      "source_id": "douban-movie",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "media_or_challenge_origin_identity_scope_requires_manual_check",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "fortune-business",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "primary_declared_scope_at_least_90pct",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "fortune-tech",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "primary_declared_scope_at_least_90pct",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "infzm-news",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "current_adapter_fields_changed_after_observer_image_requires_equivalence_or_new_probe",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "people-frontpage",
+      "g2_bounded_source_passed": false,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": null,
+      "basis": [
+        "current_adapter_fields_changed_after_observer_image_requires_equivalence_or_new_probe",
+        "critical_identity_author_time_scope_audit_not_signed_off"
+      ],
+      "remaining_limits": [
+        "No activation approved by this report"
+      ]
+    },
+    {
+      "source_id": "zaobao-world",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": 0,
+      "basis": [
+        "Frozen numeric window met without excluding failed rounds",
+        "Real new upstream identities and actual scope/time meanings checked",
+        "First and last sampled origin materials reviewed: original date kept separate from feed/editorial time; unknown authors/completeness remain unknown; previews do not assert fulltext",
+        "Current 3294c19 target image re-probe succeeded; route, identity and material extraction for this path are unchanged from observed image; later changes concern other routes or derived processing"
+      ],
+      "remaining_limits": [
+        "G1 candidate quality remains blocked; no paid/publication activation",
+        "Only observed public text/preview/editorial scope; no long-term stability or external truth verification",
+        "Original publication and author may remain unknown; no timestamps or roles are inferred"
+      ]
+    },
+    {
+      "source_id": "zhihu-daily",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "reviewer": "Codex technical review",
+      "critical_errors_observed": 0,
+      "basis": [
+        "Frozen numeric window met without excluding failed rounds",
+        "Real new upstream identities and actual scope/time meanings checked",
+        "First and last sampled origin materials reviewed: original date kept separate from feed/editorial time; unknown authors/completeness remain unknown; previews do not assert fulltext",
+        "Current 3294c19 target image re-probe succeeded; route, identity and material extraction for this path are unchanged from observed image; later changes concern other routes or derived processing"
+      ],
+      "remaining_limits": [
+        "G1 candidate quality remains blocked; no paid/publication activation",
+        "Only observed public text/preview/editorial scope; no long-term stability or external truth verification",
+        "Original publication and author may remain unknown; no timestamps or roles are inferred"
+      ]
+    }
+  ],
+  "bounded_source_passed_count": 7,
+  "all_paths_passed": false,
+  "production_activation": false,
+  "user_acceptance": null,
+  "note": "This signs off only sampled source identity/time/scope behavior within the recorded bounded window. It does not certify generated card quality, production consumption, author subscription, fulltext, watched media, or user acceptance. Unqualified paths remain explicitly closed."
+}
