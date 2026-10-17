@@ -110,7 +110,7 @@ def snapshot(
 ) -> dict[str, Any]:
     state = session.get(ReaderState, 1)
     interests = list(session.scalars(select(ReaderInterest).order_by(ReaderInterest.resource_key)))
-    feedback = list(session.scalars(select(ContentFeedback).order_by(ContentFeedback.article_id)))
+    feedback = effective_feedback(session)
     return {
         "version": state.version if state else 0,
         "sort": state.sort if state else "recommended",
@@ -124,7 +124,8 @@ def snapshot(
             for i in interests
         ],
         "feedback": [
-            {"content_id": f.article_id, "value": f.value, "version": f.version} for f in feedback
+            {"content_id": article_id, "value": f.value, "version": f.version}
+            for article_id, f in sorted(feedback.items())
         ],
         "replayed": replayed,
         "unchanged": unchanged,
@@ -142,6 +143,27 @@ def feedback_target(session: Session, article_id: int) -> int:
             return article.id
         article_id = article.canonical_content_id
     raise HTTPException(409, "Content identity changed; reload before feedback")
+
+
+def feedback_group(session: Session, article_id: int) -> list[ContentFeedback]:
+    return [
+        row
+        for row in session.scalars(select(ContentFeedback))
+        if feedback_target(session, row.article_id) == article_id
+    ]
+
+
+def effective_feedback(session: Session) -> dict[int, ContentFeedback]:
+    effective: dict[int, ContentFeedback] = {}
+    for row in session.scalars(select(ContentFeedback)):
+        root = feedback_target(session, row.article_id)
+        previous = effective.get(root)
+        if previous is None or (row.version, row.article_id) > (
+            previous.version,
+            previous.article_id,
+        ):
+            effective[root] = row
+    return effective
 
 
 def mutate(
@@ -206,12 +228,16 @@ def mutate(
             session.delete(existing)
     elif kind == "feedback":
         article_id = feedback_target(session, int(target["content_id"]))
-        existing = session.get(ContentFeedback, article_id)
+        group = feedback_group(session, article_id)
+        existing = max(group, key=lambda row: (row.version, row.article_id), default=None)
         before = {"value": existing.value} if existing else None
         after = value
         if before == after:
             changed = False
         elif after:
+            for alias in group:
+                if alias is not existing:
+                    session.delete(alias)
             if existing:
                 existing.value, existing.version, existing.updated_at = (
                     after["value"],
@@ -225,7 +251,8 @@ def mutate(
                     )
                 )
         elif existing:
-            session.delete(existing)
+            for alias in group:
+                session.delete(alias)
     elif kind == "browse":
         before = {"sort": state.sort}
         after = value

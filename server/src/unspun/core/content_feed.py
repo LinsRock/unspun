@@ -27,7 +27,8 @@ from unspun.core.content_reading import (
     publication_at,
 )
 from unspun.core.models import Article, ContentDerivation, ContentObservation
-from unspun.core.reader_models import ContentFeedback, ReaderInterest, ReaderState
+from unspun.core.reader import effective_feedback
+from unspun.core.reader_models import ReaderInterest, ReaderState
 from unspun.core.sources import Source, load_sources
 from unspun.pipeline.content_processing import load_content, processing_fingerprint
 
@@ -236,7 +237,7 @@ def rank(
 ) -> tuple[list[tuple[Item, dict[str, Any]]], str]:
     state = session.get(ReaderState, 1)
     interests = list(session.scalars(select(ReaderInterest).order_by(ReaderInterest.resource_key)))
-    feedback = {f.article_id: f.value for f in session.scalars(select(ContentFeedback))}
+    feedback = {article_id: f.value for article_id, f in effective_feedback(session).items()}
     negative_authors: set[tuple[str, str]] = set()
     for item in items:
         if feedback.get(item.article.id) == "not_interested":

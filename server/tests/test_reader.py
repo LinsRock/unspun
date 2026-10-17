@@ -181,3 +181,62 @@ def test_concurrent_devices_compare_against_current_locked_version(db_session: S
                 delete(ReaderState).where(ReaderState.id == 1, ReaderState.version == 1)
             )
         engine.dispose()
+
+
+def test_feedback_survives_later_canonical_merge_and_is_really_revocable(
+    db_session: Session,
+) -> None:
+    root = Article(
+        title="Root",
+        url="https://example.org/feedback-root",
+        source_id="synthetic",
+        processing_track="r1",
+    )
+    alias = Article(
+        title="Alias",
+        url="https://example.org/feedback-alias",
+        source_id="synthetic",
+        processing_track="r1",
+    )
+    db_session.add_all([root, alias])
+    db_session.flush()
+    mutate(db_session, mutation(0), "feedback", {"content_id": alias.id}, {"value": "interested"})
+    alias.canonical_content_id = root.id
+    db_session.flush()
+    state = snapshot(db_session)
+    assert state["feedback"] == [{"content_id": root.id, "value": "interested", "version": 1}]
+    removed = mutate(db_session, mutation(1), "feedback", {"content_id": alias.id}, None)
+    assert removed["feedback"] == []
+    assert db_session.get(ContentFeedback, alias.id) is None
+    assert db_session.scalar(select(func.count()).select_from(ReaderChange)) == 2
+
+
+def test_latest_feedback_wins_after_merge_and_update_keeps_one_active_record(
+    db_session: Session,
+) -> None:
+    root = Article(
+        title="Root",
+        url="https://example.org/feedback-both-root",
+        source_id="synthetic",
+        processing_track="r1",
+    )
+    alias = Article(
+        title="Alias",
+        url="https://example.org/feedback-both-alias",
+        source_id="synthetic",
+        processing_track="r1",
+    )
+    db_session.add_all([root, alias])
+    db_session.flush()
+    mutate(
+        db_session, mutation(0), "feedback", {"content_id": root.id}, {"value": "not_interested"}
+    )
+    mutate(db_session, mutation(1), "feedback", {"content_id": alias.id}, {"value": "interested"})
+    alias.canonical_content_id = root.id
+    db_session.flush()
+    assert snapshot(db_session)["feedback"][0]["value"] == "interested"
+    changed = mutate(
+        db_session, mutation(2), "feedback", {"content_id": root.id}, {"value": "not_interested"}
+    )
+    assert changed["feedback"] == [{"content_id": root.id, "value": "not_interested", "version": 3}]
+    assert db_session.scalar(select(func.count()).select_from(ContentFeedback)) == 1

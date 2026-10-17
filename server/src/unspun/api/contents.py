@@ -16,9 +16,11 @@ from unspun.core.config import get_settings
 from unspun.core.content_feed import Item, item_out, page, reviewed, rules
 from unspun.core.content_reading import GUIDE_VERSION, REVIEW_VERSION, GuideDraft, guide_valid
 from unspun.core.models import Article, ContentDerivation
+from unspun.core.reader import effective_feedback
 from unspun.core.sources import load_sources
 from unspun.core.task_models import PipelineTask
 from unspun.pipeline.content_processing import enqueue_processing, processing_fingerprint
+from unspun.pipeline.discovery import lock_identity
 
 router = APIRouter(dependencies=[Depends(require_admin_identity)])
 ReadDb = Annotated[Session, Depends(get_db)]
@@ -151,7 +153,8 @@ def guide_state(session: Session, item: Item) -> dict[str, Any]:
 def details(article_id: int, request: Request, session: ReadDb) -> dict[str, Any]:
     preview = local_preview(request, session)
     item, alias = find_item(session, article_id, preview)
-    out = item_out(item, {}, load_sources())
+    feedback = effective_feedback(session).get(item.article.id)
+    out = item_out(item, {"feedback_value": feedback.value if feedback else None}, load_sources())
     out.update(
         preview=preview,
         requested_alias_id=alias,
@@ -168,6 +171,8 @@ def details(article_id: int, request: Request, session: ReadDb) -> dict[str, Any
 
 @router.post("/api/contents/{article_id}/guide", dependencies=[Depends(require_write)])
 def request_guide(article_id: int, request: Request, session: Db) -> dict[str, Any]:
+    # Single-user enqueue only: no network or model call under this short lock.
+    lock_identity(session, "r1-guide-request")
     item, _ = find_item(session, article_id, local_preview(request, session))
     state = guide_state(session, item)
     if state["requestable"]:

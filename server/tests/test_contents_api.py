@@ -1,6 +1,11 @@
 """Authenticated detail reads stay free; explicit repeated guide requests deduplicate."""
 
 from collections.abc import Generator
+from typing import Any
+
+from tests.test_ingestion import ingestion_db
+
+__all__ = ["enabled_sources", "ingestion_db"]
 
 import httpx
 import pytest
@@ -15,8 +20,6 @@ from unspun.api.feed_preferences import get_write_db
 from unspun.core.config import Settings, get_settings
 from unspun.core.models import ContentMaterial
 from unspun.core.task_models import PipelineTask
-
-__all__ = ["enabled_sources"]
 
 
 @pytest.mark.anyio
@@ -98,3 +101,50 @@ async def test_production_cannot_turn_on_local_preview_with_only_a_flag(
     with pytest.raises(HTTPException) as error:
         local_preview(Request({"type": "http", "client": ("127.0.0.1", 1)}), db_session)
     assert error.value.status_code == 503
+
+
+def test_simultaneous_first_guide_requests_return_the_same_task(
+    ingestion_db: Any, enabled_sources: None, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from concurrent.futures import ThreadPoolExecutor
+    from threading import Barrier
+
+    from starlette.requests import Request
+
+    from unspun.api.contents import request_guide
+
+    source = ingestion_db.source(paid=True, publish=True)
+    monkeypatch.setattr("unspun.api.contents.load_sources", lambda: [source])
+    monkeypatch.setattr("unspun.core.content_feed.load_sources", lambda: [source])
+    with ingestion_db.scope() as session:
+        article = ready(session, source=source.id)
+        article_id = article.id
+        material = session.get(ContentMaterial, article.current_material_id)
+        assert material
+        material.paragraphs = [{"kind": "paragraph", "text": material.paragraphs[0]["text"] * 20}]
+        material.input_fingerprint = "concurrent-guide-body"
+        from tests.test_content_processing import FakeClient, approval, draft
+        from unspun.pipeline.content_processing import apply_processing, load_content, organize
+
+        with Session() as detached:
+            result = organize(
+                detached,
+                FakeClient(draft()),
+                FakeClient(approval()),
+                load_content(session, article_id),
+            )
+        apply_processing(session, result)
+    barrier = Barrier(2)
+
+    def call() -> int:
+        with ingestion_db.scope() as session:
+            barrier.wait(timeout=5)
+            response = request_guide(
+                article_id, Request({"type": "http", "client": ("127.0.0.1", 1)}), session
+            )
+            return int(response["task_id"])
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        futures = [pool.submit(call), pool.submit(call)]
+        results = [future.result(timeout=10) for future in futures]
+    assert results[0] == results[1]
