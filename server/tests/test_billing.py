@@ -18,6 +18,7 @@ from sqlalchemy import Engine, create_engine, delete, func, select
 from sqlalchemy.orm import Session
 
 from unspun.core.billing import (
+    EVALUATION_LIMIT,
     BudgetExceeded,
     CallContext,
     DatabaseJournal,
@@ -139,6 +140,41 @@ def test_budget_rejection_sends_no_http_even_for_legacy(billing_db: BillingDB) -
     with pytest.raises(BudgetExceeded):
         invoke(billing_db, forbidden)
     assert not billing_db.requests() and not billing_db.usage()
+
+
+def test_allocation_revision_requires_cutover_and_keeps_unknown_holds(
+    billing_db: BillingDB,
+) -> None:
+    billing_db.policy(monthly_limit_usd=Decimal("0.60"))
+    with Session(billing_db.engine) as session, session.begin():
+        session.add(
+            LlmUsage(
+                purpose="summary",
+                model=MODEL,
+                cost_usd=0.29,
+                created_at=datetime.now(UTC),
+            )
+        )
+    for model in (MODEL, MODEL, MODEL, "google/gemini-2.5-flash"):
+        reservation = billing_db.journal.reserve(
+            purpose="summary", model=model, request=REQUEST, context=CallContext()
+        )
+        billing_db.journal.unknown(reservation.id, "retained transport uncertainty")
+    held = {r.id: r.reserved_usd for r in billing_db.requests()}
+    review: dict[str, Any] = {
+        "purpose": "grounding",
+        "model": "google/gemini-2.5-flash",
+        "request": REQUEST,
+    }
+    # A code release does not silently enlarge an existing policy row.
+    with pytest.raises(BudgetExceeded, match="monthly budget"):
+        billing_db.journal.reserve(**review, context=CallContext())
+    billing_db.policy(monthly_limit_usd=EVALUATION_LIMIT)
+    billing_db.journal.reserve(**review, context=CallContext())
+    rows = billing_db.requests()
+    assert {r.id: r.reserved_usd for r in rows if r.status == "usage_unknown"} == held
+    assert len(rows) == 5 and len(billing_db.usage()) == 1
+    assert billing_db.usage()[0].cost_usd == 0.29
 
 
 def test_fee_survives_json_failure_and_business_rollback(billing_db: BillingDB) -> None:
