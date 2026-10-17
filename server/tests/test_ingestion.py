@@ -541,6 +541,83 @@ def test_challenge_and_missing_known_container_do_not_become_fulltext(
         assert result.access_status != "ok"
 
 
+@pytest.mark.parametrize("provided", [None, "An actually observed RSS introduction."])
+def test_douban_security_redirect_cannot_publish_its_logo_or_template_metadata(
+    ingestion_db: IngestionDB, provided: str | None
+) -> None:
+    source = ingestion_db.source(origin_hosts=["movie.douban.com", "sec.douban.com"])
+    seen: list[str] = []
+
+    def respond(request: httpx.Request) -> httpx.Response:
+        seen.append(str(request.url))
+        if request.url.host == "movie.douban.com":
+            return httpx.Response(302, headers={"Location": "https://sec.douban.com/c?r=review"})
+        return httpx.Response(
+            200,
+            text=(
+                '<meta name="author" content="Security template author">'
+                '<meta property="article:published_time" content="2026-10-16T10:00:00Z">'
+                "<article>d o u b a n</article>"
+            ),
+        )
+
+    with httpx.Client(transport=httpx.MockTransport(respond)) as client:
+        result = retrieve_material(
+            source,
+            {
+                "url": "https://movie.douban.com/review/123/",
+                "metadata": {"title": "Synthetic review", "genre": "review"},
+                "provided_text": provided,
+            },
+            client,
+            now=NOW,
+        )
+    assert len(seen) == 2 and result.response_status == 200
+    assert result.access_status == "restricted" and result.evidence["security_redirect"] is True
+    assert result.metadata.authors == result.metadata.times == ()
+    assert [p.text for p in result.paragraphs] == ([provided] if provided else [])
+    assert result.scope == ("feed_lead" if provided else "none")
+    assert result.completeness == ("partial" if provided else "none")
+
+
+@pytest.mark.parametrize(
+    "schema,url,expected",
+    [
+        ('{"@type":"VideoObject","name":"Synthetic clip"}', "/news/videos/item", "video"),
+        ('{"@type":"VideoObject","name":"Synthetic clip"}', "/untyped-item", "video"),
+        ('{"@type":"NewsArticle","name":"Synthetic article"}', "/news/videos/item", "article"),
+    ],
+)
+def test_bbc_primary_schema_sets_description_scope_without_inferring_viewed_video(
+    ingestion_db: IngestionDB, schema: str, url: str, expected: str
+) -> None:
+    source = ingestion_db.source(origin_hosts=["bbc.co.uk"])
+    html = (
+        '<html><head><script type="application/ld+json">'
+        + schema
+        + "</script></head><body><article><p>A written description with an attributed source "
+        "statement. This public text accompanies the clip, without a transcript or timing. "
+        "The source describes the announcement and explains the context in this passage. "
+        "The available text provides background while the moving images remain separate."
+        "</p></article></body></html>"
+    )
+    with httpx.Client(
+        transport=httpx.MockTransport(lambda _: httpx.Response(200, text=html))
+    ) as client:
+        result = retrieve_material(
+            source,
+            {
+                "url": "https://www.bbc.co.uk" + url,
+                "metadata": {"title": "Synthetic clip", "form": "article"},
+            },
+            client,
+            now=NOW,
+        )
+    assert result.metadata.form == expected
+    assert result.scope == ("media_description" if expected == "video" else "open_text_unit")
+    assert result.metadata.duration_seconds is None and result.metadata.media_url is None
+
+
 def test_rss_metadata_keeps_feed_date_and_modified_time_distinct(ingestion_db: IngestionDB) -> None:
     xml = (
         b'<feed xmlns="http://www.w3.org/2005/Atom">'

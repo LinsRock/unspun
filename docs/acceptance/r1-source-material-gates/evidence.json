@@ -1,0 +1,923 @@
+{
+  "schema_version": "r1-source-material-gates-v1",
+  "reviewed_at": "2026-10-17T05:30:35.426821+00:00",
+  "previous_qualification_sha256": "e96ef4e74f6a707db740c98ec2e3a1486b00104a5cb2f2e76724c2a304961826",
+  "thresholds_changed": false,
+  "target_image": "ghcr.io/linsrock/unspun-server:3294c19c8b2da33336c68d07d4ed99d4f4dbe658",
+  "database_writes": 0,
+  "paid_calls": 0,
+  "production_enabled": false,
+  "previous_qualified_paths": [
+    "bbc-zhongwen",
+    "nyt-world",
+    "wsj-world",
+    "zaobao-china",
+    "douban-book",
+    "zaobao-world",
+    "zhihu-daily"
+  ],
+  "new_qualified_paths": [
+    {
+      "source_id": "36kr-newsflashes",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "critical_errors_observed_in_bounded_audit": 0,
+      "frozen_numeric_window_passed": true,
+      "scheduled_attempts": 20,
+      "metadata_successes": 20,
+      "material_scope_counts": {
+        "complete_brief": 40
+      },
+      "samples": [
+        {
+          "file": "20261016T082612.750467Z-36kr-newsflashes.json",
+          "sha256": "0c7e6119e3267eb28e5f96f654caf426da09bea0525a51dfbbca131a97795132",
+          "material_urls": [
+            "https://www.36kr.com/newsflashes/4028286221881735",
+            "https://www.36kr.com/newsflashes/4028283170656904"
+          ],
+          "item_urls": [
+            "https://www.36kr.com/newsflashes/4028286221881735",
+            "https://www.36kr.com/newsflashes/4028283170656904"
+          ]
+        },
+        {
+          "file": "20261016T175550.393350Z-36kr-newsflashes.json",
+          "sha256": "57ba782ef4073b32421a9bdf793b34ea52452687fe8cb86585b1a52dae48718f",
+          "material_urls": [
+            "https://www.36kr.com/newsflashes/4028475273106053",
+            "https://www.36kr.com/newsflashes/4028473153229449"
+          ],
+          "item_urls": [
+            "https://www.36kr.com/newsflashes/4028613885317764",
+            "https://www.36kr.com/newsflashes/4028607311106689"
+          ]
+        }
+      ],
+      "basis": [
+        "Current target image maps templateMaterial.publishTime to original time; old observations kept the same value as feed time, not observation time.",
+        "Self-contained brief is the declared material; no article-body or platform-wide coverage claim."
+      ],
+      "limits": [
+        "Bounded source capability only; final generation quality and production activation remain blocked.",
+        "No user rating, global coverage or long-term stability claim."
+      ]
+    },
+    {
+      "source_id": "people-frontpage",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "critical_errors_observed_in_bounded_audit": 0,
+      "frozen_numeric_window_passed": true,
+      "scheduled_attempts": 40,
+      "metadata_successes": 40,
+      "material_scope_counts": {
+        "editorial_edition": 80
+      },
+      "samples": [
+        {
+          "file": "20261016T084717.772009Z-people-frontpage.json",
+          "sha256": "6b7072f5d79763de3662d9bb7bb9149483e7b54d713781c8aea17a8d279d45f2",
+          "material_urls": [
+            "https://paper.people.com.cn/rmrb/pc/content/202610/16/content_30185944.html",
+            "https://paper.people.com.cn/rmrb/pc/content/202610/16/content_30185945.html"
+          ],
+          "item_urls": [
+            "https://paper.people.com.cn/rmrb/pc/content/202610/16/content_30185944.html",
+            "https://paper.people.com.cn/rmrb/pc/content/202610/16/content_30185945.html"
+          ]
+        },
+        {
+          "file": "20261017T041717.646588Z-people-frontpage.json",
+          "sha256": "48c4b77fc88c0833328c7a5857222e874c914ff91bfb41ea9d11d781881f0c5e",
+          "material_urls": [
+            "https://paper.people.com.cn/rmrb/pc/content/202610/17/content_30186190.html",
+            "https://paper.people.com.cn/rmrb/pc/content/202610/17/content_30186191.html"
+          ],
+          "item_urls": [
+            "https://paper.people.com.cn/rmrb/pc/content/202610/17/content_30186187.html",
+            "https://paper.people.com.cn/rmrb/pc/content/202610/17/content_30186188.html"
+          ]
+        }
+      ],
+      "basis": [
+        "Two actual edition dates are retained as editorial dates only.",
+        "Visible page .sec byline, wire byline, and unknown teaser authors were independently checked on current target image; no template 2013 date or invented midnight.",
+        "Frontpage index teasers remain bounded edition text; they do not establish full article material."
+      ],
+      "limits": [
+        "Bounded source capability only; final generation quality and production activation remain blocked.",
+        "No user rating, global coverage or long-term stability claim."
+      ]
+    },
+    {
+      "source_id": "zhihu-hot",
+      "g2_bounded_source_passed": true,
+      "reviewer_kind": "ai-technical",
+      "critical_errors_observed_in_bounded_audit": 0,
+      "frozen_numeric_window_passed": true,
+      "scheduled_attempts": 20,
+      "metadata_successes": 20,
+      "material_scope_counts": {
+        "question_background": 39,
+        "none": 1
+      },
+      "samples": [
+        {
+          "file": "20261016T082617.298640Z-zhihu-hot.json",
+          "sha256": "b85b875827d6ce4be311766e68103241e9f52af7d010e53ba84f2a4c613d5aa9",
+          "material_urls": [
+            "https://www.zhihu.com/question/2094414413922918526",
+            "https://www.zhihu.com/question/2094387941598389093"
+          ],
+          "item_urls": [
+            "https://www.zhihu.com/question/2094414413922918526",
+            "https://www.zhihu.com/question/2094387941598389093"
+          ]
+        },
+        {
+          "file": "20261016T175555.007415Z-zhihu-hot.json",
+          "sha256": "64a434639849f49457212394f5a9ad2af93fc22a3c6bdda9ba5123ccdb16d6de",
+          "material_urls": [
+            "https://www.zhihu.com/question/2094342135088504857",
+            "https://www.zhihu.com/question/2094299765097882927"
+          ],
+          "item_urls": [
+            "https://www.zhihu.com/question/2094528208381145766",
+            "https://www.zhihu.com/question/2094526225645401301"
+          ]
+        }
+      ],
+      "basis": [
+        "Current target image maps target.created to question-created, never hot-list entry time or original reporting time.",
+        "39 of 40 sampled materials are question background; one none result remains in the denominator.",
+        "No answer-body, consensus, commenter identity or community coverage claim."
+      ],
+      "limits": [
+        "Bounded source capability only; final generation quality and production activation remain blocked.",
+        "No user rating, global coverage or long-term stability claim."
+      ]
+    }
+  ],
+  "bounded_source_passed_paths": [
+    "36kr-newsflashes",
+    "bbc-zhongwen",
+    "douban-book",
+    "nyt-world",
+    "people-frontpage",
+    "wsj-world",
+    "zaobao-china",
+    "zaobao-world",
+    "zhihu-daily",
+    "zhihu-hot"
+  ],
+  "g2_all_paths_passed": false,
+  "target_probe_records": [
+    {
+      "type": "current-probe",
+      "record_sha256": "ab9c41f7b82ff719c482c9d5ecf95ac89183ac7c4476797b9b093f8c15eff90d",
+      "source_id": "36kr-newsflashes",
+      "status": "ok",
+      "started_at": "2026-10-17T05:23:04.118305+00:00",
+      "completed_at": "2026-10-17T05:23:05.808202+00:00",
+      "materials": [
+        {
+          "scope": "complete_brief",
+          "access_status": "ok",
+          "completeness": "observed_unit",
+          "basis": "feed:provided",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-17T05:01:42Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Sat, 17 Oct 2026 05:01:42 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": null,
+          "response_fingerprint": null,
+          "character_count": 279,
+          "final_host": "www.36kr.com",
+          "final_path": "/newsflashes/4029401099178629"
+        },
+        {
+          "scope": "complete_brief",
+          "access_status": "ok",
+          "completeness": "observed_unit",
+          "basis": "feed:provided",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-17T04:40:48Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Sat, 17 Oct 2026 04:40:48 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": null,
+          "response_fingerprint": null,
+          "character_count": 265,
+          "final_host": "www.36kr.com",
+          "final_path": "/newsflashes/4029400230564489"
+        }
+      ]
+    },
+    {
+      "type": "current-probe",
+      "record_sha256": "b3a1ee9159b439d2eb2f651ebb050cbb17087aa46c9e95f0bd5cb708db8c647a",
+      "source_id": "people-frontpage",
+      "status": "ok",
+      "started_at": "2026-10-17T05:23:04.119366+00:00",
+      "completed_at": "2026-10-17T05:23:04.978587+00:00",
+      "materials": [
+        {
+          "scope": "editorial_edition",
+          "access_status": "ok",
+          "completeness": "observed_unit",
+          "basis": "people:#ozoom",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": "editorial_edition",
+            "platform": "people",
+            "publisher": "People's Daily",
+            "authors": [],
+            "times": [
+              {
+                "kind": "editorial",
+                "precision": "date",
+                "at": null,
+                "on": "2026-10-17",
+                "basis": "people:frontpage:dated-layout",
+                "raw": null
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": 200,
+          "response_fingerprint": "7729d2017239f65d2e6211c88cc6b6308039dd0185bc95e3d1fa894836caa146",
+          "character_count": 1513,
+          "final_host": "paper.people.com.cn",
+          "final_path": "/rmrb/pc/content/202610/17/content_30186187.html"
+        },
+        {
+          "scope": "editorial_edition",
+          "access_status": "ok",
+          "completeness": "observed_unit",
+          "basis": "people:#ozoom",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": "editorial_edition",
+            "platform": "people",
+            "publisher": "People's Daily",
+            "authors": [],
+            "times": [
+              {
+                "kind": "editorial",
+                "precision": "date",
+                "at": null,
+                "on": "2026-10-17",
+                "basis": "people:frontpage:dated-layout",
+                "raw": null
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": 200,
+          "response_fingerprint": "ea27eccbbbf16656d4f3c0087b5e048a70edcd6dbbd9716a44046bdbf18b7651",
+          "character_count": 441,
+          "final_host": "paper.people.com.cn",
+          "final_path": "/rmrb/pc/content/202610/17/content_30186188.html"
+        }
+      ]
+    },
+    {
+      "type": "current-probe",
+      "record_sha256": "5805f49dfbf6a41a0280214319a32aa3e6da509b7a94e2b8567c15279e134174",
+      "source_id": "zhihu-hot",
+      "status": "ok",
+      "started_at": "2026-10-17T05:23:04.978695+00:00",
+      "completed_at": "2026-10-17T05:23:06.005512+00:00",
+      "materials": [
+        {
+          "scope": "question_background",
+          "access_status": "ok",
+          "completeness": "partial",
+          "basis": "feed:provided",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "question",
+            "genre": null,
+            "platform": "zhihu",
+            "publisher": "Zhihu",
+            "authors": [],
+            "times": [
+              {
+                "kind": "question_created",
+                "precision": "time",
+                "at": "2026-10-17T03:49:33Z",
+                "on": null,
+                "basis": "rsshub:zhihu-hot:target.created",
+                "raw": "Sat, 17 Oct 2026 03:49:33 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": null,
+          "response_fingerprint": null,
+          "character_count": 312,
+          "final_host": "www.zhihu.com",
+          "final_path": "/question/2094756940668565354"
+        },
+        {
+          "scope": "question_background",
+          "access_status": "ok",
+          "completeness": "partial",
+          "basis": "feed:provided",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "question",
+            "genre": null,
+            "platform": "zhihu",
+            "publisher": "Zhihu",
+            "authors": [],
+            "times": [
+              {
+                "kind": "question_created",
+                "precision": "time",
+                "at": "2026-10-17T01:11:51Z",
+                "on": null,
+                "basis": "rsshub:zhihu-hot:target.created",
+                "raw": "Sat, 17 Oct 2026 01:11:51 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": null,
+          "response_fingerprint": null,
+          "character_count": 3010,
+          "final_host": "www.zhihu.com",
+          "final_path": "/question/2094717252792578329"
+        }
+      ]
+    },
+    {
+      "type": "current-probe",
+      "record_sha256": "75f791f24bafad9b6e7677ac502d8d2075558d0d6965fcfe49c3dbebd2c5592b",
+      "source_id": "infzm-news",
+      "status": "ok",
+      "started_at": "2026-10-17T05:23:05.809632+00:00",
+      "completed_at": "2026-10-17T05:23:07.329583+00:00",
+      "materials": [
+        {
+          "scope": "preview",
+          "access_status": "ok",
+          "completeness": "partial",
+          "basis": "feed:provided",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "infzm",
+            "publisher": "南方周末",
+            "authors": [
+              {
+                "name": "赵继林",
+                "role": "reporter",
+                "platform": "infzm",
+                "platform_id": null,
+                "basis": "feed:explicit-byline-role:记者"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-17T03:42:50Z",
+                "on": null,
+                "basis": "feed:feed",
+                "raw": "Sat, 17 Oct 2026 03:42:50 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": null,
+          "response_fingerprint": null,
+          "character_count": 726,
+          "final_host": "www.infzm.com",
+          "final_path": "/contents/342778"
+        },
+        {
+          "scope": "preview",
+          "access_status": "ok",
+          "completeness": "partial",
+          "basis": "feed:provided",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "infzm",
+            "publisher": "南方周末",
+            "authors": [
+              {
+                "name": "翟星理",
+                "role": "reporter",
+                "platform": "infzm",
+                "platform_id": null,
+                "basis": "feed:explicit-byline-role:记者"
+              },
+              {
+                "name": "王含琦",
+                "role": "unknown",
+                "platform": "infzm",
+                "platform_id": null,
+                "basis": "feed:explicit-byline-role:实习生"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-17T02:00:02Z",
+                "on": null,
+                "basis": "feed:feed",
+                "raw": "Sat, 17 Oct 2026 02:00:02 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": null,
+          "response_fingerprint": null,
+          "character_count": 856,
+          "final_host": "www.infzm.com",
+          "final_path": "/contents/342766"
+        }
+      ]
+    },
+    {
+      "type": "current-probe",
+      "record_sha256": "3b3ac5ddcd38ee2430c653d908817f2c49c19a693df04b928aec1c50affacc49",
+      "source_id": "douban-movie",
+      "status": "ok",
+      "started_at": "2026-10-17T05:23:06.005733+00:00",
+      "completed_at": "2026-10-17T05:23:11.877236+00:00",
+      "materials": [
+        {
+          "scope": "preview",
+          "access_status": "ok",
+          "completeness": "partial",
+          "basis": "generic:trafilatura",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": "review",
+            "platform": "douban",
+            "publisher": "Douban",
+            "authors": [
+              {
+                "name": "乱拳打死老师傅",
+                "role": "unknown",
+                "platform": "douban",
+                "platform_id": null,
+                "basis": "feed:author"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-16T14:00:30Z",
+                "on": null,
+                "basis": "feed:feed",
+                "raw": "Fri, 16 Oct 2026 14:00:30 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": 200,
+          "response_fingerprint": "b36249c6daf654bc8d787e276e0042ee1ccb9556f13091bc286839f170cb8be4",
+          "character_count": 15,
+          "final_host": "sec.douban.com",
+          "final_path": "/c"
+        },
+        {
+          "scope": "preview",
+          "access_status": "ok",
+          "completeness": "partial",
+          "basis": "generic:trafilatura",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": "review",
+            "platform": "douban",
+            "publisher": "Douban",
+            "authors": [
+              {
+                "name": "微醺330",
+                "role": "unknown",
+                "platform": "douban",
+                "platform_id": null,
+                "basis": "feed:author"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-16T05:43:26Z",
+                "on": null,
+                "basis": "feed:feed",
+                "raw": "Fri, 16 Oct 2026 05:43:26 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": 200,
+          "response_fingerprint": "255b21ce50df9d05c8d24f2c2670483944cf25736bb87a50846a89be27ba9a97",
+          "character_count": 15,
+          "final_host": "sec.douban.com",
+          "final_path": "/c"
+        }
+      ]
+    },
+    {
+      "type": "current-probe",
+      "record_sha256": "555e97805d42c04cfed0bb2d7110b28895757ddc7daf44465e17cb9ae49e25cb",
+      "source_id": "bbc-world",
+      "status": "ok",
+      "started_at": "2026-10-17T05:23:07.329755+00:00",
+      "completed_at": "2026-10-17T05:23:08.402342+00:00",
+      "materials": [
+        {
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "completeness": "unknown",
+          "basis": "generic:trafilatura",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "bbc",
+            "publisher": "BBC",
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-17T02:33:09Z",
+                "on": null,
+                "basis": "feed:feed",
+                "raw": "Sat, 17 Oct 2026 02:33:09 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": 200,
+          "response_fingerprint": "22e93b45d7c10046cc1c70e9d636b091993472bcb44d8b0ade33fa6262ad84c1",
+          "character_count": 2481,
+          "final_host": "www.bbc.co.uk",
+          "final_path": "/news/articles/cqe8rzg6zl00o"
+        },
+        {
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "completeness": "unknown",
+          "basis": "generic:trafilatura",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "bbc",
+            "publisher": "BBC",
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-17T05:02:50Z",
+                "on": null,
+                "basis": "feed:feed",
+                "raw": "Sat, 17 Oct 2026 05:02:50 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "response_status": 200,
+          "response_fingerprint": "d194dd7b861c2d55fbca205724692e6b4c5712d19aa03c570e10e99cccb1e639",
+          "character_count": 4449,
+          "final_host": "www.bbc.co.uk",
+          "final_path": "/news/articles/cxr5yvzv7rp0o"
+        }
+      ]
+    },
+    {
+      "type": "people-origin-audit",
+      "record_sha256": "239c717c310f60cbcee1bc3da8f67d2aefba992e6f142ec3625dbe8c5ab81be3",
+      "source_url": "https://paper.people.com.cn/rmrb/pc/content/202610/16/content_30185945.html",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": "editorial_edition",
+        "platform": "people",
+        "publisher": "People's Daily",
+        "authors": [
+          {
+            "name": "本报评论员",
+            "role": "author",
+            "platform": "people",
+            "platform_id": null,
+            "basis": "page:people:visible-edition-byline"
+          }
+        ],
+        "times": [
+          {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-16",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "scope": "editorial_edition",
+      "visible_edition_byline": "本报评论员 《人民日报》（2026年10月16日 第 01 版）",
+      "response_fingerprint": "36e03b49478b730ca8bce47c60c1fa3e6a0a3ceefbfb0f13ce74c22d1b322e5f"
+    },
+    {
+      "type": "people-origin-audit",
+      "record_sha256": "85d727c004b0bbf51a0897952733e0f146301d8ec4be9a6b3e123c1c937fc5df",
+      "source_url": "https://paper.people.com.cn/rmrb/pc/content/202610/17/content_30186190.html",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": "editorial_edition",
+        "platform": "people",
+        "publisher": "People's Daily",
+        "authors": [
+          {
+            "name": "齐中熙",
+            "role": "reporter",
+            "platform": "people",
+            "platform_id": null,
+            "basis": "page:people:wire-reporter"
+          }
+        ],
+        "times": [
+          {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "scope": "editorial_edition",
+      "visible_edition_byline": "《人民日报》（2026年10月17日 第 01 版）",
+      "response_fingerprint": "87f33f97a352aec1b7f687aa44ac4d7626c4f6003d83fe3277f0a4f7cf17e160"
+    },
+    {
+      "type": "people-origin-audit",
+      "record_sha256": "d7f40ca6e71d6e121d81fadbff50ff3080964c7d093e1706480afebe877f8411",
+      "source_url": "https://paper.people.com.cn/rmrb/pc/content/202610/17/content_30186191.html",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": "editorial_edition",
+        "platform": "people",
+        "publisher": "People's Daily",
+        "authors": [],
+        "times": [
+          {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-17",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          }
+        ],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "scope": "editorial_edition",
+      "visible_edition_byline": "《人民日报》（2026年10月17日 第 01 版）",
+      "response_fingerprint": "20c324ef1677024214d25bc31bc37928d5b3f46273cf32c3384ede04e0f3934e"
+    }
+  ],
+  "newly_confirmed_failures": {
+    "douban-movie": {
+      "security_pages_misclassified_as_preview": 49,
+      "sample_characters": [
+        15
+      ],
+      "retained_as_failed_source": true
+    },
+    "bbc-world": {
+      "media_path_material_records": 6,
+      "distinct_media_page_urls": 4,
+      "old_scope": "open_text_unit",
+      "old_form": "article",
+      "primary_VideoObject_confirmed_on_target": true,
+      "retained_as_failed_source": true
+    }
+  },
+  "fixed_extractor_version": "r1-material-v2",
+  "real_target_response_local_replay": [
+    {
+      "source_id": "bbc-world",
+      "input_url": "https://www.bbc.co.uk/news/videos/ckly4mj1g3n9o",
+      "actual_target_response_sha256": "cdd847c62fd74394032f9744e7e8598163632ea8ee2adf82ed1e3c24f247ef47",
+      "extractor_version": "r1-material-v2",
+      "scope": "media_description",
+      "access_status": "ok",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "video",
+        "genre": null,
+        "platform": "bbc",
+        "publisher": null,
+        "authors": [],
+        "times": [],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "character_count": 760,
+      "basis": "generic:trafilatura",
+      "evidence": {
+        "source_id": "bbc-world",
+        "extractor_version": "r1-material-v2",
+        "feed_text_truncated": false
+      }
+    },
+    {
+      "source_id": "douban-movie",
+      "input_url": "https://movie.douban.com/review/17858783/",
+      "actual_target_response_sha256": "fb9ea88d5c03004e3e70a18564078c2368da9274686dc975b3976c8655121f53",
+      "extractor_version": "r1-material-v2",
+      "scope": "none",
+      "access_status": "restricted",
+      "metadata": {
+        "schema_version": "r1-metadata-v1",
+        "form": "article",
+        "genre": null,
+        "platform": "douban",
+        "publisher": null,
+        "authors": [],
+        "times": [],
+        "original_url": null,
+        "media_url": null,
+        "duration_seconds": null,
+        "original_relation_basis": null
+      },
+      "character_count": 0,
+      "basis": "origin:douban-security-redirect",
+      "evidence": {
+        "source_id": "douban-movie",
+        "extractor_version": "r1-material-v2",
+        "feed_text_truncated": false,
+        "security_redirect": true
+      }
+    }
+  ],
+  "private_artifacts": [
+    {
+      "name": "probe_current.py",
+      "sha256": "bfca9de2a4d350a71fa4822e396a4971e19112b300e229543e90989286351d32"
+    },
+    {
+      "name": "current-probes.jsonl",
+      "sha256": "319184bbe0137be18dbb8a3582daa2774077cd6ca1fd5d5b9439eefcf31e50dc"
+    },
+    {
+      "name": "review-inputs.json",
+      "sha256": "c2ecd31abb9539b48b392982be832e881abca18cbc02c07f1a3b71e058689fc5"
+    },
+    {
+      "name": "origin-responses.private.jsonl",
+      "sha256": "b68ee8a5f73f97a68d4375264f8d92882ea10c1749525f8a6b6372d3c511a479"
+    },
+    {
+      "name": "real-response-replay.json",
+      "sha256": "1656f7a91c1086ea49bdc45e8a22902fd865e6d7324422fc4e0387daa2ec9084"
+    },
+    {
+      "name": "source-suite.xml",
+      "sha256": "986b666bd52ace1d33f2f5ce16ed488cfc8e0db545c36075e7dae445e57efbde"
+    },
+    {
+      "name": "legacy-ranking.json",
+      "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3"
+    }
+  ],
+  "restored_real_api_browser_checks": {
+    "checked_at": "2026-10-17T05:25:38.254Z",
+    "base": "http://127.0.0.1:5179",
+    "api": "http://127.0.0.1:8113",
+    "fixtures": false,
+    "mutations": false,
+    "checks": [
+      {
+        "width": 1440,
+        "path": "/reading",
+        "status": 200,
+        "horizontal_overflow": false,
+        "screenshot": "1440-reading.png"
+      },
+      {
+        "width": 1440,
+        "path": "/interests",
+        "status": 200,
+        "horizontal_overflow": false,
+        "screenshot": "1440-interests.png"
+      },
+      {
+        "width": 390,
+        "path": "/reading",
+        "status": 200,
+        "horizontal_overflow": false,
+        "screenshot": "390-reading.png"
+      },
+      {
+        "width": 390,
+        "path": "/interests",
+        "status": 200,
+        "horizontal_overflow": false,
+        "screenshot": "390-interests.png"
+      }
+    ],
+    "browser_errors": []
+  }
+}
