@@ -1,0 +1,77 @@
+{
+  "schema_version": "r1-production-rollout-v1",
+  "registered_at": "2026-10-17T19:15:13.753212+00:00",
+  "source_ids": [
+    "bbc-zhongwen",
+    "nyt-world",
+    "wsj-world",
+    "zaobao-china",
+    "douban-book",
+    "people-frontpage",
+    "zaobao-world",
+    "zhihu-daily",
+    "xinhua"
+  ],
+  "stage_flags": {
+    "discovery": true,
+    "material": true,
+    "paid": true,
+    "publish": true
+  },
+  "owner": "r1",
+  "legacy_worker_replicas": 0,
+  "r1_worker_replicas": 1,
+  "scope_policy": "Retain previously qualified material scopes; Xinhua media_description only after the registered v3 window qualifies.",
+  "per_source_bounds": {
+    "bbc-zhongwen": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "nyt-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "wsj-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zaobao-china": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "douban-book": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "people-frontpage": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zaobao-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zhihu-daily": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "xinhua": {
+      "max_items": 10,
+      "period_seconds": 21600
+    }
+  },
+  "remaining_merge_gates": [
+    "v3 full-window critical-field audit",
+    "current-contract cost projection and remaining-month budget",
+    "real reading/feedback technical evidence reconciliation",
+    "fresh migrated isolated checks and green CI"
+  ],
+  "model_change": false,
+  "new_budget_allocation": false,
+  "user_acceptance": null,
+  "notes": [
+    "Low-volume first rollout; capped feed slices do not establish complete source coverage.",
+    "Unqualified paths and S1-S6 stay disabled.",
+    "Existing completed UI/API evidence is reused; repeated mobile and undo clicks are omitted under the user speed-up instruction. No new browser pass is claimed."
+  ]
+}

@@ -660,7 +660,10 @@ async def test_cost_api_keeps_known_totals_links_and_unknowns_separate(
 
     app.dependency_overrides[get_db] = override
     app.dependency_overrides[get_settings] = lambda: Settings(admin_local_preview=True)
-    params = {"start": "2026-10-15T00:00:00Z", "end": "2026-10-18T00:00:00Z"}
+    params = {
+        "start": (datetime.now(UTC) - timedelta(days=1)).isoformat(),
+        "end": (datetime.now(UTC) + timedelta(days=1)).isoformat(),
+    }
     try:
         async with httpx.AsyncClient(
             transport=httpx.ASGITransport(app=app), base_url="http://127.0.0.1"
