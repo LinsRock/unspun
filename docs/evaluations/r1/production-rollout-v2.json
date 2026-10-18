@@ -84,5 +84,21 @@
   "excluded_source": {
     "id": "xinhua",
     "reason": "Critical credits-only media material found in the completed v3 window; not enabled."
-  }
+  },
+  "runtime_suspensions": [
+    {
+      "source_id": "nyt-world",
+      "registered_at": "2026-10-18T03:24:26.255029+00:00",
+      "stages": [
+        "discovery",
+        "material",
+        "paid",
+        "publish"
+      ],
+      "reason": "Production item 8844 retained only an image caption as preview; a title and caption do not qualify as article preview material.",
+      "evidence": "docs/acceptance/r1-nyt-caption-suspension-2026-10-18.md",
+      "reenable_gate": "Fix caption/material selection and complete a new bounded G2 check before a separate configuration PR.",
+      "preserve_original_registration": true
+    }
+  ]
 }

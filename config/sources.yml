@@ -151,18 +151,18 @@ sources:
     r1:
       version: r1-rollout-v1
       period_seconds: 7200
-      paid_scopes: [preview]
-      publish_scopes: [preview]
-      discovery: true
-      material: true
-      paid: true
-      publish: true
+      paid_scopes: []
+      publish_scopes: []
+      discovery: false
+      material: false
+      paid: false
+      publish: false
       form: article
       material_scope: preview
       platform: nyt
       publisher: New York Times
       origin_hosts: [nytimes.com]
-      capability: bounded_target_window_qualified
+      capability: suspended_caption_only_preview
   - id: aljazeera
     name: Al Jazeera
     url: https://www.aljazeera.com/xml/rss/all.xml

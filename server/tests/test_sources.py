@@ -68,10 +68,20 @@ def test_runtime_matches_registered_rollout_and_material_boundaries() -> None:
         (CONFIG_DIR.parent / "docs/evaluations/r1/production-rollout-v2.json").read_text()
     )
     sources = load_sources(CONFIG_DIR)
-    approved = set(registration["source_ids"])
+    registered = set(registration["source_ids"])
+    suspended = {row["source_id"] for row in registration.get("runtime_suspensions", [])}
+    assert suspended <= registered
+    approved = registered - suspended
     for stage in ("discovery", "material", "paid", "publish"):
         assert {s.id for s in sources if s.r1 and getattr(s.r1, stage)} == approved
     for source in sources:
+        if source.id in suspended:
+            assert source.r1 is not None
+            assert not source.legacy_enabled and source.discovery_owner == "r1"
+            assert not any(
+                getattr(source.r1, stage) for stage in ("discovery", "material", "paid", "publish")
+            )
+            assert not source.r1.paid_scopes and not source.r1.publish_scopes
         if source.id not in approved:
             continue
         assert source.r1 is not None

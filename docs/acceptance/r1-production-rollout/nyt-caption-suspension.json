@@ -1,0 +1,46 @@
+{
+  "schema_version": "r1-production-source-suspension-v1",
+  "source_id": "nyt-world",
+  "application_version": "594474ca2ef117697838e7e86018f83bae715f6a",
+  "article_id": 8844,
+  "material_id": 1,
+  "material_scope": "preview",
+  "paragraph_count": 1,
+  "character_count": 101,
+  "material_text_sha256": "63f1fc351b9c072d064e712c387df9d442571af111e0868235ea6202616a20ba",
+  "api_response_sha256": "a7df21e1f5463d3984693170aa7fd007aa0f977836699d60e254dfb10326c1b9",
+  "task_ids": [
+    10,
+    42
+  ],
+  "physical_calls": [
+    {
+      "id": "0b9a07444e564d4fbf41028ae2d0570c",
+      "phase": "generate",
+      "status": "responded",
+      "task_id": 42,
+      "task_attempt_id": 27,
+      "provider_generation_id": "gen-1792293558-BOLXthI9RhCi1pvv7qf7",
+      "started_at": "2026-10-18 03:19:18.493941+00:00",
+      "ended_at": "2026-10-18 03:19:19.736533+00:00",
+      "cost_usd": 0.0001998
+    },
+    {
+      "id": "88329e4d8e0f421bacf4a9edb01cf722",
+      "phase": "review",
+      "status": "responded",
+      "task_id": 42,
+      "task_attempt_id": 27,
+      "provider_generation_id": "gen-1792293560-YmSdRDkzaG0HZKI2SAVS",
+      "started_at": "2026-10-18 03:19:19.932251+00:00",
+      "ended_at": "2026-10-18 03:19:21.644088+00:00",
+      "cost_usd": 0.0004105
+    }
+  ],
+  "known_cost_usd": "0.0006103",
+  "reviewer_kind": "ai-technical",
+  "failure": "Only an image caption is retained as preview; this is not article body/lead material.",
+  "followup": "All stages and paid/publication scopes disabled by configuration PR; historical records and fees retained.",
+  "user_ratings_added": 0,
+  "new_paid_evaluation_calls": 0
+}
