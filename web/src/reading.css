@@ -16,7 +16,6 @@
 .reading-sidebar-footer > a { font-size: 12px; color: var(--ink-3); display: flex; justify-content: space-between; }
 .reading-main { margin-left: 224px; min-width: 0; }
 .reading-topbar { height: 61px; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; background: var(--surface); border-bottom: 1px solid var(--line); font-size: 12px; color: var(--ink-3); }
-.reading-topbar span:last-child { font-size: 11px; }
 .reading-page { max-width: 1040px; padding: 38px 40px 80px; margin-inline: auto; }
 .feed-heading { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 28px; }
 .feed-heading h1 { font-size: 30px; letter-spacing: -.8px; font-weight: 650; line-height: 1.35; }

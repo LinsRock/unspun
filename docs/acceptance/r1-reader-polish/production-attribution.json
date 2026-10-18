@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-18T13:04:31.987769+00:00",
+  "transport": "SSH to deployed loopback HTTP; existing valid Access JWT verified by the API",
+  "api_status": 200,
+  "body_sha256": "dd93d07837e335623da0db1e6513f5b043d789105a88f26f79bda6cdd5d5bbb5",
+  "preview": false,
+  "content_count": 25,
+  "claim_count": 53,
+  "repeated_reported_attribution_items": [
+    {
+      "content_id": 8894,
+      "claims": 3
+    },
+    {
+      "content_id": 8885,
+      "claims": 2
+    },
+    {
+      "content_id": 8883,
+      "claims": 3
+    },
+    {
+      "content_id": 8882,
+      "claims": 2
+    },
+    {
+      "content_id": 8881,
+      "claims": 3
+    },
+    {
+      "content_id": 8873,
+      "claims": 2
+    },
+    {
+      "content_id": 8875,
+      "claims": 3
+    },
+    {
+      "content_id": 8880,
+      "claims": 2
+    },
+    {
+      "content_id": 8879,
+      "claims": 2
+    },
+    {
+      "content_id": 8876,
+      "claims": 2
+    },
+    {
+      "content_id": 8895,
+      "claims": 2
+    },
+    {
+      "content_id": 8887,
+      "claims": 2
+    },
+    {
+      "content_id": 8878,
+      "claims": 2
+    }
+  ],
+  "paid_requests_in_this_probe": 0,
+  "mutations_in_this_probe": 0
+}
