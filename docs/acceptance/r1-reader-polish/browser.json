@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-10-18T13:04:09.979Z",
+  "environment": "Headless Chromium on macOS; 390px mobile viewport and 1365px desktop; real existing evaluation API 8113 through Vite 5181",
+  "not_claimed": [
+    "physical phone test",
+    "external video playback",
+    "new user acceptance of the revised UI"
+  ],
+  "preview": true,
+  "first_page_items": 20,
+  "ranking_version": "r1-reader-v1",
+  "item_ids": [
+    16,
+    17,
+    11,
+    5,
+    4,
+    3,
+    23,
+    18,
+    19,
+    13,
+    14,
+    22,
+    12,
+    24,
+    15,
+    21,
+    20,
+    10,
+    8,
+    6
+  ],
+  "displayed_claim_count": 43,
+  "checks": {
+    "every_claim_preserved": true,
+    "attribution_contexts": [
+      "AI 要点 · 作者观点",
+      "AI 要点 · 原文陈述",
+      "AI 要点 · 问题背景",
+      "AI 要点 · 原文解释",
+      "AI 要点 · 作者评价",
+      "AI 要点 · 简介内容"
+    ],
+    "icons_have_accessible_names_and_44px_targets": true,
+    "removed_copy_absent": true,
+    "reduced_motion_disables_skeleton_animation": true,
+    "mobile_overflow": false,
+    "desktop_overflow": false,
+    "detail_overflow": false
+  },
+  "detail_and_return": {
+    "content_id": 11,
+    "scroll_before": 1114,
+    "scroll_after": 1114
+  },
+  "api_methods": [
+    "GET"
+  ],
+  "api_write_attempts": 0,
+  "browser_errors": [],
+  "screenshots": [
+    "mobile-loading.png",
+    "mobile-light.png",
+    "mobile-dark.png",
+    "desktop-light.png",
+    "mobile-detail.png"
+  ],
+  "screenshot_recapture": {
+    "desktop": "Fresh 1365px page; exactly one sidebar/main/topbar",
+    "detail": "Fresh 390px page; source body present, scrollY=0, two animation frames before capture",
+    "reason": "Discard initial compositor artifacts after viewport transitions; no product data changed"
+  }
+}

@@ -16,14 +16,15 @@ export function useReader() {
     window.addEventListener('online', update); window.addEventListener('offline', update)
     return () => { window.removeEventListener('online', update); window.removeEventListener('offline', update) }
   }, [])
-  async function change(path: string, method: string, body: object): Promise<boolean> {
+  async function change(path: string, method: string, body: object, options: { announceSuccess?: boolean } = {}): Promise<boolean> {
     if (lock.current || saving || !profile.data || !navigator.onLine) return false
     lock.current = true; setMessage('')
     try {
       const state = await mutation.mutateAsync({ path, method, body: { ...body, version: profile.data.version, mutation_id: crypto.randomUUID() } })
       client.setQueryData(['r1-reader'], state)
       await client.invalidateQueries({ queryKey: ['r1-feed'] })
-      setMessage('已保存，可随时撤销。'); return true
+      if (options.announceSuccess !== false) setMessage('已保存，可随时撤销。')
+      return true
     } catch (error) {
       if (error instanceof ReaderError && error.status === 409) {
         if (error.current) client.setQueryData(['r1-reader'], error.current)

@@ -5,6 +5,7 @@ import DigestPage from './DigestPage'
 import FeedPage from './FeedPage'
 import ReportPanel from './ReportPanel'
 import ThemeToggle from './ThemeToggle'
+import { ReaderSkeleton } from './reader/LoadingState'
 import './reading.css'
 
 const ReadingPage = lazy(() => import('./reader/ReadingPage'))
@@ -43,9 +44,9 @@ export default function App() {
         <div className="reading-sidebar-footer"><Link to="/admin">管理后台 <span aria-hidden="true">↗</span></Link><ThemeToggle /></div>
       </header>
       <main id="page-content" className="reading-main">
-        <div className="reading-topbar"><span>阅读空间 / {location.pathname.startsWith('/reading') ? '发现阅读' : location.pathname === '/interests' ? '我的关注' : location.pathname === '/digest' ? '每日日报' : '实时事件流'}</span><span>中文阅读 · 原文可溯</span></div>
+        <div className="reading-topbar"><span>阅读空间 / {location.pathname.startsWith('/reading') ? '发现阅读' : location.pathname === '/interests' ? '我的关注' : location.pathname === '/digest' ? '每日日报' : '实时事件流'}</span></div>
         <div className="reading-page">
-          <Suspense fallback={<p role="status">正在打开阅读空间…</p>}>
+          <Suspense fallback={<ReaderSkeleton layout={location.pathname.startsWith('/reading/') ? 'detail' : location.pathname === '/interests' ? 'interests' : 'feed'} label="正在打开阅读空间" />}>
           <Routes>
             <Route path="/reading" element={<ReadingPage />} />
             <Route path="/reading/:id" element={<ContentPage />} />

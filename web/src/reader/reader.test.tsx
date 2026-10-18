@@ -31,7 +31,13 @@ beforeEach(() => {
   vi.stubGlobal('fetch', vi.fn(async (input: string, options?: RequestInit) => {
     const method = options?.method ?? 'GET'; const body = options?.body ? JSON.parse(String(options.body)) as Record<string, unknown> : undefined
     calls.push({ path: String(input), method, body })
-    if (input === '/api/reader-preferences') return Response.json(state)
+    if (input === '/api/reader-preferences') {
+      if (method === 'PUT') {
+        if (body?.version !== state.version) return Response.json({ detail: { current: state } }, { status: 409 })
+        state = { ...state, version: state.version + 1, sort: body?.sort as ReaderState['sort'] }
+      }
+      return Response.json(state)
+    }
     if (String(input).startsWith('/api/feed?')) return Response.json({ items: [detail], next_cursor: null, sort: 'recommended', as_of: '2026-10-16T10:00:00Z', ranking_version: 'synthetic', preview: true, empty_reason: null } satisfies FeedPage)
     if (input === '/api/contents/10' && method === 'GET') return Response.json(detail)
     if (input === '/api/contents/10/guide') return Response.json({ ...detail.guide, status: 'pending', task_id: 1, requestable: false })
@@ -86,13 +92,75 @@ describe('R1 reading', () => {
     await screen.findByRole('heading', { name: detail.title })
     expect(screen.getByText('媒体简介，未观看或收听')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: '感兴趣' }))
-    await screen.findByRole('button', { name: '感兴趣 · 撤销' })
-    fireEvent.click(screen.getByRole('button', { name: '感兴趣 · 撤销' }))
+    const selected = await screen.findByRole('button', { name: '撤销感兴趣', pressed: true })
+    expect(selected.textContent).toBe('')
+    expect(selected.querySelector('svg')).toBeTruthy()
+    fireEvent.click(selected)
     await waitFor(() => expect(state.feedback).toHaveLength(0))
     const writes = calls.filter(call => call.path === '/api/feedback')
     expect(writes.map(w => w.method)).toEqual(['PUT', 'DELETE'])
     expect(writes.map(w => w.body?.version)).toEqual([0, 1])
     expect(writes.every(w => typeof w.body?.mutation_id === 'string')).toBe(true)
+  })
+  it('persists sort changes silently, including returning to recommended', async () => {
+    setup()
+    await screen.findByRole('heading', { name: detail.title })
+    fireEvent.click(screen.getByRole('button', { name: '最新' }))
+    await waitFor(() => expect(state.sort).toBe('latest'))
+    await waitFor(() => expect((screen.getByRole('button', { name: '推荐' }) as HTMLButtonElement).disabled).toBe(false))
+    expect(screen.queryByText('已保存，可随时撤销。')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: '推荐' }))
+    await waitFor(() => expect(state.sort).toBe('recommended'))
+    await waitFor(() => expect((screen.getByRole('button', { name: '推荐' }) as HTMLButtonElement).disabled).toBe(false))
+    expect(screen.queryByText('已保存，可随时撤销。')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: '推荐' }))
+    expect(calls.filter(call => call.method === 'PUT').map(call => call.body?.sort)).toEqual(['latest', 'recommended'])
+  })
+  it('still reports save conflicts during an otherwise silent sort change', async () => {
+    setup()
+    await screen.findByRole('heading', { name: detail.title })
+    state = { ...state, version: 4 }
+    fireEvent.click(screen.getByRole('button', { name: '最新' }))
+    await screen.findByText('另一台设备已更新设置，已载入当前状态。请核对后重新操作。')
+    expect(calls.filter(call => call.method === 'PUT')).toHaveLength(1)
+    expect(state.sort).toBe('recommended')
+  })
+  it('shows local feedback progress and keeps the card visible while recommendations refresh', async () => {
+    const original = vi.mocked(fetch).getMockImplementation()!
+    let finishSave!: () => void
+    let finishRefresh!: () => void
+    const save = new Promise<void>(resolve => { finishSave = resolve })
+    const refresh = new Promise<void>(resolve => { finishRefresh = resolve })
+    vi.stubGlobal('fetch', vi.fn(async (input: string, options?: RequestInit) => {
+      if (input === '/api/feedback') await save
+      if (String(input).startsWith('/api/feed?') && state.version > 0) await refresh
+      return original(input, options)
+    }))
+    setup()
+    await screen.findByRole('heading', { name: detail.title })
+    fireEvent.click(screen.getByRole('button', { name: '不感兴趣' }))
+    const pending = await screen.findByRole('button', { name: '正在保存反馈' })
+    expect(pending.getAttribute('aria-busy')).toBe('true')
+    expect((pending as HTMLButtonElement).disabled).toBe(true)
+    expect(screen.getByRole('heading', { name: detail.title })).toBeTruthy()
+    finishSave()
+    await waitFor(() => expect(state.feedback[0]?.value).toBe('not_interested'))
+    expect(screen.queryByRole('status', { name: '正在加载阅读内容' })).toBeNull()
+    expect(screen.getByRole('heading', { name: detail.title })).toBeTruthy()
+    finishRefresh()
+    await screen.findByRole('button', { name: '撤销不感兴趣', pressed: true })
+  })
+  it('replaces the initial skeleton with an error rather than a false empty feed', async () => {
+    let finish!: () => void
+    const pending = new Promise<void>(resolve => { finish = resolve })
+    vi.stubGlobal('fetch', vi.fn(async () => { await pending; return Response.json({}, { status: 503 }) }))
+    setup()
+    expect(screen.getByRole('status', { name: '正在加载阅读内容' })).toBeTruthy()
+    expect(screen.queryByText('暂时没有可发布的内容')).toBeNull()
+    finish()
+    await screen.findByRole('alert')
+    expect(screen.queryByRole('status', { name: '正在加载阅读内容' })).toBeNull()
+    expect(screen.queryByText('暂时没有可发布的内容')).toBeNull()
   })
   it('detail GET never requests a guide and renders source as plain text', async () => {
     setup('/reading/10')
