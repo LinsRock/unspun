@@ -10,10 +10,18 @@ export interface CostSummary {
   trend: { day: string; cost_usd: string }[]
   purposes: { name: string; cost_usd: string }[]
   models: { name: string; cost_usd: string }[]
-  budget: { period: 'current_month'; limit: string; spent: string }
+  budget: { period: 'current_month'; limit: string; spent: string; enforcement?: BudgetEnforcement }
 }
 
-export interface CallRow { id: number; created_at: string; purpose: string; model: string; prompt_tokens: number; completion_tokens: number; cost_usd: string; association: 'not_recorded' }
+export interface UnitCost { status: 'unmeasured' | 'unknown' | 'known_lower_bound' | 'measured'; denominator_count: number; value_usd: string | null; known_plus_holds_scenario_usd: string | null }
+export interface BudgetEnforcement {
+  enabled: boolean; scope: 'production' | 'evaluation' | null; monthly_limit_usd: string | null; unresolved_calls: number; reserved_usd: string; incident: string | null
+  accounting?: { period: 'since_cutover' | 'utc_month'; known_spend_usd: string | null; historical_carry_usd: string | null; occupancy_usd: string | null; unresolved_holds_usd: string }
+  unit_costs?: { per_100_candidates: UnitCost; per_admitted_item: UnitCost; per_new_guide: UnitCost }
+}
+export interface CallLink { association?: 'not_recorded' | 'recorded'; task_id?: number | null; article_id?: number | null; source_id?: string | null; stage?: string | null; phase?: string | null }
+export interface CallRow extends CallLink { id: number; created_at: string; purpose: string; model: string; prompt_tokens: number | null; completion_tokens: number | null; cost_usd: string }
+export interface PhysicalRequest extends CallLink { id: string; status: 'reserved' | 'usage_unknown' | 'responded' | 'settled_without_result'; purpose: string; model: string; reserved_usd: string; provider_generation_id: string | null; error: string | null; started_at: string }
 export interface FixedCostRow { id: number; name: string; category: string; status: string; currency: string; amount: string; allocated: string; period_start: string; period_end: string }
 export interface ExpenseRule { id: number; name: string; category: string; amount: string; currency: string; cadence: string; anchor_date: string; once_end: string | null; stop_before: string | null; reminder_days: number; version: number }
 export interface ExpenseEntry { id: number; rule_id: number | null; name: string; category: string; amount: string; currency: string; kind: 'fixed' | 'topup'; period_start: string | null; period_end: string | null; status: 'pending' | 'paid' | 'canceled'; paid_on: string | null; paid_at: string | null; version: number }
