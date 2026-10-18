@@ -4,8 +4,8 @@
 
 ## 当前交付与分支
 
-- 已合并且实际部署：#91 阅读分页返回修复；#83 card v9/guide v5 最终质量；#92 真实任务关联单位成本；#93 正常部署中的生产预算初始化/预检。启用前主干为 `6cf450bd6527cb354003cc6beab5354d94291ea3`，这是组装版本，API 固定镜像 `f095e15`、web 固定镜像 `e403d97`；schema `000015`。
-- 本交接 PR 只同步文档/事实和修复一个过期日期测试，不改变运行配置。`docs/tasks/r1.md` 更新为 16/19 项技术交付完成，15–17 保留未完成。13/14 的技术收尾复用既有真实页面/API/回归，明确省略重复手机/撤销点击；这不等于用户最终体验通过。
+- 已合并且实际部署：#91 阅读分页返回修复；#83 card v9/guide v5 最终质量；#92 真实任务关联单位成本；#93 正常部署中的生产预算初始化/预检。启用前运行版本为 `6cf450bd6527cb354003cc6beab5354d94291ea3`，这是组装版本，API 固定镜像 `f095e15`、web 固定镜像 `e403d97`；schema `000015`。
+- 本交接 PR [#95](https://github.com/LinsRock/unspun/pull/95)只同步文档/事实和修复一个过期日期测试，不改变运行配置。`docs/tasks/r1.md` 更新为 16/19 项技术交付完成，15–17 保留未完成。13/14 的技术收尾复用既有真实页面/API/回归，明确省略重复手机/撤销点击；这不等于用户最终体验通过。
 - **启用草稿 PR [#94](https://github.com/LinsRock/unspun/pull/94)**：分支 `feat/r1-production-rollout`，worktree `/Users/li.cong/.config/superpowers/worktrees/unspun/r1-production-rollout`，准备提交 `edf09b3`。生产配置尚未合并。该分支有 9 路来源阶段、R1 单副本及对应安全测试更新；下一 session 先同步 main，再继续此分支，不另起平行实现。
 - docs 收尾 worktree `/Users/li.cong/.config/superpowers/worktrees/unspun/r1-session-close-20261018`。它只承载本交接与事实对账，不应拿其无启用的配置直接启动消费者。
 
@@ -63,3 +63,5 @@
 - `~/.cache/unspun-r1-reconciliation-oct17/` 有安全的 `read_key_pre_rollout.py` 和 `read_production_pre_rollout.py`。前者仅输出白名单 provider 计数、从已有 SSH 内存加载 key；后者只读 SQL/实际镜像/阶段/worker。不要 cat `.env` 或输出凭证。
 
 推送/拉取若 SSH origin 失败，沿用清除代理的 HTTPS + `gh auth git-credential`。PR 描述写临时文件用 `--body-file`；不重写已发布历史。CI 必须核对选中检查和 required-checks，main 还要确认实际 deploy 步骤与目标版本，不能因某个 job skipped 误判已部署。
+
+最终只读核对 `2026-10-18T03:03:22Z`：生产仍为 `6cf450b`，旧/R1 worker 均未运行，R1 task/BR 为 0，22 路阶段全关、预算策略/carry 均尚未初始化。[交接时生产证据](r1-production-rollout/pre-activation-production.json)明确本 session 没有启用或新增生产费用。
