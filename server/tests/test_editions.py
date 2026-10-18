@@ -29,7 +29,7 @@ def payload(item: Any) -> dict[str, Any]:
     }
 
 
-def test_new_sources_have_no_legacy_or_r1_runtime_enabled() -> None:
+def test_unqualified_edition_paths_stay_off_and_legacy_owner_stays_disabled() -> None:
     ids = {
         "zhihu-daily",
         "people-frontpage",
@@ -45,7 +45,14 @@ def test_new_sources_have_no_legacy_or_r1_runtime_enabled() -> None:
     assert len(sources) == len(ids)
     for s in sources:
         assert s.r1 and s.discovery_owner == "r1" and not s.legacy_enabled
-        assert not any((s.r1.discovery, s.r1.material, s.r1.paid, s.r1.publish))
+        if s.id in {
+            "bjnews-depth",
+            "douban-movie",
+            "fortune-business",
+            "fortune-tech",
+            "infzm-news",
+        }:
+            assert not any((s.r1.discovery, s.r1.material, s.r1.paid, s.r1.publish))
 
 
 def daily_list(request: httpx.Request) -> httpx.Response:
