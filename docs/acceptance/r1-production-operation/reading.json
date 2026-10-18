@@ -1,0 +1,52 @@
+{
+  "at": "2026-10-18T03:51:01.080531+00:00",
+  "reviewer_kind": "ai-technical",
+  "new_paid_model_calls": 0,
+  "read_only": true,
+  "examples": [
+    {
+      "content_id": 8873,
+      "source_id": "bbc-zhongwen",
+      "material_scope": "open_text_unit",
+      "paragraph_count": 47,
+      "guide_status": "not_requested",
+      "guide_task_id": null,
+      "response_sha256": "8b70cfaeebed8ff5e601c8cbae1aa5da87970fffa88125ae2f2fc6d779a77749"
+    },
+    {
+      "content_id": 8861,
+      "source_id": "wsj-world",
+      "material_scope": "preview",
+      "paragraph_count": 1,
+      "guide_status": "unavailable",
+      "guide_task_id": null,
+      "response_sha256": "4cd2b8f7e56377484ae1ad2f8fe2517f0c9a4c89b20dd5575285fa426d61e58e"
+    },
+    {
+      "content_id": 8872,
+      "source_id": "bbc-world",
+      "material_scope": "media_description",
+      "paragraph_count": 6,
+      "guide_status": "not_requested",
+      "guide_task_id": null,
+      "response_sha256": "dea1fb9a30f15031b6b8e9b6914aa35022bc3dbb27d506adce720b98f3f781c7"
+    },
+    {
+      "content_id": 8874,
+      "source_id": "zhihu-daily",
+      "material_scope": "editorial_edition",
+      "paragraph_count": 94,
+      "guide_status": "ready",
+      "guide_task_id": 58,
+      "response_sha256": "7a1609481259177a4c34a7d1da600d5dda913145416982840bf74846c15f5609"
+    }
+  ],
+  "source_and_ai_separated": true,
+  "wsj_preview_is_article_lead_not_caption": true,
+  "bbc_video_is_description_not_transcript": true,
+  "bbc_structured_authors_unavailable_despite_body_byline": true,
+  "bbc_direct_media_url_unavailable_original_page_retained": true,
+  "zhihu_formula_symbols_missing_in_current_plain_text": true,
+  "browser_rendering_checked": false,
+  "user_acceptance": null
+}
