@@ -1,0 +1,415 @@
+{
+  "schema_version": "r1-production-budget-evidence-v1",
+  "at": "2026-10-18T04:03:43.801301+00:00",
+  "provider_before": {
+    "limit": 15,
+    "limit_remaining": 5.80817409,
+    "limit_reset": "monthly",
+    "usage": 9.19182591,
+    "usage_monthly": 9.19182591,
+    "is_management_key": false,
+    "checked_at": "2026-10-18T03:13:20.374764+00:00"
+  },
+  "provider_after": {
+    "limit": 15,
+    "limit_remaining": 5.78724379,
+    "limit_reset": "monthly",
+    "usage": 9.21275621,
+    "usage_monthly": 9.21275621,
+    "is_management_key": false,
+    "checked_at": "2026-10-18T04:03:43.801301+00:00"
+  },
+  "known_production_cost_usd": "0.0209303",
+  "provider_monthly_delta_usd": "0.02093030",
+  "provider_delta_equals_known_new_calls": true,
+  "unresolved_production_requests": 0,
+  "production_holds_retained_usd": "0",
+  "allocation": {
+    "project_monthly_usd": "15",
+    "production_usd": "13.50",
+    "same_cumulative_evaluation_usd": "1.50",
+    "production_review_cap_24h_usd": "0.40",
+    "card_monthly_cap_usd": "10",
+    "guide_monthly_cap_usd": "2"
+  },
+  "carry": [
+    {
+      "month": "2026-10-01",
+      "amount_usd": "1.583595810000",
+      "provider_monthly_usd": "9.191825910000",
+      "ledger_at_observation_usd": "7.608230100000",
+      "basis": "provider-cutover",
+      "observed_at": "2026-10-18 03:18:50.116138+00:00"
+    }
+  ],
+  "policy": [
+    {
+      "id": 1,
+      "scope": "production",
+      "enabled": true,
+      "monthly_limit_usd": "13.500000000000",
+      "stage_caps": {
+        "card": "10",
+        "guide": "2",
+        "legacy": "13.50",
+        "embedding": "1"
+      },
+      "version": "r1-budget-v3",
+      "coverage_started_at": "2026-10-18 03:18:50.116138+00:00",
+      "incident": null,
+      "provider_limit_usd": "15.000000000000",
+      "provider_usage_usd": "9.191825910000",
+      "provider_limit_kind": "monthly",
+      "provider_observed_at": "2026-10-18 03:18:50.116138+00:00"
+    }
+  ],
+  "unit_costs": {
+    "basis": "all_time_current_contract_runtime_tasks; not discovery recall or user worth",
+    "cohorts": {
+      "card": {
+        "contract_version": "r1-card-v9",
+        "attempted_candidates": 14,
+        "ready_outputs": 13,
+        "physical_requests": 27,
+        "known_requests": 27,
+        "known_cost_usd": "0.0163205",
+        "unknown_requests": 0,
+        "held_usd": "0",
+        "unknown_without_hold": 0
+      },
+      "guide": {
+        "contract_version": "r1-guide-v5",
+        "attempted_candidates": 1,
+        "ready_outputs": 1,
+        "physical_requests": 2,
+        "known_requests": 2,
+        "known_cost_usd": "0.0046098",
+        "unknown_requests": 0,
+        "held_usd": "0",
+        "unknown_without_hold": 0
+      }
+    },
+    "per_100_candidates": {
+      "status": "measured",
+      "denominator": "distinct_r1_candidates_with_attempted_card_tasks",
+      "denominator_count": 14,
+      "value_usd": "0.1165750",
+      "known_plus_holds_scenario_usd": "0.1165750",
+      "holds_are_not_actual_fees": true
+    },
+    "per_admitted_item": {
+      "status": "measured",
+      "denominator": "distinct_current_contract_ready_admissions",
+      "denominator_count": 13,
+      "value_usd": "0.001255423076923076923076923077",
+      "known_plus_holds_scenario_usd": "0.001255423076923076923076923077",
+      "holds_are_not_actual_fees": true
+    },
+    "per_new_guide": {
+      "status": "measured",
+      "denominator": "distinct_current_contract_ready_guide_versions",
+      "denominator_count": 1,
+      "value_usd": "0.0046098",
+      "known_plus_holds_scenario_usd": "0.0046098",
+      "holds_are_not_actual_fees": true
+    },
+    "excluded_physical_requests": 0,
+    "exclusion_basis": "Other contracts or missing/mismatched runtime task links; retained in the overall ledger, never assigned to these cohorts.",
+    "monthly_projection": {
+      "status": "unmeasured",
+      "basis": "requires_registered_observed_eligible_daily_volume"
+    }
+  },
+  "current_published_count": 12,
+  "known_card_cost_per_current_published_item": "0.001360041666666666666666666667",
+  "unit_denominators_are_distinct": true,
+  "evaluation_retained": {
+    "at": "2026-10-18T03:25:55.792166+00:00",
+    "database": "unspun_quality_r1_20261016",
+    "read_only": true,
+    "database_writes": 0,
+    "new_paid_evaluation_calls": 0,
+    "requests": [
+      {
+        "status": "responded",
+        "count": 392,
+        "reserved_usd": "35.806071000000"
+      },
+      {
+        "status": "settled_without_result",
+        "count": 2,
+        "reserved_usd": "0.198993000000"
+      },
+      {
+        "status": "usage_unknown",
+        "count": 7,
+        "reserved_usd": "0.484867000000"
+      }
+    ],
+    "known": [
+      {
+        "calls": 394,
+        "cost_usd": 0.36901000000000006
+      }
+    ],
+    "unknown": [
+      {
+        "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "stage": "card",
+        "phase": "baseline",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028261000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-16 08:31:09.170417+00:00",
+        "error": "ConnectError"
+      },
+      {
+        "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "stage": "card",
+        "phase": "generate",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028967000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-16 10:21:19.943998+00:00",
+        "error": "ConnectError"
+      },
+      {
+        "id": "5c68c196f8514836a38280edc782806a",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "stage": "card",
+        "phase": "generate",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028760000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-16 19:16:57.144859+00:00",
+        "error": "ConnectTimeout"
+      },
+      {
+        "id": "bdbdbb331ac546eb84d6f42b502f362b",
+        "model": "google/gemini-2.5-flash",
+        "purpose": "grounding",
+        "stage": "card",
+        "phase": "review",
+        "status": "usage_unknown",
+        "reserved_usd": "0.170674000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-17 08:17:31.488417+00:00",
+        "error": "RemoteProtocolError"
+      },
+      {
+        "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+        "model": "google/gemini-2.5-flash",
+        "purpose": "grounding",
+        "stage": "card",
+        "phase": "review",
+        "status": "usage_unknown",
+        "reserved_usd": "0.170674000000",
+        "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+        "started_at": "2026-10-17 09:21:37.534326+00:00",
+        "error": "provider cost missing or invalid"
+      },
+      {
+        "id": "11d92ba4336740e08c40dca7fff1cce3",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "stage": "card",
+        "phase": "generate",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028794000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-17 09:26:36.998722+00:00",
+        "error": "RemoteProtocolError"
+      },
+      {
+        "id": "ffefcd48948944c48a3da4a60f17fbb6",
+        "model": "google/gemini-2.5-flash-lite",
+        "purpose": "summary",
+        "stage": "card",
+        "phase": "generate",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028737000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-17 09:27:27.721999+00:00",
+        "error": "RemoteProtocolError"
+      }
+    ],
+    "policy": [
+      {
+        "scope": "evaluation",
+        "monthly_limit_usd": "1.500000000000",
+        "stage_caps": {},
+        "enabled": true,
+        "incident": null
+      }
+    ]
+  },
+  "first_batch_generation_reconciliation": {
+    "schema_version": "r1-new-production-cost-reconciliation-v1",
+    "at": "2026-10-18T03:27:26.532644+00:00",
+    "provider_before": {
+      "limit": 15,
+      "limit_remaining": 5.80817409,
+      "limit_reset": "monthly",
+      "usage": 9.19182591,
+      "usage_monthly": 9.19182591,
+      "is_management_key": false,
+      "checked_at": "2026-10-18T03:13:20.374764+00:00"
+    },
+    "provider_after": {
+      "limit": 15,
+      "limit_remaining": 5.78814949,
+      "limit_reset": "monthly",
+      "usage": 9.21185051,
+      "usage_monthly": 9.21185051,
+      "is_management_key": false,
+      "checked_at": "2026-10-18T03:26:04.763772+00:00"
+    },
+    "physical_requests": 27,
+    "unique_usage_ids": 27,
+    "known_cost_usd": "0.0200246",
+    "provider_monthly_delta_usd": "0.02002460",
+    "aggregate_delta_matches": true,
+    "sampled_unique_generation_receipts": [
+      {
+        "request_id": "0b9a07444e564d4fbf41028ae2d0570c",
+        "generation_id": "gen-1792293558-BOLXthI9RhCi1pvv7qf7",
+        "recorded_cost_usd": "0.0001998",
+        "http_status": 200,
+        "provider": {
+          "id": "gen-1792293558-BOLXthI9RhCi1pvv7qf7",
+          "model": "google/gemini-2.5-flash-lite",
+          "total_cost": 0.0001998,
+          "created_at": "2026-10-18T03:19:18.64Z",
+          "tokens_prompt": 1143,
+          "tokens_completion": 218,
+          "native_tokens_prompt": 1042,
+          "native_tokens_completion": 239,
+          "provider_name": "Google",
+          "is_byok": false
+        },
+        "exact_cost_match": true
+      },
+      {
+        "request_id": "88329e4d8e0f421bacf4a9edb01cf722",
+        "generation_id": "gen-1792293560-YmSdRDkzaG0HZKI2SAVS",
+        "recorded_cost_usd": "0.0004105",
+        "http_status": 200,
+        "provider": {
+          "id": "gen-1792293560-YmSdRDkzaG0HZKI2SAVS",
+          "model": "google/gemini-2.5-flash",
+          "total_cost": 0.0004105,
+          "created_at": "2026-10-18T03:19:20.118Z",
+          "tokens_prompt": 1099,
+          "tokens_completion": 35,
+          "native_tokens_prompt": 1035,
+          "native_tokens_completion": 40,
+          "provider_name": "Google",
+          "is_byok": false
+        },
+        "exact_cost_match": true
+      },
+      {
+        "request_id": "4abf9fd07a6648f182bc67736365484c",
+        "generation_id": "gen-1792293567-bSPKAx5EEpTMQLTSNuBy",
+        "recorded_cost_usd": "0.0002426",
+        "http_status": 200,
+        "provider": {
+          "id": "gen-1792293567-bSPKAx5EEpTMQLTSNuBy",
+          "model": "google/gemini-2.5-flash-lite",
+          "total_cost": 0.0002426,
+          "created_at": "2026-10-18T03:19:27.522Z",
+          "tokens_prompt": 1219,
+          "tokens_completion": 361,
+          "native_tokens_prompt": 1082,
+          "native_tokens_completion": 336,
+          "provider_name": "Google",
+          "is_byok": false
+        },
+        "exact_cost_match": true
+      },
+      {
+        "request_id": "61ca728f8d4b410196c6efe833f339cf",
+        "generation_id": "gen-1792293771-BmaraVgDpz4G0XnaBWli",
+        "recorded_cost_usd": "0.0011827",
+        "http_status": 200,
+        "provider": {
+          "id": "gen-1792293771-BmaraVgDpz4G0XnaBWli",
+          "model": "google/gemini-2.5-flash-lite",
+          "total_cost": 0.0011827,
+          "created_at": "2026-10-18T03:22:51.262Z",
+          "tokens_prompt": 9267,
+          "tokens_completion": 1629,
+          "native_tokens_prompt": 6847,
+          "native_tokens_completion": 1245,
+          "provider_name": "Google",
+          "is_byok": false
+        },
+        "exact_cost_match": true
+      },
+      {
+        "request_id": "190dcba59ba840b1bf7a81cb067f19c5",
+        "generation_id": "gen-1792293775-jLUl9Al4tzcDyn9JBDMj",
+        "recorded_cost_usd": "0.0034271",
+        "http_status": 200,
+        "provider": {
+          "id": "gen-1792293775-jLUl9Al4tzcDyn9JBDMj",
+          "model": "google/gemini-2.5-flash",
+          "total_cost": 0.0034271,
+          "created_at": "2026-10-18T03:22:55.321Z",
+          "tokens_prompt": 14121,
+          "tokens_completion": 94,
+          "native_tokens_prompt": 10432,
+          "native_tokens_completion": 119,
+          "provider_name": "Google",
+          "is_byok": false
+        },
+        "exact_cost_match": true
+      }
+    ],
+    "no_unknowns_settled_by_aggregate": true,
+    "evaluation_unknown_requests_retained": 7,
+    "evaluation_unknown_holds_retained_usd": "0.484867",
+    "new_model_calls_from_reconciliation": 0,
+    "database_writes": 0
+  },
+  "projection": {
+    "at": "2026-10-18T04:03:43.801301+00:00",
+    "active_sources": [
+      "bbc-world",
+      "bbc-zhongwen",
+      "douban-book",
+      "people-frontpage",
+      "wsj-world",
+      "zaobao-china",
+      "zaobao-world",
+      "zhihu-daily"
+    ],
+    "raw_slots_per_day_ceiling": "144",
+    "remaining_days_conservative": 14,
+    "extra_initial_slot_allowance": 37,
+    "active_card_known_cost_usd": "0.0157102",
+    "active_ready_card_count": 12,
+    "suspended_source_known_fees_retained_in_spent": "0.0006103",
+    "future_mean_excludes_suspended_path_only": true,
+    "card_known_mean_used_per_raw_slot": "0.001309183333333333333333333333",
+    "guide_known_mean_used": "0.0046098",
+    "guide_demand_scenario_per_day": 4,
+    "retry_padding": "1.20",
+    "future_unknown_failure_stress_usd": "0.738",
+    "remaining_month_scenario_usd": "4.273082620000000000000000000",
+    "conservative_production_headroom_usd": "4.28724379",
+    "scenario_within_headroom": true,
+    "headroom_after_scenario_usd": "0.014161170000000000000000000",
+    "guaranteed_upper_bill": false,
+    "ready_admissions_are_not_current_published_count": true,
+    "paid_requests_still_subject_to_all_hard_caps": true
+  },
+  "new_paid_evaluation_calls": 0,
+  "unknowns_settled_using_aggregate": false,
+  "final_user_acceptance": null
+}
