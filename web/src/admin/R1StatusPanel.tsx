@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { Alert, Button, Drawer, Select, Table, Tag } from 'antd'
 import { request } from '../reader/api'
@@ -13,7 +14,16 @@ interface Detail { id: number; title: string; url: string; current_material_id: 
 const STATES: Record<string, string> = { pending: '待处理', running: '领取中', generating: '生成中', completed: '已完成', ready: '已审核', rejected: '内容不入选', failed: '技术失败', blocked: '处理阻塞', retry_wait: '等待重试／依赖', budget_deferred: '预算暂缓', review_pending: '草稿待审核', invalidated: '版本已失效' }
 const time = (value: string | null) => value ? new Date(value).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) : '未记录'
 export default function R1StatusPanel() {
-  const [queue, setQueue] = useState(''); const [selected, setSelected] = useState<number | null>(null)
+  const [queue, setQueue] = useState('')
+  const [search, setSearch] = useSearchParams()
+  const requested = Number(search.get('r1_content'))
+  const selected = Number.isSafeInteger(requested) && requested > 0 ? requested : null
+  function setSelected(id: number | null) {
+    const next = new URLSearchParams(search)
+    if (id === null) next.delete('r1_content')
+    else next.set('r1_content', String(id))
+    setSearch(next)
+  }
   const contents = useQuery({ queryKey: ['admin', 'r1-contents'], queryFn: ({ signal }) => request<{ items: Candidate[] }>('/api/admin/r1/contents?limit=25', { signal }), retry: false })
   const tasks = useQuery({ queryKey: ['admin', 'r1-tasks', queue], queryFn: ({ signal }) => request<{ items: Task[] }>(`/api/admin/r1/tasks?limit=50${queue ? `&queue=${queue}` : ''}`, { signal }), retry: false })
   const sources = useQuery({ queryKey: ['admin', 'r1-sources'], queryFn: ({ signal }) => request<{ items: Source[] }>('/api/admin/r1/sources', { signal }), retry: false })

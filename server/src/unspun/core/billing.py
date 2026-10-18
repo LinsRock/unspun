@@ -527,6 +527,31 @@ def budget_status(session: Session) -> dict[str, Any]:
     """Known cost is distinct from unresolved holds and historical coverage."""
     policy = session.get(BudgetPolicy, 1)
     rows = list(session.scalars(select(BilledRequest).where(BilledRequest.status.in_(PENDING))))
+    held = sum((row.reserved_usd for row in rows), Decimal(0))
+    start = month_start(datetime.now(UTC))
+    carry = session.get(BudgetCarry, start.date())
+    since = (
+        policy.coverage_started_at
+        if policy and policy.scope == "evaluation"
+        else start
+        if policy
+        else None
+    )
+    known = _known(session, since) if since is not None else None
+    carry_amount = carry.amount_usd if carry else None
+    carry_basis = carry.basis if carry else None
+    if (
+        carry is None
+        and policy
+        and policy.coverage_started_at
+        and policy.coverage_started_at < start
+    ):
+        # reserve() creates this same zero anchor for a fully covered new month.
+        # The status endpoint derives it without writing or resetting any holds.
+        carry_amount, carry_basis = Decimal(0), "continuous-accounting-since-cutover"
+    occupancy = (
+        known + carry_amount + held if known is not None and carry_amount is not None else None
+    )
     return {
         "enabled": bool(policy and policy.enabled),
         "scope": policy.scope if policy else None,
@@ -536,7 +561,16 @@ def budget_status(session: Session) -> dict[str, Any]:
         "coverage_started_at": policy.coverage_started_at if policy else None,
         "incident": policy.incident if policy else None,
         "unresolved_calls": len(rows),
-        "reserved_usd": str(sum((row.reserved_usd for row in rows), Decimal(0))),
+        "reserved_usd": str(held),
+        "accounting": {
+            "period": "since_cutover" if policy and policy.scope == "evaluation" else "utc_month",
+            "known_spend_usd": str(known) if known is not None else None,
+            "historical_carry_usd": str(carry_amount) if carry_amount is not None else None,
+            "carry_basis": carry_basis,
+            "unresolved_holds_usd": str(held),
+            "occupancy_usd": str(occupancy) if occupancy is not None else None,
+            "holds_are_not_actual_fees": True,
+        },
         "provider_limit_usd": str(policy.provider_limit_usd)
         if policy and policy.provider_limit_usd is not None
         else None,

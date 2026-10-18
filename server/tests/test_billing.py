@@ -641,6 +641,56 @@ def test_evaluation_allocation_does_not_reset_when_calendar_month_changes(
         billing_db.reserve()
 
 
+def test_status_accounts_known_carry_and_unknown_holds_once(billing_db: BillingDB) -> None:
+    first = billing_db.reserve()
+    billing_db.journal.finish(first, reply(cost=0.02), 200)
+    second = billing_db.reserve()
+    billing_db.journal.unknown(second, "synthetic timeout")
+    with Session(billing_db.engine) as session, session.begin():
+        carry = session.scalar(select(BudgetCarry))
+        assert carry
+        carry.amount_usd = Decimal("0.25")
+    with Session(billing_db.engine) as session:
+        result = budget_status(session)
+    accounting = result["accounting"]
+    held = reservation_bound(MODEL, REQUEST)
+    assert Decimal(accounting["known_spend_usd"]) == Decimal("0.02")
+    assert Decimal(accounting["historical_carry_usd"]) == Decimal("0.25")
+    assert Decimal(accounting["unresolved_holds_usd"]) == held
+    assert Decimal(accounting["occupancy_usd"]) == Decimal("0.27") + held
+    assert len(billing_db.usage()) == 1
+
+
+def test_status_missing_cutover_anchor_stays_unknown(billing_db: BillingDB) -> None:
+    with Session(billing_db.engine) as session, session.begin():
+        session.execute(delete(BudgetCarry))
+    with Session(billing_db.engine) as session:
+        result = budget_status(session)
+        assert result["accounting"]["historical_carry_usd"] is None
+        assert result["accounting"]["occupancy_usd"] is None
+        assert session.scalar(select(func.count()).select_from(BudgetCarry)) == 0
+
+
+def test_status_new_month_retains_prior_unknown_holds_without_writing(
+    billing_db: BillingDB,
+) -> None:
+    identity = billing_db.reserve()
+    billing_db.journal.unknown(identity, "synthetic prior-month timeout")
+    before = datetime.now(UTC) - timedelta(days=40)
+    billing_db.policy(coverage_started_at=before)
+    with Session(billing_db.engine) as session, session.begin():
+        session.execute(delete(BudgetCarry))
+        row = session.get(BilledRequest, identity)
+        assert row
+        row.started_at = before
+    with Session(billing_db.engine) as session:
+        result = budget_status(session)
+        assert Decimal(result["accounting"]["historical_carry_usd"]) == 0
+        assert Decimal(result["accounting"]["occupancy_usd"]) == reservation_bound(MODEL, REQUEST)
+        assert result["unresolved_calls"] == 1
+        assert session.scalar(select(func.count()).select_from(BudgetCarry)) == 0
+
+
 @pytest.mark.anyio
 async def test_cost_api_keeps_known_totals_links_and_unknowns_separate(
     billing_db: BillingDB,
