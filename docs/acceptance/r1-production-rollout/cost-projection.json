@@ -1,0 +1,78 @@
+{
+  "schema_version": "r1-bounded-rollout-cost-v1",
+  "at": "2026-10-17T21:16:39.221047+00:00",
+  "provider_status": {
+    "limit": 15,
+    "limit_remaining": 5.80817409,
+    "limit_reset": "monthly",
+    "usage": 9.19182591,
+    "usage_monthly": 9.19182591,
+    "is_management_key": false,
+    "checked_at": "2026-10-17T17:03:45.087232+00:00"
+  },
+  "production_allocation_usd": "13.50",
+  "evaluation_allocation_usd": "1.50",
+  "same_project_limit_usd": "15",
+  "current_conservative_production_headroom_usd": "4.30817409",
+  "bounds": {
+    "bbc-zhongwen": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "nyt-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "wsj-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zaobao-china": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "douban-book": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "people-frontpage": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zaobao-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zhihu-daily": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "bbc-world": {
+      "max_items": 30,
+      "period_seconds": 43200
+    }
+  },
+  "raw_candidates_per_day_ceiling": "156",
+  "initial_raw_candidates_ceiling": 38,
+  "current_contract_card_known_cost_per_ready_lower_bound": "0.001181654545454545454545454545",
+  "guide_known_mean_per_ready": "0.001738106666666666666666666667",
+  "retry_and_format_failure_padding": "1.20",
+  "guide_demand_scenario_per_30_days": 120,
+  "future_unknown_stress_scenario_usd": "0.738",
+  "monthly_card_known_mean_scenario": "6.636171927272727272727272725",
+  "monthly_guide_known_mean_scenario": "0.2502873600000000000000000000",
+  "monthly_total_with_future_unknown_stress": "7.678342734545454545454545452",
+  "remaining_days_conservative": 14,
+  "remaining_month_scenario_with_stress_and_initial": "4.005564447999999999999999998",
+  "remaining_month_scenario_within_current_headroom": true,
+  "current_evaluation_unknown_holds_retained_usd": "0.484867",
+  "evaluation_unknowns_covered_inside_existing_reserved_1_50_allocation": true,
+  "price_upper_bound_claimed": false,
+  "notes": [
+    "Per-ready known card mean is conservatively applied to every raw discovery slot, including non-media BBC articles that cannot enter paid work.",
+    "Unknown fees are not zero; known means plus explicit padding and future-failure stress are a scenario, not a guaranteed bill.",
+    "Hard project, stage, grounding and provider accounting ceilings still defer requests before HTTP.",
+    "The capped feed slices deliberately limit coverage; initial backlog and failed/duplicate candidates are not assumed free.",
+    "No parallel budget or replacement evaluation database is created."
+  ]
+}

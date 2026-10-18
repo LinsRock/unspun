@@ -1,0 +1,88 @@
+{
+  "schema_version": "r1-production-rollout-v2",
+  "registered_at": "2026-10-17T21:16:39.187378+00:00",
+  "source_ids": [
+    "bbc-zhongwen",
+    "nyt-world",
+    "wsj-world",
+    "zaobao-china",
+    "douban-book",
+    "people-frontpage",
+    "zaobao-world",
+    "zhihu-daily",
+    "bbc-world"
+  ],
+  "stage_flags": {
+    "discovery": true,
+    "material": true,
+    "paid": true,
+    "publish": true
+  },
+  "owner": "r1",
+  "legacy_worker_replicas": 0,
+  "r1_worker_replicas": 1,
+  "scope_policy": "Existing eight qualified paths retain their exact previously qualified scopes. BBC World permits media_description only; all article bodies remain unpaid/unpublished. Xinhua stages remain off.",
+  "per_source_bounds": {
+    "bbc-zhongwen": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "nyt-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "wsj-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zaobao-china": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "douban-book": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "people-frontpage": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zaobao-world": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "zhihu-daily": {
+      "max_items": 1,
+      "period_seconds": 7200
+    },
+    "bbc-world": {
+      "max_items": 30,
+      "period_seconds": 43200
+    }
+  },
+  "remaining_merge_gates": [
+    "v3 full-window critical-field audit",
+    "current-contract cost projection and remaining-month budget",
+    "real reading/feedback technical evidence reconciliation",
+    "fresh migrated isolated checks and green CI"
+  ],
+  "model_change": false,
+  "new_budget_allocation": false,
+  "user_acceptance": null,
+  "notes": [
+    "Low-volume first rollout; capped feed slices do not establish complete source coverage.",
+    "Unqualified paths and S1-S6 stay disabled.",
+    "Existing completed UI/API evidence is reused; repeated mobile and undo clicks are omitted under the user speed-up instruction. No new browser pass is claimed."
+  ],
+  "supersedes_proposal": "production-rollout-v1.json",
+  "additional_configuration_task": {
+    "id": "R1-16B",
+    "source_id": "bbc-world",
+    "scope": "media_description",
+    "basis": "New completed v3 observation qualifies; separate source task registered before enabling configuration."
+  },
+  "excluded_source": {
+    "id": "xinhua",
+    "reason": "Critical credits-only media material found in the completed v3 window; not enabled."
+  }
+}

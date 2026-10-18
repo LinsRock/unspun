@@ -1,0 +1,4804 @@
+{
+  "schema_version": "r1-v3-source-window-final-v1",
+  "audited_at": "2026-10-17T19:15:39.006969+00:00",
+  "policy_sha256": "09efab0ce17083c9bf887622a0f0fa15f59c19591a61ceb03d5d58d62108018e",
+  "original_failures_retained": true,
+  "thresholds_changed": false,
+  "archive": {
+    "job": {
+      "container": "unspun-r1-observe-v3-75c0374",
+      "not_before": "2026-10-17T18:37:00+00:00",
+      "deadline": "2026-10-17T18:50:00+00:00",
+      "expected_sources": 2,
+      "expected_rounds_per_source": 26
+    },
+    "g2_evaluation": "not_audited",
+    "new_model_requests": 0,
+    "database_writes": 0,
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "StartedAt": "2026-10-17T06:02:33.277985619Z",
+      "FinishedAt": "2026-10-17T18:32:43.68739298Z",
+      "Error": ""
+    },
+    "archive_sha256": "adb0a531a9bd46ea99b2cb08f460bf09988779a0d77bcdbc4564a53240ca066e",
+    "archive_bytes": 3800064,
+    "actual_records": 52,
+    "per_source_counts": {
+      "bbc-world": 26,
+      "xinhua": 26
+    },
+    "per_source_statuses": {
+      "bbc-world": {
+        "ok": 26
+      },
+      "xinhua": {
+        "ok": 26
+      }
+    },
+    "actual_ranges": {
+      "bbc-world": {
+        "first": "2026-10-17T06:02:40.269855+00:00",
+        "last": "2026-10-17T18:32:40.270021+00:00"
+      },
+      "xinhua": {
+        "first": "2026-10-17T06:02:40.268914+00:00",
+        "last": "2026-10-17T18:32:40.269105+00:00"
+      }
+    },
+    "invalid_files": [],
+    "expected_counts_completed": true,
+    "archived_at": "2026-10-17T18:42:09.892427+00:00"
+  },
+  "paths": [
+    {
+      "source_id": "bbc-world",
+      "numeric_gate_passed": true,
+      "numerics": {
+        "elapsed_seconds": 45000.000166,
+        "shanghai_dates": [
+          "2026-10-17",
+          "2026-10-18"
+        ],
+        "attempts": 26,
+        "metadata_successes": 26,
+        "maximum_gap_seconds": 1800.000733,
+        "material_samples": 52,
+        "valid_material_samples": 52,
+        "distinct_material_urls": 27,
+        "scope_counts": {
+          "open_text_unit": 44,
+          "media_description": 8
+        },
+        "new_path_ids_after_first": 10
+      },
+      "invalid_materials": [],
+      "critical_manual_audit_passed": true,
+      "records": [
+        {
+          "file": "r1-observations/20261017T060241.565848Z-bbc-world.json",
+          "sha256": "1e52bc62696d6d315524000b5504752b6dcaefadbc055fe4ff6b0eac8bdbffd8",
+          "started_at": "2026-10-17T06:02:40.269855+00:00",
+          "completed_at": "2026-10-17T06:02:41.563582+00:00",
+          "status": "ok",
+          "item_count": 32,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqe8rzg6zl00o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2404,
+              "response_sha256": "ee610ca866d3d1d93d3f92ac778f7346c33ce033e6051ee6e4d78abdc288e12b",
+              "text_fingerprint": "3215dee83f191e22d9c7855aa359dcbd31ccf5fb8dd48e450a44b3b55e471337",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T02:33:09Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 02:33:09 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cxr5yvzv7rp0o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 4449,
+              "response_sha256": "668f74802cc28e2f916fc449537ebaec3f36954a5b61ed427b1087a626237579",
+              "text_fingerprint": "cf224080d3e9b2954af65699f70c45bd2192ed07897afebba4dab072b45988cf",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T05:02:50Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 05:02:50 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T063242.145862Z-bbc-world.json",
+          "sha256": "8db81dfb6daf410bbf6a35ced25a9b20daa2a8324b9e0844899dd07453da6439",
+          "started_at": "2026-10-17T06:32:40.269978+00:00",
+          "completed_at": "2026-10-17T06:32:42.143370+00:00",
+          "status": "ok",
+          "item_count": 32,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cv98zw1k8kp3o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 3859,
+              "response_sha256": "c6b18e64d158159e22a8621e1599219a61dd0420e77e1ec554c2e9f6ba6e8789",
+              "text_fingerprint": "eb21bf91cc9f44591598ae92d83caa047ba9ac0c65f6197133c09956aeb4e24d",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T01:19:04Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 01:19:04 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c3kgqjkzw29wo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2054,
+              "response_sha256": "2ef11a5b9d92007c882f6be108493c0c25760b91d932c5731b9140c52c968257",
+              "text_fingerprint": "4481ffd021b3b6d90e48369127479660b926eab3dcebbafca6b869f5cb6116ea",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T03:11:10Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 03:11:10 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T070241.263541Z-bbc-world.json",
+          "sha256": "9af2d8a3b8f86edad5dd65274035753587b0ed3a71a732dccbac2d030bb3f4a9",
+          "started_at": "2026-10-17T07:02:40.270085+00:00",
+          "completed_at": "2026-10-17T07:02:41.261190+00:00",
+          "status": "ok",
+          "item_count": 32,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cvx284w16z1po?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 6645,
+              "response_sha256": "5816b9d0758a4ed317ab68f0108c6ef9bb0764470bd2c1602050c291ec7525b1",
+              "text_fingerprint": "9a9d4a7296c73c234053846ee35c9119719090588f45acf06d0b6d927fcd22a1",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T16:00:30Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 16:00:30 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c65ynk7212vqo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 6131,
+              "response_sha256": "b91ee8bf58f25a366f04f7008ef2bab3c31fd023315f8654314d5d1a88c26e20",
+              "text_fingerprint": "be3df2bf0c4a3cfb2bd2067e4f1894a7d0b4cd0a072d1721e61dff496fafb50c",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T14:31:04Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 14:31:04 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T073242.573567Z-bbc-world.json",
+          "sha256": "272d008a8e966410a6f297434ed162e24f6569d6822b570641546562ab274fb8",
+          "started_at": "2026-10-17T07:32:40.270018+00:00",
+          "completed_at": "2026-10-17T07:32:42.570782+00:00",
+          "status": "ok",
+          "item_count": 32,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c32l4ekpvzl8o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 3703,
+              "response_sha256": "4a27b45f1e8d6371cc3891681d4275e567bf80cc394f301078ad6c8a59a567f5",
+              "text_fingerprint": "1142e6f03d93ce8e26785036be77b837638d53869199fcab14d85988ac3b767b",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T05:20:40Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 05:20:40 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c64g18ljjd8do?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5183,
+              "response_sha256": "245e20a2ab7b56ad1807378680347af9e7a1a44e78c9f106bfb01e3af23fbf33",
+              "text_fingerprint": "d5d3ac5a49854df5d86ba7400188863d6a7d892bbe737a07532f51259a4794db",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T23:54:35Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 23:54:35 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T080241.349086Z-bbc-world.json",
+          "sha256": "ecadd857028e4f4e7d26fc11f7a31e1684c70aead02c147ec9f176d257a57696",
+          "started_at": "2026-10-17T08:02:40.269879+00:00",
+          "completed_at": "2026-10-17T08:02:41.346891+00:00",
+          "status": "ok",
+          "item_count": 26,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c64g18ljjd8do?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5183,
+              "response_sha256": "c7f4a6e5dcd3296c6cfc2c5d93ada8e06cb83035cffd606f42d3d31aa7a60702",
+              "text_fingerprint": "d5d3ac5a49854df5d86ba7400188863d6a7d892bbe737a07532f51259a4794db",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T23:54:35Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 23:54:35 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cwvgdn3d656vo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5418,
+              "response_sha256": "fcf1532c4f9f4cfe0a2d64e6d8dbb93b81e8761934bae44551e028603e61ee25",
+              "text_fingerprint": "a2b26ba9b8de7a11e21c0fb790d1b7b9b27716800a61e39c36334c36f5e433b5",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T23:07:18Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 23:07:18 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T083242.272683Z-bbc-world.json",
+          "sha256": "462dc00ca29487f07982c8ef8da8bc225909b44a0a45c7e409037020953fe46e",
+          "started_at": "2026-10-17T08:32:40.270077+00:00",
+          "completed_at": "2026-10-17T08:32:42.270575+00:00",
+          "status": "ok",
+          "item_count": 27,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c8vgxwq4q5r2o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2420,
+              "response_sha256": "ca9fa4f85af82c99027c976732dba8ffc7551823edbb7e36aa275677b6361e60",
+              "text_fingerprint": "24f4b5f76f16027020cd4443ab11477bdb111498bef3d2b1e9b53b007049a02f",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T00:38:34Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 00:38:34 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/ckz65g34wyd8o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 3690,
+              "response_sha256": "98dd3d1e1cce0b5083133278293ed55ed0c31aec8fcd6a342f1d71d4d1fcd205",
+              "text_fingerprint": "0fcf56112a513ae856e70b64d41ed3d8aa85e0d9e1b49dec902e6e53a84c0984",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T19:33:48Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 19:33:48 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T090241.266546Z-bbc-world.json",
+          "sha256": "754535ccd8c5b43a3d44662084c1940e1225aac6a24efc3c23d345170a6fa37d",
+          "started_at": "2026-10-17T09:02:40.270026+00:00",
+          "completed_at": "2026-10-17T09:02:41.263769+00:00",
+          "status": "ok",
+          "item_count": 27,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cmx237n1y9lzo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 8221,
+              "response_sha256": "746b82e7e8c95aa99deccb3b98cfd45b0632673a6250ae9c44fcb55277ed3020",
+              "text_fingerprint": "7aa8750636bc5cbfb0dc2ddc8f90a5e68d3a6b198b700c5050d713ff19109c22",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T11:44:31Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 11:44:31 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cmde8dpg8g0no?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 4814,
+              "response_sha256": "7584e38d5d2ab0b35a2e7bf653d28c7ebeed1fb71a99a6a783103a7c5e6256f2",
+              "text_fingerprint": "695425f02af36fee978493927a28db4b616c5106ecbdaed36e16c764a4848590",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T05:00:17Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 05:00:17 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T093242.547545Z-bbc-world.json",
+          "sha256": "9d1d52ba958e2f300693b892f1e193269677ba6dcdd30cd23775237b65b221ec",
+          "started_at": "2026-10-17T09:32:40.270142+00:00",
+          "completed_at": "2026-10-17T09:32:42.545239+00:00",
+          "status": "ok",
+          "item_count": 27,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cvj6j1klez88o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 3150,
+              "response_sha256": "7a6ee6ded7b866940bbfed66d4020c608c25884015f677e719813c5e2e698935",
+              "text_fingerprint": "c10a22517f2e720d413bc16fdf76bff5beac4e928266b19d28d7df5a07f5ba32",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T14:21:32Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 14:21:32 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqdjv90d1jpko?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5831,
+              "response_sha256": "7685a2bd770ce079e81e3184075de6eab3ed06bdde6ae80909bda515731c9e7b",
+              "text_fingerprint": "c48b0e37eed1863595559328e1af5e5af8844f0dc2c8150bd29bc3c4eb9b2ad8",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T14:33:32Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 14:33:32 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T100241.374214Z-bbc-world.json",
+          "sha256": "57a0d77c5ae61eb7d5de7a4e85dac68cf0b93cdbc160b5da8297b750db7d9844",
+          "started_at": "2026-10-17T10:02:40.270138+00:00",
+          "completed_at": "2026-10-17T10:02:41.371738+00:00",
+          "status": "ok",
+          "item_count": 27,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c623dnn3xvpko?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 7179,
+              "response_sha256": "cabadb23a75d42abe46581738426b962da6f2971486d3960d17e79e523db11ad",
+              "text_fingerprint": "2bc31a311327f06a747eaf7d22b224483366575ed457d1e9b8937efc0197826e",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T01:18:08Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 01:18:08 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 10748,
+              "response_sha256": "4cce1d19c0d0b389d429d4e245ee3bf30533afc97adaa2c3ea5c426e99894a2c",
+              "text_fingerprint": "091acccd45af8c1cfc9ec9f9f1b051c1dd273402512f4d465710a4c18234786a",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T18:11:29Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 18:11:29 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T103242.633064Z-bbc-world.json",
+          "sha256": "c44e93c219e8b9848bcca45cf39e5ae0e3017d46275797b4a5f5db5f7488e293",
+          "started_at": "2026-10-17T10:32:40.270041+00:00",
+          "completed_at": "2026-10-17T10:32:42.630942+00:00",
+          "status": "ok",
+          "item_count": 27,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c6kgqjvdv4n2o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 7491,
+              "response_sha256": "faeedabd3eb67eb5906694047deafc50b0622d58ca312bc02d2e99823a054eed",
+              "text_fingerprint": "a6af4b4cb5edf7d09da5930c1f8526c8153a9260fb907a21f915f93cd974cd05",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T00:41:58Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 00:41:58 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqly03y3zg7lo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5959,
+              "response_sha256": "404716c903750a8c9587e96d58c3be48b52a9ce9f6fcfc92beab5b102a308036",
+              "text_fingerprint": "2663d25097c74eda6a4e34039c55cc4242221253a1a1835063fba71b17136d26",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T19:09:37Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 19:09:37 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T110241.260141Z-bbc-world.json",
+          "sha256": "e393672345998af27d0cdf137ef16cab8142ab82162d1db933a955463ab209f0",
+          "started_at": "2026-10-17T11:02:40.270199+00:00",
+          "completed_at": "2026-10-17T11:02:41.255663+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/videos/cwe8r29mjd05o?at_medium=RSS&at_campaign=rss",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 583,
+              "response_sha256": "2141c1e5846029eadcb71f5c9cc1f7ee84e9b954245565595e2d57342b2df92a",
+              "text_fingerprint": "26c3585fdbf5458b1da9cbebf96b14917d3a9ccd6d3f3eb84572afa1974a7f21",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T08:27:16Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 08:27:16 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/videos/cqn06zx2r15jo?at_medium=RSS&at_campaign=rss",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 878,
+              "response_sha256": "635c42e21eb702d7a4446cd8edb509d7de9561bf2e7750be9e888f15cc7c1e43",
+              "text_fingerprint": "05f8d1f9a36c6790a348bed8cc88dc9e0e693df546380c3c4addf2040988ab75",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T11:40:41Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 11:40:41 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T113242.801589Z-bbc-world.json",
+          "sha256": "a7efbb09317641fe6800c1e7d29eebce8984470149fd9e0cec42691335fa510d",
+          "started_at": "2026-10-17T11:32:40.270932+00:00",
+          "completed_at": "2026-10-17T11:32:42.783060+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/videos/cqr7yzpxm083o?at_medium=RSS&at_campaign=rss",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 597,
+              "response_sha256": "71281464f0a3fbf7f58744c79cc56ea7a5cf85f93cc9b51fd853b5fdf1cc3aa6",
+              "text_fingerprint": "8e19bf34836cd7a879cb240b9aa1bdee86153b93d85617689dc751422f1d648e",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-15T17:31:37Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Thu, 15 Oct 2026 17:31:37 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cxr5yvzv7rp0o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5292,
+              "response_sha256": "de37f18cad4ca60456d8d80194e6650f714ca2bb965f625ad65eef85096da23f",
+              "text_fingerprint": "ebe6fd99514b433f56a319814c252eec62e6ef1e374ed1618a7de7234ab207d7",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:42:13Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:42:13 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T120241.237307Z-bbc-world.json",
+          "sha256": "90e619c4693317400f60395cc7dab198e0ca3814dd180f58a854145c231f619a",
+          "started_at": "2026-10-17T12:02:40.269980+00:00",
+          "completed_at": "2026-10-17T12:02:41.235124+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cv98zw1k8kp3o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 4374,
+              "response_sha256": "eb6016c74d3b98b9d5ea2163b5f20bce84b347fa0480effb8f911d18dc3c0996",
+              "text_fingerprint": "336147da4f9c44277f1dcdc731b406dd0ddaff3150755a6ef78db3450b5238aa",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:58:17Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:58:17 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c3kgqjkzw29wo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2054,
+              "response_sha256": "05ed078fa1b4cbfc9278cd7fad4a03b19d24b0742cafab60a988d143d6a9a9f1",
+              "text_fingerprint": "4481ffd021b3b6d90e48369127479660b926eab3dcebbafca6b869f5cb6116ea",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T03:11:10Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 03:11:10 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T123242.441899Z-bbc-world.json",
+          "sha256": "bb19f43872c1bcd1880aaaba7f9446c44b3537b0a691dc4f82840da13e6569f3",
+          "started_at": "2026-10-17T12:32:40.270046+00:00",
+          "completed_at": "2026-10-17T12:32:42.439468+00:00",
+          "status": "ok",
+          "item_count": 24,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c3kgqjkzw29wo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2054,
+              "response_sha256": "f2db3449e4c60d014e24eeb7c45f6f7d39b03a7d1cff854cf4ef921beedbf034",
+              "text_fingerprint": "4481ffd021b3b6d90e48369127479660b926eab3dcebbafca6b869f5cb6116ea",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T03:11:10Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 03:11:10 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqe8rzg6zl00o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2404,
+              "response_sha256": "bd2fe63f29562e1a51b1ce1d5146166c39c2e7f2fa26ba341e9f300f0b829224",
+              "text_fingerprint": "3215dee83f191e22d9c7855aa359dcbd31ccf5fb8dd48e450a44b3b55e471337",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T02:33:09Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 02:33:09 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T130241.350950Z-bbc-world.json",
+          "sha256": "e4adc7f276d038e2cb23b843092b5848ad5cb62d8fd93dc8d854147cd23223e2",
+          "started_at": "2026-10-17T13:02:40.270216+00:00",
+          "completed_at": "2026-10-17T13:02:41.348331+00:00",
+          "status": "ok",
+          "item_count": 25,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqe8rzg6zl00o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2404,
+              "response_sha256": "3da9bfe7a3463c1ed1140df90819ca12f0605b65aa385224014c0709ad08f22f",
+              "text_fingerprint": "3215dee83f191e22d9c7855aa359dcbd31ccf5fb8dd48e450a44b3b55e471337",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T02:33:09Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 02:33:09 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c61m4zkx47vlo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2219,
+              "response_sha256": "61cb48fb662f13784c458145c223e1b4cd343f1324fe3a9a3d8132469c84c218",
+              "text_fingerprint": "acf5e99d228b79ac288a75257cf1259f6139b9885aaee029d5a5bfba74e97521",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T10:46:41Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 10:46:41 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T133242.452138Z-bbc-world.json",
+          "sha256": "4128d72b560233fe0667da90844a073bfb9d7ccda342a1cc48a8eccd33ebf5e6",
+          "started_at": "2026-10-17T13:32:40.270399+00:00",
+          "completed_at": "2026-10-17T13:32:42.449998+00:00",
+          "status": "ok",
+          "item_count": 25,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqe9lx54g7x9o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2359,
+              "response_sha256": "09a4c189b76c18163b182c618ef6da5cdced8727283785dfd89394365776158a",
+              "text_fingerprint": "ba35be43ff8692022e989c4b6ed622c7d1916dffef49008a2243e6431062db4e",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T12:11:58Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 12:11:58 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c5x2vkddrkrko?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 1888,
+              "response_sha256": "0089ef1092b44e3402162c81b86b833ee45e32732f72a4fd7570df49c8953889",
+              "text_fingerprint": "2e69b8de0a44fafb193d48798e0d73ff546e94da0cb3ee7ced92b6309a2e5fb6",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T12:37:26Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 12:37:26 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T140241.238587Z-bbc-world.json",
+          "sha256": "e92874871eb6d8715e43f3c3b064d8f030449853842e1ed846647c8cc44981ef",
+          "started_at": "2026-10-17T14:02:40.269952+00:00",
+          "completed_at": "2026-10-17T14:02:41.236334+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c8vgxwq4q5r2o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2401,
+              "response_sha256": "a26526c19e12577d6aa5f0d8c145c08f116ba5c19b1ed9b9128777123f2683dc",
+              "text_fingerprint": "7615ddd3fdf599cddfe5c9f3de1eaf19cb5004e5e63f89c0fb97450d01126dea",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T00:38:34Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 00:38:34 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c64g18ljjd8do?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5299,
+              "response_sha256": "c73a148939a617a14285d8803281e321d72f666b4747b4407ddbbee2c0a93df2",
+              "text_fingerprint": "b8fd885214561645cb98ee4e8d6e1343f75ace2cf6551fc35c3d1f5120b455d9",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T23:54:35Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 23:54:35 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T143242.365133Z-bbc-world.json",
+          "sha256": "21431d12b727a8f9edf8a21d30fd28b8fb1e4adb71b18d110bc4621a7ed5201d",
+          "started_at": "2026-10-17T14:32:40.270066+00:00",
+          "completed_at": "2026-10-17T14:32:42.362874+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c65ynk7212vqo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 6131,
+              "response_sha256": "a979f66d95f194ec910c62411ed290f14ea3459b1207d324375942034c505930",
+              "text_fingerprint": "be3df2bf0c4a3cfb2bd2067e4f1894a7d0b4cd0a072d1721e61dff496fafb50c",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T14:31:04Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 14:31:04 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c623dnn3xvpko?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 7179,
+              "response_sha256": "2c8e4fb1e488aeea860b1d55f13d8756c91f9c9df5a1fba60ad7fd1af8ae15da",
+              "text_fingerprint": "2bc31a311327f06a747eaf7d22b224483366575ed457d1e9b8937efc0197826e",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T01:18:08Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 01:18:08 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T150241.339981Z-bbc-world.json",
+          "sha256": "040ef26b5b6b480ae7d9d0447983a3db32df02c78749a876d0c46bf07e3366aa",
+          "started_at": "2026-10-17T15:02:40.270346+00:00",
+          "completed_at": "2026-10-17T15:02:41.337786+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 10748,
+              "response_sha256": "b8cf6998d8d930bb2ef189b3bb0bff9b4ed72d41aaa5db08984f8966fa8321fc",
+              "text_fingerprint": "091acccd45af8c1cfc9ec9f9f1b051c1dd273402512f4d465710a4c18234786a",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T18:11:29Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 18:11:29 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c6kgqjvdv4n2o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 7491,
+              "response_sha256": "ed1e8f147f8382528ffbd47d3bf9e9a0fe2ccc20470dd1c3c914b1cd36653c01",
+              "text_fingerprint": "a6af4b4cb5edf7d09da5930c1f8526c8153a9260fb907a21f915f93cd974cd05",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T00:41:58Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 00:41:58 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T153242.454562Z-bbc-world.json",
+          "sha256": "aa347d68e2c7fff19d7260a36eda426f3ea1e3e178794cefddbce17495d99f18",
+          "started_at": "2026-10-17T15:32:40.270019+00:00",
+          "completed_at": "2026-10-17T15:32:42.452032+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cwvgdn3d656vo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5418,
+              "response_sha256": "f7ed58578203346e3c8c16ef5959b9ccea89c9437f3e9b2f176abbea0ecdaf52",
+              "text_fingerprint": "a2b26ba9b8de7a11e21c0fb790d1b7b9b27716800a61e39c36334c36f5e433b5",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T23:07:18Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 23:07:18 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqly03y3zg7lo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5959,
+              "response_sha256": "2e96b4cd24dba6e30837d0606175818f40a98b0292de58f48dda9e01287807e6",
+              "text_fingerprint": "2663d25097c74eda6a4e34039c55cc4242221253a1a1835063fba71b17136d26",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T19:09:37Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 19:09:37 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T160241.354363Z-bbc-world.json",
+          "sha256": "ab028a9ae6dc5b37d1a61ce8651b4ff6c8a895ad41dd70189a611c91fde7d8c0",
+          "started_at": "2026-10-17T16:02:40.270184+00:00",
+          "completed_at": "2026-10-17T16:02:41.352213+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cvx284w16z1po?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 6645,
+              "response_sha256": "7867faa0f4e16243cf70d09b96dfa5d74cede505dda1ef7e3b376e8787c198b1",
+              "text_fingerprint": "9a9d4a7296c73c234053846ee35c9119719090588f45acf06d0b6d927fcd22a1",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T16:00:30Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 16:00:30 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/videos/cm2ke1v8e4geo?at_medium=RSS&at_campaign=rss",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 524,
+              "response_sha256": "a924422b7d3236754ec9851886ce6fc59a5c9af0e06125fdb77d442fd2ddd0b6",
+              "text_fingerprint": "3bf5e1b0457d57acdeddae6f88e9c931569f2039041370107b18973703d6f9af",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T15:45:10Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 15:45:10 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T163242.228820Z-bbc-world.json",
+          "sha256": "e321552b38aecec38cc313ac79e5664df8397add755af52e9cf195f38ddffe41",
+          "started_at": "2026-10-17T16:32:40.270234+00:00",
+          "completed_at": "2026-10-17T16:32:42.176368+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/videos/ckly4mj1g3n9o?at_medium=RSS&at_campaign=rss",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 760,
+              "response_sha256": "2af86f5e935f6867471fbd302c0929f6e0741a2d42c56e69629e9725d5bb4bd7",
+              "text_fingerprint": "2287794cfc2ad7e215ebf4a1d1915709e0775f917229bbf60aeff9878f770d8c",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T12:32:31Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 12:32:31 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/videos/cwe8r29mjd05o?at_medium=RSS&at_campaign=rss",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 583,
+              "response_sha256": "9fd54f5b7b440d20ae4a62ed9f68646f030dd5e6427d7b0790f04407d578f664",
+              "text_fingerprint": "26c3585fdbf5458b1da9cbebf96b14917d3a9ccd6d3f3eb84572afa1974a7f21",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T08:27:16Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 08:27:16 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T170241.333397Z-bbc-world.json",
+          "sha256": "523d51c3b92d46441c388f8e80d3541227282ee4559b5cfad10e1cb4a0c05e06",
+          "started_at": "2026-10-17T17:02:40.270160+00:00",
+          "completed_at": "2026-10-17T17:02:41.330509+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/videos/cqn06zx2r15jo?at_medium=RSS&at_campaign=rss",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 878,
+              "response_sha256": "e7db2dfea9bee5418d97c8912fe12834e413c8091d983487835e0bde733aa388",
+              "text_fingerprint": "05f8d1f9a36c6790a348bed8cc88dc9e0e693df546380c3c4addf2040988ab75",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-16T11:40:41Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Fri, 16 Oct 2026 11:40:41 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/videos/cqr7yzpxm083o?at_medium=RSS&at_campaign=rss",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 597,
+              "response_sha256": "a0c6d71ac1dd9ef7715e380ebeb4d301888f654b62d3233833d87ca5e96d3ae6",
+              "text_fingerprint": "8e19bf34836cd7a879cb240b9aa1bdee86153b93d85617689dc751422f1d648e",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-15T17:31:37Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Thu, 15 Oct 2026 17:31:37 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T173242.366539Z-bbc-world.json",
+          "sha256": "8d81f0612ba8d5f1a75ba1d7667966d93ed0861743564fde9a54ed9dd04f221d",
+          "started_at": "2026-10-17T17:32:40.270268+00:00",
+          "completed_at": "2026-10-17T17:32:42.364481+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cxr5yvzv7rp0o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 5731,
+              "response_sha256": "8f34f70ee8570cd3101dd393a75f4579240ada000f52220cd7012bce97855585",
+              "text_fingerprint": "367d7dd2fceaf2ca3f76ac789c65cd9c852868af8a0ca5c39d98a524b16824dd",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T11:56:06Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 11:56:06 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cv98zw1k8kp3o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 4374,
+              "response_sha256": "214d7120c5fcf6429019d6af9c0336033515a791f4201f3a69dcd4299301f702",
+              "text_fingerprint": "336147da4f9c44277f1dcdc731b406dd0ddaff3150755a6ef78db3450b5238aa",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:58:17Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:58:17 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T180241.253537Z-bbc-world.json",
+          "sha256": "e65ef203ac55f3abdeead6a79ea3847c1b7f8f923d8d4da7eda1476197fea3d2",
+          "started_at": "2026-10-17T18:02:40.269928+00:00",
+          "completed_at": "2026-10-17T18:02:41.251337+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c3kgqjkzw29wo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2054,
+              "response_sha256": "546929d159f5832486d0e7886265ca17a51df4841f36c8a096380cc71bb74b05",
+              "text_fingerprint": "4481ffd021b3b6d90e48369127479660b926eab3dcebbafca6b869f5cb6116ea",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T03:11:10Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 03:11:10 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqe8rzg6zl00o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2404,
+              "response_sha256": "6160925c8eeff2c9a8e315d6b37ed745ca2f99ce5bfbc0a67eb1748a76805424",
+              "text_fingerprint": "3215dee83f191e22d9c7855aa359dcbd31ccf5fb8dd48e450a44b3b55e471337",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T02:33:09Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 02:33:09 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T183242.229913Z-bbc-world.json",
+          "sha256": "54e377e728b772bc3590b36e29bccac2e3bd29598b5ae1f4eeff9fe9a0a28cc4",
+          "started_at": "2026-10-17T18:32:40.270021+00:00",
+          "completed_at": "2026-10-17T18:32:42.173392+00:00",
+          "status": "ok",
+          "item_count": 23,
+          "materials": [
+            {
+              "url": "https://www.bbc.co.uk/news/articles/cqe9lx54g7x9o?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2359,
+              "response_sha256": "cf6c5eba0800d4faf9edb1c43de3a2e840b0eb7c23ce5886b10f9ad665d19d85",
+              "text_fingerprint": "ba35be43ff8692022e989c4b6ed622c7d1916dffef49008a2243e6431062db4e",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T12:11:58Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 12:11:58 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "https://www.bbc.co.uk/news/articles/c61m4zkx47vlo?at_medium=RSS&at_campaign=rss",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2219,
+              "response_sha256": "d81f677f53e5749c6adcec27fa136f96d2d30cf4d6ac85abb7f929dde7e7dde1",
+              "text_fingerprint": "acf5e99d228b79ac288a75257cf1259f6139b9885aaee029d5a5bfba74e97521",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "bbc",
+                "publisher": "BBC",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T10:46:41Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 10:46:41 GMT"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        }
+      ],
+      "reviewer_kind": "ai-technical",
+      "manual_audit_basis": "Actual archived title, first paragraph samples, attribution and time fields; article and video examples inspected separately. Unrecorded authors and original times remain unknown.",
+      "g2_bounded_path_passed": true,
+      "critical_errors": []
+    },
+    {
+      "source_id": "xinhua",
+      "numeric_gate_passed": true,
+      "numerics": {
+        "elapsed_seconds": 45000.000191,
+        "shanghai_dates": [
+          "2026-10-17",
+          "2026-10-18"
+        ],
+        "attempts": 26,
+        "metadata_successes": 26,
+        "maximum_gap_seconds": 1800.000654,
+        "material_samples": 52,
+        "valid_material_samples": 51,
+        "distinct_material_urls": 45,
+        "scope_counts": {
+          "media_description": 16,
+          "open_text_unit": 36
+        },
+        "new_path_ids_after_first": 109,
+        "declared_scope_success_fraction": "0.9807692307692307692307692308"
+      },
+      "invalid_materials": [],
+      "critical_manual_audit_passed": false,
+      "records": [
+        {
+          "file": "r1-observations/20261017T060259.927904Z-xinhua.json",
+          "sha256": "40f657884ba33610f9e0a0fe4aaabc61e885fc582821c6289ba166b734827de4",
+          "started_at": "2026-10-17T06:02:40.268914+00:00",
+          "completed_at": "2026-10-17T06:02:59.927173+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/4204a9906b8c49ed8573de952fc42312/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 105,
+              "response_sha256": "515410b77b581bf9c387e210e3fec5d36452f6d551be91ae3609d5c29a3b2dd6",
+              "text_fingerprint": "fc2d860e03e63d6425ad8c0fba08b8b5833b1152e2f833e49e4c3e143f1f2c07",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "马晓冬,余佩璇,潘禹杰",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T06:01:28Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 06:01:28 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/202610174204a9906b8c49ed8573de952fc42312_XxjfceC000050_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/cab00e7640294267ae8473e159e06c77/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 1038,
+              "response_sha256": "8a11139af660b1074f9f3ad66529eecd81bb8c3fc1e2c99e6eab736f782353ed",
+              "text_fingerprint": "5d04ac2d11ed52a75e1dd0b9e7e27fb6bcae838f1c0606ac264071c1f86e965e",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "周圆",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T05:29:46Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 05:29:46 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T063242.563469Z-xinhua.json",
+          "sha256": "eb6606ad23e3de3e6f965c1e65fa5617705d755a82bb42c8a5ff4a1b5340ae80",
+          "started_at": "2026-10-17T06:32:40.269149+00:00",
+          "completed_at": "2026-10-17T06:32:42.561633+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/ee5b0166cffc4bf68d25241518080776/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 410,
+              "response_sha256": "4876483c37075b9e0713191e7560a5823a9a3d2c3c0ed2da60474b81db0f8cb9",
+              "text_fingerprint": "dab05567ce5920f560d887c232f7d9c36ec26b5602cdb82a645214d4f6b59aac",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "李佳旭,谭慧婷",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T05:14:00Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 05:14:00 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/1847a127cb5f4d9ba80063cd4185263b/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 514,
+              "response_sha256": "4de3b7ad69dee0a09206414271e055de11371eaa5c35e3cf31e2f9332602dafd",
+              "text_fingerprint": "1b5732bce3bc31c0f2a67ec7c97829a421d241d145be429493a9f3efdcac4a94",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "刘亚南,徐静",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "刘亚南",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "徐静",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T05:11:23Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 05:11:23 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T070244.682515Z-xinhua.json",
+          "sha256": "098a83b3d4e46c4d2bf0d12bb82dfbfdf0904548ed44cbded9497a7238ba0c9f",
+          "started_at": "2026-10-17T07:02:40.269157+00:00",
+          "completed_at": "2026-10-17T07:02:44.680125+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/32fd05892ce344d5b0a72bb409820392/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 1219,
+              "response_sha256": "554a4094aed07e6149f518655bd683f225f787a15d5d6ca0667eaf386ea7a427",
+              "text_fingerprint": "1dab6c65d3bffac776b707370d34b4dc37d9df8f900fd1b9a52f5be52cdb919f",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "多蕾",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "多蕾",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T06:37:07Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 06:37:07 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/2026101732fd05892ce344d5b0a72bb409820392_XxjnzxC000004_20261017_CBMFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/3bc4c667e04149089af0e41d03bcb9bc/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 338,
+              "response_sha256": "e86f44e911de8cd8fa90b44dec0405398e3afb71c2ff6413b0c90f04e084e701",
+              "text_fingerprint": "b4ac142d9b1953ac558c911c6e8dbd13a14e2caebbde82a3cf036664417bc191",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "白瀛",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T06:24:40Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 06:24:40 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T073242.890803Z-xinhua.json",
+          "sha256": "a6b30d6a291d4d741059885df5f0609ac177569daab711c361a1f3a96b4379ce",
+          "started_at": "2026-10-17T07:32:40.269045+00:00",
+          "completed_at": "2026-10-17T07:32:42.890378+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/9c6f8303289b4b9ebea2fdbe7f2d0e8f/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 728,
+              "response_sha256": "04a3d2006c07f95b616f1e6342fc7ef281b52af9411a7ca39f7ac2afe86d6c0f",
+              "text_fingerprint": "294f1ea3432ef6d2b9116b2b951a8823bc18d33afec70024a0af52c19b406445",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "尚绪谦",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T06:22:29Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 06:22:29 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/026f362420e3485c9b4751adf94bf60c/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 369,
+              "response_sha256": "062265eb4ab5527f95b74e764a2c0c7a23f144284bea8d0a8b52d72c818e4e8e",
+              "text_fingerprint": "05a4dd5e8fe49a3fd20093069e27aa0fd9b26224c223cdb8128b5bb545b92e6c",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "朱翔",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T06:19:11Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 06:19:11 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017026f362420e3485c9b4751adf94bf60c_XxjoxmC000001_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T080243.654926Z-xinhua.json",
+          "sha256": "17d14671f5d7aca622c4d647b48ce4c42eefa3fefeb95aa848e2e671d29bcb61",
+          "started_at": "2026-10-17T08:02:40.269007+00:00",
+          "completed_at": "2026-10-17T08:02:43.654079+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/799125bc27ee4860825806a08bea61b4/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 1245,
+              "response_sha256": "37ec520b1cd5cf7ed521e2c1c13be44e23a66a9f1acd4670a051236073480688",
+              "text_fingerprint": "3b32047d27303fc51af5254ca948ceecd060b86f1dbd713f44665cdb52f57b15",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "刘诗平",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T07:15:21Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 07:15:21 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/374a1f41173b4e6980d46e59cdaf15f2/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 585,
+              "response_sha256": "fe2f582be7aa31435c3859d644e3e9eb7efb2dd8159443e569cd65cdaa72914f",
+              "text_fingerprint": "611f9ca1e966fbb9020a2b5f46a5922bc4e4728535d7b4b22859ba2e0e272789",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "邱晨,陶冶,刘洋",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T07:10:52Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 07:10:52 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017374a1f41173b4e6980d46e59cdaf15f2_XxjfceC000058_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T083242.845792Z-xinhua.json",
+          "sha256": "97210bbb628647de7c960642ab47d75ca00e00db4613a0b1009f4c40d93d6250",
+          "started_at": "2026-10-17T08:32:40.269177+00:00",
+          "completed_at": "2026-10-17T08:32:42.843652+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/66c4c778cdb64120807487803c6839c5/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 838,
+              "response_sha256": "bd3ef2b2079b02d86d38413e0e13d29bbad60655c9a56462e71bf51e240cb311",
+              "text_fingerprint": "595b80cf858ee5000006f19355d24c122e841f94418299d8866749b9f3813254",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "刘曦",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T06:48:26Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 06:48:26 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/265d2eb145fa476a801eb049fdae906b/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 413,
+              "response_sha256": "42083e864a4ce1b04fc857fccca8db2274196e10c4b8f311d98443cfc05a13d9",
+              "text_fingerprint": "3835d9147a4bc0d1038bcbe6f1c066942ebd6f29596aca69163c507a515013c4",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "包雪琳",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T06:47:36Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 06:47:36 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T090257.443379Z-xinhua.json",
+          "sha256": "33d87e73ba24d96007b2b43b5dd6092219137101a881814920f16c7b93a201e4",
+          "started_at": "2026-10-17T09:02:40.269225+00:00",
+          "completed_at": "2026-10-17T09:02:57.441047+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/37eafc0362214e418598bbe3bd743e15/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 522,
+              "response_sha256": "0ec93b31b2089f0bc11a2701bdb207f782d12188488b1474df7ef760543a6a16",
+              "text_fingerprint": "584d679bde0ceee571aa22694eb852ee74302c6ea858926e6756eba322199b04",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "翟淑睿",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "翟淑睿",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T07:43:13Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 07:43:13 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/683ebdaf1f0d4529b8657dd22705afea/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 761,
+              "response_sha256": "fb037a1c3ba5d0b649e7ea71de839318f8f7ae2e91e1b0f5589bc5f9f61c9608",
+              "text_fingerprint": "5612dc2f558ebd67c8c9cd9349f5e65d87252b9380489d29b775a1a67dce20cc",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "郭爽,钟忠",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "郭爽",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "钟忠",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T07:41:26Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 07:41:26 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T093242.870255Z-xinhua.json",
+          "sha256": "37326fd6b570f91cb796a9ba59eb48a6e111baae83b04a378130a0c6001c2793",
+          "started_at": "2026-10-17T09:32:40.269226+00:00",
+          "completed_at": "2026-10-17T09:32:42.869841+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/d839d2f1516847c1958b6079c65babb4/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 519,
+              "response_sha256": "9d7952b09d06f18f47d26814c63e6b5cbb210341cec78583e306a6e37a2ff01a",
+              "text_fingerprint": "d7826d0105085c718b293d8b49edee139ee868f07bab94fda07c1293507dc5ee",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "陈立希",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T07:40:47Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 07:40:47 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/fb05bc811f774c31be23d00f3ab501f2/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 275,
+              "response_sha256": "b97951b44898d704b6ec7569ca543e0f98fcab62b0449c4188946accda8d37f2",
+              "text_fingerprint": "c03a0cd66f309e6a56c49bb4953e9000cfb862224daae1bf65869738759c2a13",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "潘一景,黄玥,田宇",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T07:40:44Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 07:40:44 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/202610173e91750d734f4f9ba98f5924a81fdbeb_XxjdzbC000020_20261017_CBMFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T100246.407684Z-xinhua.json",
+          "sha256": "e3e0f5c3048d61661d640a0a3a3c55a610c96cc001987d2254aece072b529f8a",
+          "started_at": "2026-10-17T10:02:40.269150+00:00",
+          "completed_at": "2026-10-17T10:02:46.405581+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/325dfea6c4b042aa98699a8961703c95/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 1016,
+              "response_sha256": "a2a2a2ff61675d7c1753adb0d069c4abf555cf75071fd6811a35e520b9aa342c",
+              "text_fingerprint": "ae92d3bf6423cd53106f6d1a4466f5ed8fa826de8758fda7996d38aadbae01d1",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "王安浩维",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T08:31:45Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 08:31:45 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/29ebccdbf446424780312a3aa4734c6d/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 1091,
+              "response_sha256": "0162d8f64b0c6be7a806277591d35c64d5def89f96898407194c7d8381d5125e",
+              "text_fingerprint": "b50f41b08d41798e0fb65bae8de0ebd34fd1da5022d19dada6affc078143ffaa",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "赵卓昀",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T08:31:34Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 08:31:34 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T103242.788987Z-xinhua.json",
+          "sha256": "278dbf623841ff7f06102b1f7b9331f38845e444c008fe2c61a1ad41fbad0aad",
+          "started_at": "2026-10-17T10:32:40.269171+00:00",
+          "completed_at": "2026-10-17T10:32:42.786817+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/0d83690769a640dabdd1c07b24b9d358/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 487,
+              "response_sha256": "3861c90269ebce574493b324dfc994dc3f312080bef8f6c82dbb3f8466434685",
+              "text_fingerprint": "eb52d87de6e3870091022e2b9ee2efa465fdde740d759e4f53213a91c833f071",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "周义,庞梦霞",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T08:31:13Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 08:31:13 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/202610170d83690769a640dabdd1c07b24b9d358_XxjnzxC000009_20261017_CBMFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/02dbf5e7cf974e17b44b99b56d17d791/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 172,
+              "response_sha256": "8461fb5eb1df8f06d150ddf5b4e2e1ec3f00117eba34a2eeb0d02210cc851ea3",
+              "text_fingerprint": "5a268af1969d3904e4ea8f27bede643162754fd9e60a288fddbc5b1aed2e9eb3",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "曾维,王研",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T08:27:39Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 08:27:39 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/2026101702dbf5e7cf974e17b44b99b56d17d791_XxjfceC000068_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T110244.295164Z-xinhua.json",
+          "sha256": "72363bd7c9d6fafbe27353ca3e53b183f846c53ed7a7032815d064f8edbf73b9",
+          "started_at": "2026-10-17T11:02:40.269256+00:00",
+          "completed_at": "2026-10-17T11:02:44.293144+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/f6c2e53015bb44a9871183998b37c7f8/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 175,
+              "response_sha256": "e604fdc745c4017cf97e62c95ed1513e3bba48eb1a0570e62c9aef39be0c0acb",
+              "text_fingerprint": "ae5f74c8732125943520018b4ea3b8e2df5b4de41d57daafb5622f68fffe7ac7",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "姜赛",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:31:15Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:31:15 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017f6c2e53015bb44a9871183998b37c7f8_XxjfceC000092_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/fa0795aa4b684dd3a378156f0e8306f7/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 552,
+              "response_sha256": "eedacb3cdd232a156af0a568e618d989519e240d56cce54031f34b094bb707de",
+              "text_fingerprint": "d1f8f86ba8ea6d3b479d0c9f9da5eae58156da11e37d76871576558ff99c0efb",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "李子越,陈泽安",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "李子越",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "陈泽安",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:23:31Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:23:31 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T113243.633971Z-xinhua.json",
+          "sha256": "3f407ceff1f7e2028d4b29ee548f2f749bc9350dc5431984abc481f77e6ccf0e",
+          "started_at": "2026-10-17T11:32:40.269910+00:00",
+          "completed_at": "2026-10-17T11:32:43.630704+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/2e034e6b09b14dc3ac1986e35e6fd01d/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2138,
+              "response_sha256": "1ef022a32b11cef31b4efba4f5ac34bae3d33e00c5aa30532c3f652a9b8011d7",
+              "text_fingerprint": "ce718ea681a3c786324dd9102e0572068c888db349fdbb435fc22e7caf6de54e",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "乐文婉,余熙",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:12:00Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:12:00 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/593f681c3925470aa943497e8a0b300b/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 682,
+              "response_sha256": "d986dd3a0b3afbb79f95319ee020a62430205f9ac80ec7f80e79ad9514d494b8",
+              "text_fingerprint": "3b01cc44de2c36a2e70de7a95afcc9fa2ddfdc25face241f78a4cdd9ddb4bb0f",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "李春宇,吴俊宽",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "李春宇",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "吴俊宽",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:10:21Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:10:21 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T120257.009989Z-xinhua.json",
+          "sha256": "3f1bc64287402d7566836cec82410ecf4da181a703baa2edf591d6f77204054e",
+          "started_at": "2026-10-17T12:02:40.269169+00:00",
+          "completed_at": "2026-10-17T12:02:57.007933+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/a5eb90bedf2842e692d10e29d15da664/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 1424,
+              "response_sha256": "01742b4ff333114903d84b2ca54e044acc0cd27666188fca9ee74a8465b9c3ca",
+              "text_fingerprint": "8be5af4af1fbddc94fd9b672775113ad37555933b37031d5dba1ee59e2b69793",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "陈国峰,张昕怡",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:56:16Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:56:16 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/b05b1114869049829168becbd1d59e8d/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 270,
+              "response_sha256": "d1aca25fdb2e16b7dc9a943e421684e9bdaacdf92f11973d0fc5c10374994e4c",
+              "text_fingerprint": "2643d5a348e0d3cdfe865aaf3d8f315c502c00be01b05f8a8e2fd822437ad458",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "黄韬铭",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "黄韬铭",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:49:21Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:49:21 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T123242.571706Z-xinhua.json",
+          "sha256": "516603dfeb152f72f5d5e574d5cf42c85b275642a61c301acc89030b1b46d8bd",
+          "started_at": "2026-10-17T12:32:40.269112+00:00",
+          "completed_at": "2026-10-17T12:32:42.569504+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/44b0b9acfa214627ac53d63396d7915d/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 215,
+              "response_sha256": "b0b04f5242e6d1c681ec57e99d9539afd400319395cbc280a65cb6cee3a82e2e",
+              "text_fingerprint": "b2eadbb76e92d12bb1e5a4afb9d4b4dfb66e74ccc9226647899ea98d0c1e9001",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:39:57Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:39:57 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/2026101744b0b9acfa214627ac53d63396d7915d_688eba5666dd4a8588a7ae6f59e51819.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/b232cb44a59644248cfc40542f8809f9/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 697,
+              "response_sha256": "f31be8cc910de1d4c8a6f2e7b2111b8f886eae079c88f87f1aba8976b58dd829",
+              "text_fingerprint": "80dc580b130b8bc31bbe563f5d69b41ee70061877c52d4c3ef1015fa116a4073",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "李钢",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T09:36:09Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 09:36:09 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017b232cb44a59644248cfc40542f8809f9_XxjpsgC000224_20261017_CBMFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T130245.730664Z-xinhua.json",
+          "sha256": "b96c553b4cd683bb9254a34ce0e79c45095f46e9e34df6e3d84ad0a2a7dd3d9f",
+          "started_at": "2026-10-17T13:02:40.269360+00:00",
+          "completed_at": "2026-10-17T13:02:45.728652+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/e6c1b28cd1cf48b8bded14768eca98d1/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 1707,
+              "response_sha256": "7d0a0399aa2b4acbf4afe059645180d8c6e8b7407baa9b3bb535d96260044c43",
+              "text_fingerprint": "e87cf0faa675fbdbb755feab0271df5e61a0cd5e7c16dc4fdf38fd213c1e76d4",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "王海洲,罗晨",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T10:21:23Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 10:21:23 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/1ace7021236f415c9ca4f4e2a678f921/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 55,
+              "response_sha256": "5224171c99d43adb22c7f91523b93fe5f1d24d45bf0ef3aa6abb46d4cf579a24",
+              "text_fingerprint": "0b93fa93e4793c9379781764aedae1bce5c3482c5af0f45fbb9c52e1ea36dd67",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "徐皓夫,姚兵",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "姚兵",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "徐皓夫",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T10:14:59Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 10:14:59 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T133242.908670Z-xinhua.json",
+          "sha256": "08508a09f54d98de667f717febabae13d07cf550a4fffbff23999951cddbaa01",
+          "started_at": "2026-10-17T13:32:40.269384+00:00",
+          "completed_at": "2026-10-17T13:32:42.906585+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/40fc6c9cfed6410a9e82819b5c42b9bf/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 186,
+              "response_sha256": "7a54acb975969f54e53d6fe8a5520f2583c9cba7a72978ccec0a56236a2ab0b3",
+              "text_fingerprint": "3e61bd69e898e19f449b38e681866d256ab42ce991f7e092186665bdd3af295b",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "全灿",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T12:55:15Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 12:55:15 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/40102396f82646f4aa12f05359c1f326/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 583,
+              "response_sha256": "44d18d0e3db0e7434ea606aa93c016db4948e051e367f83acacac80d01436c2a",
+              "text_fingerprint": "ec5ad54fee54cb1271a659fa6334ed9833d871d075ac69e369869ad786feb664",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "丁非白",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T12:54:49Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 12:54:49 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T140244.201774Z-xinhua.json",
+          "sha256": "0a4935813e98f2e83885a00b45e7cd6cf94142b55258df8528bc734ddc9e656e",
+          "started_at": "2026-10-17T14:02:40.269121+00:00",
+          "completed_at": "2026-10-17T14:02:44.199914+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/ac90d0772cf14757b659c2bcf6e47e4d/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 1156,
+              "response_sha256": "0dcf2631ea355d5a1d83c61108e483adbcfb06167596bf6ee9647b2ea74bd56b",
+              "text_fingerprint": "3f7cfa8a118482dfe7f3e94b89ea728f21d3bfdb2953f4fd79b4e23be509e1fc",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "郑直,张卉,岳晨星",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T13:39:29Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 13:39:29 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/dc09c7e3cfa04eaa8aa7594a386d8347/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 482,
+              "response_sha256": "e2dcd1dcc724c622d0c985b763117167cf015382cc1812e23f15575b990dcdb2",
+              "text_fingerprint": "e0a75656598dddaa7c7ddde0759e664fbb08c2b8353a27a99ad5a68a0456f1da",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "赵冰",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "赵冰",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T13:36:42Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 13:36:42 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T143243.028698Z-xinhua.json",
+          "sha256": "ee399eccf22f3fb6384c38649de4ce7dc8cbcff375952378a7db41f1ca030eda",
+          "started_at": "2026-10-17T14:32:40.269110+00:00",
+          "completed_at": "2026-10-17T14:32:43.026648+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/7a45ea15f61c42b7b6602af1c8634160/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 943,
+              "response_sha256": "10d3d6fb8cd5c53d85e2573c18a4f54427e51660861f7aa9f7f5afa733e2493c",
+              "text_fingerprint": "9f87d7dc5cfd1ed38c5c4680a2b582eaceea35006006a93aac2df6f374be7ab3",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "庞梦霞,周义",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T13:36:33Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 13:36:33 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/e2487d5c19954ce49383748ead3ade05/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 635,
+              "response_sha256": "66543ed955c2a3c795a7002dd73faa375a45a0ca69204acbe3017aa6ae2d9f60",
+              "text_fingerprint": "73888e37f6ce7d12c9472dbafe210f8fae41406669a5e0185ce16feee69f938d",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "李慧颖",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "李慧颖",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "宓盈婷",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T13:30:22Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 13:30:22 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T150258.325383Z-xinhua.json",
+          "sha256": "a882bb44ec8d2b1c310282575a10547ddf551a57a7ed215479a2dbad3187dfbd",
+          "started_at": "2026-10-17T15:02:40.269358+00:00",
+          "completed_at": "2026-10-17T15:02:58.323339+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/146d510e2abe4d88b63f9951fbdd4cac/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 536,
+              "response_sha256": "1a825cb062187ff652d74856e523fdfda3302ed6c84c4b4ff4885181e68d7a6a",
+              "text_fingerprint": "4c8ed899dc53ad998531a6798700510fee4e38466671a0cf2c3968270f516088",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "马欣然,李寒芳",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "马欣然",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "李寒芳",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:12:52Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:12:52 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/135da1c5c38c405bbbc212fa196c4aa6/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 507,
+              "response_sha256": "64700addcca0715e040270b9d763421b784dfd1624014a316ef3fffd6d4503ad",
+              "text_fingerprint": "d49e912958d460c66e57f45e6e7dd3a970ce22f2ce95b3aa39d98a61c71bd106",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "周心怡",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "周心怡",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:08:54Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:08:54 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T153242.844005Z-xinhua.json",
+          "sha256": "b0ab2855312706e05fe03001c5e8ab5bdc02248dea049dd1ae4a1fe4a6545224",
+          "started_at": "2026-10-17T15:32:40.269181+00:00",
+          "completed_at": "2026-10-17T15:32:42.841993+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/b0bd530461b540539b64768f438f4ac0/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 2423,
+              "response_sha256": "197c4e4f6ea53bbc024080b6ed364b1ae6759e889b01c6c5fa22341778bedf76",
+              "text_fingerprint": "68452c129489d8ed190a95af3cf9c0466438cd7067641c47b86c3756b01e4ea5",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "黄玥,严赋憬,田宇,王春燕,赵泽辉",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T13:55:39Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 13:55:39 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/aef5088ee3764dbea1ae7de2cb99af74/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 274,
+              "response_sha256": "71f3e1261719ea1c87524b7cf573242c3331770ec10fccabdda14fdf22a455ef",
+              "text_fingerprint": "b38a5693e8056c1d254a02e7acc0bb40199a47637ed8142ea6906a61edb9ce55",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "杨青,马浩然",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T13:45:29Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 13:45:29 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/20261017aef5088ee3764dbea1ae7de2cb99af74_XxjfceC000132_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T160244.305726Z-xinhua.json",
+          "sha256": "49146483c876eacf9e60bff43daae7860429d59da97276bfd435bfdde8aaaf7a",
+          "started_at": "2026-10-17T16:02:40.269152+00:00",
+          "completed_at": "2026-10-17T16:02:44.303834+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/9a07d238e9064e4cb579dd188c516a04/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 412,
+              "response_sha256": "0d3a33fcd315550d650efe774c9d405d9cfb671d4ec500af8ec085b63ab8f79e",
+              "text_fingerprint": "18ad2508b0d13cdd0bdf8c59f818cce380061913ab8ea4ae164fc61bb1f837e0",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "王思北",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:46:18Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:46:18 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/b8f26fe9f77e465bac5a9c2e23dade5e/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 253,
+              "response_sha256": "8cdc369f682deaddf2e412e4a33b3f1893338704c3ecaa628a548166ce262897",
+              "text_fingerprint": "93b8b214d62b661db198b612529cdb6bb7949de9935d4d8547c2d159b018b244",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "陈冬书",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "陈冬书",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:28:51Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:28:51 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T163242.809266Z-xinhua.json",
+          "sha256": "d7f4bcaf3f3310b8049e555acf7a28d3e39ca5ecd1e23c6e107c6918e7eef846",
+          "started_at": "2026-10-17T16:32:40.269301+00:00",
+          "completed_at": "2026-10-17T16:32:42.806797+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/f2d5a3a3d1394b1ead85657e0c74e182/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 430,
+              "response_sha256": "e216f9a2800f06f9e55955e6c3a2e5e5ff7291b4be1d45b6488d43b30a9cb7c9",
+              "text_fingerprint": "d77cfd35beeed6344e32f612878f75391c1d67761e59d38a21ece044734f2056",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "郑直,张卉,岳晨星",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "郑直",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "张卉",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:26:55Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:26:55 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/2994b6e338ee4fe1a16ea5747ba4277f/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 41,
+              "response_sha256": "a5e0d855c502ad8c90deaa74f7eb567387a6c6336d17e9b6d8dedc3aab7277af",
+              "text_fingerprint": "08ed74a69852b781eeed14d08fb3452b93c6eb30390036784b4ff47bf214487a",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "刘慧,王优玲",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:25:05Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:25:05 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/202610172994b6e338ee4fe1a16ea5747ba4277f_XxjdzbC000040_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T170243.664429Z-xinhua.json",
+          "sha256": "f84385857e075f3a40cbac34d2ec7a868726f56f4d8c8808e8e365b483334cbf",
+          "started_at": "2026-10-17T17:02:40.269192+00:00",
+          "completed_at": "2026-10-17T17:02:43.662422+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/f2d5a3a3d1394b1ead85657e0c74e182/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 430,
+              "response_sha256": "e216f9a2800f06f9e55955e6c3a2e5e5ff7291b4be1d45b6488d43b30a9cb7c9",
+              "text_fingerprint": "d77cfd35beeed6344e32f612878f75391c1d67761e59d38a21ece044734f2056",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "郑直,张卉,岳晨星",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "郑直",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "张卉",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:26:55Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:26:55 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/2994b6e338ee4fe1a16ea5747ba4277f/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 41,
+              "response_sha256": "a5e0d855c502ad8c90deaa74f7eb567387a6c6336d17e9b6d8dedc3aab7277af",
+              "text_fingerprint": "08ed74a69852b781eeed14d08fb3452b93c6eb30390036784b4ff47bf214487a",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "刘慧,王优玲",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:25:05Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:25:05 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/202610172994b6e338ee4fe1a16ea5747ba4277f_XxjdzbC000040_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T173242.595567Z-xinhua.json",
+          "sha256": "3dc0d8f670f2d27f5915958ca3b8fcd570221de5ee4a11c4c5c2f312ccb2bfe1",
+          "started_at": "2026-10-17T17:32:40.269373+00:00",
+          "completed_at": "2026-10-17T17:32:42.593618+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/32f9b437dfc64b708dbffbeac55177ce/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 356,
+              "response_sha256": "9c0ac689b40df9c3d4b3ff40a470864afc87630dc58159acbd5ec351018ab491",
+              "text_fingerprint": "5d5ab5738a7dc04eb4a927f0827462aeba1a4716dd15668b6abac0ae76b03265",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "陈洋",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:24:30Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:24:30 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/2026101732f9b437dfc64b708dbffbeac55177ce_XxjfceC000145_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/146d510e2abe4d88b63f9951fbdd4cac/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 536,
+              "response_sha256": "1a825cb062187ff652d74856e523fdfda3302ed6c84c4b4ff4885181e68d7a6a",
+              "text_fingerprint": "4c8ed899dc53ad998531a6798700510fee4e38466671a0cf2c3968270f516088",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "马欣然,李寒芳",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "马欣然",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "李寒芳",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:12:52Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:12:52 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T180258.116362Z-xinhua.json",
+          "sha256": "245f8ba563a1d24c728ae97af32d03c56f9a9f272eb5333fde6054f2c11cd7cf",
+          "started_at": "2026-10-17T18:02:40.269162+00:00",
+          "completed_at": "2026-10-17T18:02:58.114002+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/2994b6e338ee4fe1a16ea5747ba4277f/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 41,
+              "response_sha256": "a5e0d855c502ad8c90deaa74f7eb567387a6c6336d17e9b6d8dedc3aab7277af",
+              "text_fingerprint": "08ed74a69852b781eeed14d08fb3452b93c6eb30390036784b4ff47bf214487a",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "刘慧,王优玲",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:25:05Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:25:05 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/202610172994b6e338ee4fe1a16ea5747ba4277f_XxjdzbC000040_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/32f9b437dfc64b708dbffbeac55177ce/c.html",
+              "scope": "media_description",
+              "form": "video",
+              "character_count": 356,
+              "response_sha256": "9c0ac689b40df9c3d4b3ff40a470864afc87630dc58159acbd5ec351018ab491",
+              "text_fingerprint": "5d5ab5738a7dc04eb4a927f0827462aeba1a4716dd15668b6abac0ae76b03265",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "video",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "陈洋",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:24:30Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:24:30 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": "https://vodpub6.v.news.cn/yqfbzx-original/20261017/2026101732f9b437dfc64b708dbffbeac55177ce_XxjfceC000145_20261017_CBVFN0A001.mp4",
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        },
+        {
+          "file": "r1-observations/20261017T183242.956715Z-xinhua.json",
+          "sha256": "2e8c4d77b4326525cf0226e33aa270a9d15e325f082cc53a5a6876a3810df2d3",
+          "started_at": "2026-10-17T18:32:40.269105+00:00",
+          "completed_at": "2026-10-17T18:32:42.954305+00:00",
+          "status": "ok",
+          "item_count": 30,
+          "materials": [
+            {
+              "url": "http://www.news.cn/20261017/146d510e2abe4d88b63f9951fbdd4cac/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 536,
+              "response_sha256": "1a825cb062187ff652d74856e523fdfda3302ed6c84c4b4ff4885181e68d7a6a",
+              "text_fingerprint": "4c8ed899dc53ad998531a6798700510fee4e38466671a0cf2c3968270f516088",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "马欣然,李寒芳",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "马欣然",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  },
+                  {
+                    "name": "李寒芳",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:12:52Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:12:52 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            },
+            {
+              "url": "http://www.news.cn/20261017/135da1c5c38c405bbbc212fa196c4aa6/c.html",
+              "scope": "open_text_unit",
+              "form": "article",
+              "character_count": 507,
+              "response_sha256": "64700addcca0715e040270b9d763421b784dfd1624014a316ef3fffd6d4503ad",
+              "text_fingerprint": "d49e912958d460c66e57f45e6e7dd3a970ce22f2ce95b3aa39d98a61c71bd106",
+              "metadata": {
+                "schema_version": "r1-metadata-v1",
+                "form": "article",
+                "genre": null,
+                "platform": "xinhua",
+                "publisher": "Xinhua",
+                "authors": [
+                  {
+                    "name": "周心怡",
+                    "role": "unknown",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "feed:author"
+                  },
+                  {
+                    "name": "周心怡",
+                    "role": "reporter",
+                    "platform": "xinhua",
+                    "platform_id": null,
+                    "basis": "xinhua:visible-wire-byline"
+                  }
+                ],
+                "times": [
+                  {
+                    "kind": "feed",
+                    "precision": "time",
+                    "at": "2026-10-17T14:08:54Z",
+                    "on": null,
+                    "basis": "feed:feed",
+                    "raw": "Sat, 17 Oct 2026 14:08:54 GMT"
+                  },
+                  {
+                    "kind": "original",
+                    "precision": "date",
+                    "at": null,
+                    "on": "2026-10-17",
+                    "basis": "xinhua:meta:publishdate",
+                    "raw": "2026-10-17"
+                  }
+                ],
+                "original_url": null,
+                "media_url": null,
+                "duration_seconds": null,
+                "original_relation_basis": null
+              }
+            }
+          ]
+        }
+      ],
+      "reviewer_kind": "ai-technical",
+      "manual_audit_basis": "Actual archived title, first paragraph samples, attribution and time fields; article and video examples inspected separately. Unrecorded authors and original times remain unknown.",
+      "g2_bounded_path_passed": false,
+      "critical_errors": [
+        {
+          "url": "http://www.news.cn/20261017/2994b6e338ee4fe1a16ea5747ba4277f/c.html",
+          "character_count": 41,
+          "reason": "Only production credits (planning, editor, reporter, filming, producer) were retained as media_description.",
+          "basis": "Actual archived source_excerpt and paragraph_samples.",
+          "effect": "Entire path remains disabled despite a high scope ratio."
+        }
+      ]
+    }
+  ],
+  "database_writes": 0,
+  "model_requests": 0,
+  "user_ratings_added": 0,
+  "g2_all_paths_passed": false,
+  "g2_passed_paths": [
+    "bbc-world"
+  ],
+  "g2_failed_paths": [
+    "xinhua"
+  ]
+}

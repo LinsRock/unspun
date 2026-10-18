@@ -14,8 +14,10 @@ services:
     restart: "no"
 
   r1-worker:
-    scale: 0
-    restart: "no"
+    scale: 1
+    restart: unless-stopped
+    environment:
+      UNSPUN_R1_WORKER_ENABLED: "true"
     mem_limit: 512m
     memswap_limit: 512m
 

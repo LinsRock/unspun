@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -60,3 +61,31 @@ def test_timeout_seconds_must_be_positive() -> None:
     with pytest.raises(ValidationError):
         Source.model_validate({**fields, "timeout_seconds": 0})
     assert Source.model_validate({**fields, "timeout_seconds": 60}).timeout_seconds == 60
+
+
+def test_runtime_matches_registered_rollout_and_material_boundaries() -> None:
+    registration = json.loads(
+        (CONFIG_DIR.parent / "docs/evaluations/r1/production-rollout-v2.json").read_text()
+    )
+    sources = load_sources(CONFIG_DIR)
+    approved = set(registration["source_ids"])
+    for stage in ("discovery", "material", "paid", "publish"):
+        assert {s.id for s in sources if s.r1 and getattr(s.r1, stage)} == approved
+    for source in sources:
+        if source.id not in approved:
+            continue
+        assert source.r1 is not None
+        assert not source.legacy_enabled and source.discovery_owner == "r1"
+        assert source.max_items == registration["per_source_bounds"][source.id]["max_items"]
+        assert (
+            source.r1.period_seconds
+            == registration["per_source_bounds"][source.id]["period_seconds"]
+        )
+        assert source.r1.paid_scopes and source.r1.publish_scopes
+        assert source.r1.paid_scopes == source.r1.publish_scopes
+        if source.id == "bbc-world":
+            assert source.r1.paid_scopes == ("media_description",)
+        if source.id in {"nyt-world", "wsj-world"}:
+            assert source.r1.paid_scopes == ("preview",)
+    xinhua = next(s for s in sources if s.id == "xinhua")
+    assert xinhua.r1 and not xinhua.r1.paid and not xinhua.r1.publish

@@ -715,7 +715,10 @@ def test_rss_metadata_keeps_feed_date_and_modified_time_distinct(ingestion_db: I
 
 def test_source_contract_keeps_existing_configuration_and_single_owner() -> None:
     assert load_sources() and all(
-        not source.r1 or not source.r1.publish for source in load_sources()
+        not source.r1
+        or not source.r1.publish
+        or (source.discovery_owner == "r1" and not source.legacy_enabled)
+        for source in load_sources()
     )
     raw = {
         "id": "synthetic",
