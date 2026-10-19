@@ -582,6 +582,7 @@ def persist_discovery(
             "new_candidates": created,
             "known_candidates": len(candidates) - created,
             "identity_duplicates": len(result.items) - len(candidates),
+            "paid_counts": {},
         }
         select_materials(session, source, batch, list(candidates.values()))
         for article, _, _ in candidates.values():
