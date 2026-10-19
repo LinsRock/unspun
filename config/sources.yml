@@ -117,6 +117,7 @@ sources:
     discovery_owner: r1
     max_items: 30
     r1:
+      quotas: {scan: 30, material: 30, paid: 30, recheck_seconds: 86400}
       version: r1-rollout-v1
       period_seconds: 43200
       paid_scopes: [media_description]
@@ -218,6 +219,7 @@ sources:
     discovery_owner: r1
     max_items: 1
     r1:
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
       version: r1-rollout-v1
       period_seconds: 7200
       paid_scopes: [preview]
@@ -514,6 +516,7 @@ sources:
     discovery_owner: r1
     max_items: 1
     r1:
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
       version: r1-rollout-v1
       period_seconds: 7200
       paid_scopes: [open_text_unit]
@@ -607,6 +610,7 @@ sources:
     discovery_owner: r1
     max_items: 1
     r1:
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
       version: r1-rollout-v1
       period_seconds: 7200
       paid_scopes: [open_text_unit]
@@ -759,6 +763,7 @@ sources:
     discovery_owner: r1
     max_items: 1
     r1:
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
       version: r1-rollout-v1
       period_seconds: 7200
       publish: true
@@ -784,6 +789,7 @@ sources:
     discovery_owner: r1
     max_items: 1
     r1:
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
       version: r1-rollout-v1
       period_seconds: 7200
       publish: true
@@ -810,6 +816,7 @@ sources:
     discovery_owner: r1
     max_items: 1
     r1:
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
       version: r1-rollout-v1
       period_seconds: 7200
       publish: true
@@ -850,6 +857,7 @@ sources:
     discovery_owner: r1
     max_items: 1
     r1:
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
       version: r1-rollout-v1
       period_seconds: 7200
       publish: true

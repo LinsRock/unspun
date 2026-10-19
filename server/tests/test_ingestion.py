@@ -29,7 +29,7 @@ from unspun.core.models import (
     ContentUrl,
 )
 from unspun.core.sources import Source, load_sources
-from unspun.core.task_models import PipelineTask, SourceState, TaskAttempt
+from unspun.core.task_models import DiscoveryBatch, PipelineTask, SourceState, TaskAttempt
 from unspun.core.tasks import Lease, claim, complete
 from unspun.pipeline.discovery import (
     DiscoveryItem,
@@ -121,6 +121,7 @@ def ingestion_db(db_session: Session) -> Generator[IngestionDB]:
 
     yield IngestionDB(prefix, scope)
     with scope() as session:
+        session.execute(delete(DiscoveryBatch).where(DiscoveryBatch.source_id.startswith(prefix)))
         ids = list(session.scalars(select(Article.id).where(Article.source_id.startswith(prefix))))
         task_ids = select(PipelineTask.id).where(
             PipelineTask.article_id.in_(ids) | PipelineTask.source_id.startswith(prefix)

@@ -25,6 +25,7 @@ from unspun.core.html_text import TextPage, paragraphs
 from unspun.core.models import Article, ContentDerivation, ContentMaterial, ContentUrl
 from unspun.core.publication import extract_publication
 from unspun.core.sources import Source
+from unspun.core.task_models import DiscoveryBatch
 from unspun.core.tasks import Lease
 from unspun.pipeline.discovery import (
     MATERIAL_VERSION,
@@ -715,6 +716,11 @@ class MaterialHandler:
         return result
 
     def apply(self, session: Session, lease: Lease, result: MaterialResult) -> dict[str, Any]:
+        batch_id = lease.payload.get("quota_batch_id")
+        if batch_id is not None:
+            from unspun.pipeline.discovery_quotas import selection_lock
+
+            selection_lock(session)
         applied = apply_material(session, lease, result)
         source = self.sources[lease.source_id or ""]
         current = (
@@ -722,6 +728,17 @@ class MaterialHandler:
             if applied.get("material_id") is not None
             else None
         )
+        if batch_id is not None and current and not applied.get("stale_metadata"):
+            from unspun.pipeline.discovery_quotas import select_processing
+
+            batch = session.get(DiscoveryBatch, int(batch_id))
+            if batch is None or lease.task_id not in batch.material_tasks:
+                raise ValueError("material task has no matching quota receipt")
+            outcome = select_processing(session, source, batch, int(applied["article_id"]))
+            applied["card_enqueue_reason"] = outcome["reason"]
+            if "task_id" in outcome:
+                applied["card_task_id"] = outcome["task_id"]
+            return applied
         if (
             source.r1
             and current

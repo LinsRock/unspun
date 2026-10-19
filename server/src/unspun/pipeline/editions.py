@@ -45,6 +45,7 @@ def discover_edition(
     now = now or datetime.now(UTC)
     response = _get(source, client, str(source.url))
     items: list[DiscoveryItem] = []
+    listed = scanned = duplicates = 0
     responses = [hashlib.sha256(response.content).hexdigest()]
     if config.adapter == "zhihu_daily":
         data: dict[str, Any] = response.json()
@@ -55,14 +56,19 @@ def discover_edition(
         seen: set[str] = set()
         # top_stories can contain older editions without their dates; only the
         # dated stories array is part of this edition's discovery contract.
-        for story in data["stories"][: source.max_items or 50]:
+        listed = len(data["stories"])
+        for story in data["stories"][: source.scan_limit]:
+            scanned += 1
             identity = str(story.get("id", ""))
-            if not identity.isdigit() or identity in seen:
+            if not identity.isdigit():
                 continue
-            seen.add(identity)
             title = visible_text(str(story.get("title", ""))).strip()
             if not title:
                 continue
+            if identity in seen:
+                duplicates += 1
+                continue
+            seen.add(identity)
             items.append(
                 DiscoveryItem(
                     url=HttpUrl("https://daily.zhihu.com/story/" + identity),
@@ -113,7 +119,19 @@ def discover_edition(
         responses.append(hashlib.sha256(response.content).hexdigest())
         page = TextPage(response.text)
         seen = set()
-        for node in page.nodes:
+        links = [
+            node
+            for node in page.nodes
+            if not node.excluded
+            and node.tag == "a"
+            and re.fullmatch(
+                r"/rmrb/pc/content/\d{6}/\d{2}/content_\d+\.html",
+                urlsplit(urljoin(str(response.url), node.attrs.get("href", ""))).path,
+            )
+        ]
+        listed = len(links)
+        for node in links[: source.scan_limit] if config.quotas else links:
+            scanned += 1
             if node.excluded or node.tag != "a":
                 continue
             url = urljoin(str(response.url), node.attrs.get("href", ""))
@@ -122,16 +140,14 @@ def discover_edition(
                 urlsplit(url).path,
             )
             title = " ".join(node.text().split())
-            if (
-                not identity_match
-                or not title
-                or url in seen
-                or urlsplit(url).hostname != "paper.people.com.cn"
-            ):
+            if not identity_match or not title or urlsplit(url).hostname != "paper.people.com.cn":
                 continue
             # The layout's date is authoritative; unrelated linked archives
             # cannot inherit this edition's date or become current stories.
             if "-".join(identity_match.groups()[:3]) != on.isoformat():
+                continue
+            if url in seen:
+                duplicates += 1
                 continue
             seen.add(url)
             identity = identity_match[4]
@@ -158,7 +174,7 @@ def discover_edition(
                     ),
                 )
             )
-            if len(items) >= (source.max_items or 50):
+            if not config.quotas and len(items) >= source.scan_limit:
                 break
     else:
         raise ValueError("unknown editorial adapter")
@@ -169,6 +185,14 @@ def discover_edition(
         observed_at=now,
         response_fingerprint=fingerprint(responses),
         items=tuple(items),
+        scan_counts={
+            "listed": listed,
+            "scanned": scanned,
+            "valid": len(items) + duplicates,
+            "adapter_duplicates": duplicates,
+        }
+        if config.quotas
+        else None,
     )
 
 

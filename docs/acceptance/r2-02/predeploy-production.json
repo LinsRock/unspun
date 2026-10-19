@@ -1,0 +1,584 @@
+{
+  "version": "r2-02-readonly-v2",
+  "mode": "production",
+  "capture_paid_calls": 0,
+  "transaction": {
+    "at": "2026-10-19 09:05:59.259112+00:00",
+    "database": "unspun",
+    "read_only": "on"
+  },
+  "schema": [
+    {
+      "version_num": "000015"
+    }
+  ],
+  "policy": [
+    {
+      "scope": "production",
+      "monthly_limit_usd": "13.500000000000",
+      "stage_caps": {
+        "card": "10",
+        "guide": "2",
+        "legacy": "13.50",
+        "embedding": "1"
+      },
+      "version": "r1-budget-v3",
+      "incident": null
+    }
+  ],
+  "budget": {
+    "enabled": true,
+    "scope": "production",
+    "monthly_limit_usd": "13.500000000000",
+    "evaluation_allocation_usd": "1.50",
+    "stage_caps": {
+      "card": "10",
+      "guide": "2",
+      "legacy": "13.50",
+      "embedding": "1"
+    },
+    "coverage_started_at": "2026-10-18 03:18:50.116138+00:00",
+    "incident": null,
+    "unresolved_calls": 0,
+    "reserved_usd": "0",
+    "accounting": {
+      "period": "utc_month",
+      "known_spend_usd": "7.666396799999972",
+      "historical_carry_usd": "1.583595810000",
+      "carry_basis": "provider-cutover",
+      "unresolved_holds_usd": "0",
+      "occupancy_usd": "9.249992609999972",
+      "holds_are_not_actual_fees": true
+    },
+    "provider_limit_usd": "15.000000000000",
+    "provider_observed_at": "2026-10-18 03:18:50.116138+00:00",
+    "cost_basis": "llm_usage_known_fees_only",
+    "unit_costs": {
+      "basis": "all_time_current_contract_runtime_tasks; not discovery recall or user worth",
+      "cohorts": {
+        "card": {
+          "contract_version": "r1-card-v9",
+          "attempted_candidates": 51,
+          "ready_outputs": 47,
+          "physical_requests": 103,
+          "known_requests": 103,
+          "known_cost_usd": "0.0535569",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        },
+        "guide": {
+          "contract_version": "r1-guide-v5",
+          "attempted_candidates": 1,
+          "ready_outputs": 1,
+          "physical_requests": 2,
+          "known_requests": 2,
+          "known_cost_usd": "0.0046098",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        }
+      },
+      "per_100_candidates": {
+        "status": "measured",
+        "denominator": "distinct_r1_candidates_with_attempted_card_tasks",
+        "denominator_count": 51,
+        "value_usd": "0.1050135294117647058823529412",
+        "known_plus_holds_scenario_usd": "0.1050135294117647058823529412",
+        "holds_are_not_actual_fees": true
+      },
+      "per_admitted_item": {
+        "status": "measured",
+        "denominator": "distinct_current_contract_ready_admissions",
+        "denominator_count": 47,
+        "value_usd": "0.001139508510638297872340425532",
+        "known_plus_holds_scenario_usd": "0.001139508510638297872340425532",
+        "holds_are_not_actual_fees": true
+      },
+      "per_new_guide": {
+        "status": "measured",
+        "denominator": "distinct_current_contract_ready_guide_versions",
+        "denominator_count": 1,
+        "value_usd": "0.0046098",
+        "known_plus_holds_scenario_usd": "0.0046098",
+        "holds_are_not_actual_fees": true
+      },
+      "excluded_physical_requests": 0,
+      "exclusion_basis": "Other contracts or missing/mismatched runtime task links; retained in the overall ledger, never assigned to these cohorts.",
+      "monthly_projection": {
+        "status": "unmeasured",
+        "basis": "requires_registered_observed_eligible_daily_volume"
+      }
+    }
+  },
+  "requests": [
+    {
+      "stage": "card",
+      "status": "responded",
+      "requests": 103,
+      "reserved_usd": "10.066178000000",
+      "known_usd": "0.0535569",
+      "contents": 51
+    },
+    {
+      "stage": "guide",
+      "status": "responded",
+      "requests": 2,
+      "reserved_usd": "0.217707000000",
+      "known_usd": "0.0046098",
+      "contents": 1
+    }
+  ],
+  "app_version": "8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+  "source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "api/admin/__init__.py": "8105cc0153401fa1cc27dd33272e96cc14e81c3dbe477e634622ba9e588a2e72",
+    "api/admin/auth.py": "585118a205948baa48a758b181c416c3dabf06ee3495877e8c96fa522be4ae97",
+    "api/admin/configuration.py": "2209ace50f3e6b27afe0980b287a5890d1aa52395d2da17644f56a8e3ea9ff42",
+    "api/admin/content.py": "2ffc4f6be7af4ee35ded17b92b59d886aca52f8bdb0f55b54abda2de4b2795c8",
+    "api/admin/costs.py": "a874680621de4e772eb02a912dcc07ca477ef6d7de3600874a7060ffab24be87",
+    "api/admin/expenses.py": "51ea6d4cd5390b07637851f4181017db9659e1431311ea87c38849663a837718",
+    "api/admin/exports.py": "449ea31106639d739be55e2de4d291178889679ac5b5cd3273d44a8fa5b47a32",
+    "api/admin/overview.py": "9181ef048f9e386b9e5a7a98d2bc44b3f299642afdca2a31df6d6f308b838424",
+    "api/admin/query.py": "e2b03cf49493f93206ce7b02b490c8299f89adc9be28ebc1d49d8fbd008098af",
+    "api/admin/r1.py": "2224f586e25e4d5983b19f4c98792414fa4583d392919eae15d5888ad37719ce",
+    "api/admin/ranges.py": "f72cc3d494a9d7342a0bd8f58d714c73452e25aeb586f64316f2b187e19b917a",
+    "api/admin/runs.py": "bd32f5fe404270108d7bfc027ac9042e5f7a028b5ef4ef546cbd1f327f06f06d",
+    "api/admin/schemas.py": "1a0b9c854f80b41994f3f0bd9f64e2f1504a40887a5d2f2cfb7f593b1cc462b4",
+    "api/admin/sources.py": "4ad854f8563c423767f22c41774ec86e55c611543734ef53c21ff05495cdb88b",
+    "api/app.py": "219284593978619b1b119325ce8b127d279311e459c49bb678605b6a94ceb71a",
+    "api/contents.py": "febf8c08e212b5b2e40399e990e3cea6cef73914bc55d3fe3900da998880b123",
+    "api/digest.py": "83cddc420fd7d173659658feeabeb5958856079913fc01638d8ef822f4fc8319",
+    "api/events.py": "98b131a846d84145888b7fb0f9b4725268a55c979840f8440cb472aa9b53f9c8",
+    "api/feed_preferences.py": "a948eec9def0d532cfa698ccc0247129be27a0934e4a18dd9b749da38ec99044",
+    "api/reader.py": "18b3282fa1f52e573c9b445920afdcafa817815a36e92348f8740e295744cdea",
+    "api/report.py": "02902f3621da9362d0708cc3fe67843c374f17cc997a8b45c7ee280fd0d485f7",
+    "core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/billing.py": "6bca88771b27a2c2aa197acbcb8e7ab6c79a075a0927ed2eff661323e8cbefef",
+    "core/billing_admin.py": "8c7503ca2246c132b8964c12389b572585a2a2fbbbaff10fd5bf9366b2fb1f2d",
+    "core/billing_models.py": "1c8e05f8bffeabd0e41e794b11ec00956c9fc7c261fddd25f0ec9b651f081a5d",
+    "core/config.py": "784a93f921c69785ae9a55da9299a217dfb7d12cf50b6c7cde9b1d26fb7623b5",
+    "core/content.py": "e51a0aca1322078ab36fa3b9f3790122052202896a96920dc8f91e72aff8da20",
+    "core/content_costs.py": "925441aebb00b0a096874c0da846788745e3b24eb131824fef1e03d15b678928",
+    "core/content_feed.py": "10e180c576e3cb4eb1436df5cff0faea650dcfc68b535aed062ca4a9d1b0b679",
+    "core/content_reading.py": "3225ce093ba50ebf4f8c1c80510481256d199d8be19ba1b9a443cd93bb508d2a",
+    "core/db.py": "07362d229e547e59f59fc5eb7a4b1bac96a42b246e680b80674d02d938c0511d",
+    "core/expense_allocation.py": "cad554e28abbbacc3ff9bda4c6f5e9bc9ada80744cc2e0efe000990da5caea47",
+    "core/expenses.py": "7332bf086e106bd25fa79245302b78f57a05511d940841a92efdf1a984daef3c",
+    "core/feed_query.py": "43768e4f3ba20cc0fde66a4a4ad9d6506e741115fc9a671b5545d5a19ff32496",
+    "core/grounding.py": "dc9840203dec0416e70b0af1c77e649bd5e1c1d9312c5b5882dc300c0a356121",
+    "core/html_text.py": "8ed1e1da0739b72b57ccf1c466ac64c4efcde68854dc9d17e70ecf8805511d1f",
+    "core/llm.py": "5e39f154b52e78147adb60ab491623b3a7dccd53d52be595f3656b62e03477b4",
+    "core/logging.py": "9cbe3baa022c7741c3a7f22a49f274255cfd93073208b5f36f637a60081a94c4",
+    "core/models.py": "bf4fc66529d35ce0ad550d58b6511ec59d58943baa390e12c868410250f41eac",
+    "core/params.py": "c1bc8b948014e671ad3fb78ac1e1e6f522c43bf5126d7417caea1eee84babde0",
+    "core/public_impact.py": "319ce964591f687d661acfd6a1426d54718ef81263134a9baf0728c540100981",
+    "core/publication.py": "4eea7f2a8c99a3f51c2db6a2b4cbf3dcf07025dc9dbd5edb4592d753f17a8fcb",
+    "core/reader.py": "e05a238d87a43d73a8322fedd18cfd8369a708cada98a85441aec53632c4138a",
+    "core/reader_models.py": "34d6780081674079e8c85fea2aaf3d89106a0d0b6f8c5eaa165872740d476873",
+    "core/reading.py": "5b3a38f259b22d3f05f78eab41ee778e23d45a3394eb648dd6ba4e473ee8aaef",
+    "core/review_budget.py": "87416be2ce778a85ca7807218ca5bd1172ae06fc4fe134507645f5cc0a6a85f4",
+    "core/sources.py": "436dc6514e78d8c0c770508a66c1950cb576240073790039f7062bb0daafb382",
+    "core/task_models.py": "6ad1f3101bb6073d2fe85b102d94e056c5be69073e18053161fad3144d2c0f7d",
+    "core/tasks.py": "54b9ae230f617a2b490a2223b60ed82c5bb3808357b42c6fa267b79db24f5768",
+    "evaluation/__init__.py": "c21b5923e1dfb0fa9cab0e513821b7116f66a0d39a8a076085a0dd3b4984eec6",
+    "evaluation/baseline.py": "274da6583a414dc5d519308f69ce64bd61d85bca412ae6827a74fd172d2ee457",
+    "evaluation/content_quality.py": "7db46e15f4544645cc4f6e2a9ebb76a1559997b87db01c80c83294c82fa35ee4",
+    "evaluation/feed_ranking.py": "03de5de16e8034fe3a19eee88600bed345a9ce128bc8d6fd2a7c4e8d63d6cf78",
+    "evaluation/feed_suite.py": "b5e65bbb8b1c8bcd3b3043e51259ccbfbb0816247b83a3f50a5ae594c6830dc7",
+    "evaluation/observe_sources.py": "f956befb724c45c04ac3635f844812355c2852a9df68deee4845320f202a04e7",
+    "evaluation/preview_feed.py": "8e0e8016b7d68c0212e7d11123b6445e5ab3f07ef031bdf943240f657dbabd9c",
+    "evaluation/preview_reading.py": "ef12bb9e80b22b3449d0b25f04d1d1608fdc8c441259c2d1ab942a83a61e2138",
+    "evaluation/quality.py": "26bfc062ae0b69d6f5a13b23f1cabfa9dc482fda7989aa2ef3ad86b69a8c4857",
+    "evaluation/r1_benchmark.py": "cdcee7533454811540b6a8ccdcf23181852b972fbe7fccd12d085a62bf290955",
+    "evaluation/r1_inputs.py": "3bba5335d8628008c66dc2fd20a53e570ea33d6e17a0a8404c353514c7f3cc69",
+    "evaluation/run_feed_ranking.py": "823161b3a61154c0a001d322be5deda5d0ef074678a2443971ab145e1fcd2ddc",
+    "evaluation/run_quality.py": "28ab7c149d31ab9db6d25980d178f072c3aa9c3dc5b564b59707bffef675a8c7",
+    "pipeline/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pipeline/cluster.py": "652b728c6edbdb49b6a8ba2802ef29d3dfd39eee95198b3d7dc0c79af9675fff",
+    "pipeline/content_processing.py": "cef2f5a51505143a988c525ab819fec4c02797db70cb6bde5553fc038e746d91",
+    "pipeline/digest.py": "b5edc1562c9da2b743e23adcc2d8be529fb44f7f9b10e2084d1e4d41f9b1dbef",
+    "pipeline/discovery.py": "322dce9f6bb971d03d0ce32f52bc5425841e949f4aa41fc6eb95443cec786c09",
+    "pipeline/editions.py": "d80ed129feaee9f2887864de5d4f266d99110bd6336a3ee7f0bee7a3244a3597",
+    "pipeline/extract.py": "3d42c02ca597e1da29ad65a7821d5b2812f0b9b4b459f859745e276df2563ca9",
+    "pipeline/feeds.py": "5d7af6d9eec6cad1c923ba49b567fc9cb2dca821ec7ef3b877c289a3e3f13bcd",
+    "pipeline/fetcher.py": "c4f515a8b12457027b3493444cf81b9a7b95100cfe4b3a046f957a4a14ee34bd",
+    "pipeline/main.py": "b980bf7e0caf780ffc56ed8e6371f9b201787dd1835a87070087449b9ee6a776",
+    "pipeline/materials.py": "53ff58eeb63869bd927323be910a0f29939b504ec8ce44d83351525a65171e92",
+    "pipeline/public_sources.py": "58c47f4bb96cfb8819928b3d6ee38e8ceedd68919294c6eb9e6b9e1b08d6e2b1",
+    "pipeline/r1_runtime.py": "e10713b17e0cfb06ae9f903b9ab2bc188f4cf1467ba080c2758e518dd7dd246a",
+    "pipeline/r1_worker.py": "311be6fa49013e4dfa13a1414402da6897f073d1209d1d93aa2fc0544fc04060",
+    "pipeline/repair_grounding.py": "57cbca2e0908fe880d5037ca0235167a16bc3529dc8b268a61cd5a5a89b78d31",
+    "pipeline/score.py": "2798cfeb8e1b340b166c016e146d24fa85d19c2b70c039c0b3f66a54c96f14b9",
+    "pipeline/summarize.py": "4c23e68586aad9d3de990674fa2d95a718767c1f53031cedee404ccb7726dbe4",
+    "pipeline/viewpoints.py": "a0cc939ae708c385d5626cddef027bb97fdd6867b929e7518966d82e25f2fd4c"
+  },
+  "sources": [
+    {
+      "id": "bbc-world",
+      "max_items": 30,
+      "r1": {
+        "adapter": "rss",
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true,
+        "paid_scopes": [
+          "media_description"
+        ],
+        "publish_scopes": [
+          "media_description"
+        ],
+        "period_seconds": 43200,
+        "form": "article",
+        "material_scope": "open_text_unit",
+        "platform": "bbc",
+        "publisher": "BBC",
+        "origin_hosts": [
+          "bbc.com",
+          "bbc.co.uk"
+        ],
+        "capability": "bounded_target_window_qualified",
+        "version": "r1-rollout-v1"
+      }
+    },
+    {
+      "id": "wsj-world",
+      "max_items": 1,
+      "r1": {
+        "adapter": "rss",
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true,
+        "paid_scopes": [
+          "preview"
+        ],
+        "publish_scopes": [
+          "preview"
+        ],
+        "period_seconds": 7200,
+        "form": "article",
+        "material_scope": "preview",
+        "platform": "wsj",
+        "publisher": "Wall Street Journal",
+        "origin_hosts": [
+          "wsj.com"
+        ],
+        "capability": "bounded_target_window_qualified",
+        "version": "r1-rollout-v1"
+      }
+    },
+    {
+      "id": "bbc-zhongwen",
+      "max_items": 1,
+      "r1": {
+        "adapter": "rss",
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true,
+        "paid_scopes": [
+          "open_text_unit"
+        ],
+        "publish_scopes": [
+          "open_text_unit"
+        ],
+        "period_seconds": 7200,
+        "form": "article",
+        "material_scope": "open_text_unit",
+        "platform": "bbc",
+        "publisher": "BBC Chinese",
+        "origin_hosts": [
+          "bbc.com",
+          "bbc.co.uk"
+        ],
+        "capability": "bounded_target_window_qualified",
+        "version": "r1-rollout-v1"
+      }
+    },
+    {
+      "id": "zaobao-china",
+      "max_items": 1,
+      "r1": {
+        "adapter": "rss",
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true,
+        "paid_scopes": [
+          "open_text_unit"
+        ],
+        "publish_scopes": [
+          "open_text_unit"
+        ],
+        "period_seconds": 7200,
+        "form": "article",
+        "material_scope": "open_text_unit",
+        "platform": "zaobao",
+        "publisher": "Lianhe Zaobao",
+        "origin_hosts": [
+          "zaobao.com",
+          "zaobao.com.sg"
+        ],
+        "capability": "bounded_target_window_qualified",
+        "version": "r1-rollout-v1"
+      }
+    },
+    {
+      "id": "zhihu-daily",
+      "max_items": 1,
+      "r1": {
+        "adapter": "zhihu_daily",
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true,
+        "paid_scopes": [
+          "editorial_edition"
+        ],
+        "publish_scopes": [
+          "editorial_edition"
+        ],
+        "period_seconds": 7200,
+        "form": "article",
+        "material_scope": "editorial_edition",
+        "platform": "zhihu-daily",
+        "publisher": "Zhihu Daily",
+        "origin_hosts": [
+          "daily.zhihu.com"
+        ],
+        "capability": "bounded_target_window_qualified",
+        "version": "r1-rollout-v1"
+      }
+    },
+    {
+      "id": "people-frontpage",
+      "max_items": 1,
+      "r1": {
+        "adapter": "people_daily",
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true,
+        "paid_scopes": [
+          "editorial_edition"
+        ],
+        "publish_scopes": [
+          "editorial_edition"
+        ],
+        "period_seconds": 7200,
+        "form": "article",
+        "material_scope": "editorial_edition",
+        "platform": "people",
+        "publisher": "People's Daily",
+        "origin_hosts": [
+          "paper.people.com.cn"
+        ],
+        "capability": "bounded_target_window_qualified",
+        "version": "r1-rollout-v1"
+      }
+    },
+    {
+      "id": "zaobao-world",
+      "max_items": 1,
+      "r1": {
+        "adapter": "rss",
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true,
+        "paid_scopes": [
+          "open_text_unit"
+        ],
+        "publish_scopes": [
+          "open_text_unit"
+        ],
+        "period_seconds": 7200,
+        "form": "article",
+        "material_scope": "open_text_unit",
+        "platform": "zaobao",
+        "publisher": "Lianhe Zaobao",
+        "origin_hosts": [
+          "zaobao.com",
+          "zaobao.com.sg"
+        ],
+        "capability": "bounded_target_window_qualified",
+        "version": "r1-rollout-v1"
+      }
+    },
+    {
+      "id": "douban-book",
+      "max_items": 1,
+      "r1": {
+        "adapter": "rss",
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true,
+        "paid_scopes": [
+          "open_text_unit"
+        ],
+        "publish_scopes": [
+          "open_text_unit"
+        ],
+        "period_seconds": 7200,
+        "form": "article",
+        "material_scope": "open_text_unit",
+        "platform": "douban",
+        "publisher": "Douban",
+        "origin_hosts": [
+          "book.douban.com",
+          "sec.douban.com"
+        ],
+        "capability": "bounded_target_window_qualified",
+        "version": "r1-rollout-v1"
+      }
+    }
+  ],
+  "models": {
+    "summary_model": "google/gemini-2.5-flash-lite",
+    "viewpoint_model": "google/gemini-2.5-flash",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "grounding_budget_24h_usd": 0.4
+  },
+  "source_states": [
+    {
+      "source_id": "bbc-world",
+      "owner": "r1",
+      "enabled": true,
+      "period_seconds": 43200,
+      "schedule_version": "r1-rollout-v1",
+      "next_due_at": "2026-10-19 12:00:00+00:00",
+      "consecutive_failures": 0,
+      "last_success_at": "2026-10-19 00:00:16.618372+00:00",
+      "last_new_item_at": "2026-10-19 00:00:16.614978+00:00",
+      "last_item_count": 28
+    },
+    {
+      "source_id": "bbc-zhongwen",
+      "owner": "r1",
+      "enabled": true,
+      "period_seconds": 7200,
+      "schedule_version": "r1-rollout-v1",
+      "next_due_at": "2026-10-19 10:00:00+00:00",
+      "consecutive_failures": 0,
+      "last_success_at": "2026-10-19 08:00:11.684314+00:00",
+      "last_new_item_at": "2026-10-19 04:00:01.319260+00:00",
+      "last_item_count": 1
+    },
+    {
+      "source_id": "douban-book",
+      "owner": "r1",
+      "enabled": true,
+      "period_seconds": 7200,
+      "schedule_version": "r1-rollout-v1",
+      "next_due_at": "2026-10-19 12:00:32.513338+00:00",
+      "consecutive_failures": 1,
+      "last_success_at": "2026-10-19 06:00:29.534098+00:00",
+      "last_new_item_at": "2026-10-18 03:19:16.605764+00:00",
+      "last_item_count": 1
+    },
+    {
+      "source_id": "people-frontpage",
+      "owner": "r1",
+      "enabled": true,
+      "period_seconds": 7200,
+      "schedule_version": "r1-rollout-v1",
+      "next_due_at": "2026-10-19 10:00:00+00:00",
+      "consecutive_failures": 0,
+      "last_success_at": "2026-10-19 08:00:05.154546+00:00",
+      "last_new_item_at": "2026-10-18 22:00:04.931929+00:00",
+      "last_item_count": 1
+    },
+    {
+      "source_id": "wsj-world",
+      "owner": "r1",
+      "enabled": true,
+      "period_seconds": 7200,
+      "schedule_version": "r1-rollout-v1",
+      "next_due_at": "2026-10-19 10:00:00+00:00",
+      "consecutive_failures": 0,
+      "last_success_at": "2026-10-19 08:00:06.370554+00:00",
+      "last_new_item_at": "2026-10-19 04:00:03.068338+00:00",
+      "last_item_count": 1
+    },
+    {
+      "source_id": "zaobao-china",
+      "owner": "r1",
+      "enabled": true,
+      "period_seconds": 7200,
+      "schedule_version": "r1-rollout-v1",
+      "next_due_at": "2026-10-19 10:00:00+00:00",
+      "consecutive_failures": 0,
+      "last_success_at": "2026-10-19 08:00:16.180447+00:00",
+      "last_new_item_at": "2026-10-19 08:00:16.178263+00:00",
+      "last_item_count": 1
+    },
+    {
+      "source_id": "zaobao-world",
+      "owner": "r1",
+      "enabled": true,
+      "period_seconds": 7200,
+      "schedule_version": "r1-rollout-v1",
+      "next_due_at": "2026-10-19 10:00:00+00:00",
+      "consecutive_failures": 0,
+      "last_success_at": "2026-10-19 08:00:11.446421+00:00",
+      "last_new_item_at": "2026-10-19 08:00:11.441551+00:00",
+      "last_item_count": 1
+    },
+    {
+      "source_id": "zhihu-daily",
+      "owner": "r1",
+      "enabled": true,
+      "period_seconds": 7200,
+      "schedule_version": "r1-rollout-v1",
+      "next_due_at": "2026-10-19 10:00:00+00:00",
+      "consecutive_failures": 0,
+      "last_success_at": "2026-10-19 08:00:05.795685+00:00",
+      "last_new_item_at": "2026-10-19 00:00:06.846881+00:00",
+      "last_item_count": 1
+    }
+  ],
+  "tasks": [
+    {
+      "queue": "discovery",
+      "status": "completed",
+      "tasks": 113
+    },
+    {
+      "queue": "discovery",
+      "status": "retry_wait",
+      "tasks": 1
+    },
+    {
+      "queue": "guide",
+      "status": "completed",
+      "tasks": 1
+    },
+    {
+      "queue": "material",
+      "status": "completed",
+      "tasks": 193
+    },
+    {
+      "queue": "paid",
+      "status": "completed",
+      "tasks": 49
+    },
+    {
+      "queue": "paid",
+      "status": "failed",
+      "tasks": 4
+    }
+  ],
+  "discovery_batches": null,
+  "provider": {
+    "limit": 15,
+    "limit_remaining": 5.75000739,
+    "usage": 9.24999261,
+    "usage_monthly": 9.24999261,
+    "limit_reset": "monthly"
+  }
+}

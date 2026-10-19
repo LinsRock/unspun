@@ -1,0 +1,342 @@
+{
+  "schema_version": "r2-02-scan-comparison-v2",
+  "checked_at": "2026-10-19T09:10:00.157297+00:00",
+  "base_revision": "d4df296",
+  "reviewer_kind": "ai-technical",
+  "comparison_kind": "Synthetic same-response engineering checks plus unchanged frozen contract replay; not historical list recall or new semantic evaluation.",
+  "freeze_manifest_sha256": "41f4f3105f62d484176b912b06f240696330bc6cb2b9135ebb0f7b889fc5a36f",
+  "frozen_targets_verified": [
+    {
+      "path": "docs/evaluations/r2/selection-v1.json",
+      "sha256": "293eafd904bfb9d4f0e7b220f3ed5f5af39435f3646ed3288e5b397bb68a848f",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r2/inputs-v1.json",
+      "sha256": "c6fc25a1061effaf2d1719f50399bc53ffa543d2a7d7e29ce9ea74e283dc3af5",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r2/technical-expectations-v1.json",
+      "sha256": "dd0ed384824f0c60dc206dbf95bd5c125ef6eea9cf5ed225a9df25bd87c63b6d",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r2/relations-v1.json",
+      "sha256": "dcf1af473dd741ab6203381668bae11ffb2662c52766c9cbe25a24ff97bcce67",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r2/before-change-v1.json",
+      "sha256": "731b98aa1c45f858a20723ec4bc8d2ae89be570ded595eb600ed301f04d387ae",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r2/user-review-v1.json",
+      "sha256": "e9533c906f9fdbc69fb9b7e9deceb200bf61a7af5053034523f82c9ae6b9f04c",
+      "revision": null
+    },
+    {
+      "path": "docs/acceptance/r2-01/production.json",
+      "sha256": "8c417961c3462dd04a8cd3f209ab3183b91bd4c20bbb76ca5c766d93deb00e7b",
+      "revision": null
+    },
+    {
+      "path": "docs/acceptance/r2-01/evaluation-ledger.json",
+      "sha256": "603a04276d49c7f1accf2c758a7dc37ed1981723c193343d1cf25b42121da84c",
+      "revision": null
+    },
+    {
+      "path": "docs/acceptance/r2-01/summary.json",
+      "sha256": "d7bdb5472ba31fd07c167d1ce56672ddd01422d5a97d6de7b204ca12a666722c",
+      "revision": null
+    },
+    {
+      "path": "docs/acceptance/r2-01/environment.json",
+      "sha256": "e53d17721503674d8525a1d4ec565d4a4d79e5c94ca651f9d0100e7cdb5574c2",
+      "revision": null
+    },
+    {
+      "path": "docs/acceptance/r2-01/deployment.json",
+      "sha256": "084664cb6c61e46a255ea450546a8f9e1595c46d9a6de517da5f95935d2ab9cc",
+      "revision": null
+    },
+    {
+      "path": "docs/acceptance/r2-01/capture.py",
+      "sha256": "6c7acfb1e497c1714d15563bb2bc67dff8f35f8c3cbeb40765c01c7a0471200e",
+      "revision": null
+    },
+    {
+      "path": "docs/research/r0-2026-10-15/candidates.json",
+      "sha256": "55e835ffa071c2f8e285e5682c47837a1f97505c3fba229b0456e9869fe6e36c",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r1/inputs-v1.json",
+      "sha256": "4b902face46bc6100f2aaf5e3713b880861ebb719336e37d433690131258965a",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r1/technical-suite-v1.json",
+      "sha256": "d7fa1c7f4b0650b9e2411b7aa9814effc947118eda1d4a5c093cbea58f3f6d9a",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r1/before-change-v1.json",
+      "sha256": "4f91bbc3a2919a855b89f1761a675fbdce2e590b6c336135dbaa270c432b769a",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r1/legacy-regression-v1.json",
+      "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r1/reader-rules-v1.md",
+      "sha256": "6e3bb959930a95d8b4f35d45808c2d8f9d3785985a71f557916ff49e40d981c1",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r1/production-rollout-v2.json",
+      "sha256": "c95c724cde41b72620d030225c57b7eee5849901c54e6b913fd5406a8e19ff9c",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/r1/source-observation-v1.json",
+      "sha256": "955e29153f5241c843ed8f155215e89c836c111f1637677efd2a138149239ea0",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/m3b/annotations.json",
+      "sha256": "321eec16e1e23c1ef50aa0fb061a742b2358b4ce63938dbf65f0a3d3d69e97dc",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/m3b/technical-annotations.json",
+      "sha256": "ec313c11ed370457a454672e64a448846c9a358c36fb66ea3d602d99a51fb25e",
+      "revision": null
+    },
+    {
+      "path": "docs/evaluations/m3b/technical-candidates.json",
+      "sha256": "77de72c9554f7357a57cc16175f14e08bf02d36c9382d71ab6350099dafebf1a",
+      "revision": null
+    },
+    {
+      "path": "config/sources.yml",
+      "sha256": "5e5a40628d4cf574c040b109787d3ee5ebfc3fa3bed61eed57dabbd0caa7cac0",
+      "revision": "24aaaa5416c2360dba20208c2fd5d6c989b04821"
+    },
+    {
+      "path": "config/scoring.yml",
+      "sha256": "2f2099d10e0702d223453b7e1c738b62ad4c30696093feaece57601d5fac6dc8",
+      "revision": null
+    },
+    {
+      "path": "config/r1-reader.yml",
+      "sha256": "16aefedf76fd1c9c4e36fd5b4dd21378d9de3bc9705d87e8612ea3c6c215f90b",
+      "revision": null
+    },
+    {
+      "path": "config/media_groups.yml",
+      "sha256": "9a7c0ac391e163779e176f4f601faddb369cbb1ae25ed03d59b4c33c82d50071",
+      "revision": null
+    }
+  ],
+  "frozen_input_contract_and_processing_fingerprints_matched": [
+    "R2-8844",
+    "R2-8847",
+    "R2-8861",
+    "R2-8868",
+    "R2-8869",
+    "R2-8872",
+    "R2-8874",
+    "R2-8876",
+    "R2-8877",
+    "R2-8878",
+    "R2-8879",
+    "R2-8881",
+    "R2-8886",
+    "R2-8888",
+    "R2-8893",
+    "R2-8896",
+    "R2-8898",
+    "R2-8899",
+    "R2-8900",
+    "R2-8902",
+    "R2-8904",
+    "R2-8905",
+    "R2-8906",
+    "R2-8907",
+    "R2-8909",
+    "R2-8910",
+    "R2-8916",
+    "R2-8919",
+    "R2-8923",
+    "R2-8926"
+  ],
+  "holdout_usage": "Deterministic contract/fingerprint replay only; no tuning or new labels.",
+  "historical_pre_scan_counts": null,
+  "user_ratings_and_omissions": "Preserved, missing values remain null.",
+  "adapter_comparison": [
+    {
+      "adapter": "rss",
+      "fixture": "server/tests/test_discovery_quotas.py::test_every_adapter_reports_pre_and_post_scan_counts_without_extra_requests",
+      "list_entries": 4,
+      "legacy_returned": 1,
+      "v2_scanned": 3,
+      "v2_valid": 3,
+      "v2_distinct_identities": 2,
+      "v2_duplicate_positions": 1,
+      "v2_returned": 3,
+      "list_requests_per_poll_before_and_after": 1
+    },
+    {
+      "adapter": "zhihu_daily",
+      "fixture": "server/tests/test_discovery_quotas.py::test_every_adapter_reports_pre_and_post_scan_counts_without_extra_requests",
+      "list_entries": 4,
+      "legacy_returned": 1,
+      "v2_scanned": 3,
+      "v2_valid": 3,
+      "v2_distinct_identities": 2,
+      "v2_duplicate_positions": 1,
+      "v2_returned": 2,
+      "list_requests_per_poll_before_and_after": 1
+    },
+    {
+      "adapter": "people_daily",
+      "fixture": "server/tests/test_discovery_quotas.py::test_every_adapter_reports_pre_and_post_scan_counts_without_extra_requests",
+      "list_entries": 4,
+      "legacy_returned": 1,
+      "v2_scanned": 3,
+      "v2_valid": 3,
+      "v2_distinct_identities": 2,
+      "v2_duplicate_positions": 1,
+      "v2_returned": 2,
+      "list_requests_per_poll_before_and_after": 2
+    },
+    {
+      "adapter": "thepaper",
+      "fixture": "server/tests/test_discovery_quotas.py::test_every_adapter_reports_pre_and_post_scan_counts_without_extra_requests",
+      "list_entries": 4,
+      "legacy_returned": 1,
+      "v2_scanned": 3,
+      "v2_valid": 3,
+      "v2_distinct_identities": 2,
+      "v2_duplicate_positions": 1,
+      "v2_returned": 2,
+      "list_requests_per_poll_before_and_after": 1
+    },
+    {
+      "adapter": "netease",
+      "fixture": "server/tests/test_discovery_quotas.py::test_every_adapter_reports_pre_and_post_scan_counts_without_extra_requests",
+      "list_entries": 4,
+      "legacy_returned": 1,
+      "v2_scanned": 3,
+      "v2_valid": 3,
+      "v2_distinct_identities": 2,
+      "v2_duplicate_positions": 1,
+      "v2_returned": 2,
+      "list_requests_per_poll_before_and_after": 1
+    },
+    {
+      "adapter": "tencent",
+      "fixture": "server/tests/test_discovery_quotas.py::test_every_adapter_reports_pre_and_post_scan_counts_without_extra_requests",
+      "list_entries": 4,
+      "legacy_returned": 1,
+      "v2_scanned": 3,
+      "v2_valid": 3,
+      "v2_distinct_identities": 2,
+      "v2_duplicate_positions": 1,
+      "v2_returned": 2,
+      "list_requests_per_poll_before_and_after": 1
+    }
+  ],
+  "selection_comparison": {
+    "fixture": "server/tests/test_discovery_quotas.py::test_seen_first_does_not_hide_new_identity_and_replay_keeps_one_receipt",
+    "response_order": [
+      "seen-first",
+      "new-second",
+      "duplicate-new-second"
+    ],
+    "legacy_new_identities_visible_with_max_items_1": 0,
+    "v2_new_identities_visible": 1,
+    "v2_new_material_tasks": 1,
+    "replay_new_tasks": 0,
+    "paid_calls": 0
+  },
+  "source_config": {
+    "before_sha256": "5e5a40628d4cf574c040b109787d3ee5ebfc3fa3bed61eed57dabbd0caa7cac0",
+    "after_sha256": "a6d0bafd62c5797176090e4d8f8553872cabbbc72413f92dcf587a4843ddbe76",
+    "only_changes": {
+      "bbc-world": {
+        "scan": 30,
+        "material": 30,
+        "paid": 30,
+        "recheck_seconds": 86400
+      },
+      "wsj-world": {
+        "scan": 30,
+        "material": 1,
+        "paid": 1,
+        "recheck_seconds": 86400
+      },
+      "bbc-zhongwen": {
+        "scan": 30,
+        "material": 1,
+        "paid": 1,
+        "recheck_seconds": 86400
+      },
+      "zaobao-china": {
+        "scan": 30,
+        "material": 1,
+        "paid": 1,
+        "recheck_seconds": 86400
+      },
+      "zhihu-daily": {
+        "scan": 30,
+        "material": 1,
+        "paid": 1,
+        "recheck_seconds": 86400
+      },
+      "people-frontpage": {
+        "scan": 30,
+        "material": 1,
+        "paid": 1,
+        "recheck_seconds": 86400
+      },
+      "zaobao-world": {
+        "scan": 30,
+        "material": 1,
+        "paid": 1,
+        "recheck_seconds": 86400
+      },
+      "douban-book": {
+        "scan": 30,
+        "material": 1,
+        "paid": 1,
+        "recheck_seconds": 86400
+      }
+    },
+    "enabled_stages_scopes_periods_unchanged": true
+  },
+  "daily_upper_bounds": {
+    "metadata_positions_before": 144,
+    "metadata_positions_after": 2580,
+    "material_slots_before_and_after": 144,
+    "new_card_slots_before_and_after": 144,
+    "list_requests_before_and_after_excluding_retries_and_redirects": 98
+  },
+  "cost_scenarios_usd": {
+    "provider_observed_at": "2026-10-19 09:05:59.259112+00:00",
+    "provider_remaining": "5.75000739",
+    "production_space_after_reserving_full_original_evaluation": "4.25000739",
+    "observed_attempted_candidate_unit": "0.001050135294117647058823529412",
+    "144_new_paid_candidates_per_day_at_observed_mean": "0.1512194823529411764705882353",
+    "13_full_days_at_that_rate": "1.965853270588235294117647059",
+    "three_times_mean_for_13_days": "5.897559811764705882352941177",
+    "interpretation": "Card-only scenario, not a stable traffic or fee guarantee. Retry/unknown holds and guides still consume the original budget; high-cost scenarios defer under unchanged limits.",
+    "evaluation_unknown_requests_retained": 7,
+    "evaluation_reserved_retained": "0.484867000000",
+    "new_paid_evaluation_calls": 0
+  }
+}
