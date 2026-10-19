@@ -1,0 +1,123 @@
+{
+  "checked_at": "2026-10-18T13:19:25.033223+00:00",
+  "health": {
+    "status": "ok",
+    "version": "8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+    "database": "ok"
+  },
+  "legacy_worker_running": 0,
+  "r1_worker_running": 1,
+  "services": [
+    {
+      "Name": "unspun-api-1",
+      "Service": "api",
+      "State": "running",
+      "Image": "ghcr.io/linsrock/unspun-server:5586fe882df22a32841accbb59a7e1301e7932ba",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 8000,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "Name": "unspun-db-1",
+      "Service": "db",
+      "State": "running",
+      "Image": "pgvector/pgvector:pg17",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 5432,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "Name": "unspun-db-backup-1",
+      "Service": "db-backup",
+      "State": "running",
+      "Image": "pgvector/pgvector:pg17",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 5432,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "Name": "unspun-r1-worker-1",
+      "Service": "r1-worker",
+      "State": "running",
+      "Image": "ghcr.io/linsrock/unspun-server:5586fe882df22a32841accbb59a7e1301e7932ba",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 8000,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "Name": "unspun-rsshub-1",
+      "Service": "rsshub",
+      "State": "running",
+      "Image": "diygod/rsshub:2026-10-09",
+      "Publishers": [
+        {
+          "URL": "",
+          "TargetPort": 1200,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ]
+    },
+    {
+      "Name": "unspun-web-1",
+      "Service": "web",
+      "State": "running",
+      "Image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+      "Publishers": [
+        {
+          "URL": "127.0.0.1",
+          "TargetPort": 80,
+          "PublishedPort": 8080,
+          "Protocol": "tcp"
+        },
+        {
+          "URL": "",
+          "TargetPort": 443,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        },
+        {
+          "URL": "",
+          "TargetPort": 443,
+          "PublishedPort": 0,
+          "Protocol": "udp"
+        },
+        {
+          "URL": "",
+          "TargetPort": 2019,
+          "PublishedPort": 0,
+          "Protocol": "tcp"
+        }
+      ]
+    }
+  ],
+  "published_ports": [
+    {
+      "URL": "127.0.0.1",
+      "TargetPort": 80,
+      "PublishedPort": 8080,
+      "Protocol": "tcp"
+    }
+  ],
+  "mutations_in_probe": 0
+}

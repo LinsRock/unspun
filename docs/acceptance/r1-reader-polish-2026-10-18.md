@@ -27,4 +27,4 @@
 
 [桌面](r1-reader-polish/desktop-light.png)、[手机宽度亮色](r1-reader-polish/mobile-light.png)、[暗色](r1-reader-polish/mobile-dark.png)、[初始加载](r1-reader-polish/mobile-loading.png)、[长文详情](r1-reader-polish/mobile-detail.png)保留实际截图。首次连续切换视口后的截图出现合成时序空白，已在相应固定视口新页面等待实际内容绘制后重取桌面和详情截图，不把空白图作为通过证据。
 
-六项代码和验证完成后按正常 PR/CI 发布；实际部署复核与 R1-17 结案另追加记录，未发布前不以本报告补勾。
+后续完成：六项已通过 #99 合并并正常部署为 `8dd144b`，正式 HTTPS 界面与服务副本复核通过；首次正式无头探测超时继续保留，后续成功结果不抹去它。R1-17 已按用户可接受结论及本次修复发布结案，见[最终结案记录](r1-final-acceptance-2026-10-19.md)。
