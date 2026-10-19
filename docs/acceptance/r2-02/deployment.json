@@ -1,0 +1,103 @@
+{
+  "checked_at": "2026-10-19T09:23:14.486104+00:00",
+  "mode": "read-only",
+  "health": {
+    "status": "ok",
+    "version": "43150075d33e17298a21bfa909fac578f5d511d9",
+    "database": "ok"
+  },
+  "running_containers": [
+    {
+      "name": "unspun-api-1",
+      "image": "ghcr.io/linsrock/unspun-server:43150075d33e17298a21bfa909fac578f5d511d9",
+      "image_id": "sha256:983b720e82b281909e929a230510c3d10bf4390b0f8083c49e746fd34b788378",
+      "status": "running",
+      "started_at": "2026-10-19T09:21:31.300914438Z",
+      "restart_count": 0,
+      "app_version": "43150075d33e17298a21bfa909fac578f5d511d9",
+      "published_ports": {
+        "8000/tcp": null
+      }
+    },
+    {
+      "name": "unspun-r1-worker-1",
+      "image": "ghcr.io/linsrock/unspun-server:43150075d33e17298a21bfa909fac578f5d511d9",
+      "image_id": "sha256:983b720e82b281909e929a230510c3d10bf4390b0f8083c49e746fd34b788378",
+      "status": "running",
+      "started_at": "2026-10-19T09:21:31.569959435Z",
+      "restart_count": 0,
+      "app_version": "43150075d33e17298a21bfa909fac578f5d511d9",
+      "published_ports": {
+        "8000/tcp": null
+      }
+    },
+    {
+      "name": "unspun-web-1",
+      "image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+      "image_id": "sha256:d0b0f4e625da3ba2c683ba6763b2fdf016db5aea98e14240b91c32ea5289d60b",
+      "status": "running",
+      "started_at": "2026-10-18T13:18:12.21625531Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {
+        "2019/tcp": null,
+        "443/tcp": null,
+        "443/udp": null,
+        "80/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      }
+    },
+    {
+      "name": "unspun-rsshub-1",
+      "image": "diygod/rsshub:2026-10-09",
+      "image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+      "status": "running",
+      "started_at": "2026-10-10T03:10:15.100859601Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {
+        "1200/tcp": null
+      }
+    },
+    {
+      "name": "unspun-db-backup-1",
+      "image": "pgvector/pgvector:pg17",
+      "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d",
+      "status": "running",
+      "started_at": "2026-10-08T10:35:07.972814371Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {
+        "5432/tcp": null
+      }
+    },
+    {
+      "name": "unspun-db-1",
+      "image": "pgvector/pgvector:pg17",
+      "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d",
+      "status": "running",
+      "started_at": "2026-10-08T10:35:02.033634023Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {
+        "5432/tcp": null
+      }
+    },
+    {
+      "name": "unspun-edge-cloudflared-1",
+      "image": "cloudflare/cloudflared:latest",
+      "image_id": "sha256:9b49eed8f62806d5d45ddf59ecefb5710429598ea6d3fcccd2af938f621b2b07",
+      "status": "running",
+      "started_at": "2026-10-08T10:28:32.973936954Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {}
+    }
+  ],
+  "legacy_workers": 0,
+  "r1_workers": 1
+}

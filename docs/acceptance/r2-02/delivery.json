@@ -1,0 +1,100 @@
+{
+  "schema_version": "r2-02-delivery-v2",
+  "checked_at": "2026-10-19T09:23:57.801651+00:00",
+  "implementation_pr": {
+    "base_sha": "d4df296344afb6b2aae4cf0a668a12f99fa2ca7a",
+    "head_sha": "24d6324a4067e118e926b2e0dcd87f581176bfcc",
+    "html_url": "https://github.com/LinsRock/unspun/pull/103",
+    "merge_commit_sha": "43150075d33e17298a21bfa909fac578f5d511d9",
+    "merged_at": "2026-10-19T09:17:12Z",
+    "number": 103,
+    "state": "closed"
+  },
+  "pr_ci": {
+    "url": "https://github.com/LinsRock/unspun/actions/runs/39228557279",
+    "conclusion": "success",
+    "head": "24d6324a4067e118e926b2e0dcd87f581176bfcc",
+    "pytest_passed": 898,
+    "pytest_skipped": 0
+  },
+  "main_ci": {
+    "url": "https://github.com/LinsRock/unspun/actions/runs/39228913094",
+    "conclusion": "success",
+    "head": "43150075d33e17298a21bfa909fac578f5d511d9",
+    "pytest_passed": 898,
+    "pytest_skipped": 0,
+    "actual_deploy_step_ran": true
+  },
+  "postdeployment": {
+    "app_version": "43150075d33e17298a21bfa909fac578f5d511d9",
+    "schema": "000016",
+    "python_source_files_byte_matched": 83,
+    "yaml_configs_byte_matched": 4,
+    "enabled_sources": 8,
+    "source_stages_scopes_periods_unchanged": true,
+    "material_and_paid_caps_unchanged": true,
+    "models_and_budget_policy_unchanged": true,
+    "source_states_identical_to_predeployment": true,
+    "health": {
+      "status": "ok",
+      "version": "43150075d33e17298a21bfa909fac578f5d511d9",
+      "database": "ok"
+    },
+    "legacy_worker_count": 0,
+    "r1_worker_count": 1,
+    "published_host_ports": [
+      {
+        "container": "unspun-web-1",
+        "container_port": "80/tcp",
+        "HostIp": "127.0.0.1",
+        "HostPort": "8080"
+      }
+    ],
+    "discovery_receipts": 0,
+    "natural_discovery_evidence_status": "Not yet due: first six routes at 2026-10-19 10:00 UTC, BBC at 12:00, Douban at 12:00:32 UTC. No production tasks manually triggered.",
+    "source_next_due": {
+      "bbc-world": "2026-10-19 12:00:00+00:00",
+      "bbc-zhongwen": "2026-10-19 10:00:00+00:00",
+      "douban-book": "2026-10-19 12:00:32.513338+00:00",
+      "people-frontpage": "2026-10-19 10:00:00+00:00",
+      "wsj-world": "2026-10-19 10:00:00+00:00",
+      "zaobao-china": "2026-10-19 10:00:00+00:00",
+      "zaobao-world": "2026-10-19 10:00:00+00:00",
+      "zhihu-daily": "2026-10-19 10:00:00+00:00"
+    }
+  },
+  "cost": {
+    "evaluation_post_read_at": "2026-10-19 09:23:30.054686+00:00",
+    "evaluation_post_read_only": "on",
+    "evaluation_known_spend_unchanged": true,
+    "evaluation_unknown_requests": 7,
+    "evaluation_reserved_usd": "0.484867000000",
+    "new_paid_evaluation_calls": 0,
+    "provider_usage_change_since_predeployment": "0E-8",
+    "provider_remaining_usd": "5.75000739",
+    "production_request_groups_unchanged": true,
+    "production_unresolved_requests": 0
+  },
+  "verification_log_sha256": {
+    "pr": "ccb842f4e686ea5a894b5fd7195d052f9e9c943483623ded73a22043f42ad629",
+    "main": "9c168ca3cfccfedee7d98cda281cb43b4a1e329eb193c9796c115bae8c00e0f1"
+  },
+  "remaining": [
+    "First natural R2 scan and long-running observation are not yet available.",
+    "Metadata growth and actual quota utilization need observation; no user source/selection recall or subjective scores supplied.",
+    "R2-03 candidate/detail limits and all later R2/R3 tasks remain outside this batch."
+  ],
+  "documentation_followup": {
+    "scope": {
+      "server": "false",
+      "web": "false",
+      "prototype": "false",
+      "deploy": "false",
+      "server_image": "false",
+      "web_image": "false",
+      "release": "false"
+    },
+    "markdown_links": 25,
+    "new_runtime_changes": false
+  }
+}
