@@ -39,7 +39,12 @@
     "source_stage_scope_period_model_budget_changes": 0,
     "source_quota_only_changes": 8,
     "new_paid_evaluation_calls": 0,
-    "diff_whitespace": "passed"
+    "diff_whitespace": "passed",
+    "last_counter_initialization_targeted_tests": {
+      "passed": 22,
+      "skipped": 0
+    },
+    "final_changed_markdown_links": 116
   },
   "ci_scope": {
     "server": "true",
@@ -61,5 +66,5 @@
       "Retain schema and receipts on application rollback"
     ]
   },
-  "deployment_status": "Pre-PR evidence only; see final PR checks and postdeployment evidence."
+  "deployment_status": "Deployed runtime 43150075d33e17298a21bfa909fac578f5d511d9; see delivery.json. PR and main CI each passed 898 tests with zero skips."
 }

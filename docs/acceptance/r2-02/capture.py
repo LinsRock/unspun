@@ -56,6 +56,10 @@ with (
             ).hexdigest()
             for p in sorted(Path(unspun.__file__).parent.rglob("*.py"))
         }
+        out["config_sha256"] = {
+            p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(Path(settings.config_dir).glob("*.yml"))
+        }
         out["sources"] = [
             {"id": s.id, "max_items": s.max_items, "r1": s.r1.model_dump(mode="json")}
             for s in load_sources()
