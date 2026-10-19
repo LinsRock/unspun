@@ -1,0 +1,273 @@
+{
+  "schema_version": "r2-relationship-expectations-v1",
+  "reviewer_kind": "ai-technical",
+  "status": "frozen expectations, no R2 grouping implementation evaluated",
+  "cases": [
+    {
+      "id": "REL-01",
+      "candidate_ids": [
+        "R2-8881",
+        "R2-8888"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "cross_language_related_reporting_same_publisher",
+      "expectations": [
+        "Related coverage of the reported French protests; do not count BBC language editions as independent publishers.",
+        "Keep article identity and language-edition provenance; similarity is not a canonical identity proof."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8881",
+          "paragraph_index_zero_based": 6,
+          "quote": "法國人在星期日（10月18日）醒來時面對著遍地破壞的景象。此前一天發生暴動和示威，巴黎街頭店舖櫥窗被砸碎，汽車被燒毀，自行車燒焦，人行道上堆滿玻璃碎片和瓦礫。"
+        },
+        {
+          "candidate_id": "R2-8888",
+          "paragraph_index_zero_based": 0,
+          "quote": "France awoke to scenes of widespread damage on Sunday after a day of riots and demonstrations, with shopfronts shattered, burnt out cars, charred bikes, and piles of glass and debris on the pavements of Paris."
+        }
+      ]
+    },
+    {
+      "id": "REL-02",
+      "candidate_ids": [
+        "R2-8868",
+        "R2-8898"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "same_protest_coverage_reported_detail_change",
+      "expectations": [
+        "Related protest coverage with different report detail; video description remains description.",
+        "An increase in reported arrests is only a progress candidate with attributed evidence; do not manufacture an occurrence timestamp."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8868",
+          "paragraph_index_zero_based": 1,
+          "quote": "An estimated 550,000 people took part in protests across France, demanding greater investment in education and action on the rising cost of living."
+        },
+        {
+          "candidate_id": "R2-8898",
+          "paragraph_index_zero_based": 0,
+          "quote": "（巴黎综合电）因不满生活费高涨、公共服务退化，法国多座城市爆发大规模示威，部分地区局势失控冲突升级，演变为法国数十年来最严重暴乱之一。数百人受伤，被捕人数升至至少2000人，造成的经济损失难以估量。"
+        }
+      ]
+    },
+    {
+      "id": "REL-03",
+      "candidate_ids": [
+        "R2-8888",
+        "R2-8907"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "same_context_new_attributed_statement_candidate",
+      "expectations": [
+        "Macron statement can be a substantive statement candidate, with source attribution.",
+        "Original/occurrence time is not verified in these feed-only timestamps; no feed or observation time as confirmed progress time."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8888",
+          "paragraph_index_zero_based": 0,
+          "quote": "France awoke to scenes of widespread damage on Sunday after a day of riots and demonstrations, with shopfronts shattered, burnt out cars, charred bikes, and piles of glass and debris on the pavements of Paris."
+        },
+        {
+          "candidate_id": "R2-8907",
+          "paragraph_index_zero_based": 0,
+          "quote": "French President Emmanuel Macron has called for \"calm and order\" after a major day of protests turned into rioting and looting on Saturday, and as some disorder continued in Paris on Sunday."
+        }
+      ]
+    },
+    {
+      "id": "REL-04",
+      "candidate_ids": [
+        "R2-8879",
+        "R2-8899"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "same_investigation_with_distinct_attributed_analysis",
+      "expectations": [
+        "Retain the later article as independent analysis/context, not a duplicate to delete.",
+        "Do not infer a new investigation step merely from a new report or convert an interviewed observer opinion into fact."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8879",
+          "paragraph_index_zero_based": 1,
+          "quote": "中共中央纪委国家监委星期天（10月18日）在网站通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。"
+        },
+        {
+          "candidate_id": "R2-8899",
+          "paragraph_index_zero_based": 0,
+          "quote": "中国广西壮族自治区政协原副主席黄日波官宣被查，成为今年广西落马“首虎”。受访观察人士分析，这名无党派副省级官员在中共召开五中全会一周前落马，可能是官方在释放信息要进一步全面治理腐败，不仅对内全面从严治党，也对其他掌握公共资源的现任或退休党外官员全面整肃。"
+        }
+      ]
+    },
+    {
+      "id": "REL-05",
+      "candidate_ids": [
+        "R2-8878",
+        "R2-8905"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "same_base_candidate_with_conflicting_reported_dates",
+      "expectations": [
+        "Keep the September 17 versus October 17 conflict visible; grouping remains a candidate until resolved.",
+        "Do not certify a timeline or claimed casualty progression by silently replacing the earlier date."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8878",
+          "paragraph_index_zero_based": 1,
+          "quote": "新华社引述加拿大媒体报道，位于西部阿伯塔省（Alberta）首府埃德蒙顿东南约200公里处的温赖特军事基地，星期六（9月17日）晚上发生火灾。"
+        },
+        {
+          "candidate_id": "R2-8905",
+          "paragraph_index_zero_based": 1,
+          "quote": "路透社报道，这起发生在韦恩赖特加军基地（CFB Wainwright）的火灾始于当地星期六（10月17日）下午4时左右（新加坡时间18日早6时左右）。当时阵风风速高达每小时96公里，极大地加剧火势。目前共有39人在医院接受治疗。"
+        }
+      ]
+    },
+    {
+      "id": "REL-06",
+      "candidate_ids": [
+        "R2-8905",
+        "R2-8909"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "overlapping_canada_fire_reports",
+      "expectations": [
+        "Related coverage with shared reported casualties; no fresh progress solely because BBC is another source.",
+        "Retain different attributed details; report counts are not independent confirmation or user worth."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8905",
+          "paragraph_index_zero_based": 0,
+          "quote": "加拿大艾伯塔省一处军事基地在进行演习时发生草地火灾，并在强风助长下迅速蔓延，导致至少四名士兵死亡、39人受伤，其中19人情况危殆。"
+        },
+        {
+          "candidate_id": "R2-8909",
+          "paragraph_index_zero_based": 0,
+          "quote": "Four members of the Canadian military have died and dozens were injured in a major fire at a base in the province of Alberta."
+        }
+      ]
+    },
+    {
+      "id": "REL-07",
+      "candidate_ids": [
+        "R2-8886",
+        "R2-8893"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "headline_overlap_with_material_divergence",
+      "expectations": [
+        "Headline similarity is insufficient for one event: 8893 actual preview mentions diplomats and a mercenary inheritance, not the headline lead.",
+        "Register multi-topic/partial-material ambiguity. Do not fill missing Zelensky details from 8886 or the headline."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8886",
+          "paragraph_index_zero_based": 0,
+          "quote": "The Ukrainian leader is calling out the White House for relaxing pressure on Russia, drawing more ire."
+        },
+        {
+          "candidate_id": "R2-8893",
+          "paragraph_index_zero_based": 0,
+          "quote": "Plus, masked Israeli settlers attack a group of European diplomats, and a playboy inherits the world’s most notorious mercenary force."
+        }
+      ]
+    },
+    {
+      "id": "REL-08",
+      "candidate_ids": [
+        "R2-8847",
+        "R2-8872"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "related_west_bank_reports_episode_identity_uncertain",
+      "expectations": [
+        "Do not force event identity from location/settler keywords; diplomat delegation and olive-harvest description need incident/time evidence.",
+        "Media description does not establish watched footage or complete event coverage."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8847",
+          "paragraph_index_zero_based": 0,
+          "quote": "A delegation of European diplomats has been attacked by masked Israeli settlers in the occupied West Bank."
+        },
+        {
+          "candidate_id": "R2-8872",
+          "paragraph_index_zero_based": 1,
+          "quote": "The BBC has witnessed Israeli settlers attack Palestinians and set fire to olive trees in the occupied West Bank."
+        }
+      ]
+    },
+    {
+      "id": "REL-09",
+      "candidate_ids": [
+        "R2-8876",
+        "R2-8906"
+      ],
+      "split": "holdout",
+      "reviewer_kind": "ai-technical",
+      "relation": "same_person_distinct_bilateral_visits",
+      "expectations": [
+        "Keep Uzbekistan and Tajikistan meetings as distinct events despite the shared person and AI/energy terms.",
+        "A broader tour topic may relate them, without collapsing event identity or reported dates."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8876",
+          "paragraph_index_zero_based": 0,
+          "quote": "中国国务院总理李强访问乌兹别克斯坦期间，分别与乌总统米尔济约耶夫与总理阿里波夫会面，他呼吁中乌双方继续坚定支持彼此核心利益，并深化能源及人工智能（AI）等领域合作。"
+        },
+        {
+          "candidate_id": "R2-8906",
+          "paragraph_index_zero_based": 0,
+          "quote": "中国总理李强在访问中亚邻国塔吉克斯坦时说，中国愿同塔吉克斯坦深入对接发展战略，并说两国应当更加紧密团结协作，维护两国共同利益。"
+        }
+      ]
+    },
+    {
+      "id": "REL-10",
+      "candidate_ids": [
+        "R2-8861",
+        "R2-8893"
+      ],
+      "split": "regression",
+      "reviewer_kind": "ai-technical",
+      "relation": "partial_overlap_multi_topic_digest",
+      "expectations": [
+        "A digest mention can link to an individual mercenary story but does not make the whole digest identical.",
+        "Preserve multi-topic possibility and independent article identity; limited previews cannot certify full-document overlap."
+      ],
+      "evidence": [
+        {
+          "candidate_id": "R2-8861",
+          "paragraph_index_zero_based": 0,
+          "quote": "The son of Wagner Group’s late founder hangs on to an African stronghold, making a fortune from guns, drugs and gold."
+        },
+        {
+          "candidate_id": "R2-8893",
+          "paragraph_index_zero_based": 0,
+          "quote": "Plus, masked Israeli settlers attack a group of European diplomats, and a playboy inherits the world’s most notorious mercenary force."
+        }
+      ]
+    }
+  ],
+  "missing_real_cases": [
+    "verified exact reprint identity/chain",
+    "independently verified event-occurrence timestamp for feed-only sources",
+    "recently discovered long-term knowledge with verified old original publication"
+  ],
+  "legacy_boundaries": "Keep R1 and M3-B fixed regressions referenced by freeze-v1.json. Synthetic cases cannot stand in for missing real relationship quality."
+}

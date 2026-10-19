@@ -1,0 +1,141 @@
+{
+  "schema_version": "r2-01-freeze-v1",
+  "frozen_at": "2026-10-19T08:27:02.136840+00:00",
+  "base_revision": "24aaaa5416c2360dba20208c2fd5d6c989b04821",
+  "scope": "R2-01 only: read-only baseline. No R2-02+ runtime, prompts, scoring or model changes.",
+  "candidate_count": 30,
+  "regression_count": 20,
+  "holdout_count": 10,
+  "relationship_case_count": 10,
+  "reviewer_kind": "ai-technical",
+  "user_worth_and_interest_pending": true,
+  "user_omission_reference_count": null,
+  "comparison": {
+    "as_of": "2026-10-19T08:15:24.431532+00:00",
+    "input_material_source_and_model_versions": "Pinned inputs plus production source/config SHA-256 map; same material, metadata and processing fingerprints.",
+    "reader_preference": "Production reader_state version and existing ranking scores in production.json; do not mutate preference when comparing a pure algorithm change.",
+    "source_funnel": "Compare scheduled tasks, post-cap observations, distinct identities, current materials, attempted candidates, ready admissions, current published and served first page separately.",
+    "unrecoverable_baseline_metrics": [
+      "pre-max_items full list counts",
+      "actual browser impressions",
+      "user source-coverage recall",
+      "user worthwhile screening recall",
+      "user worthwhile display ratio"
+    ],
+    "holdout": "Related material families share one split. No tuning occurred; registry/technical review is not claimed to be blind. Later tuning must not repeatedly consume holdout.",
+    "legacy": "Preserve R1 material, evidence, timing, duplicate and recovery boundaries and original M3-B labels; do not reinterpret legacy importance or interest as R2 worth.",
+    "pass_expectations": "Preserve declared material scope, original/date/unknown time semantics, evidence/attribution, suspended-source gates and independent event identity. Missing real reprint/old-original/occurrence-time cases remain missing; not a claimed grouping score.",
+    "cost": "Same project 15/month, production 13.50, original cumulative evaluation 1.50, original models and unresolved holds; new provider read required before future paid work."
+  },
+  "files": [
+    {
+      "path": "docs/evaluations/r2/selection-v1.json",
+      "sha256": "293eafd904bfb9d4f0e7b220f3ed5f5af39435f3646ed3288e5b397bb68a848f"
+    },
+    {
+      "path": "docs/evaluations/r2/inputs-v1.json",
+      "sha256": "c6fc25a1061effaf2d1719f50399bc53ffa543d2a7d7e29ce9ea74e283dc3af5"
+    },
+    {
+      "path": "docs/evaluations/r2/technical-expectations-v1.json",
+      "sha256": "dd0ed384824f0c60dc206dbf95bd5c125ef6eea9cf5ed225a9df25bd87c63b6d"
+    },
+    {
+      "path": "docs/evaluations/r2/relations-v1.json",
+      "sha256": "dcf1af473dd741ab6203381668bae11ffb2662c52766c9cbe25a24ff97bcce67"
+    },
+    {
+      "path": "docs/evaluations/r2/before-change-v1.json",
+      "sha256": "731b98aa1c45f858a20723ec4bc8d2ae89be570ded595eb600ed301f04d387ae"
+    },
+    {
+      "path": "docs/evaluations/r2/user-review-v1.json",
+      "sha256": "e9533c906f9fdbc69fb9b7e9deceb200bf61a7af5053034523f82c9ae6b9f04c"
+    },
+    {
+      "path": "docs/acceptance/r2-01/production.json",
+      "sha256": "8c417961c3462dd04a8cd3f209ab3183b91bd4c20bbb76ca5c766d93deb00e7b"
+    },
+    {
+      "path": "docs/acceptance/r2-01/evaluation-ledger.json",
+      "sha256": "603a04276d49c7f1accf2c758a7dc37ed1981723c193343d1cf25b42121da84c"
+    },
+    {
+      "path": "docs/acceptance/r2-01/summary.json",
+      "sha256": "d7bdb5472ba31fd07c167d1ce56672ddd01422d5a97d6de7b204ca12a666722c"
+    },
+    {
+      "path": "docs/acceptance/r2-01/environment.json",
+      "sha256": "e53d17721503674d8525a1d4ec565d4a4d79e5c94ca651f9d0100e7cdb5574c2"
+    },
+    {
+      "path": "docs/acceptance/r2-01/deployment.json",
+      "sha256": "084664cb6c61e46a255ea450546a8f9e1595c46d9a6de517da5f95935d2ab9cc"
+    },
+    {
+      "path": "docs/acceptance/r2-01/capture.py",
+      "sha256": "6c7acfb1e497c1714d15563bb2bc67dff8f35f8c3cbeb40765c01c7a0471200e"
+    },
+    {
+      "path": "docs/research/r0-2026-10-15/candidates.json",
+      "sha256": "55e835ffa071c2f8e285e5682c47837a1f97505c3fba229b0456e9869fe6e36c"
+    },
+    {
+      "path": "docs/evaluations/r1/inputs-v1.json",
+      "sha256": "4b902face46bc6100f2aaf5e3713b880861ebb719336e37d433690131258965a"
+    },
+    {
+      "path": "docs/evaluations/r1/technical-suite-v1.json",
+      "sha256": "d7fa1c7f4b0650b9e2411b7aa9814effc947118eda1d4a5c093cbea58f3f6d9a"
+    },
+    {
+      "path": "docs/evaluations/r1/before-change-v1.json",
+      "sha256": "4f91bbc3a2919a855b89f1761a675fbdce2e590b6c336135dbaa270c432b769a"
+    },
+    {
+      "path": "docs/evaluations/r1/legacy-regression-v1.json",
+      "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3"
+    },
+    {
+      "path": "docs/evaluations/r1/reader-rules-v1.md",
+      "sha256": "6e3bb959930a95d8b4f35d45808c2d8f9d3785985a71f557916ff49e40d981c1"
+    },
+    {
+      "path": "docs/evaluations/r1/production-rollout-v2.json",
+      "sha256": "c95c724cde41b72620d030225c57b7eee5849901c54e6b913fd5406a8e19ff9c"
+    },
+    {
+      "path": "docs/evaluations/r1/source-observation-v1.json",
+      "sha256": "955e29153f5241c843ed8f155215e89c836c111f1637677efd2a138149239ea0"
+    },
+    {
+      "path": "docs/evaluations/m3b/annotations.json",
+      "sha256": "321eec16e1e23c1ef50aa0fb061a742b2358b4ce63938dbf65f0a3d3d69e97dc"
+    },
+    {
+      "path": "docs/evaluations/m3b/technical-annotations.json",
+      "sha256": "ec313c11ed370457a454672e64a448846c9a358c36fb66ea3d602d99a51fb25e"
+    },
+    {
+      "path": "docs/evaluations/m3b/technical-candidates.json",
+      "sha256": "77de72c9554f7357a57cc16175f14e08bf02d36c9382d71ab6350099dafebf1a"
+    },
+    {
+      "path": "config/sources.yml",
+      "sha256": "5e5a40628d4cf574c040b109787d3ee5ebfc3fa3bed61eed57dabbd0caa7cac0"
+    },
+    {
+      "path": "config/scoring.yml",
+      "sha256": "2f2099d10e0702d223453b7e1c738b62ad4c30696093feaece57601d5fac6dc8"
+    },
+    {
+      "path": "config/r1-reader.yml",
+      "sha256": "16aefedf76fd1c9c4e36fd5b4dd21378d9de3bc9705d87e8612ea3c6c215f90b"
+    },
+    {
+      "path": "config/media_groups.yml",
+      "sha256": "9a7c0ac391e163779e176f4f601faddb369cbb1ae25ed03d59b4c33c82d50071"
+    }
+  ],
+  "manifest_exclusions": "This manifest, narrative/board, and validation record are not recursive hash inputs. Material/input/expectation/holdout bytes listed above must not be overwritten; create a new version instead."
+}

@@ -1,0 +1,314 @@
+{
+  "schema_version": "r2-before-change-v1",
+  "base_revision": "24aaaa5416c2360dba20208c2fd5d6c989b04821",
+  "as_of": "2026-10-19T08:15:24.431532+00:00",
+  "scope": "Input contracts and existing deterministic fingerprints only. No new model outputs, grouping implementation, or subjective quality evaluation.",
+  "checks": [
+    {
+      "candidate_id": "R2-8844",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8847",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8861",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8868",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8869",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8872",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8874",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8876",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8877",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8878",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8879",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8881",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8886",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8888",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8893",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8896",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8898",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8899",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8900",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8902",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8904",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8905",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8906",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8907",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8909",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8910",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8916",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8919",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": false
+    },
+    {
+      "candidate_id": "R2-8923",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    },
+    {
+      "candidate_id": "R2-8926",
+      "input_contract_valid": true,
+      "current_main_processing_fingerprint_matches_production": true,
+      "cheap_exclusion_as_of_baseline": null,
+      "current_publication": true
+    }
+  ],
+  "recommended_ids": [
+    8926,
+    8902,
+    8923,
+    8918,
+    8906,
+    8904,
+    8898,
+    8882,
+    8881,
+    8873,
+    8903,
+    8875,
+    8874,
+    8896,
+    8894,
+    8885,
+    8883,
+    8880,
+    8908,
+    8892,
+    8879,
+    8876,
+    8891,
+    8877,
+    8925,
+    8921,
+    8917,
+    8924,
+    8871,
+    8872,
+    8922,
+    8899,
+    8870,
+    8868,
+    8905,
+    8897,
+    8895,
+    8887,
+    8884,
+    8911,
+    8878,
+    8920,
+    8901,
+    8893,
+    8886,
+    8861
+  ],
+  "latest_ids": [
+    8926,
+    8925,
+    8924,
+    8923,
+    8922,
+    8921,
+    8918,
+    8917,
+    8905,
+    8906,
+    8903,
+    8904,
+    8902,
+    8898,
+    8899,
+    8897,
+    8896,
+    8894,
+    8895,
+    8885,
+    8887,
+    8884,
+    8883,
+    8882,
+    8880,
+    8881,
+    8879,
+    8878,
+    8876,
+    8873,
+    8875,
+    8874,
+    8920,
+    8911,
+    8908,
+    8901,
+    8893,
+    8892,
+    8891,
+    8886,
+    8877,
+    8872,
+    8871,
+    8870,
+    8868,
+    8861
+  ]
+}
