@@ -1,0 +1,218 @@
+{
+  "schema_version": "r2-user-review-v1",
+  "reviewer_kind": null,
+  "omission_references": null,
+  "omission_reference_status": "not_provided",
+  "candidates": [
+    {
+      "candidate_id": "R2-8844",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8847",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8861",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8868",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8869",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8872",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8874",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8876",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8877",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8878",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8879",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8881",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8886",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8888",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8893",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8896",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8898",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8899",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8900",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8902",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8904",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8905",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8906",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8907",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8909",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8910",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8916",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8919",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8923",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    },
+    {
+      "candidate_id": "R2-8926",
+      "worth_reading_now": null,
+      "interest_1_to_5": null,
+      "reason": null,
+      "reviewed_at": null
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "observed_at": "2026-10-19T08:18:56.891401+00:00",
+  "health": {
+    "status": "ok",
+    "version": "8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+    "database": "ok"
+  },
+  "containers": [
+    {
+      "name": "unspun-api-1",
+      "image": "ghcr.io/linsrock/unspun-server:5586fe882df22a32841accbb59a7e1301e7932ba",
+      "status": "running",
+      "started_at": "2026-10-18T13:18:11.968334177Z",
+      "restart_count": 0
+    },
+    {
+      "name": "unspun-r1-worker-1",
+      "image": "ghcr.io/linsrock/unspun-server:5586fe882df22a32841accbb59a7e1301e7932ba",
+      "status": "running",
+      "started_at": "2026-10-18T13:18:12.513414457Z",
+      "restart_count": 0
+    },
+    {
+      "name": "unspun-web-1",
+      "image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+      "status": "running",
+      "started_at": "2026-10-18T13:18:12.21625531Z",
+      "restart_count": 0
+    }
+  ],
+  "published_ports": [
+    {
+      "name": "unspun-web-1",
+      "ports": "443/tcp, 2019/tcp, 443/udp, 127.0.0.1:8080->80/tcp"
+    },
+    {
+      "name": "unspun-r1-worker-1",
+      "ports": "8000/tcp"
+    },
+    {
+      "name": "unspun-api-1",
+      "ports": "8000/tcp"
+    },
+    {
+      "name": "unspun-rsshub-1",
+      "ports": "1200/tcp"
+    },
+    {
+      "name": "unspun-db-backup-1",
+      "ports": "5432/tcp"
+    },
+    {
+      "name": "unspun-db-1",
+      "ports": "5432/tcp"
+    },
+    {
+      "name": "unspun-edge-cloudflared-1",
+      "ports": ""
+    }
+  ],
+  "legacy_worker_running": 0,
+  "r1_worker_running": 1,
+  "operations": "Read-only docker ps/inspect and GET /api/health; no service restarts."
+}

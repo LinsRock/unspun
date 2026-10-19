@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-19T08:20:41.629418+00:00",
+  "base_revision": "24aaaa5416c2360dba20208c2fd5d6c989b04821",
+  "branch": "docs/r2-supply-baseline",
+  "worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-supply-baseline",
+  "python_executable": "/Users/li.cong/Documents/personal/unspun/server/.venv/bin/python",
+  "shared_environment_unqualified_import_observed": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-production-rollout/server/src/unspun/__init__.py",
+  "explicit_pythonpath": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-supply-baseline/server/src",
+  "actual_unspun_import": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-supply-baseline/server/src/unspun/__init__.py",
+  "production_source_files_compared": 82,
+  "production_source_hashes_match_current_main": true,
+  "production_config_hashes_match_current_main": true,
+  "config_sha256": {
+    "media_groups.yml": "9a7c0ac391e163779e176f4f601faddb369cbb1ae25ed03d59b4c33c82d50071",
+    "r1-reader.yml": "16aefedf76fd1c9c4e36fd5b4dd21378d9de3bc9705d87e8612ea3c6c215f90b",
+    "scoring.yml": "2f2099d10e0702d223453b7e1c738b62ad4c30696093feaece57601d5fac6dc8",
+    "sources.yml": "5e5a40628d4cf574c040b109787d3ee5ebfc3fa3bed61eed57dabbd0caa7cac0"
+  },
+  "initial_provider_capture_failure": {
+    "container": "unspun-api-1",
+    "reason": "API container has no provider credential. Empty Bearer header rejected locally before HTTP; capture repeated using existing worker credential without exposing it.",
+    "paid_calls": 0
+  },
+  "db_capture_modes": {
+    "production": {
+      "at": "2026-10-19 08:15:24.431532+00:00",
+      "database": "unspun",
+      "read_only": "on",
+      "isolation": "repeatable read"
+    },
+    "original_evaluation": {
+      "at": "2026-10-19 08:14:46.737028+00:00",
+      "database": "unspun_quality_r1_20261016",
+      "read_only": "on",
+      "isolation": "repeatable read"
+    }
+  },
+  "selected_capture_consistency": {
+    "at": "2026-10-19 08:16:50.067098+00:00",
+    "same_articles_materials_derivations_requests_config_and_source_hashes": true
+  },
+  "retained_evaluation_database": "unspun_quality_r1_20261016",
+  "new_migrated_test_database": "unspun_r2_baseline_tests_20261019",
+  "runtime_and_configuration_changes": []
+}
