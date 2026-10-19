@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-10-18T13:57:29.295Z",
+  "url": "https://unspun.farstrand.com/reading",
+  "expected_version": "8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+  "environment": "Headless Chromium, 390px viewport, existing valid Cloudflare Access cookie; no auth bypass or production mutations",
+  "passed": true,
+  "document_status": 200,
+  "destination": "https://unspun.farstrand.com/reading",
+  "actual_version": "8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+  "cards": 20,
+  "shared_contexts": [
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文解释",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 简介内容",
+    "AI 要点 · 简介内容",
+    "AI 要点 · 作者评价",
+    "AI 要点 · 简介内容",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 原文陈述",
+    "AI 要点 · 简介内容",
+    "AI 要点 · 简介内容"
+  ],
+  "icon_buttons": 40,
+  "horizontal_overflow": false,
+  "screenshot": "official-mobile.png",
+  "production_write_attempts": 0,
+  "browser_errors": [],
+  "previous_attempts": [
+    {
+      "checked_at": "2026-10-18T13:19:23.268Z",
+      "document_status": 200,
+      "passed": false,
+      "failure": "TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.r1-content-card').first() to be visible\u001b[22m"
+    }
+  ]
+}
