@@ -1,6 +1,6 @@
 # Unspun 重构实现方案草案
 
-状态：本文件保留 2026-10-15 方案建议；2026-10-16 用户已确认 [R1 实施设计](tasks/r1.md)，交付和验收流程以 [D-025](decisions.md)及 R1 任务为准。需求依据为[新版需求](requirement.md)和[产品定义](product-definition.md)。本方案保留现有工程基础，重做内容发现、组织、推荐和阅读的核心流程。
+状态：本文件保留 2026-10-15 方案建议及当时的代码现状，不作为当前已交付能力清单。R1 已按[最终用户验收](acceptance/r1-final-acceptance-2026-10-19.md)结案；2026-10-19 用户要求进入 R2 并完成第一步，当前接续以 [R2 实施设计](superpowers/specs/2026-10-19-r2-topics-and-recommendation-design.md)、[任务板](tasks/r2.md)和 [D-029](decisions.md)为准。R2 运行功能尚待实施，R3 未启动。需求依据为[新版需求](requirement.md)和[产品定义](product-definition.md)。本方案保留现有工程基础，重做内容发现、组织、推荐和阅读的核心流程。
 
 ## 实现目标
 
