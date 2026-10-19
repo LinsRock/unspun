@@ -24,7 +24,7 @@ from unspun.core.models import (
     ContentUrl,
 )
 from unspun.core.sources import Source
-from unspun.core.task_models import SourceState
+from unspun.core.task_models import DiscoveryBatch, SourceState
 from unspun.core.tasks import Lease, enqueue
 from unspun.pipeline.feeds import FeedEntry, fetch_bytes, make_client, parse_feed
 
@@ -79,6 +79,7 @@ class DiscoveryResult(ContentContract):
     observed_at: datetime
     response_fingerprint: str
     items: tuple[DiscoveryItem, ...]
+    scan_counts: dict[str, int] | None = None
 
 
 def _time(
@@ -279,7 +280,12 @@ def discover(
     data = fetch_bytes(client, str(source.url), source.timeout_seconds)
     if len(data) > 2 * 1024 * 1024:
         raise ValueError("feed exceeds discovery input bound")
-    entries = parse_feed(data, str(source.url))[: source.max_items or 50]
+    counts: dict[str, int] | None = {} if source.r1.quotas else None
+    entries = (
+        parse_feed(data, str(source.url), limit=source.scan_limit, counts=counts, deduplicate=False)
+        if counts is not None
+        else parse_feed(data, str(source.url))[: source.scan_limit]
+    )
     items: list[DiscoveryItem] = []
     for index, entry in enumerate(entries, 1):
         # Invalid entries remain outside the fetch graph, never interpreted as code.
@@ -294,6 +300,9 @@ def discover(
         observed_at=now or datetime.now(UTC),
         response_fingerprint=fingerprint(data.hex()),
         items=tuple(items),
+        scan_counts={**counts, "valid": len(items), "adapter_duplicates": 0}
+        if counts is not None
+        else None,
     )
 
 
@@ -343,6 +352,33 @@ def persist_discovery(
 ) -> dict[str, Any]:
     if source.r1 is None or result.source_id != source.id:
         raise ValueError("discovery source mismatch")
+    if source.r1.quotas and len(result.items) > source.scan_limit:
+        raise ValueError("discovery result exceeds configured scan bound")
+    batch: DiscoveryBatch | None = None
+    if source.r1.quotas:
+        from unspun.pipeline.discovery_quotas import VERSION, selection_lock
+
+        selection_lock(session)
+        batch = session.scalar(
+            select(DiscoveryBatch).where(
+                DiscoveryBatch.source_id == source.id, DiscoveryBatch.cycle_key == cycle
+            )
+        )
+        if batch is not None:
+            return {**batch.counters, "batch_id": batch.id, "replayed": True}
+        batch = DiscoveryBatch(
+            source_id=source.id,
+            cycle_key=cycle,
+            version=VERSION,
+            observed_at=result.observed_at,
+            quotas=source.r1.quotas.model_dump(),
+            counters={},
+            material_tasks=[],
+            paid_outcomes={},
+        )
+        session.add(batch)
+        session.flush()
+    candidates: dict[int, tuple[Article, dict[str, Any], str | None]] = {}
     keys = {
         key
         for item in result.items
@@ -435,6 +471,10 @@ def persist_discovery(
                     external_id=item.identity_value,
                 )
             )
+        if batch is not None and article.id in candidates:
+            # Keep every URL alias, but the first valid entry owns this scan's
+            # snapshot and selection. Repeated list positions cannot undo it.
+            continue
         # A new discovery channel is an observation, not authority to replace the
         # canonical title/byline/date of an already observed object.
         snapshot = {
@@ -491,7 +531,7 @@ def persist_discovery(
             )
             .on_conflict_do_nothing(constraint="uq_content_observation")
         )
-        if source.r1.material:
+        if source.r1.material or batch is not None:
             payload = {
                 "source_id": source.id,
                 "discovery_version": observation_version(
@@ -506,6 +546,18 @@ def persist_discovery(
                 "source_excerpt": item.source_excerpt,
                 "provided_truncated": item.provided_truncated,
             }
+            if batch is not None:
+                from unspun.pipeline.discovery_quotas import metadata_exclusion
+
+                candidates.setdefault(
+                    article.id,
+                    (
+                        article,
+                        payload,
+                        metadata_exclusion(source, item.metadata, url, result.observed_at),
+                    ),
+                )
+                continue
             enqueue(
                 session,
                 queue="material",
@@ -518,12 +570,34 @@ def persist_discovery(
                 cycle_key=str(int(result.observed_at.timestamp()) // 3600),
                 payload=payload,
             )
+    if batch is not None:
+        from unspun.pipeline.discovery_quotas import select_materials, select_processing
+
+        batch.counters = {
+            "version": batch.version,
+            "source_id": source.id,
+            "items": len(result.items),
+            "scan": result.scan_counts,
+            "distinct_candidates": len(candidates),
+            "new_candidates": created,
+            "known_candidates": len(candidates) - created,
+            "identity_duplicates": len(result.items) - len(candidates),
+            "paid_counts": {},
+        }
+        select_materials(session, source, batch, list(candidates.values()))
+        for article, _, _ in candidates.values():
+            if article.current_material_id:
+                select_processing(session, source, batch, article.id)
     state = session.get(SourceState, source.id)
     if state:
         state.last_item_count = len(result.items)
         if created:
             state.last_new_item_at = result.observed_at
-    return {"source_id": source.id, "items": len(result.items), "new_candidates": created}
+    return (
+        {**batch.counters, "batch_id": batch.id, "replayed": False}
+        if batch is not None
+        else {"source_id": source.id, "items": len(result.items), "new_candidates": created}
+    )
 
 
 class DiscoveryHandler:

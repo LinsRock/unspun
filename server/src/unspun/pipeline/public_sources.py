@@ -115,21 +115,26 @@ def discover_public(
     response = get_page(client, str(source.url), source)
     response.raise_for_status()
     items: list[DiscoveryItem] = []
+    listed = scanned = duplicates = 0
     seen: set[str] = set()
     if config.adapter == "netease":
         top = TextPage(response.text).by_id("js_top_news")
         if top is None:
             raise ValueError("NetEase current headline container is missing")
-        for node in _nodes(top):
-            if node.tag != "a":
-                continue
+        links = [node for node in _nodes(top) if node.tag == "a"]
+        listed = len(links)
+        for node in links[: source.scan_limit] if config.quotas else links:
+            scanned += 1
             value = urljoin(str(response.url), node.attrs.get("href", ""))
             parts = urlsplit(value)
             match = re.fullmatch(r"/(?:news|dy)/article/([A-Z0-9]{16})\.html", parts.path)
             if parts.hostname not in {"www.163.com", "news.163.com"} or not match:
                 continue
             identity, title = match[1], node.text().strip()
-            if identity in seen or not title or len(title) > 1000:
+            if not title or len(title) > 1000:
+                continue
+            if identity in seen:
+                duplicates += 1
                 continue
             seen.add(identity)
             items.append(
@@ -167,11 +172,13 @@ def discover_public(
                 )
         else:
             raise ValueError("unsupported public source adapter")
-        for group, row in rows:
+        listed = len(rows)
+        for group, row in rows[: source.scan_limit] if config.quotas else rows:
+            scanned += 1
             try:
                 identity = str(row.get("contId" if config.adapter == "thepaper" else "id", ""))
                 title = _text(row.get("name" if config.adapter == "thepaper" else "title"))
-                if not title or identity in seen:
+                if not title:
                     continue
                 if config.adapter == "thepaper":
                     if not identity.isdigit() or str(row.get("isOutForward", "0")) != "0":
@@ -243,6 +250,9 @@ def discover_public(
                     )
             except (ValueError, TypeError, AttributeError):
                 continue
+            if identity in seen:
+                duplicates += 1
+                continue
             seen.add(identity)
             items.append(item)
     if not items:
@@ -251,7 +261,15 @@ def discover_public(
         source_id=source.id,
         observed_at=now,
         response_fingerprint=fingerprint(response.content.hex()),
-        items=tuple(items[: source.max_items or 50]),
+        items=tuple(items[: source.scan_limit]),
+        scan_counts={
+            "listed": listed,
+            "scanned": scanned,
+            "valid": len(items) + duplicates,
+            "adapter_duplicates": duplicates,
+        }
+        if config.quotas
+        else None,
     )
 
 

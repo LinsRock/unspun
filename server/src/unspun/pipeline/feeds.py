@@ -55,11 +55,21 @@ def fetch_bytes(client: httpx.Client, url: str, timeout_seconds: int | None = No
     return resp.content
 
 
-def parse_feed(data: bytes, base_url: str | None = None) -> list[FeedEntry]:
+def parse_feed(
+    data: bytes,
+    base_url: str | None = None,
+    *,
+    limit: int | None = None,
+    counts: dict[str, int] | None = None,
+    deduplicate: bool = True,
+) -> list[FeedEntry]:
     parsed = feedparser.parse(data)
+    rows = parsed.entries if limit is None else parsed.entries[:limit]
+    if counts is not None:
+        counts.update(listed=len(parsed.entries), scanned=len(rows))
     entries: list[FeedEntry] = []
     seen: set[str] = set()
-    for e in parsed.entries:
+    for e in rows:
         url = e.get("link")
         title = e.get("title")
         if not url or not title:
@@ -72,7 +82,7 @@ def parse_feed(data: bytes, base_url: str | None = None) -> list[FeedEntry]:
                 # e.g. "Invalid IPv6 URL"; one malformed link must not kill the feed.
                 log.warning("malformed_entry_url_skipped", url=url)
                 continue
-        if url in seen:
+        if deduplicate and url in seen:
             continue
         seen.add(url)
         if not is_http_url(url):

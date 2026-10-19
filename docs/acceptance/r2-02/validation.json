@@ -1,0 +1,65 @@
+{
+  "schema_version": "r2-02-validation-v2",
+  "base_revision": "d4df296",
+  "worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-scan-quotas",
+  "actual_import": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-scan-quotas/server/src/unspun/__init__.py",
+  "new_migrated_test_database": "unspun_r2_scan_tests_20261019",
+  "schema": "000016",
+  "checks": {
+    "baseline_pytest": {
+      "passed": 876,
+      "skipped": 0
+    },
+    "full_pytest": {
+      "passed": 898,
+      "skipped": 0,
+      "seconds": 15.87,
+      "log_sha256": "bdf56a8f4de29f4297c16362eb5fb94cdf21ecf1a8dd5047e5fc36afa9e943ee"
+    },
+    "new_quota_cases": 22,
+    "final_affected_tests": 63,
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "pyright": "0 errors, 0 warnings",
+    "legacy_ranking": {
+      "cases": 40,
+      "passed": true,
+      "issues": 0,
+      "report_sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3"
+    },
+    "deployment_safety_unittest": {
+      "passed": 17,
+      "log_sha256": "4c526eb6efc88f0fd56d1b46c3f07a3eb7e255ba7e950f95dae7dfb283f80bed"
+    },
+    "local_markdown_links": 71,
+    "v1_frozen_target_hashes": 27,
+    "unchanged_current_files": 26,
+    "frozen_source_config_verified_at_original_revision": true,
+    "frozen_input_processing_fingerprints": 30,
+    "source_stage_scope_period_model_budget_changes": 0,
+    "source_quota_only_changes": 8,
+    "new_paid_evaluation_calls": 0,
+    "diff_whitespace": "passed"
+  },
+  "ci_scope": {
+    "server": "true",
+    "web": "false",
+    "prototype": "false",
+    "deploy": "true",
+    "server_image": "true",
+    "web_image": "false",
+    "release": "true"
+  },
+  "review": {
+    "kind": "AI diff and affected caller review",
+    "scope": "Discovery adapters and legacy feed callers, aliases/canonical identities, observation fencing, quota receipts, materials and card enqueuing, task completion/recovery, budget logical-call reuse. No prompt, ranking, API or page changes.",
+    "fixes": [
+      "Alternate one-slot refresh/new queues to avoid either starving",
+      "Count valid duplicates after adapter validation",
+      "Do not treat page-enriched metadata as a new list observation",
+      "Key paid outcomes by processing fingerprint",
+      "Retain schema and receipts on application rollback"
+    ]
+  },
+  "deployment_status": "Pre-PR evidence only; see final PR checks and postdeployment evidence."
+}

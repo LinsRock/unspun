@@ -33,6 +33,17 @@ Kind = Literal[
 RSSHUB_SCHEME = "rsshub://"
 
 
+class DiscoveryQuotas(BaseModel):
+    """Per scheduled discovery: logical slots, never network retry allowances."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    scan: int = Field(ge=1, le=200)
+    material: int = Field(ge=0, le=200)
+    paid: int = Field(ge=0, le=200)
+    recheck_seconds: int = Field(default=86400, ge=60, le=2592000)
+
+
 class R1Source(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
@@ -51,6 +62,7 @@ class R1Source(BaseModel):
     origin_hosts: tuple[str, ...] = ()
     capability: str = "unverified"
     version: str = "r1-discovery-v1"
+    quotas: DiscoveryQuotas | None = None
 
     def allows_paid(self, scope: str) -> bool:
         return self.paid and (self.paid_scopes is None or scope in self.paid_scopes)
@@ -77,6 +89,10 @@ class Source(BaseModel):
     # longer than a plain feed; sources that need it override the client
     # default here.
     timeout_seconds: Annotated[int, Field(gt=0)] | None = None
+
+    @property
+    def scan_limit(self) -> int:
+        return self.r1.quotas.scan if self.r1 and self.r1.quotas else self.max_items or 50
 
     @model_validator(mode="after")
     def single_owner(self) -> "Source":

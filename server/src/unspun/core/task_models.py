@@ -113,3 +113,20 @@ class SourceState(Base):
     last_success_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     last_new_item_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     last_item_count: Mapped[int | None]
+
+
+class DiscoveryBatch(Base):
+    """R2 opt-in receipts; historical discovery totals remain unavailable."""
+
+    __tablename__ = "discovery_batches"
+    __table_args__ = (UniqueConstraint("source_id", "cycle_key", name="uq_discovery_batch"),)
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    source_id: Mapped[str] = mapped_column(Text, index=True)
+    cycle_key: Mapped[str] = mapped_column(Text)
+    version: Mapped[str] = mapped_column(Text)
+    observed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    quotas: Mapped[dict[str, Any]] = mapped_column(JSONB)
+    counters: Mapped[dict[str, Any]] = mapped_column(JSONB)
+    material_tasks: Mapped[list[int]] = mapped_column(JSONB)
+    paid_outcomes: Mapped[dict[str, Any]] = mapped_column(JSONB)
