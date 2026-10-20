@@ -1,0 +1,84 @@
+{
+  "version": "r2-03-delivery-v1",
+  "checked_at": "2026-10-20T03:26:36.160754+00:00",
+  "implementation_pr": "https://github.com/LinsRock/unspun/pull/106",
+  "implementation_commit": "6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93",
+  "merged_at": "2026-10-20T03:20:13Z",
+  "pr_ci": "https://github.com/LinsRock/unspun/actions/runs/39363378021",
+  "main_ci": "https://github.com/LinsRock/unspun/actions/runs/39363758658",
+  "deployment_job_url": "https://github.com/LinsRock/unspun/actions/runs/39363758658/job/118436723860",
+  "checks": {
+    "pr_required_checks_passed": true,
+    "main_ci_passed": true,
+    "actual_deploy_step_succeeded": true,
+    "health_version_matches_target": true,
+    "schema_head_matches": true,
+    "both_indexes_present": true,
+    "api_and_worker_sources_match": true,
+    "configs_unchanged": true,
+    "server_images_match_target": true,
+    "server_image_ids_match": true,
+    "web_image_reused": true,
+    "legacy_worker_zero": true,
+    "controlled_worker_one": true,
+    "only_loopback_8080_published": true,
+    "source_quotas_models_policy_unchanged": true,
+    "published_ids_preserved": true,
+    "recommended_and_latest_pages_preserved": true,
+    "suspended_source_still_404": true,
+    "reading_created_no_tasks": true,
+    "all_db_probes_read_only": true,
+    "evaluation_ledger_unchanged": true
+  },
+  "source_files_verified": 84,
+  "config_files_verified": 4,
+  "published_contents": 95,
+  "component_images": {
+    "unspun-api-1": "ghcr.io/linsrock/unspun-server:6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93",
+    "unspun-r1-worker-1": "ghcr.io/linsrock/unspun-server:6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93",
+    "unspun-web-1": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486"
+  },
+  "cost": {
+    "provider_usage_at_observation": 9.31817401,
+    "provider_usage_after_deployment": 9.31817401,
+    "provider_change_since_observation": "0E-8",
+    "provider_balance": 5.68182599,
+    "production_unknown_requests": 0,
+    "production_reserved_usd": "0",
+    "evaluation_unknown_requests": 7,
+    "evaluation_reserved_usd": "0.484867000000",
+    "paid_evaluation_calls": 0,
+    "manual_production_tasks": 0
+  },
+  "verification_log_sha256": {
+    "pr": "41a6c97ab9e7336675f6769797c1412315c30b412728ba28862626fe8093627f",
+    "main": "74dc1afb56981913d36649b4072c137f3570ad146177a0a85e47c129a7c623dc"
+  },
+  "remaining": [
+    "Unchanged-metadata 24-hour rechecks, sustained quota alternation and long-term supply remain only partially observed.",
+    "Three natural card failures and missing subjective ratings remain recorded; no manual retry or paid evaluation performed.",
+    "Coordinating session arranges related CL-00 inventory and CL-01 retirement; later R2/R3 and cleanup were not executed."
+  ],
+  "documentation_followup": {
+    "scope": "deployment evidence and R2-03 board completion only; no runtime changes",
+    "expected_ci_scope": {
+      "server": "false",
+      "web": "false",
+      "prototype": "false",
+      "deploy": "false",
+      "server_image": "false",
+      "web_image": "false",
+      "release": "false"
+    },
+    "ci_scope": {
+      "server": "false",
+      "web": "false",
+      "prototype": "false",
+      "deploy": "false",
+      "server_image": "false",
+      "web_image": "false",
+      "release": "false"
+    },
+    "local_links_checked": 37
+  }
+}

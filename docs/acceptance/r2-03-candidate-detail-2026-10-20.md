@@ -32,4 +32,10 @@ Ruff、格式、Pyright、旧 40 案例排序、部署/CI 测试通过；API 调
 
 ## PR 与实际部署
 
-本地验证记录随实现 PR 提交；实际 PR/CI、合并提交、迁移和目标运行版本核对完成后在此补录。未取得生产运行证据前不以本地通过代替部署成功。
+[PR #106](https://github.com/LinsRock/unspun/pull/106) 于 `2026-10-20 03:20:13 UTC` 合并为 `6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93`（实现提交 `e2be6cc`）。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39363378021) 与[主干 CI/发布](https://github.com/LinsRock/unspun/actions/runs/39363758658) 均成功，必需检查通过；两次后端各 946 项，前端 101 项及 PWA 离线检查通过。主干实际执行 `Deploy`，于 `03:25:01 UTC` 健康检查通过，不以跳过发布记成功。[PR](r2-03/pr-ci.json)/[main](r2-03/main-ci.json) 的任务和步骤结果保留。
+
+`2026-10-20T03:26:09.340915+00:00` 的[运行探针](r2-03/deployment.json)确认 API 与受控 worker 使用同一固定 `6f4fe4f…` server 镜像，web 复用 `8dd144b…`，`APP_VERSION`/health 对应本次运行发布。API 与 worker 的 **84** 个 Python 文件、**4** 份配置逐字节匹配；schema **000017**、两个新索引实存，原来源/材料/配额/模型/预算保持。legacy worker **0**、受控 worker **1**，唯一主机端口仍 `127.0.0.1:8080`。没有手改线上容器、配置或业务数据。
+
+[部署前](r2-03/predeploy-reading.json)/[后](r2-03/postdeploy-reading.json)的生产镜像只读重放均为 **95** 个公开对象，集合、推荐/最新前两页相同，NYT 停源内容 404，读取没有新增任务；这是部署代码路径核验，未冒充外部鉴权浏览器或用户体验验收。[部署后生产摘要](r2-03/postdeploy-production.json)保留运行版本、配置和账务；详细自然轮次仍引用首次原始截面，避免复制一份相同收据。[评测复核](r2-03/postdeploy-evaluation.json)保持七笔未知及 `0.484867` 预留。
+
+[交付断言](r2-03/delivery.json)全部通过；提供方 usage 仍 `9.31817401`、余额 `5.68182599`，相对首次自然观察新增费用 **0**。自然轮次已有 `0.0681814` 费用保留，R2-03 新增付费评测 **0**。部署证据通过同批文档补录 PR 合入，运行版本保持本次代码发布，不把后续纯文档提交当作再次部署。
