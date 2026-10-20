@@ -1,0 +1,132 @@
+{
+  "checked_at": "2026-10-20T08:24:34.708533+00:00",
+  "base_revision": "b5f812c7c66d2dd185d9046e21c2c8c413e1b26f",
+  "database": "unspun_r205_tests_20261020",
+  "schema": "000018",
+  "baseline_passed": 942,
+  "full_regression_passed": 982,
+  "topic_passed": 40,
+  "skipped": 0,
+  "ruff_check": "passed",
+  "ruff_format": "166 files already formatted",
+  "pyright": "0 errors, 0 warnings",
+  "alembic_check": "No new upgrade operations detected",
+  "legacy_ranking": {
+    "passed": true,
+    "events": 40,
+    "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3",
+    "existing_identical_report": "docs/acceptance/r2-04/legacy-ranking.json",
+    "new_live_model_calls": 0
+  },
+  "deploy_tests": 18,
+  "ci_scope_tests": 11,
+  "frozen_files": 27,
+  "protected_config_r204_r2_files": 52,
+  "ci_scope": {
+    "server": "true",
+    "web": "false",
+    "prototype": "false",
+    "deploy": "false",
+    "server_image": "true",
+    "web_image": "false",
+    "release": "true"
+  },
+  "paid_requests": 0,
+  "manual_production_tasks": 0,
+  "new_topic_rows_in_production": "pending postdeploy SELECT",
+  "review": {
+    "kind": "self-review of final diff and affected callers",
+    "areas": [
+      "canonical identity/aliases, material ownership and current R1 qualification",
+      "member and update revision/history, topic CAS and replay after removal",
+      "source/material/model-contract input fingerprints and stale results",
+      "long-lived ORM cache refresh and transaction rollback",
+      "additive migration, retained old ledgers/unknown holds, full dump restore",
+      "existing content reading, API, reader interests/feedback, queue/billing boundaries",
+      "retired worker and R2-04 container/worktree/raw evidence protection"
+    ],
+    "fixes": [
+      "refresh cached ORM members/material/derivations before live dependency validation"
+    ],
+    "remaining": "PR/CI and production deploy verification"
+  },
+  "logs": {
+    "baseline": {
+      "sha256": "5ab7fe3d94acdfc38f2c3a7bf9ee956e7ad74e5bae890a23ffe6fbf0f972d792",
+      "path": "docs/acceptance/r2-05/logs/baseline.log.gz"
+    },
+    "topic-tests": {
+      "sha256": "4e603b324d9e7d2a463fb71ba0d0d67de4a9afabeeefad8e69e1cae5155ab81d",
+      "path": "docs/acceptance/r2-05/logs/topic-tests.log.gz"
+    },
+    "topic-tests-v2": {
+      "sha256": "46f73a4b24f9d54f3ea3d79d500d6b2863cf5e5bbbf5dbe2b3e6b0de3067d934",
+      "path": "docs/acceptance/r2-05/logs/topic-tests-v2.log.gz"
+    },
+    "topic-tests-v3": {
+      "sha256": "47d067bf326730a8746f8bc27e276dafd10ef66bd827500577d6e8976e263539",
+      "path": "docs/acceptance/r2-05/logs/topic-tests-v3.log.gz"
+    },
+    "regression": {
+      "sha256": "80a5b4a21fbe66aa66611196e3d71431b2be115a9d2e367e8b52a5c1df54c91c",
+      "path": "docs/acceptance/r2-05/logs/regression.log.gz"
+    },
+    "regression-v2": {
+      "sha256": "ddb2402840f935f264d8c3ef241ae4bfe00fed9b875505a75a8c352066ca7ac3",
+      "path": "docs/acceptance/r2-05/logs/regression-v2.log.gz"
+    },
+    "pyright": {
+      "sha256": "6d88a1b220adb7a3d62092b6e38431f0b3fe8babe9864fab90e5849766260332",
+      "path": "docs/acceptance/r2-05/logs/pyright.log.gz"
+    },
+    "pyright-v2": {
+      "sha256": "6d88a1b220adb7a3d62092b6e38431f0b3fe8babe9864fab90e5849766260332",
+      "path": "docs/acceptance/r2-05/logs/pyright-v2.log.gz"
+    },
+    "final-pyright": {
+      "sha256": "6d88a1b220adb7a3d62092b6e38431f0b3fe8babe9864fab90e5849766260332",
+      "path": "docs/acceptance/r2-05/logs/final-pyright.log.gz"
+    },
+    "deploy-tests": {
+      "sha256": "45c7c06fb69901e98283d0f647e137d96143e2b17fc657addfa5265bedf81561",
+      "path": "docs/acceptance/r2-05/logs/deploy-tests.log.gz"
+    },
+    "ci-tests": {
+      "sha256": "33787e6db795a3a1fbe6c27eab96360821d4b29cf0a7306fe159e60596457e8e",
+      "path": "docs/acceptance/r2-05/logs/ci-tests.log.gz"
+    },
+    "recovery": {
+      "sha256": "69f53e07543ab40fef7ecfa88339fb39290500cb045f0b2f115b6053548baa7a",
+      "path": "docs/acceptance/r2-05/logs/recovery.log.gz"
+    },
+    "recovery-v2": {
+      "sha256": "69f53e07543ab40fef7ecfa88339fb39290500cb045f0b2f115b6053548baa7a",
+      "path": "docs/acceptance/r2-05/logs/recovery-v2.log.gz"
+    },
+    "image-build": {
+      "sha256": "a3dce9042655e043b6255c61a3a82f50b668ad8041d75be1a21793de7611485d",
+      "path": "docs/acceptance/r2-05/logs/image-build.log.gz"
+    },
+    "image-final": {
+      "sha256": "ef7a046dbf08f3f9438dd20fe15617b184c2ec1068afdf51827a41c1dc25b577",
+      "path": "docs/acceptance/r2-05/logs/image-final.log.gz"
+    },
+    "production-restore": {
+      "sha256": "b60ce451f3aa96ebb0dcd97f1f9d1c01b6bd31833a5f281e41747fced7738b6f",
+      "path": "docs/acceptance/r2-05/logs/production-restore.log.gz"
+    },
+    "topic-final": {
+      "path": "docs/acceptance/r2-05/logs/topic-final.log.gz",
+      "sha256": "24aafbb0c3ab869e4d3ebca041eed2b26af2b09112968e7809f99fe01d0abd40"
+    }
+  },
+  "production_backup_restore": {
+    "old_tables_preserved": 28,
+    "qualified_details_preserved": 113,
+    "schema_before": "000017",
+    "schema_after": "000018",
+    "paid_requests": 0
+  },
+  "markdown_links_checked": 79,
+  "english_only_changed_code_and_root_docs": "passed"
+}

@@ -1,0 +1,473 @@
+{
+  "source": "unspun_r205_recovery_v2_20261020",
+  "restored": "unspun_r205_restored_v2_20261020",
+  "new_paid_requests": 0,
+  "production_mutations": 0,
+  "upgrade": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "old_rows_unchanged_by_upgrade": true,
+  "repeat_upgrade": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "downgrade": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/__main__.py\", line 4, in <module>\n    main(prog=\"alembic\")\n    ~~~~^^^^^^^^^^^^^^^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/config.py\", line 1039, in main\n    CommandLine(prog=prog).main(argv=argv)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/config.py\", line 1029, in main\n    self.run_cmd(cfg, options)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/config.py\", line 963, in run_cmd\n    fn(\n    ~~^\n        config,\n        ^^^^^^^\n        *[getattr(options, k, None) for k in positional],\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        **{k: getattr(options, k, None) for k in kwarg},\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/command.py\", line 534, in downgrade\n    script.run_env()\n    ~~~~~~~~~~~~~~^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/script/base.py\", line 550, in run_env\n    util.load_python_file(self.dir, \"env.py\")\n    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/util/pyfiles.py\", line 114, in load_python_file\n    module = load_module_py(module_id, path)\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/util/pyfiles.py\", line 132, in load_module_py\n    spec.loader.exec_module(module)  # type: ignore\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/alembic/env.py\", line 40, in <module>\n    run_migrations_online()\n    ~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/alembic/env.py\", line 34, in run_migrations_online\n    context.run_migrations()\n    ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"<string>\", line 8, in run_migrations\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/runtime/environment.py\", line 970, in run_migrations\n    self.get_context().run_migrations(**kw)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/.venv/lib/python3.13/site-packages/alembic/runtime/migration.py\", line 616, in run_migrations\n    step.migration_fn(**kw)\n    ~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation/server/alembic/versions/20261020_000018_topic_foundation.py\", line 184, in downgrade\n    raise RuntimeError(\n    ...<2 lines>...\n    )\nRuntimeError: Topic history must be retained; use a schema-compatible image or restore into a separate database\n"
+  },
+  "downgrade_failed_closed_with_all_rows_retained": true,
+  "backup": {
+    "path": "/Users/li.cong/.cache/unspun-r205-20261020/retained-v2-schema-000018.dump",
+    "bytes": 114508,
+    "sha256": "c5400a89c5d2f2c7b8fb49b456bcd03fd8cd9fb53479a93fdf3689e6f174d933"
+  },
+  "restored_upgrade": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "snapshot_before": {
+    "tables": {
+      "alembic_version": {
+        "rows": 1,
+        "hash": "279d0885385bd370daafee685baed711"
+      },
+      "articles": {
+        "rows": 3,
+        "hash": "a0db5909851f9d43ea5f94258744127a"
+      },
+      "billed_requests": {
+        "rows": 1,
+        "hash": "295d0ad01f841bb7304db60309ae99cb"
+      },
+      "budget_carry": {
+        "rows": 0,
+        "hash": null
+      },
+      "budget_policy": {
+        "rows": 1,
+        "hash": "008ab38475e4a79c3d95041a98be6ecf"
+      },
+      "content_derivations": {
+        "rows": 6,
+        "hash": "bcbdcc7962724a0e09e753bae4c00a5d"
+      },
+      "content_feedback": {
+        "rows": 1,
+        "hash": "7a19ac6fa7878a9ce13006847a33fdd9"
+      },
+      "content_identities": {
+        "rows": 0,
+        "hash": null
+      },
+      "content_materials": {
+        "rows": 2,
+        "hash": "1de75b64989a71b6c4bcf9dbaa703f2c"
+      },
+      "content_observations": {
+        "rows": 0,
+        "hash": null
+      },
+      "content_urls": {
+        "rows": 0,
+        "hash": null
+      },
+      "digests": {
+        "rows": 1,
+        "hash": "15ae5c4b37a05f45340f2c520de1343a"
+      },
+      "discovery_batches": {
+        "rows": 0,
+        "hash": null
+      },
+      "event_viewpoints": {
+        "rows": 0,
+        "hash": null
+      },
+      "events": {
+        "rows": 1,
+        "hash": "a23b30fa58d6e9e1800ec27b68dec166"
+      },
+      "expense_audit": {
+        "rows": 0,
+        "hash": null
+      },
+      "expense_entries": {
+        "rows": 0,
+        "hash": null
+      },
+      "expense_rules": {
+        "rows": 0,
+        "hash": null
+      },
+      "feed_preferences": {
+        "rows": 0,
+        "hash": null
+      },
+      "fetch_logs": {
+        "rows": 0,
+        "hash": null
+      },
+      "fx_rates": {
+        "rows": 0,
+        "hash": null
+      },
+      "llm_usage": {
+        "rows": 1,
+        "hash": "4bd81c3f20f422b305d22f62979bba11"
+      },
+      "pipeline_runs": {
+        "rows": 0,
+        "hash": null
+      },
+      "pipeline_tasks": {
+        "rows": 1,
+        "hash": "874158ddd78b6e61d4ac7fb2f05c9850"
+      },
+      "reader_changes": {
+        "rows": 0,
+        "hash": null
+      },
+      "reader_interests": {
+        "rows": 1,
+        "hash": "e731be8f9ec4bfc05f98f6ba05d7d823"
+      },
+      "reader_state": {
+        "rows": 0,
+        "hash": null
+      },
+      "source_states": {
+        "rows": 0,
+        "hash": null
+      },
+      "task_attempts": {
+        "rows": 0,
+        "hash": null
+      },
+      "topic_changes": {
+        "rows": 10,
+        "hash": "1c1d2ec8208691612742b6a993a9ba24"
+      },
+      "topic_derivations": {
+        "rows": 2,
+        "hash": "670a9ae75b3bf8f54523938e8967f562"
+      },
+      "topic_members": {
+        "rows": 2,
+        "hash": "0a5cfd29e4c1cc9f363ed8a6fab67291"
+      },
+      "topic_updates": {
+        "rows": 3,
+        "hash": "2d9aee142061575e1b879442db4bf9d7"
+      },
+      "topics": {
+        "rows": 1,
+        "hash": "c7b974ef22280621e95c0773a8a01b56"
+      }
+    },
+    "sequences": [
+      {
+        "sequencename": "articles_id_seq",
+        "last_value": 3
+      },
+      {
+        "sequencename": "content_derivations_id_seq",
+        "last_value": 6
+      },
+      {
+        "sequencename": "content_identities_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "content_materials_id_seq",
+        "last_value": 2
+      },
+      {
+        "sequencename": "content_observations_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "content_urls_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "digests_id_seq",
+        "last_value": 1
+      },
+      {
+        "sequencename": "discovery_batches_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "event_viewpoints_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "events_id_seq",
+        "last_value": 1
+      },
+      {
+        "sequencename": "expense_audit_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "expense_entries_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "expense_rules_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "fetch_logs_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "fx_rates_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "llm_usage_id_seq",
+        "last_value": 1
+      },
+      {
+        "sequencename": "pipeline_runs_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "pipeline_tasks_id_seq",
+        "last_value": 1
+      },
+      {
+        "sequencename": "task_attempts_id_seq",
+        "last_value": null
+      }
+    ]
+  },
+  "snapshot_after": {
+    "tables": {
+      "alembic_version": {
+        "rows": 1,
+        "hash": "279d0885385bd370daafee685baed711"
+      },
+      "articles": {
+        "rows": 3,
+        "hash": "a0db5909851f9d43ea5f94258744127a"
+      },
+      "billed_requests": {
+        "rows": 1,
+        "hash": "295d0ad01f841bb7304db60309ae99cb"
+      },
+      "budget_carry": {
+        "rows": 0,
+        "hash": null
+      },
+      "budget_policy": {
+        "rows": 1,
+        "hash": "008ab38475e4a79c3d95041a98be6ecf"
+      },
+      "content_derivations": {
+        "rows": 6,
+        "hash": "bcbdcc7962724a0e09e753bae4c00a5d"
+      },
+      "content_feedback": {
+        "rows": 1,
+        "hash": "7a19ac6fa7878a9ce13006847a33fdd9"
+      },
+      "content_identities": {
+        "rows": 0,
+        "hash": null
+      },
+      "content_materials": {
+        "rows": 2,
+        "hash": "1de75b64989a71b6c4bcf9dbaa703f2c"
+      },
+      "content_observations": {
+        "rows": 0,
+        "hash": null
+      },
+      "content_urls": {
+        "rows": 0,
+        "hash": null
+      },
+      "digests": {
+        "rows": 1,
+        "hash": "15ae5c4b37a05f45340f2c520de1343a"
+      },
+      "discovery_batches": {
+        "rows": 0,
+        "hash": null
+      },
+      "event_viewpoints": {
+        "rows": 0,
+        "hash": null
+      },
+      "events": {
+        "rows": 1,
+        "hash": "a23b30fa58d6e9e1800ec27b68dec166"
+      },
+      "expense_audit": {
+        "rows": 0,
+        "hash": null
+      },
+      "expense_entries": {
+        "rows": 0,
+        "hash": null
+      },
+      "expense_rules": {
+        "rows": 0,
+        "hash": null
+      },
+      "feed_preferences": {
+        "rows": 0,
+        "hash": null
+      },
+      "fetch_logs": {
+        "rows": 0,
+        "hash": null
+      },
+      "fx_rates": {
+        "rows": 0,
+        "hash": null
+      },
+      "llm_usage": {
+        "rows": 1,
+        "hash": "4bd81c3f20f422b305d22f62979bba11"
+      },
+      "pipeline_runs": {
+        "rows": 0,
+        "hash": null
+      },
+      "pipeline_tasks": {
+        "rows": 1,
+        "hash": "874158ddd78b6e61d4ac7fb2f05c9850"
+      },
+      "reader_changes": {
+        "rows": 0,
+        "hash": null
+      },
+      "reader_interests": {
+        "rows": 1,
+        "hash": "e731be8f9ec4bfc05f98f6ba05d7d823"
+      },
+      "reader_state": {
+        "rows": 0,
+        "hash": null
+      },
+      "source_states": {
+        "rows": 0,
+        "hash": null
+      },
+      "task_attempts": {
+        "rows": 0,
+        "hash": null
+      },
+      "topic_changes": {
+        "rows": 10,
+        "hash": "1c1d2ec8208691612742b6a993a9ba24"
+      },
+      "topic_derivations": {
+        "rows": 2,
+        "hash": "670a9ae75b3bf8f54523938e8967f562"
+      },
+      "topic_members": {
+        "rows": 2,
+        "hash": "0a5cfd29e4c1cc9f363ed8a6fab67291"
+      },
+      "topic_updates": {
+        "rows": 3,
+        "hash": "2d9aee142061575e1b879442db4bf9d7"
+      },
+      "topics": {
+        "rows": 1,
+        "hash": "c7b974ef22280621e95c0773a8a01b56"
+      }
+    },
+    "sequences": [
+      {
+        "sequencename": "articles_id_seq",
+        "last_value": 3
+      },
+      {
+        "sequencename": "content_derivations_id_seq",
+        "last_value": 6
+      },
+      {
+        "sequencename": "content_identities_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "content_materials_id_seq",
+        "last_value": 2
+      },
+      {
+        "sequencename": "content_observations_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "content_urls_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "digests_id_seq",
+        "last_value": 1
+      },
+      {
+        "sequencename": "discovery_batches_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "event_viewpoints_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "events_id_seq",
+        "last_value": 1
+      },
+      {
+        "sequencename": "expense_audit_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "expense_entries_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "expense_rules_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "fetch_logs_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "fx_rates_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "llm_usage_id_seq",
+        "last_value": 1
+      },
+      {
+        "sequencename": "pipeline_runs_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "pipeline_tasks_id_seq",
+        "last_value": 1
+      },
+      {
+        "sequencename": "task_attempts_id_seq",
+        "last_value": null
+      }
+    ]
+  },
+  "all_table_counts_hashes_and_sequences_match": true,
+  "internal_revision_and_validation_view_matches": true,
+  "retained_source_database": true,
+  "retained_restored_database": true
+}
