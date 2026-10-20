@@ -33,7 +33,7 @@
   },
   "paid_requests": 0,
   "manual_production_tasks": 0,
-  "new_topic_rows_in_production": "pending postdeploy SELECT",
+  "new_topic_rows_in_production": 0,
   "review": {
     "kind": "self-review of final diff and affected callers",
     "areas": [
@@ -48,7 +48,7 @@
     "fixes": [
       "refresh cached ORM members/material/derivations before live dependency validation"
     ],
-    "remaining": "PR/CI and production deploy verification"
+    "remaining": null
   },
   "logs": {
     "baseline": {
@@ -128,5 +128,10 @@
     "paid_requests": 0
   },
   "markdown_links_checked": 79,
-  "english_only_changed_code_and_root_docs": "passed"
+  "english_only_changed_code_and_root_docs": "passed",
+  "postdeploy_all_assertions_passed": true,
+  "implementation_pr": 114,
+  "runtime_revision": "bf8f042cf4fc275ae30541dbb673f562c7b5c4d7",
+  "main_ci_url": "https://github.com/LinsRock/unspun/actions/runs/39393835737",
+  "deployment": "completed and verified via actual Deploy step and read-only runtime/schema/data checks"
 }

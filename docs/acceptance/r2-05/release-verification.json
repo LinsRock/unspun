@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-20T08:40:34.757250+00:00",
+  "runtime_revision": "bf8f042cf4fc275ae30541dbb673f562c7b5c4d7",
+  "main_ci": "https://github.com/LinsRock/unspun/actions/runs/39393835737",
+  "main_conclusion": "success",
+  "actual_deploy_step": {
+    "completedAt": "2026-10-20T08:35:02Z",
+    "conclusion": "success",
+    "name": "Deploy",
+    "number": 9,
+    "startedAt": "2026-10-20T08:34:18Z",
+    "status": "completed"
+  },
+  "implementation_pr": {
+    "headRefOid": "513b238b04440caaec24558b61ef715e286f9bc0",
+    "mergeCommit": {
+      "oid": "bf8f042cf4fc275ae30541dbb673f562c7b5c4d7"
+    },
+    "mergedAt": "2026-10-20T08:30:00Z",
+    "number": 114,
+    "state": "MERGED",
+    "url": "https://github.com/LinsRock/unspun/pull/114"
+  },
+  "reading_and_schema_delivery_assertions": "delivery.json",
+  "subsequent_documentation_changes_publish_runtime": false
+}
