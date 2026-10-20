@@ -1,10 +1,11 @@
 """Bounded topic retrieval from current qualified material and versioned embeddings."""
 
 import math
+import re
 from datetime import datetime
 from typing import Any
 
-from sqlalchemy import or_, select
+from sqlalchemy import case, func, literal, or_, select
 from sqlalchemy.orm import Session
 
 from unspun.core.content import fingerprint
@@ -23,6 +24,7 @@ from unspun.core.topics import (
 SCAN_TOPICS = 32
 EMBED_TOPICS = 12
 ANCHORS = 2
+SCAN_ANCHORS = 32
 CANDIDATES = 4
 
 
@@ -51,21 +53,30 @@ def vector_input(snapshot: dict[str, Any]) -> dict[str, Any]:
 
 
 def topic_candidate(
-    session: Session, topic_id: str, sources: list[Source], now: datetime
+    session: Session,
+    topic_id: str,
+    sources: list[Source],
+    now: datetime,
+    *,
+    trace: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     topic = session.get(Topic, topic_id, populate_existing=True)
     if topic is None or topic.status != "active":
         raise ValueError("candidate topic is unavailable")
     anchors: list[dict[str, Any]] = []
+    checked: list[int] = []
+    stale: list[int] = []
     for member in session.scalars(
         select(TopicMember)
         .where(TopicMember.topic_id == topic_id, TopicMember.active.is_(True))
         .order_by(TopicMember.article_id)
-        .limit(ANCHORS)
+        .limit(SCAN_ANCHORS)
         .execution_options(populate_existing=True)
     ):
+        checked.append(member.article_id)
         if not validate_member(session, member, sources, now).valid:
-            raise ValueError("candidate anchor is stale")
+            stale.append(member.article_id)
+            continue
         anchors.append(
             {
                 "revision": member.revision,
@@ -73,6 +84,10 @@ def topic_candidate(
                 "snapshot": current_input(session, member.article_id, sources, now),
             }
         )
+        if len(anchors) == ANCHORS:
+            break
+    if trace is not None:
+        trace.update(checked=checked, stale=stale, scan_cap=SCAN_ANCHORS)
     if not anchors:
         raise ValueError("candidate topic has no qualified anchor")
     return {
@@ -92,43 +107,128 @@ def _card(snapshot: dict[str, Any]) -> CardDraft:
     )
 
 
-def _metadata_rank(query: dict[str, Any], candidate: dict[str, Any]) -> tuple[int, float, str]:
-    subjects = set(_card(query).topics)
+def subject_terms(snapshot: dict[str, Any]) -> tuple[str, ...]:
+    """Use bounded original text even when the optional R1 card terms are empty."""
+    content = ContentInput.model_validate(snapshot["content"])
+    text = " ".join((*_card(snapshot).topics, content.title, content.text()[:2000])).lower()
+    terms: dict[str, None] = {}
+    stop = {"the", "and", "for", "with", "that", "this", "from", "after", "have", "has"}
+    for word in re.findall(r"[a-z0-9]{3,}|[\u3400-\u9fff]+", text):
+        parts = [word] if word.isascii() else [word[i : i + 2] for i in range(len(word) - 1)]
+        for term in parts:
+            if term not in stop:
+                terms[term] = None
+            if len(terms) >= 64:
+                return tuple(terms)
+    return tuple(terms)
+
+
+def metadata_rank(query: dict[str, Any], candidate: dict[str, Any]) -> tuple[int, float, str]:
+    subjects = set(subject_terms(query))
     at = publication_at(ContentInput.model_validate(query["content"]).metadata)
     overlap, distance = 0, math.inf
     for anchor in candidate["anchors"]:
         snapshot = anchor["snapshot"]
-        overlap = max(overlap, len(subjects.intersection(_card(snapshot).topics)))
+        overlap = max(overlap, len(subjects.intersection(subject_terms(snapshot))))
         other = publication_at(ContentInput.model_validate(snapshot["content"]).metadata)
         if at and other:
             distance = min(distance, abs((at - other).total_seconds()))
-    # Unknown and long-lived background remain eligible, after more specific metadata matches.
     return -overlap, distance, candidate["id"]
+
+
+def _metadata_selection(
+    query: dict[str, Any], candidates: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    ordered = sorted(candidates, key=lambda c: metadata_rank(query, c))
+    # Keep two unknown-time and two background/older candidates under competition.
+    # These are retrieval slots, never fabricated timestamps or semantic approvals.
+    selected = ordered[: EMBED_TOPICS - 4]
+    for group in (
+        [
+            c
+            for c in ordered
+            if any(
+                publication_at(ContentInput.model_validate(a["snapshot"]["content"]).metadata)
+                is None
+                for a in c["anchors"]
+            )
+        ],
+        [
+            c
+            for c in ordered
+            if any(
+                a["relation"] == "background"
+                or (
+                    (
+                        at := publication_at(
+                            ContentInput.model_validate(a["snapshot"]["content"]).metadata
+                        )
+                    )
+                    is not None
+                    and (
+                        q := publication_at(ContentInput.model_validate(query["content"]).metadata)
+                    )
+                    is not None
+                    and abs((q - at).days) > 30
+                )
+                for a in c["anchors"]
+            )
+        ],
+    ):
+        selected.extend([c for c in group if c not in selected][:2])
+    selected.extend([c for c in ordered if c not in selected][: EMBED_TOPICS - len(selected)])
+    return sorted(selected, key=lambda c: metadata_rank(query, c))
 
 
 def recall_plan(
     session: Session, article_id: int, sources: list[Source], now: datetime
 ) -> dict[str, Any]:
     query = current_input(session, article_id, sources, now)
-    selected: list[dict[str, Any]] = []
-    for identity in session.scalars(
-        select(Topic.id)
-        .where(
-            Topic.status == "active",
-            or_(*(Topic.domains.contains([d]) for d in _card(query).domains)),
+    domain_filter = (
+        Topic.status == "active",
+        or_(*(Topic.domains.contains([d]) for d in _card(query).domains)),
+    )
+    existing = select(TopicMember.topic_id).where(
+        TopicMember.article_id == query["content"]["article_id"]
+    )
+    title_rank = sum(
+        (
+            case((func.strpos(func.lower(Topic.title), term) > 0, 1), else_=0)
+            for term in subject_terms(query)
+        ),
+        literal(0),
+    )
+    identities = list(
+        session.scalars(
+            select(Topic.id)
+            .where(*domain_filter, Topic.id.not_in(existing))
+            .order_by(title_rank.desc(), Topic.id)
+            .limit(SCAN_TOPICS)
         )
-        .order_by(Topic.id)
-        .limit(SCAN_TOPICS)
-    ):
-        # Existing decisions, including removals, are never silently overwritten by inference.
-        if session.get(TopicMember, (identity, query["content"]["article_id"])) is not None:
-            continue
+    )
+    trace: dict[str, Any] = {
+        "domain_topics": session.scalar(
+            select(func.count()).select_from(Topic).where(*domain_filter)
+        ),
+        "existing_member_topics": list(session.scalars(existing.order_by(TopicMember.topic_id))),
+        "scanned_topic_ids": identities,
+        "anchors": {},
+        "unusable_topics": {},
+    }
+    selected: list[dict[str, Any]] = []
+    for identity in identities:
+        anchor_trace: dict[str, Any] = {}
+        trace["anchors"][identity] = anchor_trace
         try:
-            selected.append(topic_candidate(session, identity, sources, now))
-        except ValueError:
-            continue
-    selected.sort(key=lambda c: _metadata_rank(query, c))
-    return {"query": query, "topics": selected[:EMBED_TOPICS], "contract": member_contract()}
+            selected.append(topic_candidate(session, identity, sources, now, trace=anchor_trace))
+        except ValueError as error:
+            trace["unusable_topics"][identity] = str(error)
+    topics = _metadata_selection(query, selected)
+    trace.update(
+        qualified_topic_ids=[c["id"] for c in selected],
+        metadata_topic_ids=[c["id"] for c in topics],
+    )
+    return {"query": query, "topics": topics, "contract": member_contract(), "trace": trace}
 
 
 def unit_vector(vector: list[float], dimensions: int) -> list[float]:

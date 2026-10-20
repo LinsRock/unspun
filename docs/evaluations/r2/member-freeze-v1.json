@@ -1,0 +1,23 @@
+{
+  "schema_version": "r206-real-freeze-v1",
+  "frozen_at": "2026-10-20T11:37:06.430697+00:00",
+  "paid_requests_so_far": 0,
+  "files": [
+    {
+      "path": "docs/evaluations/r2/member-inputs-v1.json",
+      "sha256": "a4af0daa8a1cfdea80091180b88f75f0caade60d0d7ca2c5997c4e117e245d46"
+    },
+    {
+      "path": "docs/evaluations/r2/member-registration-v1.json",
+      "sha256": "f493d9a64f6a0069b102632d47c44ca2bd640697367d859c17db312c4d14fdeb"
+    },
+    {
+      "path": "docs/evaluations/r2/freeze-v1.json",
+      "sha256": "41f4f3105f62d484176b912b06f240696330bc6cb2b9135ebb0f7b889fc5a36f"
+    },
+    {
+      "path": "docs/evaluations/r2/relations-v1.json",
+      "sha256": "dcf1af473dd741ab6203381668bae11ffb2662c52766c9cbe25a24ff97bcce67"
+    }
+  ]
+}
