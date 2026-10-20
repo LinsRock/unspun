@@ -10,8 +10,6 @@ services:
     ports:
       - "127.0.0.1:8000:8000"
 
-  # worker reuses the unspun-server:dev image built by api; no separate build.
-
   web:
     build:
       context: ..

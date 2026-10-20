@@ -107,7 +107,18 @@ if args[0] == "inspect":
         self.assertEqual(calls[db][-1], "db")
         self.assertIn("--no-deps", calls[migration])
         self.assertEqual(calls[migration][-4:], ["api", "alembic", "upgrade", "head"])
-        self.assertIn("worker=0", calls[start])
+        self.assertEqual(calls[start][-3:], ["up", "-d", "--remove-orphans"])
+        self.assertFalse(any("prune" in args for args in calls))
+
+    def test_retired_service_is_absent_even_for_rollback_images(self):
+        deploy = Path(__file__).parents[1]
+        for name in ("compose.yml", "compose.local.yml", "compose.prod.yml"):
+            with self.subTest(file=name):
+                config = (deploy / name).read_text()
+                self.assertNotIn("  worker:\n", config)
+                self.assertNotIn("unspun.pipeline.main", config)
+        production = (deploy / "compose.prod.yml").read_text()
+        self.assertIn("  r1-worker:\n    scale: 1\n", production)
 
     def test_failures_do_not_start_target_services(self):
         for phase, code in (("pull", 41), ("db", 42), ("migration", 43)):
@@ -124,7 +135,7 @@ if args[0] == "inspect":
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertFalse(any("initialize-production" in args for args in self.calls()))
         start = next(args for args in self.calls() if "--remove-orphans" in args)
-        self.assertIn("worker=0", start)
+        self.assertEqual(start[-3:], ["up", "-d", "--remove-orphans"])
 
     def test_paid_rollout_initializes_and_checks_before_starting_services(self):
         result = self.run_deploy(R1_PAID_MODE="paid")

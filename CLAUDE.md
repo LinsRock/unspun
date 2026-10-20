@@ -1,9 +1,9 @@
 # Unspun
 
 A single-user app for automatic discovery and curation of important developments and personally interesting articles, videos, posts, and discussions. Domestic platforms and Chinese-language sources come first; content can cover the world, with a small set of international sources supplementing coverage.
-Current phase: **CL-00 inventory complete; CL-01 legacy worker retirement next**. The cleanup entry is `docs/tasks/cleanup.md`, with exact objects, retention dependencies and recovery in `docs/acceptance/cl-00-inventory-2026-10-20.md`. CL-01–06 have not been executed; no existing resources were removed. R2-00–03 are delivered; the product entry remains `docs/tasks/r2.md`, with R2-03's query contract and deployment evidence under `docs/superpowers/specs/2026-10-20-r2-03-candidate-detail.md` and `docs/acceptance/r2-03-candidate-detail-2026-10-20.md`. Current qualified details and bounded retrieval retain their original scopes, models, quotas and budgets. R2-01 v1, scan v2, candidate v3 and missing user ratings stay frozen. R2-04 onward and R3 remain pending. R1 is closed at 19/19 with qualified user acceptance; `docs/tasks/r1.md` retains its historical evidence. R1's final-only acceptance exception does not extend to R2 page changes. Confirmed direction is in `docs/product-definition.md`; requirements and roadmap remain user-owned. Do not resume legacy M3 work automatically.
+Current phase: **CL-01 legacy worker retirement in validation**. The cleanup entry is `docs/tasks/cleanup.md`, with exact objects, retention dependencies and recovery in `docs/acceptance/cl-00-inventory-2026-10-20.md`. CL-01 removes only the two exclusive legacy modules, their two tests and deployment/startup remnants. CL-02–06 remain pending; old data and unresolved reservations remain intact. R2-00–03 are delivered; the product entry remains `docs/tasks/r2.md`, with R2-03's query contract and deployment evidence under `docs/superpowers/specs/2026-10-20-r2-03-candidate-detail.md` and `docs/acceptance/r2-03-candidate-detail-2026-10-20.md`. Current qualified details and bounded retrieval retain their original scopes, models, quotas and budgets. R2-01 v1, scan v2, candidate v3 and missing user ratings stay frozen. R2-04 onward and R3 remain pending. R1 is closed at 19/19 with qualified user acceptance; `docs/tasks/r1.md` retains its historical evidence. R1's final-only acceptance exception does not extend to R2 page changes. Confirmed direction is in `docs/product-definition.md`; requirements and roadmap remain user-owned. Do not resume legacy M3 work automatically.
 The user confirmed a recommendation-first feed with a latest switch, and daily selections that update when important new content arrives (D-024). Requested sources and validation status live in `docs/source-plan.md`; this list is distinct from the enabled runtime configuration. WeChat public accounts and Xiaohongshu are later exploration items.
-Cross-milestone retirement and cleanup follow D-031: CL-00's read-only inventory is complete; CL-01 removes only the exclusive legacy loop/fetcher and its service/startup remnants, preserving the active `r1-worker`. Shared API/evaluation/event code belongs to CL-04, and the old digest to CL-06 after R3 acceptance. Documentation and development resources have separate CL-02/03 lists; data candidates remain protected or pending under CL-05. Inventory is not retirement or deletion: base/local Compose still defines the legacy service, while production keeps it at zero. Active previews, shared editable targets, frozen evidence, historical failures and all unresolved fee reservations must survive later cleanup.
+Cross-milestone retirement and cleanup follow D-031: CL-00's read-only inventory is complete; CL-01 removes only the exclusive legacy loop/fetcher and its service/startup remnants, preserving the active `r1-worker`. Shared API/evaluation/event code belongs to CL-04, and the old digest to CL-06 after R3 acceptance. Documentation and development resources have separate CL-02/03 lists; data candidates remain protected or pending under CL-05. All Compose combinations omit the retired `worker`; local defaults leave `r1-worker` disabled, and production retains one controlled consumer. Old summary backlog remains untreated. Rollback must use these retired-service deployment files. Active previews, shared editable targets, frozen evidence, historical failures and all unresolved fee reservations must survive later cleanup.
 
 ## Architecture
 
@@ -11,7 +11,7 @@ Cross-milestone retirement and cleanup follow D-031: CL-00's read-only inventory
 Browser → Cloudflare Access (login) → Cloudflare Tunnel → VPS
   cloudflared on the VPS points at 127.0.0.1:8080 (web container, the only published port)
   web (Caddy: static files + /api/* reverse proxy) → api (FastAPI) → db (Postgres+pgvector)
-  worker (pipeline, same image as api with a different command) → db
+  r1-worker (controlled pipeline, same image as api) → db
 ```
 
 ## Layout
@@ -40,7 +40,7 @@ pnpm install
 pnpm lint && pnpm typecheck && pnpm test
 pnpm dev                # local dev (:5173, /api proxied to :8000)
 
-# repo root: full local stack (db + api + worker + web)
+# repo root: local stack (db + api + web + rsshub; r1-worker defaults to 0)
 docker compose -f deploy/compose.yml -f deploy/compose.local.yml up --build
 ```
 
@@ -48,8 +48,8 @@ docker compose -f deploy/compose.yml -f deploy/compose.local.yml up --build
 
 - Always branch + PR; selected CI checks and `required-checks` must pass before merging. Main publishes only cumulative runtime changes, builds affected images, and reuses immutable running references for unchanged services (D-026).
 - R1 used AI-managed intermediate PRs and final user acceptance (D-025). R2 page changes still require a real-API local preview and explicit user acceptance before opening a PR (D-012); documentation and backend work follow the existing review and CI process without additional per-task approval.
-- Keep the legacy production AI worker disabled. Ordinary deployments, diagnosis, and rollback must not restart it. The controlled R1 runtime retains its registered source, material, and budget boundaries; R2 kickoff does not expand them. See D-025, D-029, and the worker shutdown record.
-- Deployment is the deploy job in `.github/workflows/ci.yml`: cloudflared SSHs into the VPS and runs `deploy/deploy.sh` (resolve release images, wait for DB, migrate with the target image, start services with zero legacy workers, check the target API version).
+- Keep the retired legacy AI worker absent, including during image rollback. Ordinary deployments, diagnosis, and rollback must not restart it. The controlled R1 runtime retains its registered source, material, and budget boundaries; R2 kickoff does not expand them. See D-025, D-029, and the worker shutdown record.
+- Deployment is the deploy job in `.github/workflows/ci.yml`: cloudflared SSHs into the VPS and runs `deploy/deploy.sh` (resolve release images, wait for DB, migrate with the target image, check budget/preflight, start services without a legacy worker, check the target API version).
 - Environment variables use the `UNSPUN_` prefix and are defined in `server/src/unspun/core/config.py`.
 
 CI routes checks by changed paths. API contracts and server dependency changes also check the frontend; archived prototypes run only for their own changes. Explanation-only docs do not themselves trigger runtime builds. Evaluation inputs/tools still run backend checks. CI/build configuration changes run all checks, and unknown build inputs take the conservative full path. Main uses paginated production deployment history, verifies the actual deployment step ran, and includes paths touched since that baseline (even reverted changes), so partial failures and rollbacks are not lost. Missing release history falls back to checking/building all inputs. `workflow_dispatch` runs all checks without publishing. Obsolete main runs skip deployment; actual deployment and migration checks remain required. APP_VERSION identifies the assembled release; component image references may retain earlier unchanged revisions.

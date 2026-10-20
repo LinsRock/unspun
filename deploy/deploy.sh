@@ -101,9 +101,9 @@ case "$r1_paid_mode" in
     ;;
 esac
 
-# Never restart the legacy paid loop, including when rolling back an image.
-# Approved R1 consumers must be wired separately through their rollout PR.
-"${compose[@]}" up -d --remove-orphans --scale worker=0
+# Retired services stay absent even with an older image. Keep these deployment
+# files during rollback; remove orphan containers instead of reviving old loops.
+"${compose[@]}" up -d --remove-orphans
 
 # Smoke check through the same loopback port cloudflared uses. RSSHub is
 # internal-only, so its container healthcheck is the only signal we have;
@@ -123,7 +123,6 @@ for i in $(seq 1 10); do
     if [ "$rsshub_health" != "healthy" ]; then
       echo "rsshub is not healthy (non-fatal: web/api are up)" >&2
     fi
-    docker image prune -f >/dev/null
     exit 0
   fi
   sleep 3

@@ -1,0 +1,41 @@
+{
+  "images": {
+    "unspun-server:cl01-isolated": {
+      "Id": "sha256:5c30745b738f3acb0e31f913331936c20993361f8f9b833f103c843d57e44787",
+      "Architecture": "arm64",
+      "RepoDigests": [
+        "unspun-server@sha256:5c30745b738f3acb0e31f913331936c20993361f8f9b833f103c843d57e44787"
+      ],
+      "Size": 138975755
+    },
+    "ghcr.io/linsrock/unspun-server:6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93": {
+      "Id": "sha256:d78c8fde8f9af3735287d1602360cd777926fff6130d93001960f194e2a5f922",
+      "Architecture": "amd64",
+      "RepoDigests": [
+        "ghcr.io/linsrock/unspun-server@sha256:d78c8fde8f9af3735287d1602360cd777926fff6130d93001960f194e2a5f922"
+      ],
+      "Size": 122782063
+    },
+    "ghcr.io/linsrock/unspun-server:43150075d33e17298a21bfa909fac578f5d511d9": {
+      "Id": "sha256:983b720e82b281909e929a230510c3d10bf4390b0f8083c49e746fd34b788378",
+      "Architecture": "amd64",
+      "RepoDigests": [
+        "ghcr.io/linsrock/unspun-server@sha256:983b720e82b281909e929a230510c3d10bf4390b0f8083c49e746fd34b788378"
+      ],
+      "Size": 122777375
+    },
+    "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486": {
+      "Id": "sha256:d0b0f4e625da3ba2c683ba6763b2fdf016db5aea98e14240b91c32ea5289d60b",
+      "Architecture": "amd64",
+      "RepoDigests": [
+        "ghcr.io/linsrock/unspun-web@sha256:d0b0f4e625da3ba2c683ba6763b2fdf016db5aea98e14240b91c32ea5289d60b"
+      ],
+      "Size": 25489405
+    }
+  },
+  "native_image_base": "unspun-server:r1-01-isolated; current source, full alembic and config replaced; same uv.lock runtime dependencies",
+  "uv_lock_sha256": "36b4213b47cd7103ce94a8b224fe98482b65372b5f9b6ae62f4b3961ad2f2423",
+  "fixed_image_origin": "read-only SSH docker image save from existing production cache; local GHCR pull unauthorized",
+  "fixed_image_execution": "linux/amd64 under local arm64 emulation; actual production native deployment separately verified",
+  "first_build_failure": "Inherited app user could not remove old files in new image layer; rebuilt test image as root, restored app user; no application/config changes"
+}

@@ -1,0 +1,103 @@
+{
+  "started_at": "2026-10-20T05:57:18.042941+00:00",
+  "cases": [
+    {
+      "mode": "base",
+      "project": "unspun-cl01-187f163b-base",
+      "port": 18131,
+      "rendered_services": [
+        "api",
+        "db",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "health": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "services": {
+        "api": {
+          "state": "running",
+          "image": "unspun-server:cl01-isolated"
+        },
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        },
+        "rsshub": {
+          "state": "running",
+          "image": "diygod/rsshub:2026-10-09"
+        },
+        "web": {
+          "state": "running",
+          "image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486"
+        }
+      },
+      "health_after_restart": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "pgdata"
+      ]
+    },
+    {
+      "mode": "local",
+      "project": "unspun-cl01-187f163b-local",
+      "port": 18132,
+      "rendered_services": [
+        "api",
+        "db",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "health": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "services": {
+        "api": {
+          "state": "running",
+          "image": "unspun-server:cl01-isolated"
+        },
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        },
+        "rsshub": {
+          "state": "running",
+          "image": "diygod/rsshub:2026-10-09"
+        },
+        "web": {
+          "state": "running",
+          "image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486"
+        }
+      },
+      "health_after_restart": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "pgdata"
+      ]
+    }
+  ],
+  "paid_calls": 0,
+  "updated_at": "2026-10-20T05:59:12.185467+00:00"
+}
