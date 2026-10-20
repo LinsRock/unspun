@@ -1,0 +1,109 @@
+{
+  "schema_version": "r2-04-source-increments-registration-v1",
+  "registered_at": "2026-10-20T06:48:26.392290+00:00",
+  "baseline": "cd3f0a5",
+  "scope": "R2-04 only; compare four existing candidates, select at most three by material contribution",
+  "prior_observations_count_toward_this_window": false,
+  "policy": "docs/evaluations/r1/source-observation-v1.json",
+  "environment": {
+    "required": "running production immutable Linux server image and unspun_default network",
+    "database_connection": false,
+    "model_key": false,
+    "memory_mib": 256,
+    "cpus": 0.5,
+    "concurrent_routes": 1,
+    "rsshub": "existing production RSSHub; no cache bypass; feed TTL 1800s and content TTL 3600s must be verified"
+  },
+  "comparison": {
+    "list_requests_per_route": 1,
+    "materials_per_route": 3,
+    "selection": "first three listed identities, excluding no failure; review all scanned titles for coverage and duplication",
+    "http_attempt_hard_limit_per_route_including_redirects": 20,
+    "automatic_retries": 0,
+    "maximum_response_bytes": 2097152,
+    "private_archive": "full raw responses, metadata and paragraphs outside Git; publish hashes and bounded excerpts only",
+    "routes": {
+      "thepaper-sidebar": {
+        "list": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+        "material": "https://www.thepaper.cn/newsDetail_forward_<contId>",
+        "identity": "detail contId must equal requested contId",
+        "scope": "open_text_unit for actual article bodies; audio description separately, no transcript claim",
+        "author": "detail author/source and explicit byline roles; unknown stays unknown",
+        "time": "list pubTimeLong is feed/platform time; detail publishTime uses originalFlag 1 original, 2 reprint, other feed; never observation time",
+        "coverage": "current sidebar selected/hot items; prioritize domestic society/public issues, not whole-site coverage"
+      },
+      "netease-home": {
+        "list": "https://news.163.com/",
+        "material": "listed 163.com article URLs with .post_body and .post_info",
+        "identity": "listed article path and exact final URL/response identity audit",
+        "scope": "open_text_unit for actual article body, not surrounding recommendations",
+        "author": "visible source link and explicit credits; outlet/account is not an individual reporter",
+        "time": "article:published_time is platform time; original unverified; external source link establishes reprint relation only",
+        "coverage": "current #js_top_news articles, not legacy rankings/mobile API"
+      },
+      "tencent-headlines": {
+        "list": "https://i.news.qq.com/web_feed/get_command_pagination?page=1",
+        "material": "listed https://news.qq.com/rain/a/<id> article URLs",
+        "identity": "business response success and listed ID/URL; account preserved as account",
+        "scope": "open_text_unit from #article-content; media shells/only titles fail",
+        "author": "media_info/visible account has account role; original publisher unknown unless supported",
+        "time": "list publish_time and page publication field are platform/feed times, not verified original",
+        "coverage": "PC headlines only; selected videos/hot API/arbitrary account substitutes excluded"
+      },
+      "36kr-newsflashes": {
+        "list": "rsshub://36kr/newsflashes",
+        "material": "public feed complete_brief for /newsflashes/<id>; no /p/ article capability",
+        "identity": "36kr:newsflash numeric ID",
+        "scope": "complete_brief only, including source attribution; no article/transcript claim",
+        "author": "feed author unknown role or actual explicit credits; publisher 36Kr; no invented individual",
+        "time": "verified deployed route templateMaterial.publishTime maps to original brief time; not original time of underlying reporting",
+        "coverage": "technology/business briefs; AI items reported separately; does not fill first-party technical/research coverage"
+      }
+    }
+  },
+  "selected_window_plan": {
+    "selection_registration_required_before_start": true,
+    "rounds": 21,
+    "interval_seconds": 1800,
+    "sample_materials_per_success": 2,
+    "sampling": "rotate by round index, retaining first and subsequent appearances without forcing updates",
+    "minimum_elapsed_seconds": 21600,
+    "minimum_distinct_calendar_days": 2,
+    "timezone": "Asia/Shanghai",
+    "minimum_scheduled_attempts": 13,
+    "maximum_gap_seconds": 4500,
+    "minimum_metadata_success_fraction": 0.9,
+    "maximum_consecutive_metadata_failures": 1,
+    "post_failure_successes_required": 2,
+    "minimum_distinct_material_urls": 3,
+    "minimum_declared_scope_success_fraction": 0.9,
+    "critical_identity_author_time_scope_mistakes_allowed": 0,
+    "real_new_upstream_identities_required": true,
+    "http_attempt_limit_per_route_per_round_including_redirects": 13,
+    "http_attempt_limit_per_route_entire_window": 273,
+    "automatic_retries": 0,
+    "missed_rounds": "retain scheduled timestamps and failures; do not compress catch-up requests or silently restart the window"
+  },
+  "paid_gate": {
+    "allowed_requests_now": 0,
+    "required_before_any_paid_request": [
+      "independent observation and critical-field audit pass",
+      "fresh free provider GET /key and original production/evaluation ledger snapshot",
+      "separate registered actual sample IDs, request count, reservation and fee hard ceilings",
+      "use original cumulative evaluation allocation, current card contract and unchanged models",
+      "include all eight existing paths, new paths, retries, review and guides in cost projection"
+    ],
+    "total_monthly_usd": 15,
+    "production_usd": 13.5,
+    "original_cumulative_evaluation_usd": 1.5,
+    "unknown_reservations": "retain all seven and all future unknowns; no zero settlement or parallel budget"
+  },
+  "publication": {
+    "all_candidate_stages_remain_off": true,
+    "enable_only_after": "material + observation + current-contract generation + budget gates, separate reviewed configuration PR",
+    "legacy_worker": "retired, never start",
+    "original_eight_paths": "unchanged",
+    "rollback": "all discovery/material/paid/publish flags false and paid/publish scopes empty on new paths; preserve evidence, tasks and fees"
+  },
+  "frozen_evidence": "new comparison v4 only; retain R1/R2 frozen files, holdout and missing user ratings byte-for-byte"
+}
