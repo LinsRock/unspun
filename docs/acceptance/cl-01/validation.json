@@ -53,9 +53,10 @@
       "frozen historical links, fees and missing user ratings",
       "isolated fixture failures retained and corrected without application changes"
     ],
-    "findings": "No remaining runtime findings; validation fixture corrections are recorded separately."
+    "findings": "No remaining runtime findings; validation fixture corrections are recorded separately.",
+    "postdeploy_evidence_review": "All assertions passed; production hashes, exact runtime roles/ports, protected legacy/evaluation state and separate natural costs reviewed."
   },
-  "deployment": "pending PR/CI and actual production verification",
+  "deployment": "completed and verified: delivery.json",
   "ci_scope": {
     "server": "true",
     "web": "true",
@@ -212,5 +213,9 @@
   },
   "markdown_links_checked": 211,
   "broken_links": [],
-  "log_format": "gzip without text normalization; original bytes and hashes retained"
+  "log_format": "gzip without text normalization; original bytes and hashes retained",
+  "postdeploy_verified_at": "2026-10-20T06:16:17.776556+00:00",
+  "actual_code_pr": 109,
+  "actual_runtime_version": "d72861bf854465a7a1107d149fad82dfe50281bb",
+  "postdeploy_assertions": true
 }

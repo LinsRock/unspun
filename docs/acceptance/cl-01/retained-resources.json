@@ -1,0 +1,50 @@
+{
+  "stopped": [
+    {
+      "id": "9f7478ac4f140e5302bb7ae172c855df93789b8f7fb0a72fd784e2d8fc7ca631",
+      "name": "/unspun-r1-observe-v3-75c0374",
+      "state": "exited"
+    },
+    {
+      "id": "f420c9fedb9c0dfe7efe7c247743814f0094c5bba2b708c0d9d944a2c230ad4d",
+      "name": "/unspun-r1-observe-3294c19",
+      "state": "exited"
+    },
+    {
+      "id": "17ea29745b13e2973f6bb8bdbdadc533518ad4f3b9e3962c07ac3f0a84ed2e2b",
+      "name": "/unspun-r1-observe-0a1a5ee",
+      "state": "exited"
+    },
+    {
+      "id": "35570f84f63e93a90dcdedbe1a8fce6b356a3a93a097596d324979357fccb649",
+      "name": "/unspun-r1-observe-d7e6543",
+      "state": "exited"
+    }
+  ],
+  "images": [
+    {
+      "reference": "ghcr.io/linsrock/unspun-server:6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93",
+      "id": "sha256:d78c8fde8f9af3735287d1602360cd777926fff6130d93001960f194e2a5f922",
+      "digests": [
+        "ghcr.io/linsrock/unspun-server@sha256:d78c8fde8f9af3735287d1602360cd777926fff6130d93001960f194e2a5f922"
+      ]
+    },
+    {
+      "reference": "ghcr.io/linsrock/unspun-server:43150075d33e17298a21bfa909fac578f5d511d9",
+      "id": "sha256:983b720e82b281909e929a230510c3d10bf4390b0f8083c49e746fd34b788378",
+      "digests": [
+        "ghcr.io/linsrock/unspun-server@sha256:983b720e82b281909e929a230510c3d10bf4390b0f8083c49e746fd34b788378"
+      ]
+    },
+    {
+      "reference": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486",
+      "id": "sha256:d0b0f4e625da3ba2c683ba6763b2fdf016db5aea98e14240b91c32ea5289d60b",
+      "digests": [
+        "ghcr.io/linsrock/unspun-web@sha256:d0b0f4e625da3ba2c683ba6763b2fdf016db5aea98e14240b91c32ea5289d60b"
+      ]
+    }
+  ],
+  "checked_at": "2026-10-20T06:17:30.410532+00:00",
+  "original_images_and_four_stopped_observation_containers_preserved": true,
+  "fixed_image_ids_match_cl00": true
+}

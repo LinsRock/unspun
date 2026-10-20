@@ -1,6 +1,6 @@
 # CL-01 旧 worker 退役 · 2026-10-20
 
-范围仅 CL-01；本地完整回归及隔离部署/回退验证通过，PR/CI/实际发布待补录。最新 `origin/main` 基线 `9ae42c4`，独立分支 `chore/cl-01-retirement`，worktree `~/.config/superpowers/worktrees/unspun/cl-01-retirement`。先读 CLAUDE、决策、清理板及 CL-00 报告/处置登记。新建独立 Python venv，确认 `unspun`、models、r1-worker 均导入本轮源码，不改其他 worktree 的 editable 或活动预览。
+**CL-01 已完成并实际部署核对；范围仅 CL-01。** 本地完整回归、隔离部署/回退及 PR/主干 CI 均通过。最新 `origin/main` 基线 `9ae42c4`，独立分支 `chore/cl-01-retirement`，worktree `~/.config/superpowers/worktrees/unspun/cl-01-retirement`。先读 CLAUDE、决策、清理板及 CL-00 报告/处置登记。新建独立 Python venv，确认 `unspun`、models、r1-worker 均导入本轮源码，不改其他 worktree 的 editable 或活动预览。
 
 ## 删除与保留
 
@@ -28,6 +28,16 @@
 
 ## 部署、费用与未决项
 
-PR、CI、合并与生产核对待本轮完成后补录；不以 config 渲染冒充运行验收。生产旧摘要积压仍有 8,825 个待处理、18 个失败上限对象；本批不处理、不删除、不补造完成状态。历史费用和七笔未知预留保持；自然运行费用另记真实增量。
+[PR #109](https://github.com/LinsRock/unspun/pull/109) 于 `2026-10-20 06:09:43 UTC` 合并为 **`d72861bf854465a7a1107d149fad82dfe50281bb`**（实现提交 `87121cf`）。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39378533063) 和[主干 CI/发布](https://github.com/LinsRock/unspun/actions/runs/39378805306) 全部成功，[任务/步骤记录](cl-01/main-ci.json)确认实际执行 `Deploy`，不是跳过发布；[PR 元数据](cl-01/pr.json)及[PR 检查](cl-01/pr-ci.json)保留。
+
+`2026-10-20 06:15–06:16 UTC` 的[运行探针](cl-01/postdeploy-runtime.json)、[实际服务/部署文件审计](cl-01/deployment-audit.json)与[交付断言](cl-01/delivery.json)确认：legacy worker **所有状态 0**、受控 worker **运行 1**；API/受控 worker 使用同一固定 `d72861b…` server，web 也为本次固定 `d72861b…`。APP_VERSION/health 正确，82 个 Python 文件、四份配置、六份部署文件逐字节匹配，schema **000017**，原两索引实存，唯一发布端口仍为 **127.0.0.1:8080**。API/受控 worker 没有 fixture/bind mount；[前](cl-01/predeploy-boundaries.json)/[后](cl-01/postdeploy-boundaries.json)的实际模型、`$0.40/24h`、八路运行阶段和整个来源配置指纹相同，新镜像的两个旧模块已不存在。正常 CI 部署以外未手改生产。
+
+[读取前](cl-01/predeploy-reading.json)/[后](cl-01/postdeploy-reading.json)各 **108** 个公开对象，集合及推荐/最新前两页相同，停源 NYT 404、READ ONLY 重放不创建任务。这是部署代码路径核验，不冒充外部鉴权浏览器或新的用户体验验收。
+
+[受保护生产前](cl-01/predeploy-protected-production.json)/[后](cl-01/postdeploy-protected-production.json)的 legacy articles、旧轮次与日报整行哈希相同，来源所有权/预算策略不变。生产旧摘要积压仍有 8,825 个待处理、18 个失败上限对象；本批不处理、不删除、不补造完成状态。[原评测前](cl-01/predeploy-protected-evaluation.json)/[后](cl-01/postdeploy-protected-evaluation.json)的全部审计查询结果相同：已知 **$0.3690100**、七笔未知预留 **$0.484867** 均保持；生产仍 $13.50、原累计评测 $1.50、总执行上限 $15，不释放任何未知预留。
+
+本批新增付费测试/评测 **$0**，手动生产任务 **0**。自然生产在 `05:54:59.711032–06:15:30.015220 UTC` 的已知费用由 **$7.74501030** 增至 **$7.75298420**，真实增量 **$0.00797390** 单独记录；生产未知/未结预留截面为 0。这是观察期间原受控运行的费用，不归零、不并入 mock 测试费，也不承诺未来自然费用不变。
+
+本轮隔离项目仅停止，库/卷、镜像、worktree 保留；[资源核对](cl-01/retained-resources.json)确认原四个停止观测容器及三份固定回退镜像引用仍在，没有顺手清理。本批部署证据以纯文档补录 PR 合入，后续文档提交不等同运行版本。
 
 CL-02–06、R2-04+、R3 均未执行；备份恢复、旧历史失败根因、冻结原始材料缺口、用户空评分等原 pending 继续留在原任务，不由本批冒充结案。
