@@ -1,0 +1,30 @@
+{
+  "local_links_checked": 98,
+  "task_checks": {
+    "04": {
+      "complete": 2,
+      "incomplete": 2
+    },
+    "05": {
+      "complete": 3,
+      "incomplete": 0
+    },
+    "06": {
+      "complete": 2,
+      "incomplete": 2
+    }
+  },
+  "r207_plus_unchanged": true,
+  "all_new_json_valid": true,
+  "retained_log_hashes_valid": true,
+  "ci_scope": {
+    "server": "false",
+    "web": "false",
+    "prototype": "false",
+    "deploy": "false",
+    "server_image": "false",
+    "web_image": "false",
+    "release": "false"
+  },
+  "review": "Reviewed deployed source/schema and 24 delivery assertions, unchanged policy and unknown holds, closed handlers/tasks/calls, retained reading and R2-04 observer resources; documentation-only evidence diff."
+}

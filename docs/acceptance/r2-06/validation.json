@@ -107,5 +107,28 @@
       "path": "docs/acceptance/r2-06/logs/frozen-replay-v2.log.gz",
       "sha256": "053cbf775aa6bc877567cfb04287111bc9a1aef29c17372e86b6c2f93b11871b"
     }
-  }
+  },
+  "ci_scope": {
+    "server": "true",
+    "web": "true",
+    "prototype": "false",
+    "deploy": "false",
+    "server_image": "true",
+    "web_image": "false",
+    "release": "true"
+  },
+  "ci_application_checks": {
+    "run": "https://github.com/LinsRock/unspun/actions/runs/39401842726",
+    "server": "success",
+    "web": "success",
+    "web_validation": [
+      "lint",
+      "TypeScript",
+      "Vitest",
+      "build",
+      "production PWA offline"
+    ],
+    "required-checks": "success"
+  },
+  "deployment_validation": "delivery.json: 24/24 passed"
 }
