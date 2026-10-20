@@ -1,0 +1,199 @@
+{
+  "schema_version": "r2-04-readonly-v1",
+  "mode": "evaluation",
+  "started_at": "2026-10-20T09:24:56.092017+00:00",
+  "transaction": {
+    "at": "2026-10-20 09:24:56.202569+00:00",
+    "database": "unspun_quality_r1_20261016",
+    "read_only": "on"
+  },
+  "schema": [
+    {
+      "version_num": "000015"
+    }
+  ],
+  "budget": {
+    "enabled": true,
+    "scope": "evaluation",
+    "monthly_limit_usd": "1.500000000000",
+    "evaluation_allocation_usd": "1.50",
+    "stage_caps": {},
+    "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+    "incident": null,
+    "unresolved_calls": 7,
+    "reserved_usd": "0.484867000000",
+    "accounting": {
+      "period": "since_cutover",
+      "known_spend_usd": "0.36901000000000006",
+      "historical_carry_usd": "0E-12",
+      "carry_basis": "isolated-evaluation-allocation",
+      "unresolved_holds_usd": "0.484867000000",
+      "occupancy_usd": "0.85387700000000006",
+      "holds_are_not_actual_fees": true
+    },
+    "provider_limit_usd": null,
+    "provider_observed_at": null,
+    "cost_basis": "llm_usage_known_fees_only",
+    "unit_costs": {
+      "basis": "all_time_current_contract_runtime_tasks; not discovery recall or user worth",
+      "cohorts": {
+        "card": {
+          "contract_version": "r1-card-v9",
+          "attempted_candidates": 0,
+          "ready_outputs": 0,
+          "physical_requests": 0,
+          "known_requests": 0,
+          "known_cost_usd": "0",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        },
+        "guide": {
+          "contract_version": "r1-guide-v5",
+          "attempted_candidates": 1,
+          "ready_outputs": 1,
+          "physical_requests": 2,
+          "known_requests": 2,
+          "known_cost_usd": "0.0021675",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        }
+      },
+      "per_100_candidates": {
+        "status": "unmeasured",
+        "denominator": "distinct_r1_candidates_with_attempted_card_tasks",
+        "denominator_count": 0,
+        "value_usd": null,
+        "known_plus_holds_scenario_usd": null,
+        "holds_are_not_actual_fees": true
+      },
+      "per_admitted_item": {
+        "status": "unmeasured",
+        "denominator": "distinct_current_contract_ready_admissions",
+        "denominator_count": 0,
+        "value_usd": null,
+        "known_plus_holds_scenario_usd": null,
+        "holds_are_not_actual_fees": true
+      },
+      "per_new_guide": {
+        "status": "measured",
+        "denominator": "distinct_current_contract_ready_guide_versions",
+        "denominator_count": 1,
+        "value_usd": "0.0021675",
+        "known_plus_holds_scenario_usd": "0.0021675",
+        "holds_are_not_actual_fees": true
+      },
+      "excluded_physical_requests": 399,
+      "exclusion_basis": "Other contracts or missing/mismatched runtime task links; retained in the overall ledger, never assigned to these cohorts.",
+      "monthly_projection": {
+        "status": "unmeasured",
+        "basis": "requires_registered_observed_eligible_daily_volume"
+      }
+    }
+  },
+  "known_ledger": [
+    {
+      "requests": 394,
+      "known_usd": "0.3690100"
+    }
+  ],
+  "unknown_requests": [
+    {
+      "id": "11d92ba4336740e08c40dca7fff1cce3",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028794000000",
+      "provider_generation_id": null,
+      "started_at": "2026-10-17 09:26:36.998722+00:00"
+    },
+    {
+      "id": "5c68c196f8514836a38280edc782806a",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028760000000",
+      "provider_generation_id": null,
+      "started_at": "2026-10-16 19:16:57.144859+00:00"
+    },
+    {
+      "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "usage_unknown",
+      "reserved_usd": "0.170674000000",
+      "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+      "started_at": "2026-10-17 09:21:37.534326+00:00"
+    },
+    {
+      "id": "bdbdbb331ac546eb84d6f42b502f362b",
+      "stage": "card",
+      "phase": "review",
+      "model": "google/gemini-2.5-flash",
+      "status": "usage_unknown",
+      "reserved_usd": "0.170674000000",
+      "provider_generation_id": null,
+      "started_at": "2026-10-17 08:17:31.488417+00:00"
+    },
+    {
+      "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+      "stage": "card",
+      "phase": "baseline",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028261000000",
+      "provider_generation_id": null,
+      "started_at": "2026-10-16 08:31:09.170417+00:00"
+    },
+    {
+      "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028967000000",
+      "provider_generation_id": null,
+      "started_at": "2026-10-16 10:21:19.943998+00:00"
+    },
+    {
+      "id": "ffefcd48948944c48a3da4a60f17fbb6",
+      "stage": "card",
+      "phase": "generate",
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028737000000",
+      "provider_generation_id": null,
+      "started_at": "2026-10-17 09:27:27.721999+00:00"
+    }
+  ],
+  "policy": [
+    {
+      "scope": "evaluation",
+      "enabled": true,
+      "monthly_limit_usd": "1.500000000000",
+      "stage_caps": {},
+      "version": "r1-budget-v3",
+      "incident": null,
+      "provider_limit_usd": null,
+      "provider_usage_usd": null,
+      "provider_observed_at": null
+    }
+  ],
+  "carry": [
+    {
+      "month": "2026-10-01",
+      "amount_usd": "0E-12",
+      "provider_monthly_usd": null,
+      "ledger_at_observation_usd": "0E-12",
+      "basis": "isolated-evaluation-allocation",
+      "observed_at": "2026-10-16 08:31:00.825129+00:00"
+    }
+  ],
+  "completed_at": "2026-10-20T09:24:56.166688+00:00",
+  "paid_requests": 0,
+  "database_writes": 0
+}

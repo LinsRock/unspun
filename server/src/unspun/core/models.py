@@ -29,6 +29,8 @@ from unspun.core.billing_models import BilledRequest as BilledRequest
 from unspun.core.billing_models import BudgetCarry as BudgetCarry
 from unspun.core.billing_models import BudgetPolicy as BudgetPolicy
 from unspun.core.db import Base
+from unspun.core.member_models import ContentVector as ContentVector
+from unspun.core.member_models import MemberJudgment as MemberJudgment
 from unspun.core.reader_models import ContentFeedback as ContentFeedback
 from unspun.core.reader_models import ReaderChange as ReaderChange
 from unspun.core.reader_models import ReaderInterest as ReaderInterest

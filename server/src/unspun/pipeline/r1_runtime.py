@@ -26,6 +26,7 @@ from unspun.core.tasks import Queue, schedule_sources
 from unspun.pipeline.content_processing import ContentHandler
 from unspun.pipeline.discovery import DiscoveryHandler
 from unspun.pipeline.materials import MaterialHandler
+from unspun.pipeline.member_processing import MemberHandler
 from unspun.pipeline.r1_worker import Handlers, SessionScope, StageHandler, WorkerPool
 
 log = get_logger("unspun.r1.runtime")
@@ -45,6 +46,7 @@ class Runtime:
             "stages": {stage: sorted(ids) for stage, ids in self.stage_sources.items()},
             "publication": sorted(s.id for s in self.sources.values() if s.r1 and s.r1.publish),
             "legacy_worker_started": False,
+            "member_processing_enabled": ("paid", "topic_recall") in self.handlers,
         }
 
 
@@ -69,6 +71,10 @@ def build_runtime(
     if stages["paid"]:
         handlers[("paid", "process_card")] = ContentHandler(selected, scope=scope)
         handlers[("guide", "process_guide")] = ContentHandler(selected, "guide", scope=scope)
+        if settings.r2_member_processing_enabled:
+            member_handler = MemberHandler(selected, scope=scope)
+            for kind in ("topic_recall", "topic_judge", "topic_review"):
+                handlers[("paid", kind)] = member_handler
     return Runtime(
         selected,
         stages,

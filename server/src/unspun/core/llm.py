@@ -180,7 +180,7 @@ class LlmClient:
                     "max_tokens": attempt_max_tokens,
                     **(
                         {"temperature": 0}
-                        if purpose in {"summary", "viewpoint", "grounding"}
+                        if purpose in {"summary", "viewpoint", "grounding", "topic_judgment"}
                         else {}
                     ),
                 },
