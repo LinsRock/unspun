@@ -47,6 +47,18 @@
     {
       "failure": "registered selection reason said 6/6 Tencent titles overlap NetEase",
       "resolution": "v4 exact-set recount is 5/6; preserve registered bytes and append erratum"
+    },
+    {
+      "failure": "First PR creation raced the still-running branch push; GitHub reported missing head ref",
+      "resolution": "Waited for successful push, then created PR #111 against the exact head; no history rewrite"
+    },
+    {
+      "failure": "Reading audit initially expected content_id instead of actual id response field",
+      "resolution": "Corrected audit-only script and reran SELECT-only reading checks; original failed run created no task or usage"
+    },
+    {
+      "failure": "First postdeployment protected audit referenced nonexistent local R2-04 script path",
+      "resolution": "Reused the original CL-01 SELECT-only script at its actual path; captured successful result"
     }
   ],
   "omitted_source_attempts": 0,
