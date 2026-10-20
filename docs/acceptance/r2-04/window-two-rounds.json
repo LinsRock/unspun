@@ -1,0 +1,2476 @@
+{
+  "schema_version": "r2-04-window-progress-v1",
+  "collected_at": "2026-10-20T07:25:03.887481+00:00",
+  "run": {
+    "phase": "window",
+    "started_at": "2026-10-20T06:54:29.643514+00:00",
+    "source_ids": [
+      "thepaper-sidebar",
+      "36kr-newsflashes"
+    ],
+    "rounds": 21,
+    "interval_seconds": 1800,
+    "samples": 2,
+    "registration_sha256": "f1fe3b234077475f56ec83a5d275b4f05bc88d42f0a78150f2a8b02dc3283f4f",
+    "script_sha256": "b8e2535a7bffcbb14f5340ec5b67869f2c910c422a7e60851469fa10c459e7bd",
+    "source_config_sha256": "4c21aaace4c8c68d0181e101a136883fb43972c12e5af47caba410d9ec1bef43",
+    "paid_requests": 0,
+    "database_writes": 0
+  },
+  "private_archive": "/Users/li.cong/.cache/unspun-r204-20261020/window-two-rounds/window.tar.gz",
+  "archive_sha256": "be65ae0c577f7caf73197423b7748ff68457158a150c075cbf4bddd487ca443e",
+  "container_state": "running 0",
+  "collection_starts_source_requests": false,
+  "window_finished": false,
+  "interrupted": null,
+  "sources": {
+    "thepaper-sidebar": {
+      "scheduled_rounds_planned": 21,
+      "recorded_rounds": 2,
+      "metadata_successes": 2,
+      "metadata_failures": 0,
+      "metadata_success_fraction": 1.0,
+      "maximum_consecutive_metadata_failures": 0,
+      "successes_after_last_failure": null,
+      "elapsed_seconds": 1800.000778,
+      "local_dates": [
+        "2026-10-20"
+      ],
+      "maximum_gap_seconds": 1800.000778,
+      "missing_round_indices_before_latest": [],
+      "sampled_materials": 4,
+      "declared_scope_successes": 4,
+      "declared_scope_success_fraction": 1.0,
+      "distinct_material_urls": 4,
+      "distinct_list_identities": 35,
+      "repeated_list_observations": 25,
+      "new_identities_after_round_zero": [
+        {
+          "identity": [
+            "thepaper:content",
+            "34289033"
+          ],
+          "url": "https://www.thepaper.cn/newsDetail_forward_34289033",
+          "title": "美国政府指示各机构停用DeepSeek，外交部：反对将科技经贸问题政治化",
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-20T07:15:30.373000Z",
+              "on": null,
+              "basis": "thepaper:rightSidebar:pubTimeLong",
+              "raw": "1792480530373"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "thepaper:content",
+            "34289194"
+          ],
+          "url": "https://www.thepaper.cn/newsDetail_forward_34289194",
+          "title": "前三季度我国获批创新药中国产占比达80%",
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-20T07:10:14.123000Z",
+              "on": null,
+              "basis": "thepaper:rightSidebar:pubTimeLong",
+              "raw": "1792480214123"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "thepaper:content",
+            "34288055"
+          ],
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288055",
+          "title": "众声丨AI“苦命男孩小海”收割老人，平台审核不能总是被动响应",
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-20T07:06:06.371000Z",
+              "on": null,
+              "basis": "thepaper:rightSidebar:pubTimeLong",
+              "raw": "1792479966371"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "thepaper:content",
+            "34288682"
+          ],
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288682",
+          "title": "女性是否应服兵役？韩国兵源缩减，在野党提“性别平等征兵”",
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-20T06:23:50.852000Z",
+              "on": null,
+              "basis": "thepaper:rightSidebar:pubTimeLong",
+              "raw": "1792477430852"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "thepaper:content",
+            "34281785"
+          ],
+          "url": "https://www.thepaper.cn/newsDetail_forward_34281785",
+          "title": "支持和推动三区域打造科技金融协同发展高地，多部门出台重磅文件",
+          "times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-19T10:24:32.822000Z",
+              "on": null,
+              "basis": "thepaper:rightSidebar:pubTimeLong",
+              "raw": "1792405472822"
+            }
+          ]
+        }
+      ],
+      "new_identities_with_supported_platform_or_brief_time_inside_window": [
+        [
+          "thepaper:content",
+          "34289033"
+        ],
+        [
+          "thepaper:content",
+          "34289194"
+        ],
+        [
+          "thepaper:content",
+          "34288055"
+        ]
+      ],
+      "client_http_attempts_including_redirects": 6,
+      "numeric_window_complete": false,
+      "critical_identity_author_time_scope_audit": "pending; never infer zero errors from HTTP success",
+      "g2_pass": false,
+      "paid_allowed": false,
+      "published_new_readable_items": 0
+    },
+    "36kr-newsflashes": {
+      "scheduled_rounds_planned": 21,
+      "recorded_rounds": 2,
+      "metadata_successes": 2,
+      "metadata_failures": 0,
+      "metadata_success_fraction": 1.0,
+      "maximum_consecutive_metadata_failures": 0,
+      "successes_after_last_failure": null,
+      "elapsed_seconds": 1809.331154,
+      "local_dates": [
+        "2026-10-20"
+      ],
+      "maximum_gap_seconds": 1809.331154,
+      "missing_round_indices_before_latest": [],
+      "sampled_materials": 4,
+      "declared_scope_successes": 4,
+      "declared_scope_success_fraction": 1.0,
+      "distinct_material_urls": 4,
+      "distinct_list_identities": 28,
+      "repeated_list_observations": 12,
+      "new_identities_after_round_zero": [
+        {
+          "identity": [
+            "36kr:newsflash",
+            "4033886684763266"
+          ],
+          "url": "https://www.36kr.com/newsflashes/4033886684763266",
+          "title": "外交部：中欧经贸问题上的分歧完全可以通过对话加以解决",
+          "times": [
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T07:21:44Z",
+              "on": null,
+              "basis": "rsshub:36kr:templateMaterial.publishTime",
+              "raw": "Tue, 20 Oct 2026 07:21:44 GMT"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "36kr:newsflash",
+            "4033881211147144"
+          ],
+          "url": "https://www.36kr.com/newsflashes/4033881211147144",
+          "title": "工信部：1-8月规上工业中小企业利润总额同比增长13.8%",
+          "times": [
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T07:16:10Z",
+              "on": null,
+              "basis": "rsshub:36kr:templateMaterial.publishTime",
+              "raw": "Tue, 20 Oct 2026 07:16:10 GMT"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "36kr:newsflash",
+            "4033876881495175"
+          ],
+          "url": "https://www.36kr.com/newsflashes/4033876881495175",
+          "title": "四川：前三季度全省规模以上工业增加值同比增长6.7%",
+          "times": [
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T07:11:45Z",
+              "on": null,
+              "basis": "rsshub:36kr:templateMaterial.publishTime",
+              "raw": "Tue, 20 Oct 2026 07:11:45 GMT"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "36kr:newsflash",
+            "4033876506956937"
+          ],
+          "url": "https://www.36kr.com/newsflashes/4033876506956937",
+          "title": "前三季度我国获批创新药中国产占比达80%",
+          "times": [
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T07:11:22Z",
+              "on": null,
+              "basis": "rsshub:36kr:templateMaterial.publishTime",
+              "raw": "Tue, 20 Oct 2026 07:11:22 GMT"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "36kr:newsflash",
+            "4033873892283521"
+          ],
+          "url": "https://www.36kr.com/newsflashes/4033873892283521",
+          "title": "前三季度工业对经济增长的贡献率保持在35%左右",
+          "times": [
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T07:08:43Z",
+              "on": null,
+              "basis": "rsshub:36kr:templateMaterial.publishTime",
+              "raw": "Tue, 20 Oct 2026 07:08:43 GMT"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "36kr:newsflash",
+            "4033870117442438"
+          ],
+          "url": "https://www.36kr.com/newsflashes/4033870117442438",
+          "title": "日本计划2027-2029财年向Rapidus追加投资4000亿日元",
+          "times": [
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T07:04:52Z",
+              "on": null,
+              "basis": "rsshub:36kr:templateMaterial.publishTime",
+              "raw": "Tue, 20 Oct 2026 07:04:52 GMT"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "36kr:newsflash",
+            "4033867209200514"
+          ],
+          "url": "https://www.36kr.com/newsflashes/4033867209200514",
+          "title": "A股三大指数收盘涨跌不一，机器人概念走强",
+          "times": [
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T07:01:55Z",
+              "on": null,
+              "basis": "rsshub:36kr:templateMaterial.publishTime",
+              "raw": "Tue, 20 Oct 2026 07:01:55 GMT"
+            }
+          ]
+        },
+        {
+          "identity": [
+            "36kr:newsflash",
+            "4033857210684290"
+          ],
+          "url": "https://www.36kr.com/newsflashes/4033857210684290",
+          "title": "淡马锡投资EQT管理的欧洲Scaleup Europe Fund",
+          "times": [
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T06:51:45Z",
+              "on": null,
+              "basis": "rsshub:36kr:templateMaterial.publishTime",
+              "raw": "Tue, 20 Oct 2026 06:51:45 GMT"
+            }
+          ]
+        }
+      ],
+      "new_identities_with_supported_platform_or_brief_time_inside_window": [
+        [
+          "36kr:newsflash",
+          "4033886684763266"
+        ],
+        [
+          "36kr:newsflash",
+          "4033881211147144"
+        ],
+        [
+          "36kr:newsflash",
+          "4033876881495175"
+        ],
+        [
+          "36kr:newsflash",
+          "4033876506956937"
+        ],
+        [
+          "36kr:newsflash",
+          "4033873892283521"
+        ],
+        [
+          "36kr:newsflash",
+          "4033870117442438"
+        ],
+        [
+          "36kr:newsflash",
+          "4033867209200514"
+        ]
+      ],
+      "client_http_attempts_including_redirects": 2,
+      "numeric_window_complete": false,
+      "critical_identity_author_time_scope_audit": "pending; never infer zero errors from HTTP success",
+      "g2_pass": false,
+      "paid_allowed": false,
+      "published_new_readable_items": 0
+    }
+  },
+  "records": [
+    {
+      "version": "r2-04-observation-v1",
+      "source_id": "36kr-newsflashes",
+      "source_url": "http://rsshub:1200/36kr/newsflashes",
+      "source_contract": {
+        "id": "36kr-newsflashes",
+        "name": "36Kr Newsflashes",
+        "url": "http://rsshub:1200/36kr/newsflashes",
+        "weight": 0.5,
+        "region": "cn-mainland",
+        "kind": "commercial",
+        "lang": "zh",
+        "max_items": 20,
+        "legacy_enabled": false,
+        "discovery_owner": "r1",
+        "r1": {
+          "adapter": "rss",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false,
+          "paid_scopes": [],
+          "publish_scopes": [],
+          "period_seconds": 7200,
+          "form": "post",
+          "material_scope": "complete_brief",
+          "platform": "36kr",
+          "publisher": "36Kr",
+          "origin_hosts": [
+            "36kr.com"
+          ],
+          "capability": "complete-brief-pending-new-target-window",
+          "version": "r2-04-observation-v1",
+          "quotas": {
+            "scan": 30,
+            "material": 1,
+            "paid": 1,
+            "recheck_seconds": 86400
+          }
+        },
+        "timeout_seconds": 60
+      },
+      "scheduled_at": "2026-10-20T07:24:29.643514+00:00",
+      "round_index": 1,
+      "started_at": "2026-10-20T07:24:44.301796+00:00",
+      "paid_requests": 0,
+      "database_writes": 0,
+      "materials": [
+        {
+          "item_key": "4033876881495175",
+          "url": "https://www.36kr.com/newsflashes/4033876881495175",
+          "started_at": "2026-10-20T07:24:45.635209+00:00",
+          "status": "ok",
+          "material": {
+            "scope": "complete_brief",
+            "access_status": "ok",
+            "completeness": "observed_unit",
+            "basis": "feed:provided",
+            "source_url": "https://www.36kr.com/newsflashes/4033876881495175",
+            "retrieved_at": "2026-10-20T07:24:45.635258Z",
+            "response_status": null,
+            "response_fingerprint": null,
+            "source_excerpt": "10月20日，四川省人民政府新闻办公室举行新闻发布会，省统计局副局长、新闻发言人杨治刚介绍2026年前三季度四川经济形势。前三季度，全省规模以上工业增加值同比增长6.7%，高于上半年0.3个百分点。下半年以来，随着各项宏观政策发力提效、传统产业转型加速、新动能增势稳步扩大，工业生产逐月提速，9月当月增长7.8%，三季度月度平均增速达到7.5%，快于一季度和二季度，展现了强劲的增长韧性。（证券时报）",
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "post",
+              "genre": null,
+              "platform": "36kr",
+              "publisher": "36Kr",
+              "authors": [],
+              "times": [
+                {
+                  "kind": "original",
+                  "precision": "time",
+                  "at": "2026-10-20T07:11:45Z",
+                  "on": null,
+                  "basis": "rsshub:36kr:templateMaterial.publishTime",
+                  "raw": "Tue, 20 Oct 2026 07:11:45 GMT"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "title": "四川：前三季度全省规模以上工业增加值同比增长6.7%",
+            "evidence": {
+              "source_id": "36kr-newsflashes",
+              "extractor_version": "r1-material-v3",
+              "feed_text_truncated": false,
+              "origin_requested": false
+            }
+          },
+          "text_sha256": "2f35273e8e83d6470652fe4658a768a5bdce386daa5b8b9107a78506d0c63e60",
+          "characters": 200,
+          "excerpts": [
+            "10月20日，四川省人民政府新闻办公室举行新闻发布会，省统计局副局长、新闻发言人杨治刚介绍2026年前三季度四川经济形势。前三季度，全省规模以上工业增加值同比增长6.7%，高于上半年0.3个百分点。下半年以来，随着各项宏观政策发力提效、传统产业转型加速、新动能增势稳步扩大，工业生产逐月提速，9月当月增长7.8%，三季度"
+          ],
+          "completed_at": "2026-10-20T07:24:45.636131+00:00"
+        },
+        {
+          "item_key": "4033876506956937",
+          "url": "https://www.36kr.com/newsflashes/4033876506956937",
+          "started_at": "2026-10-20T07:24:45.636155+00:00",
+          "status": "ok",
+          "material": {
+            "scope": "complete_brief",
+            "access_status": "ok",
+            "completeness": "observed_unit",
+            "basis": "feed:provided",
+            "source_url": "https://www.36kr.com/newsflashes/4033876506956937",
+            "retrieved_at": "2026-10-20T07:24:45.636206Z",
+            "response_status": null,
+            "response_fingerprint": null,
+            "source_excerpt": "工业和信息化部总工程师王卫明20日在国新办举行的新闻发布会上表示，前三季度我国获批创新药中，国产占比达80%，肿瘤、精神、抗感染、痛风、罕见病等多领域药物研究取得突破。（央视新闻）",
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "post",
+              "genre": null,
+              "platform": "36kr",
+              "publisher": "36Kr",
+              "authors": [],
+              "times": [
+                {
+                  "kind": "original",
+                  "precision": "time",
+                  "at": "2026-10-20T07:11:22Z",
+                  "on": null,
+                  "basis": "rsshub:36kr:templateMaterial.publishTime",
+                  "raw": "Tue, 20 Oct 2026 07:11:22 GMT"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "title": "前三季度我国获批创新药中国产占比达80%",
+            "evidence": {
+              "source_id": "36kr-newsflashes",
+              "extractor_version": "r1-material-v3",
+              "feed_text_truncated": false,
+              "origin_requested": false
+            }
+          },
+          "text_sha256": "5242f19bb7048a5f52616604f2066e0a1ec80072e65929ba8042433126ea790e",
+          "characters": 90,
+          "excerpts": [
+            "工业和信息化部总工程师王卫明20日在国新办举行的新闻发布会上表示，前三季度我国获批创新药中，国产占比达80%，肿瘤、精神、抗感染、痛风、罕见病等多领域药物研究取得突破。（央视新闻）"
+          ],
+          "completed_at": "2026-10-20T07:24:45.636800+00:00"
+        }
+      ],
+      "status": "ok",
+      "response_fingerprint": "b10a4dc281249b501ffbbb91f35c954b4ee8586717e2cc0f54015ed7040d5518",
+      "scan_counts": {
+        "listed": 20,
+        "scanned": 20,
+        "valid": 20,
+        "adapter_duplicates": 0
+      },
+      "items": [
+        {
+          "url": "https://www.36kr.com/newsflashes/4033886684763266",
+          "title": "外交部：中欧经贸问题上的分歧完全可以通过对话加以解决",
+          "item_key": "4033886684763266",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033886684763266",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T07:21:44Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 07:21:44 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，外交部发言人毛宁主持例行记者会。有记者问：王毅外长刚刚结束了对欧亚四国的访问，发言人能否介绍此访有关情况？当前中欧经贸领域摩擦备受关注，中方通过此访向欧方传递了什么信息？毛宁表示，王外长此访传递的最重要信息就是信任是和平基石、友谊是宝贵财富、合作是坚实动力、伙伴是共同目标。毛宁强调，中欧关系总体上健康平稳，经贸问题上的分歧是双方合作不断发展过程中出现的，完全可以通过对话加以解决，不应影响中欧关系大局。中欧共同利益广泛，都主张多边主义，都坚持联合国核心主导地位，都愿意通过对话政治解决国际地区争端。中欧应当彼此尊重、相互欣赏、共同成就，一起承担世界和平与发展的国际责任。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033881211147144",
+          "title": "工信部：1-8月规上工业中小企业利润总额同比增长13.8%",
+          "item_key": "4033881211147144",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033881211147144",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T07:16:10Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 07:16:10 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "国务院新闻办公室今日（10月20日）举行新闻发布会。会上介绍，今年以来，中小企业发展态势总体平稳、稳中有进。1—8月，规上工业中小企业利润总额同比增长13.8%，为2022年以来同期最高水平。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033876881495175",
+          "title": "四川：前三季度全省规模以上工业增加值同比增长6.7%",
+          "item_key": "4033876881495175",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033876881495175",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T07:11:45Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 07:11:45 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，四川省人民政府新闻办公室举行新闻发布会，省统计局副局长、新闻发言人杨治刚介绍2026年前三季度四川经济形势。前三季度，全省规模以上工业增加值同比增长6.7%，高于上半年0.3个百分点。下半年以来，随着各项宏观政策发力提效、传统产业转型加速、新动能增势稳步扩大，工业生产逐月提速，9月当月增长7.8%，三季度月度平均增速达到7.5%，快于一季度和二季度，展现了强劲的增长韧性。（证券时报）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033876506956937",
+          "title": "前三季度我国获批创新药中国产占比达80%",
+          "item_key": "4033876506956937",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033876506956937",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T07:11:22Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 07:11:22 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "工业和信息化部总工程师王卫明20日在国新办举行的新闻发布会上表示，前三季度我国获批创新药中，国产占比达80%，肿瘤、精神、抗感染、痛风、罕见病等多领域药物研究取得突破。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033873892283521",
+          "title": "前三季度工业对经济增长的贡献率保持在35%左右",
+          "item_key": "4033873892283521",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033873892283521",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T07:08:43Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 07:08:43 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "工业和信息化部总工程师王卫明20日在国新办举行的新闻发布会上表示，前三季度，规模以上工业增加值同比增长5.3%，工业对经济增长的贡献率保持在35%左右。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033870117442438",
+          "title": "日本计划2027-2029财年向Rapidus追加投资4000亿日元",
+          "item_key": "4033870117442438",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033870117442438",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T07:04:52Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 07:04:52 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "据报道，日本经济产业省在同日举行的一场审议会上表示，计划向先进半导体制造企业Rapidus追加投资4000亿日元。这4,000亿日元中的1500亿日元将被编入2027财年预算，剩下2500亿日元则将在2028、2029财年拨付。日本政府此前已向Rapidus投资了2500亿日元。（财联社）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033867209200514",
+          "title": "A股三大指数收盘涨跌不一，机器人概念走强",
+          "item_key": "4033867209200514",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033867209200514",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T07:01:55Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 07:01:55 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，A股三大指数收盘涨跌不一，沪指涨0.12%，深成指跌0.14%，创业板指跌0.26%；机器人、医疗、AI办公概念走强，长盈精密、迪安诊断涨停，合合信息涨超8%，宇树科技涨超6%；大金融、贵金属、煤炭板块跌幅居前，大有能源跌超9%，国泰海通跌超4%，中国人保跌超3%，紫金矿业跌超2%。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033857210684290",
+          "title": "淡马锡投资EQT管理的欧洲Scaleup Europe Fund",
+          "item_key": "4033857210684290",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033857210684290",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:51:45Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:51:45 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，新加坡投资公司淡马锡宣布，已投资由投资机构EQT管理的Scaleup Europe Fund，并成为该基金的早期重要投资者。该基金获得欧盟委员会及多家机构投资者支持，旨在帮助欧洲企业获得发展资金，推动其在欧洲持续成长。（界面）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033852799652737",
+          "title": "英国统计局：企业总薪酬已降至近六年来最低水平",
+          "item_key": "4033852799652737",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033852799652737",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:47:15Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:47:15 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "英国国家统计局表示，尽管包括奖金在内的企业总薪酬已降至近六年来的最低水平，但常规工资增长仍保持相对稳定。（财联社）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033850201854853",
+          "title": "一目科技与韩国 Physical AI 前沿企业 NEOUL ROBOTICS 达成战略合作",
+          "item_key": "4033850201854853",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033850201854853",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:44:37Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:44:37 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "近日，一目科技与韩国 Physical AI 前沿企业 NEOUL ROBOTICS 在南京举行战略签约仪式，双方将以此次合作为契机，探索机器人技术与产业应用的更多可能。此次合作是一目科技连接全球机器人产业创新力量的又一重要进展，也体现出其技术能力与产业价值正获得更多全球合作伙伴的关注。一目科技是一家致力于构建面向通用物理 AI 的世界模型与机器人技术体系的企业，致力于为物理AI世界模型提供关键触觉交互数据与物理理解能力，推动机器人更好地感知和理解真实世界。截至目前，已在全球范围内布局超过700件知识产权。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033847237710977",
+          "title": "松下控股将玻璃型钙钛矿太阳能电池量产提前一年，计划2029年4月投产",
+          "item_key": "4033847237710977",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033847237710977",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:41:36Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:41:36 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，松下控股宣布，将玻璃型钙钛矿太阳能电池的全面量产时间从原计划的2030财年提前一年，拟于2029年4月在日本滋贺县长滨市的量产技术开发基地启动生产。公司已于2026年9月开始销售先行量产产品，现阶段由大阪府守口市的研发基地生产，并通过客户应用积累安装和运营经验。（界面）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033845817218176",
+          "title": "北交所副总经理周箴：将进一步优化上市准入和审核机制",
+          "item_key": "4033845817218176",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033845817218176",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:40:09Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:40:09 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，在2026可持续全球领导者大会上，北京证券交易所副总经理周箴表示，将完善投融资体系，助力企业持续发展。北交所将进一步优化上市准入和审核机制，围绕企业发展阶段、行业特点和创新特征，提升审核的精准性和有效性，推动更多资源向新兴产业、未来产业聚集，支持传统产业转型升级。同时，北交所将持续完善再融资、并购重组、股权激励等制度工具包，推动更多案例落地。（第一财经）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033845459981186",
+          "title": "吉利旗下北京智慧普华商业保理公司增资至1.5亿，增幅50%",
+          "item_key": "4033845459981186",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033845459981186",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:39:47Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:39:47 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，天眼查App显示，近日，北京智慧普华商业保理有限公司发生工商变更，新增浙江吉利控股集团有限公司为股东，同时，注册资本由1亿人民币增至1.5亿人民币，增幅50%。该公司成立于2021年9月，法定代表人为蔡慧，经营范围包括保理融资、与受让应收账款相关的催收业务、非商业性坏账担保等。股东信息显示，该公司由浙江众尖投资有限公司及上述新增股东共同持股。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033835196535683",
+          "title": "华为引望与宁德时代“巧克力”换电首款车型计划2027年推出",
+          "item_key": "4033835196535683",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033835196535683",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:29:21Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:29:21 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "华为引望与宁德时代“巧克力”换电合作的首款车型计划于2027年推出，为东风与华为合作推出的奕境品牌产品。此前一日，引望与宁德时代、时代电服正式签署战略合作框架协议。三方将展开两大方向的深度合作：三方实现车端、站端与云端的系统级打通，通过宁德时代巧克力换电网络与华为乾崑智驾的深度打通；引望正式加入宁德时代巧克力换电生态：引望将联合战略伙伴，围绕合作车型与宁德时代巧克力换电网络的适配与接入，共同拓展换电补能生态。（财联社）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033833298187141",
+          "title": "消息称三星电子下调明年OLED Galaxy A系列手机出货目标至1亿部",
+          "item_key": "4033833298187141",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033833298187141",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:27:25Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:27:25 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "据报道，三星电子暂定明年搭载有机发光二极管（OLED）屏幕的中端Galaxy A系列手机出货量目标为1亿部，相较于三星电子9月底向合作伙伴公布的OLED Galaxy A系列1.2亿部出货量目标减少了2000万部。据悉，三星电子下调出货量的主要原因是存储价格上涨。这也增加了其明年智能手机整体出货量目标下调的可能性。三星电子最初计划明年出货超过2.5亿部智能手机 ，但据报道，该公司正在修订这一计划。普遍认为，最终出货量将比原计划减少2000多万部。（新浪财经）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033829926917000",
+          "title": "中国微短剧正成为第四大全球性视听产品新业态",
+          "item_key": "4033829926917000",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033829926917000",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:23:59Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:23:59 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，在广西北海举行的中国—东盟视听周期间，国家广播电视总局发布《中国—东盟微短剧国际传播发展报告》。报告显示，微短剧作为诞生于中国的网络视听新业态，正以惊人速度改变全球视听生态，正在成为继美国电影、日本动画、韩国电视剧之后的第四大全球性视听产品形态，中国—东盟微短剧合作不断深化，成为中国—东盟数字经济合作和人文交流的重要载体。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033828743238791",
+          "title": "我国首台实船应用大功率极地破冰型吊舱推进器在沪下线",
+          "item_key": "4033828743238791",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033828743238791",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:22:47Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:22:47 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，我国首台实船应用大功率极地破冰型吊舱推进器在上海长兴岛正式下线，标志着我国极地船舶核心装备自主研制取得重大突破。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033827482162048",
+          "title": "摩尔线程盘中涨超10%",
+          "item_key": "4033827482162048",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033827482162048",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:21:30Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:21:30 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，A股摩尔线程盘中涨超10%，现报359.73元。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033824137876611",
+          "title": "华为哈勃、智元机器人等入股乙太具身",
+          "item_key": "4033824137876611",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033824137876611",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:18:06Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:18:06 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，天眼查App显示，近日，乙太具身科技（北京）有限公司发生工商变更，新增华为旗下深圳哈勃科技投资合伙企业（有限合伙）、智元机器人关联公司智元创新（上海）科技股份有限公司等股东，同时，注册资本由100万元人民币增至约127万元人民币。\n该公司成立于2025年12月，法定代表人为杨叶青，经营范围包括人工智能基础软件开发、人工智能应用软件开发、人工智能行业应用系统集成服务等，现由杨叶青、北京乙力太企业管理服务合伙企业（有限合伙）及上述新增股东等共同持股。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033819430458244",
+          "title": "山东：探索“具身智能+旅游”落地应用，支持山岳型景区投放登山助力机器人",
+          "item_key": "4033819430458244",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033819430458244",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:13:19Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:13:19 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，山东省人民政府印发《山东省旅游业发展“十五五”规划》，其中提出，深化“人工智能+旅游”应用，因地制宜发展新质生产力，构建“人工智能+旅游”发展生态，推动人工智能与齐鲁文化资源深度融合，用好齐鲁文化大模型、孔子数智大模型技术引擎，推进跨部门数据共享与融合。实施山东省文化和旅游重点实验室动态管理，聚力突破文旅大模型、多模态交互、数字孪生等关键核心技术，加快成果转化应用。探索“具身智能+旅游”落地应用，支持山岳型景区投放登山助力机器人。依托文旅科技平台打造“人工智能行程助手”，精准生成个性化旅行推荐。打造“人工智能+混合现实”导游导览新模式，构建虚实融合、实时交互的超沉浸式体验。支持景区部署数字人讲解员，运用人工智能生成内容（AIGC）、三维（3D）打印技术创新文创设计生产。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        }
+      ],
+      "item_count": 20,
+      "completed_at": "2026-10-20T07:24:45.636987+00:00",
+      "http_requests": [
+        {
+          "url": "http://rsshub:1200/36kr/newsflashes",
+          "method": "GET",
+          "started_at": "2026-10-20T07:24:44.456605+00:00",
+          "status": 200,
+          "response_sha256": "aa41b0d28f658dfa4e3d73cd3983f5041ba223f27aa004ca9af4cbf464ca12c7",
+          "response_bytes": 16105,
+          "private_response": "response-01.bin",
+          "headers": {
+            "date": "Tue, 20 Oct 2026 07:24:45 GMT",
+            "etag": "\"33e2-DV7t72u5ErTslG5nCQFuAU3+jlk\"",
+            "last-modified": "Tue, 20 Oct 2026 07:24:45 GMT",
+            "content-type": "application/xml; charset=utf-8"
+          },
+          "completed_at": "2026-10-20T07:24:45.610840+00:00"
+        }
+      ]
+    },
+    {
+      "version": "r2-04-observation-v1",
+      "source_id": "thepaper-sidebar",
+      "source_url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+      "source_contract": {
+        "id": "thepaper-sidebar",
+        "name": "The Paper current sidebar",
+        "url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+        "weight": 1.0,
+        "region": "cn-mainland",
+        "kind": "commercial",
+        "lang": "zh",
+        "max_items": 50,
+        "legacy_enabled": false,
+        "discovery_owner": "r1",
+        "r1": {
+          "adapter": "thepaper",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false,
+          "paid_scopes": [],
+          "publish_scopes": [],
+          "period_seconds": 7200,
+          "form": "article",
+          "material_scope": "open_text_unit",
+          "platform": "thepaper",
+          "publisher": null,
+          "origin_hosts": [
+            "thepaper.cn"
+          ],
+          "capability": "current-sidebar-pending-new-target-window",
+          "version": "r2-04-observation-v1",
+          "quotas": {
+            "scan": 30,
+            "material": 1,
+            "paid": 1,
+            "recheck_seconds": 86400
+          }
+        },
+        "timeout_seconds": 20
+      },
+      "scheduled_at": "2026-10-20T07:24:29.643514+00:00",
+      "round_index": 1,
+      "started_at": "2026-10-20T07:24:29.645861+00:00",
+      "paid_requests": 0,
+      "database_writes": 0,
+      "materials": [
+        {
+          "item_key": "34288055",
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288055",
+          "started_at": "2026-10-20T07:24:43.899212+00:00",
+          "status": "ok",
+          "material": {
+            "scope": "open_text_unit",
+            "access_status": "ok",
+            "completeness": "observed_unit",
+            "basis": "thepaper:detail:content",
+            "source_url": "https://www.thepaper.cn/newsDetail_forward_34288055",
+            "retrieved_at": "2026-10-20T07:24:43.899294Z",
+            "response_status": 200,
+            "response_fingerprint": "ed2bddc3c0906f9b0f6400a99f44ab926c514a1e23d212c5d1e5e28fcec97a79",
+            "source_excerpt": null,
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "article",
+              "genre": null,
+              "platform": "thepaper",
+              "publisher": "澎湃新闻",
+              "authors": [
+                {
+                  "name": "陈悦",
+                  "role": "reporter",
+                  "platform": "thepaper",
+                  "platform_id": null,
+                  "basis": "thepaper:detail:author:label=记者"
+                }
+              ],
+              "times": [
+                {
+                  "kind": "feed",
+                  "precision": "time",
+                  "at": "2026-10-20T07:06:06.371000Z",
+                  "on": null,
+                  "basis": "thepaper:rightSidebar:pubTimeLong",
+                  "raw": "1792479966371"
+                },
+                {
+                  "kind": "original",
+                  "precision": "time",
+                  "at": "2026-10-20T07:06:06.371000Z",
+                  "on": null,
+                  "basis": "thepaper:detail:publishTime:originalFlag=1",
+                  "raw": "1792479966371"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "title": "众声丨AI“苦命男孩小海”收割老人，平台审核不能总是被动响应",
+            "evidence": {
+              "source_id": "thepaper-sidebar",
+              "extractor_version": "r1-material-v3",
+              "feed_text_truncated": false
+            }
+          },
+          "text_sha256": "043018cb09b106ba8e8853cff7563cadb51165452ae38367d50e40d8f3610224",
+          "characters": 1372,
+          "excerpts": [
+            "一个十几岁的单亲少年，没有妈妈，在校园里被欺负，跟着爸爸在网上辛苦卖货维持生活，一口一句“姨姨妈妈，小海需要你”“小海想把好吃的给姨姨妈妈们”……年轻人一眼看穿的AI数字人“小海”，正在收割老年人，掏空他们的钱包。甚至有79岁的老人要独自乘火车去山西，看望这个根本不存在的孩子。",
+            "近期，有媒体曝光一批由AI批量生成的数字人“苦命男孩小海”。他们在短视频平台用同一套苦情剧本筛选富有同情心却缺乏防备的老年群体，转身在带货视频里推荐远高于市场价的商品。相关账号包括“海海分享生活”“懂事的小海”“小海小海小海”“小海努力生活”“海海会努力”等，IP不同，却都有数万名粉丝。",
+            "吃馒头卖惨的数字人小海。网络平台截图"
+          ],
+          "completed_at": "2026-10-20T07:24:44.179547+00:00"
+        },
+        {
+          "item_key": "34288682",
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288682",
+          "started_at": "2026-10-20T07:24:44.179573+00:00",
+          "status": "ok",
+          "material": {
+            "scope": "open_text_unit",
+            "access_status": "ok",
+            "completeness": "observed_unit",
+            "basis": "thepaper:detail:content",
+            "source_url": "https://www.thepaper.cn/newsDetail_forward_34288682",
+            "retrieved_at": "2026-10-20T07:24:44.179635Z",
+            "response_status": 200,
+            "response_fingerprint": "34d3cd382beb5fb0554b7f1086fdecd032917274cf57cb489e513cdb2313f786",
+            "source_excerpt": null,
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "article",
+              "genre": null,
+              "platform": "thepaper",
+              "publisher": "澎湃新闻",
+              "authors": [
+                {
+                  "name": "南博一",
+                  "role": "reporter",
+                  "platform": "thepaper",
+                  "platform_id": null,
+                  "basis": "thepaper:detail:author:label=记者"
+                }
+              ],
+              "times": [
+                {
+                  "kind": "feed",
+                  "precision": "time",
+                  "at": "2026-10-20T06:23:50.852000Z",
+                  "on": null,
+                  "basis": "thepaper:rightSidebar:pubTimeLong",
+                  "raw": "1792477430852"
+                },
+                {
+                  "kind": "original",
+                  "precision": "time",
+                  "at": "2026-10-20T06:23:50.852000Z",
+                  "on": null,
+                  "basis": "thepaper:detail:publishTime:originalFlag=1",
+                  "raw": "1792477430852"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "title": "女性是否应服兵役？韩国兵源缩减，在野党提“性别平等征兵”",
+            "evidence": {
+              "source_id": "thepaper-sidebar",
+              "extractor_version": "r1-material-v3",
+              "feed_text_truncated": false
+            }
+          },
+          "text_sha256": "84d27850ce7921367e29b6493561d679ecef0c1e764467f4c88b64542f6a9a3d",
+          "characters": 1208,
+          "excerpts": [
+            "随着韩国适龄征兵人口不断减少，人们担忧兵源缩减可能削弱韩国军队的战备能力。围绕女性是否应当服兵役这一持续了十多年的争论，近期在韩国国会的一场审计会议上再次被提及。",
+            "据《韩国时报》20日报道，在韩国国会国防委员会近日举行的国政监查中，在野党国民力量党议员柳永夏提出，随着符合服役条件的男性人口持续减少，现在是时候就女性服兵役展开公共讨论，这也需要广泛的社会共识。",
+            "在野党改革新党议员千河岚则使用了“性别平等征兵”这一说法，即男女都必须服兵役。他说：“如果我们继续对着一条已经拧不出水的毛巾反复拧，却连将性别平等征兵作为一种选项都不予考虑，那么从作战能力或国家利益的角度来看，我怀疑这种做法是否真的可取。”"
+          ],
+          "completed_at": "2026-10-20T07:24:44.293807+00:00"
+        }
+      ],
+      "status": "ok",
+      "response_fingerprint": "5e392e2787e48648c05a95aa2b58822db9428829bc11f7b784b26d6328457eba",
+      "scan_counts": {
+        "listed": 35,
+        "scanned": 30,
+        "valid": 30,
+        "adapter_duplicates": 0
+      },
+      "items": [
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34289033",
+          "title": "美国政府指示各机构停用DeepSeek，外交部：反对将科技经贸问题政治化",
+          "item_key": "34289033",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34289033",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T07:15:30.373000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792480530373"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34289194",
+          "title": "前三季度我国获批创新药中国产占比达80%",
+          "item_key": "34289194",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34289194",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T07:10:14.123000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792480214123"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288055",
+          "title": "众声丨AI“苦命男孩小海”收割老人，平台审核不能总是被动响应",
+          "item_key": "34288055",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288055",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T07:06:06.371000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792479966371"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288682",
+          "title": "女性是否应服兵役？韩国兵源缩减，在野党提“性别平等征兵”",
+          "item_key": "34288682",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288682",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T06:23:50.852000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792477430852"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287361",
+          "title": "经纬度：消费、进口、物价共同传递内需改善信号",
+          "item_key": "34287361",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34287361",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T06:23:44.951000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792477424951"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288791",
+          "title": "四川警方披露新型智能化非法狩猎：涉案者私改无人机，高空坠箭猎杀野生动物",
+          "item_key": "34288791",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288791",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T06:13:47.393000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792476827393"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34225033",
+          "title": "财晓得｜流感疫苗今年有了哪些新变化？到底要不要打？",
+          "item_key": "34225033",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34225033",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "unknown",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T05:57:57.795000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792475877795"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288467",
+          "title": "新加坡一餐厅冒用使馆名义赠送花篮，中使馆：已要求纠正错误、澄清事实",
+          "item_key": "34288467",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288467",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T05:43:31.461000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792475011461"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287944",
+          "title": "汽车数据安全强标征求意见：把选择权还给车主，基础功能不得捆绑授权",
+          "item_key": "34287944",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34287944",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T05:22:40.223000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792473760223"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288594",
+          "title": "美军濒海战斗舰冲闯中国南沙群岛仙宾礁附近海域，南部战区回应",
+          "item_key": "34288594",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288594",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T04:53:20.098000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792472000098"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34280886",
+          "title": "中国留学生课堂披旭日旗，钧正平：为军国主义张目是对人类良知的公然冒犯",
+          "item_key": "34280886",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34280886",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T08:15:07.914000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792397707914"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34286371",
+          "title": "媒体：身披旭日旗中国留学生已被遣返，校方称将尽快公布开除决定",
+          "item_key": "34286371",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34286371",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T22:12:48.698000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792447968698"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282373",
+          "title": "吴清最新发言八大要点：谈中国资产、市场稳定和AI浪潮",
+          "item_key": "34282373",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282373",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T12:51:41.968000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792414301968"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282643",
+          "title": "四川马边县通报“硫磺熏制鲜竹笋”：对涉事人员依法开展调查取证",
+          "item_key": "34282643",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282643",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:31:05.324000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792416665324"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34283747",
+          "title": "圆通致歉“客户取消快递订单被记为投诉”事件：不存在“咨询即处罚”等情况，将强化管理和培训",
+          "item_key": "34283747",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34283747",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T14:59:18.928000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792421958928"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34280094",
+          "title": "读中本贯通的高分生们",
+          "item_key": "34280094",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34280094",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T23:29:39.497000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792452579497"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34280699",
+          "title": "马上评｜孙颖莎“四不”声明是给饭圈的一味清醒剂",
+          "item_key": "34280699",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34280699",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T07:47:54.377000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792396074377"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282716",
+          "title": "众声丨以实践成果申请专业学位，让评价标尺更适配应用型人才成长",
+          "item_key": "34282716",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282716",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:59:42.027000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792418382027"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34281614",
+          "title": "人民锐评：对“精日”言行零容忍",
+          "item_key": "34281614",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34281614",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T10:22:02.593000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792405322593"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287229",
+          "title": "冯远征称“招不到黄胖子”，业内专家：多方因素造成艺考“颜值内卷”",
+          "item_key": "34287229",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34287229",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T02:07:05.055000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792462025055"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282817",
+          "title": "外交部提醒赴法国中国公民加强安全防范",
+          "item_key": "34282817",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282817",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:05:31.335000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792415131335"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34283051",
+          "title": "中国驻菲律宾大使就菲反华政客污蔑抹黑中方言论向菲外长提出严正交涉",
+          "item_key": "34283051",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34283051",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:35:24.457000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792416924457"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34281796",
+          "title": "言短意长｜程序正义值得尊重，但不能成为学术不端调查效率的挡箭牌",
+          "item_key": "34281796",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34281796",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:50:10.419000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792417810419"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34283182",
+          "title": "英方称将共同应对中国汽车产业占主导地位，商务部回应",
+          "item_key": "34283182",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34283182",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T14:01:28.578000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792418488578"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282923",
+          "title": "系统性变革遇上AI大爆发：报业如何面向未来再出发？业界共话破局新路径",
+          "item_key": "34282923",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282923",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T16:11:53.971000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792426313971"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34285005",
+          "title": "新华社：特朗普为何此时“力挺”内塔尼亚胡",
+          "item_key": "34285005",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34285005",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T17:37:05.789000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792431425789"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34280880",
+          "title": "一线城市二手房价格连续7个月环比上涨，全国新建商品房库存持续下降",
+          "item_key": "34280880",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34280880",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T08:54:24.395000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792400064395"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34281777",
+          "title": "马上评｜互联网时代的舆情不等人，高校调查通报当快则快",
+          "item_key": "34281777",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34281777",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T11:05:58.651000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792407958651"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282214",
+          "title": "明查｜霍尔木兹海峡散落大量苹果手机？网传视频多为AI生成",
+          "item_key": "34282214",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282214",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "unknown",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T23:43:06.381000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792453386381"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34281785",
+          "title": "支持和推动三区域打造科技金融协同发展高地，多部门出台重磅文件",
+          "item_key": "34281785",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34281785",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T10:24:32.822000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792405472822"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        }
+      ],
+      "item_count": 30,
+      "completed_at": "2026-10-20T07:24:44.294351+00:00",
+      "http_requests": [
+        {
+          "url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+          "method": "GET",
+          "started_at": "2026-10-20T07:24:29.776966+00:00",
+          "status": 200,
+          "response_sha256": "f99a2422d7a5d36439d24a4820ba11f50886a741aef0c24130ba84b639d22351",
+          "response_bytes": 100621,
+          "private_response": "response-01.bin",
+          "headers": {
+            "date": "Tue, 20 Oct 2026 07:24:43 GMT",
+            "age": "0",
+            "content-type": "application/json;charset=UTF-8"
+          },
+          "completed_at": "2026-10-20T07:24:43.887959+00:00"
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288055",
+          "method": "GET",
+          "started_at": "2026-10-20T07:24:43.900005+00:00",
+          "status": 200,
+          "response_sha256": "ed2bddc3c0906f9b0f6400a99f44ab926c514a1e23d212c5d1e5e28fcec97a79",
+          "response_bytes": 31343,
+          "private_response": "response-02.bin",
+          "headers": {
+            "date": "Tue, 20 Oct 2026 07:24:44 GMT",
+            "age": "1046",
+            "etag": "\"wino191juciia\"",
+            "content-type": "text/html; charset=utf-8"
+          },
+          "completed_at": "2026-10-20T07:24:44.163800+00:00"
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288682",
+          "method": "GET",
+          "started_at": "2026-10-20T07:24:44.180252+00:00",
+          "status": 200,
+          "response_sha256": "34d3cd382beb5fb0554b7f1086fdecd032917274cf57cb489e513cdb2313f786",
+          "response_bytes": 28546,
+          "private_response": "response-03.bin",
+          "headers": {
+            "date": "Tue, 20 Oct 2026 07:24:44 GMT",
+            "age": "3295",
+            "etag": "\"dpa6xqqmyxh1r\"",
+            "content-type": "text/html; charset=utf-8"
+          },
+          "completed_at": "2026-10-20T07:24:44.274118+00:00"
+        }
+      ]
+    }
+  ],
+  "earlier_records_reference": {
+    "path": "docs/acceptance/r2-04/window-first.json",
+    "sha256": "dc2e46e115c6ca2fa2f1b87cc44b7e7a689c0af37236db2932d255fdbd7c4799",
+    "note": "Aggregates include both rounds; unchanged round-zero records are referenced, not duplicated."
+  },
+  "delta_review": {
+    "reviewer_kind": "ai-technical",
+    "new_identities_after_round_zero": 13,
+    "repeat_list_observations": 37,
+    "new_identities_with_supported_time_inside_window": 10,
+    "time_meanings": "Paper 3 of 5 have platform/feed timestamps inside this window; 36Kr 7 of 8 have brief publication times inside it. Other new-to-list IDs are older and are not newly published claims.",
+    "cross_source_title_overlap": [
+      {
+        "thepaper": "34289194",
+        "36kr": "4033876506956937",
+        "title": "前三季度我国获批创新药中国产占比达80%",
+        "basis": "Same title only; Paper body not requested in this round, so no exact-body or independent-report conclusion."
+      }
+    ],
+    "material_review": "Round-one Paper bodies retain explicit reporter names and detail identity/time flags; one is a public-issue commentary on AI-generated sales targeting older adults. 36Kr is complete public brief text with attribution, not first-party technical coverage.",
+    "full_window_critical_field_audit": "pending",
+    "full_60_minute_content_cache_span_observed": false,
+    "cross_date_observed": false,
+    "g2_pass": false,
+    "paid_requests": 0,
+    "new_publication": 0
+  }
+}
