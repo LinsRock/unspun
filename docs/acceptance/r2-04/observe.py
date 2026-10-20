@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import os
 import time
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -61,12 +62,21 @@ class Capture(httpx.BaseTransport):
                     private_response=name,
                     headers={
                         key: response.headers[key]
-                        for key in ("date", "age", "etag", "last-modified", "content-type")
+                        for key in (
+                            "date",
+                            "age",
+                            "etag",
+                            "last-modified",
+                            "content-type",
+                        )
                         if key in response.headers
                     },
                 )
                 return httpx.Response(
-                    response.status_code, headers=response.headers, content=data, request=request
+                    response.status_code,
+                    headers=response.headers,
+                    content=data,
+                    request=request,
                 )
             finally:
                 response.close()
@@ -109,7 +119,8 @@ def capture(source, directory, *, samples, offset, limit, scheduled_at, round_in
                 response_fingerprint=result.response_fingerprint,
                 scan_counts=result.scan_counts,
                 items=[
-                    item.model_dump(mode="json", exclude={"provided_text"}) for item in result.items
+                    item.model_dump(mode="json", exclude={"provided_text"})
+                    for item in result.items
                 ],
                 item_count=len(result.items),
             )
@@ -118,7 +129,11 @@ def capture(source, directory, *, samples, offset, limit, scheduled_at, round_in
             start = offset % len(result.items)
             selected = (result.items[start:] + result.items[:start])[:samples]
             for index, item in enumerate(selected):
-                sample = {"item_key": item.item_key, "url": str(item.url), "started_at": stamp()}
+                sample = {
+                    "item_key": item.item_key,
+                    "url": str(item.url),
+                    "started_at": stamp(),
+                }
                 record["materials"].append(sample)
                 try:
                     material = retrieve_material(
@@ -149,7 +164,11 @@ def capture(source, directory, *, samples, offset, limit, scheduled_at, round_in
                         excerpts=[unit.text[:160] for unit in material.paragraphs[:3]],
                     )
                 except Exception as error:
-                    sample.update(status="error", error_kind=type(error).__name__, error=str(error))
+                    sample.update(
+                        status="error",
+                        error_kind=type(error).__name__,
+                        error=str(error),
+                    )
                 sample["completed_at"] = stamp()
     except Exception as error:
         record.update(status="error", error_kind=type(error).__name__, error=str(error))
@@ -159,6 +178,10 @@ def capture(source, directory, *, samples, offset, limit, scheduled_at, round_in
 
 
 def main():
+    if os.environ.get("UNSPUN_OPENROUTER_API_KEY") or os.environ.get(
+        "UNSPUN_DATABASE_URL"
+    ):
+        raise ValueError("observation must not receive database or model credentials")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--registration", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
@@ -187,7 +210,9 @@ def main():
             "samples": samples,
             "registration_sha256": digest(args.registration.read_bytes()),
             "script_sha256": digest(Path(__file__).read_bytes()),
-            "source_config_sha256": digest(Path("/app/config/sources.yml").read_bytes()),
+            "source_config_sha256": digest(
+                Path("/app/config/sources.yml").read_bytes()
+            ),
             "paid_requests": 0,
             "database_writes": 0,
         },
@@ -206,14 +231,16 @@ def main():
                 round_index=index,
             )
             print(
-                json.dumps({"source_id": source_id, "round": index, "status": record["status"]}),
+                json.dumps(
+                    {"source_id": source_id, "round": index, "status": record["status"]}
+                ),
                 flush=True,
             )
         if index + 1 < rounds:
             deadline += interval
             # Late wakeups are retained; do not run compressed catch-up requests.
             delay = deadline - time.monotonic()
-            if delay < -4500:
+            if delay < 0:
                 write_new(
                     args.output / "interrupted.json",
                     {"at": stamp(), "reason": "scheduled gap exceeded"},

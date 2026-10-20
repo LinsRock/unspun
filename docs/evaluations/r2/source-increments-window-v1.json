@@ -1,0 +1,72 @@
+{
+  "schema_version": "r2-04-selected-window-v1",
+  "registered_at": "2026-10-20T06:53:49.994924+00:00",
+  "parent_registration": "docs/evaluations/r2/source-increments-registration-v1.json",
+  "parent_registration_sha256": "90798dd67197ff86a74388158feed683dfd22adb5390ee59a0f4e1811728fd7e",
+  "selected_source_ids": [
+    "thepaper-sidebar",
+    "36kr-newsflashes"
+  ],
+  "selection_reason": {
+    "thepaper-sidebar": "domestic society and public-issue bodies; mixed byline fixed, no-text media failures retained",
+    "36kr-newsflashes": "incremental AI/technology business briefs, never first-party technical coverage"
+  },
+  "not_selected": {
+    "netease-home": "current sampled headlines largely official reprints and overlap; lower marginal contribution",
+    "tencent-headlines": "all six titles overlap NetEase; first two material families duplicate the NetEase reports"
+  },
+  "comparison_does_not_count_as_window": true,
+  "target_environment": {
+    "base_image_id": "sha256:1f57ffc612eb29767c1e8f2cd947ec23e2715bd5537863d347bb2283162d595c",
+    "base_image_ref": "ghcr.io/linsrock/unspun-server:d72861bf854465a7a1107d149fad82dfe50281bb",
+    "network": "unspun_default",
+    "equivalence": "same production Linux image and network; only public_sources.py and sources.yml bind-mounted read-only from the registered revision; app services untouched",
+    "source_overlay_sha256": "b91eee4f1c3179ba363b8f696d248f668c6a64fe20d5bae4cf715602a316c76d",
+    "config_overlay_sha256": "4c21aaace4c8c68d0181e101a136883fb43972c12e5af47caba410d9ec1bef43",
+    "script_sha256": "b8e2535a7bffcbb14f5340ec5b67869f2c910c422a7e60851469fa10c459e7bd",
+    "rsshub_cache_seconds": 1800,
+    "rsshub_content_cache_seconds": 3600,
+    "database_credentials": false,
+    "model_key": false,
+    "ports": [],
+    "memory_mib": 256,
+    "cpus": 0.5,
+    "uid_gid": "1001:1001"
+  },
+  "window": {
+    "selection_registration_required_before_start": true,
+    "rounds": 21,
+    "interval_seconds": 1800,
+    "sample_materials_per_success": 2,
+    "sampling": "rotate by round index, retaining first and subsequent appearances without forcing updates",
+    "minimum_elapsed_seconds": 21600,
+    "minimum_distinct_calendar_days": 2,
+    "timezone": "Asia/Shanghai",
+    "minimum_scheduled_attempts": 13,
+    "maximum_gap_seconds": 4500,
+    "minimum_metadata_success_fraction": 0.9,
+    "maximum_consecutive_metadata_failures": 1,
+    "post_failure_successes_required": 2,
+    "minimum_distinct_material_urls": 3,
+    "minimum_declared_scope_success_fraction": 0.9,
+    "critical_identity_author_time_scope_mistakes_allowed": 0,
+    "real_new_upstream_identities_required": true,
+    "http_attempt_limit_per_route_per_round_including_redirects": 13,
+    "http_attempt_limit_per_route_entire_window": 273,
+    "automatic_retries": 0,
+    "missed_rounds": "retain scheduled timestamps and failures; do not compress catch-up requests or silently restart the window"
+  },
+  "sampling_scope": "scan quota 30 matches proposed runtime bounds; rotate all returned forms, retain media/unknown/none failures in denominator; no text-only filtering",
+  "production_stage_flags": {
+    "discovery": false,
+    "material": false,
+    "paid": false,
+    "publish": false
+  },
+  "paid_requests_allowed": 0,
+  "publication_authorized": false,
+  "original_eight_unchanged": true,
+  "private_target_root": "/home/leon/unspun-observations/r2-04-window-v1",
+  "container": "unspun-r204-window-v1",
+  "restart_policy": "no automatic restart; preserve failure/missed schedule, new version for a new extractor/window; never replace prior output"
+}
