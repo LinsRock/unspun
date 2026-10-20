@@ -151,6 +151,11 @@ def load_content(session: Session, article_id: int) -> ContentInput:
     material = session.get(ContentMaterial, article.current_material_id)
     if material is None:
         raise Blocked("R1 current material is missing")
+    return content_input(article, material)
+
+
+def content_input(article: Article, material: ContentMaterial) -> ContentInput:
+    """Parse already-loaded material without an extra query per reading candidate."""
     metadata = dict(article.r1_metadata or {})
     metadata.pop("title", None)
     return ContentInput(

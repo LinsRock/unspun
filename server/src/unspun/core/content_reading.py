@@ -115,12 +115,19 @@ def publication_at(metadata: ContentMetadata) -> datetime | None:
     return None
 
 
-def cheap_exclusion(content: ContentInput, now: datetime) -> str | None:
+def material_exclusion(content: ContentInput) -> str | None:
     if content.canonical_content_id is not None:
         return "canonical_duplicate"
     body = content.text().strip()
     if content.scope == "none" or not body or body == content.title.strip():
         return "insufficient_material"
+    return None
+
+
+def cheap_exclusion(content: ContentInput, now: datetime) -> str | None:
+    excluded = material_exclusion(content)
+    if excluded:
+        return excluded
     at = publication_at(content.metadata)
     if content.scope == "complete_brief" and at and now - at > timedelta(hours=48):
         return "stale_brief"
