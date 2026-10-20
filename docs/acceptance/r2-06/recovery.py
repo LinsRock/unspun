@@ -118,7 +118,6 @@ restored = snapshot(RESTORED)
 assert full == restored
 restored_engine = create_engine(url(RESTORED))
 with Session(restored_engine) as session:
-    # Compare with the original exact validation time so no synthetic time is manufactured.
     restored_view = read_topic(session, topic, sources=sources, now=datetime.now(UTC), contract=CONTRACT)
     assert restored_view == view
     vector = session.query(ContentVector).first()

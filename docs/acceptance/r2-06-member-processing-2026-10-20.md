@@ -24,12 +24,18 @@ Ruff/format、Pyright（0 错误）、Alembic check 无漂移；部署 18 项和
 
 [恢复演练](r2-06/recovery.json)在新建 `unspun_r206_recovery_v2_20261020` 以 `000018` 种旧业务/账务/unknown 预留与已有话题，升级不改旧表散列和序列，再用 mock 完成向量、判断、审核/CAS 及成员移除历史。完整 dump→新建 `unspun_r206_restored_v2_20261020` 后，所有表计数/散列/序列及话题历史、向量/审核版本一致；重复升级成功，downgrade 报错且全部数据保留。首个空库演练的路径错误、首次测试失败和后续修正见[失败登记](r2-06/failures.json)。
 
-[实际生产备份隔离恢复](r2-06/production-restore.json)从生产只读 pg_dump，完整备份留在私有缓存；恢复到新建 `unspun_r206_prod_restore_20261020` 后升级，33 张旧表计数/散列、113 个合格详情及推荐/最新前两页保持，两张新表为空。生产未执行恢复/降级。[固定镜像验证](r2-06/fixed-image-compatibility.json)只承诺本批 `000019` 镜像；上批固定 `000018` 镜像不能解析新 revision，迁移失败关闭且恢复库全部行/schema 保留。回退用认识 `000019` 的固定镜像及退役后的部署文件；需原 schema 时恢复到独立库/卷，保留新库和核对写入差额，不 stamp/删历史造兼容。
+[实际生产备份隔离恢复](r2-06/production-restore.json)从生产只读 pg_dump，完整备份留在私有缓存；恢复到新建 `unspun_r206_prod_restore_20261020` 后升级，33 张旧表计数/散列、113 个合格详情及推荐/最新前两页保持，两张新表为空。生产未执行恢复/降级。[资源清单](r2-06/retained-resources.json)保留全部八个隔离库、两份成功备份、测试镜像及 worktree。[固定镜像验证](r2-06/fixed-image-compatibility.json)只承诺本批 `000019` 镜像；上批固定 `000018` 镜像不能解析新 revision，迁移失败关闭且恢复库全部行/schema 保留。回退用认识 `000019` 的固定镜像及退役后的部署文件；需原 schema 时恢复到独立库/卷，保留新库和核对写入差额，不 stamp/删历史造兼容。
 
 审查覆盖最终差异及 R2-05 校验、现有 canonical/material/qualification、R1 runtime/队列、账本/费用查询、只读阅读与部署调用方。新增任务不会被默认 runtime 领取；新费用阶段默认无分配，旧政策/模型/排序及退役 worker 保持。补强了实际阶段/模型匹配、受限语义输入投影及最终 CAS 前的租约复验；完整回归与固定镜像对应最终源码。
 
 ## 发布与下一批
 
-部署前 [运行](r2-06/predeploy-runtime.json)、[阅读](r2-06/predeploy-reading.json)、[生产账务](r2-06/predeploy-production.json)、[原评测](r2-06/predeploy-evaluation.json)、[旧业务](r2-06/predeploy-protected-production.json)、[worker 边界](r2-06/predeploy-boundaries.json)、[观察环境/原件](r2-06/predeploy-observation.json)和[关闭链路](r2-06/predeploy-member-chain.json)均为带时间只读截面。原观察 worktree [保护核验](r2-06/protected-r204-worktree.json)仍是干净 `b5f812c`。PR/CI、合并及实际 Deploy/生产关闭核对完成后补录本节，不把提交文档当作运行发布。
+部署前 [运行](r2-06/predeploy-runtime.json)、[阅读](r2-06/predeploy-reading.json)、[生产账务](r2-06/predeploy-production.json)、[原评测](r2-06/predeploy-evaluation.json)、[旧业务](r2-06/predeploy-protected-production.json)、[worker 边界](r2-06/predeploy-boundaries.json)、[观察环境/原件](r2-06/predeploy-observation.json)和[关闭链路](r2-06/predeploy-member-chain.json)均为带时间只读截面。原观察 worktree [保护核验](r2-06/protected-r204-worktree.json)仍是干净 `b5f812c`。[PR #116](https://github.com/LinsRock/unspun/pull/116) 于 `2026-10-20 09:38:56 UTC` 合并为 **`78061d7bb6731fd8002807b0b8247dc8301901e0`**（实现头 `d0b25fb`）。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39401842726) 和[主干 CI/实际发布](https://github.com/LinsRock/unspun/actions/runs/39402219835) 均成功，后端、前端 lint/TypeScript/Vitest/build/PWA 与 required-checks 全部通过。[发布步骤](r2-06/release-verification.json)确认 Deploy 在 `09:44:21 UTC` 完成，未跳过发布。
+
+[24 项交付核对](r2-06/delivery.json)全部通过：[运行/源码](r2-06/postdeploy-runtime.json)、[schema](r2-06/postdeploy-schema.json)及[服务审计](r2-06/postdeploy-audit.json)确认生产 `000019`、七张话题/新链表均为 0；API/受控 worker 同一固定 `78061d7…` 镜像，89 个源码/四份配置匹配，web 复用原固定镜像。legacy 所有状态 0、受控 worker 1，唯一发布端口仍为 `127.0.0.1:8080`。
+
+[生产新链](r2-06/postdeploy-member-chain.json)开关 false、runtime 无新 handler、新任务与调用均为空；三个新阶段未分配，原政策行和上限未改变。没有生产话题回填、自动新增任务或新阶段付费。[前](r2-06/predeploy-reading.json)/[后](r2-06/postdeploy-reading.json)各 113 个合格详情的集合/正文散列、推荐/最新前两页及停源 404 一致；读取没有排任务。[生产账务](r2-06/postdeploy-production.json)已知费用差额 0；[原评测](r2-06/postdeploy-evaluation.json)七笔未知、完整 $0.484867 预留、已知费用/政策/carry 保持，本批新付费 0。
+
+[旧资源/身份/反馈](r2-06/postdeploy-retained.json)、[旧业务/积压](r2-06/postdeploy-protected-production.json)保持。[原观察环境](r2-06/postdeploy-observation.json)确认 3 个 R2-04 容器 ID、镜像、状态、启动时间、重启数与挂载未改，此前 127 份原件散列保留，本次截面仍为 127 份；后续轮次由原观察进程继续追加；本批不签核观察或启源。所有隔离库/备份/镜像及 worktree 保留。部署后证据由纯文档 PR 补录，其提交不等同新的运行发布。
 
 下一批尚缺：固定真实材料及留出上的模型判断/审核评测，分别报告误合并和漏归并/覆盖（包括同主体不同事件、转载、独立观点、部分重叠、长背景、多话题及未知时间）；可审计的后台补成员/依据、纠错和费用/任务下钻；刷新原账本/提供方后审查真实费用与总额内分配，再经明确配置 PR 有限启用及自然运行/恢复验收。R2-06 整体保持未完成，生产继续关闭。

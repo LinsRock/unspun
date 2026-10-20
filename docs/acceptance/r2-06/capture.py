@@ -40,12 +40,14 @@ for name, script in (
     ("reading", "docs/acceptance/r2-04/reading.py"),
     ("protected-production", "docs/acceptance/cl-01/protected-audit.py"),
     ("boundaries", "docs/acceptance/cl-01/runtime-boundaries.py"),
+    ("retained", "docs/acceptance/r2-05/retained.py"),
+    ("member-chain", "docs/acceptance/r2-06/member-chain-probe.py"),
 ):
     command = (
         remote_python
         if name == "runtime"
         else ["ssh", "unspun", "docker exec -i unspun-r1-worker-1 python -"]
-        if name == "boundaries"
+        if name in ("boundaries", "member-chain")
         else api_python
     )
     capture(name, command, (ROOT / script).read_text())
