@@ -37,6 +37,11 @@ from unspun.core.task_models import DiscoveryBatch as DiscoveryBatch
 from unspun.core.task_models import PipelineTask as PipelineTask
 from unspun.core.task_models import SourceState as SourceState
 from unspun.core.task_models import TaskAttempt as TaskAttempt
+from unspun.core.topic_models import Topic as Topic
+from unspun.core.topic_models import TopicChange as TopicChange
+from unspun.core.topic_models import TopicDerivation as TopicDerivation
+from unspun.core.topic_models import TopicMember as TopicMember
+from unspun.core.topic_models import TopicUpdate as TopicUpdate
 
 # Embedding column width is part of the schema; changing it requires a
 # migration. Qwen3-Embedding supports MRL truncation to this size, and it
