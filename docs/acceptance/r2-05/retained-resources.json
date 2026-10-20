@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-10-20T08:40:34.978750+00:00",
+  "new_databases_preserved": [
+    "unspun_r205_prod_restore_20261020",
+    "unspun_r205_recovery_20261020",
+    "unspun_r205_recovery_v2_20261020",
+    "unspun_r205_restored_20261020",
+    "unspun_r205_restored_v2_20261020",
+    "unspun_r205_tests_20261020"
+  ],
+  "private_backups_preserved": [
+    {
+      "path": "/Users/li.cong/.cache/unspun-r205-20261020/predeploy-production-schema-000017-v2.dump",
+      "bytes": 84146943,
+      "sha256": "e42a30d5e3a41042d2030e633431664543999e92e6cb15270df89845ef1b0079",
+      "validated": true
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r205-20261020/predeploy-production-schema-000017.dump",
+      "bytes": 46833664,
+      "sha256": "0a4d75a9230991938da0e48db2db88adc256e2d5f4b393303215c27d2e4c6acb",
+      "validated": false
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r205-20261020/retained-schema-000018.dump",
+      "bytes": 114367,
+      "sha256": "1554149197ab4dd5c31407c5d2bf7b602f36f98e89770ab0059293f09b4c88e9",
+      "validated": true
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r205-20261020/retained-v2-schema-000018.dump",
+      "bytes": 114508,
+      "sha256": "c5400a89c5d2f2c7b8fb49b456bcd03fd8cd9fb53479a93fdf3689e6f174d933",
+      "validated": true
+    }
+  ],
+  "r204_worktree_source_config_and_head_unchanged": true,
+  "worktree_cleanup": false,
+  "schema_downgrade_or_production_restore": false
+}

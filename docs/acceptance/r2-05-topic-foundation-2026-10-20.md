@@ -1,6 +1,6 @@
 # R2-05 话题、成员与版本底座
 
-**底座实现和隔离验证完成，PR/CI、实际发布及部署后核对待记录。** 范围只有 R2-05；R2-04 继续进行中、两条新增来源关闭，不接手其观察验收或来源启用。R2-06+、其他清理和 R3 未实施。
+**R2-05 已完成 PR/CI、合并、实际部署与迁移核对。** 范围只有 R2-05；R2-04 继续进行中、两条新增来源关闭，不接手其观察验收或来源启用。R2-06+、其他清理和 R3 未实施。
 
 从最新 `main b5f812c7c66d2dd185d9046e21c2c8c413e1b26f` 建立 `/Users/li.cong/.config/superpowers/worktrees/unspun/r2-topic-foundation`、分支 `feat/r2-topic-foundation` 和独立 venv。实际 `unspun`、models、content、topics 导入本轮 `server/src`，没有改共享 editable、原 worktree 或观察挂载。[最小契约](../superpowers/specs/2026-10-20-r2-05-topic-foundation.md)先落文件，作为 `3724279` 独立提交；本批没有页面改动。
 
@@ -30,4 +30,11 @@
 
 部署前各自带时间的只读截面：[运行](r2-05/predeploy-runtime.json)、[合格阅读](r2-05/predeploy-reading.json)、[生产账务](r2-05/predeploy-production.json)、[原累计评测](r2-05/predeploy-evaluation.json)、[受保护旧数据](r2-05/predeploy-protected-production.json)、[受控 worker 边界](r2-05/predeploy-boundaries.json)和[原观察环境/文件](r2-05/predeploy-observation.json)。提供方仅免费 GET；原评测七笔未知及 `$0.484867` 预留不改，原生产/评测分配、模型和来源配额保持。原八路自然运行费用与本批测试分开，本批新付费请求/实付 **0 / $0**。
 
-PR、主干 CI、实际 Deploy、schema/五张空表、固定 API/worker 镜像、阅读/任务/费用、legacy worker 退役、观察容器及已有原件保留由部署后证据补录，不在本段预记通过。无公开话题或新任务入口。R2-06 才接 embedding/候选/成员判断及共享队列账务；R2-07 接进展识别、生成/审核和公开资格；R2-08+ 再接混合阅读/关注/页面。本批不启动这些阶段，R2-04 的两项未完成检查保持。
+[PR #114](https://github.com/LinsRock/unspun/pull/114) 于 `2026-10-20 08:30:00 UTC` 合并为 **`bf8f042cf4fc275ae30541dbb673f562c7b5c4d7`**（实现头 `513b238`）。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39393485575) 和[主干 CI/实际发布](https://github.com/LinsRock/unspun/actions/runs/39393835737) 全部成功；[实际步骤](r2-05/release-verification.json)确认执行 Deploy。[运行/源码](r2-05/postdeploy-runtime.json)、[schema/约束](r2-05/postdeploy-schema.json)、[服务审计](r2-05/postdeploy-audit.json)及[交付断言](r2-05/delivery.json)的 21 项核对全部通过：生产 `000018`、五张话题表均 0 行；API/受控 worker 使用同一固定 `bf8f042…` server，85 个源码与四份配置匹配；web 复用 `d72861b…` 固定镜像。当前固定生产 server 支持 `000018`；旧 `000017` 镜像不能直接通过当前部署迁移门槛，范围不延伸到任意旧镜像。legacy worker 所有状态为 0、受控 worker 1，只有 `127.0.0.1:8080` 发布端口，API/worker 无观察挂载。无公开话题或新任务入口。R2-06 才接 embedding/候选/成员判断及共享队列账务；R2-07 接进展识别、生成/审核和公开资格；R2-08+ 再接混合阅读/关注/页面。本批不启动这些阶段，R2-04 的两项未完成检查保持。
+
+
+[前](r2-05/predeploy-reading.json)/[后](r2-05/postdeploy-reading.json)各 **113** 个合格详情的集合/正文散列、推荐/最新前两页和停源 404 一致；读取不新建任务。它是实际阅读函数的只读重放，不冒充外部鉴权浏览器或新页面用户验收。[旧资源/身份/反馈](r2-05/postdeploy-retained.json)、[旧文章/积压/轮次/日报](r2-05/postdeploy-protected-production.json)保持；[原评测](r2-05/postdeploy-evaluation.json)七笔未知身份、预留和已知费用/政策保持。[原观察环境](r2-05/postdeploy-observation.json)确认三个 R2-04 容器的 ID、镜像、状态、启动时间、重启数与挂载均未改变，`unspun-r204-window-v1` 继续运行；此前 **99** 份原始文件散列一致，新增自然轮次只追加，不作本批来源验收。[原 worktree](r2-05/protected-r204-worktree.json)仍是干净的 `b5f812c`，82 个源码/四份配置与原 HEAD 一致。
+
+[部署后生产账务](r2-05/postdeploy-production.json)相对本批部署前截面的已知费用差额 **0**，本批新测试/评测付费 **0**。R2-04 历史截面至本批部署前的 `$0.00494270` 已[逐来源/阶段对账](r2-05/natural-costs-before-deploy.json)：来自原有 BBC 中文、人民日报、WSJ、早报中国及早报世界五路自然卡片的 10 次生成/审核请求，不冒充 R2-05 付费或来源增量。全部六个新隔离库、成功备份、首份未验证传输文件及原 worktree 留存，见[资源清单](r2-05/retained-resources.json)。
+
+部署后证据通过独立纯文档 PR 补录；其提交不等同新的运行发布。R2-04 保持后两项未完成，观察/生成/预算及启源由原任务接续，本批不签核。
