@@ -1,0 +1,63 @@
+{
+  "schema_version": "r2-04-validation-v1",
+  "verified_at": "2026-10-20T07:04:13.305643+00:00",
+  "baseline": "cd3f0a5",
+  "worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-source-increments",
+  "python": "/Users/li.cong/.local/share/uv/python/cpython-3.13.2-macos-aarch64-none/bin/python3.13",
+  "import_root": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-source-increments/server/src/unspun",
+  "database": "unspun_r204_regression_20261020",
+  "schema": "000017",
+  "baseline_server_passed": 940,
+  "final_server_passed": 942,
+  "skipped": 0,
+  "targeted_source_and_quota_tests_passed": 52,
+  "server_checks": [
+    "ruff check",
+    "ruff format --check",
+    "pyright: 0 errors"
+  ],
+  "legacy_ranking": {
+    "events": 40,
+    "passed": true,
+    "issues": 0
+  },
+  "deploy_and_ci_scope_tests": 29,
+  "subtests_passed": 8,
+  "frozen_files_verified": 27,
+  "current_source_and_target_window_files_match": 82,
+  "current_card_real_input_replay": {
+    "materials": 12,
+    "bodies_and_scopes_match": 12,
+    "metadata_fix_cases": 1,
+    "insufficient_material_excluded": 1,
+    "paid_generation_pass": false
+  },
+  "paid_requests": 0,
+  "manual_production_tasks": 0,
+  "markdown_links_checked": 61,
+  "broken_links": [],
+  "ci_scope": {
+    "server": "true",
+    "web": "false",
+    "prototype": "false",
+    "deploy": "true",
+    "server_image": "true",
+    "web_image": "false",
+    "release": "true"
+  },
+  "review": {
+    "kind": "self-review of final diff and affected callers",
+    "areas": [
+      "raw compound author field and role boundaries",
+      "identity/time/material scope and media-empty counterexample",
+      "current card input and source allow_paid/allow_publication gates",
+      "only two selected source configs changed; original eight unchanged",
+      "bounded target observer credentials, request/archive/schedule behavior",
+      "whole-budget projection, all physical costs and seven unknown holds",
+      "frozen v1, v2/v3 and missing user ratings; no synthetic admissions",
+      "legacy retirement and ordinary PR deployment only"
+    ],
+    "remaining": "G2 window and critical-field audit incomplete; no paid or publication pass; two-hour budget scenario fails"
+  },
+  "deployment": "pending PR/CI; new paths remain off"
+}

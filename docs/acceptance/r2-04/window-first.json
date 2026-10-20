@@ -1,0 +1,2171 @@
+{
+  "schema_version": "r2-04-window-progress-v1",
+  "collected_at": "2026-10-20T06:58:20.136448+00:00",
+  "run": {
+    "phase": "window",
+    "started_at": "2026-10-20T06:54:29.643514+00:00",
+    "source_ids": [
+      "thepaper-sidebar",
+      "36kr-newsflashes"
+    ],
+    "rounds": 21,
+    "interval_seconds": 1800,
+    "samples": 2,
+    "registration_sha256": "f1fe3b234077475f56ec83a5d275b4f05bc88d42f0a78150f2a8b02dc3283f4f",
+    "script_sha256": "b8e2535a7bffcbb14f5340ec5b67869f2c910c422a7e60851469fa10c459e7bd",
+    "source_config_sha256": "4c21aaace4c8c68d0181e101a136883fb43972c12e5af47caba410d9ec1bef43",
+    "paid_requests": 0,
+    "database_writes": 0
+  },
+  "private_archive": "/Users/li.cong/.cache/unspun-r204-20261020/window-first/window.tar.gz",
+  "archive_sha256": "5a3b668981f2bcdec0baf325337a6954243837cac6dfc08af0a386fd3b77b189",
+  "container_state": "running 0",
+  "collection_starts_source_requests": false,
+  "window_finished": false,
+  "interrupted": null,
+  "sources": {
+    "thepaper-sidebar": {
+      "scheduled_rounds_planned": 21,
+      "recorded_rounds": 1,
+      "metadata_successes": 1,
+      "metadata_failures": 0,
+      "metadata_success_fraction": 1.0,
+      "maximum_consecutive_metadata_failures": 0,
+      "successes_after_last_failure": null,
+      "elapsed_seconds": 0,
+      "local_dates": [
+        "2026-10-20"
+      ],
+      "maximum_gap_seconds": 0,
+      "missing_round_indices_before_latest": [],
+      "sampled_materials": 2,
+      "declared_scope_successes": 2,
+      "declared_scope_success_fraction": 1.0,
+      "distinct_material_urls": 2,
+      "distinct_list_identities": 30,
+      "repeated_list_observations": 0,
+      "new_identities_after_round_zero": [],
+      "new_identities_with_supported_platform_or_brief_time_inside_window": [],
+      "client_http_attempts_including_redirects": 3,
+      "numeric_window_complete": false,
+      "critical_identity_author_time_scope_audit": "pending; never infer zero errors from HTTP success",
+      "g2_pass": false,
+      "paid_allowed": false,
+      "published_new_readable_items": 0
+    },
+    "36kr-newsflashes": {
+      "scheduled_rounds_planned": 21,
+      "recorded_rounds": 1,
+      "metadata_successes": 1,
+      "metadata_failures": 0,
+      "metadata_success_fraction": 1.0,
+      "maximum_consecutive_metadata_failures": 0,
+      "successes_after_last_failure": null,
+      "elapsed_seconds": 0,
+      "local_dates": [
+        "2026-10-20"
+      ],
+      "maximum_gap_seconds": 0,
+      "missing_round_indices_before_latest": [],
+      "sampled_materials": 2,
+      "declared_scope_successes": 2,
+      "declared_scope_success_fraction": 1.0,
+      "distinct_material_urls": 2,
+      "distinct_list_identities": 20,
+      "repeated_list_observations": 0,
+      "new_identities_after_round_zero": [],
+      "new_identities_with_supported_platform_or_brief_time_inside_window": [],
+      "client_http_attempts_including_redirects": 1,
+      "numeric_window_complete": false,
+      "critical_identity_author_time_scope_audit": "pending; never infer zero errors from HTTP success",
+      "g2_pass": false,
+      "paid_allowed": false,
+      "published_new_readable_items": 0
+    }
+  },
+  "records": [
+    {
+      "version": "r2-04-observation-v1",
+      "source_id": "36kr-newsflashes",
+      "source_url": "http://rsshub:1200/36kr/newsflashes",
+      "source_contract": {
+        "id": "36kr-newsflashes",
+        "name": "36Kr Newsflashes",
+        "url": "http://rsshub:1200/36kr/newsflashes",
+        "weight": 0.5,
+        "region": "cn-mainland",
+        "kind": "commercial",
+        "lang": "zh",
+        "max_items": 20,
+        "legacy_enabled": false,
+        "discovery_owner": "r1",
+        "r1": {
+          "adapter": "rss",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false,
+          "paid_scopes": [],
+          "publish_scopes": [],
+          "period_seconds": 7200,
+          "form": "post",
+          "material_scope": "complete_brief",
+          "platform": "36kr",
+          "publisher": "36Kr",
+          "origin_hosts": [
+            "36kr.com"
+          ],
+          "capability": "complete-brief-pending-new-target-window",
+          "version": "r2-04-observation-v1",
+          "quotas": {
+            "scan": 30,
+            "material": 1,
+            "paid": 1,
+            "recheck_seconds": 86400
+          }
+        },
+        "timeout_seconds": 60
+      },
+      "scheduled_at": "2026-10-20T06:54:29.643514+00:00",
+      "round_index": 0,
+      "started_at": "2026-10-20T06:54:34.970642+00:00",
+      "paid_requests": 0,
+      "database_writes": 0,
+      "materials": [
+        {
+          "item_key": "4033852799652737",
+          "url": "https://www.36kr.com/newsflashes/4033852799652737",
+          "started_at": "2026-10-20T06:54:35.245989+00:00",
+          "status": "ok",
+          "material": {
+            "scope": "complete_brief",
+            "access_status": "ok",
+            "completeness": "observed_unit",
+            "basis": "feed:provided",
+            "source_url": "https://www.36kr.com/newsflashes/4033852799652737",
+            "retrieved_at": "2026-10-20T06:54:35.246035Z",
+            "response_status": null,
+            "response_fingerprint": null,
+            "source_excerpt": "英国国家统计局表示，尽管包括奖金在内的企业总薪酬已降至近六年来的最低水平，但常规工资增长仍保持相对稳定。（财联社）",
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "post",
+              "genre": null,
+              "platform": "36kr",
+              "publisher": "36Kr",
+              "authors": [],
+              "times": [
+                {
+                  "kind": "original",
+                  "precision": "time",
+                  "at": "2026-10-20T06:47:15Z",
+                  "on": null,
+                  "basis": "rsshub:36kr:templateMaterial.publishTime",
+                  "raw": "Tue, 20 Oct 2026 06:47:15 GMT"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "title": "英国统计局：企业总薪酬已降至近六年来最低水平",
+            "evidence": {
+              "source_id": "36kr-newsflashes",
+              "extractor_version": "r1-material-v3",
+              "feed_text_truncated": false,
+              "origin_requested": false
+            }
+          },
+          "text_sha256": "9077a4bb0e4d7d3c82fc62707faa740e228c9bc3f5f69d1bb198c031aea15395",
+          "characters": 57,
+          "excerpts": [
+            "英国国家统计局表示，尽管包括奖金在内的企业总薪酬已降至近六年来的最低水平，但常规工资增长仍保持相对稳定。（财联社）"
+          ],
+          "completed_at": "2026-10-20T06:54:35.246982+00:00"
+        },
+        {
+          "item_key": "4033850201854853",
+          "url": "https://www.36kr.com/newsflashes/4033850201854853",
+          "started_at": "2026-10-20T06:54:35.247000+00:00",
+          "status": "ok",
+          "material": {
+            "scope": "complete_brief",
+            "access_status": "ok",
+            "completeness": "observed_unit",
+            "basis": "feed:provided",
+            "source_url": "https://www.36kr.com/newsflashes/4033850201854853",
+            "retrieved_at": "2026-10-20T06:54:35.247055Z",
+            "response_status": null,
+            "response_fingerprint": null,
+            "source_excerpt": "近日，一目科技与韩国 Physical AI 前沿企业 NEOUL ROBOTICS 在南京举行战略签约仪式，双方将以此次合作为契机，探索机器人技术与产业应用的更多可能。此次合作是一目科技连接全球机器人产业创新力量的又一重要进展，也体现出其技术能力与产业价值正获得更多全球合作伙伴的关注。一目科技是一家致力于构建面向通用物理 AI 的世界模型与机器人技术体系的企业，致力于为物理AI世界模型提供关键触觉交互数据与物理理解能力，推动机器人更好地感知和理解真实世界。截至目前，已在全球范围内布局超过700件知识产权。",
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "post",
+              "genre": null,
+              "platform": "36kr",
+              "publisher": "36Kr",
+              "authors": [],
+              "times": [
+                {
+                  "kind": "original",
+                  "precision": "time",
+                  "at": "2026-10-20T06:44:37Z",
+                  "on": null,
+                  "basis": "rsshub:36kr:templateMaterial.publishTime",
+                  "raw": "Tue, 20 Oct 2026 06:44:37 GMT"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "title": "一目科技与韩国 Physical AI 前沿企业 NEOUL ROBOTICS 达成战略合作",
+            "evidence": {
+              "source_id": "36kr-newsflashes",
+              "extractor_version": "r1-material-v3",
+              "feed_text_truncated": false,
+              "origin_requested": false
+            }
+          },
+          "text_sha256": "3b75c15209716cffee6e827394e96d90c2163fb7c93f1a9794444f1e492c2110",
+          "characters": 256,
+          "excerpts": [
+            "近日，一目科技与韩国 Physical AI 前沿企业 NEOUL ROBOTICS 在南京举行战略签约仪式，双方将以此次合作为契机，探索机器人技术与产业应用的更多可能。此次合作是一目科技连接全球机器人产业创新力量的又一重要进展，也体现出其技术能力与产业价值正获得更多全球合作伙伴的关注。一目科技是一家致力于构建面向通用"
+          ],
+          "completed_at": "2026-10-20T06:54:35.247694+00:00"
+        }
+      ],
+      "status": "ok",
+      "response_fingerprint": "7bb19fa75eb50a9625d2f02523c5384fae3ac3b7d8549ba4057966009d9d012e",
+      "scan_counts": {
+        "listed": 20,
+        "scanned": 20,
+        "valid": 20,
+        "adapter_duplicates": 0
+      },
+      "items": [
+        {
+          "url": "https://www.36kr.com/newsflashes/4033852799652737",
+          "title": "英国统计局：企业总薪酬已降至近六年来最低水平",
+          "item_key": "4033852799652737",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033852799652737",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:47:15Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:47:15 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "英国国家统计局表示，尽管包括奖金在内的企业总薪酬已降至近六年来的最低水平，但常规工资增长仍保持相对稳定。（财联社）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033850201854853",
+          "title": "一目科技与韩国 Physical AI 前沿企业 NEOUL ROBOTICS 达成战略合作",
+          "item_key": "4033850201854853",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033850201854853",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:44:37Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:44:37 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "近日，一目科技与韩国 Physical AI 前沿企业 NEOUL ROBOTICS 在南京举行战略签约仪式，双方将以此次合作为契机，探索机器人技术与产业应用的更多可能。此次合作是一目科技连接全球机器人产业创新力量的又一重要进展，也体现出其技术能力与产业价值正获得更多全球合作伙伴的关注。一目科技是一家致力于构建面向通用物理 AI 的世界模型与机器人技术体系的企业，致力于为物理AI世界模型提供关键触觉交互数据与物理理解能力，推动机器人更好地感知和理解真实世界。截至目前，已在全球范围内布局超过700件知识产权。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033847237710977",
+          "title": "松下控股将玻璃型钙钛矿太阳能电池量产提前一年，计划2029年4月投产",
+          "item_key": "4033847237710977",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033847237710977",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:41:36Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:41:36 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，松下控股宣布，将玻璃型钙钛矿太阳能电池的全面量产时间从原计划的2030财年提前一年，拟于2029年4月在日本滋贺县长滨市的量产技术开发基地启动生产。公司已于2026年9月开始销售先行量产产品，现阶段由大阪府守口市的研发基地生产，并通过客户应用积累安装和运营经验。（界面）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033845817218176",
+          "title": "北交所副总经理周箴：将进一步优化上市准入和审核机制",
+          "item_key": "4033845817218176",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033845817218176",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:40:09Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:40:09 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，在2026可持续全球领导者大会上，北京证券交易所副总经理周箴表示，将完善投融资体系，助力企业持续发展。北交所将进一步优化上市准入和审核机制，围绕企业发展阶段、行业特点和创新特征，提升审核的精准性和有效性，推动更多资源向新兴产业、未来产业聚集，支持传统产业转型升级。同时，北交所将持续完善再融资、并购重组、股权激励等制度工具包，推动更多案例落地。（第一财经）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033845459981186",
+          "title": "吉利旗下北京智慧普华商业保理公司增资至1.5亿，增幅50%",
+          "item_key": "4033845459981186",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033845459981186",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:39:47Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:39:47 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，天眼查App显示，近日，北京智慧普华商业保理有限公司发生工商变更，新增浙江吉利控股集团有限公司为股东，同时，注册资本由1亿人民币增至1.5亿人民币，增幅50%。该公司成立于2021年9月，法定代表人为蔡慧，经营范围包括保理融资、与受让应收账款相关的催收业务、非商业性坏账担保等。股东信息显示，该公司由浙江众尖投资有限公司及上述新增股东共同持股。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033835196535683",
+          "title": "华为引望与宁德时代“巧克力”换电首款车型计划2027年推出",
+          "item_key": "4033835196535683",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033835196535683",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:29:21Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:29:21 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "华为引望与宁德时代“巧克力”换电合作的首款车型计划于2027年推出，为东风与华为合作推出的奕境品牌产品。此前一日，引望与宁德时代、时代电服正式签署战略合作框架协议。三方将展开两大方向的深度合作：三方实现车端、站端与云端的系统级打通，通过宁德时代巧克力换电网络与华为乾崑智驾的深度打通；引望正式加入宁德时代巧克力换电生态：引望将联合战略伙伴，围绕合作车型与宁德时代巧克力换电网络的适配与接入，共同拓展换电补能生态。（财联社）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033833298187141",
+          "title": "消息称三星电子下调明年OLED Galaxy A系列手机出货目标至1亿部",
+          "item_key": "4033833298187141",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033833298187141",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:27:25Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:27:25 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "据报道，三星电子暂定明年搭载有机发光二极管（OLED）屏幕的中端Galaxy A系列手机出货量目标为1亿部，相较于三星电子9月底向合作伙伴公布的OLED Galaxy A系列1.2亿部出货量目标减少了2000万部。据悉，三星电子下调出货量的主要原因是存储价格上涨。这也增加了其明年智能手机整体出货量目标下调的可能性。三星电子最初计划明年出货超过2.5亿部智能手机 ，但据报道，该公司正在修订这一计划。普遍认为，最终出货量将比原计划减少2000多万部。（新浪财经）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033829926917000",
+          "title": "中国微短剧正成为第四大全球性视听产品新业态",
+          "item_key": "4033829926917000",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033829926917000",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:23:59Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:23:59 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，在广西北海举行的中国—东盟视听周期间，国家广播电视总局发布《中国—东盟微短剧国际传播发展报告》。报告显示，微短剧作为诞生于中国的网络视听新业态，正以惊人速度改变全球视听生态，正在成为继美国电影、日本动画、韩国电视剧之后的第四大全球性视听产品形态，中国—东盟微短剧合作不断深化，成为中国—东盟数字经济合作和人文交流的重要载体。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033828743238791",
+          "title": "我国首台实船应用大功率极地破冰型吊舱推进器在沪下线",
+          "item_key": "4033828743238791",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033828743238791",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:22:47Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:22:47 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，我国首台实船应用大功率极地破冰型吊舱推进器在上海长兴岛正式下线，标志着我国极地船舶核心装备自主研制取得重大突破。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033827482162048",
+          "title": "摩尔线程盘中涨超10%",
+          "item_key": "4033827482162048",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033827482162048",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:21:30Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:21:30 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，A股摩尔线程盘中涨超10%，现报359.73元。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033824137876611",
+          "title": "华为哈勃、智元机器人等入股乙太具身",
+          "item_key": "4033824137876611",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033824137876611",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:18:06Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:18:06 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，天眼查App显示，近日，乙太具身科技（北京）有限公司发生工商变更，新增华为旗下深圳哈勃科技投资合伙企业（有限合伙）、智元机器人关联公司智元创新（上海）科技股份有限公司等股东，同时，注册资本由100万元人民币增至约127万元人民币。\n该公司成立于2025年12月，法定代表人为杨叶青，经营范围包括人工智能基础软件开发、人工智能应用软件开发、人工智能行业应用系统集成服务等，现由杨叶青、北京乙力太企业管理服务合伙企业（有限合伙）及上述新增股东等共同持股。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033819430458244",
+          "title": "山东：探索“具身智能+旅游”落地应用，支持山岳型景区投放登山助力机器人",
+          "item_key": "4033819430458244",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033819430458244",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:13:19Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:13:19 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，山东省人民政府印发《山东省旅游业发展“十五五”规划》，其中提出，深化“人工智能+旅游”应用，因地制宜发展新质生产力，构建“人工智能+旅游”发展生态，推动人工智能与齐鲁文化资源深度融合，用好齐鲁文化大模型、孔子数智大模型技术引擎，推进跨部门数据共享与融合。实施山东省文化和旅游重点实验室动态管理，聚力突破文旅大模型、多模态交互、数字孪生等关键核心技术，加快成果转化应用。探索“具身智能+旅游”落地应用，支持山岳型景区投放登山助力机器人。依托文旅科技平台打造“人工智能行程助手”，精准生成个性化旅行推荐。打造“人工智能+混合现实”导游导览新模式，构建虚实融合、实时交互的超沉浸式体验。支持景区部署数字人讲解员，运用人工智能生成内容（AIGC）、三维（3D）打印技术创新文创设计生产。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033812874777478",
+          "title": "山东：建立全省文旅企业上市后备资源库，鼓励有条件的文旅企业上市",
+          "item_key": "4033812874777478",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033812874777478",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:06:39Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:06:39 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，山东省人民政府印发《山东省旅游业发展“十五五”规划》，其中提出，培育壮大市场主体。深入实施“文旅企业扬帆计划”，培育多层次市场主体，构建全省旅游产业链，形成“雁阵形”旅游产业集群。培育壮大龙头企业，扶持重点文旅企业，推动国有文旅企业深化改革，支持山东文旅集团打造全国一流文旅企业。开展全国头部文旅企业精准招商，引导中小微企业向“专精特新”发展，鼓励各类企业跨界发展旅游。建立全省文旅企业上市后备资源库，鼓励有条件的文旅企业上市。推进旅行社数字化、智慧化转型，提升融合创新能力，探索个性化定制、模块化服务、供应链整合等新盈利模式，加快出台山东省A级旅行社评定标准，打造一批优质旅行社品牌，培育一批定制化旅游服务机构。发挥行业协会桥梁作用，精准传导政策、整合资源、赋能发展。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033810919593095",
+          "title": "日本央行或小幅上调2027财年核心通胀预测，12月仍有加息可能",
+          "item_key": "4033810919593095",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033810919593095",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:04:39Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:04:39 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "10月20日，据报道，受国际油价上涨带来的通胀压力持续时间超出预期影响，日本央行可能小幅上调本月公布的2027财年核心通胀预测。日本央行预计将在10月30日结束的货币政策会议上维持利率不变，但若日元再次走弱、推高进口成本，不排除调整政策。日本央行可能在季度报告中继续强调通胀上行风险，为12月再次加息保留空间。（界面）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033809750250628",
+          "title": "七部门联合印发《广告产业发展“十五五”规划》",
+          "item_key": "4033809750250628",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033809750250628",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:03:28Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:03:28 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "市场监管总局、中央网信办、文化和旅游部、教育部、公安部、商务部、广电总局联合印发《广告产业发展“十五五”规划》（以下简称《规划》）。《规划》依据《中华人民共和国国民经济和社会发展第十五个五年规划纲要》编制，是未来五年引领我国广告产业高质量发展的专项文件。《规划》提出，到2030年，广告产业规模年均增长10%左右，经营主体发展质量持续提升；产业研发和创意投入持续加大，数智化水平显著提升；广告支撑产业升级、消费提振更加有力，推动“品牌全球化”迈进；大中小企业融通发展，产业链上下游深度协作，区域协调发展实现新突破；广告作品质量显著提升，涌现一批彰显文化自信、讲述中国故事的广告精品，公益广告创作传播机制更加健全；广告法律法规进一步完善，监管执法效能显著提升，人民群众满意度不断提高。（央视新闻）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033807245923461",
+          "title": "王毅同保加利亚外长共见记者谈欧亚之行的四点感受",
+          "item_key": "4033807245923461",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033807245923461",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:00:55Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:00:55 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，据外交部消息，当地时间10月19日，中共中央政治局委员、外交部长王毅在索非亚同保加利亚外长佩特罗娃共同会见记者，介绍了欧亚之行的四点感受。王毅表示，很高兴到访保加利亚，我同约托娃总统、拉德夫总理、普列夫副总理分别进行了会见，同佩特罗娃外长举行了全面深入交流，达成广泛共识。双方一致认为，保加利亚发展迎来新的希望，中保战略合作也面临新的机遇。我们愿同保方抓住机遇，乘势而上，共同做携手发展振兴的战略伙伴，欧亚互联互通的战略伙伴，坚持多边主义的战略伙伴，以更加积极务实、富有活力的中保关系促进中欧关系向上向好发展。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033806017663879",
+          "title": "浙江：实施核与辐射安全风险监测预警网络建设、科研技术创新能力建设和监测国防动员能力建设三大工程",
+          "item_key": "4033806017663879",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033806017663879",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T05:59:40Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 05:59:40 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，浙江省人民政府印发美丽浙江建设（生态环境保护）“十五五”规划，其中提出，把核与辐射安全摆在最高优先级，完善核与辐射安全监管体系和工作协调机制，构建省级主导、市级骨干、县级补充的辐射监测体系。实施核与辐射安全风险监测预警网络建设、科研技术创新能力建设和监测国防动员能力建设三大工程。加强核与辐射环境自动监测站点建设和运行管理。实施“浙里辐安”强基行动。强化重点区域、行业、企业辐射安全监管，迭代核与辐射安全管理数字化应用系统，提高放射源实时监管和事故应急决策指挥能力。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033796211839881",
+          "title": "韩国央行与欧洲央行扩大代币化项目合作",
+          "item_key": "4033796211839881",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033796211839881",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T05:58:34Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 05:58:34 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "韩国央行周二表示，正扩大与英国央行在代币化项目上的合作。据韩国央行透露，英国央行负责金融稳定的副行长莎拉·布里登（Sarah Breeden）于周一访问了韩国央行，并与该行官员就支付与结算领域的创新交换了意见。布里登及其他英国央行官员与韩国央行的同行们分享了代币化项目的最新进展，其中包括全球性倡议“Agora项目”（Project Agora）以及韩国的“汉江项目”（Project Hangang）。韩国央行表示，将积极分享其在代币化项目方面的经验，并参与有关该议题的全球讨论。（新浪财经）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033795111572612",
+          "title": "白云山等在海南成立新科技公司，注册资本3000万",
+          "item_key": "4033795111572612",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033795111572612",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T05:54:23Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 05:54:23 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "36氪获悉，天眼查App显示，近日，广药白云山海创（海南）科技有限公司成立，法定代表人为赵全，注册资本3000万人民币，经营范围包括第一类医疗器械销售、健康咨询服务、会议及展览服务等。股东信息显示，该公司由广州白云山医药集团股份有限公司、海口国家高新区国际投资发展有限公司分别持股90%、10%。",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.36kr.com/newsflashes/4033774791218055",
+          "title": "ABB拟以4.95亿美元收购三菱电机低压配电业务51%股权",
+          "item_key": "4033774791218055",
+          "identity_namespace": "36kr:newsflash",
+          "identity_value": "4033774791218055",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T05:44:47Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 05:44:47 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": "瑞士工业技术企业ABB宣布与三菱电机成立合资公司，拟以790亿日元（约4.95亿美元）取得新公司51%股权，并全资收购三菱电机相关低压配电产品在日本以外的销售业务。交易预计于2027年下半年完成，尚需获得监管批准。（界面）",
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        }
+      ],
+      "item_count": 20,
+      "completed_at": "2026-10-20T06:54:35.247923+00:00",
+      "http_requests": [
+        {
+          "url": "http://rsshub:1200/36kr/newsflashes",
+          "method": "GET",
+          "started_at": "2026-10-20T06:54:35.154885+00:00",
+          "status": 200,
+          "response_sha256": "007de9366150c6f707246a41d08bf64841148aad923c3f6e2e72f092afeef039",
+          "response_bytes": 18336,
+          "private_response": "response-01.bin",
+          "headers": {
+            "date": "Tue, 20 Oct 2026 06:54:35 GMT",
+            "etag": "\"3c99-deHtsVAIHUJWF5CkTdagk5nzKrY\"",
+            "last-modified": "Tue, 20 Oct 2026 06:49:20 GMT",
+            "content-type": "application/xml; charset=utf-8"
+          },
+          "completed_at": "2026-10-20T06:54:35.173655+00:00"
+        }
+      ]
+    },
+    {
+      "version": "r2-04-observation-v1",
+      "source_id": "thepaper-sidebar",
+      "source_url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+      "source_contract": {
+        "id": "thepaper-sidebar",
+        "name": "The Paper current sidebar",
+        "url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+        "weight": 1.0,
+        "region": "cn-mainland",
+        "kind": "commercial",
+        "lang": "zh",
+        "max_items": 50,
+        "legacy_enabled": false,
+        "discovery_owner": "r1",
+        "r1": {
+          "adapter": "thepaper",
+          "discovery": false,
+          "material": false,
+          "paid": false,
+          "publish": false,
+          "paid_scopes": [],
+          "publish_scopes": [],
+          "period_seconds": 7200,
+          "form": "article",
+          "material_scope": "open_text_unit",
+          "platform": "thepaper",
+          "publisher": null,
+          "origin_hosts": [
+            "thepaper.cn"
+          ],
+          "capability": "current-sidebar-pending-new-target-window",
+          "version": "r2-04-observation-v1",
+          "quotas": {
+            "scan": 30,
+            "material": 1,
+            "paid": 1,
+            "recheck_seconds": 86400
+          }
+        },
+        "timeout_seconds": 20
+      },
+      "scheduled_at": "2026-10-20T06:54:29.643514+00:00",
+      "round_index": 0,
+      "started_at": "2026-10-20T06:54:29.645083+00:00",
+      "paid_requests": 0,
+      "database_writes": 0,
+      "materials": [
+        {
+          "item_key": "34287361",
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287361",
+          "started_at": "2026-10-20T06:54:34.446759+00:00",
+          "status": "ok",
+          "material": {
+            "scope": "open_text_unit",
+            "access_status": "ok",
+            "completeness": "observed_unit",
+            "basis": "thepaper:detail:content",
+            "source_url": "https://www.thepaper.cn/newsDetail_forward_34287361",
+            "retrieved_at": "2026-10-20T06:54:34.446812Z",
+            "response_status": 200,
+            "response_fingerprint": "98c5b7b97615d7b188e533085454eed3385ca3c17ee033bd5a32f34c8817766e",
+            "source_excerpt": null,
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "article",
+              "genre": null,
+              "platform": "thepaper",
+              "publisher": "澎湃新闻",
+              "authors": [
+                {
+                  "name": "远山",
+                  "role": "author",
+                  "platform": "thepaper",
+                  "platform_id": null,
+                  "basis": "thepaper:detail:author"
+                }
+              ],
+              "times": [
+                {
+                  "kind": "feed",
+                  "precision": "time",
+                  "at": "2026-10-20T06:23:44.951000Z",
+                  "on": null,
+                  "basis": "thepaper:rightSidebar:pubTimeLong",
+                  "raw": "1792477424951"
+                },
+                {
+                  "kind": "original",
+                  "precision": "time",
+                  "at": "2026-10-20T06:23:44.951000Z",
+                  "on": null,
+                  "basis": "thepaper:detail:publishTime:originalFlag=1",
+                  "raw": "1792477424951"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "title": "经纬度：消费、进口、物价共同传递内需改善信号",
+            "evidence": {
+              "source_id": "thepaper-sidebar",
+              "extractor_version": "r1-material-v3",
+              "feed_text_truncated": false
+            }
+          },
+          "text_sha256": "7832bd36468f2c203480ebc9c0105030194f68336dbb54991cde50074f71a8c4",
+          "characters": 1886,
+          "excerpts": [
+            "10月19日，国家统计局公布前三季度经济“三季报”。初步核算，前三季度国内生产总值107.1万亿元，按不变价格计算，同比增长4.6%。国民经济顶住压力保持平稳运行，呈现动能向新、结构向优的发展态势。",
+            "国家统计局新闻发言人、副局长毛盛勇在国新办新闻发布会上谈到当前内需问题时表示，“从前三季度的数据来看，内需是在逐步改善的。”",
+            "此次经济“三季报”传递出两个值得关注的信号。第一，消费、进口、价格三类指标同步向好，彼此形成完整的印证逻辑，绝非单一数据的短期异动。第二，本轮内需改善的核心动力，不靠短期刺激政策，主要来自市场内生循环的修复。"
+          ],
+          "completed_at": "2026-10-20T06:54:34.853941+00:00"
+        },
+        {
+          "item_key": "34288791",
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288791",
+          "started_at": "2026-10-20T06:54:34.853976+00:00",
+          "status": "ok",
+          "material": {
+            "scope": "open_text_unit",
+            "access_status": "ok",
+            "completeness": "observed_unit",
+            "basis": "thepaper:detail:content",
+            "source_url": "https://www.thepaper.cn/newsDetail_forward_34288791",
+            "retrieved_at": "2026-10-20T06:54:34.854051Z",
+            "response_status": 200,
+            "response_fingerprint": "f59f88ce3d3931bf9614870eebd42dfb2fb5ca0c2d916179c495608e606ef1e1",
+            "source_excerpt": null,
+            "metadata": {
+              "schema_version": "r1-metadata-v1",
+              "form": "article",
+              "genre": null,
+              "platform": "thepaper",
+              "publisher": "@上游新闻",
+              "authors": [
+                {
+                  "name": "李文滔",
+                  "role": "author",
+                  "platform": "thepaper",
+                  "platform_id": null,
+                  "basis": "thepaper:detail:author"
+                }
+              ],
+              "times": [
+                {
+                  "kind": "feed",
+                  "precision": "time",
+                  "at": "2026-10-20T06:13:47.393000Z",
+                  "on": null,
+                  "basis": "thepaper:rightSidebar:pubTimeLong",
+                  "raw": "1792476827393"
+                },
+                {
+                  "kind": "reprint",
+                  "precision": "time",
+                  "at": "2026-10-20T06:13:47.393000Z",
+                  "on": null,
+                  "basis": "thepaper:detail:publishTime:originalFlag=2",
+                  "raw": "1792476827393"
+                }
+              ],
+              "original_url": null,
+              "media_url": null,
+              "duration_seconds": null,
+              "original_relation_basis": null
+            },
+            "title": "四川警方披露新型智能化非法狩猎：涉案者私改无人机，高空坠箭猎杀野生动物",
+            "evidence": {
+              "source_id": "thepaper-sidebar",
+              "extractor_version": "r1-material-v3",
+              "feed_text_truncated": false
+            }
+          },
+          "text_sha256": "6f6529f9119f57c6314cf6573796421227fdb08892ca36c71f68f1c7b3841ea9",
+          "characters": 504,
+          "excerpts": [
+            "10月20日，@上游新闻 记者从宜宾市公安局获悉，近日该局翠屏区分局成功侦破一起非法狩猎案，两男子使用无人机高空“坠箭”猎杀野生动物，涉案金额达万元，目前已被依法控制。",
+            "相关工作人员介绍，10月15日，森警大队的民警辅警在翠屏区宋家镇009乡道连续蹲守两天两夜。凌晨4时许，两名男子携带重物出现在山林中。靠近甄别后，民警果断出击，将涉嫌利用无人机“坠箭”方式非法狩猎的犯罪嫌疑人廖某某、江某某当场抓获。抓获现场，民警查获无人机1台、箭4支、铁叉4支；疑似果子狸死体5只、野兔死体12只、野鸡",
+            "据统计，涉案金额达万元。经查，2025年11月以来，犯罪嫌疑人廖某某通过网络购买无人机后私自改装，伙同江某某为无人机加装弹射装置，实施“坠箭”狩猎。二人多次在翠屏区牟坪镇等区域，非法猎捕果子狸等野生动物。"
+          ],
+          "completed_at": "2026-10-20T06:54:34.963594+00:00"
+        }
+      ],
+      "status": "ok",
+      "response_fingerprint": "98795789f073fb1b5a98d7b052fa463801e1c4c0d8fe06c591ee4c320c23820e",
+      "scan_counts": {
+        "listed": 35,
+        "scanned": 30,
+        "valid": 30,
+        "adapter_duplicates": 0
+      },
+      "items": [
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287361",
+          "title": "经纬度：消费、进口、物价共同传递内需改善信号",
+          "item_key": "34287361",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34287361",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T06:23:44.951000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792477424951"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288791",
+          "title": "四川警方披露新型智能化非法狩猎：涉案者私改无人机，高空坠箭猎杀野生动物",
+          "item_key": "34288791",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288791",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T06:13:47.393000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792476827393"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34225033",
+          "title": "财晓得｜流感疫苗今年有了哪些新变化？到底要不要打？",
+          "item_key": "34225033",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34225033",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "unknown",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T05:57:57.795000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792475877795"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288467",
+          "title": "新加坡一餐厅冒用使馆名义赠送花篮，中使馆：已要求纠正错误、澄清事实",
+          "item_key": "34288467",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288467",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T05:43:31.461000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792475011461"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287944",
+          "title": "汽车数据安全强标征求意见：把选择权还给车主，基础功能不得捆绑授权",
+          "item_key": "34287944",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34287944",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T05:22:40.223000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792473760223"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288594",
+          "title": "美军濒海战斗舰冲闯中国南沙群岛仙宾礁附近海域，南部战区回应",
+          "item_key": "34288594",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288594",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T04:53:20.098000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792472000098"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288084",
+          "title": "马上评｜星巴克明确消费入座，有边界感才有体面",
+          "item_key": "34288084",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288084",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T04:45:19.123000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792471519123"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287939",
+          "title": "准时参会！《伟大的长征》第17集遵义会议，网友化身“线上参会人”隔空旁听",
+          "item_key": "34287939",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34287939",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T04:41:05.311000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792471265311"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288459",
+          "title": "多省份用户访问请求异常跳转至博彩网站，国家互联网应急中心公布调查情况",
+          "item_key": "34288459",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34288459",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T04:40:14.019000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792471214019"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287917",
+          "title": "国家移民管理局破获一批重特大案件、遣返一批重点“蛇头”",
+          "item_key": "34287917",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34287917",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T04:34:04.245000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792470844245"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34280886",
+          "title": "中国留学生课堂披旭日旗，钧正平：为军国主义张目是对人类良知的公然冒犯",
+          "item_key": "34280886",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34280886",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T08:15:07.914000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792397707914"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34286371",
+          "title": "媒体：身披旭日旗中国留学生已被遣返，校方称将尽快公布开除决定",
+          "item_key": "34286371",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34286371",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T22:12:48.698000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792447968698"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282373",
+          "title": "吴清最新发言八大要点：谈中国资产、市场稳定和AI浪潮",
+          "item_key": "34282373",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282373",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T12:51:41.968000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792414301968"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282643",
+          "title": "四川马边县通报“硫磺熏制鲜竹笋”：对涉事人员依法开展调查取证",
+          "item_key": "34282643",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282643",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:31:05.324000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792416665324"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34283747",
+          "title": "圆通致歉“客户取消快递订单被记为投诉”事件：不存在“咨询即处罚”等情况，将强化管理和培训",
+          "item_key": "34283747",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34283747",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T14:59:18.928000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792421958928"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34280094",
+          "title": "读中本贯通的高分生们",
+          "item_key": "34280094",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34280094",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T23:29:39.497000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792452579497"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34280699",
+          "title": "马上评｜孙颖莎“四不”声明是给饭圈的一味清醒剂",
+          "item_key": "34280699",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34280699",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T07:47:54.377000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792396074377"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282716",
+          "title": "众声丨以实践成果申请专业学位，让评价标尺更适配应用型人才成长",
+          "item_key": "34282716",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282716",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:59:42.027000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792418382027"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34281614",
+          "title": "人民锐评：对“精日”言行零容忍",
+          "item_key": "34281614",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34281614",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T10:22:02.593000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792405322593"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287229",
+          "title": "冯远征称“招不到黄胖子”，业内专家：多方因素造成艺考“颜值内卷”",
+          "item_key": "34287229",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34287229",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T02:07:05.055000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792462025055"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34279646",
+          "title": "一记来自星链的警钟：乌克兰之后，轮到谁担心被“卡脖子”？",
+          "item_key": "34279646",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34279646",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T07:09:28.006000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792393768006"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282817",
+          "title": "外交部提醒赴法国中国公民加强安全防范",
+          "item_key": "34282817",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282817",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:05:31.335000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792415131335"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34283051",
+          "title": "中国驻菲律宾大使就菲反华政客污蔑抹黑中方言论向菲外长提出严正交涉",
+          "item_key": "34283051",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34283051",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:35:24.457000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792416924457"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34281796",
+          "title": "言短意长｜程序正义值得尊重，但不能成为学术不端调查效率的挡箭牌",
+          "item_key": "34281796",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34281796",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T13:50:10.419000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792417810419"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34283182",
+          "title": "英方称将共同应对中国汽车产业占主导地位，商务部回应",
+          "item_key": "34283182",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34283182",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T14:01:28.578000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792418488578"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282923",
+          "title": "系统性变革遇上AI大爆发：报业如何面向未来再出发？业界共话破局新路径",
+          "item_key": "34282923",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282923",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T16:11:53.971000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792426313971"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34285005",
+          "title": "新华社：特朗普为何此时“力挺”内塔尼亚胡",
+          "item_key": "34285005",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34285005",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T17:37:05.789000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792431425789"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34280880",
+          "title": "一线城市二手房价格连续7个月环比上涨，全国新建商品房库存持续下降",
+          "item_key": "34280880",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34280880",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T08:54:24.395000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792400064395"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34281777",
+          "title": "马上评｜互联网时代的舆情不等人，高校调查通报当快则快",
+          "item_key": "34281777",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34281777",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T11:05:58.651000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792407958651"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34282214",
+          "title": "明查｜霍尔木兹海峡散落大量苹果手机？网传视频多为AI生成",
+          "item_key": "34282214",
+          "identity_namespace": "thepaper:content",
+          "identity_value": "34282214",
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "unknown",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": null,
+            "authors": [],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T23:43:06.381000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792453386381"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "source_excerpt": null,
+          "provided_truncated": false,
+          "rank": null,
+          "signals": null
+        }
+      ],
+      "item_count": 30,
+      "completed_at": "2026-10-20T06:54:34.964127+00:00",
+      "http_requests": [
+        {
+          "url": "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+          "method": "GET",
+          "started_at": "2026-10-20T06:54:29.887902+00:00",
+          "status": 200,
+          "response_sha256": "e7e8f34bd5a06d0c052e4e848e0ca31ce5eb4f0028903cc88b47bc0b52af6993",
+          "response_bytes": 101535,
+          "private_response": "response-01.bin",
+          "headers": {
+            "date": "Tue, 20 Oct 2026 06:54:33 GMT",
+            "age": "0",
+            "content-type": "application/json;charset=UTF-8"
+          },
+          "completed_at": "2026-10-20T06:54:34.436595+00:00"
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287361",
+          "method": "GET",
+          "started_at": "2026-10-20T06:54:34.447482+00:00",
+          "status": 200,
+          "response_sha256": "98c5b7b97615d7b188e533085454eed3385ca3c17ee033bd5a32f34c8817766e",
+          "response_bytes": 39713,
+          "private_response": "response-02.bin",
+          "headers": {
+            "date": "Tue, 20 Oct 2026 06:54:34 GMT",
+            "age": "1788",
+            "etag": "\"6xmcjrvp68nli\"",
+            "content-type": "text/html; charset=utf-8"
+          },
+          "completed_at": "2026-10-20T06:54:34.812904+00:00"
+        },
+        {
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288791",
+          "method": "GET",
+          "started_at": "2026-10-20T06:54:34.854644+00:00",
+          "status": 200,
+          "response_sha256": "f59f88ce3d3931bf9614870eebd42dfb2fb5ca0c2d916179c495608e606ef1e1",
+          "response_bytes": 25982,
+          "private_response": "response-03.bin",
+          "headers": {
+            "date": "Tue, 20 Oct 2026 06:54:34 GMT",
+            "age": "2391",
+            "etag": "\"tbfjgtqkuqh3r\"",
+            "content-type": "text/html; charset=utf-8"
+          },
+          "completed_at": "2026-10-20T06:54:34.946324+00:00"
+        }
+      ]
+    }
+  ]
+}

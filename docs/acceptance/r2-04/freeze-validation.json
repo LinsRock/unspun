@@ -1,0 +1,25 @@
+{
+  "verified_frozen_files": 27,
+  "frozen_source_config_verified_at_registered_base_revision": "24aaaa5416c2360dba20208c2fd5d6c989b04821",
+  "all_other_frozen_files_unchanged_in_worktree": true,
+  "original_eight_semantically_unchanged": [
+    "bbc-world",
+    "wsj-world",
+    "bbc-zhongwen",
+    "zaobao-china",
+    "zhihu-daily",
+    "people-frontpage",
+    "zaobao-world",
+    "douban-book"
+  ],
+  "only_changed_source_ids": [
+    "thepaper-sidebar",
+    "36kr-newsflashes"
+  ],
+  "comparison_v2_v3_unchanged": [
+    "docs/evaluations/r2/candidate-comparison-v3.json",
+    "docs/evaluations/r2/scan-comparison-v2.json"
+  ],
+  "models_and_reader_scoring_unchanged": true,
+  "new_paths_all_stages_and_scopes_off": true
+}

@@ -1,0 +1,602 @@
+{
+  "schema_version": "r2-04-current-contract-replay-v1",
+  "contract": "r1-card-v9",
+  "source_records": [
+    {
+      "source_id": "36kr-newsflashes",
+      "external_http_requests": 0,
+      "materials": [
+        {
+          "identity": "4033852799652737",
+          "url": "https://www.36kr.com/newsflashes/4033852799652737",
+          "title": "英国统计局：企业总薪酬已降至近六年来最低水平",
+          "scope": "complete_brief",
+          "access_status": "ok",
+          "characters": 57,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:47:15Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:47:15 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "303a7ac9700ce301543b82699acbccb4d01b8c431c2fc3cd3e7943678a5fc789",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        },
+        {
+          "identity": "4033850201854853",
+          "url": "https://www.36kr.com/newsflashes/4033850201854853",
+          "title": "一目科技与韩国 Physical AI 前沿企业 NEOUL ROBOTICS 达成战略合作",
+          "scope": "complete_brief",
+          "access_status": "ok",
+          "characters": 256,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:44:37Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:44:37 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "88373bdc359673a28a4325fc816aac1684759293e9a0aad9825e9b18b8456b24",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        },
+        {
+          "identity": "4033847237710977",
+          "url": "https://www.36kr.com/newsflashes/4033847237710977",
+          "title": "松下控股将玻璃型钙钛矿太阳能电池量产提前一年，计划2029年4月投产",
+          "scope": "complete_brief",
+          "access_status": "ok",
+          "characters": 142,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "post",
+            "genre": null,
+            "platform": "36kr",
+            "publisher": "36Kr",
+            "authors": [],
+            "times": [
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:41:36Z",
+                "on": null,
+                "basis": "rsshub:36kr:templateMaterial.publishTime",
+                "raw": "Tue, 20 Oct 2026 06:41:36 GMT"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "d92dcb6c09de50674fec0d9333b574047b146ec288752d35d0ff2d58ae0998de",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        }
+      ],
+      "redirect_targets_reconstructed_from_observed_next_request": {},
+      "identities_matched": 20,
+      "archived_http_responses_used": 1
+    },
+    {
+      "source_id": "netease-home",
+      "external_http_requests": 0,
+      "materials": [
+        {
+          "identity": "L9MGSUS8000189FH",
+          "url": "https://www.163.com/news/article/L9MGSUS8000189FH.html",
+          "title": "习近平致信祝贺中央社会主义学院建院70周年",
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "characters": 1121,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "netease",
+            "publisher": "新华社客户端",
+            "authors": [],
+            "times": [
+              {
+                "kind": "reprint",
+                "precision": "time",
+                "at": "2026-10-20T13:28:25+08:00",
+                "on": null,
+                "basis": "netease:platform-publication:original-unverified",
+                "raw": "2026-10-20T13:28:25+08:00"
+              }
+            ],
+            "original_url": "https://h.xinhuaxmt.com/vh512/share/13336397?newstype=1001&homeshow=1",
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": "netease:visible-source-link"
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "c727d6a1ff1be3673d5870969e1174578b90cf13f6d1e9fa16cd3083e819fb57",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        },
+        {
+          "identity": "L9MGRM6P000189FH",
+          "url": "https://www.163.com/news/article/L9MGRM6P000189FH.html",
+          "title": "贺信全文",
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "characters": 293,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "netease",
+            "publisher": "新华社客户端",
+            "authors": [],
+            "times": [
+              {
+                "kind": "reprint",
+                "precision": "time",
+                "at": "2026-10-20T13:27:44+08:00",
+                "on": null,
+                "basis": "netease:platform-publication:original-unverified",
+                "raw": "2026-10-20T13:27:44+08:00"
+              }
+            ],
+            "original_url": "https://h.xinhuaxmt.com/vh512/share/13336409?newstype=1001&homeshow=1",
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": "netease:visible-source-link"
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "f6fe9bf1873370124aafb5e8f11fe9f7532a0580743cdb0cfa607da46dcc1ef8",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        },
+        {
+          "identity": "L9MGVBQB000189FH",
+          "url": "https://www.163.com/news/article/L9MGVBQB000189FH.html",
+          "title": "长江治理 习近平反复强调十个字",
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "characters": 1193,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "netease",
+            "publisher": "中国新闻网",
+            "authors": [],
+            "times": [
+              {
+                "kind": "reprint",
+                "precision": "time",
+                "at": "2026-10-20T13:29:44+08:00",
+                "on": null,
+                "basis": "netease:platform-publication:original-unverified",
+                "raw": "2026-10-20T13:29:44+08:00"
+              }
+            ],
+            "original_url": "https://www.chinanews.com.cn/gn/2026/10-18/10716605.shtml",
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": "netease:visible-source-link"
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "78f5690cf2d7528cd4305ffc44633305a3ae98e800a7ec7fef0491b1ce4d4fe8",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        }
+      ],
+      "redirect_targets_reconstructed_from_observed_next_request": {},
+      "identities_matched": 30,
+      "archived_http_responses_used": 4
+    },
+    {
+      "source_id": "tencent-headlines",
+      "external_http_requests": 0,
+      "materials": [
+        {
+          "identity": "20261020A064L400",
+          "url": "https://new.qq.com/rain/a/20261020A064L400",
+          "title": "习近平致信祝贺中央社会主义学院建院70周年",
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "characters": 1029,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "tencent",
+            "publisher": null,
+            "authors": [
+              {
+                "name": "新华社新闻",
+                "role": "account",
+                "platform": "tencent",
+                "platform_id": null,
+                "basis": "tencent:visible-account"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T11:36:19+08:00",
+                "on": null,
+                "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+                "raw": "2026-10-20 11:36:19"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "948f239d8dd9ee3072bcc36f00407bf8a5c27b413863545a436e0e2915fc33a5",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        },
+        {
+          "identity": "20261020A066XE00",
+          "url": "https://new.qq.com/rain/a/20261020A066XE00",
+          "title": "贺信全文",
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "characters": 265,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "tencent",
+            "publisher": null,
+            "authors": [
+              {
+                "name": "新华社新闻",
+                "role": "account",
+                "platform": "tencent",
+                "platform_id": null,
+                "basis": "tencent:visible-account"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T11:40:22+08:00",
+                "on": null,
+                "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+                "raw": "2026-10-20 11:40:22"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "c9406d057e9ab3b6084b98bf9feb22272a1ba8891bdc9aa3eb8186901af83d03",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        },
+        {
+          "identity": "20261019A02I9200",
+          "url": "https://new.qq.com/rain/a/20261019A02I9200",
+          "title": "为有牺牲多壮志",
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "characters": 379,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "tencent",
+            "publisher": null,
+            "authors": [
+              {
+                "name": "央视新闻",
+                "role": "account",
+                "platform": "tencent",
+                "platform_id": null,
+                "basis": "tencent:visible-account"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-19T06:00:00+08:00",
+                "on": null,
+                "basis": "tencent:platform-publication:original-unverified:Asia/Shanghai",
+                "raw": "2026-10-19 06:00:00"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "59e79262c56baf08ae509737008122f2fc9cf8789b8302332e8ad482c9c8e335",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        }
+      ],
+      "redirect_targets_reconstructed_from_observed_next_request": {
+        "https://new.qq.com/rain/a/20261020A064L400": "https://news.qq.com/rain/a/20261020A064L400",
+        "https://new.qq.com/rain/a/20261020A066XE00": "https://news.qq.com/rain/a/20261020A066XE00",
+        "https://new.qq.com/rain/a/20261019A02I9200": "https://news.qq.com/rain/a/20261019A02I9200"
+      },
+      "identities_matched": 6,
+      "archived_http_responses_used": 7
+    },
+    {
+      "source_id": "thepaper-sidebar",
+      "external_http_requests": 0,
+      "materials": [
+        {
+          "identity": "34287361",
+          "url": "https://www.thepaper.cn/newsDetail_forward_34287361",
+          "title": "经纬度：消费、进口、物价共同传递内需改善信号",
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "characters": 1909,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": "澎湃新闻",
+            "authors": [
+              {
+                "name": "远山",
+                "role": "author",
+                "platform": "thepaper",
+                "platform_id": null,
+                "basis": "thepaper:detail:author"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T06:23:44.951000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792477424951"
+              },
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T06:23:44.951000Z",
+                "on": null,
+                "basis": "thepaper:detail:publishTime:originalFlag=1",
+                "raw": "1792477424951"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "9f34a57f15f979b8dadedb06f45daafa5da7f6a276dc4ac7caca4dfa20b8ab93",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        },
+        {
+          "identity": "34288791",
+          "url": "https://www.thepaper.cn/newsDetail_forward_34288791",
+          "title": "四川警方披露新型智能化非法狩猎：涉案者私改无人机，高空坠箭猎杀野生动物",
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "characters": 508,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "article",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": "@上游新闻",
+            "authors": [
+              {
+                "name": "李文滔",
+                "role": "author",
+                "platform": "thepaper",
+                "platform_id": null,
+                "basis": "thepaper:detail:author"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T06:13:47.393000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792476827393"
+              },
+              {
+                "kind": "reprint",
+                "precision": "time",
+                "at": "2026-10-20T06:13:47.393000Z",
+                "on": null,
+                "basis": "thepaper:detail:publishTime:originalFlag=2",
+                "raw": "1792476827393"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": false,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": null,
+          "processing_fingerprint": "a06bb43fd4d46f2d65d2722b48e7fea61257bcf1ee2e18f1a09032ed1eb7c5e2",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        },
+        {
+          "identity": "34225033",
+          "url": "https://www.thepaper.cn/newsDetail_forward_34225033",
+          "title": "财晓得｜流感疫苗今年有了哪些新变化？到底要不要打？",
+          "scope": "none",
+          "access_status": "unavailable",
+          "characters": 0,
+          "metadata": {
+            "schema_version": "r1-metadata-v1",
+            "form": "unknown",
+            "genre": null,
+            "platform": "thepaper",
+            "publisher": "澎湃新闻",
+            "authors": [
+              {
+                "name": "王亦赟",
+                "role": "reporter",
+                "platform": "thepaper",
+                "platform_id": null,
+                "basis": "thepaper:detail:author:label=记者"
+              },
+              {
+                "name": "王亦赟",
+                "role": "unknown",
+                "platform": "thepaper",
+                "platform_id": null,
+                "basis": "thepaper:detail:author:label=制作"
+              },
+              {
+                "name": "伍银芳",
+                "role": "unknown",
+                "platform": "thepaper",
+                "platform_id": null,
+                "basis": "thepaper:detail:author:label=制作"
+              },
+              {
+                "name": "蔡琳",
+                "role": "unknown",
+                "platform": "thepaper",
+                "platform_id": null,
+                "basis": "thepaper:detail:author:label=制作"
+              },
+              {
+                "name": "王煜",
+                "role": "unknown",
+                "platform": "thepaper",
+                "platform_id": null,
+                "basis": "thepaper:detail:author:label=制作"
+              },
+              {
+                "name": "兰淏",
+                "role": "unknown",
+                "platform": "thepaper",
+                "platform_id": null,
+                "basis": "thepaper:detail:author:label=实习生"
+              }
+            ],
+            "times": [
+              {
+                "kind": "feed",
+                "precision": "time",
+                "at": "2026-10-20T05:57:57.795000Z",
+                "on": null,
+                "basis": "thepaper:rightSidebar:pubTimeLong",
+                "raw": "1792475877795"
+              },
+              {
+                "kind": "original",
+                "precision": "time",
+                "at": "2026-10-20T05:57:57.795000Z",
+                "on": null,
+                "basis": "thepaper:detail:publishTime:originalFlag=1",
+                "raw": "1792475877795"
+              }
+            ],
+            "original_url": null,
+            "media_url": null,
+            "duration_seconds": null,
+            "original_relation_basis": null
+          },
+          "metadata_changed_from_first_probe": true,
+          "body_and_scope_match_original_response": true,
+          "current_card_input_valid": true,
+          "cheap_exclusion": "insufficient_material",
+          "processing_fingerprint": "820fdb66e7ae25b83796ded1573ce10f94d00dfbe43cc49de61533260c5bfc69",
+          "exact_body_matches_in_production": [],
+          "transient_negative_ids_are_not_database_ids": true
+        }
+      ],
+      "redirect_targets_reconstructed_from_observed_next_request": {},
+      "identities_matched": 35,
+      "archived_http_responses_used": 4
+    }
+  ],
+  "model_generation_validated": false,
+  "generation_missing_reason": "Observation window and critical-field audit are incomplete; paid gate remains closed.",
+  "model_requests": 0,
+  "database_writes": 0,
+  "synthetic_admissions_created": 0
+}
