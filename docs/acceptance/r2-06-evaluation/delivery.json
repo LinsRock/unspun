@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-20T12:46:56.079964+00:00",
+  "runtime_revision": "1abcadf606a05fc7db4d4873aaaa251503f39268",
+  "evaluated_main_revision": "2d8daf37aa0284fa7387bd4a275c628cecc36d69",
+  "standalone_tool_difference": [
+    "evaluation/member_quality.py"
+  ],
+  "engineering_accounting_retention_checks": {
+    "actual_runtime_health_and_schema": true,
+    "all_90_deployed_sources_match_actual_release": true,
+    "only_standalone_evaluation_tool_differs_from_local_main": true,
+    "config_sources_models_r1_contracts_unchanged": true,
+    "seven_production_tables_empty": true,
+    "production_member_chain_off_and_empty": true,
+    "production_allocation_unchanged_no_topic_caps": true,
+    "fixed_api_worker_same_release": true,
+    "no_api_worker_observer_mounts": true,
+    "legacy_zero_controlled_one": true,
+    "only_8080_loopback_published": true,
+    "web_image_unchanged": true,
+    "original_117_details_preserved": true,
+    "all_four_reading_additions_are_original_r1_natural": true,
+    "reading_is_readonly_no_paid_enqueue": true,
+    "new_sources_closed_no_publications": true,
+    "events_reader_feedback_preserved": true,
+    "old_identity_rows_preserved_with_natural_append": true,
+    "legacy_business_backlog_policy_preserved": true,
+    "r204_containers_and_original_183_files_preserved": true,
+    "r204_worktree_preserved": true,
+    "original_eval_seven_holds_and_carry_preserved": true,
+    "official_complete_restore_and_old_rows_preserved": true,
+    "independent_provider_fee_and_budget_audit_passed": true,
+    "raw_first_results_preserved_no_tuning": true,
+    "all_selected_candidates_counted": true,
+    "actual_deploy_step_executed": true,
+    "evaluation_only_main_correctly_skipped_runtime_deploy": true,
+    "failed_quality_and_unmeasured_review_are_explicit": true
+  },
+  "all_delivery_checks_passed": true,
+  "real_model_technical_gates": {
+    "candidate_recall": true,
+    "judgment_precision": false,
+    "member_coverage": false,
+    "no_false_merge": true,
+    "approved_current_writes_only": true,
+    "required_real_coverage": false
+  },
+  "real_model_technical_pass": false,
+  "review_and_cas_real_quality": "unmeasured; zero reached",
+  "r206_complete": false,
+  "production_member_processing_enabled": false,
+  "r204_continuation_accepted_by_this_batch": false
+}
