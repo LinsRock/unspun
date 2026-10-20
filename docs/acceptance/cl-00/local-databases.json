@@ -1,0 +1,282 @@
+{
+  "captured_at": "2026-10-20T05:13:00.105308+00:00",
+  "source_import": "/Users/li.cong/.config/superpowers/worktrees/unspun/cl-00-inventory/server/src/unspun/__init__.py",
+  "paid_calls": 0,
+  "manual_tasks": 0,
+  "queries": {
+    "transaction": {
+      "sql": "SELECT transaction_timestamp() AS at, current_database() AS database, current_setting('transaction_read_only') AS read_only, current_setting('transaction_isolation') AS isolation, pg_database_size(current_database()) AS database_bytes",
+      "rows": [
+        {
+          "at": "2026-10-20 05:13:00.398237+00:00",
+          "database": "unspun",
+          "read_only": "on",
+          "isolation": "repeatable read",
+          "database_bytes": 13334195
+        }
+      ]
+    },
+    "connections": {
+      "sql": "SELECT datname, application_name, state, count(*) AS connections FROM pg_stat_activity WHERE pid <> pg_backend_pid() GROUP BY datname,application_name,state ORDER BY datname,application_name,state",
+      "rows": [
+        {
+          "datname": "unspun_quality_r1_20261016",
+          "application_name": "",
+          "state": "idle",
+          "connections": 6
+        },
+        {
+          "datname": null,
+          "application_name": "",
+          "state": null,
+          "connections": 5
+        }
+      ]
+    },
+    "databases": {
+      "sql": "SELECT datname, pg_get_userbyid(datdba) AS owner, pg_database_size(oid) AS bytes FROM pg_database WHERE NOT datistemplate ORDER BY datname",
+      "rows": [
+        {
+          "datname": "postgres",
+          "owner": "unspun",
+          "bytes": 7657139
+        },
+        {
+          "datname": "unspun",
+          "owner": "unspun",
+          "bytes": 13334195
+        },
+        {
+          "datname": "unspun_m3b_b2_test",
+          "owner": "unspun",
+          "bytes": 9028111
+        },
+        {
+          "datname": "unspun_m3b_migration_test",
+          "owner": "unspun",
+          "bytes": 9159183
+        },
+        {
+          "datname": "unspun_m3b_preferences_test",
+          "owner": "unspun",
+          "bytes": 9085455
+        },
+        {
+          "datname": "unspun_m3b_test",
+          "owner": "unspun",
+          "bytes": 9077263
+        },
+        {
+          "datname": "unspun_preview_m3b",
+          "owner": "unspun",
+          "bytes": 8675855
+        },
+        {
+          "datname": "unspun_preview_m3b_b2",
+          "owner": "unspun",
+          "bytes": 8757775
+        },
+        {
+          "datname": "unspun_preview_m3b_preferences",
+          "owner": "unspun",
+          "bytes": 8716815
+        },
+        {
+          "datname": "unspun_preview_reading",
+          "owner": "unspun",
+          "bytes": 8610319
+        },
+        {
+          "datname": "unspun_quality_eval",
+          "owner": "unspun",
+          "bytes": 8602127
+        },
+        {
+          "datname": "unspun_quality_m3b",
+          "owner": "unspun",
+          "bytes": 8479247
+        },
+        {
+          "datname": "unspun_quality_preview",
+          "owner": "unspun",
+          "bytes": 8520207
+        },
+        {
+          "datname": "unspun_quality_r1_20261016",
+          "owner": "unspun",
+          "bytes": 12064435
+        },
+        {
+          "datname": "unspun_r1_00_20261016",
+          "owner": "unspun",
+          "bytes": 9052687
+        },
+        {
+          "datname": "unspun_r1_01_20261016",
+          "owner": "unspun",
+          "bytes": 8946191
+        },
+        {
+          "datname": "unspun_r1_02_20261016",
+          "owner": "unspun",
+          "bytes": 9650703
+        },
+        {
+          "datname": "unspun_r1_02_upgrade_20261016",
+          "owner": "unspun",
+          "bytes": 8937999
+        },
+        {
+          "datname": "unspun_r1_03_20261016",
+          "owner": "unspun",
+          "bytes": 10093071
+        },
+        {
+          "datname": "unspun_r1_04_20261016",
+          "owner": "unspun",
+          "bytes": 10379791
+        },
+        {
+          "datname": "unspun_r1_admin_tests_20261018_033056_74ff",
+          "owner": "unspun",
+          "bytes": 10573491
+        },
+        {
+          "datname": "unspun_r1_api_20261016",
+          "owner": "unspun",
+          "bytes": 11097779
+        },
+        {
+          "datname": "unspun_r1_budget_revision_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10420751
+        },
+        {
+          "datname": "unspun_r1_chinese_20261016",
+          "owner": "unspun",
+          "bytes": 10314255
+        },
+        {
+          "datname": "unspun_r1_content_tests_20261016",
+          "owner": "unspun",
+          "bytes": 10568207
+        },
+        {
+          "datname": "unspun_r1_final_quality_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10527247
+        },
+        {
+          "datname": "unspun_r1_genre_candidate_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10404367
+        },
+        {
+          "datname": "unspun_r1_guide_attribution_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10573491
+        },
+        {
+          "datname": "unspun_r1_header_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10469903
+        },
+        {
+          "datname": "unspun_r1_ingestion_20261016",
+          "owner": "unspun",
+          "bytes": 10420751
+        },
+        {
+          "datname": "unspun_r1_public_sources_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10650127
+        },
+        {
+          "datname": "unspun_r1_reader_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10486287
+        },
+        {
+          "datname": "unspun_r1_reserve_margin_checks_20261017",
+          "owner": "unspun",
+          "bytes": 10565299
+        },
+        {
+          "datname": "unspun_r1_reserve_margin_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10756623
+        },
+        {
+          "datname": "unspun_r1_review_revision_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10633743
+        },
+        {
+          "datname": "unspun_r1_rollout_tests_20261017_231822_add2",
+          "owner": "unspun",
+          "bytes": 10565299
+        },
+        {
+          "datname": "unspun_r1_rollout_tests_20261018_012033_85c7",
+          "owner": "unspun",
+          "bytes": 10565299
+        },
+        {
+          "datname": "unspun_r1_rollout_tests_20261018_025805_b6e5",
+          "owner": "unspun",
+          "bytes": 10827443
+        },
+        {
+          "datname": "unspun_r1_runtime_cost_tests_20261017_1135",
+          "owner": "unspun",
+          "bytes": 10811059
+        },
+        {
+          "datname": "unspun_r1_runtime_preview_20261017",
+          "owner": "unspun",
+          "bytes": 9888271
+        },
+        {
+          "datname": "unspun_r1_runtime_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10650127
+        },
+        {
+          "datname": "unspun_r1_scope_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10764815
+        },
+        {
+          "datname": "unspun_r1_source_tests_20261017",
+          "owner": "unspun",
+          "bytes": 10461711
+        },
+        {
+          "datname": "unspun_r2_baseline_tests_20261019",
+          "owner": "unspun",
+          "bytes": 10565299
+        },
+        {
+          "datname": "unspun_r2_detail_tests_20261020",
+          "owner": "unspun",
+          "bytes": 22910643
+        },
+        {
+          "datname": "unspun_r2_scan_tests_20261019",
+          "owner": "unspun",
+          "bytes": 11032243
+        },
+        {
+          "datname": "unspun_reading_test",
+          "owner": "unspun",
+          "bytes": 9200143
+        },
+        {
+          "datname": "unspun_t8_preview",
+          "owner": "unspun",
+          "bytes": 8438287
+        }
+      ]
+    }
+  }
+}

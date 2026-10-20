@@ -1,0 +1,2155 @@
+{
+  "captured_at": "2026-10-20T05:13:18.523097+00:00",
+  "source_import": "/Users/li.cong/.config/superpowers/worktrees/unspun/cl-00-inventory/server/src/unspun/__init__.py",
+  "paid_calls": 0,
+  "manual_tasks": 0,
+  "queries": {
+    "transaction": {
+      "sql": "SELECT transaction_timestamp() AS at, current_database() AS database, current_setting('transaction_read_only') AS read_only, current_setting('transaction_isolation') AS isolation, pg_database_size(current_database()) AS database_bytes",
+      "rows": [
+        {
+          "at": "2026-10-20 05:13:18.762534+00:00",
+          "database": "unspun_quality_r1_20261016",
+          "read_only": "on",
+          "isolation": "repeatable read",
+          "database_bytes": 12064435
+        }
+      ]
+    },
+    "connections": {
+      "sql": "SELECT datname, application_name, state, count(*) AS connections FROM pg_stat_activity WHERE pid <> pg_backend_pid() GROUP BY datname,application_name,state ORDER BY datname,application_name,state",
+      "rows": [
+        {
+          "datname": "unspun_quality_r1_20261016",
+          "application_name": "",
+          "state": "idle",
+          "connections": 6
+        },
+        {
+          "datname": null,
+          "application_name": "",
+          "state": null,
+          "connections": 5
+        }
+      ]
+    },
+    "relations": {
+      "sql": "SELECT c.relname AS name, pg_relation_size(c.oid) AS heap_bytes, pg_table_size(c.oid) AS table_bytes, pg_indexes_size(c.oid) AS index_bytes, pg_total_relation_size(c.oid) AS total_bytes FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='public' AND c.relkind='r' ORDER BY c.relname",
+      "rows": [
+        {
+          "name": "alembic_version",
+          "heap_bytes": 8192,
+          "table_bytes": 8192,
+          "index_bytes": 16384,
+          "total_bytes": 24576
+        },
+        {
+          "name": "articles",
+          "heap_bytes": 40960,
+          "table_bytes": 73728,
+          "index_bytes": 98304,
+          "total_bytes": 172032
+        },
+        {
+          "name": "billed_requests",
+          "heap_bytes": 671744,
+          "table_bytes": 1204224,
+          "index_bytes": 253952,
+          "total_bytes": 1458176
+        },
+        {
+          "name": "budget_carry",
+          "heap_bytes": 8192,
+          "table_bytes": 16384,
+          "index_bytes": 16384,
+          "total_bytes": 32768
+        },
+        {
+          "name": "budget_policy",
+          "heap_bytes": 8192,
+          "table_bytes": 16384,
+          "index_bytes": 16384,
+          "total_bytes": 32768
+        },
+        {
+          "name": "content_derivations",
+          "heap_bytes": 147456,
+          "table_bytes": 344064,
+          "index_bytes": 73728,
+          "total_bytes": 417792
+        },
+        {
+          "name": "content_feedback",
+          "heap_bytes": 8192,
+          "table_bytes": 16384,
+          "index_bytes": 16384,
+          "total_bytes": 32768
+        },
+        {
+          "name": "content_identities",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 24576,
+          "total_bytes": 32768
+        },
+        {
+          "name": "content_materials",
+          "heap_bytes": 32768,
+          "table_bytes": 139264,
+          "index_bytes": 81920,
+          "total_bytes": 221184
+        },
+        {
+          "name": "content_observations",
+          "heap_bytes": 24576,
+          "table_bytes": 57344,
+          "index_bytes": 65536,
+          "total_bytes": 122880
+        },
+        {
+          "name": "content_urls",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 24576,
+          "total_bytes": 32768
+        },
+        {
+          "name": "digests",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 16384,
+          "total_bytes": 24576
+        },
+        {
+          "name": "event_viewpoints",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 16384,
+          "total_bytes": 24576
+        },
+        {
+          "name": "events",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 8192,
+          "total_bytes": 16384
+        },
+        {
+          "name": "expense_audit",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 8192,
+          "total_bytes": 16384
+        },
+        {
+          "name": "expense_entries",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 24576,
+          "total_bytes": 32768
+        },
+        {
+          "name": "expense_rules",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 8192,
+          "total_bytes": 16384
+        },
+        {
+          "name": "feed_preferences",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 8192,
+          "total_bytes": 16384
+        },
+        {
+          "name": "fetch_logs",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 16384,
+          "total_bytes": 24576
+        },
+        {
+          "name": "fx_rates",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 16384,
+          "total_bytes": 24576
+        },
+        {
+          "name": "llm_usage",
+          "heap_bytes": 40960,
+          "table_bytes": 73728,
+          "index_bytes": 32768,
+          "total_bytes": 106496
+        },
+        {
+          "name": "pipeline_runs",
+          "heap_bytes": 0,
+          "table_bytes": 0,
+          "index_bytes": 16384,
+          "total_bytes": 16384
+        },
+        {
+          "name": "pipeline_tasks",
+          "heap_bytes": 8192,
+          "table_bytes": 16384,
+          "index_bytes": 98304,
+          "total_bytes": 114688
+        },
+        {
+          "name": "reader_changes",
+          "heap_bytes": 8192,
+          "table_bytes": 16384,
+          "index_bytes": 32768,
+          "total_bytes": 49152
+        },
+        {
+          "name": "reader_interests",
+          "heap_bytes": 8192,
+          "table_bytes": 16384,
+          "index_bytes": 16384,
+          "total_bytes": 32768
+        },
+        {
+          "name": "reader_state",
+          "heap_bytes": 8192,
+          "table_bytes": 16384,
+          "index_bytes": 16384,
+          "total_bytes": 32768
+        },
+        {
+          "name": "source_states",
+          "heap_bytes": 0,
+          "table_bytes": 8192,
+          "index_bytes": 8192,
+          "total_bytes": 16384
+        },
+        {
+          "name": "task_attempts",
+          "heap_bytes": 8192,
+          "table_bytes": 16384,
+          "index_bytes": 49152,
+          "total_bytes": 65536
+        }
+      ]
+    },
+    "columns": {
+      "sql": "SELECT table_name,column_name FROM information_schema.columns WHERE table_schema='public' ORDER BY table_name,ordinal_position",
+      "rows": [
+        {
+          "table_name": "alembic_version",
+          "column_name": "version_num"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "id"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "source_id"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "url"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "title"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "lang"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "published_at"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "fetched_at"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "content"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "summary_zh"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "embedding"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "event_id"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "title_zh"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "summary_failures"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "summary_grounding"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "reported_at"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "reported_date"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "reported_basis"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "publisher_group"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "reported_precision"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "content_basis"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "processing_track"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "content_form"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "genre"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "platform"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "publisher_name"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "r1_metadata"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "metadata_fingerprint"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "canonical_content_id"
+        },
+        {
+          "table_name": "articles",
+          "column_name": "current_material_id"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "id"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "logical_key"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "purpose"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "stage"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "phase"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "model"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "request_fingerprint"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "price_version"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "reserved_usd"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "status"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "task_id"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "task_attempt_id"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "article_id"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "source_id"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "object_key"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "usage_id"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "provider_generation_id"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "http_status"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "response_payload"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "usage_payload"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "error"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "reconciliation"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "started_at"
+        },
+        {
+          "table_name": "billed_requests",
+          "column_name": "ended_at"
+        },
+        {
+          "table_name": "budget_carry",
+          "column_name": "month"
+        },
+        {
+          "table_name": "budget_carry",
+          "column_name": "amount_usd"
+        },
+        {
+          "table_name": "budget_carry",
+          "column_name": "provider_monthly_usd"
+        },
+        {
+          "table_name": "budget_carry",
+          "column_name": "ledger_at_observation_usd"
+        },
+        {
+          "table_name": "budget_carry",
+          "column_name": "basis"
+        },
+        {
+          "table_name": "budget_carry",
+          "column_name": "observed_at"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "id"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "scope"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "enabled"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "monthly_limit_usd"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "stage_caps"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "version"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "coverage_started_at"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "incident"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "provider_limit_usd"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "provider_usage_usd"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "provider_limit_kind"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "key_fingerprint"
+        },
+        {
+          "table_name": "budget_policy",
+          "column_name": "provider_observed_at"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "id"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "article_id"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "material_id"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "kind"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "status"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "reason"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "input_fingerprint"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "metadata_fingerprint"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "contract_version"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "generation_model"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "review_contract"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "review_model"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "payload"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "review_evidence"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "created_at"
+        },
+        {
+          "table_name": "content_derivations",
+          "column_name": "updated_at"
+        },
+        {
+          "table_name": "content_feedback",
+          "column_name": "article_id"
+        },
+        {
+          "table_name": "content_feedback",
+          "column_name": "value"
+        },
+        {
+          "table_name": "content_feedback",
+          "column_name": "version"
+        },
+        {
+          "table_name": "content_feedback",
+          "column_name": "updated_at"
+        },
+        {
+          "table_name": "content_identities",
+          "column_name": "id"
+        },
+        {
+          "table_name": "content_identities",
+          "column_name": "article_id"
+        },
+        {
+          "table_name": "content_identities",
+          "column_name": "namespace"
+        },
+        {
+          "table_name": "content_identities",
+          "column_name": "external_id"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "id"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "article_id"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "input_fingerprint"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "text_fingerprint"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "metadata_fingerprint"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "extractor_version"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "schema_version"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "scope"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "access_status"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "completeness"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "completeness_basis"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "source_url"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "retrieved_at"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "response_status"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "response_fingerprint"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "paragraphs"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "source_excerpt"
+        },
+        {
+          "table_name": "content_materials",
+          "column_name": "evidence"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "id"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "article_id"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "source_id"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "item_key"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "discovered_url"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "observed_at"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "observation_fingerprint"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "rank"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "signals"
+        },
+        {
+          "table_name": "content_observations",
+          "column_name": "metadata_snapshot"
+        },
+        {
+          "table_name": "content_urls",
+          "column_name": "id"
+        },
+        {
+          "table_name": "content_urls",
+          "column_name": "article_id"
+        },
+        {
+          "table_name": "content_urls",
+          "column_name": "url"
+        },
+        {
+          "table_name": "content_urls",
+          "column_name": "relation"
+        },
+        {
+          "table_name": "digests",
+          "column_name": "id"
+        },
+        {
+          "table_name": "digests",
+          "column_name": "report_date"
+        },
+        {
+          "table_name": "digests",
+          "column_name": "kind"
+        },
+        {
+          "table_name": "digests",
+          "column_name": "payload"
+        },
+        {
+          "table_name": "digests",
+          "column_name": "generated_at"
+        },
+        {
+          "table_name": "event_viewpoints",
+          "column_name": "id"
+        },
+        {
+          "table_name": "event_viewpoints",
+          "column_name": "event_id"
+        },
+        {
+          "table_name": "event_viewpoints",
+          "column_name": "payload"
+        },
+        {
+          "table_name": "event_viewpoints",
+          "column_name": "input_fingerprint"
+        },
+        {
+          "table_name": "event_viewpoints",
+          "column_name": "model"
+        },
+        {
+          "table_name": "event_viewpoints",
+          "column_name": "generated_at"
+        },
+        {
+          "table_name": "events",
+          "column_name": "id"
+        },
+        {
+          "table_name": "events",
+          "column_name": "title"
+        },
+        {
+          "table_name": "events",
+          "column_name": "summary_zh"
+        },
+        {
+          "table_name": "events",
+          "column_name": "centroid"
+        },
+        {
+          "table_name": "events",
+          "column_name": "score_final"
+        },
+        {
+          "table_name": "events",
+          "column_name": "score_breakdown"
+        },
+        {
+          "table_name": "events",
+          "column_name": "scored_at"
+        },
+        {
+          "table_name": "events",
+          "column_name": "first_seen_at"
+        },
+        {
+          "table_name": "events",
+          "column_name": "changed_at"
+        },
+        {
+          "table_name": "events",
+          "column_name": "public_impact"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "id"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "recorded_at"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "actor"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "action"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "object_type"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "object_id"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "before"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "after"
+        },
+        {
+          "table_name": "expense_audit",
+          "column_name": "reason"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "id"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "rule_id"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "rule_version"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "name"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "category"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "amount"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "currency"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "kind"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "period_start"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "period_end"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "status"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "paid_on"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "paid_at"
+        },
+        {
+          "table_name": "expense_entries",
+          "column_name": "version"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "id"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "name"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "category"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "amount"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "currency"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "cadence"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "anchor_date"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "once_end"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "stop_before"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "reminder_days"
+        },
+        {
+          "table_name": "expense_rules",
+          "column_name": "version"
+        },
+        {
+          "table_name": "feed_preferences",
+          "column_name": "id"
+        },
+        {
+          "table_name": "feed_preferences",
+          "column_name": "sort"
+        },
+        {
+          "table_name": "feed_preferences",
+          "column_name": "range"
+        },
+        {
+          "table_name": "feed_preferences",
+          "column_name": "version"
+        },
+        {
+          "table_name": "fetch_logs",
+          "column_name": "id"
+        },
+        {
+          "table_name": "fetch_logs",
+          "column_name": "run_at"
+        },
+        {
+          "table_name": "fetch_logs",
+          "column_name": "source_id"
+        },
+        {
+          "table_name": "fetch_logs",
+          "column_name": "status"
+        },
+        {
+          "table_name": "fetch_logs",
+          "column_name": "error"
+        },
+        {
+          "table_name": "fetch_logs",
+          "column_name": "new_articles"
+        },
+        {
+          "table_name": "fx_rates",
+          "column_name": "id"
+        },
+        {
+          "table_name": "fx_rates",
+          "column_name": "currency"
+        },
+        {
+          "table_name": "fx_rates",
+          "column_name": "effective_on"
+        },
+        {
+          "table_name": "fx_rates",
+          "column_name": "rate_to_usd"
+        },
+        {
+          "table_name": "fx_rates",
+          "column_name": "source"
+        },
+        {
+          "table_name": "fx_rates",
+          "column_name": "version"
+        },
+        {
+          "table_name": "llm_usage",
+          "column_name": "id"
+        },
+        {
+          "table_name": "llm_usage",
+          "column_name": "created_at"
+        },
+        {
+          "table_name": "llm_usage",
+          "column_name": "purpose"
+        },
+        {
+          "table_name": "llm_usage",
+          "column_name": "model"
+        },
+        {
+          "table_name": "llm_usage",
+          "column_name": "prompt_tokens"
+        },
+        {
+          "table_name": "llm_usage",
+          "column_name": "completion_tokens"
+        },
+        {
+          "table_name": "llm_usage",
+          "column_name": "cost_usd"
+        },
+        {
+          "table_name": "pipeline_runs",
+          "column_name": "id"
+        },
+        {
+          "table_name": "pipeline_runs",
+          "column_name": "run_at"
+        },
+        {
+          "table_name": "pipeline_runs",
+          "column_name": "summarized"
+        },
+        {
+          "table_name": "pipeline_runs",
+          "column_name": "embedded"
+        },
+        {
+          "table_name": "pipeline_runs",
+          "column_name": "clustered"
+        },
+        {
+          "table_name": "pipeline_runs",
+          "column_name": "new_events"
+        },
+        {
+          "table_name": "pipeline_runs",
+          "column_name": "scored"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "id"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "queue"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "kind"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "object_key"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "article_id"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "source_id"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "input_fingerprint"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "strategy_version"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "cycle_key"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "dedupe_key"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "payload"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "status"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "due_at"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "priority"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "attempts"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "failures"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "max_attempts"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "claim_version"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "lease_until"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "claimed_by"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "result"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "last_error"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "created_at"
+        },
+        {
+          "table_name": "pipeline_tasks",
+          "column_name": "finished_at"
+        },
+        {
+          "table_name": "reader_changes",
+          "column_name": "version"
+        },
+        {
+          "table_name": "reader_changes",
+          "column_name": "mutation_id"
+        },
+        {
+          "table_name": "reader_changes",
+          "column_name": "fingerprint"
+        },
+        {
+          "table_name": "reader_changes",
+          "column_name": "kind"
+        },
+        {
+          "table_name": "reader_changes",
+          "column_name": "target"
+        },
+        {
+          "table_name": "reader_changes",
+          "column_name": "value"
+        },
+        {
+          "table_name": "reader_changes",
+          "column_name": "created_at"
+        },
+        {
+          "table_name": "reader_interests",
+          "column_name": "resource_key"
+        },
+        {
+          "table_name": "reader_interests",
+          "column_name": "kind"
+        },
+        {
+          "table_name": "reader_interests",
+          "column_name": "target"
+        },
+        {
+          "table_name": "reader_interests",
+          "column_name": "label"
+        },
+        {
+          "table_name": "reader_interests",
+          "column_name": "created_at"
+        },
+        {
+          "table_name": "reader_state",
+          "column_name": "id"
+        },
+        {
+          "table_name": "reader_state",
+          "column_name": "version"
+        },
+        {
+          "table_name": "reader_state",
+          "column_name": "sort"
+        },
+        {
+          "table_name": "reader_state",
+          "column_name": "last_mutation_id"
+        },
+        {
+          "table_name": "reader_state",
+          "column_name": "last_mutation_fingerprint"
+        },
+        {
+          "table_name": "reader_state",
+          "column_name": "updated_at"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "source_id"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "owner"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "enabled"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "period_seconds"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "schedule_version"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "next_due_at"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "consecutive_failures"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "last_success_at"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "last_new_item_at"
+        },
+        {
+          "table_name": "source_states",
+          "column_name": "last_item_count"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "id"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "task_id"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "claim_version"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "worker"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "started_at"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "lease_until"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "ended_at"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "status"
+        },
+        {
+          "table_name": "task_attempts",
+          "column_name": "error"
+        }
+      ]
+    },
+    "count:alembic_version": {
+      "sql": "SELECT count(*) AS rows FROM \"alembic_version\"",
+      "rows": [
+        {
+          "rows": 1
+        }
+      ]
+    },
+    "count:articles": {
+      "sql": "SELECT count(*) AS rows FROM \"articles\"",
+      "rows": [
+        {
+          "rows": 24
+        }
+      ]
+    },
+    "count:billed_requests": {
+      "sql": "SELECT count(*) AS rows FROM \"billed_requests\"",
+      "rows": [
+        {
+          "rows": 401
+        }
+      ]
+    },
+    "count:budget_carry": {
+      "sql": "SELECT count(*) AS rows FROM \"budget_carry\"",
+      "rows": [
+        {
+          "rows": 1
+        }
+      ]
+    },
+    "count:budget_policy": {
+      "sql": "SELECT count(*) AS rows FROM \"budget_policy\"",
+      "rows": [
+        {
+          "rows": 1
+        }
+      ]
+    },
+    "count:content_derivations": {
+      "sql": "SELECT count(*) AS rows FROM \"content_derivations\"",
+      "rows": [
+        {
+          "rows": 89
+        }
+      ]
+    },
+    "count:content_feedback": {
+      "sql": "SELECT count(*) AS rows FROM \"content_feedback\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:content_identities": {
+      "sql": "SELECT count(*) AS rows FROM \"content_identities\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:content_materials": {
+      "sql": "SELECT count(*) AS rows FROM \"content_materials\"",
+      "rows": [
+        {
+          "rows": 24
+        }
+      ]
+    },
+    "count:content_observations": {
+      "sql": "SELECT count(*) AS rows FROM \"content_observations\"",
+      "rows": [
+        {
+          "rows": 24
+        }
+      ]
+    },
+    "count:content_urls": {
+      "sql": "SELECT count(*) AS rows FROM \"content_urls\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:digests": {
+      "sql": "SELECT count(*) AS rows FROM \"digests\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:event_viewpoints": {
+      "sql": "SELECT count(*) AS rows FROM \"event_viewpoints\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:events": {
+      "sql": "SELECT count(*) AS rows FROM \"events\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:expense_audit": {
+      "sql": "SELECT count(*) AS rows FROM \"expense_audit\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:expense_entries": {
+      "sql": "SELECT count(*) AS rows FROM \"expense_entries\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:expense_rules": {
+      "sql": "SELECT count(*) AS rows FROM \"expense_rules\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:feed_preferences": {
+      "sql": "SELECT count(*) AS rows FROM \"feed_preferences\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:fetch_logs": {
+      "sql": "SELECT count(*) AS rows FROM \"fetch_logs\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:fx_rates": {
+      "sql": "SELECT count(*) AS rows FROM \"fx_rates\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:llm_usage": {
+      "sql": "SELECT count(*) AS rows FROM \"llm_usage\"",
+      "rows": [
+        {
+          "rows": 394
+        }
+      ]
+    },
+    "count:pipeline_runs": {
+      "sql": "SELECT count(*) AS rows FROM \"pipeline_runs\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:pipeline_tasks": {
+      "sql": "SELECT count(*) AS rows FROM \"pipeline_tasks\"",
+      "rows": [
+        {
+          "rows": 1
+        }
+      ]
+    },
+    "count:reader_changes": {
+      "sql": "SELECT count(*) AS rows FROM \"reader_changes\"",
+      "rows": [
+        {
+          "rows": 21
+        }
+      ]
+    },
+    "count:reader_interests": {
+      "sql": "SELECT count(*) AS rows FROM \"reader_interests\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:reader_state": {
+      "sql": "SELECT count(*) AS rows FROM \"reader_state\"",
+      "rows": [
+        {
+          "rows": 1
+        }
+      ]
+    },
+    "count:source_states": {
+      "sql": "SELECT count(*) AS rows FROM \"source_states\"",
+      "rows": [
+        {
+          "rows": 0
+        }
+      ]
+    },
+    "count:task_attempts": {
+      "sql": "SELECT count(*) AS rows FROM \"task_attempts\"",
+      "rows": [
+        {
+          "rows": 1
+        }
+      ]
+    },
+    "foreign_keys": {
+      "sql": "SELECT conrelid::regclass::text AS child, conname AS name, confrelid::regclass::text AS parent, pg_get_constraintdef(oid) AS definition FROM pg_constraint WHERE contype='f' AND connamespace='public'::regnamespace ORDER BY child,name",
+      "rows": [
+        {
+          "child": "articles",
+          "name": "articles_event_id_fkey",
+          "parent": "events",
+          "definition": "FOREIGN KEY (event_id) REFERENCES events(id)"
+        },
+        {
+          "child": "articles",
+          "name": "fk_articles_canonical",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (canonical_content_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "articles",
+          "name": "fk_articles_current_material",
+          "parent": "content_materials",
+          "definition": "FOREIGN KEY (id, current_material_id) REFERENCES content_materials(article_id, id)"
+        },
+        {
+          "child": "billed_requests",
+          "name": "billed_requests_article_id_fkey",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (article_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "billed_requests",
+          "name": "billed_requests_task_attempt_id_fkey",
+          "parent": "task_attempts",
+          "definition": "FOREIGN KEY (task_attempt_id) REFERENCES task_attempts(id)"
+        },
+        {
+          "child": "billed_requests",
+          "name": "billed_requests_task_id_fkey",
+          "parent": "pipeline_tasks",
+          "definition": "FOREIGN KEY (task_id) REFERENCES pipeline_tasks(id)"
+        },
+        {
+          "child": "billed_requests",
+          "name": "billed_requests_usage_id_fkey",
+          "parent": "llm_usage",
+          "definition": "FOREIGN KEY (usage_id) REFERENCES llm_usage(id)"
+        },
+        {
+          "child": "content_derivations",
+          "name": "content_derivations_article_id_fkey",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (article_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "content_derivations",
+          "name": "fk_content_derivation_material",
+          "parent": "content_materials",
+          "definition": "FOREIGN KEY (article_id, material_id) REFERENCES content_materials(article_id, id)"
+        },
+        {
+          "child": "content_feedback",
+          "name": "content_feedback_article_id_fkey",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (article_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "content_identities",
+          "name": "content_identities_article_id_fkey",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (article_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "content_materials",
+          "name": "content_materials_article_id_fkey",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (article_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "content_observations",
+          "name": "content_observations_article_id_fkey",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (article_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "content_urls",
+          "name": "content_urls_article_id_fkey",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (article_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "event_viewpoints",
+          "name": "event_viewpoints_event_id_fkey",
+          "parent": "events",
+          "definition": "FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE"
+        },
+        {
+          "child": "expense_entries",
+          "name": "expense_entries_rule_id_fkey",
+          "parent": "expense_rules",
+          "definition": "FOREIGN KEY (rule_id) REFERENCES expense_rules(id)"
+        },
+        {
+          "child": "pipeline_tasks",
+          "name": "pipeline_tasks_article_id_fkey",
+          "parent": "articles",
+          "definition": "FOREIGN KEY (article_id) REFERENCES articles(id)"
+        },
+        {
+          "child": "task_attempts",
+          "name": "task_attempts_task_id_fkey",
+          "parent": "pipeline_tasks",
+          "definition": "FOREIGN KEY (task_id) REFERENCES pipeline_tasks(id)"
+        }
+      ]
+    },
+    "schema": {
+      "sql": "SELECT * FROM alembic_version",
+      "rows": [
+        {
+          "version_num": "000015"
+        }
+      ]
+    },
+    "article_tracks": {
+      "sql": "SELECT processing_track,count(*) AS rows, sum(octet_length(coalesce(content,''))) AS content_bytes, count(*) FILTER (WHERE event_id IS NOT NULL) AS event_linked, count(*) FILTER (WHERE canonical_content_id IS NOT NULL) AS aliases, count(*) FILTER (WHERE current_material_id IS NOT NULL) AS current_material, min(fetched_at) AS first_at,max(fetched_at) AS last_at FROM articles GROUP BY processing_track ORDER BY processing_track",
+      "rows": [
+        {
+          "processing_track": "r1",
+          "rows": 24,
+          "content_bytes": 0,
+          "event_linked": 0,
+          "aliases": 0,
+          "current_material": 24,
+          "first_at": "2026-10-15 10:39:25.952394+00:00",
+          "last_at": "2026-10-17 10:02:40.048657+00:00"
+        }
+      ]
+    },
+    "materials": {
+      "sql": "SELECT scope,access_status,count(*) AS rows, sum(pg_column_size(m)) AS logical_row_bytes, count(*) FILTER (WHERE a.current_material_id=m.id) AS current_pointers, count(*) FILTER (WHERE EXISTS (SELECT 1 FROM content_derivations d WHERE d.material_id=m.id AND d.article_id=m.article_id)) AS derived, min(retrieved_at) AS first_at,max(retrieved_at) AS last_at FROM content_materials m JOIN articles a ON a.id=m.article_id GROUP BY scope,access_status ORDER BY scope,access_status",
+      "rows": [
+        {
+          "scope": "complete_brief",
+          "access_status": "ok",
+          "rows": 1,
+          "logical_row_bytes": 1222,
+          "current_pointers": 1,
+          "derived": 1,
+          "first_at": "2026-10-16 22:39:02.461384+00:00",
+          "last_at": "2026-10-16 22:39:02.461384+00:00"
+        },
+        {
+          "scope": "editorial_edition",
+          "access_status": "ok",
+          "rows": 2,
+          "logical_row_bytes": 7977,
+          "current_pointers": 2,
+          "derived": 2,
+          "first_at": "2026-10-15 10:39:29.464422+00:00",
+          "last_at": "2026-10-17 10:02:38.908064+00:00"
+        },
+        {
+          "scope": "media_description",
+          "access_status": "ok",
+          "rows": 5,
+          "logical_row_bytes": 7393,
+          "current_pointers": 5,
+          "derived": 5,
+          "first_at": "2026-10-15 10:39:29.424023+00:00",
+          "last_at": "2026-10-17 10:02:38.294695+00:00"
+        },
+        {
+          "scope": "open_text_unit",
+          "access_status": "ok",
+          "rows": 9,
+          "logical_row_bytes": 27987,
+          "current_pointers": 9,
+          "derived": 9,
+          "first_at": "2026-10-15 10:39:25.952394+00:00",
+          "last_at": "2026-10-17 10:02:16.214110+00:00"
+        },
+        {
+          "scope": "preview",
+          "access_status": "ok",
+          "rows": 6,
+          "logical_row_bytes": 14019,
+          "current_pointers": 6,
+          "derived": 6,
+          "first_at": "2026-10-15 10:39:26.540874+00:00",
+          "last_at": "2026-10-17 10:02:40.048657+00:00"
+        },
+        {
+          "scope": "question_background",
+          "access_status": "ok",
+          "rows": 1,
+          "logical_row_bytes": 1874,
+          "current_pointers": 1,
+          "derived": 1,
+          "first_at": "2026-10-16 22:39:02.431724+00:00",
+          "last_at": "2026-10-16 22:39:02.431724+00:00"
+        }
+      ]
+    },
+    "material_candidates": {
+      "sql": "SELECT count(*) AS noncurrent_without_derivation, coalesce(sum(pg_column_size(m)),0) AS logical_row_bytes FROM content_materials m JOIN articles a ON a.id=m.article_id WHERE a.current_material_id IS DISTINCT FROM m.id AND NOT EXISTS (SELECT 1 FROM content_derivations d WHERE d.material_id=m.id AND d.article_id=m.article_id)",
+      "rows": [
+        {
+          "noncurrent_without_derivation": 0,
+          "logical_row_bytes": 0
+        }
+      ]
+    },
+    "material_duplicates": {
+      "sql": "SELECT count(*) AS fingerprint_groups, coalesce(sum(n-1),0) AS extra_rows FROM (SELECT text_fingerprint,count(*) AS n FROM content_materials WHERE text_fingerprint IS NOT NULL GROUP BY text_fingerprint HAVING count(*)>1) d",
+      "rows": [
+        {
+          "fingerprint_groups": 0,
+          "extra_rows": "0"
+        }
+      ]
+    },
+    "content_derivations_groups": {
+      "sql": "SELECT kind,status,count(*) AS rows, min(updated_at) AS first_at,max(updated_at) AS last_at, count(*) FILTER (WHERE updated_at >= transaction_timestamp()-interval '24 hours') AS last_24h_rows FROM content_derivations GROUP BY kind,status ORDER BY kind,status",
+      "rows": [
+        {
+          "kind": "admission",
+          "status": "failed",
+          "rows": 2,
+          "first_at": "2026-10-17 10:12:18.531049+00:00",
+          "last_at": "2026-10-17 10:12:18.543933+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "kind": "admission",
+          "status": "ready",
+          "rows": 22,
+          "first_at": "2026-10-17 10:12:18.487813+00:00",
+          "last_at": "2026-10-17 10:24:10.925195+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "kind": "card",
+          "status": "failed",
+          "rows": 2,
+          "first_at": "2026-10-17 10:12:18.532396+00:00",
+          "last_at": "2026-10-17 10:12:18.545202+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "kind": "card",
+          "status": "ready",
+          "rows": 22,
+          "first_at": "2026-10-17 10:12:18.489352+00:00",
+          "last_at": "2026-10-17 10:24:10.926582+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "kind": "features",
+          "status": "failed",
+          "rows": 2,
+          "first_at": "2026-10-17 10:12:18.529630+00:00",
+          "last_at": "2026-10-17 10:12:18.542668+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "kind": "features",
+          "status": "ready",
+          "rows": 22,
+          "first_at": "2026-10-17 10:12:18.485954+00:00",
+          "last_at": "2026-10-17 10:24:10.923916+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "kind": "guide",
+          "status": "ready",
+          "rows": 14,
+          "first_at": "2026-10-17 10:18:15.021018+00:00",
+          "last_at": "2026-10-17 10:26:46.790555+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "kind": "guide",
+          "status": "rejected",
+          "rows": 3,
+          "first_at": "2026-10-17 10:26:46.761667+00:00",
+          "last_at": "2026-10-17 10:26:46.780394+00:00",
+          "last_24h_rows": 0
+        }
+      ]
+    },
+    "pipeline_tasks_groups": {
+      "sql": "SELECT queue,kind,status,count(*) AS rows, min(created_at) AS first_at,max(created_at) AS last_at, count(*) FILTER (WHERE created_at >= transaction_timestamp()-interval '24 hours') AS last_24h_rows FROM pipeline_tasks GROUP BY queue,kind,status ORDER BY queue,kind,status",
+      "rows": [
+        {
+          "queue": "guide",
+          "kind": "process_guide",
+          "status": "completed",
+          "rows": 1,
+          "first_at": "2026-10-17 10:17:27.652986+00:00",
+          "last_at": "2026-10-17 10:17:27.652986+00:00",
+          "last_24h_rows": 0
+        }
+      ]
+    },
+    "task_attempts_groups": {
+      "sql": "SELECT status,count(*) AS rows, min(started_at) AS first_at,max(started_at) AS last_at, count(*) FILTER (WHERE started_at >= transaction_timestamp()-interval '24 hours') AS last_24h_rows FROM task_attempts GROUP BY status ORDER BY status",
+      "rows": [
+        {
+          "status": "completed",
+          "rows": 1,
+          "first_at": "2026-10-17 10:18:08.585538+00:00",
+          "last_at": "2026-10-17 10:18:08.585538+00:00",
+          "last_24h_rows": 0
+        }
+      ]
+    },
+    "content_observations_groups": {
+      "sql": "SELECT source_id,count(*) AS rows, min(observed_at) AS first_at,max(observed_at) AS last_at, count(*) FILTER (WHERE observed_at >= transaction_timestamp()-interval '24 hours') AS last_24h_rows FROM content_observations GROUP BY source_id ORDER BY source_id",
+      "rows": [
+        {
+          "source_id": "36kr-newsflashes",
+          "rows": 1,
+          "first_at": "2026-10-16 22:39:02.461384+00:00",
+          "last_at": "2026-10-16 22:39:02.461384+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "source_id": "bbc-world",
+          "rows": 1,
+          "first_at": "2026-10-17 10:02:16.214110+00:00",
+          "last_at": "2026-10-17 10:02:16.214110+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "source_id": "douban-book",
+          "rows": 1,
+          "first_at": "2026-10-15 10:39:28.633313+00:00",
+          "last_at": "2026-10-15 10:39:28.633313+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "source_id": "infzm-news",
+          "rows": 4,
+          "first_at": "2026-10-15 10:39:26.540874+00:00",
+          "last_at": "2026-10-17 10:02:40.048657+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "source_id": "people-frontpage",
+          "rows": 1,
+          "first_at": "2026-10-15 10:39:26.897502+00:00",
+          "last_at": "2026-10-15 10:39:26.897502+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "source_id": "wsj-world",
+          "rows": 2,
+          "first_at": "2026-10-17 05:18:55.478526+00:00",
+          "last_at": "2026-10-17 05:18:55.479586+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "source_id": "xinhua",
+          "rows": 11,
+          "first_at": "2026-10-15 10:39:25.952394+00:00",
+          "last_at": "2026-10-17 10:02:38.294695+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "source_id": "zhihu-daily",
+          "rows": 2,
+          "first_at": "2026-10-15 10:39:29.464422+00:00",
+          "last_at": "2026-10-17 10:02:38.908064+00:00",
+          "last_24h_rows": 0
+        },
+        {
+          "source_id": "zhihu-hot",
+          "rows": 1,
+          "first_at": "2026-10-16 22:39:02.431724+00:00",
+          "last_at": "2026-10-16 22:39:02.431724+00:00",
+          "last_24h_rows": 0
+        }
+      ]
+    },
+    "fetch_logs_groups": {
+      "sql": "SELECT status,count(*) AS rows, min(run_at) AS first_at,max(run_at) AS last_at, count(*) FILTER (WHERE run_at >= transaction_timestamp()-interval '24 hours') AS last_24h_rows FROM fetch_logs GROUP BY status ORDER BY status",
+      "rows": []
+    },
+    "source_owners": {
+      "sql": "SELECT owner,enabled,count(*) AS rows FROM source_states GROUP BY owner,enabled ORDER BY owner,enabled",
+      "rows": []
+    },
+    "request_groups": {
+      "sql": "SELECT stage,status,count(*) AS rows, sum(reserved_usd) AS reserved_usd, sum(u.cost_usd::numeric) AS known_usd, count(task_id) AS task_links,count(article_id) AS article_links FROM billed_requests b LEFT JOIN llm_usage u ON u.id=b.usage_id GROUP BY stage,status ORDER BY stage,status",
+      "rows": [
+        {
+          "stage": "card",
+          "status": "responded",
+          "rows": 336,
+          "reserved_usd": "30.298283000000",
+          "known_usd": "0.3192042",
+          "task_links": 0,
+          "article_links": 0
+        },
+        {
+          "stage": "card",
+          "status": "settled_without_result",
+          "rows": 2,
+          "reserved_usd": "0.198993000000",
+          "known_usd": "0.0009326",
+          "task_links": 0,
+          "article_links": 0
+        },
+        {
+          "stage": "card",
+          "status": "usage_unknown",
+          "rows": 7,
+          "reserved_usd": "0.484867000000",
+          "known_usd": null,
+          "task_links": 0,
+          "article_links": 0
+        },
+        {
+          "stage": "guide",
+          "status": "responded",
+          "rows": 56,
+          "reserved_usd": "5.507788000000",
+          "known_usd": "0.0488732",
+          "task_links": 2,
+          "article_links": 2
+        }
+      ]
+    },
+    "unresolved_requests": {
+      "sql": "SELECT id,status,stage,article_id,task_id,task_attempt_id, provider_generation_id,reserved_usd,started_at,ended_at,http_status FROM billed_requests WHERE status IN ('reserved','usage_unknown') ORDER BY id",
+      "rows": [
+        {
+          "id": "11d92ba4336740e08c40dca7fff1cce3",
+          "status": "usage_unknown",
+          "stage": "card",
+          "article_id": null,
+          "task_id": null,
+          "task_attempt_id": null,
+          "provider_generation_id": null,
+          "reserved_usd": "0.028794000000",
+          "started_at": "2026-10-17 09:26:36.998722+00:00",
+          "ended_at": "2026-10-17 09:27:24.208238+00:00",
+          "http_status": null
+        },
+        {
+          "id": "5c68c196f8514836a38280edc782806a",
+          "status": "usage_unknown",
+          "stage": "card",
+          "article_id": null,
+          "task_id": null,
+          "task_attempt_id": null,
+          "provider_generation_id": null,
+          "reserved_usd": "0.028760000000",
+          "started_at": "2026-10-16 19:16:57.144859+00:00",
+          "ended_at": "2026-10-16 20:05:26.280927+00:00",
+          "http_status": null
+        },
+        {
+          "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+          "status": "usage_unknown",
+          "stage": "card",
+          "article_id": null,
+          "task_id": null,
+          "task_attempt_id": null,
+          "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+          "reserved_usd": "0.170674000000",
+          "started_at": "2026-10-17 09:21:37.534326+00:00",
+          "ended_at": "2026-10-17 09:21:39.396995+00:00",
+          "http_status": 403
+        },
+        {
+          "id": "bdbdbb331ac546eb84d6f42b502f362b",
+          "status": "usage_unknown",
+          "stage": "card",
+          "article_id": null,
+          "task_id": null,
+          "task_attempt_id": null,
+          "provider_generation_id": null,
+          "reserved_usd": "0.170674000000",
+          "started_at": "2026-10-17 08:17:31.488417+00:00",
+          "ended_at": "2026-10-17 08:18:14.477320+00:00",
+          "http_status": null
+        },
+        {
+          "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+          "status": "usage_unknown",
+          "stage": "card",
+          "article_id": null,
+          "task_id": null,
+          "task_attempt_id": null,
+          "provider_generation_id": null,
+          "reserved_usd": "0.028261000000",
+          "started_at": "2026-10-16 08:31:09.170417+00:00",
+          "ended_at": "2026-10-16 08:31:09.358923+00:00",
+          "http_status": null
+        },
+        {
+          "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+          "status": "usage_unknown",
+          "stage": "card",
+          "article_id": null,
+          "task_id": null,
+          "task_attempt_id": null,
+          "provider_generation_id": null,
+          "reserved_usd": "0.028967000000",
+          "started_at": "2026-10-16 10:21:19.943998+00:00",
+          "ended_at": "2026-10-16 10:21:20.118797+00:00",
+          "http_status": null
+        },
+        {
+          "id": "ffefcd48948944c48a3da4a60f17fbb6",
+          "status": "usage_unknown",
+          "stage": "card",
+          "article_id": null,
+          "task_id": null,
+          "task_attempt_id": null,
+          "provider_generation_id": null,
+          "reserved_usd": "0.028737000000",
+          "started_at": "2026-10-17 09:27:27.721999+00:00",
+          "ended_at": "2026-10-17 09:28:08.650801+00:00",
+          "http_status": null
+        }
+      ]
+    },
+    "policy": {
+      "sql": "SELECT scope,enabled,monthly_limit_usd,stage_caps,version,incident FROM budget_policy",
+      "rows": [
+        {
+          "scope": "evaluation",
+          "enabled": true,
+          "monthly_limit_usd": "1.500000000000",
+          "stage_caps": {},
+          "version": "r1-budget-v3",
+          "incident": null
+        }
+      ]
+    },
+    "carry": {
+      "sql": "SELECT * FROM budget_carry",
+      "rows": [
+        {
+          "month": "2026-10-01",
+          "amount_usd": "0E-12",
+          "provider_monthly_usd": null,
+          "ledger_at_observation_usd": "0E-12",
+          "basis": "isolated-evaluation-allocation",
+          "observed_at": "2026-10-16 08:31:00.825129+00:00"
+        }
+      ]
+    },
+    "known_usage": {
+      "sql": "SELECT purpose,count(*) AS rows,sum(cost_usd::numeric) AS usd FROM llm_usage GROUP BY purpose ORDER BY purpose",
+      "rows": [
+        {
+          "purpose": "grounding",
+          "rows": 172,
+          "usd": "0.2808694"
+        },
+        {
+          "purpose": "summary",
+          "rows": 222,
+          "usd": "0.0881406"
+        }
+      ]
+    },
+    "legacy_runs": {
+      "sql": "SELECT count(*) AS rows,min(run_at) AS first_at,max(run_at) AS last_at FROM pipeline_runs",
+      "rows": [
+        {
+          "rows": 0,
+          "first_at": null,
+          "last_at": null
+        }
+      ]
+    },
+    "digest_range": {
+      "sql": "SELECT count(*) AS rows,min(report_date) AS first_date,max(report_date) AS last_date FROM digests",
+      "rows": [
+        {
+          "rows": 0,
+          "first_date": null,
+          "last_date": null
+        }
+      ]
+    }
+  }
+}

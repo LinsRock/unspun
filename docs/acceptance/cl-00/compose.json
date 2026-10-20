@@ -1,0 +1,169 @@
+{
+  "environment": "local metadata render only; no compose up/run",
+  "combinations": [
+    {
+      "files": [
+        "deploy/compose.yml"
+      ],
+      "services": [
+        "api",
+        "db",
+        "r1-worker",
+        "rsshub",
+        "web",
+        "worker"
+      ],
+      "legacy": {
+        "command": [
+          "python",
+          "-m",
+          "unspun.pipeline.main"
+        ],
+        "scale": null,
+        "restart": null
+      },
+      "controlled": {
+        "command": [
+          "python",
+          "-m",
+          "unspun.pipeline.r1_worker"
+        ],
+        "scale": 0,
+        "restart": null
+      },
+      "ports": {}
+    },
+    {
+      "files": [
+        "deploy/compose.yml",
+        "deploy/compose.local.yml"
+      ],
+      "services": [
+        "api",
+        "db",
+        "r1-worker",
+        "rsshub",
+        "web",
+        "worker"
+      ],
+      "legacy": {
+        "command": [
+          "python",
+          "-m",
+          "unspun.pipeline.main"
+        ],
+        "scale": null,
+        "restart": null
+      },
+      "controlled": {
+        "command": [
+          "python",
+          "-m",
+          "unspun.pipeline.r1_worker"
+        ],
+        "scale": 0,
+        "restart": null
+      },
+      "ports": {
+        "api": [
+          {
+            "mode": "ingress",
+            "host_ip": "127.0.0.1",
+            "target": 8000,
+            "published": "8000",
+            "protocol": "tcp"
+          }
+        ],
+        "db": [
+          {
+            "mode": "ingress",
+            "host_ip": "127.0.0.1",
+            "target": 5432,
+            "published": "5432",
+            "protocol": "tcp"
+          }
+        ],
+        "rsshub": [
+          {
+            "mode": "ingress",
+            "host_ip": "127.0.0.1",
+            "target": 1200,
+            "published": "1200",
+            "protocol": "tcp"
+          }
+        ],
+        "web": [
+          {
+            "mode": "ingress",
+            "host_ip": "127.0.0.1",
+            "target": 80,
+            "published": "8080",
+            "protocol": "tcp"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "deploy/compose.yml",
+        "deploy/compose.prod.yml"
+      ],
+      "services": [
+        "api",
+        "db",
+        "db-backup",
+        "r1-worker",
+        "rsshub",
+        "web",
+        "worker"
+      ],
+      "legacy": {
+        "command": [
+          "python",
+          "-m",
+          "unspun.pipeline.main"
+        ],
+        "scale": 0,
+        "restart": "no"
+      },
+      "controlled": {
+        "command": [
+          "python",
+          "-m",
+          "unspun.pipeline.r1_worker"
+        ],
+        "scale": 1,
+        "restart": "unless-stopped"
+      },
+      "ports": {
+        "web": [
+          {
+            "mode": "ingress",
+            "host_ip": "127.0.0.1",
+            "target": 80,
+            "published": "8080",
+            "protocol": "tcp"
+          }
+        ]
+      }
+    }
+  ],
+  "production_file_hashes": [
+    {
+      "path": "deploy/compose.yml",
+      "match": true
+    },
+    {
+      "path": "deploy/compose.prod.yml",
+      "match": true
+    },
+    {
+      "path": "deploy/deploy.sh",
+      "match": true
+    },
+    {
+      "path": "deploy/Caddyfile",
+      "match": true
+    }
+  ]
+}
