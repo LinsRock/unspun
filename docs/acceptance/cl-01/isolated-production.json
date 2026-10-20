@@ -1,0 +1,269 @@
+{
+  "started_at": "2026-10-20T05:59:55.954427+00:00",
+  "cases": [
+    {
+      "mode": "production",
+      "project": "unspun-cl01-0ca8397d-production",
+      "port": 18133,
+      "rendered_services": [
+        "api",
+        "db",
+        "db-backup",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "inert_legacy_orphan": "unspun-cl01-0ca8397d-production-worker-1",
+      "exit_code": 0,
+      "services": {
+        "api": {
+          "state": "running",
+          "image": "unspun-server:cl01-isolated"
+        },
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        },
+        "db-backup": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        },
+        "r1-worker": {
+          "state": "running",
+          "image": "unspun-server:cl01-isolated"
+        },
+        "rsshub": {
+          "state": "running",
+          "image": "diygod/rsshub:2026-10-09"
+        },
+        "web": {
+          "state": "running",
+          "image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486"
+        }
+      },
+      "schema": "000017",
+      "orphan_removed": true,
+      "health": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "completed_discovery_tasks": 1,
+      "health_after_restart": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "rollback": [
+        {
+          "image": "ghcr.io/linsrock/unspun-server:6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93",
+          "image_heads": "000017 (head)",
+          "supported": true,
+          "exit_code": 0,
+          "schema_after": "000017",
+          "health": {
+            "status": "ok",
+            "version": "6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93",
+            "database": "ok"
+          },
+          "immutable_running_images_reused": true
+        },
+        {
+          "image": "ghcr.io/linsrock/unspun-server:43150075d33e17298a21bfa909fac578f5d511d9",
+          "image_heads": "000016 (head)",
+          "supported": false,
+          "exit_code": 255,
+          "schema_after": "000017",
+          "existing_services_unchanged": true
+        }
+      ],
+      "health_after_return": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "backups",
+        "pgdata"
+      ]
+    },
+    {
+      "mode": "migration-failure",
+      "project": "unspun-cl01-0ca8397d-migration-failure",
+      "port": 18134,
+      "rendered_services": [
+        "api",
+        "db",
+        "db-backup",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "exit_code": 1,
+      "services": {
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        }
+      },
+      "schema": "000017",
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "pgdata",
+        "backups"
+      ]
+    },
+    {
+      "mode": "interrupt",
+      "project": "unspun-cl01-0ca8397d-interrupt",
+      "port": 18135,
+      "rendered_services": [
+        "api",
+        "db",
+        "db-backup",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "exit_code": 143,
+      "owned_migration_container_removed": true,
+      "services": {
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        }
+      },
+      "schema": "000017",
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "pgdata",
+        "backups"
+      ]
+    },
+    {
+      "mode": "budget-failure",
+      "project": "unspun-cl01-0ca8397d-budget-failure",
+      "port": 18136,
+      "rendered_services": [
+        "api",
+        "db",
+        "db-backup",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "exit_code": 1,
+      "services": {
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        }
+      },
+      "schema": "000017",
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "backups",
+        "pgdata"
+      ]
+    },
+    {
+      "mode": "preflight-failure",
+      "project": "unspun-cl01-0ca8397d-preflight-failure",
+      "port": 18137,
+      "rendered_services": [
+        "api",
+        "db",
+        "db-backup",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "exit_code": 2,
+      "services": {
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        }
+      },
+      "schema": "000017",
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "backups",
+        "pgdata"
+      ]
+    },
+    {
+      "mode": "health-failure",
+      "project": "unspun-cl01-0ca8397d-health-failure",
+      "port": 18138,
+      "rendered_services": [
+        "api",
+        "db",
+        "db-backup",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "exit_code": 1,
+      "services": {
+        "api": {
+          "state": "running",
+          "image": "unspun-server:cl01-isolated"
+        },
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        },
+        "db-backup": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        },
+        "r1-worker": {
+          "state": "running",
+          "image": "unspun-server:cl01-isolated"
+        },
+        "rsshub": {
+          "state": "running",
+          "image": "diygod/rsshub:2026-10-09"
+        },
+        "web": {
+          "state": "running",
+          "image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486"
+        }
+      },
+      "schema": "000017",
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "pgdata",
+        "backups"
+      ]
+    }
+  ],
+  "paid_calls": 0,
+  "updated_at": "2026-10-20T06:04:01.195091+00:00"
+}

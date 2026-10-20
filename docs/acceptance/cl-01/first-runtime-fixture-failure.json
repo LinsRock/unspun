@@ -1,0 +1,126 @@
+{
+  "started_at": "2026-10-20T05:57:18.042941+00:00",
+  "cases": [
+    {
+      "mode": "base",
+      "project": "unspun-cl01-187f163b-base",
+      "port": 18131,
+      "rendered_services": [
+        "api",
+        "db",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "health": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "services": {
+        "api": {
+          "state": "running",
+          "image": "unspun-server:cl01-isolated"
+        },
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        },
+        "rsshub": {
+          "state": "running",
+          "image": "diygod/rsshub:2026-10-09"
+        },
+        "web": {
+          "state": "running",
+          "image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486"
+        }
+      },
+      "health_after_restart": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "pgdata"
+      ]
+    },
+    {
+      "mode": "local",
+      "project": "unspun-cl01-187f163b-local",
+      "port": 18132,
+      "rendered_services": [
+        "api",
+        "db",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "health": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "services": {
+        "api": {
+          "state": "running",
+          "image": "unspun-server:cl01-isolated"
+        },
+        "db": {
+          "state": "running",
+          "image": "pgvector/pgvector:pg17"
+        },
+        "rsshub": {
+          "state": "running",
+          "image": "diygod/rsshub:2026-10-09"
+        },
+        "web": {
+          "state": "running",
+          "image": "ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486"
+        }
+      },
+      "health_after_restart": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "usage_rows": 0,
+      "billed_requests": 0,
+      "passed": true,
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "pgdata"
+      ]
+    },
+    {
+      "mode": "production",
+      "project": "unspun-cl01-187f163b-production",
+      "port": 18133,
+      "rendered_services": [
+        "api",
+        "db",
+        "db-backup",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "inert_legacy_orphan": "unspun-cl01-187f163b-production-worker-1",
+      "exit_code": 1,
+      "error": "({'mode': 'production', 'project': 'unspun-cl01-187f163b-production', 'port': 18133, 'rendered_services': ['api', 'db', 'db-backup', 'r1-worker', 'rsshub', 'web'], 'http_fixture_imported': True, 'inert_legacy_orphan': 'unspun-cl01-187f163b-production-worker-1', 'exit_code': 1}, 'deploying SERVER_IMAGE=unspun-server:cl01-isolated WEB_IMAGE=ghcr.io/linsrock/unspun-web:8dd144bc6cf5775e5dfe881cbdc50472bedb6486\\n web Skipped - Image is already present locally \\n rsshub Skipped - Image is already present locally \\n db Skipped - Image is already present locally \\n api Skipped - Image is already present locally \\n r1-worker Skipped - Image is already present locally \\n db-backup Skipped - Image is already present locally \\n Container unspun-cl01-187f163b-production-db-1  Running\\n Container unspun-cl01-187f163b-production-db-1  Waiting\\n Container unspun-cl01-187f163b-production-db-1  Healthy\\n{\"accounting\": {\"carry_basis\": \"provider-cutover\", \"historical_carry_usd\": \"0E-12\", \"holds_are_not_actual_fees\": true, \"known_spend_usd\": \"0\", \"occupancy_usd\": \"0E-12\", \"period\": \"utc_month\", \"unresolved_holds_usd\": \"0\"}, \"cost_basis\": \"llm_usage_known_fees_only\", \"coverage_started_at\": \"2026-10-20 05:58:28.860154+00:00\", \"enabled\": true, \"evaluation_allocation_usd\": \"1.50\", \"incident\": null, \"monthly_limit_usd\": \"13.500000000000\", \"provider_limit_usd\": \"15.000000000000\", \"provider_observed_at\": \"2026-10-20 05:58:28.860154+00:00\", \"reserved_usd\": \"0\", \"scope\": \"production\", \"stage_caps\": {\"card\": \"10\", \"embedding\": \"1\", \"guide\": \"2\", \"legacy\": \"13.50\"}, \"unit_costs\": {\"basis\": \"all_time_current_contract_runtime_tasks; not discovery recall or user worth\", \"cohorts\": {\"card\": {\"attempted_candidates\": 0, \"contract_version\": \"r1-card-v9\", \"held_usd\": \"0\", \"known_cost_usd\": \"0\", \"known_requests\": 0, \"physical_requests\": 0, \"ready_outputs\": 0, \"unknown_requests\": 0, \"unknown_without_hold\": 0}, \"guide\": {\"attempted_candidates\": 0, \"contract_version\": \"r1-guide-v5\", \"held_usd\": \"0\", \"known_cost_usd\": \"0\", \"known_requests\": 0, \"physical_requests\": 0, \"ready_outputs\": 0, \"unknown_requests\": 0, \"unknown_without_hold\": 0}}, \"excluded_physical_requests\": 0, \"exclusion_basis\": \"Other contracts or missing/mismatched runtime task links; retained in the overall ledger, never assigned to these cohorts.\", \"monthly_projection\": {\"basis\": \"requires_registered_observed_eligible_daily_volume\", \"status\": \"unmeasured\"}, \"per_100_candidates\": {\"denominator\": \"distinct_r1_candidates_with_attempted_card_tasks\", \"denominator_count\": 0, \"holds_are_not_actual_fees\": true, \"known_plus_holds_scenario_usd\": null, \"status\": \"unmeasured\", \"value_usd\": null}, \"per_admitted_item\": {\"denominator\": \"distinct_current_contract_ready_admissions\", \"denominator_count\": 0, \"holds_are_not_actual_fees\": true, \"known_plus_holds_scenario_usd\": null, \"status\": \"unmeasured\", \"value_usd\": null}, \"per_new_guide\": {\"denominator\": \"distinct_current_contract_ready_guide_versions\", \"denominator_count\": 0, \"holds_are_not_actual_fees\": true, \"known_plus_holds_scenario_usd\": null, \"status\": \"unmeasured\", \"value_usd\": null}}, \"unresolved_calls\": 0}\\n{\"config_fingerprint\": \"804d3a6ccf340b122b86928b53120503e99f6993e6c43cfd5207d1cd8cb81b7a\", \"legacy_worker_started\": false, \"publication\": [], \"stages\": {\"discovery\": [\"cl01-mock\"], \"guide\": [\"cl01-mock\"], \"material\": [], \"paid\": [\"cl01-mock\"]}, \"version\": \"r1-runtime-v1\"}\\n Volume \"unspun-cl01-187f163b-production_backups\"  Creating\\n Volume \"unspun-cl01-187f163b-production_backups\"  Created\\n Container unspun-cl01-187f163b-production-db-1  Running\\n Container unspun-cl01-187f163b-production-rsshub-1  Creating\\n Container unspun-cl01-187f163b-production-db-backup-1  Creating\\n Container unspun-cl01-187f163b-production-r1-worker-1  Creating\\n Container unspun-cl01-187f163b-production-api-1  Creating\\n Container unspun-cl01-187f163b-production-rsshub-1  Created\\n Container unspun-cl01-187f163b-production-r1-worker-1  Created\\n Container unspun-cl01-187f163b-production-api-1  Created\\n Container unspun-cl01-187f163b-production-web-1  Creating\\n Container unspun-cl01-187f163b-production-db-backup-1  Created\\n web The requested image\\'s platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested \\n Container unspun-cl01-187f163b-production-web-1  Created\\n Container unspun-cl01-187f163b-production-rsshub-1  Starting\\n Container unspun-cl01-187f163b-production-db-1  Waiting\\n Container unspun-cl01-187f163b-production-db-1  Waiting\\n Container unspun-cl01-187f163b-production-db-1  Waiting\\n Container unspun-cl01-187f163b-production-rsshub-1  Started\\n Container unspun-cl01-187f163b-production-db-1  Healthy\\n Container unspun-cl01-187f163b-production-r1-worker-1  Starting\\n Container unspun-cl01-187f163b-production-db-1  Healthy\\n Container unspun-cl01-187f163b-production-api-1  Starting\\n Container unspun-cl01-187f163b-production-db-1  Healthy\\n Container unspun-cl01-187f163b-production-db-backup-1  Starting\\n Container unspun-cl01-187f163b-production-api-1  Started\\n Container unspun-cl01-187f163b-production-web-1  Starting\\n Container unspun-cl01-187f163b-production-r1-worker-1  Started\\n Container unspun-cl01-187f163b-production-db-backup-1  Started\\n Container unspun-cl01-187f163b-production-web-1  Started\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\nhealth check FAILED\\ncurl: (7) Failed to connect to 127.0.0.1 port 18133 after 0 ms: Couldn\\'t connect to server\\n')",
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "backups",
+        "pgdata"
+      ]
+    }
+  ],
+  "paid_calls": 0,
+  "updated_at": "2026-10-20T05:59:12.185467+00:00",
+  "environment_error": "Colima did not forward loopback-published ports on the isolated internal bridge; deployment smoke check correctly failed. Empty feed also cannot prove successful discovery. Fix fixtures only: normal isolated bridge with all source/provider HTTP mocked and one metadata item; production scenario rerun in a new project."
+}

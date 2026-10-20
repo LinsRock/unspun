@@ -1,0 +1,216 @@
+{
+  "checked_at": "2026-10-20T06:05:31.432769+00:00",
+  "baseline": "9ae42c44b967fe8100eaf72b41b8ffb6d1abfd67",
+  "worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/cl-01-retirement",
+  "database": "unspun_cl01_regression_20261020",
+  "schema": "000017",
+  "baseline_server": {
+    "passed": 946,
+    "skipped": 0
+  },
+  "final_server": {
+    "passed": 940,
+    "skipped": 0,
+    "removed_dedicated_tests": 6
+  },
+  "server_checks": [
+    "ruff check",
+    "ruff format --check",
+    "pyright: 0 errors"
+  ],
+  "legacy_ranking": {
+    "cases": 40,
+    "passed": true,
+    "issues": 0
+  },
+  "deploy_tests": 18,
+  "ci_scope_tests": 11,
+  "web": {
+    "tests": 101,
+    "files": 20,
+    "lint": true,
+    "typecheck": true,
+    "build": true,
+    "pwa": true,
+    "archived_prototype_build": true
+  },
+  "frozen": {
+    "verified": 27,
+    "unchanged_cl00_and_scan_v2_candidate_v3": true,
+    "user_empty_scores_unchanged": true
+  },
+  "paid_test_calls": 0,
+  "manual_production_tasks": 0,
+  "review": {
+    "kind": "self-review of final diff and affected callers",
+    "areas": [
+      "exact exclusive AST references and command strings",
+      "all retained shared/API/evaluation callees byte-for-byte",
+      "all Compose combinations and rollback using retired-service files",
+      "immutable image reuse, DB/migration/budget/preflight/start/health ordering",
+      "migration ownership and interruption cleanup, --remove-orphans",
+      "old backlog remains untreated; no data/schema/image/worktree cleanup",
+      "frozen historical links, fees and missing user ratings",
+      "isolated fixture failures retained and corrected without application changes"
+    ],
+    "findings": "No remaining runtime findings; validation fixture corrections are recorded separately."
+  },
+  "deployment": "pending PR/CI and actual production verification",
+  "ci_scope": {
+    "server": "true",
+    "web": "true",
+    "prototype": "true",
+    "deploy": "true",
+    "server_image": "true",
+    "web_image": "true",
+    "release": "true"
+  },
+  "ci_scope_reason": "Updated env.example is conservatively classified as an unknown build input by the unchanged classifier; all checks and both image builds are selected.",
+  "isolated_cases": [
+    {
+      "mode": "base",
+      "passed": true,
+      "exit_code": null,
+      "usage_rows": 0,
+      "billed_requests": 0
+    },
+    {
+      "mode": "local",
+      "passed": true,
+      "exit_code": null,
+      "usage_rows": 0,
+      "billed_requests": 0
+    },
+    {
+      "mode": "production",
+      "passed": true,
+      "exit_code": 0,
+      "usage_rows": 0,
+      "billed_requests": 0
+    },
+    {
+      "mode": "migration-failure",
+      "passed": true,
+      "exit_code": 1,
+      "usage_rows": 0,
+      "billed_requests": 0
+    },
+    {
+      "mode": "interrupt",
+      "passed": true,
+      "exit_code": 143,
+      "usage_rows": 0,
+      "billed_requests": 0
+    },
+    {
+      "mode": "budget-failure",
+      "passed": true,
+      "exit_code": 1,
+      "usage_rows": 0,
+      "billed_requests": 0
+    },
+    {
+      "mode": "preflight-failure",
+      "passed": true,
+      "exit_code": 2,
+      "usage_rows": 0,
+      "billed_requests": 0
+    },
+    {
+      "mode": "health-failure",
+      "passed": true,
+      "exit_code": 1,
+      "usage_rows": 0,
+      "billed_requests": 0
+    }
+  ],
+  "logs": {
+    "runtime-logs/production-rollback-4315007.log.gz": {
+      "sha256": "2774d866caf79d4e37126d04ee3f22730ed49dae48d7523d9a7e51afc285e4b1",
+      "uncompressed_sha256": "7cc4c963d18362b56a16a31464a7b0b48963ffefd48140ed920a7e4de09b9528"
+    },
+    "runtime-logs/regression.log.gz": {
+      "sha256": "12f7577de8e5da0eaa45a1358ea66ea84b53fe13f7989e0471f2f9387a48eaca",
+      "uncompressed_sha256": "85548c89fb4c8e39bcf0973e7ca9499bafc46d4e158757b609d232a8b91705d1"
+    },
+    "runtime-logs/baseline-deploy.log.gz": {
+      "sha256": "610c97d07ad9c1b9c83a1022fed6ae07d27a2088269ba4dfebb95e75c03db4a1",
+      "uncompressed_sha256": "3816ca5849a32284cafa0b21248f760bc0f6dfb5f76766d45220e97ccb41a5ea"
+    },
+    "runtime-logs/budget-failure-deploy.log.gz": {
+      "sha256": "27559554447ca16b426e07359507c7b5b73754130c478c07f5ad352a028a7868",
+      "uncompressed_sha256": "c6ce05e47c4e453d537babb5a7c47b73df4ccd2ae992266c71dd8d699406927e"
+    },
+    "runtime-logs/image-build-retry.log.gz": {
+      "sha256": "3b91d8b331276ea517d9ab8562728cc9eeb34eba4e409cb2b4bba15542ffff6b",
+      "uncompressed_sha256": "0928f869a28266de05ab2674d9663bb5e8434db92de3821756ae5a54cb717413"
+    },
+    "runtime-logs/interrupt-deploy.log.gz": {
+      "sha256": "dc514941c24005df440570b36afe7edfe49b9331b309c5108e8c2b54000de10b",
+      "uncompressed_sha256": "62176f703613f1104d3fd05122029a42b393337a49f9d866201dc6d7f6960e9c"
+    },
+    "runtime-logs/ci-tests.log.gz": {
+      "sha256": "5a7f17c426f7093e96d72b694ebceca3e58ea4a746bc8311cba0af2f39d0a714",
+      "uncompressed_sha256": "b61d50bea9107826002a536cf456326363dcb0667e0fab24fe5a1281e4177ddf"
+    },
+    "runtime-logs/migration-failure-deploy.log.gz": {
+      "sha256": "9916fb7a391e59b9e4f67b615f2e44eafaac2496407c9098db7e9cb43cc1c555",
+      "uncompressed_sha256": "d0f4f320aa415e8a07c083b40a69e4ba158ed6c493fab1b5b2149803cd62f58f"
+    },
+    "runtime-logs/preflight-failure-deploy.log.gz": {
+      "sha256": "a176e660e4446968ebcc03a9b0ab272a55962bbd54c9b42d51c0cf7c965c7506",
+      "uncompressed_sha256": "a83310f3353116f6b102c992da90f61e76bba94766dbc1f47180de8de09ebce9"
+    },
+    "runtime-logs/pwa.log.gz": {
+      "sha256": "074fd741fd2bfdb0ca020a8d3b9ca469073090829d33792fd1c00459c0c20c1e",
+      "uncompressed_sha256": "53d6a8a4a553fe4e07fa7c75e8b8599a81595a949fb12173a936473c9b66943c"
+    },
+    "runtime-logs/production-immutable-reuse.log.gz": {
+      "sha256": "2052a88462d1809c3b827712b36f23052c1ae44b0c0ef465fb25f56181d5f912",
+      "uncompressed_sha256": "e3e642703b74fd568ab99f489310e802053b16903b6f4b8353eecdeed3b1258e"
+    },
+    "runtime-logs/prototype-build.log.gz": {
+      "sha256": "a47ce6bdf7e4a4f6917135f0b300c20b31a7cf575dea55d154bb3e7a389576ea",
+      "uncompressed_sha256": "ef393e557b3548f0dc77baeba457d89c2a0d03a42d2566eab4d24d6a33b11c7f"
+    },
+    "runtime-logs/baseline.log.gz": {
+      "sha256": "3a94952cbd4ae424c3646ffd7817470751c2e6d2179a4c7666e197bdb0c39b85",
+      "uncompressed_sha256": "5695db8c27928127782175604ca16ec2276420f0144c8ed51767234a30f54118"
+    },
+    "runtime-logs/production-return-current.log.gz": {
+      "sha256": "f66c4f4597cdcdbd797df5064e938b5a225e229cef5ec947ba2646fe36f507b7",
+      "uncompressed_sha256": "7d3921edcecbd0b1973fd0bc2a5d366c49ce89c6553cea7bcd3c3e8c9cde0413"
+    },
+    "runtime-logs/production-rollback-6f4fe4f.log.gz": {
+      "sha256": "0a4da7bdad86a4dec4b6c25cd7f693d6033bf7636fed6aea6389629d6c4ab69f",
+      "uncompressed_sha256": "f1ea9c44fa69bdb7e848b9aa189899d7c95c9d7db23e4f179afbb905c1aae3c6"
+    },
+    "runtime-logs/web-build.log.gz": {
+      "sha256": "be237f0ff6426d13b7bee2213c6c67d1f33ae6811affbf74f2122fa10ccdc8fc",
+      "uncompressed_sha256": "98e29d51543422aaa730b5a0c04b53be0613b0b76644765e9b6b2a2eb8ace0e2"
+    },
+    "runtime-logs/production-deploy.log.gz": {
+      "sha256": "c0cc73aac6423028be52316425b49438174161c21ef9b81b324cfba0e893f24b",
+      "uncompressed_sha256": "d41ba9e5672bc5b69196b0b714fece650dd83b29b631a894aaa15522c1f30515"
+    },
+    "runtime-logs/health-failure-deploy.log.gz": {
+      "sha256": "2d243a1398f026398e4ca8849b7120f7af587728e5f3303adef444f6b0a67b2b",
+      "uncompressed_sha256": "38490db14c12abdc74065580141df78fb178c727185045ea24286b95a6e5b16b"
+    },
+    "runtime-logs/image-build.log.gz": {
+      "sha256": "34e97955c03f8c2ada5ade58b9fa0660bd407dd7121f67101f4e3c968e090683",
+      "uncompressed_sha256": "055632d47fba230b8a75ef0d84752fc1fd51b2fac506fccffb2d05367cc74707"
+    },
+    "runtime-logs/web-tests.log.gz": {
+      "sha256": "b3f80d75ef0a9489f74f732e0216d13fa962bf8152e2161d863e9b5005c83294",
+      "uncompressed_sha256": "e16a436813f12ba79feb5d2e9d74052d5362dabea6d0ffc2ae1df4fce6709523"
+    },
+    "runtime-logs/deploy-tests.log.gz": {
+      "sha256": "3401e5592f4a2187981858e23a00fe8040d13d07b5c76d03e1efadd57795c981",
+      "uncompressed_sha256": "ea8b270ee8e122386b70261e251caf4aa4679d01302077b48313bd725f20e561"
+    }
+  },
+  "markdown_links_checked": 211,
+  "broken_links": [],
+  "log_format": "gzip without text normalization; original bytes and hashes retained"
+}

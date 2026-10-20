@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-10-20T05:56:40.803149+00:00",
+  "cases": [
+    {
+      "mode": "base",
+      "project": "unspun-cl01-8ee84fa5-base",
+      "port": 18131,
+      "rendered_services": [
+        "api",
+        "db",
+        "r1-worker",
+        "rsshub",
+        "web"
+      ],
+      "http_fixture_imported": true,
+      "health": {
+        "status": "ok",
+        "version": "cl01-isolated",
+        "database": "ok"
+      },
+      "error": "[Errno 2] No such file or directory: '/Users/li.cong/.cache/unspun-cl01-isolation-v2/base/deploy.log'",
+      "stop_exit_code": 0,
+      "retained_test_volumes": [
+        "pgdata"
+      ]
+    }
+  ],
+  "paid_calls": 0,
+  "updated_at": "2026-10-20T05:56:53.475936+00:00"
+}
