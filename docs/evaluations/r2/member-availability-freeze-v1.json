@@ -1,0 +1,15 @@
+{
+  "schema_version": "r206-availability-freeze-v1",
+  "frozen_at": "2026-10-20T12:05:21.045638+00:00",
+  "paid_requests_so_far": 0,
+  "files": [
+    {
+      "path": "docs/evaluations/r2/member-availability-v1.json",
+      "sha256": "3874694b2d5387357cabe017fb043445841486687542355ab6da45f182ab8af3"
+    },
+    {
+      "path": "docs/evaluations/r2/member-execution-v1.json",
+      "sha256": "a0eb39b2a836210cc7e07bdc8a111e336f838facf999f3f34e1b9101592521f0"
+    }
+  ]
+}

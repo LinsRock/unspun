@@ -1,0 +1,68 @@
+{
+  "at": "2026-10-20T12:09:23.520193+00:00",
+  "database": "unspun_r206_eval_identity_tests_20261020",
+  "full_regression_passed": 1036,
+  "skipped": 0,
+  "member_recall_quality_tests": 54,
+  "ruff_check": "passed",
+  "ruff_format": "175 files formatted",
+  "pyright": "0 errors, 0 warnings",
+  "original_freeze": 27,
+  "new_freeze": 11,
+  "protected_original_files": 51,
+  "paid_requests": 0,
+  "model_output_tuning": false,
+  "review": {
+    "kind": "primary-agent review of additional diff and affected original-ledger callers",
+    "scope": [
+      "ID/URL preflight before any append; retained old identity and material",
+      "frozen unavailable inputs excluded from paid queue and journal",
+      "addition of an already-frozen real opinion input as a query before any model output",
+      "original shared caps, seven old reservations and first-result retention unchanged"
+    ],
+    "resolved": "The earlier empty regression database did not contain the original URL conflict; the new regression seeds a retained conflicting object and proves no overwrite."
+  },
+  "first_formal_append_failure": {
+    "article_id": 8877,
+    "existing_id": 19,
+    "different_material_and_metadata": true,
+    "transaction_rolled_back": true,
+    "old_articles_after": 24,
+    "topic_rows_after": 0,
+    "topic_requests_after": 0,
+    "raw_log": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/official-seed.log.gz",
+      "sha256": "7b9d73d99eea5e43eeb30a7a1caec08120e87833f1535a2a3dd18b8b3590e2d9"
+    }
+  },
+  "logs": {
+    "official-seed": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/official-seed.log.gz",
+      "sha256": "7b9d73d99eea5e43eeb30a7a1caec08120e87833f1535a2a3dd18b8b3590e2d9"
+    },
+    "original-upgrade": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/original-upgrade.log.gz",
+      "sha256": "66a91d64c0f1ea899a8978a62caf6a2537fa755fe96db69706b21d430f228b93"
+    },
+    "allocation": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/allocation.log.gz",
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    "identity-fix-first": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/identity-fix-first.log.gz",
+      "sha256": "6a8ab63f536d89d0a90fc52b7658749cf498f69823c9c499fd7f442b45309fd8"
+    },
+    "regression-identity-fix": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/regression-identity-fix.log.gz",
+      "sha256": "7c80ab352dad072c2c8571a578000d5dd198bbd2d787529faebca5d1cea1e0c1"
+    },
+    "pyright-identity-fix": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/pyright-identity-fix.log.gz",
+      "sha256": "7673cf47ecf297a30b151ff80feb3b30f71e205edc1c51791328c093824e4bab"
+    },
+    "freeze-identity-fix": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/freeze-identity-fix.log.gz",
+      "sha256": "d663888c4f049aba19bfe1ba1f4daa557c49817b5a31d6da1418be9ac1c2d350"
+    }
+  }
+}

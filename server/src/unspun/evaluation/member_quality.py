@@ -53,12 +53,23 @@ RESERVE_LOCK = 206007
 def registration() -> dict[str, Any]:
     manifest = json.loads((ROOT / "docs/evaluations/r2/member-freeze-v1.json").read_text())
     execution = json.loads((ROOT / "docs/evaluations/r2/member-execution-v1.json").read_text())
-    for item in [*manifest["files"], *execution["files"]]:
+    availability_freeze = json.loads(
+        (ROOT / "docs/evaluations/r2/member-availability-freeze-v1.json").read_text()
+    )
+    for item in [*manifest["files"], *execution["files"], *availability_freeze["files"]]:
         if hashlib.sha256((ROOT / item["path"]).read_bytes()).hexdigest() != item["sha256"]:
             raise ValueError("frozen member evaluation input changed")
     value = json.loads((ROOT / "docs/evaluations/r2/member-registration-v1.json").read_text())
     if value["contract"] != member_contract():
         raise ValueError("frozen member contract changed")
+    availability = json.loads(
+        (ROOT / "docs/evaluations/r2/member-availability-v1.json").read_text()
+    )
+    value["unavailable_inputs"] = availability["unavailable_inputs"]
+    value["queries"] = sorted(
+        [*value["queries"], *availability["additional_queries"]],
+        key=lambda q: q["split"] == "holdout",
+    )
     return value
 
 
@@ -110,9 +121,12 @@ class MemberBatchJournal:
             if context.stage not in TOPIC_STAGE_CAPS:
                 raise BudgetExceeded("member batch cannot fund another stage")
             lease = context.lease
-            if lease is None or lease.article_id not in {
-                q["article_id"] for q in self.spec["queries"]
-            }:
+            unavailable = {item["article_id"] for item in self.spec.get("unavailable_inputs", [])}
+            if (
+                lease is None
+                or lease.article_id in unavailable
+                or lease.article_id not in {q["article_id"] for q in self.spec["queries"]}
+            ):
                 raise BudgetExceeded("content is outside the frozen paid query set")
             state = batch_state(session)
             if state["unresolved_ids"]:
@@ -203,9 +217,33 @@ def temporal_values(model: Any, values: dict[str, Any]) -> dict[str, Any]:
     return result
 
 
-def seed_packages(session: Session, packages: list[dict[str, Any]]) -> None:
+def seed_packages(
+    session: Session, packages: list[dict[str, Any]], *, exclude_ids: frozenset[int] = frozenset()
+) -> None:
     """Append exact retained material/card versions; never certify excluded inputs."""
-    for package in packages:
+    selected = [p for p in packages if p["article"]["id"] not in exclude_ids]
+    # Validate every identity before appending any object. A URL collision with
+    # different material cannot be resolved by changing the old current version.
+    urls = {p["article"]["url"] for p in selected}
+    if (
+        session.scalar(
+            select(Article.id)
+            .where(Article.processing_track == "r1", Article.url.in_(urls))
+            .limit(1)
+        )
+        is not None
+    ):
+        raise ValueError("a frozen URL already exists; no overwrite; register an exclusion")
+    if (
+        session.scalar(
+            select(Article.id)
+            .where(Article.id.in_([p["article"]["id"] for p in selected]))
+            .limit(1)
+        )
+        is not None
+    ):
+        raise ValueError("a frozen article identity already exists; no overwrite allowed")
+    for package in selected:
         original = package["article"]
         if session.get(Article, original["id"]) is not None:
             raise ValueError("a frozen article identity already exists; no overwrite allowed")
@@ -320,7 +358,11 @@ def run_batch(engine: Engine, spec: dict[str, Any], cap: Decimal, proxy: str | N
             output.flush()
 
         record({"event": "start", "registration": spec["id"], "contract": member_contract()})
+        unavailable = {item["article_id"]: item for item in spec.get("unavailable_inputs", [])}
         for query in spec["queries"]:
+            if query["article_id"] in unavailable:
+                record({"event": "unavailable", "input": unavailable[query["article_id"]]})
+                continue
             with scope() as session:
                 identity = enqueue_member_processing(
                     session, query["article_id"], sources=sources, now=datetime.now(UTC)
@@ -445,7 +487,13 @@ def main() -> None:
                     (ROOT / "docs/evaluations/r2/member-inputs-v1.json").read_text()
                 )
                 with Session(engine) as session, session.begin():
-                    seed_packages(session, packages["packages"])
+                    seed_packages(
+                        session,
+                        packages["packages"],
+                        exclude_ids=frozenset(
+                            item["article_id"] for item in spec.get("unavailable_inputs", [])
+                        ),
+                    )
                     seed_topics(session, spec, load_sources())
             else:
                 if get_settings().grounding_budget_24h_usd != 1.0:

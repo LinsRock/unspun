@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-20T11:55:08.369229+00:00",
+  "provider": {
+    "limit": 15,
+    "limit_remaining": 5.6541648900000006,
+    "limit_reset": "monthly",
+    "usage": 9.34583511,
+    "usage_monthly": 9.34583511
+  },
+  "old_id_readonly_probe": {
+    "http_status": 404,
+    "request_id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+    "generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+    "original_hold_released": false
+  },
+  "paid_requests": 0,
+  "database_writes": 0,
+  "transport": "SOCKS through the same production VPS; no credential persisted"
+}
