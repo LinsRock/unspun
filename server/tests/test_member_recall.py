@@ -1,9 +1,10 @@
 """Recall losses before semantics, including the retained v1 failure behavior."""
 
 import copy
-import subprocess
+import hashlib
 import types
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 from uuid import UUID
 
@@ -29,8 +30,12 @@ pytest_plugins = ["tests.test_member_processing"]
 @pytest.fixture
 def old_recall() -> Any:
     module = types.ModuleType("retained_member_recall_v1")
-    source = subprocess.check_output(
-        ["git", "show", "c58a878:server/src/unspun/core/member_recall.py"], text=True
+    source = (
+        Path(__file__).resolve().parents[2] / "docs/acceptance/r2-06-evaluation/member-recall-v1.py"
+    ).read_bytes()
+    assert (
+        hashlib.sha256(source).hexdigest()
+        == "466cfdd4070da402fb97cc3df8525ce89396103c182312b97790065f164e6486"
     )
     exec(compile(source, "<retained-recall-v1>", "exec"), module.__dict__)
     return module

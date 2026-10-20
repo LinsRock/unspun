@@ -24,6 +24,7 @@ protected=[p for p in prior['protected_original_artifacts'] if p!='docs/evaluati
 for name in protected:assert (ROOT/name).read_bytes()==blob(name),name
 new=json.loads((ROOT/'docs/evaluations/r2/member-freeze-v1.json').read_text())
 for row in new['files']:assert sha((ROOT/row['path']).read_bytes())==row['sha256'],row['path']
+assert (OUT/'member-recall-v1.py').read_bytes()==blob('server/src/unspun/core/member_recall.py')
 module=types.ModuleType('retained_member_contract_v1')
 exec(compile(blob('server/src/unspun/core/member_contracts.py'),'<v1-member-contract>','exec'),module.__dict__)
 a,b=module.member_contract(),member_contract()
