@@ -59,5 +59,9 @@
     ],
     "remaining": "G2 window and critical-field audit incomplete; no paid or publication pass; two-hour budget scenario fails"
   },
-  "deployment": "pending PR/CI; new paths remain off"
+  "deployment": "completed and verified: delivery.json",
+  "implementation_pr": 111,
+  "runtime_revision": "da971d811f7e6e64273191128eed504fb7675746",
+  "postdeploy_all_assertions_passed": true,
+  "postdeploy_evidence_review": "Verified actual Deploy step, immutable running image/source/config, original eight and 108 qualified details, retired legacy, protected old data and original evaluation ledger. New paths remain closed; no generation/quality claim."
 }
