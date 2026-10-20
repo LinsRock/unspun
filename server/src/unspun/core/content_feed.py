@@ -3,7 +3,6 @@
 import base64
 import re
 import unicodedata
-from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any, Literal
@@ -11,26 +10,22 @@ from typing import Any, Literal
 import yaml
 from fastapi import HTTPException
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from sqlalchemy import func, select
+from sqlalchemy import DateTime, Select, and_, case, cast, func, or_, select
+from sqlalchemy.dialects.postgresql import JSONPATH
 from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
 from unspun.core.content import ContentContract, fingerprint
+from unspun.core.content_publication import Item, current_versions, qualified_items
 from unspun.core.content_reading import (
-    CARD_VERSION,
-    REVIEW_VERSION,
-    CardDraft,
-    ContentInput,
-    card_valid,
     cheap_exclusion,
     current_value,
     publication_at,
 )
-from unspun.core.models import Article, ContentDerivation, ContentObservation
+from unspun.core.models import Article, ContentDerivation, ContentMaterial
 from unspun.core.reader import effective_feedback
 from unspun.core.reader_models import ReaderInterest, ReaderState
 from unspun.core.sources import Source, load_sources
-from unspun.pipeline.content_processing import load_content, processing_fingerprint
 
 
 class ReaderRules(BaseModel):
@@ -86,114 +81,105 @@ def encode_cursor(cursor: Cursor) -> str:
     return base64.urlsafe_b64encode(cursor.model_dump_json().encode()).decode().rstrip("=")
 
 
-@dataclass
-class Item:
-    article: Article
-    content: ContentInput
-    row: ContentDerivation
-    card: CardDraft
-    channels: tuple[str, ...]
+# Version the recall boundary independently of the unchanged scoring policy/API.
+RETRIEVAL_VERSION = "r2-current-lanes-v1"
+
+
+def publication_expression() -> Any:
+    """Mirror publication_at; invalid external dates must not abort an entire query."""
+    stamp = func.coalesce(
+        func.jsonb_path_query_first(
+            Article.r1_metadata, cast('$.times[*] ? (@.kind == "original")', JSONPATH)
+        ),
+        func.jsonb_path_query_first(
+            Article.r1_metadata,
+            cast('$.times[*] ? (@.kind == "editorial" || @.kind == "question_created")', JSONPATH),
+        ),
+    )
+    at = func.jsonb_extract_path_text(stamp, "at")
+    on = func.jsonb_extract_path_text(stamp, "on")
+    return case(
+        (func.pg_input_is_valid(at, "timestamp with time zone"), cast(at, DateTime(timezone=True))),
+        (
+            and_(at.is_(None), func.pg_input_is_valid(on, "date")),
+            func.timezone("Asia/Shanghai", cast(on, DateTime())),
+        ),
+        else_=None,
+    )
+
+
+def candidate_versions(
+    *, preview: bool, as_of: datetime, sources: list[Source], bound: int
+) -> Select[Any]:
+    at = publication_expression()
+    genre = ContentDerivation.payload["genre"].astext
+    evergreen = genre.in_(["knowledge", "review"])
+    versions = (
+        current_versions(preview=preview, as_of=as_of, sources=sources)
+        .add_columns(Article.source_id, at.label("publication_at"), evergreen.label("evergreen"))
+        .where(
+            # These are the existing cheap_exclusion/current_value windows, not new scores.
+            or_(
+                at.is_(None),
+                ContentMaterial.scope != "complete_brief",
+                at >= as_of - timedelta(hours=48),
+            ),
+            or_(
+                at.is_(None),
+                Article.r1_metadata["genre"].astext.is_(None),
+                Article.r1_metadata["genre"].astext.not_in(["old_report", "news"]),
+                at >= as_of - timedelta(days=14),
+            ),
+            or_(
+                at.is_(None),
+                evergreen,
+                and_(genre.in_(["analysis", "opinion"]), at >= as_of - timedelta(days=90)),
+                and_(genre == "question", at >= as_of - timedelta(days=7)),
+                and_(genre.in_(["news", "description"]), at >= as_of - timedelta(days=14)),
+            ),
+        )
+        .subquery()
+    )
+    lane = case(
+        (versions.c.publication_at.is_(None), "unknown"),
+        (versions.c.evergreen, "evergreen"),
+        else_="current",
+    )
+    rounds = select(
+        versions,
+        func.row_number()
+        .over(
+            partition_by=(versions.c.source_id, lane),
+            order_by=(versions.c.publication_at.desc().nulls_last(), versions.c.article_id.desc()),
+        )
+        .label("position"),
+    ).subquery()
+    return (
+        select(rounds)
+        .order_by(
+            rounds.c.position,
+            rounds.c.publication_at.desc().nulls_last(),
+            rounds.c.article_id.desc(),
+        )
+        .limit(bound)
+    )
 
 
 def reviewed(
     session: Session, *, preview: bool, as_of: datetime, sources: list[Source], policy: ReaderRules
 ) -> list[Item]:
-    enabled = {
-        s.id for s in sources if s.r1 and s.discovery_owner == "r1" and (s.r1.publish or preview)
-    }
-    by_source = {source.id: source for source in sources}
-    rows = list(
-        session.execute(
-            select(Article, ContentDerivation)
-            .join(ContentDerivation, ContentDerivation.article_id == Article.id)
-            .where(
-                Article.processing_track == "r1",
-                Article.canonical_content_id.is_(None),
-                Article.source_id.in_(enabled),
-                ContentDerivation.kind == "card",
-                ContentDerivation.status == "ready",
-                ContentDerivation.contract_version == CARD_VERSION,
-                ContentDerivation.review_contract == REVIEW_VERSION,
-                ContentDerivation.updated_at <= as_of,
-            )
-            .order_by(Article.id)
-            .limit(policy.max_candidates + 1)
-        )
-    )
-    if len(rows) > policy.max_candidates:
-        raise HTTPException(503, "Content candidate bound reached; narrow publication admission")
-    identities = [a.id for a, _ in rows]
-    members = (
-        list(
-            session.scalars(
-                select(ContentDerivation).where(
-                    ContentDerivation.article_id.in_(identities),
-                    ContentDerivation.kind.in_(["features", "admission"]),
-                )
-            )
-        )
-        if identities
-        else []
-    )
-    observations = (
-        list(
-            session.execute(
-                select(
-                    func.coalesce(Article.canonical_content_id, Article.id),
-                    ContentObservation.source_id,
-                )
-                .join(ContentObservation, ContentObservation.article_id == Article.id)
-                .where(func.coalesce(Article.canonical_content_id, Article.id).in_(identities))
-                .distinct()
-            )
-        )
-        if identities
-        else []
-    )
+    selected = candidate_versions(
+        preview=preview, as_of=as_of, sources=sources, bound=policy.max_candidates
+    ).subquery()
+    items = qualified_items(session, selected)
     result: list[Item] = []
-    for article, row in rows:
-        try:
-            content = load_content(session, article.id)
-            config = by_source[article.source_id].r1
-            if not preview and (config is None or not config.allows_publication(content.scope)):
-                continue
-            expected = processing_fingerprint(content, "card")
-            if (
-                row.input_fingerprint != expected
-                or not (row.review_evidence or {}).get("approved")
-                or row.material_id != article.current_material_id
-            ):
-                continue
-            matching = [
-                m
-                for m in members
-                if m.article_id == article.id
-                and m.input_fingerprint == expected
-                and m.material_id == article.current_material_id
-                and m.status == "ready"
-                and (m.review_evidence or {}).get("approved")
-                and m.contract_version == CARD_VERSION
-                and m.review_contract == REVIEW_VERSION
-            ]
-            if {m.kind for m in matching} != {"features", "admission"}:
-                continue
-            card = CardDraft.model_validate(
-                {k: v for k, v in (row.payload or {}).items() if k in CardDraft.model_fields}
-            )
-            if not card.include or not card_valid(card, content) or cheap_exclusion(content, as_of):
-                continue
-            _, reason = current_value(content, card.genre, as_of)
-            if reason == "outside_current_window" and card.genre not in {"knowledge", "review"}:
-                continue
-            channels = tuple(
-                sorted(
-                    {article.source_id} | {sid for aid, sid in observations if aid == article.id}
-                )
-            )
-            result.append(Item(article, content, row, card, channels))
-        except (ValueError, KeyError, TypeError):
-            # A stale/poisoned payload is never a legacy fallback or a 500.
+    for item in items:
+        if cheap_exclusion(item.content, as_of):
             continue
+        _, reason = current_value(item.content, item.card.genre, as_of)
+        if reason == "outside_current_window" and item.card.genre not in {"knowledge", "review"}:
+            continue
+        result.append(item)
     return result
 
 
@@ -282,10 +268,19 @@ def rank(
     snapshot = fingerprint(
         {
             "rules": policy.model_dump(),
+            "retrieval": RETRIEVAL_VERSION,
             "preview_sources": sorted({s for item in items for s in item.channels}),
             "preference_version": state.version if state else 0,
             "items": [
-                [i.article.id, i.row.input_fingerprint, i.row.updated_at.isoformat(), i.channels]
+                [
+                    i.article.id,
+                    i.content.material_id,
+                    i.content.metadata_fingerprint,
+                    i.row.input_fingerprint,
+                    i.row.updated_at.isoformat(),
+                    [at.isoformat() for at in i.qualification_versions],
+                    i.channels,
+                ]
                 for i in items
             ],
         }
@@ -360,7 +355,15 @@ def page(
     items = reviewed(session, preview=preview, as_of=as_of, sources=sources, policy=policy)
     ordered, snapshot = rank(session, items, as_of, sort, policy)
     snapshot = fingerprint(
-        [snapshot, sorted(s.id for s in sources if s.r1 and s.r1.publish), preview]
+        [
+            snapshot,
+            sorted(
+                (s.id, s.discovery_owner, s.r1.publish, s.r1.publish_scopes)
+                for s in sources
+                if s.r1
+            ),
+            preview,
+        ]
     )
     if token and token.snapshot != snapshot:
         raise HTTPException(409, "Content or reader preferences changed; reload the feed")

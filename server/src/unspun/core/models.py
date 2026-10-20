@@ -20,6 +20,7 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
     func,
+    text,
 )
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -94,6 +95,7 @@ class Article(Base):
             use_alter=True,
         ),
         Index("ix_articles_track", "processing_track"),
+        Index("ix_articles_canonical_identity", text("coalesce(canonical_content_id, id)")),
         UniqueConstraint("url", "processing_track", name="uq_articles_track_url"),
     )
 
@@ -248,6 +250,14 @@ class ContentDerivation(Base):
             name="ck_derivation_ready_evidence",
         ),
         Index("ix_content_derivations_article_kind", "article_id", "kind"),
+        Index(
+            "ix_content_derivations_ready_card",
+            "contract_version",
+            "review_contract",
+            "article_id",
+            "material_id",
+            postgresql_where=text("kind='card' AND status='ready'"),
+        ),
     )
     id: Mapped[int] = mapped_column(primary_key=True)
     article_id: Mapped[int] = mapped_column(ForeignKey("articles.id"))

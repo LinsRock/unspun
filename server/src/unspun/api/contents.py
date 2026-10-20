@@ -13,7 +13,8 @@ from unspun.api.events import get_db
 from unspun.api.feed_preferences import Db, require_write
 from unspun.core.billing_models import BudgetPolicy
 from unspun.core.config import get_settings
-from unspun.core.content_feed import Item, item_out, page, reviewed, rules
+from unspun.core.content_feed import item_out, page
+from unspun.core.content_publication import Item, qualified_item
 from unspun.core.content_reading import GUIDE_VERSION, REVIEW_VERSION, GuideDraft, guide_valid
 from unspun.core.models import Article, ContentDerivation
 from unspun.core.reader import effective_feedback
@@ -77,10 +78,9 @@ def find_item(session: Session, article_id: int, preview: bool) -> tuple[Item, i
         if article is None or article.processing_track != "r1":
             raise HTTPException(404, "Canonical R1 content not found")
     sources = load_sources()
-    items = reviewed(
-        session, preview=preview, as_of=datetime.now(UTC), sources=sources, policy=rules()
+    item = qualified_item(
+        session, article.id, preview=preview, as_of=datetime.now(UTC), sources=sources
     )
-    item = next((i for i in items if i.article.id == article.id), None)
     if item is None:
         raise HTTPException(404, "Current reviewed R1 content is not published")
     return item, requested if requested != article.id else None
@@ -122,7 +122,9 @@ def guide_state(session: Session, item: Item) -> dict[str, Any]:
                     {k: v for k, v in (row.payload or {}).items() if k in GuideDraft.model_fields}
                 )
                 if (
-                    row.contract_version == GUIDE_VERSION
+                    row.material_id == item.content.material_id
+                    and row.metadata_fingerprint == item.content.metadata_fingerprint
+                    and row.contract_version == GUIDE_VERSION
                     and row.review_contract == REVIEW_VERSION
                     and (row.review_evidence or {}).get("approved") is True
                     and guide_valid(parsed, item.content)
