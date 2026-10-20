@@ -1,0 +1,111 @@
+{
+  "checked_at": "2026-10-20T09:35:18.139828+00:00",
+  "base_revision": "ed86474c904ac136e3d933c7c736f18de3d7902b",
+  "database": "unspun_r206_tests_v2_20261020",
+  "schema": "000019",
+  "baseline_passed": 982,
+  "full_regression_passed": 1020,
+  "member_processing_tests": 38,
+  "skipped": 0,
+  "ruff_check": "passed",
+  "ruff_format": "172 files already formatted",
+  "pyright": "0 errors, 0 warnings",
+  "alembic_check": "No new upgrade operations detected",
+  "legacy_ranking": {
+    "passed": true,
+    "events": 40,
+    "sha256": "66f5b342109f806be845a0e674562c4d26be96036d359d4d8c990455e3c2104c",
+    "identical_to": "docs/acceptance/r2-04/legacy-ranking.json"
+  },
+  "deploy_tests": 18,
+  "ci_scope_tests": 11,
+  "frozen_files": 27,
+  "protected_original_files": 52,
+  "new_paid_requests": 0,
+  "new_paid_cost_usd": "0",
+  "production_manual_tasks": 0,
+  "real_membership_precision": null,
+  "real_membership_coverage": null,
+  "review": {
+    "kind": "primary-agent review of final diff and affected callers",
+    "areas": [
+      "versioned canonical/material/source/model/dimension inputs and bounded metadata/vector recall",
+      "semantic and review contracts, exact quote ownership and restricted scope",
+      "atomic task successors, claims/late return, shared budget stages and request reuse",
+      "CAS/member-removal protection and current R1 reading/feedback/fee callers",
+      "additive migration, complete restore, fixed schema-aware images",
+      "retired worker and R2-04 mounts/worktree/raw evidence protection"
+    ],
+    "remaining": null
+  },
+  "logs": {
+    "baseline": {
+      "path": "docs/acceptance/r2-06/logs/baseline.log.gz",
+      "sha256": "d1bcfd488434f4ada5fb1696652089ce4b921f788786adb52bd57cbbb4fb6bde"
+    },
+    "member-tests-first": {
+      "path": "docs/acceptance/r2-06/logs/member-tests-first.log.gz",
+      "sha256": "a54d855c66b85cf733b850e6cf173f91cd8dc076829db267bd4ab6187af01840"
+    },
+    "member-tests-v2": {
+      "path": "docs/acceptance/r2-06/logs/member-tests-v2.log.gz",
+      "sha256": "23be4fca9393e80a32ee6bf2eb789b2e8c9656d4fb4a092c2c495cfeed953f20"
+    },
+    "member-tests-v3": {
+      "path": "docs/acceptance/r2-06/logs/member-tests-v3.log.gz",
+      "sha256": "8d26fc5c18a1ace122fb459318c074d2cd4112adca07e9499a8631ec4a42b85b"
+    },
+    "member-tests-v4": {
+      "path": "docs/acceptance/r2-06/logs/member-tests-v4.log.gz",
+      "sha256": "60e42b508fdb918b37078fe70c71b3ccc34cd1380f86a4a57faaf44b2ceee52e"
+    },
+    "regression": {
+      "path": "docs/acceptance/r2-06/logs/regression.log.gz",
+      "sha256": "9d859300470511fd94ff5cb3d5a1cd9b49fca3ea86a79db87735580ad609e20e"
+    },
+    "regression-v2": {
+      "path": "docs/acceptance/r2-06/logs/regression-v2.log.gz",
+      "sha256": "e79ba3fc9bc2cb1a2fc4d6ba146cbda97592e0f7fdd8f7d72f177943f1c1321b"
+    },
+    "pyright-final-v2": {
+      "path": "docs/acceptance/r2-06/logs/pyright-final-v2.log.gz",
+      "sha256": "7673cf47ecf297a30b151ff80feb3b30f71e205edc1c51791328c093824e4bab"
+    },
+    "deploy-tests": {
+      "path": "docs/acceptance/r2-06/logs/deploy-tests.log.gz",
+      "sha256": "c580895af85e63eefdc25fcfaca38fb02bf387b50828bd8d343cd9e41f42355b"
+    },
+    "ci-tests": {
+      "path": "docs/acceptance/r2-06/logs/ci-tests.log.gz",
+      "sha256": "eb9986f6f8bc61dd5375d6f5c3030176d289c475152e6092c76c45badfe6d243"
+    },
+    "image-build": {
+      "path": "docs/acceptance/r2-06/logs/image-build.log.gz",
+      "sha256": "cbf82fe46d8a2b8a0f7c8b67e69f7ba1e290f349769cfcba7b6606421a4aca44"
+    },
+    "recovery": {
+      "path": "docs/acceptance/r2-06/logs/recovery.log.gz",
+      "sha256": "0d1abf4c0683821bfe48ec14a0c97e87bbaeba28ffeb21e76044132e5d5ef51a"
+    },
+    "recovery-v2": {
+      "path": "docs/acceptance/r2-06/logs/recovery-v2.log.gz",
+      "sha256": "72fe7039bc4ce8bbc19316567419f3efd629bc766cf23a23ce7bb2a31d7f1843"
+    },
+    "fixed-images": {
+      "path": "docs/acceptance/r2-06/logs/fixed-images.log.gz",
+      "sha256": "5869741007307e17cd1c909c434d7ee5270a650cc1b61bd15c7e27e52f8037eb"
+    },
+    "production-restore": {
+      "path": "docs/acceptance/r2-06/logs/production-restore.log.gz",
+      "sha256": "0c60556fdea5745183ef39ba31fafa6e0cd0744d582e277f043f8a17b3b86de5"
+    },
+    "frozen-replay": {
+      "path": "docs/acceptance/r2-06/logs/frozen-replay.log.gz",
+      "sha256": "e22451a5707fc1e8fc95eaf1ab6f0156189ce24b9216af5e5e3afd97c0118c3b"
+    },
+    "frozen-replay-v2": {
+      "path": "docs/acceptance/r2-06/logs/frozen-replay-v2.log.gz",
+      "sha256": "053cbf775aa6bc877567cfb04287111bc9a1aef29c17372e86b6c2f93b11871b"
+    }
+  }
+}

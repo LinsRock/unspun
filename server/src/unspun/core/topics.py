@@ -104,7 +104,7 @@ def _identity_snapshot(session: Session, root: int) -> dict[str, Any]:
     }
 
 
-def _content_snapshot(
+def member_input_snapshot(
     session: Session, article_id: int, material_id: int, sources: list[Source], now: datetime
 ) -> dict[str, Any]:
     if canonical_content_id(session, article_id) != article_id:
@@ -163,7 +163,7 @@ def _content_snapshot(
     }
 
 
-def _evidence(session: Session, refs: tuple[EvidenceRef, ...]) -> None:
+def validate_topic_evidence(session: Session, refs: tuple[EvidenceRef, ...]) -> None:
     for ref in refs:
         material = session.get(ContentMaterial, ref.material_id, populate_existing=True)
         if material is None or material.article_id != ref.article_id:
@@ -186,13 +186,15 @@ def _definition(topic: Topic) -> dict[str, Any]:
     }
 
 
-def _member_check(
+def validate_member(
     session: Session, member: TopicMember, sources: list[Source], now: datetime
 ) -> VersionCheck:
     if not member.active:
         return VersionCheck(valid=False, reasons=("member_removed",))
     try:
-        current = _content_snapshot(session, member.article_id, member.material_id, sources, now)
+        current = member_input_snapshot(
+            session, member.article_id, member.material_id, sources, now
+        )
     except (ValueError, KeyError, TypeError):
         return VersionCheck(valid=False, reasons=("member_input_unavailable",))
     valid = fingerprint(current) == fingerprint(member.input_snapshot)
@@ -206,14 +208,14 @@ def _references_snapshot(
     sources: list[Source],
     now: datetime,
 ) -> dict[str, Any]:
-    _evidence(session, refs)
+    validate_topic_evidence(session, refs)
     members: list[dict[str, Any]] = []
     for article_id, material_id in sorted({(r.article_id, r.material_id) for r in refs}):
         member = session.get(TopicMember, (topic.id, article_id), populate_existing=True)
         if (
             member is None
             or member.material_id != material_id
-            or not _member_check(session, member, sources, now).valid
+            or not validate_member(session, member, sources, now).valid
         ):
             raise ValueError("evidence requires a current active member and its pinned material")
         members.append(_dump(member))
@@ -275,7 +277,7 @@ def _topic_snapshot(
             .execution_options(populate_existing=True)
         )
     )
-    if not members or any(not _member_check(session, m, sources, now).valid for m in members):
+    if not members or any(not validate_member(session, m, sources, now).valid for m in members):
         raise ValueError("topic requires current qualified members")
     latest: dict[str, TopicUpdate] = {}
     for row in session.scalars(
@@ -409,12 +411,12 @@ def mutate_topic(
         after = _definition(topic)
     elif isinstance(change, SetMember):
         root = canonical_content_id(session, change.article_id)
-        snapshot = _content_snapshot(session, root, change.material_id, sources, now)
+        snapshot = member_input_snapshot(session, root, change.material_id, sources, now)
         if any(
             (r.article_id, r.material_id) != (root, change.material_id) for r in change.evidence
         ):
             raise ValueError("member evidence must reference its canonical content and material")
-        _evidence(session, change.evidence)
+        validate_topic_evidence(session, change.evidence)
         member = session.get(TopicMember, (key, root), populate_existing=True)
         before = _dump(member) if member else None
         if member is None:
@@ -542,7 +544,7 @@ def read_topic(
         "members": [
             {
                 "row": _dump(m),
-                "check": _member_check(session, m, sources, now).model_dump(mode="json"),
+                "check": validate_member(session, m, sources, now).model_dump(mode="json"),
             }
             for m in session.scalars(
                 select(TopicMember)

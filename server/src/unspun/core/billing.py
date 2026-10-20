@@ -30,6 +30,14 @@ MONTHLY_LIMIT = Decimal("15.00")
 EVALUATION_LIMIT = Decimal("1.50")
 PRODUCTION_LIMIT = MONTHLY_LIMIT - EVALUATION_LIMIT
 STAGE_CAPS = {"legacy": str(PRODUCTION_LIMIT), "card": "10", "guide": "2", "embedding": "1"}
+TOPIC_STAGE_CAPS = {
+    "topic_embedding": "0.10",
+    "topic_judgment": "0.45",
+    "topic_review": "0.45",
+}
+Stage = Literal[
+    "legacy", "card", "guide", "embedding", "topic_embedding", "topic_judgment", "topic_review"
+]
 PENDING = ("reserved", "usage_unknown")
 PRICES = {
     "google/gemini-2.5-flash-lite": (Decimal("0.10"), Decimal("0.40")),
@@ -50,7 +58,7 @@ class UsageUnknown(BudgetExceeded):
 
 @dataclass(frozen=True)
 class CallContext:
-    stage: Literal["legacy", "card", "guide", "embedding"] = "legacy"
+    stage: Stage = "legacy"
     phase: str | None = None
     logical_key: str | None = None
     lease: Lease | None = None
@@ -216,7 +224,11 @@ class DatabaseJournal:
     ) -> Reservation:
         amount = reservation_bound(model, request)
         now = datetime.now(UTC)
-        stage = "embedding" if purpose == "embedding" else context.stage
+        stage = (
+            "embedding"
+            if purpose == "embedding" and context.stage not in TOPIC_STAGE_CAPS
+            else context.stage
+        )
         logical = (
             fingerprint([context.logical_key, context.phase, purpose, model, request])
             if context.logical_key
@@ -236,6 +248,48 @@ class DatabaseJournal:
                     "provider key changed; a reviewed accounting cutover is required"
                 )
             lease = context.lease
+            topic_kind = lease is not None and lease.kind in {
+                "topic_recall",
+                "topic_judge",
+                "topic_review",
+            }
+            if topic_kind or stage in TOPIC_STAGE_CAPS or purpose == "topic_judgment":
+                if not get_settings().r2_member_processing_enabled:
+                    raise BudgetExceeded("member processing is disabled")
+                expected = {
+                    "topic_embedding": ("topic_recall", "embed", "embedding"),
+                    "topic_judgment": ("topic_judge", "judge", "topic_judgment"),
+                    "topic_review": ("topic_review", "review", "grounding"),
+                }.get(stage)
+                if (
+                    lease is None
+                    or lease.article_id is None
+                    or lease.queue != "paid"
+                    or expected != (lease.kind, context.phase, purpose)
+                    or lease.strategy_version != "r2-member-v1"
+                    or not context.logical_key
+                    or model
+                    != {
+                        "topic_embedding": get_settings().embedding_model,
+                        "topic_judgment": get_settings().summary_model,
+                        "topic_review": get_settings().viewpoint_model,
+                    }.get(stage)
+                ):
+                    raise LlmError("member work requires its registered task, stage and phase")
+                allocations = {k: usd(v) for k, v in policy.stage_caps.items()}
+                cap = allocations.get(stage)
+                if cap is None or cap <= 0:
+                    raise BudgetExceeded("member stage has no explicit allocation")
+                if policy.scope == "production" and (
+                    any(v is None for v in allocations.values())
+                    or allocations.get("legacy") != 0
+                    or any(k not in STAGE_CAPS and k not in TOPIC_STAGE_CAPS for k in allocations)
+                    or sum((v for v in allocations.values() if v is not None), Decimal(0))
+                    > min(policy.monthly_limit_usd, PRODUCTION_LIMIT)
+                ):
+                    raise BudgetExceeded(
+                        "member allocations must fit the original production total"
+                    )
             if (
                 policy.scope == "production"
                 and stage in ("card", "guide")
@@ -248,6 +302,10 @@ class DatabaseJournal:
                         PipelineTask.id == lease.task_id,
                         PipelineTask.object_key == lease.object_key,
                         PipelineTask.article_id == lease.article_id,
+                        PipelineTask.kind == lease.kind,
+                        PipelineTask.queue == lease.queue,
+                        PipelineTask.input_fingerprint == lease.input_fingerprint,
+                        PipelineTask.strategy_version == lease.strategy_version,
                         TaskAttempt.id == lease.attempt_id,
                         TaskAttempt.task_id == PipelineTask.id,
                         TaskAttempt.claim_version == lease.version,
@@ -324,9 +382,10 @@ class DatabaseJournal:
                 raise BudgetExceeded(
                     "monthly budget including reservations exhausted", next_month(now)
                 )
-            if policy.scope == "production":
+            if policy.scope == "production" or stage in TOPIC_STAGE_CAPS:
                 cap = min(
-                    Decimal(str(policy.stage_caps.get(stage, "0"))), Decimal(STAGE_CAPS[stage])
+                    Decimal(str(policy.stage_caps.get(stage, "0"))),
+                    Decimal({**STAGE_CAPS, **TOPIC_STAGE_CAPS}[stage]),
                 )
                 stage_pending = Decimal(
                     str(
