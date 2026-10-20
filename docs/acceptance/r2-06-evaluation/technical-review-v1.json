@@ -1,0 +1,80 @@
+{
+  "at": "2026-10-20T12:41:23.448158+00:00",
+  "reviewer_kind": "ai-technical",
+  "user_accepted": null,
+  "scope": "Read every first raw label, all nine structural failures and frozen source evidence; no prompt/model/input/expectation changed after any output.",
+  "first_model_failure": {
+    "task_id": 3,
+    "article_id": 8881,
+    "topic": "france",
+    "classification": "same_event",
+    "first_json": "retained in physical-requests.json.gz and results-v1.json",
+    "issue": "All five evidence references omit required voice; Pydantic rejects before semantic review, no mutation."
+  },
+  "structural_failures": {
+    "total": 9,
+    "denominator_all_judgments": 40,
+    "missing_voice_outputs": 7,
+    "invalid_voice_outputs": 2,
+    "certain_associations_blocked": 8,
+    "denominator_certain_associations": 8,
+    "actual_semantic_review_calls": 0,
+    "actual_applied_members": 0
+  },
+  "label_disagreements": [
+    {
+      "article_id": 8899,
+      "topic": "huang",
+      "predicted": "same_event",
+      "frozen_allowed": [
+        "opinion",
+        "background"
+      ],
+      "kind": "relation granularity disagreement with the frozen analysis/context expectation; not a user judgment; do not relabel after output"
+    },
+    {
+      "article_id": 8905,
+      "topic": "canada",
+      "predicted": "same_event",
+      "frozen_allowed": [],
+      "kind": "unsupported repair of September/October conflict from a feed date",
+      "model_basis_fragment": "the anchor's date is likely a typo given its own feed date"
+    },
+    {
+      "article_id": 8926,
+      "topic": "japan-era",
+      "predicted": "explanation",
+      "frozen_allowed": [],
+      "kind": "mixes anchor era-name discussion into a query about a shrine offering; source-role/subject grounding error"
+    }
+  ],
+  "independent_negative_with_schema_error": {
+    "article_id": 8906,
+    "topic": "uzbekistan",
+    "raw_label": "independent/uncertain",
+    "issue": "Correctly distinguishes the two countries but uses query/anchor as voice, outside the allowed reported/author/question/description enum."
+  },
+  "classification_and_evidence_are_separate": true,
+  "real_review_interception_measured": false,
+  "cas_quality_measured": false,
+  "holdout_first_results_retained": true,
+  "tuning_performed": false,
+  "remaining_real_cases": [
+    {
+      "dimension": "verified_reprint_chain",
+      "status": "missing",
+      "reason": "No verified exact reprint chain among original or supplemental qualified materials. Attribution to a wire service is not exact reprint proof."
+    },
+    {
+      "dimension": "recently_discovered_old_original_background",
+      "status": "missing",
+      "reason": "Long 8874 input and 8903 fire opinion do not prove an old original publication. No synthetic substitute."
+    },
+    {
+      "dimension": "independently_verified_event_occurrence_time",
+      "status": "missing",
+      "reason": "Feed/observation time is not an occurrence timestamp."
+    }
+  ],
+  "production_enable_recommended": false
+}

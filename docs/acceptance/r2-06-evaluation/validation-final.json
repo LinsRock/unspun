@@ -1,0 +1,51 @@
+{
+  "at": "2026-10-20T12:51:22.097981+00:00",
+  "frozen_metric_implementation_review": "All raw certain association claims stay in the precision denominator even when evidence fails Pydantic. The report implementation was corrected to follow the pre-frozen definition; no model output, label, threshold, prompt, source input or holdout result was modified. Independent database audit recomputed 5/8, 37/40 and 2/34.",
+  "regression_evidence": "validation-identity-fix.json: 1036 passed, zero skipped; no subsequent runtime/source change",
+  "final_freeze": "freeze-validation-final.json: original 27, new 11, protected originals 51",
+  "raw_first_result_hash": "358e017fbcdeffbfda8e6f148cce5f4475ae932bdebcbd2ab167e4c35a0c4700",
+  "model_request_count": 59,
+  "known_paid_usd": "0.01213610",
+  "new_unknown_held_usd": "0",
+  "original_unknown_held_usd": "0.484867",
+  "original_hold_count": 7,
+  "quality_pass": false,
+  "r206_completion_checkboxes": {
+    "engineering_recall_queue": true,
+    "engineering_accounting": true,
+    "real_quality_all_dimensions_and_gates": false,
+    "admin_correction": false
+  },
+  "review": {
+    "kind": "primary-agent review of final evidence diff, every raw label and all failures plus independent SQL reconciliation",
+    "checked": [
+      "No expected-candidate injection, malformed-output denominator dropping or post-output tuning",
+      "Structural validator failures are separate from unmeasured semantic review/CAS",
+      "Original seven reservations and all original cumulative rows preserved",
+      "Provider delta equals this batch plus separately recorded original R1 natural fees",
+      "Production actual 1abcadf runtime and off flag; standalone evaluator 2d8daf3 is not mislabeled as deployed",
+      "R2-04 old files/worktree/containers preserved; sources remain disabled",
+      "All linked evidence and backup/restore source chains retained"
+    ],
+    "unresolved": [
+      "Real schema and semantic quality failures recorded, not waived",
+      "Review/CAS and full member unit cost unmeasured",
+      "Missing verified reprint/old-original background/occurrence-time cases",
+      "User acceptance, admin correction and finite activation remain pending"
+    ]
+  },
+  "failure_notes": [
+    {
+      "kind": "free_proxy_preflight",
+      "paid_requests": 0,
+      "issue": "Original idle SSH SOCKS tunnel timed out; free GET failed with malformed SOCKS reply. Same VPS route restored with 15-second keepalive before any paid call."
+    },
+    {
+      "kind": "first_actual_model_failure",
+      "task_id": 3,
+      "article_id": 8881,
+      "topic": "france",
+      "issue": "Five evidence references lack required voice; raw JSON and billed cost retained."
+    }
+  ]
+}

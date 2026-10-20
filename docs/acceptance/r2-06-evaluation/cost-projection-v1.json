@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-20T12:41:23.448045+00:00",
+  "observed_eligible_articles_per_24h": "68",
+  "volume_window": {
+    "start": "2026-10-19T12:32:24.027205+00:00",
+    "end": "2026-10-20T12:32:24.027205+00:00"
+  },
+  "components": {
+    "topic_embedding": {
+      "measured_requests": 19,
+      "per_evaluated_query_usd": "0.00001318181818181818181818181818",
+      "illustrative_30_day_usd": "0.02689090909090909090909090909",
+      "status": "measured incomplete-batch component"
+    },
+    "topic_judgment": {
+      "measured_requests": 40,
+      "per_evaluated_query_usd": "0.0010901",
+      "illustrative_30_day_usd": "2.2238040",
+      "status": "measured incomplete-batch component"
+    },
+    "topic_review": {
+      "measured_requests": 0,
+      "per_evaluated_query_usd": null,
+      "illustrative_30_day_usd": null,
+      "status": "unmeasured; not zero unit cost"
+    }
+  },
+  "known_embedding_and_judgment_only_30_day_usd": "2.250694909090909090909090909",
+  "full_chain_monthly_projection": null,
+  "previous_proposal_usd": {
+    "card": "9.50",
+    "guide": "2",
+    "embedding": "1",
+    "topic_embedding": "0.10",
+    "topic_judgment": "0.45",
+    "topic_review": "0.45",
+    "total": "13.50"
+  },
+  "previous_judgment_cap_candidate_daily_at_observed_mean": "13.76020548573525364645445372",
+  "recommendation": "Keep production topic stages unallocated and processing off. Do not approve the previous proposal from this failed, review-free batch. Measure successful independent review/CAS cost and cold/long-context cases on new frozen unseen material, then rebalance within the original 13.50 total through a configuration PR.",
+  "limits": [
+    "Purposive 11-query batch with shared warm anchor vectors; not a population estimate.",
+    "No real review or applied member unit cost; all full-chain unit costs remain null.",
+    "The observed one-day volume is not a stable forecast or an authorized producer.",
+    "Unknown original reservations remain intact; estimates never replace reservation checks."
+  ],
+  "production_policy_changed": false
+}

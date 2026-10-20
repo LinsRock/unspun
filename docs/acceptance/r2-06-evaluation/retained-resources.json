@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-20T12:51:22.097698+00:00",
+  "original_cumulative_evaluation_database": "unspun_quality_r1_20261016",
+  "new_isolated_databases_preserved": [
+    "unspun_r206_eval_tests_20261020",
+    "unspun_r206_eval_identity_tests_20261020",
+    "unspun_r206_eval_restore_20261020",
+    "unspun_r206_eval_post_restore_20261020"
+  ],
+  "restoration_databases_paid_requests": 0,
+  "parallel_real_allocation_created": false,
+  "backups": [
+    {
+      "path": "/Users/li.cong/.cache/unspun-r206-eval-20261020/original-evaluation-000015.dump",
+      "bytes": 426389,
+      "sha256": "1f76fd501190822f89e18e8ba2f96985c6320f8dde89275713acc904dcb8109b"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r206-eval-20261020/official-evaluation-after-r206-v1.dump",
+      "bytes": 1334277,
+      "sha256": "77b142c2ce3d270632c845a877df1743264c59c0ff1e153e8ef3c2ebae544c4f"
+    }
+  ],
+  "worktree_preserved": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-evaluation",
+  "r204_worktree_and_observer_mutations": 0,
+  "cleanup_performed": false,
+  "production_restore_or_downgrade": false,
+  "logs": {
+    "real-model-first-run": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/real-model-first-run.log.gz",
+      "sha256": "3b6849b45b39bb955477c3832538a91964594667d051ec2c1ae91e6b56440a43"
+    },
+    "real-results": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/real-results.log.gz",
+      "sha256": "a5952b790426fae25f83f1f1b383913f47fdd55b58ded829bd23928e2bd7f2a0"
+    },
+    "official-seed-v2": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/official-seed-v2.log.gz",
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    "official-restore": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/official-restore.log.gz",
+      "sha256": "5a6bf0a40b0ce3353c114ed8f5d0f736e100c5cff90772b18e04d73dcb5f8f0d"
+    },
+    "postdeploy": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/postdeploy.log.gz",
+      "sha256": "201e5996f702dab31230bc105f5e444995c9dc5cbf5b5480de857ce375530990"
+    },
+    "freeze-final-after-paid-start": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/freeze-final-after-paid-start.log.gz",
+      "sha256": "d0a440016f91b73c5c154a9a1a057a3574f019ac2218e33f4279c34d3aeccf82"
+    }
+  }
+}

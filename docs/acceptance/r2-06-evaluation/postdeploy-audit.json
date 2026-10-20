@@ -1,0 +1,184 @@
+{
+  "checked_at": "2026-10-20T12:36:01.032834+00:00",
+  "files": {
+    "compose.yml": "8619d5c33daf2dfdfa6c466d8aedd77cf4be6069520ea4a23fbcdbb4b3385204",
+    "compose.prod.yml": "852c10185beff18bda4614682e2ce3bb32f9662daca0c8d13a956bca123c4355",
+    "compose.local.yml": "2acba64b07ed468ee67a81acd449a3e3c21d064f3a8f162c994c84a7148a14a0",
+    "deploy.sh": "ca3ca5bd128ed37fe2631e9ce496d03614a6db00b174b3875c8ee3ddf866735c",
+    "env.example": "d242785d68651e089e8c43b8beeafaf46d633b62adb16e0f4a39a756f40288ea",
+    "Caddyfile": "ee66a63f6eb8d2cd2a3766dc009dfea17b5e0c4bacbb30a8ac4e45c259dd5da0"
+  },
+  "services": {
+    "api": {
+      "image": "ghcr.io/linsrock/unspun-server:1abcadf606a05fc7db4d4873aaaa251503f39268",
+      "command": null,
+      "restart": "unless-stopped"
+    },
+    "db": {
+      "image": "pgvector/pgvector:pg17",
+      "command": null,
+      "restart": "unless-stopped"
+    },
+    "db-backup": {
+      "image": "pgvector/pgvector:pg17",
+      "command": [
+        "while true; do\n  pg_dump -h db -U unspun -d unspun -Fc \\\n    -f \"/backups/unspun-$$(date +%F).dump\" \\\n    && find /backups -name '*.dump' -mtime +14 -delete \\\n    && echo \"backup done $$(date -Is)\"\n  sleep 86400\ndone\n"
+      ],
+      "restart": "unless-stopped"
+    },
+    "r1-worker": {
+      "image": "ghcr.io/linsrock/unspun-server:1abcadf606a05fc7db4d4873aaaa251503f39268",
+      "command": [
+        "python",
+        "-m",
+        "unspun.pipeline.r1_worker"
+      ],
+      "scale": 1,
+      "restart": "unless-stopped",
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912"
+    },
+    "rsshub": {
+      "image": "diygod/rsshub:2026-10-09",
+      "command": null,
+      "restart": "unless-stopped",
+      "mem_limit": "536870912",
+      "memswap_limit": "536870912"
+    },
+    "web": {
+      "image": "ghcr.io/linsrock/unspun-web:d72861bf854465a7a1107d149fad82dfe50281bb",
+      "command": null,
+      "restart": "unless-stopped",
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 80,
+          "published": "8080",
+          "protocol": "tcp"
+        }
+      ]
+    }
+  },
+  "containers": [
+    {
+      "name": "unspun-api-1",
+      "service": "api",
+      "state": "running",
+      "image": "ghcr.io/linsrock/unspun-server:1abcadf606a05fc7db4d4873aaaa251503f39268",
+      "image_id": "sha256:56a5d655286d5005c2f73baab174063ba0a5cf664a220cc823146bf60fb33e8e",
+      "command": [
+        "uvicorn",
+        "unspun.api.app:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000"
+      ],
+      "app_version": "1abcadf606a05fc7db4d4873aaaa251503f39268",
+      "ports": {},
+      "mounts": []
+    },
+    {
+      "name": "unspun-r1-worker-1",
+      "service": "r1-worker",
+      "state": "running",
+      "image": "ghcr.io/linsrock/unspun-server:1abcadf606a05fc7db4d4873aaaa251503f39268",
+      "image_id": "sha256:56a5d655286d5005c2f73baab174063ba0a5cf664a220cc823146bf60fb33e8e",
+      "command": [
+        "python",
+        "-m",
+        "unspun.pipeline.r1_worker"
+      ],
+      "app_version": "1abcadf606a05fc7db4d4873aaaa251503f39268",
+      "ports": {},
+      "mounts": []
+    },
+    {
+      "name": "unspun-web-1",
+      "service": "web",
+      "state": "running",
+      "image": "ghcr.io/linsrock/unspun-web:d72861bf854465a7a1107d149fad82dfe50281bb",
+      "image_id": "sha256:4fd084fbdba2bfa801b33d3047c1d9a5eee271ab3107d2c80dff5320a8c485ed",
+      "command": [
+        "caddy",
+        "run",
+        "--config",
+        "/etc/caddy/Caddyfile",
+        "--adapter",
+        "caddyfile"
+      ],
+      "app_version": null,
+      "ports": {
+        "80/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "mounts": []
+    },
+    {
+      "name": "unspun-rsshub-1",
+      "service": "rsshub",
+      "state": "running",
+      "image": "diygod/rsshub:2026-10-09",
+      "image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+      "command": [
+        "npm",
+        "run",
+        "start"
+      ],
+      "app_version": null,
+      "ports": {},
+      "mounts": []
+    },
+    {
+      "name": "unspun-db-backup-1",
+      "service": "db-backup",
+      "state": "running",
+      "image": "pgvector/pgvector:pg17",
+      "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d",
+      "command": [
+        "while true; do\n  pg_dump -h db -U unspun -d unspun -Fc \\\n    -f \"/backups/unspun-$(date +%F).dump\" \\\n    && find /backups -name '*.dump' -mtime +14 -delete \\\n    && echo \"backup done $(date -Is)\"\n  sleep 86400\ndone\n"
+      ],
+      "app_version": null,
+      "ports": {},
+      "mounts": [
+        {
+          "type": "volume",
+          "destination": "/backups",
+          "name": "unspun_backups"
+        },
+        {
+          "type": "volume",
+          "destination": "/var/lib/postgresql/data",
+          "name": "481afd2976dad32945f437b38df50fbb7b432e976f115930c746884e5bdecb74"
+        }
+      ]
+    },
+    {
+      "name": "unspun-db-1",
+      "service": "db",
+      "state": "running",
+      "image": "pgvector/pgvector:pg17",
+      "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d",
+      "command": [
+        "postgres"
+      ],
+      "app_version": null,
+      "ports": {},
+      "mounts": [
+        {
+          "type": "volume",
+          "destination": "/var/lib/postgresql/data",
+          "name": "unspun_pgdata"
+        }
+      ]
+    }
+  ],
+  "legacy_all_states": 0,
+  "controlled_running": 1,
+  "controlled_enabled": "true"
+}

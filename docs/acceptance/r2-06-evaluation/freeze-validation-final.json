@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-20T12:25:10.914372+00:00",
+  "base_revision": "c58a87881017a3b0b2e89de15bbf32279b9e6b39",
+  "original_frozen_files_verified": 27,
+  "new_frozen_files_verified": 11,
+  "protected_original_files_verified": 51,
+  "intentional_narrative_update": "docs/evaluations/r2/README.md appends this new batch; not an original frozen input",
+  "contract_delta_keys": [
+    "version",
+    "recall"
+  ],
+  "r1_card_contract_and_processing_bytes_unchanged": true,
+  "r204_worktree_protected": true,
+  "new_user_ratings_written": 0,
+  "paid_calls": 0
+}

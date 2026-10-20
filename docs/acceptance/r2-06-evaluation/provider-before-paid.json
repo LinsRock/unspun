@@ -1,0 +1,111 @@
+{
+  "at": "2026-10-20T12:23:51.661896+00:00",
+  "provider": {
+    "limit": 15,
+    "limit_remaining": 5.65060319,
+    "limit_reset": "monthly",
+    "usage": 9.34939681,
+    "usage_monthly": 9.34939681
+  },
+  "budget": {
+    "enabled": true,
+    "scope": "evaluation",
+    "monthly_limit_usd": "1.500000000000",
+    "evaluation_allocation_usd": "1.50",
+    "stage_caps": {
+      "topic_review": "0.20",
+      "topic_judgment": "0.08",
+      "topic_embedding": "0.02"
+    },
+    "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+    "incident": null,
+    "unresolved_calls": 7,
+    "reserved_usd": "0.484867000000",
+    "accounting": {
+      "period": "since_cutover",
+      "known_spend_usd": "0.36901000000000006",
+      "historical_carry_usd": "0E-12",
+      "carry_basis": "isolated-evaluation-allocation",
+      "unresolved_holds_usd": "0.484867000000",
+      "occupancy_usd": "0.85387700000000006",
+      "holds_are_not_actual_fees": true
+    },
+    "provider_limit_usd": null,
+    "provider_observed_at": null,
+    "cost_basis": "llm_usage_known_fees_only",
+    "unit_costs": {
+      "basis": "all_time_current_contract_runtime_tasks; not discovery recall or user worth",
+      "cohorts": {
+        "card": {
+          "contract_version": "r1-card-v9",
+          "attempted_candidates": 0,
+          "ready_outputs": 0,
+          "physical_requests": 0,
+          "known_requests": 0,
+          "known_cost_usd": "0",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        },
+        "guide": {
+          "contract_version": "r1-guide-v5",
+          "attempted_candidates": 1,
+          "ready_outputs": 1,
+          "physical_requests": 2,
+          "known_requests": 2,
+          "known_cost_usd": "0.0021675",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        }
+      },
+      "per_100_candidates": {
+        "status": "unmeasured",
+        "denominator": "distinct_r1_candidates_with_attempted_card_tasks",
+        "denominator_count": 0,
+        "value_usd": null,
+        "known_plus_holds_scenario_usd": null,
+        "holds_are_not_actual_fees": true
+      },
+      "per_admitted_item": {
+        "status": "unmeasured",
+        "denominator": "distinct_current_contract_ready_admissions",
+        "denominator_count": 0,
+        "value_usd": null,
+        "known_plus_holds_scenario_usd": null,
+        "holds_are_not_actual_fees": true
+      },
+      "per_new_guide": {
+        "status": "measured",
+        "denominator": "distinct_current_contract_ready_guide_versions",
+        "denominator_count": 1,
+        "value_usd": "0.0021675",
+        "known_plus_holds_scenario_usd": "0.0021675",
+        "holds_are_not_actual_fees": true
+      },
+      "excluded_physical_requests": 399,
+      "exclusion_basis": "Other contracts or missing/mismatched runtime task links; retained in the overall ledger, never assigned to these cohorts.",
+      "monthly_projection": {
+        "status": "unmeasured",
+        "basis": "requires_registered_observed_eligible_daily_volume"
+      }
+    }
+  },
+  "batch": {
+    "physical_requests": 0,
+    "stage_counts": {
+      "topic_embedding": 0,
+      "topic_judgment": 0,
+      "topic_review": 0
+    },
+    "known_usd": "0",
+    "held_usd": "0",
+    "unknown_ids": [],
+    "unresolved_ids": [],
+    "request_ids": []
+  },
+  "effective_limit_usd": "0.20",
+  "database_writes": 0,
+  "paid_requests": 0,
+  "transport": "same VPS SOCKS with keepalive 15 seconds; initial free probe failed after prior idle tunnel timeout, no paid request"
+}

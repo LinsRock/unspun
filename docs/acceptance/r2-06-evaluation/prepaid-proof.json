@@ -1,0 +1,394 @@
+{
+  "at": "2026-10-20T12:16:22.490247+00:00",
+  "source_revision": "2d8daf37aa0284fa7387bd4a275c628cecc36d69",
+  "schema": "000019",
+  "materials": [
+    {
+      "article_id": 8844,
+      "status": "original_admission_exclusion",
+      "material_id": 100001,
+      "original_material_id": 1,
+      "material_fingerprint": "5016d1b327e795373da5f6267e0c6e3a10c183ec7ad7adc3b15b1c0f385bb46c",
+      "card_processing_fingerprint": "b1b09d3ca3e060e7797e7c9f8b5999081ee86c2af547bbf1791de5f067f524dd",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8847,
+      "status": "original_admission_exclusion",
+      "material_id": 100077,
+      "original_material_id": 77,
+      "material_fingerprint": "36c18c1fe1d60326cba3b793afa39d10740e49aed25c6eacaf0435fb6d48be58",
+      "card_processing_fingerprint": "68c0956c18968a576a47229fd8ba0f62b7dc325a17b63a2dfd119b2ad93370a1",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8861,
+      "status": "qualified",
+      "material_id": 100018,
+      "original_material_id": 18,
+      "material_fingerprint": "ddd0d8734e7fe583d358b0087c8322d716594104d429aa47407168c11cfeedc2",
+      "card_processing_fingerprint": "8d7819d98ef74b24a513b665f28df1b51ff4678041842273eb8ae6e27e8b2dbb",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8868,
+      "status": "qualified",
+      "material_id": 100025,
+      "original_material_id": 25,
+      "material_fingerprint": "19d32e5dc5bfbcefa95b05aeaa808e045d073cc39baa6d179817c732de64f5cc",
+      "card_processing_fingerprint": "57218a9a618e207d29fac224f4df827bfa433c9fdc446697a098e66430dbc9f0",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8869,
+      "status": "original_admission_exclusion",
+      "material_id": 100026,
+      "original_material_id": 26,
+      "material_fingerprint": "9e85997dfe9fd5c0af4b27da09675f5ef08aba4fb4b4edbe3dc89bc2608f6de7",
+      "card_processing_fingerprint": "0b435c1171f74bbde39fa709c712731e42351c5662d9a7015b34382435eb9f70",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8872,
+      "status": "qualified",
+      "material_id": 100029,
+      "original_material_id": 29,
+      "material_fingerprint": "1efe7081a99e782081315998a95998b10b1a63b932ff7d8e296ab81ca29d5937",
+      "card_processing_fingerprint": "2e725d21af2afc5340cba122a70c84e759dd48315327bd812478107552f3cc95",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8874,
+      "status": "qualified",
+      "material_id": 100031,
+      "original_material_id": 31,
+      "material_fingerprint": "b2024a290f1d00568433950aeed27b2dce2738c05bf47ad26cc9a67fa2843eac",
+      "card_processing_fingerprint": "d00cca700e231c9ba20e6094864c8f7cf5a7922b6a218933f4024fe43f86a500",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8876,
+      "status": "qualified",
+      "material_id": 100033,
+      "original_material_id": 33,
+      "material_fingerprint": "903a522f0e68d6d3e5a25c290b27e82f6bc1ef88f283e8fce6bdd513fddba4e5",
+      "card_processing_fingerprint": "7b84eeb4e99e911b47139eb86c2bd0a1f6c85bfc9d29d39c1f3edf5eabc54454",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8877,
+      "status": "unavailable_identity_conflict",
+      "original_r1_qualification": "currently_published"
+    },
+    {
+      "article_id": 8878,
+      "status": "qualified",
+      "material_id": 100034,
+      "original_material_id": 34,
+      "material_fingerprint": "1da691aae7eee0a8b5b9aee129b619a9629260440a0ca1b099bbfe1f64d200c1",
+      "card_processing_fingerprint": "13d081b41ce8b25c601c79d1241d626d8340b072a437d398c6de5ee43091dd3c",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8879,
+      "status": "qualified",
+      "material_id": 100036,
+      "original_material_id": 36,
+      "material_fingerprint": "530c1a47ab2cfe441ae4d5b825e26069af564a713b602520ce31304ecce1d606",
+      "card_processing_fingerprint": "e84d1afe9a7adf34d84d147e7b1360010cc563dd1c1a172abff1cf0081623fb4",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8881,
+      "status": "qualified",
+      "material_id": 100052,
+      "original_material_id": 52,
+      "material_fingerprint": "2a4852335cadaede6a40fae0bfe54da3c90609bc4eb729a63a7caff61f6249c1",
+      "card_processing_fingerprint": "9cf7edd9de31535a37d83d3ff8f4dd810980ef36bf76ba3b364dbe6a3db9d071",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8886,
+      "status": "qualified",
+      "material_id": 100043,
+      "original_material_id": 43,
+      "material_fingerprint": "d2584e99bc015ab5ca25287eaa3e4ad19f1c27a78d4bc3c695ede11364dda5ea",
+      "card_processing_fingerprint": "f132f4ee3001af3259d3bf61ddfc1db7a239c6e21d65837bdad1ac0915ee9be8",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8888,
+      "status": "original_admission_exclusion",
+      "material_id": 100045,
+      "original_material_id": 45,
+      "material_fingerprint": "397137a1ebedc9e89d1f2bdb7fff62347baee7291a6404fbcce3278c104fb150",
+      "card_processing_fingerprint": "ca09156604677281eb2bbf98031a82579c0b64293c7e841794684591bfb72cbf",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8893,
+      "status": "qualified",
+      "material_id": 100053,
+      "original_material_id": 53,
+      "material_fingerprint": "1ec43b35b440b67c0a29ff30089d593b1ce1e4315d1f02fc6808276a994928a1",
+      "card_processing_fingerprint": "e0f4c805ee6f10a587b304270cda43a044126f25fd1b47cb9523d01691fa227d",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8896,
+      "status": "qualified",
+      "material_id": 100056,
+      "original_material_id": 56,
+      "material_fingerprint": "d8750b0daf5d70b07437671901308b72cd839fdd502e15b30b225b1727699e2c",
+      "card_processing_fingerprint": "bac3b4f22206c15baf90d7e37187bddf2ffd00e86f1e0aa8207393baceb8aeb4",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8898,
+      "status": "qualified",
+      "material_id": 100058,
+      "original_material_id": 58,
+      "material_fingerprint": "42bb6165547982db59983448f166d2930c27ed72aa5c2580599b049045d2e16c",
+      "card_processing_fingerprint": "750783e990d5397d6078dbf0a6e34732307a897af571a0821b3226aed99e9973",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8899,
+      "status": "qualified",
+      "material_id": 100059,
+      "original_material_id": 59,
+      "material_fingerprint": "1498697f4e0ceeea0e95c79c2c8c99d85b6e4d48aa298fc9e6b343bdcdbdeb7f",
+      "card_processing_fingerprint": "904a37807c89806db108d7e6fd1cec16effa886a69d03726f96d276bd8daa713",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8900,
+      "status": "original_admission_exclusion",
+      "material_id": 100060,
+      "original_material_id": 60,
+      "material_fingerprint": "305c7571803e392c2577f2dc73672dd43be26c9d652d18feed0f3bc6987f5f70",
+      "card_processing_fingerprint": "b7de537eb7862481255350a18ba05dbd9fd2a2432d5ff21e9424a0f6e6095ef8",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8902,
+      "status": "qualified",
+      "material_id": 100063,
+      "original_material_id": 63,
+      "material_fingerprint": "ebe6cf54429fbb61742d0a1e5b3a744fa80e44adcce6092bc19105311f0670cb",
+      "card_processing_fingerprint": "978d51a8a9b284c234c50251b7baaa5f8c222159e936480bc5feea95e0dcff0a",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8904,
+      "status": "qualified",
+      "material_id": 100065,
+      "original_material_id": 65,
+      "material_fingerprint": "9939fb6159ec5836310acac8c309b467b1a1616343fb62f6c417a51d6abcc70a",
+      "card_processing_fingerprint": "4c4d0f0b6ec7a256b744236c63b8355ed63dea83f0107f8ea1f5bc25f07ce352",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8905,
+      "status": "qualified",
+      "material_id": 100066,
+      "original_material_id": 66,
+      "material_fingerprint": "4e1eb15e77ba67aad1e7b8dd8d9024d5d5d0f75ecc43b47721ae91a07858ce94",
+      "card_processing_fingerprint": "ea08e17c44ecc3f2dad107e8f1e4788412261cfb4520a26728dbbc5151eb2e00",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8906,
+      "status": "qualified",
+      "material_id": 100067,
+      "original_material_id": 67,
+      "material_fingerprint": "9a9047fc215a35c043703da6c870a67365b9354792420d26eee33f22514f67c2",
+      "card_processing_fingerprint": "58a0d8167ea23b93a0fa997fd50fba305893f34cc653b5122d66e2249b35dee3",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8907,
+      "status": "original_admission_exclusion",
+      "material_id": 100068,
+      "original_material_id": 68,
+      "material_fingerprint": "dcf6e1bf8d9c611722947ac8383ffc0485871ace86e0ef200f36f17ea0904371",
+      "card_processing_fingerprint": "0f68308274acc6322b0ac1f0e5c813599bc2a31e564bad101274e0fa94568b29",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8909,
+      "status": "original_admission_exclusion",
+      "material_id": 100070,
+      "original_material_id": 70,
+      "material_fingerprint": "f295e333e75e6f6b0143e350bede63f7c1078a6692ed203439f6958032b71ad7",
+      "card_processing_fingerprint": "ee61fb222a40011171d2aaa7a16805c515ba04d6a23fc16f52fb0b3ee9002f1b",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8910,
+      "status": "original_admission_exclusion",
+      "material_id": 100071,
+      "original_material_id": 71,
+      "material_fingerprint": "db712841de667cbefe2988e2219c5ff16a962249b6a816ec1cf6150bdb58368c",
+      "card_processing_fingerprint": "1e0daa12a6860413a626a0f4b20bf5f4ba44581463a664687d68767009471f6b",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8916,
+      "status": "original_admission_exclusion",
+      "material_id": 100079,
+      "original_material_id": 79,
+      "material_fingerprint": "c6eb2cc7206c485268c27c2c66bf9d79d8d843fc74c2d376b136ab5425d7f46c",
+      "card_processing_fingerprint": "5589dd0b7a2a529d2144e063830d6d32bce011584e068d062c827ce5894ce50e",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8919,
+      "status": "original_admission_exclusion",
+      "material_id": 100082,
+      "original_material_id": 82,
+      "material_fingerprint": "20ccbf2a6492d5b9fae2ff0fb7373a14a42c2e583d816ab2a472af90fa2fad54",
+      "card_processing_fingerprint": "76a07adbcd6fe2f564f9a6a5324971d3e872c8d63b4699188419e2b47d2f079d",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8923,
+      "status": "qualified",
+      "material_id": 100086,
+      "original_material_id": 86,
+      "material_fingerprint": "037127dd1ad78f0134e8b75609748164ba28d373762dde8f78f93612eddbb316",
+      "card_processing_fingerprint": "4dd1e7ee53c38bf6bee0b54b773a54a91f3487cac286c62dce9307e7335d6fac",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8926,
+      "status": "qualified",
+      "material_id": 100089,
+      "original_material_id": 89,
+      "material_fingerprint": "7b28dc584f72fa316e0cfdadabc0c80ee812e66e8ef371e6fa5620663743e4e5",
+      "card_processing_fingerprint": "0ac1deb2de2d14e536efba2fd09767c08754630c618f909ffe6e92ece2b3dc35",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8903,
+      "status": "qualified",
+      "material_id": 100064,
+      "original_material_id": 64,
+      "material_fingerprint": "ccd80c976b0cab60a12f16cd4c7aba10f29fae3a2697d565f31c19dc678f6750",
+      "card_processing_fingerprint": "24c1eaf52c2e3d85ca2696ae394be194446ce2f0c91531c5a3a6633ab6199d67",
+      "paragraphs_unchanged": true
+    },
+    {
+      "article_id": 8985,
+      "status": "qualified",
+      "material_id": 100098,
+      "original_material_id": 98,
+      "material_fingerprint": "dc4b078f58a72be54c5caeceec74d4ba01f999c468f1b40d9db3d2cbb5a2f94e",
+      "card_processing_fingerprint": "ad30359bf1062f31f5f0c1b19692e3559f7b603c09ae65e2019085258fc7e5e5",
+      "paragraphs_unchanged": true
+    }
+  ],
+  "registered_queries": 12,
+  "executable_queries": 11,
+  "budget": {
+    "enabled": true,
+    "scope": "evaluation",
+    "monthly_limit_usd": "1.500000000000",
+    "evaluation_allocation_usd": "1.50",
+    "stage_caps": {
+      "topic_review": "0.20",
+      "topic_judgment": "0.08",
+      "topic_embedding": "0.02"
+    },
+    "coverage_started_at": "2026-10-16 08:31:00.825129+00:00",
+    "incident": null,
+    "unresolved_calls": 7,
+    "reserved_usd": "0.484867000000",
+    "accounting": {
+      "period": "since_cutover",
+      "known_spend_usd": "0.36901000000000006",
+      "historical_carry_usd": "0E-12",
+      "carry_basis": "isolated-evaluation-allocation",
+      "unresolved_holds_usd": "0.484867000000",
+      "occupancy_usd": "0.85387700000000006",
+      "holds_are_not_actual_fees": true
+    },
+    "provider_limit_usd": null,
+    "provider_observed_at": null,
+    "cost_basis": "llm_usage_known_fees_only",
+    "unit_costs": {
+      "basis": "all_time_current_contract_runtime_tasks; not discovery recall or user worth",
+      "cohorts": {
+        "card": {
+          "contract_version": "r1-card-v9",
+          "attempted_candidates": 0,
+          "ready_outputs": 0,
+          "physical_requests": 0,
+          "known_requests": 0,
+          "known_cost_usd": "0",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        },
+        "guide": {
+          "contract_version": "r1-guide-v5",
+          "attempted_candidates": 1,
+          "ready_outputs": 1,
+          "physical_requests": 2,
+          "known_requests": 2,
+          "known_cost_usd": "0.0021675",
+          "unknown_requests": 0,
+          "held_usd": "0",
+          "unknown_without_hold": 0
+        }
+      },
+      "per_100_candidates": {
+        "status": "unmeasured",
+        "denominator": "distinct_r1_candidates_with_attempted_card_tasks",
+        "denominator_count": 0,
+        "value_usd": null,
+        "known_plus_holds_scenario_usd": null,
+        "holds_are_not_actual_fees": true
+      },
+      "per_admitted_item": {
+        "status": "unmeasured",
+        "denominator": "distinct_current_contract_ready_admissions",
+        "denominator_count": 0,
+        "value_usd": null,
+        "known_plus_holds_scenario_usd": null,
+        "holds_are_not_actual_fees": true
+      },
+      "per_new_guide": {
+        "status": "measured",
+        "denominator": "distinct_current_contract_ready_guide_versions",
+        "denominator_count": 1,
+        "value_usd": "0.0021675",
+        "known_plus_holds_scenario_usd": "0.0021675",
+        "holds_are_not_actual_fees": true
+      },
+      "excluded_physical_requests": 399,
+      "exclusion_basis": "Other contracts or missing/mismatched runtime task links; retained in the overall ledger, never assigned to these cohorts.",
+      "monthly_projection": {
+        "status": "unmeasured",
+        "basis": "requires_registered_observed_eligible_daily_volume"
+      }
+    }
+  },
+  "batch": {
+    "physical_requests": 0,
+    "stage_counts": {
+      "topic_embedding": 0,
+      "topic_judgment": 0,
+      "topic_review": 0
+    },
+    "known_usd": "0",
+    "held_usd": "0",
+    "unknown_ids": [],
+    "unresolved_ids": [],
+    "request_ids": []
+  },
+  "paid_requests": 0,
+  "database_writes": 0,
+  "all_original_processing_fingerprints_and_paragraphs_preserved": true,
+  "scope": "Only appendable frozen real versions; no replacement with older object 19 and no R1 regeneration."
+}
