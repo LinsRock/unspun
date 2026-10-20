@@ -248,3 +248,44 @@ def test_first_technical_failure_is_retained_without_execution_retry(
         t["status"] == "failed" for r in records if r["event"] == "checkpoint" for t in r["tasks"]
     )
     assert len(db.calls) == 3
+
+
+def test_existing_url_is_retained_and_requires_frozen_exclusion(db_session: Session) -> None:
+    from sqlalchemy import func, select
+
+    from unspun.core.models import Article
+
+    packages = json.loads((quality.ROOT / "docs/evaluations/r2/member-inputs-v1.json").read_text())[
+        "packages"
+    ]
+    package = next(p for p in packages if p["article"]["id"] == 8877)
+    old = Article(
+        url=package["article"]["url"],
+        title="Retained earlier material version",
+        source_id="douban-book",
+        processing_track="r1",
+    )
+    db_session.add(old)
+    db_session.flush()
+    with pytest.raises(ValueError, match="URL already exists"):
+        seed_packages(db_session, packages)
+    assert db_session.scalar(select(func.count()).select_from(Article)) == 1
+    seed_packages(db_session, packages, exclude_ids=frozenset({8877}))
+    assert db_session.get(Article, 8877) is None
+    assert old.title == "Retained earlier material version" and old.current_material_id is None
+
+
+def test_unavailable_input_never_initiates_a_paid_task(
+    member_db: MemberDB, monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    db = member_db
+    value = spec(db)
+    value["unavailable_inputs"] = [{"article_id": db.article, "reason": "frozen conflict"}]
+    monkeypatch.setattr(quality, "load_sources", lambda: db.sources)
+    monkeypatch.setattr(quality, "EVIDENCE", tmp_path)
+    quality.run_batch(db.billing.engine, value, Decimal("0.20"), None)
+    records = [
+        json.loads(line) for line in (tmp_path / "first-run.ndjson").read_text().splitlines()
+    ]
+    assert any(r["event"] == "unavailable" for r in records)
+    assert records[-1]["event"] == "complete" and not db.calls and not db.billing.requests()

@@ -1,0 +1,51 @@
+{
+  "schema_version": "r206-availability-v1",
+  "frozen_at": "2026-10-20T12:05:21.045326+00:00",
+  "paid_requests_so_far": 0,
+  "reason": "The formal append-only seed transaction found an existing r1 URL with different material; the complete transaction rolled back. Original input, split and first model-output status are unchanged.",
+  "unavailable_inputs": [
+    {
+      "article_id": 8877,
+      "split": "holdout",
+      "existing_article_id": 19,
+      "url": "https://book.douban.com/review/17835717/",
+      "reason": "same URL/track already exists with different material and metadata fingerprints and different paragraphs; retaining the old object prevents appending this frozen version",
+      "r1_qualification": "qualified in the original R2 frozen materials; unavailable for this cumulative-ledger append, not a negative user judgment"
+    }
+  ],
+  "additional_queries": [
+    {
+      "article_id": 8903,
+      "split": "regression",
+      "expected_associations": {},
+      "dimensions": [
+        "independent_opinion",
+        "different_fires",
+        "existing_member_excluded"
+      ],
+      "unlisted_topics": "independent; audit every actually selected negative candidate",
+      "user_accepted": null,
+      "origin": "The already frozen real supplemental 8903 opinion anchor; newly registered query role before any paid output."
+    }
+  ],
+  "effective_population": {
+    "registered_queries_including_unavailable": 12,
+    "available_queries": 11,
+    "available_regression": 7,
+    "available_holdout": 4,
+    "expected_associations": 6,
+    "original_r2_materials": 30,
+    "original_r1_qualified": 20,
+    "original_r1_excluded": 10,
+    "additional_frozen_materials": 2,
+    "append_unavailable_despite_r1_qualification": 1,
+    "newly_appendable_qualified_materials": 21
+  },
+  "topic_anchor_policy": "The original 10 seeds and anchor construction are unchanged; 8903 already seeds the Hong Kong topic and that existing membership is excluded from its recall.",
+  "budget_unchanged": {
+    "pooled_limit_usd": "0.20",
+    "original_cumulative_usd": "1.50",
+    "physical_requests_including_retries": 120
+  },
+  "tuning_on_model_outputs": false
+}
