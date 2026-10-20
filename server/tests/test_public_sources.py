@@ -269,6 +269,47 @@ def test_paper_publisher_only_byline_does_not_invent_a_personal_author() -> None
     assert not result.metadata.authors
 
 
+def test_paper_mixed_reporter_production_and_intern_credits_preserve_roles() -> None:
+    result = material(
+        "thepaper",
+        paper_html(
+            contId=1,
+            author=(
+                "\u6f8e\u6e43\u65b0\u95fb\u8bb0\u8005 Wang "
+                "\u5236\u4f5c Wang Wu Cai Yu \u5b9e\u4e60\u751f Lan"
+            ),
+            content="<p>Actual text.</p>",
+            contType=0,
+        ),
+    )
+    assert [(a.name, a.role) for a in result.metadata.authors] == [
+        ("Wang", "reporter"),
+        ("Wang", "unknown"),
+        ("Wu", "unknown"),
+        ("Cai", "unknown"),
+        ("Yu", "unknown"),
+        ("Lan", "unknown"),
+    ]
+    assert result.metadata.authors[-1].basis.endswith("\u5b9e\u4e60\u751f")
+
+
+def test_paper_editor_after_reporter_is_not_labelled_as_reporter() -> None:
+    result = material(
+        "thepaper",
+        paper_html(
+            contId=1,
+            author="\u8bb0\u8005: Lin \u7f16\u8f91\uff1a Chen/Wire Agency",
+            content="<p>Actual text.</p>",
+            contType=0,
+        ),
+    )
+    assert [(a.name, a.role) for a in result.metadata.authors] == [
+        ("Lin", "reporter"),
+        ("Chen", "editor"),
+    ]
+    assert result.metadata.publisher == "Wire Agency"
+
+
 def test_netease_reprint_and_source_link_do_not_replace_original_time() -> None:
     original = ContentTime(
         kind="original",

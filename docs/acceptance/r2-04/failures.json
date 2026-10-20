@@ -1,0 +1,55 @@
+{
+  "schema_version": "r2-04-failures-v1",
+  "source_failures": [
+    {
+      "route": "thepaper-sidebar",
+      "identity": "34225033",
+      "material": "none/unavailable",
+      "byline": "compound role labels incorrectly inherited reporter role in initial comparison; corrected in current parser; original retained"
+    }
+  ],
+  "observation_setup": [
+    {
+      "container": "unspun-r204-compare-v1",
+      "exit_code": 1,
+      "source_requests": 0,
+      "failure": "UID 1000 could not write leon-owned evidence directory (actual UID 1001).",
+      "resolution": "new named container compare-v2 using UID/GID 1001; same registration, original failed container/log retained"
+    }
+  ],
+  "evidence_and_validation_failures": [
+    {
+      "failure": "Existing full R2-01 production capture stdout truncated at 4456448 bytes; invalid JSON, not used for claims",
+      "preserved_private_path": "/Users/li.cong/.cache/unspun-r204-20261020/truncated-production-capture.json",
+      "sha256": "45742c632d8933920ecbdad401b9940ba8537662810e6bc70bb653a7b9744f6d",
+      "resolution": "new compact SELECT-only snapshot, same free provider endpoint; no billing/database mutation"
+    },
+    {
+      "failure": "runtime-boundaries.py invoked in API with worker_enabled=false",
+      "resolution": "read actual controlled worker settings; API runtime was not enabled"
+    },
+    {
+      "failure": "ranking CLI invoked without required input paths; zero cases ran",
+      "resolution": "explicit frozen input/annotations, 40 cases passed"
+    },
+    {
+      "failure": "wrong CI scope test path; zero tests ran",
+      "resolution": "deploy/tests and .github/tests: 29 passed, 8 subtests"
+    },
+    {
+      "failure": "initial offline replay had no archived Location header for Tencent redirects",
+      "resolution": "reconstruct only next observed URL from original HTTP trace; all bodies/scopes match; no new external request"
+    },
+    {
+      "failure": "freeze manifest base incorrectly used for newly created evaluation files",
+      "resolution": "hash all current frozen evidence directly; only already-changed sources.yml read at its registered pre-change revision; all 27 match"
+    },
+    {
+      "failure": "registered selection reason said 6/6 Tencent titles overlap NetEase",
+      "resolution": "v4 exact-set recount is 5/6; preserve registered bytes and append erratum"
+    }
+  ],
+  "omitted_source_attempts": 0,
+  "old_probes_reused_as_new_window": false,
+  "new_paid_requests": 0
+}

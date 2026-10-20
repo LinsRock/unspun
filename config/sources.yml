@@ -41,16 +41,23 @@ sources:
     kind: commercial
     lang: zh
     legacy_enabled: false
+    discovery_owner: r1
     max_items: 50
     timeout_seconds: 20
     r1:
       adapter: thepaper
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
+      period_seconds: 7200
+      discovery: false
+      material: false
+      paid: false
+      publish: false
       platform: thepaper
       origin_hosts: [thepaper.cn]
       paid_scopes: []
       publish_scopes: []
-      version: r1-public-sources-v1
-      capability: current-sidebar-observation-only
+      version: r2-04-observation-v1
+      capability: current-sidebar-pending-new-target-window
   - id: netease-home
     name: NetEase current headlines
     url: https://news.163.com/
@@ -636,9 +643,13 @@ sources:
     region: cn-mainland
     kind: commercial
     lang: zh
+    legacy_enabled: false
+    discovery_owner: r1
     r1:
-      paid_scopes: [complete_brief]
-      publish_scopes: [complete_brief]
+      quotas: {scan: 30, material: 1, paid: 1, recheck_seconds: 86400}
+      period_seconds: 7200
+      paid_scopes: []
+      publish_scopes: []
       discovery: false
       material: false
       paid: false
@@ -648,7 +659,8 @@ sources:
       platform: 36kr
       publisher: 36Kr
       origin_hosts: [36kr.com]
-      capability: declared_pending_target_observation
+      version: r2-04-observation-v1
+      capability: complete-brief-pending-new-target-window
     max_items: 20
     timeout_seconds: 60
   # --- Via self-hosted RSSHub, M2 T3a; routes verified from the VPS 2026-10-10 ---

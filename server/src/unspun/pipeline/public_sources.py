@@ -273,6 +273,46 @@ def discover_public(
     )
 
 
+def _paper_authors(raw: str) -> tuple[Author, ...]:
+    # A byline can credit reporters, production staff and interns together.
+    # Preserve each explicit role boundary; a production label is not a name.
+    labels = list(
+        re.finditer(r"(\u8bb0\u8005|\u7f16\u8f91|\u5236\u4f5c|\u5b9e\u4e60\u751f)[\s\uff1a:]+", raw)
+    )
+    segments: list[tuple[str, str]] = []
+    if labels:
+        prefix = raw[: labels[0].start()].removeprefix("\u6f8e\u6e43\u65b0\u95fb").strip()
+        if prefix:
+            segments.append(("", prefix))
+        for index, label in enumerate(labels):
+            end = labels[index + 1].start() if index + 1 < len(labels) else len(raw)
+            segments.append((label[1], raw[label.end() : end]))
+    else:
+        segments.append(("", raw))
+    authors: list[Author] = []
+    for label, names in segments:
+        role: Literal["author", "reporter", "editor", "unknown"] = (
+            "reporter"
+            if label == "\u8bb0\u8005"
+            else "editor"
+            if label == "\u7f16\u8f91"
+            else "unknown"
+            if label
+            else "author"
+        )
+        for name in re.split(r"[\u3001\uff0c,\s]+", names.strip()):
+            if name:
+                author = Author(
+                    name=name,
+                    role=role,
+                    platform="thepaper",
+                    basis="thepaper:detail:author" + (":label=" + label if label else ""),
+                )
+                if author not in authors:
+                    authors.append(author)
+    return tuple(authors)
+
+
 def public_material(
     page: TextPage, html: str, url: str, previous: ContentMetadata, now: datetime
 ) -> tuple[ContentMetadata, str, str]:
@@ -299,25 +339,10 @@ def public_material(
         names, separator, credited = author.partition("/")
         if separator and credited:
             publisher = credited.strip() or publisher
-        labelled = re.fullmatch(
-            r"(?:\u6f8e\u6e43\u65b0\u95fb)?(\u8bb0\u8005|\u7f16\u8f91)\s+(.+)", names
-        )
-        role: Literal["author", "reporter", "editor"] = (
-            "reporter"
-            if labelled and labelled[1] == "\u8bb0\u8005"
-            else "editor"
-            if labelled
-            else "author"
-        )
-        names = labelled[2] if labelled else names
         if names in {"\u6f8e\u6e43\u65b0\u95fb", "\u65b0\u534e\u793e", "\u592e\u89c6\u65b0\u95fb"}:
             publisher = publisher or names
             names = ""
-        values["authors"] = tuple(
-            Author(name=name, role=role, platform="thepaper", basis="thepaper:detail:author")
-            for name in re.split(r"[\u3001\uff0c,\s]+", names)
-            if name
-        )
+        values["authors"] = _paper_authors(names)
         values["publisher"] = publisher
         kind = (
             "original"

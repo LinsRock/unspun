@@ -1,0 +1,354 @@
+{
+  "schema_version": "r2-04-cost-projection-v4",
+  "created_at": "2026-10-20T06:59:22.572891+00:00",
+  "provider": {
+    "limit": 15,
+    "limit_remaining": 5.6634199899999995,
+    "limit_reset": "monthly",
+    "usage": 9.33658001,
+    "usage_monthly": 9.33658001,
+    "checked_at": "2026-10-20T06:51:04.595140+00:00",
+    "method": "GET /api/v1/key"
+  },
+  "production_allocation_usd": "13.50",
+  "original_cumulative_evaluation_allocation_usd": "1.50",
+  "total_monthly_usd": "15",
+  "provider_minus_full_evaluation_allocation_headroom_usd": "4.1634199899999995",
+  "known_production_usd": "7.75298420",
+  "original_evaluation_known_usd": "0.3690100",
+  "original_evaluation_unknown_requests": 7,
+  "original_evaluation_unknown_holds_usd": "0.484867000000",
+  "original_evaluation_unoccupied_usd": "0.646123000000",
+  "measured_units": {
+    "basis": "all_time_current_contract_runtime_tasks; not discovery recall or user worth",
+    "cohorts": {
+      "card": {
+        "contract_version": "r1-card-v9",
+        "attempted_candidates": 117,
+        "ready_outputs": 109,
+        "physical_requests": 242,
+        "known_requests": 242,
+        "known_cost_usd": "0.1401443",
+        "unknown_requests": 0,
+        "held_usd": "0",
+        "unknown_without_hold": 0
+      },
+      "guide": {
+        "contract_version": "r1-guide-v5",
+        "attempted_candidates": 1,
+        "ready_outputs": 1,
+        "physical_requests": 2,
+        "known_requests": 2,
+        "known_cost_usd": "0.0046098",
+        "unknown_requests": 0,
+        "held_usd": "0",
+        "unknown_without_hold": 0
+      }
+    },
+    "per_100_candidates": {
+      "status": "measured",
+      "denominator": "distinct_r1_candidates_with_attempted_card_tasks",
+      "denominator_count": 117,
+      "value_usd": "0.1197814529914529914529914530",
+      "known_plus_holds_scenario_usd": "0.1197814529914529914529914530",
+      "holds_are_not_actual_fees": true
+    },
+    "per_admitted_item": {
+      "status": "measured",
+      "denominator": "distinct_current_contract_ready_admissions",
+      "denominator_count": 109,
+      "value_usd": "0.001285727522935779816513761468",
+      "known_plus_holds_scenario_usd": "0.001285727522935779816513761468",
+      "holds_are_not_actual_fees": true
+    },
+    "per_new_guide": {
+      "status": "measured",
+      "denominator": "distinct_current_contract_ready_guide_versions",
+      "denominator_count": 1,
+      "value_usd": "0.0046098",
+      "known_plus_holds_scenario_usd": "0.0046098",
+      "holds_are_not_actual_fees": true
+    },
+    "excluded_physical_requests": 0,
+    "exclusion_basis": "Other contracts or missing/mismatched runtime task links; retained in the overall ledger, never assigned to these cohorts.",
+    "monthly_projection": {
+      "status": "unmeasured",
+      "basis": "requires_registered_observed_eligible_daily_volume"
+    }
+  },
+  "projection_card_unit_usd": "0.001285727522935779816513761468",
+  "projection_card_unit_basis": "All current-contract card physical fees including failures and retries divided by 109 ready outputs; conservatively applied to every raw paid slot. New-path-specific mean unmeasured.",
+  "review_included_in_card_and_guide_unit_costs": true,
+  "retry_and_failure_padding": "1.20",
+  "future_unknown_stress_usd": "0.738",
+  "future_unknown_stress_basis": "Reuse prior registered failure stress scenario; does not settle or release any existing hold.",
+  "production_review_hard_cap_per_24h_usd": "0.40",
+  "original_eight": {
+    "bbc-world": {
+      "period_seconds": 43200,
+      "scan": 30,
+      "material": 30,
+      "paid": 30,
+      "rounds_per_day": "2",
+      "metadata_slots_per_day": "60",
+      "material_slots_per_day": "60",
+      "new_card_slots_per_day": "60",
+      "stage_flags": {
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true
+      },
+      "paid_scopes": [
+        "media_description"
+      ],
+      "publish_scopes": [
+        "media_description"
+      ]
+    },
+    "wsj-world": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true
+      },
+      "paid_scopes": [
+        "preview"
+      ],
+      "publish_scopes": [
+        "preview"
+      ]
+    },
+    "bbc-zhongwen": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true
+      },
+      "paid_scopes": [
+        "open_text_unit"
+      ],
+      "publish_scopes": [
+        "open_text_unit"
+      ]
+    },
+    "zaobao-china": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true
+      },
+      "paid_scopes": [
+        "open_text_unit"
+      ],
+      "publish_scopes": [
+        "open_text_unit"
+      ]
+    },
+    "zhihu-daily": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true
+      },
+      "paid_scopes": [
+        "editorial_edition"
+      ],
+      "publish_scopes": [
+        "editorial_edition"
+      ]
+    },
+    "people-frontpage": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true
+      },
+      "paid_scopes": [
+        "editorial_edition"
+      ],
+      "publish_scopes": [
+        "editorial_edition"
+      ]
+    },
+    "zaobao-world": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true
+      },
+      "paid_scopes": [
+        "open_text_unit"
+      ],
+      "publish_scopes": [
+        "open_text_unit"
+      ]
+    },
+    "douban-book": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": true,
+        "material": true,
+        "paid": true,
+        "publish": true
+      },
+      "paid_scopes": [
+        "open_text_unit"
+      ],
+      "publish_scopes": [
+        "open_text_unit"
+      ]
+    }
+  },
+  "new_closed_paths": {
+    "thepaper-sidebar": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": false,
+        "material": false,
+        "paid": false,
+        "publish": false
+      },
+      "paid_scopes": [],
+      "publish_scopes": []
+    },
+    "36kr-newsflashes": {
+      "period_seconds": 7200,
+      "scan": 30,
+      "material": 1,
+      "paid": 1,
+      "rounds_per_day": "12",
+      "metadata_slots_per_day": "360",
+      "material_slots_per_day": "12",
+      "new_card_slots_per_day": "12",
+      "stage_flags": {
+        "discovery": false,
+        "material": false,
+        "paid": false,
+        "publish": false
+      },
+      "paid_scopes": [],
+      "publish_scopes": []
+    }
+  },
+  "baseline_scenario": {
+    "candidate_slots_per_day": "144",
+    "monthly_cards_with_padding_usd": "6.665211478899082568807339450",
+    "monthly_guides_120_with_padding_usd": "0.663811200",
+    "monthly_with_future_unknown_stress_usd": "8.067022678899082568807339450",
+    "remaining_days_conservative": 12,
+    "remaining_guides": 48,
+    "initial_slot_stress": 37,
+    "remaining_month_including_initial_and_unknown_stress_usd": "3.726695373577981651376146789",
+    "within_current_conservative_production_headroom": true
+  },
+  "proposed_two_hour_scenario_not_enabled": {
+    "candidate_slots_per_day": "168",
+    "monthly_cards_with_padding_usd": "7.776080058715596330275229359",
+    "monthly_guides_120_with_padding_usd": "0.663811200",
+    "monthly_with_future_unknown_stress_usd": "9.177891258715596330275229359",
+    "remaining_days_conservative": 12,
+    "remaining_guides": 48,
+    "initial_slot_stress": 39,
+    "remaining_month_including_initial_and_unknown_stress_usd": "4.174128551559633027522935780",
+    "within_current_conservative_production_headroom": false
+  },
+  "alternative_six_hour_scenario_not_configuration": {
+    "candidate_slots_per_day": "152",
+    "monthly_cards_with_padding_usd": "7.035501005504587155963302753",
+    "monthly_guides_120_with_padding_usd": "0.663811200",
+    "monthly_with_future_unknown_stress_usd": "8.437312205504587155963302753",
+    "remaining_days_conservative": 12,
+    "remaining_guides": 48,
+    "initial_slot_stress": 39,
+    "remaining_month_including_initial_and_unknown_stress_usd": "3.877896930275229357798165139",
+    "within_current_conservative_production_headroom": true
+  },
+  "all_current_new_stages_off": true,
+  "actual_incremental_paid_requests": 0,
+  "actual_incremental_paid_usd": "0",
+  "new_path_costs_measured": false,
+  "price_upper_bound_claimed": false,
+  "enable_budget_gate": "Not passed: two-hour draft fails conservative remaining-month scenario; even the six-hour alternative requires fresh reads, complete G2 and current-contract paid evaluation before a separate config PR. Existing source configuration stays unchanged.",
+  "fallback": {
+    "new_sources": [
+      "thepaper-sidebar",
+      "36kr-newsflashes"
+    ],
+    "discovery": false,
+    "material": false,
+    "paid": false,
+    "publish": false,
+    "paid_scopes": [],
+    "publish_scopes": [],
+    "preserve": "identity/material/task/cost/unknown reservations; never start legacy worker"
+  }
+}
