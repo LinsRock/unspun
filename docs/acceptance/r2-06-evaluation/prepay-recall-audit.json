@@ -1,0 +1,1132 @@
+{
+  "at": "2026-10-20T11:51:33.047189+00:00",
+  "database": "unspun_r206_eval_tests_20261020",
+  "old_source_revision": "c58a878",
+  "real_plans": [
+    {
+      "article_id": 8881,
+      "split": "regression",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "canada",
+        "uzbekistan",
+        "tajikistan",
+        "hongkong",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "westbank",
+        "canada",
+        "uzbekistan",
+        "tajikistan",
+        "hongkong",
+        "france",
+        "mercenary"
+      ],
+      "expected": {
+        "france": [
+          "same_event"
+        ]
+      },
+      "new_trace": {
+        "domain_topics": 7,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "anchors": {
+          "1464e699-4e0d-575a-b853-d74fc9871e84": {
+            "checked": [
+              8868
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "1ef5945b-a464-5436-8829-f0b015b942a2": {
+            "checked": [
+              8903
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "388ad6c0-5372-57fc-811c-39e889d91ae2": {
+            "checked": [
+              8985
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00": {
+            "checked": [
+              8878
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc": {
+            "checked": [
+              8872
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "a295d553-a96c-5030-a74b-a0bc7df64746": {
+            "checked": [
+              8861
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "metadata_topic_ids": [
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "a295d553-a96c-5030-a74b-a0bc7df64746"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8898,
+      "split": "regression",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "tajikistan",
+        "hongkong",
+        "canada",
+        "uzbekistan",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "hongkong",
+        "tajikistan",
+        "canada",
+        "uzbekistan",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "expected": {
+        "france": [
+          "same_event"
+        ]
+      },
+      "new_trace": {
+        "domain_topics": 7,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "anchors": {
+          "1464e699-4e0d-575a-b853-d74fc9871e84": {
+            "checked": [
+              8868
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "1ef5945b-a464-5436-8829-f0b015b942a2": {
+            "checked": [
+              8903
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "388ad6c0-5372-57fc-811c-39e889d91ae2": {
+            "checked": [
+              8985
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00": {
+            "checked": [
+              8878
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc": {
+            "checked": [
+              8872
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "a295d553-a96c-5030-a74b-a0bc7df64746": {
+            "checked": [
+              8861
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "metadata_topic_ids": [
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8899,
+      "split": "regression",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "tajikistan",
+        "japan-era",
+        "hongkong",
+        "huang",
+        "canada",
+        "uzbekistan",
+        "france",
+        "westbank"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "huang",
+        "tajikistan",
+        "uzbekistan",
+        "japan-era",
+        "hongkong",
+        "canada",
+        "france",
+        "westbank"
+      ],
+      "expected": {
+        "huang": [
+          "opinion",
+          "background"
+        ]
+      },
+      "new_trace": {
+        "domain_topics": 8,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b"
+        ],
+        "anchors": {
+          "1464e699-4e0d-575a-b853-d74fc9871e84": {
+            "checked": [
+              8868
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "1ef5945b-a464-5436-8829-f0b015b942a2": {
+            "checked": [
+              8903
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "388ad6c0-5372-57fc-811c-39e889d91ae2": {
+            "checked": [
+              8985
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00": {
+            "checked": [
+              8878
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "66d307fb-b1c1-5dc6-a245-6588629265d6": {
+            "checked": [
+              8904
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc": {
+            "checked": [
+              8872
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "f5fcc013-f7c6-509f-a60e-1916440b418b": {
+            "checked": [
+              8879
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b"
+        ],
+        "metadata_topic_ids": [
+          "f5fcc013-f7c6-509f-a60e-1916440b418b",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8905,
+      "split": "regression",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "hongkong",
+        "tajikistan",
+        "canada",
+        "uzbekistan",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "canada",
+        "hongkong",
+        "tajikistan",
+        "uzbekistan",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "expected": {},
+      "new_trace": {
+        "domain_topics": 7,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "anchors": {
+          "1464e699-4e0d-575a-b853-d74fc9871e84": {
+            "checked": [
+              8868
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "1ef5945b-a464-5436-8829-f0b015b942a2": {
+            "checked": [
+              8903
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "388ad6c0-5372-57fc-811c-39e889d91ae2": {
+            "checked": [
+              8985
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00": {
+            "checked": [
+              8878
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc": {
+            "checked": [
+              8872
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "a295d553-a96c-5030-a74b-a0bc7df64746": {
+            "checked": [
+              8861
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "metadata_topic_ids": [
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8893,
+      "split": "regression",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "france",
+        "tajikistan",
+        "canada",
+        "westbank",
+        "mercenary",
+        "uzbekistan"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "mercenary",
+        "westbank",
+        "france",
+        "tajikistan",
+        "canada",
+        "uzbekistan"
+      ],
+      "expected": {
+        "mercenary": [
+          "same_issue",
+          "background"
+        ],
+        "westbank": [
+          "same_issue",
+          "background"
+        ]
+      },
+      "new_trace": {
+        "domain_topics": 6,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "anchors": {
+          "a295d553-a96c-5030-a74b-a0bc7df64746": {
+            "checked": [
+              8861
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc": {
+            "checked": [
+              8872
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "1464e699-4e0d-575a-b853-d74fc9871e84": {
+            "checked": [
+              8868
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "388ad6c0-5372-57fc-811c-39e889d91ae2": {
+            "checked": [
+              8985
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00": {
+            "checked": [
+              8878
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "metadata_topic_ids": [
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8874,
+      "split": "regression",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "uzbekistan",
+        "deepseek"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "deepseek",
+        "uzbekistan"
+      ],
+      "expected": {},
+      "new_trace": {
+        "domain_topics": 2,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "anchors": {
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c": {
+            "checked": [
+              8896
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "metadata_topic_ids": [
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8877,
+      "split": "holdout",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "japan-era"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "japan-era"
+      ],
+      "expected": {},
+      "new_trace": {
+        "domain_topics": 1,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "66d307fb-b1c1-5dc6-a245-6588629265d6"
+        ],
+        "anchors": {
+          "66d307fb-b1c1-5dc6-a245-6588629265d6": {
+            "checked": [
+              8904
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "66d307fb-b1c1-5dc6-a245-6588629265d6"
+        ],
+        "metadata_topic_ids": [
+          "66d307fb-b1c1-5dc6-a245-6588629265d6"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8906,
+      "split": "holdout",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "hongkong",
+        "tajikistan",
+        "japan-era",
+        "huang",
+        "canada",
+        "uzbekistan",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "tajikistan",
+        "uzbekistan",
+        "huang",
+        "canada",
+        "hongkong",
+        "japan-era",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "expected": {
+        "tajikistan": [
+          "same_event"
+        ]
+      },
+      "new_trace": {
+        "domain_topics": 9,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b"
+        ],
+        "anchors": {
+          "1464e699-4e0d-575a-b853-d74fc9871e84": {
+            "checked": [
+              8868
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "1ef5945b-a464-5436-8829-f0b015b942a2": {
+            "checked": [
+              8903
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "388ad6c0-5372-57fc-811c-39e889d91ae2": {
+            "checked": [
+              8985
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00": {
+            "checked": [
+              8878
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "66d307fb-b1c1-5dc6-a245-6588629265d6": {
+            "checked": [
+              8904
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc": {
+            "checked": [
+              8872
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "a295d553-a96c-5030-a74b-a0bc7df64746": {
+            "checked": [
+              8861
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "f5fcc013-f7c6-509f-a60e-1916440b418b": {
+            "checked": [
+              8879
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b"
+        ],
+        "metadata_topic_ids": [
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8876,
+      "split": "holdout",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "canada",
+        "huang",
+        "deepseek",
+        "tajikistan",
+        "japan-era",
+        "hongkong",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "tajikistan",
+        "huang",
+        "deepseek",
+        "canada",
+        "japan-era",
+        "hongkong",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "expected": {},
+      "new_trace": {
+        "domain_topics": 10,
+        "existing_member_topics": [
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "scanned_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b"
+        ],
+        "anchors": {
+          "1464e699-4e0d-575a-b853-d74fc9871e84": {
+            "checked": [
+              8868
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "1ef5945b-a464-5436-8829-f0b015b942a2": {
+            "checked": [
+              8903
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "388ad6c0-5372-57fc-811c-39e889d91ae2": {
+            "checked": [
+              8985
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00": {
+            "checked": [
+              8878
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c": {
+            "checked": [
+              8896
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "66d307fb-b1c1-5dc6-a245-6588629265d6": {
+            "checked": [
+              8904
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc": {
+            "checked": [
+              8872
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "a295d553-a96c-5030-a74b-a0bc7df64746": {
+            "checked": [
+              8861
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "f5fcc013-f7c6-509f-a60e-1916440b418b": {
+            "checked": [
+              8879
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b"
+        ],
+        "metadata_topic_ids": [
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b",
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8923,
+      "split": "holdout",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "deepseek",
+        "uzbekistan"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "deepseek",
+        "uzbekistan"
+      ],
+      "expected": {},
+      "new_trace": {
+        "domain_topics": 2,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "anchors": {
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c": {
+            "checked": [
+              8896
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ],
+        "metadata_topic_ids": [
+          "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    },
+    {
+      "article_id": 8926,
+      "split": "holdout",
+      "card_topics": [],
+      "old_pre_embedding_topic_keys": [
+        "hongkong",
+        "tajikistan",
+        "japan-era",
+        "huang",
+        "canada",
+        "uzbekistan",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "new_pre_embedding_topic_keys": [
+        "tajikistan",
+        "huang",
+        "uzbekistan",
+        "japan-era",
+        "hongkong",
+        "canada",
+        "france",
+        "westbank",
+        "mercenary"
+      ],
+      "expected": {},
+      "new_trace": {
+        "domain_topics": 9,
+        "existing_member_topics": [],
+        "scanned_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b"
+        ],
+        "anchors": {
+          "1464e699-4e0d-575a-b853-d74fc9871e84": {
+            "checked": [
+              8868
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "1ef5945b-a464-5436-8829-f0b015b942a2": {
+            "checked": [
+              8903
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "388ad6c0-5372-57fc-811c-39e889d91ae2": {
+            "checked": [
+              8985
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00": {
+            "checked": [
+              8878
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "66d307fb-b1c1-5dc6-a245-6588629265d6": {
+            "checked": [
+              8904
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc": {
+            "checked": [
+              8872
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "a295d553-a96c-5030-a74b-a0bc7df64746": {
+            "checked": [
+              8861
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72": {
+            "checked": [
+              8876
+            ],
+            "stale": [],
+            "scan_cap": 32
+          },
+          "f5fcc013-f7c6-509f-a60e-1916440b418b": {
+            "checked": [
+              8879
+            ],
+            "stale": [],
+            "scan_cap": 32
+          }
+        },
+        "unusable_topics": {},
+        "qualified_topic_ids": [
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b"
+        ],
+        "metadata_topic_ids": [
+          "388ad6c0-5372-57fc-811c-39e889d91ae2",
+          "f5fcc013-f7c6-509f-a60e-1916440b418b",
+          "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+          "66d307fb-b1c1-5dc6-a245-6588629265d6",
+          "1ef5945b-a464-5436-8829-f0b015b942a2",
+          "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+          "1464e699-4e0d-575a-b853-d74fc9871e84",
+          "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+          "a295d553-a96c-5030-a74b-a0bc7df64746"
+        ]
+      },
+      "vector_stage": "unmeasured before paid embedding; no expected candidates injected"
+    }
+  ],
+  "paid_calls": 0,
+  "formal_evaluation_database_writes": 0,
+  "all_seed_writes_rolled_back": true,
+  "synthetic_old_failures_retained": [
+    {
+      "case": "empty_card_topics",
+      "old": "same timestamp leaves subjects tied and ID order wins",
+      "new": "original-material subject signal ranks same-subject first",
+      "evidence": "test_optional_empty_card_terms_use_original_material"
+    },
+    {
+      "case": "uuid32",
+      "old": "relevant high UUID excluded before ranking",
+      "new": "subject-title SQL rank includes it within 32",
+      "evidence": "test_subject_ranking_precedes_uuid_32_cutoff"
+    },
+    {
+      "case": "first_two_stale_anchors",
+      "old": "whole candidate raises stale",
+      "new": "later valid member retained within 32 checked members",
+      "evidence": "test_skip_first_two_stale_anchors_within_bounded_scan"
+    },
+    {
+      "case": "unknown_old_competition",
+      "old": "both old/unknown lost to recent 12",
+      "new": "both retained in bounded 12",
+      "evidence": "test_unknown_and_old_background_survive_competing_recent_topics"
+    }
+  ]
+}

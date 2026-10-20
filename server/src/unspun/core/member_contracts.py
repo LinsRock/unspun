@@ -32,8 +32,8 @@ Approval must mean the exact classification, basis and all citations are support
 def member_contract() -> dict[str, object]:
     settings = get_settings()
     return {
-        "version": "r2-member-v1",
-        "recall": "domain-subject-publication-bounded-v1",
+        "version": "r2-member-v2",
+        "recall": "material-subject-ranked-32-valid-anchors-stratified-12-v2",
         "embedding": "material-prefix-24000-bytes-v1",
         "semantic_input": "material-paragraph-prefix-12000-chars-v1",
         "embedding_model": settings.embedding_model,

@@ -20,6 +20,7 @@ from unspun.core.config import get_settings
 from unspun.core.content import fingerprint
 from unspun.core.content_costs import content_unit_costs
 from unspun.core.llm import LlmError
+from unspun.core.member_contracts import member_contract
 from unspun.core.models import LlmUsage
 from unspun.core.task_models import PipelineTask, TaskAttempt
 from unspun.core.tasks import Lease
@@ -266,7 +267,7 @@ class DatabaseJournal:
                     or lease.article_id is None
                     or lease.queue != "paid"
                     or expected != (lease.kind, context.phase, purpose)
-                    or lease.strategy_version != "r2-member-v1"
+                    or lease.strategy_version != member_contract()["version"]
                     or not context.logical_key
                     or model
                     != {

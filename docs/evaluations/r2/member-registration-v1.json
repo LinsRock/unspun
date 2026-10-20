@@ -1,0 +1,476 @@
+{
+  "schema_version": "r206-real-registration-v1",
+  "id": "r206-real-v1",
+  "frozen_at": "2026-10-20T11:37:06.430487+00:00",
+  "base_revision": "c58a87881017a3b0b2e89de15bbf32279b9e6b39",
+  "contract": {
+    "version": "r2-member-v2",
+    "recall": "material-subject-ranked-32-valid-anchors-stratified-12-v2",
+    "embedding": "material-prefix-24000-bytes-v1",
+    "semantic_input": "material-paragraph-prefix-12000-chars-v1",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "dimensions": 1024,
+    "judgment_model": "google/gemini-2.5-flash-lite",
+    "review_model": "google/gemini-2.5-flash",
+    "judgment_prompt": "533e197318596dbeaa5606db108f0602c400270dd72c063fbec017d36803c90a",
+    "review_prompt": "b761c6cf8b6be4f9c9763ad68729bd86038343c2f29678bd049b8dde6ffcab1b"
+  },
+  "database": "unspun_quality_r1_20261016",
+  "original_inputs": 30,
+  "supplemental_inputs": 2,
+  "topics": [
+    {
+      "key": "france",
+      "id": "1464e699-4e0d-575a-b853-d74fc9871e84",
+      "kind": "event",
+      "title": "France nationwide protests and riots, October 2026",
+      "anchors": [
+        8868
+      ],
+      "split": "regression",
+      "seed_relation": "report"
+    },
+    {
+      "key": "huang",
+      "id": "f5fcc013-f7c6-509f-a60e-1916440b418b",
+      "kind": "event",
+      "title": "Investigation of Huang Ribo announced October 18, 2026",
+      "anchors": [
+        8879
+      ],
+      "split": "regression",
+      "seed_relation": "report"
+    },
+    {
+      "key": "canada",
+      "id": "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+      "kind": "event",
+      "title": "Wainwright military base fire reported as September 17 in retained anchor",
+      "anchors": [
+        8878
+      ],
+      "split": "regression",
+      "seed_relation": "report"
+    },
+    {
+      "key": "mercenary",
+      "id": "a295d553-a96c-5030-a74b-a0bc7df64746",
+      "kind": "issue",
+      "title": "Ownership and activities of the inherited Wagner mercenary force",
+      "anchors": [
+        8861
+      ],
+      "split": "regression",
+      "seed_relation": "report"
+    },
+    {
+      "key": "westbank",
+      "id": "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+      "kind": "issue",
+      "title": "Israeli settler violence against Palestinians and visitors in the West Bank",
+      "anchors": [
+        8872
+      ],
+      "split": "regression",
+      "seed_relation": "report"
+    },
+    {
+      "key": "hongkong",
+      "id": "1ef5945b-a464-5436-8829-f0b015b942a2",
+      "kind": "event",
+      "title": "Hong Fuk Court fire and official accountability in Hong Kong",
+      "anchors": [
+        8903
+      ],
+      "split": "regression",
+      "seed_relation": "opinion"
+    },
+    {
+      "key": "uzbekistan",
+      "id": "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+      "kind": "event",
+      "title": "Li Qiang meetings with Uzbekistan leaders during the Central Asia visit",
+      "anchors": [
+        8876
+      ],
+      "split": "holdout",
+      "seed_relation": "report"
+    },
+    {
+      "key": "tajikistan",
+      "id": "388ad6c0-5372-57fc-811c-39e889d91ae2",
+      "kind": "event",
+      "title": "Li Qiang talks with Tajikistan prime minister Rasulzoda",
+      "anchors": [
+        8985
+      ],
+      "split": "holdout",
+      "seed_relation": "report"
+    },
+    {
+      "key": "deepseek",
+      "id": "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+      "kind": "event",
+      "title": "DeepSeek new model release reported October 2026",
+      "anchors": [
+        8896
+      ],
+      "split": "holdout",
+      "seed_relation": "report"
+    },
+    {
+      "key": "japan-era",
+      "id": "66d307fb-b1c1-5dc6-a245-6588629265d6",
+      "kind": "issue",
+      "title": "Japanese era names and the historical East Asian era naming system",
+      "anchors": [
+        8904
+      ],
+      "split": "holdout",
+      "seed_relation": "explanation"
+    }
+  ],
+  "queries": [
+    {
+      "article_id": 8881,
+      "split": "regression",
+      "expected_associations": {
+        "france": [
+          "same_event"
+        ]
+      },
+      "dimensions": [
+        "cross_language",
+        "unknown_original_time"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8898,
+      "split": "regression",
+      "expected_associations": {
+        "france": [
+          "same_event"
+        ]
+      },
+      "dimensions": [
+        "cross_source",
+        "same_event"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8899,
+      "split": "regression",
+      "expected_associations": {
+        "huang": [
+          "opinion",
+          "background"
+        ]
+      },
+      "dimensions": [
+        "independent_analysis",
+        "opinion_attribution"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8905,
+      "split": "regression",
+      "expected_associations": {},
+      "dimensions": [
+        "conflicting_dates",
+        "same_subject_insufficient_identity"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8893,
+      "split": "regression",
+      "expected_associations": {
+        "mercenary": [
+          "same_issue",
+          "background"
+        ],
+        "westbank": [
+          "same_issue",
+          "background"
+        ]
+      },
+      "dimensions": [
+        "partial_overlap",
+        "multi_topic",
+        "preview"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8874,
+      "split": "regression",
+      "expected_associations": {},
+      "dimensions": [
+        "long_input",
+        "independent_knowledge"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8877,
+      "split": "holdout",
+      "expected_associations": {},
+      "dimensions": [
+        "independent_opinion",
+        "review"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8906,
+      "split": "holdout",
+      "expected_associations": {
+        "tajikistan": [
+          "same_event"
+        ]
+      },
+      "dimensions": [
+        "same_person_distinct_events",
+        "positive_holdout"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8876,
+      "split": "holdout",
+      "expected_associations": {},
+      "dimensions": [
+        "same_person_distinct_events",
+        "negative_holdout",
+        "existing_member_excluded"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8923,
+      "split": "holdout",
+      "expected_associations": {},
+      "dimensions": [
+        "same_country_distinct_subjects"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    },
+    {
+      "article_id": 8926,
+      "split": "holdout",
+      "expected_associations": {},
+      "dimensions": [
+        "same_country_distinct_events"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null
+    }
+  ],
+  "execution_order": "listed regression then holdout; no tuning after any live output; first results retained even on failure",
+  "anchor_policy": "Manual AI technical seeds from actual qualified originals; at most two currently valid anchors in first 32 active members by article ID. Applied query members may become later anchors; never inject expected candidates. Topic domains come from seed cards.",
+  "metrics": {
+    "candidate_recall": "eligible expected article-topic pairs reaching vector top4 / all eligible expected article-topic pairs, plus losses at admission, domain, SQL32, anchor32, metadata12, vector4",
+    "judgment_precision": "correct associated classifications / all certain associated judgments; also binary correctness across every selected positive and negative pair",
+    "member_coverage": "correct actually applied expected article-topic pairs / all eligible expected pairs; also query coverage",
+    "false_merge": "incorrect applied associations / all applied associations; negative-pair rate reported separately",
+    "review": "rejected / all reviewed associations; unsupported judgments blocked / all unsupported reviewed judgments; stale CAS and structural rejection separate"
+  },
+  "technical_gates": {
+    "candidate_recall_min": 0.9,
+    "judgment_precision_min": 0.95,
+    "final_member_coverage_min": 0.8,
+    "false_merges_max": 0,
+    "unapproved_or_invalid_applied_max": 0,
+    "all_required_real_dimensions_covered": true,
+    "thresholds_are": "AI technical acceptance, not user approval"
+  },
+  "budget": {
+    "project_limit_usd": "15",
+    "original_evaluation_limit_usd": "1.50",
+    "batch_limit_usd": "0.20",
+    "physical_request_limit": 120,
+    "stage_physical_limits": {
+      "topic_embedding": 24,
+      "topic_judgment": 64,
+      "topic_review": 32
+    },
+    "stage_caps_usd": {
+      "topic_embedding": "0.02",
+      "topic_judgment": "0.08",
+      "topic_review": "0.20"
+    },
+    "stage_caps_meaning": "Overlapping stage ceilings within ONE pooled batch cap of 0.20; not additive credits. Conservative per-call holds remain unchanged.",
+    "guard": "Every physical request including internal retry is checked against original cumulative budget, pooled new known+new pending, per-stage and total call caps. Any new unknown halts the batch; no retry or original hold release. Resume reconstructs spent/counts from the same DB and takes an exclusive advisory lock.",
+    "baseline_accounting": {
+      "period": "since_cutover",
+      "known_spend_usd": "0.36901000000000006",
+      "historical_carry_usd": "0E-12",
+      "carry_basis": "isolated-evaluation-allocation",
+      "unresolved_holds_usd": "0.484867000000",
+      "occupancy_usd": "0.85387700000000006",
+      "holds_are_not_actual_fees": true
+    },
+    "baseline_unknown_requests": [
+      {
+        "id": "11d92ba4336740e08c40dca7fff1cce3",
+        "stage": "card",
+        "phase": "generate",
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028794000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-17 09:26:36.998722+00:00"
+      },
+      {
+        "id": "5c68c196f8514836a38280edc782806a",
+        "stage": "card",
+        "phase": "generate",
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028760000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-16 19:16:57.144859+00:00"
+      },
+      {
+        "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+        "stage": "card",
+        "phase": "review",
+        "model": "google/gemini-2.5-flash",
+        "status": "usage_unknown",
+        "reserved_usd": "0.170674000000",
+        "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+        "started_at": "2026-10-17 09:21:37.534326+00:00"
+      },
+      {
+        "id": "bdbdbb331ac546eb84d6f42b502f362b",
+        "stage": "card",
+        "phase": "review",
+        "model": "google/gemini-2.5-flash",
+        "status": "usage_unknown",
+        "reserved_usd": "0.170674000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-17 08:17:31.488417+00:00"
+      },
+      {
+        "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+        "stage": "card",
+        "phase": "baseline",
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028261000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-16 08:31:09.170417+00:00"
+      },
+      {
+        "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+        "stage": "card",
+        "phase": "generate",
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028967000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-16 10:21:19.943998+00:00"
+      },
+      {
+        "id": "ffefcd48948944c48a3da4a60f17fbb6",
+        "stage": "card",
+        "phase": "generate",
+        "model": "google/gemini-2.5-flash-lite",
+        "status": "usage_unknown",
+        "reserved_usd": "0.028737000000",
+        "provider_generation_id": null,
+        "started_at": "2026-10-17 09:27:27.721999+00:00"
+      }
+    ],
+    "provider": {
+      "limit": 15,
+      "limit_remaining": 5.6541648900000006,
+      "limit_reset": "monthly",
+      "usage": 9.34583511,
+      "usage_monthly": 9.34583511,
+      "checked_at": "2026-10-20T11:35:16.244985+00:00",
+      "method": "GET /api/v1/key"
+    },
+    "available_evaluation_usd": "0.64612299999999994",
+    "effective_batch_limit_usd": "0.20"
+  },
+  "missing_real_cases": [
+    {
+      "dimension": "verified_reprint_chain",
+      "status": "missing",
+      "reason": "No verified exact reprint chain among original or supplemental qualified materials. Attribution to a wire service is not exact reprint proof."
+    },
+    {
+      "dimension": "recently_discovered_old_original_background",
+      "status": "missing",
+      "reason": "Long 8874 input and 8903 fire opinion do not prove an old original publication. No synthetic substitute."
+    },
+    {
+      "dimension": "independently_verified_event_occurrence_time",
+      "status": "missing",
+      "reason": "Feed/observation time is not an occurrence timestamp."
+    }
+  ],
+  "user_approval": {
+    "ratings": null,
+    "membership_acceptance": null,
+    "basis": "No new user labels; original empty user-review-v1 remains frozen."
+  },
+  "excluded_original_inputs": [
+    {
+      "id": "R2-8844",
+      "reason": "source_suspended"
+    },
+    {
+      "id": "R2-8847",
+      "reason": "material_scope_outside_current_paid_publication_range"
+    },
+    {
+      "id": "R2-8869",
+      "reason": "technical_generation_or_review_failure"
+    },
+    {
+      "id": "R2-8888",
+      "reason": "material_scope_outside_current_paid_publication_range"
+    },
+    {
+      "id": "R2-8900",
+      "reason": "technical_generation_or_review_failure"
+    },
+    {
+      "id": "R2-8907",
+      "reason": "material_scope_outside_current_paid_publication_range"
+    },
+    {
+      "id": "R2-8909",
+      "reason": "material_scope_outside_current_paid_publication_range"
+    },
+    {
+      "id": "R2-8910",
+      "reason": "material_scope_outside_current_paid_publication_range"
+    },
+    {
+      "id": "R2-8916",
+      "reason": "technical_generation_or_review_failure"
+    },
+    {
+      "id": "R2-8919",
+      "reason": "technical_generation_or_review_failure"
+    }
+  ],
+  "no_paid_regeneration": true,
+  "production_enabled": false
+}

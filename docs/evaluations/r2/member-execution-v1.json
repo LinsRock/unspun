@@ -1,0 +1,38 @@
+{
+  "schema_version": "r206-execution-freeze-v1",
+  "frozen_at": "2026-10-20T11:46:41.332155+00:00",
+  "paid_requests_so_far": 0,
+  "grounding_budget_24h_usd": "1.00",
+  "grounding_basis": "Retained explicit isolated evaluation cap from D-028; production keeps 0.40. No new credit.",
+  "execution_attempts_per_task": 1,
+  "physical_retry_policy": "The unchanged LlmClient may retry a length-truncated response once; both requests count. Technical failures remain terminal and independent samples continue. New unresolved fees or any limit stop the paid batch.",
+  "material_admission": {
+    "original": 30,
+    "original_qualified": 20,
+    "original_excluded": 10,
+    "additional_anchors": 2,
+    "total_qualified": 22
+  },
+  "files": [
+    {
+      "path": "docs/evaluations/r2/member-freeze-v1.json",
+      "sha256": "0b0847bcea0dfe32d3db4282bebcd3cf0a766b6959f37c4e2fd305fe1a6622d5"
+    },
+    {
+      "path": "config/media_groups.yml",
+      "sha256": "9a7c0ac391e163779e176f4f601faddb369cbb1ae25ed03d59b4c33c82d50071"
+    },
+    {
+      "path": "config/r1-reader.yml",
+      "sha256": "16aefedf76fd1c9c4e36fd5b4dd21378d9de3bc9705d87e8612ea3c6c215f90b"
+    },
+    {
+      "path": "config/scoring.yml",
+      "sha256": "2f2099d10e0702d223453b7e1c738b62ad4c30696093feaece57601d5fac6dc8"
+    },
+    {
+      "path": "config/sources.yml",
+      "sha256": "4c21aaace4c8c68d0181e101a136883fb43972c12e5af47caba410d9ec1bef43"
+    }
+  ]
+}

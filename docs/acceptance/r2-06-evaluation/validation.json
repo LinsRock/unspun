@@ -1,0 +1,114 @@
+{
+  "at": "2026-10-20T11:52:42.571493+00:00",
+  "base_revision": "c58a87881017a3b0b2e89de15bbf32279b9e6b39",
+  "database": "unspun_r206_eval_tests_20261020",
+  "baseline_passed": 1020,
+  "full_regression_passed": 1034,
+  "skipped": 0,
+  "member_and_quality_tests": 52,
+  "ruff_check": "passed",
+  "ruff_format": "175 files already formatted",
+  "pyright": "0 errors, 0 warnings",
+  "alembic_check": "no new upgrade operations",
+  "legacy_ranking": {
+    "events": 40,
+    "passed": true,
+    "byte_identical_to": "docs/acceptance/r2-04/legacy-ranking.json",
+    "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3"
+  },
+  "deploy_tests": 18,
+  "ci_scope_tests": 11,
+  "original_freeze_verified": 27,
+  "new_freeze_verified": 4,
+  "protected_original_files": 51,
+  "r204_worktree_protected": true,
+  "paid_calls": 0,
+  "original_evaluation_writes": 0,
+  "real_model_metrics": null,
+  "logs": {
+    "baseline": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/baseline.log.gz",
+      "sha256": "f7735566c64af4dd27dd8bc4f6142b8b936edbfe130653dc05f31c1acdd1c9df"
+    },
+    "recall-first": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/recall-first.log.gz",
+      "sha256": "794da6aa2e1fad8596b41e1245842cf8c9e5770c211f8d1481b3170eda5f9f7f"
+    },
+    "recall-new-first": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/recall-new-first.log.gz",
+      "sha256": "e22ded856d53bc12b3d0b74b2526dcabaf7ff195e245bd20ee36e1a54ffff00f"
+    },
+    "quality-first": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/quality-first.log.gz",
+      "sha256": "fb9199463a7df3b1201c96b5d2d2f5222b55f7104472fa9c733e9549e44181e3"
+    },
+    "targeted-v2": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/targeted-v2.log.gz",
+      "sha256": "806c2b463a55ac99b82b2a0cf80dd24dd5bc9c20c3630e99ed39adc3cc737ac0"
+    },
+    "quality-final": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/quality-final.log.gz",
+      "sha256": "b0ccded4501c9b6139b0ba365d5a1b296b6af87e253d343112e204785b4ecbb4"
+    },
+    "regression-first": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/regression-first.log.gz",
+      "sha256": "7dd692fa23ca8c6b7fbd83b354be695aa71969f08d6f9273d5274c12135dab11"
+    },
+    "regression-final": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/regression-final.log.gz",
+      "sha256": "bed85d954007c67a2c2d791829a59e6b6a202daadcebe91cc82873af75e66e86"
+    },
+    "pyright-final-v3": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/pyright-final-v3.log.gz",
+      "sha256": "7673cf47ecf297a30b151ff80feb3b30f71e205edc1c51791328c093824e4bab"
+    },
+    "deploy-tests": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/deploy-tests.log.gz",
+      "sha256": "d643698639553c77db8dd5ccd2ca9c377bfeb6c7c9600a3b941d80607579fbdf"
+    },
+    "ci-tests": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/ci-tests.log.gz",
+      "sha256": "87df58e8992d31cc67529ca813e6c003bb287c19bf32b0df62f288d6ee935e66"
+    },
+    "evaluation-restore": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/evaluation-restore.log.gz",
+      "sha256": "0df69f9fe57d8905f4d25a2685b630b08ae3dc051e32d5d81ad7aa953ee06a37"
+    },
+    "predeploy": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/predeploy.log.gz",
+      "sha256": "a52578ed831a280ee0b17c2fbbe97e343caecc655adaa24e13713775cef94551"
+    },
+    "predeploy-v2": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/predeploy-v2.log.gz",
+      "sha256": "09805d1f1faeed64b1f601e824d0dfd2f284c4d7676fd1f022839d48e8f0b2df"
+    },
+    "predeploy-v3": {
+      "path": "docs/acceptance/r2-06-evaluation/logs/predeploy-v3.log.gz",
+      "sha256": "348df414a31ac4eb13db8fa1706c3ce938d0dd0381264e6acd265db5bef99420"
+    }
+  },
+  "review": {
+    "kind": "primary-agent review of final diff and affected callers",
+    "areas": [
+      "R1 optional topics and unchanged card/guide qualification",
+      "global SQL32 and bounded valid anchors; metadata12 and vector4 loss traces",
+      "contract invalidation, existing-member/removal protection and CAS callers",
+      "pooled persistent cost and physical caps including internal retries and unknown holds",
+      "single original cumulative ledger; additive backup/restore and reviewed allocation entry",
+      "immutable regression/holdout and all candidate denominators; raw first outputs",
+      "disabled runtime, unchanged production policy and R2-04 resources"
+    ],
+    "resolved": [
+      "shared billing version now follows the actual member contract",
+      "evaluation task success uses completed state; first technical failure gets one execution attempt",
+      "all new unresolved physical requests stop further paid work",
+      "initial material-admission count corrected without changing original inputs"
+    ],
+    "remaining": [
+      "real model execution and technical outcomes pending",
+      "verified reprint/old-original background/occurrence time missing",
+      "user acceptance missing",
+      "admin correction and production activation out of scope"
+    ]
+  }
+}
