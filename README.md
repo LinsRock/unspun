@@ -7,7 +7,7 @@ A single-user app that automatically discovers and curates important development
 - Roadmap: [docs/roadmaps.md](docs/roadmaps.md) (Chinese)
 - Current milestone: [R2 design and task board](docs/tasks/r2.md) (Chinese)
 - Retirement and cleanup: [docs/tasks/cleanup.md](docs/tasks/cleanup.md) (Chinese)
-- Current maintenance: [CL-01 legacy worker retirement](docs/acceptance/cl-01-retirement-2026-10-20.md) (Chinese; validation in progress)
+- Current maintenance: [CL-01 legacy worker retirement](docs/acceptance/cl-01-retirement-2026-10-20.md) (Chinese; deployed and verified)
 - Refactoring proposal: [docs/implementation-proposal.md](docs/implementation-proposal.md) (Chinese)
 - Requested sources and validation: [docs/source-plan.md](docs/source-plan.md) (Chinese)
 - Engineering guide (architecture / commands / conventions): [CLAUDE.md](CLAUDE.md)

@@ -1,0 +1,49 @@
+{
+  "verified_at": "2026-10-20T06:16:17.776556+00:00",
+  "code_pr": 109,
+  "implementation_commit": "87121cfff3039b28fea8599c6408d74640e2f14d",
+  "merge_commit": "d72861bf854465a7a1107d149fad82dfe50281bb",
+  "pr_ci": "https://github.com/LinsRock/unspun/actions/runs/39378533063",
+  "main_ci": "https://github.com/LinsRock/unspun/actions/runs/39378805306",
+  "actual_deploy_step_success": true,
+  "legacy_containers_all_states": 0,
+  "controlled_running": 1,
+  "published_ports": [
+    [
+      "web",
+      "127.0.0.1",
+      "8080"
+    ]
+  ],
+  "source_files_matched": 82,
+  "config_files_matched": 4,
+  "deployment_files_matched": 6,
+  "schema": "000017",
+  "settings_sources_quotas_models_budgets_unchanged": true,
+  "legacy_protected_hashes_and_backlog_unchanged": true,
+  "legacy_summary_pending": 8825,
+  "legacy_summary_abandoned": 18,
+  "evaluation_unknown_requests": 7,
+  "evaluation_unknown_reserved_usd": "0.484867000000",
+  "evaluation_known_usd": "0.3690100",
+  "production_known_usd_before": "7.74501030",
+  "production_known_usd_after": "7.75298420",
+  "natural_production_known_usd_delta": "0.00797390",
+  "natural_fee_interval": {
+    "from": "2026-10-20 05:54:59.711032+00:00",
+    "to": "2026-10-20 06:15:30.015220+00:00"
+  },
+  "paid_test_usd": "0",
+  "manual_production_tasks": 0,
+  "reading": {
+    "published_before": 108,
+    "published_after": 108,
+    "same_published_ids": true,
+    "same_feed_pages": true,
+    "suspended_status": 404,
+    "readonly_no_tasks": true
+  },
+  "all_required_assertions_passed": true,
+  "remaining_scope": "CL-02\u201306, R2-04+ and R3 not executed; old backlog, frozen gaps and unknown fees remain protected.",
+  "fixed_image_ids_and_four_stopped_observations_preserved": true
+}

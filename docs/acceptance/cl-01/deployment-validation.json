@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-10-20T06:18:56.243463+00:00",
+  "scope": "CL-01 deployment documentation only",
+  "code_version": "d72861bf854465a7a1107d149fad82dfe50281bb",
+  "all_delivery_assertions_passed": true,
+  "retained_resources_match_cl00": true,
+  "affected_markdown_links_checked": 111,
+  "broken_links": [],
+  "audit_scripts_ast_parse": 5,
+  "ci_scope": {
+    "server": "false",
+    "web": "false",
+    "prototype": "false",
+    "deploy": "false",
+    "server_image": "false",
+    "web_image": "false",
+    "release": "false"
+  },
+  "runtime_files_changed": false,
+  "frozen_and_cl00_unchanged": true,
+  "review": "Reviewed final deployment evidence and narrative against actual service/image/source/config/deploy hashes, schema and settings; legacy protected row hashes; seven unchanged unknown holds; separate natural known fees; no new runtime behavior or additional application regression required."
+}
