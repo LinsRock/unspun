@@ -1,0 +1,370 @@
+{
+  "captured_at": "2026-10-20T05:17:03.540563+00:00",
+  "cache_directories": [
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-00b",
+      "files": 29,
+      "logical_bytes": 1489473,
+      "du_bytes": 1556480,
+      "references": [
+        "docs/acceptance/r1-session-handoff-2026-10-17.md"
+      ],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-01",
+      "files": 5256,
+      "logical_bytes": 207253359,
+      "du_bytes": 229998592,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-02",
+      "files": 5,
+      "logical_bytes": 351665,
+      "du_bytes": 364544,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-03",
+      "files": 6,
+      "logical_bytes": 487872,
+      "du_bytes": 499712,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-04",
+      "files": 8,
+      "logical_bytes": 1045298,
+      "du_bytes": 1060864,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-api",
+      "files": 0,
+      "logical_bytes": 0,
+      "du_bytes": 0,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-chinese",
+      "files": 45,
+      "logical_bytes": 3033022,
+      "du_bytes": 3129344,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-content",
+      "files": 192,
+      "logical_bytes": 9091406,
+      "du_bytes": 9592832,
+      "references": [
+        "docs/acceptance/r1-session-handoff-2026-10-17.md",
+        "docs/acceptance/r1-session-handoff-2026-10-18.md",
+        "docs/acceptance/r1-reader-return-2026-10-17.md"
+      ],
+      "disposition": "keep",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-ingestion",
+      "files": 25,
+      "logical_bytes": 2307405,
+      "du_bytes": 2355200,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-observation",
+      "files": 1005,
+      "logical_bytes": 69728173,
+      "du_bytes": 71680000,
+      "references": [
+        "docs/acceptance/r1-session-handoff-2026-10-17.md"
+      ],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-production-20261018",
+      "files": 55,
+      "logical_bytes": 5376683,
+      "du_bytes": 5496832,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-public-sources",
+      "files": 22,
+      "logical_bytes": 3474866,
+      "du_bytes": 3514368,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-reader-polish-20261018",
+      "files": 4,
+      "logical_bytes": 13293,
+      "du_bytes": 20480,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-reader-preview",
+      "files": 10,
+      "logical_bytes": 1661179,
+      "du_bytes": 1683456,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-reconciliation-oct17",
+      "files": 90,
+      "logical_bytes": 649198,
+      "du_bytes": 864256,
+      "references": [
+        "docs/acceptance/r1-session-handoff-2026-10-18.md"
+      ],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-retention",
+      "files": 20,
+      "logical_bytes": 35032940,
+      "du_bytes": 35078144,
+      "references": [
+        "docs/acceptance/r1-session-handoff-2026-10-17.md",
+        "docs/acceptance/r1-session-handoff-2026-10-18.md"
+      ],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-runtime",
+      "files": 12,
+      "logical_bytes": 675126,
+      "du_bytes": 704512,
+      "references": [
+        "docs/acceptance/r1-acceptance-preparation-2026-10-17.md",
+        "docs/acceptance/r1-source-material-gates-2026-10-17.md",
+        "docs/acceptance/r1-controlled-runtime-2026-10-17.md"
+      ],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-scopes",
+      "files": 13,
+      "logical_bytes": 912911,
+      "du_bytes": 933888,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    },
+    {
+      "path": "/Users/li.cong/.cache/unspun-r1-source-diagnostics",
+      "files": 16,
+      "logical_bytes": 1092357,
+      "du_bytes": 1134592,
+      "references": [],
+      "disposition": "pending",
+      "task": "CL-03",
+      "reason": "Real source/raw/paid/acceptance evidence may be unique; no regeneration or model re-fetch is an acceptable assumed recovery",
+      "restore": "Retain this original; compare registries, hashes and copied evidence before any archive/removal"
+    }
+  ],
+  "r0_original_raw": {
+    "path": "/tmp/unspun-r0/raw",
+    "exists": false,
+    "disposition": "pending",
+    "task": "CL-02/03",
+    "reason": "Historical recovery entry no longer exists; no paid or network reconstruction attempted"
+  },
+  "r0_material_caches": [
+    {
+      "path": "/Users/li.cong/Documents/personal/unspun/docs/design/r0-reading/materials.local.json",
+      "exists": true,
+      "bytes": 510126
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/cl-00-inventory/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-acceptance-preparation/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-billing-reconciliation/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-budget-revision/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-budget-rollout-hook/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-controlled-runtime/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-evaluation-reserve/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-evaluation-review-budget/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-production-rollout/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-provider-header-audit/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-public-sources/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-quality-candidate/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-reader-polish/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-reading-return/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-release-scopes/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-runtime-accounting/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-session-close-20261018/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-source-diagnostics/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-source-observation/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-source-qualification/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-task-status/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-window-completion/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-candidate-detail/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-scan-quotas/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    },
+    {
+      "path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-supply-baseline/docs/design/r0-reading/materials.local.json",
+      "exists": false,
+      "bytes": null
+    }
+  ]
+}

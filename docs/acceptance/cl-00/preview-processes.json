@@ -1,0 +1,46 @@
+{
+  "captured_at": "2026-10-20T05:16:16.376953+00:00",
+  "processes": [
+    {
+      "pid": 23431,
+      "database": "unspun_quality_r1_20261016",
+      "pythonpath": "/Users/li.cong/.config/superpowers/worktrees/unspun/r1-quality-candidate/server/src",
+      "config_dir": "/Users/li.cong/.cache/unspun-r1-content/quality-preview-config",
+      "api_proxy": null,
+      "provider_key_present": false,
+      "source_runtime_verification": "Only launch environment and cwd; loaded module state not introspected"
+    },
+    {
+      "pid": 28813,
+      "database": null,
+      "pythonpath": null,
+      "config_dir": null,
+      "api_proxy": "http://127.0.0.1:8113",
+      "provider_key_present": false,
+      "source_runtime_verification": "Only launch environment and cwd; loaded module state not introspected"
+    },
+    {
+      "pid": 40326,
+      "database": "unspun_quality_r1_20261016",
+      "pythonpath": "src",
+      "config_dir": "/Users/li.cong/.cache/unspun-r1-content/quality-preview-config",
+      "api_proxy": null,
+      "provider_key_present": false,
+      "source_runtime_verification": "Only launch environment and cwd; loaded module state not introspected"
+    }
+  ],
+  "health_observed": [
+    {
+      "url": "http://127.0.0.1:8113/api/health",
+      "status": "ok",
+      "version": "r1-card-v9-guide-v5-local-preview",
+      "database": "ok"
+    },
+    {
+      "url": "http://127.0.0.1:8114/api/health",
+      "status": "ok",
+      "version": "r1-runtime-cost-final-local-preview",
+      "database": "ok"
+    }
+  ]
+}

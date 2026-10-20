@@ -1,0 +1,1531 @@
+{
+  "base": "dc7c1738ac2a2235091daed93488deb6598e8573",
+  "method": "AST imports of every tracked Python file plus resolved Markdown links; rg/manual review supplements dynamic/string entry points",
+  "pipeline": [
+    {
+      "path": "server/src/unspun/pipeline/__init__.py",
+      "bytes": 0,
+      "imports": [],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/cluster.py",
+      "bytes": 3559,
+      "imports": [
+        {
+          "source": "server/src/unspun/pipeline/main.py",
+          "line": 11,
+          "module": "unspun.pipeline.cluster",
+          "name": "cluster_pending"
+        },
+        {
+          "source": "server/src/unspun/pipeline/summarize.py",
+          "line": 45,
+          "module": "unspun.pipeline.cluster",
+          "name": "refresh_centroid"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 33,
+          "module": "unspun.pipeline",
+          "name": "cluster"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 34,
+          "module": "unspun.pipeline.cluster",
+          "name": "assign_article"
+        },
+        {
+          "source": "server/tests/test_summarize_cluster.py",
+          "line": 11,
+          "module": "unspun.pipeline.cluster",
+          "name": "assign_article"
+        }
+      ],
+      "document_links": [
+        "docs/superpowers/specs/2026-10-19-r2-topics-and-recommendation-design.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/content_processing.py",
+      "bytes": 33940,
+      "imports": [
+        {
+          "source": "docs/acceptance/r2-01/capture.py",
+          "line": 20,
+          "module": "unspun.pipeline.content_processing",
+          "name": "load_content"
+        },
+        {
+          "source": "docs/acceptance/r2-01/capture.py",
+          "line": 20,
+          "module": "unspun.pipeline.content_processing",
+          "name": "processing_fingerprint"
+        },
+        {
+          "source": "docs/acceptance/r2-02/validate.py",
+          "line": 12,
+          "module": "unspun.pipeline.content_processing",
+          "name": "processing_fingerprint"
+        },
+        {
+          "source": "docs/acceptance/r2-03/compare-frozen.py",
+          "line": 21,
+          "module": "unspun.pipeline.content_processing",
+          "name": "processing_fingerprint"
+        },
+        {
+          "source": "server/src/unspun/api/contents.py",
+          "line": 23,
+          "module": "unspun.pipeline.content_processing",
+          "name": "enqueue_processing"
+        },
+        {
+          "source": "server/src/unspun/api/contents.py",
+          "line": 23,
+          "module": "unspun.pipeline.content_processing",
+          "name": "processing_fingerprint"
+        },
+        {
+          "source": "server/src/unspun/core/content_publication.py",
+          "line": 21,
+          "module": "unspun.pipeline.content_processing",
+          "name": "content_input"
+        },
+        {
+          "source": "server/src/unspun/core/content_publication.py",
+          "line": 21,
+          "module": "unspun.pipeline.content_processing",
+          "name": "processing_fingerprint"
+        },
+        {
+          "source": "server/src/unspun/evaluation/content_quality.py",
+          "line": 39,
+          "module": "unspun.pipeline.content_processing",
+          "name": "organize"
+        },
+        {
+          "source": "server/src/unspun/evaluation/content_quality.py",
+          "line": 39,
+          "module": "unspun.pipeline.content_processing",
+          "name": "processing_fingerprint"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery_quotas.py",
+          "line": 157,
+          "module": "unspun.pipeline.content_processing",
+          "name": "enqueue_processing"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery_quotas.py",
+          "line": 157,
+          "module": "unspun.pipeline.content_processing",
+          "name": "load_content"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery_quotas.py",
+          "line": 157,
+          "module": "unspun.pipeline.content_processing",
+          "name": "processing_fingerprint"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 748,
+          "module": "unspun.pipeline.content_processing",
+          "name": "enqueue_processing"
+        },
+        {
+          "source": "server/src/unspun/pipeline/r1_runtime.py",
+          "line": 26,
+          "module": "unspun.pipeline.content_processing",
+          "name": "ContentHandler"
+        },
+        {
+          "source": "server/tests/test_content_feed.py",
+          "line": 18,
+          "module": "unspun.pipeline.content_processing",
+          "name": "apply_processing"
+        },
+        {
+          "source": "server/tests/test_content_feed.py",
+          "line": 18,
+          "module": "unspun.pipeline.content_processing",
+          "name": "load_content"
+        },
+        {
+          "source": "server/tests/test_content_feed.py",
+          "line": 18,
+          "module": "unspun.pipeline.content_processing",
+          "name": "organize"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 15,
+          "module": "unspun.pipeline.content_processing",
+          "name": "apply_processing"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 15,
+          "module": "unspun.pipeline.content_processing",
+          "name": "enqueue_processing"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 15,
+          "module": "unspun.pipeline.content_processing",
+          "name": "organize"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 15,
+          "module": "unspun.pipeline.content_processing",
+          "name": "processing_fingerprint"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 15,
+          "module": "unspun.pipeline.content_processing",
+          "name": "request_context"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 240,
+          "module": "unspun.pipeline.content_processing",
+          "name": "load_content"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 308,
+          "module": "unspun.pipeline.content_processing",
+          "name": "ContentHandler"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 387,
+          "module": "unspun.pipeline.content_processing",
+          "name": "ContentHandler"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 387,
+          "module": "unspun.pipeline.content_processing",
+          "name": "load_content"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 508,
+          "module": "unspun.pipeline.content_processing",
+          "name": "ContentHandler"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 539,
+          "module": "unspun.pipeline.content_processing",
+          "name": "ContentHandler"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 610,
+          "module": "unspun.pipeline.content_processing",
+          "name": "ContentHandler"
+        },
+        {
+          "source": "server/tests/test_contents_api.py",
+          "line": 35,
+          "module": "unspun.pipeline.content_processing",
+          "name": "apply_processing"
+        },
+        {
+          "source": "server/tests/test_contents_api.py",
+          "line": 35,
+          "module": "unspun.pipeline.content_processing",
+          "name": "load_content"
+        },
+        {
+          "source": "server/tests/test_contents_api.py",
+          "line": 35,
+          "module": "unspun.pipeline.content_processing",
+          "name": "organize"
+        },
+        {
+          "source": "server/tests/test_contents_api.py",
+          "line": 127,
+          "module": "unspun.pipeline.content_processing",
+          "name": "apply_processing"
+        },
+        {
+          "source": "server/tests/test_contents_api.py",
+          "line": 127,
+          "module": "unspun.pipeline.content_processing",
+          "name": "load_content"
+        },
+        {
+          "source": "server/tests/test_contents_api.py",
+          "line": 127,
+          "module": "unspun.pipeline.content_processing",
+          "name": "organize"
+        }
+      ],
+      "document_links": [
+        "docs/superpowers/specs/2026-10-19-r2-topics-and-recommendation-design.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/digest.py",
+      "bytes": 6502,
+      "imports": [
+        {
+          "source": "server/src/unspun/api/digest.py",
+          "line": 14,
+          "module": "unspun.pipeline.digest",
+          "name": "DigestPayload"
+        },
+        {
+          "source": "server/src/unspun/pipeline/main.py",
+          "line": 12,
+          "module": "unspun.pipeline.digest",
+          "name": "digest_pending"
+        },
+        {
+          "source": "server/tests/test_digest.py",
+          "line": 19,
+          "module": "unspun.pipeline",
+          "name": "digest"
+        },
+        {
+          "source": "server/tests/test_digest.py",
+          "line": 20,
+          "module": "unspun.pipeline.digest",
+          "name": "digest_pending"
+        },
+        {
+          "source": "server/tests/test_digest.py",
+          "line": 20,
+          "module": "unspun.pipeline.digest",
+          "name": "due_report_date"
+        },
+        {
+          "source": "server/tests/test_digest.py",
+          "line": 20,
+          "module": "unspun.pipeline.digest",
+          "name": "generate_digest"
+        },
+        {
+          "source": "server/tests/test_digest.py",
+          "line": 20,
+          "module": "unspun.pipeline.digest",
+          "name": "select_digest_events"
+        }
+      ],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/discovery.py",
+      "bytes": 23964,
+      "imports": [
+        {
+          "source": "server/src/unspun/api/contents.py",
+          "line": 24,
+          "module": "unspun.pipeline.discovery",
+          "name": "lock_identity"
+        },
+        {
+          "source": "server/src/unspun/evaluation/observe_sources.py",
+          "line": 13,
+          "module": "unspun.pipeline.discovery",
+          "name": "discover"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery_quotas.py",
+          "line": 16,
+          "module": "unspun.pipeline.discovery",
+          "name": "MATERIAL_VERSION"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery_quotas.py",
+          "line": 16,
+          "module": "unspun.pipeline.discovery",
+          "name": "lock_identity"
+        },
+        {
+          "source": "server/src/unspun/pipeline/editions.py",
+          "line": 16,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryItem"
+        },
+        {
+          "source": "server/src/unspun/pipeline/editions.py",
+          "line": 16,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryResult"
+        },
+        {
+          "source": "server/src/unspun/pipeline/editions.py",
+          "line": 16,
+          "module": "unspun.pipeline.discovery",
+          "name": "public_url"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 30,
+          "module": "unspun.pipeline.discovery",
+          "name": "MATERIAL_VERSION"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 30,
+          "module": "unspun.pipeline.discovery",
+          "name": "latest_observation"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 30,
+          "module": "unspun.pipeline.discovery",
+          "name": "lock_identity"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 30,
+          "module": "unspun.pipeline.discovery",
+          "name": "observation_version"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 30,
+          "module": "unspun.pipeline.discovery",
+          "name": "public_url"
+        },
+        {
+          "source": "server/src/unspun/pipeline/public_sources.py",
+          "line": 18,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryItem"
+        },
+        {
+          "source": "server/src/unspun/pipeline/public_sources.py",
+          "line": 18,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryResult"
+        },
+        {
+          "source": "server/src/unspun/pipeline/public_sources.py",
+          "line": 18,
+          "module": "unspun.pipeline.discovery",
+          "name": "public_url"
+        },
+        {
+          "source": "server/src/unspun/pipeline/r1_runtime.py",
+          "line": 27,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryHandler"
+        },
+        {
+          "source": "server/tests/test_discovery_quotas.py",
+          "line": 20,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryItem"
+        },
+        {
+          "source": "server/tests/test_discovery_quotas.py",
+          "line": 20,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryResult"
+        },
+        {
+          "source": "server/tests/test_discovery_quotas.py",
+          "line": 20,
+          "module": "unspun.pipeline.discovery",
+          "name": "discover"
+        },
+        {
+          "source": "server/tests/test_discovery_quotas.py",
+          "line": 20,
+          "module": "unspun.pipeline.discovery",
+          "name": "persist_discovery"
+        },
+        {
+          "source": "server/tests/test_editions.py",
+          "line": 12,
+          "module": "unspun.pipeline.discovery",
+          "name": "discover"
+        },
+        {
+          "source": "server/tests/test_editions.py",
+          "line": 12,
+          "module": "unspun.pipeline.discovery",
+          "name": "douban_preview"
+        },
+        {
+          "source": "server/tests/test_editions.py",
+          "line": 12,
+          "module": "unspun.pipeline.discovery",
+          "name": "feed_item"
+        },
+        {
+          "source": "server/tests/test_editions.py",
+          "line": 12,
+          "module": "unspun.pipeline.discovery",
+          "name": "persist_discovery"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 34,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryItem"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 34,
+          "module": "unspun.pipeline.discovery",
+          "name": "DiscoveryResult"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 34,
+          "module": "unspun.pipeline.discovery",
+          "name": "discover"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 34,
+          "module": "unspun.pipeline.discovery",
+          "name": "persist_discovery"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 34,
+          "module": "unspun.pipeline.discovery",
+          "name": "public_url"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 887,
+          "module": "unspun.pipeline.discovery",
+          "name": "feed_item"
+        },
+        {
+          "source": "server/tests/test_public_sources.py",
+          "line": 12,
+          "module": "unspun.pipeline.discovery",
+          "name": "discover"
+        }
+      ],
+      "document_links": [
+        "docs/superpowers/specs/2026-10-19-r2-topics-and-recommendation-design.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/discovery_quotas.py",
+      "bytes": 7850,
+      "imports": [
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 359,
+          "module": "unspun.pipeline.discovery_quotas",
+          "name": "VERSION"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 359,
+          "module": "unspun.pipeline.discovery_quotas",
+          "name": "selection_lock"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 574,
+          "module": "unspun.pipeline.discovery_quotas",
+          "name": "select_materials"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 574,
+          "module": "unspun.pipeline.discovery_quotas",
+          "name": "select_processing"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 550,
+          "module": "unspun.pipeline.discovery_quotas",
+          "name": "metadata_exclusion"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 721,
+          "module": "unspun.pipeline.discovery_quotas",
+          "name": "selection_lock"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 732,
+          "module": "unspun.pipeline.discovery_quotas",
+          "name": "select_processing"
+        }
+      ],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/editions.py",
+      "bytes": 15733,
+      "imports": [
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 277,
+          "module": "unspun.pipeline.editions",
+          "name": "discover_edition"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 120,
+          "module": "unspun.pipeline.editions",
+          "name": "people_metadata"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 319,
+          "module": "unspun.pipeline.editions",
+          "name": "retrieve_daily"
+        },
+        {
+          "source": "server/tests/test_editions.py",
+          "line": 344,
+          "module": "unspun.pipeline.editions",
+          "name": "people_metadata"
+        }
+      ],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/extract.py",
+      "bytes": 649,
+      "imports": [
+        {
+          "source": "server/src/unspun/pipeline/fetcher.py",
+          "line": 16,
+          "module": "unspun.pipeline.extract",
+          "name": "extract_content"
+        },
+        {
+          "source": "server/src/unspun/pipeline/fetcher.py",
+          "line": 16,
+          "module": "unspun.pipeline.extract",
+          "name": "strip_tags"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 37,
+          "module": "unspun.pipeline.extract",
+          "name": "extract_content"
+        },
+        {
+          "source": "server/tests/test_feeds.py",
+          "line": 5,
+          "module": "unspun.pipeline.extract",
+          "name": "strip_tags"
+        }
+      ],
+      "document_links": [
+        "docs/tasks/r1.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/feeds.py",
+      "bytes": 3754,
+      "imports": [
+        {
+          "source": "server/src/unspun/evaluation/observe_sources.py",
+          "line": 14,
+          "module": "unspun.pipeline.feeds",
+          "name": "make_client"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 29,
+          "module": "unspun.pipeline.feeds",
+          "name": "FeedEntry"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 29,
+          "module": "unspun.pipeline.feeds",
+          "name": "fetch_bytes"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 29,
+          "module": "unspun.pipeline.feeds",
+          "name": "make_client"
+        },
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 29,
+          "module": "unspun.pipeline.feeds",
+          "name": "parse_feed"
+        },
+        {
+          "source": "server/src/unspun/pipeline/fetcher.py",
+          "line": 17,
+          "module": "unspun.pipeline.feeds",
+          "name": "FeedEntry"
+        },
+        {
+          "source": "server/src/unspun/pipeline/fetcher.py",
+          "line": 17,
+          "module": "unspun.pipeline.feeds",
+          "name": "fetch_bytes"
+        },
+        {
+          "source": "server/src/unspun/pipeline/fetcher.py",
+          "line": 17,
+          "module": "unspun.pipeline.feeds",
+          "name": "make_client"
+        },
+        {
+          "source": "server/src/unspun/pipeline/fetcher.py",
+          "line": 17,
+          "module": "unspun.pipeline.feeds",
+          "name": "parse_feed"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 38,
+          "module": "unspun.pipeline.feeds",
+          "name": "make_client"
+        },
+        {
+          "source": "server/tests/test_editions.py",
+          "line": 13,
+          "module": "unspun.pipeline.feeds",
+          "name": "FeedEntry"
+        },
+        {
+          "source": "server/tests/test_feeds.py",
+          "line": 6,
+          "module": "unspun.pipeline.feeds",
+          "name": "is_http_url"
+        },
+        {
+          "source": "server/tests/test_feeds.py",
+          "line": 6,
+          "module": "unspun.pipeline.feeds",
+          "name": "parse_feed"
+        },
+        {
+          "source": "server/tests/test_fetcher.py",
+          "line": 7,
+          "module": "unspun.pipeline.feeds",
+          "name": "FeedEntry"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 888,
+          "module": "unspun.pipeline.feeds",
+          "name": "FeedEntry"
+        }
+      ],
+      "document_links": [
+        "docs/tasks/r1.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/fetcher.py",
+      "bytes": 5370,
+      "imports": [
+        {
+          "source": "server/src/unspun/pipeline/main.py",
+          "line": 13,
+          "module": "unspun.pipeline.fetcher",
+          "name": "run_fetch_cycle"
+        },
+        {
+          "source": "server/tests/test_fetcher.py",
+          "line": 8,
+          "module": "unspun.pipeline.fetcher",
+          "name": "drop_internal_urls"
+        },
+        {
+          "source": "server/tests/test_fetcher.py",
+          "line": 8,
+          "module": "unspun.pipeline.fetcher",
+          "name": "fetch_source"
+        }
+      ],
+      "document_links": [
+        "docs/tasks/r1.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/main.py",
+      "bytes": 2447,
+      "imports": [
+        {
+          "source": "server/tests/test_pipeline_main.py",
+          "line": 3,
+          "module": "unspun.pipeline",
+          "name": "main"
+        }
+      ],
+      "document_links": [
+        "docs/tasks/cleanup.md",
+        "docs/tasks/r1.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/materials.py",
+      "bytes": 31622,
+      "imports": [
+        {
+          "source": "server/src/unspun/evaluation/observe_sources.py",
+          "line": 15,
+          "module": "unspun.pipeline.materials",
+          "name": "retrieve_material"
+        },
+        {
+          "source": "server/src/unspun/pipeline/editions.py",
+          "line": 19,
+          "module": "unspun.pipeline.materials",
+          "name": "MaterialResult"
+        },
+        {
+          "source": "server/src/unspun/pipeline/editions.py",
+          "line": 32,
+          "module": "unspun.pipeline.materials",
+          "name": "get_page"
+        },
+        {
+          "source": "server/src/unspun/pipeline/editions.py",
+          "line": 273,
+          "module": "unspun.pipeline.materials",
+          "name": "MaterialResult"
+        },
+        {
+          "source": "server/src/unspun/pipeline/editions.py",
+          "line": 282,
+          "module": "unspun.pipeline.materials",
+          "name": "get_page"
+        },
+        {
+          "source": "server/src/unspun/pipeline/public_sources.py",
+          "line": 109,
+          "module": "unspun.pipeline.materials",
+          "name": "get_page"
+        },
+        {
+          "source": "server/src/unspun/pipeline/public_sources.py",
+          "line": 279,
+          "module": "unspun.pipeline.materials",
+          "name": "publication_times"
+        },
+        {
+          "source": "server/src/unspun/pipeline/r1_runtime.py",
+          "line": 28,
+          "module": "unspun.pipeline.materials",
+          "name": "MaterialHandler"
+        },
+        {
+          "source": "server/tests/test_discovery_quotas.py",
+          "line": 21,
+          "module": "unspun.pipeline.materials",
+          "name": "MaterialHandler"
+        },
+        {
+          "source": "server/tests/test_editions.py",
+          "line": 14,
+          "module": "unspun.pipeline.materials",
+          "name": "retrieve_material"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 41,
+          "module": "unspun.pipeline.materials",
+          "name": "MaterialResult"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 41,
+          "module": "unspun.pipeline.materials",
+          "name": "apply_material"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 41,
+          "module": "unspun.pipeline.materials",
+          "name": "retrieve_material"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 409,
+          "module": "unspun.pipeline.materials",
+          "name": "MaterialHandler"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 518,
+          "module": "unspun.pipeline.materials",
+          "name": "_clean_body"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 788,
+          "module": "unspun.pipeline.materials",
+          "name": "body_identity"
+        },
+        {
+          "source": "server/tests/test_public_sources.py",
+          "line": 13,
+          "module": "unspun.pipeline.materials",
+          "name": "retrieve_material"
+        }
+      ],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/public_sources.py",
+      "bytes": 18061,
+      "imports": [
+        {
+          "source": "server/src/unspun/pipeline/discovery.py",
+          "line": 273,
+          "module": "unspun.pipeline.public_sources",
+          "name": "discover_public"
+        },
+        {
+          "source": "server/src/unspun/pipeline/materials.py",
+          "line": 366,
+          "module": "unspun.pipeline.public_sources",
+          "name": "public_material"
+        }
+      ],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/r1_runtime.py",
+      "bytes": 7142,
+      "imports": [
+        {
+          "source": "server/src/unspun/pipeline/r1_worker.py",
+          "line": 206,
+          "module": "unspun.pipeline.r1_runtime",
+          "name": "main"
+        },
+        {
+          "source": "server/tests/test_r1_runtime.py",
+          "line": 17,
+          "module": "unspun.pipeline.r1_runtime",
+          "name": "build_runtime"
+        },
+        {
+          "source": "server/tests/test_r1_runtime.py",
+          "line": 17,
+          "module": "unspun.pipeline.r1_runtime",
+          "name": "check_paid_budget"
+        },
+        {
+          "source": "server/tests/test_r1_runtime.py",
+          "line": 17,
+          "module": "unspun.pipeline.r1_runtime",
+          "name": "make_pool"
+        },
+        {
+          "source": "server/tests/test_r1_runtime.py",
+          "line": 17,
+          "module": "unspun.pipeline.r1_runtime",
+          "name": "sync_sources"
+        }
+      ],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/r1_worker.py",
+      "bytes": 7254,
+      "imports": [
+        {
+          "source": "server/src/unspun/pipeline/content_processing.py",
+          "line": 38,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "Blocked"
+        },
+        {
+          "source": "server/src/unspun/pipeline/content_processing.py",
+          "line": 38,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "DependencyPending"
+        },
+        {
+          "source": "server/src/unspun/pipeline/content_processing.py",
+          "line": 38,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "SessionScope"
+        },
+        {
+          "source": "server/src/unspun/pipeline/r1_runtime.py",
+          "line": 29,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "Handlers"
+        },
+        {
+          "source": "server/src/unspun/pipeline/r1_runtime.py",
+          "line": 29,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "SessionScope"
+        },
+        {
+          "source": "server/src/unspun/pipeline/r1_runtime.py",
+          "line": 29,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "StageHandler"
+        },
+        {
+          "source": "server/src/unspun/pipeline/r1_runtime.py",
+          "line": 29,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "WorkerPool"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 309,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "process_one"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 388,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "Handlers"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 388,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "process_one"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 509,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "process_one"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 540,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "process_one"
+        },
+        {
+          "source": "server/tests/test_content_processing.py",
+          "line": 611,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "process_one"
+        },
+        {
+          "source": "server/tests/test_ingestion.py",
+          "line": 42,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "SessionScope"
+        },
+        {
+          "source": "server/tests/test_tasks.py",
+          "line": 35,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "Blocked"
+        },
+        {
+          "source": "server/tests/test_tasks.py",
+          "line": 35,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "Deferred"
+        },
+        {
+          "source": "server/tests/test_tasks.py",
+          "line": 35,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "Handlers"
+        },
+        {
+          "source": "server/tests/test_tasks.py",
+          "line": 35,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "SessionScope"
+        },
+        {
+          "source": "server/tests/test_tasks.py",
+          "line": 35,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "WorkerPool"
+        },
+        {
+          "source": "server/tests/test_tasks.py",
+          "line": 35,
+          "module": "unspun.pipeline.r1_worker",
+          "name": "process_one"
+        }
+      ],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/repair_grounding.py",
+      "bytes": 9338,
+      "imports": [
+        {
+          "source": "server/tests/test_repair_grounding.py",
+          "line": 10,
+          "module": "unspun.pipeline.repair_grounding",
+          "name": "repair_event"
+        }
+      ],
+      "document_links": [
+        "docs/tasks/r1.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/score.py",
+      "bytes": 13943,
+      "imports": [
+        {
+          "source": "server/src/unspun/api/admin/runs.py",
+          "line": 16,
+          "module": "unspun.pipeline.score",
+          "name": "pending_score_conditions"
+        },
+        {
+          "source": "server/src/unspun/api/report.py",
+          "line": 12,
+          "module": "unspun.pipeline.score",
+          "name": "pending_score_conditions"
+        },
+        {
+          "source": "server/src/unspun/pipeline/main.py",
+          "line": 14,
+          "module": "unspun.pipeline.score",
+          "name": "score_pending"
+        },
+        {
+          "source": "server/src/unspun/pipeline/repair_grounding.py",
+          "line": 25,
+          "module": "unspun.pipeline.score",
+          "name": "score_event"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 35,
+          "module": "unspun.pipeline.score",
+          "name": "pending_score_conditions"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 35,
+          "module": "unspun.pipeline.score",
+          "name": "score_event"
+        },
+        {
+          "source": "server/tests/test_score.py",
+          "line": 13,
+          "module": "unspun.pipeline.score",
+          "name": "objective_score"
+        },
+        {
+          "source": "server/tests/test_score.py",
+          "line": 13,
+          "module": "unspun.pipeline.score",
+          "name": "score_event"
+        },
+        {
+          "source": "server/tests/test_score.py",
+          "line": 358,
+          "module": "unspun.pipeline.score",
+          "name": "refresh_event_public_impact"
+        },
+        {
+          "source": "server/tests/test_score.py",
+          "line": 444,
+          "module": "unspun.pipeline",
+          "name": "score"
+        }
+      ],
+      "document_links": []
+    },
+    {
+      "path": "server/src/unspun/pipeline/summarize.py",
+      "bytes": 19666,
+      "imports": [
+        {
+          "source": "server/src/unspun/api/admin/runs.py",
+          "line": 17,
+          "module": "unspun.pipeline.summarize",
+          "name": "abandoned_summary_conditions"
+        },
+        {
+          "source": "server/src/unspun/api/admin/runs.py",
+          "line": 17,
+          "module": "unspun.pipeline.summarize",
+          "name": "pending_embedding_conditions"
+        },
+        {
+          "source": "server/src/unspun/api/admin/runs.py",
+          "line": 17,
+          "module": "unspun.pipeline.summarize",
+          "name": "pending_summary_conditions"
+        },
+        {
+          "source": "server/src/unspun/api/admin/runs.py",
+          "line": 17,
+          "module": "unspun.pipeline.summarize",
+          "name": "summary_ordering"
+        },
+        {
+          "source": "server/src/unspun/api/report.py",
+          "line": 13,
+          "module": "unspun.pipeline.summarize",
+          "name": "abandoned_summary_conditions"
+        },
+        {
+          "source": "server/src/unspun/api/report.py",
+          "line": 13,
+          "module": "unspun.pipeline.summarize",
+          "name": "pending_embedding_conditions"
+        },
+        {
+          "source": "server/src/unspun/api/report.py",
+          "line": 13,
+          "module": "unspun.pipeline.summarize",
+          "name": "pending_summary_conditions"
+        },
+        {
+          "source": "server/src/unspun/evaluation/content_quality.py",
+          "line": 40,
+          "module": "unspun.pipeline.summarize",
+          "name": "summarize_article"
+        },
+        {
+          "source": "server/src/unspun/evaluation/run_quality.py",
+          "line": 43,
+          "module": "unspun.pipeline.summarize",
+          "name": "summarize_article"
+        },
+        {
+          "source": "server/src/unspun/pipeline/main.py",
+          "line": 15,
+          "module": "unspun.pipeline.summarize",
+          "name": "embed_pending"
+        },
+        {
+          "source": "server/src/unspun/pipeline/main.py",
+          "line": 15,
+          "module": "unspun.pipeline.summarize",
+          "name": "summarize_pending"
+        },
+        {
+          "source": "server/src/unspun/pipeline/repair_grounding.py",
+          "line": 26,
+          "module": "unspun.pipeline.summarize",
+          "name": "embed_articles"
+        },
+        {
+          "source": "server/src/unspun/pipeline/repair_grounding.py",
+          "line": 26,
+          "module": "unspun.pipeline.summarize",
+          "name": "summarize_article"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 36,
+          "module": "unspun.pipeline.summarize",
+          "name": "abandoned_summary_conditions"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 36,
+          "module": "unspun.pipeline.summarize",
+          "name": "embed_articles"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 36,
+          "module": "unspun.pipeline.summarize",
+          "name": "pending_embedding_conditions"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 36,
+          "module": "unspun.pipeline.summarize",
+          "name": "pending_summary_ids"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 36,
+          "module": "unspun.pipeline.summarize",
+          "name": "summarize_article"
+        },
+        {
+          "source": "server/tests/test_reading.py",
+          "line": 21,
+          "module": "unspun.pipeline.summarize",
+          "name": "pending_summary_ids"
+        },
+        {
+          "source": "server/tests/test_reading.py",
+          "line": 21,
+          "module": "unspun.pipeline.summarize",
+          "name": "summarize_article"
+        },
+        {
+          "source": "server/tests/test_reading.py",
+          "line": 165,
+          "module": "unspun.pipeline",
+          "name": "summarize"
+        },
+        {
+          "source": "server/tests/test_reading.py",
+          "line": 229,
+          "module": "unspun.pipeline",
+          "name": "summarize"
+        },
+        {
+          "source": "server/tests/test_reading.py",
+          "line": 258,
+          "module": "unspun.pipeline",
+          "name": "summarize"
+        },
+        {
+          "source": "server/tests/test_summarize_cluster.py",
+          "line": 12,
+          "module": "unspun.pipeline.summarize",
+          "name": "embed_articles"
+        },
+        {
+          "source": "server/tests/test_summarize_cluster.py",
+          "line": 12,
+          "module": "unspun.pipeline.summarize",
+          "name": "pending_summary_ids"
+        },
+        {
+          "source": "server/tests/test_summarize_cluster.py",
+          "line": 12,
+          "module": "unspun.pipeline.summarize",
+          "name": "summarize_article"
+        },
+        {
+          "source": "server/tests/test_summary_grounding.py",
+          "line": 14,
+          "module": "unspun.pipeline",
+          "name": "summarize"
+        },
+        {
+          "source": "server/tests/test_summary_grounding.py",
+          "line": 15,
+          "module": "unspun.pipeline.summarize",
+          "name": "summarize_article"
+        }
+      ],
+      "document_links": [
+        "docs/tasks/r1.md"
+      ]
+    },
+    {
+      "path": "server/src/unspun/pipeline/viewpoints.py",
+      "bytes": 33231,
+      "imports": [
+        {
+          "source": "server/src/unspun/evaluation/run_quality.py",
+          "line": 44,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "VIEWPOINT_VERSION"
+        },
+        {
+          "source": "server/src/unspun/evaluation/run_quality.py",
+          "line": 44,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "refresh_event_viewpoint"
+        },
+        {
+          "source": "server/src/unspun/pipeline/main.py",
+          "line": 16,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "viewpoints_pending"
+        },
+        {
+          "source": "server/src/unspun/pipeline/repair_grounding.py",
+          "line": 27,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "input_fingerprint"
+        },
+        {
+          "source": "server/src/unspun/pipeline/repair_grounding.py",
+          "line": 27,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "refresh_event_viewpoint"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 43,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "candidate_viewpoint_ids"
+        },
+        {
+          "source": "server/tests/test_content_foundation.py",
+          "line": 43,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "refresh_event_viewpoint"
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 10,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "parse_viewpoints_payload"
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 10,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "refresh_event_viewpoint"
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 132,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "viewpoint_evidence_sources"
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 132,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "viewpoint_user_prompt"
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 148,
+          "module": "unspun.pipeline.viewpoints",
+          "name": ""
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 171,
+          "module": "unspun.pipeline.viewpoints",
+          "name": ""
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 196,
+          "module": "unspun.pipeline.viewpoints",
+          "name": ""
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 231,
+          "module": "unspun.pipeline.viewpoints",
+          "name": ""
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 249,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "viewpoint_evidence_sources"
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 267,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "viewpoint_evidence_sources"
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 332,
+          "module": "unspun.pipeline.viewpoints",
+          "name": ""
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 426,
+          "module": "unspun.pipeline.viewpoints",
+          "name": ""
+        },
+        {
+          "source": "server/tests/test_grounded_viewpoints.py",
+          "line": 518,
+          "module": "unspun.pipeline.viewpoints",
+          "name": ""
+        },
+        {
+          "source": "server/tests/test_viewpoints.py",
+          "line": 16,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "candidate_viewpoint_ids"
+        },
+        {
+          "source": "server/tests/test_viewpoints.py",
+          "line": 16,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "input_fingerprint"
+        },
+        {
+          "source": "server/tests/test_viewpoints.py",
+          "line": 16,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "is_eligible"
+        },
+        {
+          "source": "server/tests/test_viewpoints.py",
+          "line": 16,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "parse_viewpoints_payload"
+        },
+        {
+          "source": "server/tests/test_viewpoints.py",
+          "line": 16,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "prompt_articles"
+        },
+        {
+          "source": "server/tests/test_viewpoints.py",
+          "line": 16,
+          "module": "unspun.pipeline.viewpoints",
+          "name": "refresh_event_viewpoint"
+        }
+      ],
+      "document_links": []
+    }
+  ],
+  "entry_strings": [
+    {
+      "path": "deploy/compose.yml",
+      "line": 31,
+      "text": "command: [\"python\", \"-m\", \"unspun.pipeline.main\"]"
+    },
+    {
+      "path": "deploy/deploy.sh",
+      "line": 106,
+      "text": "\"${compose[@]}\" up -d --remove-orphans --scale worker=0"
+    },
+    {
+      "path": "deploy/tests/test_deploy.py",
+      "line": 110,
+      "text": "self.assertIn(\"worker=0\", calls[start])"
+    },
+    {
+      "path": "deploy/tests/test_deploy.py",
+      "line": 127,
+      "text": "self.assertIn(\"worker=0\", start)"
+    },
+    {
+      "path": "docs/acceptance/r1-01-migration-startup-2026-10-16.md",
+      "line": 31,
+      "text": "4. \u4ec5\u8fc1\u79fb\u9000\u51fa 0 \u540e\u6267\u884c\u670d\u52a1\u542f\u52a8\uff0c\u5e76\u663e\u5f0f\u4f20\u5165 `--scale worker=0`\uff1b\u672a\u6765 R1 \u6d88\u8d39\u8005\u8fd8\u9700\u5404\u81ea\u7684\u95e8\u69db\u548c\u90e8\u7f72 PR\u3002"
+    },
+    {
+      "path": "docs/acceptance/r1-budget-rollout-hook-2026-10-17.md",
+      "line": 5,
+      "text": "\u521d\u59cb\u5316\u53ea\u8bfb\u83b7\u53d6\u540c\u4e00\u4e2a\u63d0\u4f9b\u65b9 key \u7684\u771f\u5b9e\u7d2f\u8ba1/\u6708\u5ea6\u8ba1\u6570\uff0c\u5728\u539f\u751f\u4ea7\u5e93\u4fdd\u7559\u5df2\u53d1\u751f\u8d39\u7528\u53ca carry\uff1b\u5df2\u542f\u7528\u7b56\u7565\u4e0d\u4f1a\u56e0\u518d\u6b21\u90e8\u7f72\u88ab\u91cd\u7f6e\u6216\u81ea\u52a8\u6269\u989d\u3002\u6d88\u8d39\u8005\u7ee7\u7eed\u68c0\u67e5\u751f\u4ea7 scope\u3001\u7248\u672c\u3001key \u6307\u7eb9\u3001\u63d0\u4f9b\u65b9\u951a\u70b9\u548c incident\u3002\u4efb\u4e00\u6b65\u5931\u8d25\u90fd\u4e0d\u4f1a\u542f\u52a8\u76ee\u6807\u670d\u52a1\uff1b\u65e7 AI worker \u59cb\u7ec8 `worker=0`\u3002"
+    },
+    {
+      "path": "docs/tasks/cleanup.md",
+      "line": 27,
+      "text": "| \u65e7 worker \u4e0e\u4e13\u5c5e\u6267\u884c\u94fe | [Compose](../../deploy/compose.yml) \u7684 `worker`\u3001[\u751f\u4ea7\u53e0\u52a0](../../deploy/compose.prod.yml)\u3001[deploy.sh](../../deploy/deploy.sh) \u7684 `--scale worker=0`\u3001[\u65e7\u4e3b\u5faa\u73af](../../server/src/unspun/pipeline/main.py) | \u540c\u6b65\u6e05\u7406\u670d\u52a1\u5b9a\u4e49\u3001\u547d\u4ee4\u3001\u6d4b\u8bd5\u548c\u6587\u6863\uff1b\u5f53\u524d `r1-worker`\u3001`r1_worker.py`\u3001`r1_runtime.py` \u4ecd\u5728\u4f7f\u7528 |"
+    },
+    {
+      "path": "docs/tasks/cleanup.md",
+      "line": 79,
+      "text": "- [ ] \u540c\u6b65\u6e05\u7406 `worker` \u670d\u52a1\u3001`--scale worker=0`\u3001\u65e7\u542f\u52a8\u5165\u53e3\u53ca\u53ea\u670d\u52a1\u5df2\u9000\u5f79\u8def\u5f84\u7684\u6d4b\u8bd5/\u6587\u6863\uff1b\u5220\u9664\u65e0\u5171\u4eab/API/\u8bc4\u6d4b\u5f15\u7528\u7684\u65e7\u4e3b\u5faa\u73af\u53ca\u4e13\u5c5e\u90e8\u5206\u3002"
+    }
+  ]
+}

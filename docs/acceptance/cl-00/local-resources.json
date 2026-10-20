@@ -1,0 +1,503 @@
+{
+  "environment": "local",
+  "captured_at": "2026-10-20T05:17:48.240389+00:00",
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "ps",
+        "-aq",
+        "--no-trunc"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "efc7a0ec1868f79a18d66ce6a2efd9e31aad1ec1785086709e6dbca6ff512f5f"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "d30d243a293678f26a6ecacb447147d6bd56db5ae4d80c5baa93e2d759d79ff0"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "96c44f5c8742a6c5730f428fadf9689709bb3500affb833b06c67ad1c6e10a08"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "a56da5b08ba8841d80c79ce09017cfbb7a56e257352f392b5b7e7e72599bfbbe"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "f3c4fee75b68312de6654a1eb1ca5804fe49218a5a320458b6c3e8a4a5f6036c"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "5f910f370ad7132e65fb642c46200f3ba665732cf8675dcf582f65fccb4d29b8"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "caeb3993058a0a3c35a0d4eb94e6fa87a4bf7a978f0a52dc7aed4ca17bee8962"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "17d8c1a8921e8710855635393e063edb12a4270b7dbdc9a9a8a4e21d204d9b3f"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "44a1cf52602ec38adef8104384b4385560d5c3aef77f8811c11340c4bbd5a6bf"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "ls",
+        "-q",
+        "--no-trunc"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:2f3e38b86564b15e745d8c9c83b4d474a0b2fc25bf2f60f3350682c6d3405c13"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:5ebb0c9898f87ed4a3e109a7bfe124181cdaa61671174f13c9a08391cad758d9"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:69f72cbca5b51b29e6fb002e625c9e145d1b6e3348dd2178d01ad3c3be743c08"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:92b8b307ee28ed74da17578064c73307ad41e43f422f0b7e4e91498b406c59e3"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:981b88c4b674a29b949135e546093de848c4461c4eb89cba0a6833e8c4750e8f"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:a2a52e43c1a80aa94120ad78c2db68780eb90e6d11c8db5b3ce2f6a0cc6b5029"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:b4da8bf6b1b44f6f683883869619eb9781465c642ce5f2d70591fb27094ddb1c"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:b94fc7612d131f1a3cb76145ba3385c813ad7561ef2c2b60c89fbd5dfee93d39"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:c0d346a4b726f167e16451d01a217dfe17f07994ac30f7ab61b57aa321b3e4d6"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:f7c3a9dff7e48cb93df41c464446a517d531275475d426cffe00ebab58f9f277"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:fbb5178fa5cf5bba19b82727f8f014361df2a1563367a3255bf5a8fc705356a2"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:ff89bd48ff32cd8d9be5fee8873b65b8854dc408f1afe881be6eb00247bc0dab"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "volume",
+        "ls",
+        "-q"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "volume",
+        "inspect",
+        "335a0a7099145fd6783136ee1c457c054d67eb7cc1d0820ad36b1699b59a20c5"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "volume",
+        "inspect",
+        "c0c879d4c897521d33a53c0ed57b4c67fe9dfa0261d940ce4b7658893c59e928"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "volume",
+        "inspect",
+        "unspun_pgdata"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "volume",
+        "inspect",
+        "zalando-assistant-fork_dynamodb-data"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "network",
+        "ls",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "system",
+        "df"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "system",
+        "df",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "docker",
+        "builder",
+        "du"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "containers": [
+    {
+      "id": "efc7a0ec1868f79a18d66ce6a2efd9e31aad1ec1785086709e6dbca6ff512f5f",
+      "name": "/unspun-rsshub-1",
+      "image": "diygod/rsshub:2026-10-09",
+      "image_id": "sha256:fbb5178fa5cf5bba19b82727f8f014361df2a1563367a3255bf5a8fc705356a2",
+      "state": "running",
+      "restart": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "owner": "unspun",
+      "role": null,
+      "ports": {
+        "1200/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "1200"
+          }
+        ]
+      },
+      "mounts": [],
+      "log": {
+        "path": "/var/lib/docker/containers/efc7a0ec1868f79a18d66ce6a2efd9e31aad1ec1785086709e6dbca6ff512f5f/efc7a0ec1868f79a18d66ce6a2efd9e31aad1ec1785086709e6dbca6ff512f5f-json.log",
+        "config": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    },
+    {
+      "id": "d30d243a293678f26a6ecacb447147d6bd56db5ae4d80c5baa93e2d759d79ff0",
+      "name": "/unspun-db-1",
+      "image": "pgvector/pgvector:pg17",
+      "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d",
+      "state": "running",
+      "restart": {
+        "Name": "no",
+        "MaximumRetryCount": 0
+      },
+      "owner": "unspun",
+      "role": null,
+      "ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "5432"
+          }
+        ]
+      },
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "unspun_pgdata",
+          "Source": "/var/lib/docker/volumes/unspun_pgdata/_data",
+          "Destination": "/var/lib/postgresql/data",
+          "Driver": "local",
+          "Mode": "z",
+          "RW": true,
+          "Propagation": ""
+        }
+      ],
+      "log": {
+        "path": "/var/lib/docker/containers/d30d243a293678f26a6ecacb447147d6bd56db5ae4d80c5baa93e2d759d79ff0/d30d243a293678f26a6ecacb447147d6bd56db5ae4d80c5baa93e2d759d79ff0-json.log",
+        "config": {
+          "Type": "json-file",
+          "Config": {}
+        }
+      }
+    }
+  ],
+  "images": [
+    {
+      "id": "sha256:69f72cbca5b51b29e6fb002e625c9e145d1b6e3348dd2178d01ad3c3be743c08",
+      "tags": [
+        "unspun-server:dev"
+      ],
+      "digests": [
+        "unspun-server@sha256:69f72cbca5b51b29e6fb002e625c9e145d1b6e3348dd2178d01ad3c3be743c08"
+      ],
+      "bytes": 76368662,
+      "created_at": "2026-10-08T16:49:23.50867509+08:00",
+      "container_refs": []
+    },
+    {
+      "id": "sha256:981b88c4b674a29b949135e546093de848c4461c4eb89cba0a6833e8c4750e8f",
+      "tags": [
+        "unspun-server:r1-01-isolated"
+      ],
+      "digests": [
+        "unspun-server@sha256:981b88c4b674a29b949135e546093de848c4461c4eb89cba0a6833e8c4750e8f"
+      ],
+      "bytes": 138320285,
+      "created_at": "2026-10-16T13:24:03.380819347+08:00",
+      "container_refs": []
+    },
+    {
+      "id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d",
+      "tags": [
+        "pgvector/pgvector:pg17"
+      ],
+      "digests": [
+        "pgvector/pgvector@sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d"
+      ],
+      "bytes": 158330725,
+      "created_at": "2026-10-01T17:35:04.071060378Z",
+      "container_refs": [
+        "/unspun-db-1"
+      ]
+    },
+    {
+      "id": "sha256:f7c3a9dff7e48cb93df41c464446a517d531275475d426cffe00ebab58f9f277",
+      "tags": [
+        "unspun-web:dev"
+      ],
+      "digests": [
+        "unspun-web@sha256:f7c3a9dff7e48cb93df41c464446a517d531275475d426cffe00ebab58f9f277"
+      ],
+      "bytes": 23715314,
+      "created_at": "2026-10-08T16:55:06.481861982+08:00",
+      "container_refs": []
+    },
+    {
+      "id": "sha256:fbb5178fa5cf5bba19b82727f8f014361df2a1563367a3255bf5a8fc705356a2",
+      "tags": [
+        "diygod/rsshub:2026-10-09"
+      ],
+      "digests": [
+        "diygod/rsshub@sha256:fbb5178fa5cf5bba19b82727f8f014361df2a1563367a3255bf5a8fc705356a2"
+      ],
+      "bytes": 132579089,
+      "created_at": "2026-10-09T06:11:25.870927885Z",
+      "container_refs": [
+        "/unspun-rsshub-1"
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "name": "335a0a7099145fd6783136ee1c457c054d67eb7cc1d0820ad36b1699b59a20c5",
+      "mountpoint": "/var/lib/docker/volumes/335a0a7099145fd6783136ee1c457c054d67eb7cc1d0820ad36b1699b59a20c5/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      },
+      "container_refs": [
+        "/redis_local"
+      ]
+    },
+    {
+      "name": "c0c879d4c897521d33a53c0ed57b4c67fe9dfa0261d940ce4b7658893c59e928",
+      "mountpoint": "/var/lib/docker/volumes/c0c879d4c897521d33a53c0ed57b4c67fe9dfa0261d940ce4b7658893c59e928/_data",
+      "labels": {
+        "com.docker.volume.anonymous": ""
+      },
+      "container_refs": [
+        "/za_localstack"
+      ]
+    },
+    {
+      "name": "unspun_pgdata",
+      "mountpoint": "/var/lib/docker/volumes/unspun_pgdata/_data",
+      "labels": {
+        "com.docker.compose.config-hash": "ec7d56dd415a4f30e6d67478f785d323f45966308a3a6148b97d787f2d666b5a",
+        "com.docker.compose.project": "unspun",
+        "com.docker.compose.version": "2.34.0",
+        "com.docker.compose.volume": "pgdata"
+      },
+      "container_refs": [
+        "/unspun-db-1"
+      ]
+    }
+  ],
+  "networks": [
+    {
+      "CreatedAt": "2026-10-09 11:36:47.937275869 +0800 CST",
+      "Driver": "bridge",
+      "ID": "156cfb38d5b1",
+      "IPv4": "true",
+      "IPv6": "false",
+      "Internal": "false",
+      "Labels": "com.docker.compose.config-hash=babdb6b1aab3d12843f130c0302bf66684f5bb4bba25d6abfd4e652d423bc7c6,com.docker.compose.network=default,com.docker.compose.project=unspun,com.docker.compose.version=2.34.0",
+      "Name": "unspun_default",
+      "Scope": "local"
+    }
+  ],
+  "disk_summary": "TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE\nImages          14        9         12.05GB   11.52GB (95%)\nContainers      9         2         314.2MB   308.1MB (98%)\nLocal Volumes   4         4         716MB     0B (0%)\nBuild Cache     73        0         3.547GB   2.794GB",
+  "volume_summary": "unspun-server                                                                                          r1-01-isolated   981b88c4b674   4 days ago     644MB     283MB         361.3MB       0\nunspun-web                                                                                             dev              f7c3a9dff7e4   11 days ago    89.3MB    0B            89.27MB       0\nunspun-server                                                                                          dev              69f72cbca5b5   11 days ago    359MB     283MB         76.37MB       0\nefc7a0ec1868   diygod/rsshub:2026-10-09                       \"dumb-init -- npm ru\u2026\"   0               6.09MB    10 days ago    Up 2 days (healthy)        unspun-rsshub-1\nd30d243a2936   pgvector/pgvector:pg17                         \"docker-entrypoint.s\u2026\"   1               20.5kB    11 days ago    Up 2 days (healthy)        unspun-db-1\nc0c879d4c897521d33a53c0ed57b4c67fe9dfa0261d940ce4b7658893c59e928   1         647.9kB\nunspun_pgdata                                                      1         714.7MB\n335a0a7099145fd6783136ee1c457c054d67eb7cc1d0820ad36b1699b59a20c5   1         14.22kB",
+  "builder_cache": "ID\t\t\t\t\t\tRECLAIMABLE\tSIZE\t\tLAST ACCESSED\nlk0wvbowsdqk0n8i55w70kggo               \ttrue \t\t379.6MB   \t6 weeks ago\nlpppe57i7udevadb03wdl2igh               \ttrue \t\t372.3MB   \t6 weeks ago\nmx1tnbojr4qp1s4z0lyus34il               \ttrue \t\t283.4MB*  \t4 days ago\nnxg524ruwdch7nupw4ucidkp0               \ttrue \t\t277.9MB   \t11 days ago\nff7bffe0x7yvfdgb5fb71k60i*              \ttrue \t\t221.6MB   \t4 days ago\neqtbnmgiyp6slwevdigi60a74               \ttrue \t\t200.9MB   \t11 days ago\nj9hyzgmigkgos22rc1v6qxd58               \ttrue \t\t192.9MB   \t11 days ago\n8u4881of5hjlagbew89mblaak*              \ttrue \t\t147.1MB   \t11 days ago\nxzqlwg1s9qlwwvfv7o5kp1mrl               \ttrue \t\t142.8MB   \t11 days ago\nm6qklja0blpake8tvoha6ywaf*              \ttrue \t\t141MB     \t11 days ago\nzeqrv4ebex5397oi4drapypx3               \ttrue \t\t139.2MB   \t11 days ago\nymtf4ygm1keghfbq6mk8auzvq*              \ttrue \t\t139.1MB   \t11 days ago\nlaj1yj4dslt8lw0znbxexy85y               \ttrue \t\t136.5MB*  \t4 days ago\nijzuxvxdknoahqx0rp6lieis3               \ttrue \t\t135.9MB*  \t4 days ago\nlft4pmclmb45b0ljnmfbysq3b               \ttrue \t\t135.8MB   \t11 days ago\nnvjdz96b6v8ivcjjkbquqfjrf*              \ttrue \t\t111.5MB   \t11 days ago\n94tdzsxo7e39xpy5npohe6td2               \ttrue \t\t73.96MB*  \t4 days ago\nciwtit5h5wha2ek5yu7rtk3bb               \ttrue \t\t66.78MB   \t11 days ago\nfbemejw236jdxey67u4py71dv               \ttrue \t\t65.08MB*  \t11 days ago\nt5laplgcchnglji963a8jipna               \ttrue \t\t61.93MB   \t11 days ago\nvn8wd87v13g9c3ju1wtfe1l9r               \ttrue \t\t13.73MB   \t11 days ago\np46tphci74xjsx1nd41n7cagt               \ttrue \t\t13.56MB   \t6 weeks ago\nn6bxx0fkc53q3x9ygy2bur47i               \ttrue \t\t13.5MB*   \t11 days ago\nwar56h81fz3uohbc65t6wstc1               \ttrue \t\t12.97MB   \t6 weeks ago\n3t2kf2pua177iye02bgqpd03j               \ttrue \t\t12.86MB*  \t4 days ago\nqzf33eu40fhq6obow38wpdw6v               \ttrue \t\t10.24MB*  \t11 days ago\nj3ibsi7ggn38oo6xcc63enxtk               \ttrue \t\t9.395MB*  \t6 weeks ago\noowe3g3w0lnhkajquo2vdk9rp               \ttrue \t\t9.394MB*  \t6 weeks ago\n8w34kg8kdo6jxmaqfzz7pt0d8               \ttrue \t\t9.041MB   \t11 days ago\nj1zxznp6hqyw0x2hkjd6hbn36*              \ttrue \t\t6.599MB   \t6 weeks ago\nezqjzsmavdbonw73tcyzeoe1n               \ttrue \t\t1.888MB   \t6 weeks ago\nm2emoqnj8pcewikt9airxbezh               \ttrue \t\t1.779MB   \t6 weeks ago\nmsd3bx90zeu96fvt0a8h7l2d3               \ttrue \t\t1.589MB*  \t4 days ago\nabdey5gen1t294nkgq34puwpk               \ttrue \t\t1.589MB   \t4 days ago\n73c00dlrv9dticv0iwrintlmy*              \ttrue \t\t1.38MB    \t4 days ago\nqbmsbr6yxgg4ehvs2x4xfx5dz               \ttrue \t\t405.5kB   \t4 days ago\nxp1ellnyajrjsavbpi597u7jc               \ttrue \t\t370.1kB*  \t6 weeks ago\npu18qyfhcvzdtm2ndzqnqlieb               \ttrue \t\t345.2kB*  \t11 days ago\nt7ks909yb5j14j33emik7i0vg               \ttrue \t\t221.2kB   \t11 days ago\niloxzv09xjbfsp66brmudj5yo               \ttrue \t\t155.3kB*  \t4 days ago\n7k4jc6ng568d7pjwptnidlpkz               \ttrue \t\t155.3kB   \t4 days ago\ncxp8f28zbwn8k2w7kpreeh6tl               \ttrue \t\t143.4kB   \t11 days ago\nqj662seen40655sl37imb395t               \ttrue \t\t90.11kB   \t11 days ago\nql9chzglvrs9c9cay6dustvq2               \ttrue \t\t73.04kB*  \t11 days ago\nid8wsmcmnrdfyobpmmp7pir50               \ttrue \t\t72.94kB   \t11 days ago\nnzvkmosds1ocxveh51dd0jjhc               \ttrue \t\t46.16kB*  \t4 days ago\nms18d57hg5jv35zdwy5und6f3               \ttrue \t\t41.79kB   \t4 days ago\n0xg0cir66yrohfdkxl6uwvv4k               \ttrue \t\t41.78kB*  \t4 days ago\n4p2av9u9wd3gr7g2ifsj2wf18               \ttrue \t\t20.93kB   \t11 days ago\nhh4x4d1mafkamw1eero4w4dem               \ttrue \t\t20.75kB*  \t11 days ago\ntiu4sxrgojee8xwe0r0icbz40               \ttrue \t\t16.64kB   \t11 days ago\nkcgz3bb1zbhbs83fgrh9udtnw               \ttrue \t\t16.63kB*  \t4 days ago\nwiixm6x53167vm58i1nl2wkid               \ttrue \t\t16.51kB   \t6 weeks ago\nb8q0we74nwa49ttovyighxfds               \ttrue \t\t16.51kB   \t6 weeks ago\n4o1jpsrzi2i053c4wli2aroa1               \ttrue \t\t16.38kB   \t6 weeks ago\ne9k2m2mgly8pe1vfc44gs2w04               \ttrue \t\t12.73kB   \t4 days ago\n9thxowcvt9eersfxo2bp73q67               \ttrue \t\t12.73kB*  \t4 days ago\ndksigc7nhn0dn50j1u1rujo3m               \ttrue \t\t8.285kB*  \t4 days ago\nxa9rirrxn7po35zov4uqydpj2               \ttrue \t\t8.192kB   \t6 weeks ago\ns2x3dfbx3ag628v5w9l062aff*              \ttrue \t\t8.192kB   \t11 days ago\nmkkbdfxhpom1f9r65n6z3iscl               \ttrue \t\t8.192kB   \t4 days ago\nkvomyy39bnn4c7o9v16cul63a*              \ttrue \t\t8.192kB   \t4 days ago\nidb4pn9hw078ueke64yx5tgtv*              \ttrue \t\t8.192kB   \t11 days ago\neiecigfkrrsf1081zahm21b4d*              \ttrue \t\t8.192kB   \t6 weeks ago\ncqhhgu54wsr5kkgt0xd4dnpmu               \ttrue \t\t8.192kB   \t11 days ago\nz7u2fkcporkb3832d7vawtdsr               \ttrue \t\t4.128kB   \t6 weeks ago\nug2lbzdi1cxjb8mpeo0dhnv1g               \ttrue \t\t4.128kB   \t6 weeks ago\nbccxif2osyftkwkhj4bi257a5               \ttrue \t\t4.128kB*  \t11 days ago\nw5l4ig9gjyf6s5oud3brhqgbp*              \ttrue \t\t4.096kB   \t4 days ago\nvyn3qqque14f4fx70ceejxpwo*              \ttrue \t\t4.096kB   \t11 days ago\ntgb52j04a90h094ya5vf5flvz*              \ttrue \t\t4.096kB   \t6 weeks ago\nlogqvc5a6f2279a5sddlktnj9*              \ttrue \t\t4.096kB   \t11 days ago\n3nq3j1e3tvcafz5b5stjjzwy0*              \ttrue \t\t4.096kB   \t4 days ago\nShared:\t\t753MB\nPrivate:\t2.794GB\nReclaimable:\t3.547GB\nTotal:\t\t3.547GB",
+  "outside_project_containers": 7,
+  "outside_project_images": 9,
+  "outside_project_volumes": 1
+}
