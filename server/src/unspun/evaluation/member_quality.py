@@ -50,7 +50,7 @@ RUN_LOCK = 206006
 RESERVE_LOCK = 206007
 
 
-def registration() -> dict[str, Any]:
+def registration(*, require_current_contract: bool = True) -> dict[str, Any]:
     manifest = json.loads((ROOT / "docs/evaluations/r2/member-freeze-v1.json").read_text())
     execution = json.loads((ROOT / "docs/evaluations/r2/member-execution-v1.json").read_text())
     availability_freeze = json.loads(
@@ -60,7 +60,7 @@ def registration() -> dict[str, Any]:
         if hashlib.sha256((ROOT / item["path"]).read_bytes()).hexdigest() != item["sha256"]:
             raise ValueError("frozen member evaluation input changed")
     value = json.loads((ROOT / "docs/evaluations/r2/member-registration-v1.json").read_text())
-    if value["contract"] != member_contract():
+    if require_current_contract and value["contract"] != member_contract():
         raise ValueError("frozen member contract changed")
     availability = json.loads(
         (ROOT / "docs/evaluations/r2/member-availability-v1.json").read_text()
@@ -111,6 +111,9 @@ class MemberBatchJournal:
         self.engine, self.spec, self.cap = engine, spec, effective_cap
         self.journal = DatabaseJournal(engine)
 
+    def extra_physical_guard(self, session: Session, context: CallContext) -> None:
+        """Optional additional guard, inside the same serialized physical reservation."""
+
     def reserve(
         self, *, purpose: str, model: str, request: dict[str, Any], context: CallContext
     ) -> Reservation:
@@ -136,6 +139,7 @@ class MemberBatchJournal:
                 select(BilledRequest).where(BilledRequest.logical_key == logical)
             )
             if previous is None or previous.status != "responded":
+                self.extra_physical_guard(session, context)
                 budget = self.spec["budget"]
                 if (
                     state["physical_requests"] >= budget["physical_request_limit"]
@@ -218,7 +222,11 @@ def temporal_values(model: Any, values: dict[str, Any]) -> dict[str, Any]:
 
 
 def seed_packages(
-    session: Session, packages: list[dict[str, Any]], *, exclude_ids: frozenset[int] = frozenset()
+    session: Session,
+    packages: list[dict[str, Any]],
+    *,
+    exclude_ids: frozenset[int] = frozenset(),
+    material_offset: int = 100000,
 ) -> None:
     """Append exact retained material/card versions; never certify excluded inputs."""
     selected = [p for p in packages if p["article"]["id"] not in exclude_ids]
@@ -256,7 +264,8 @@ def seed_packages(
         session.flush()
         material = ContentMaterial(
             **temporal_values(
-                ContentMaterial, {**package["material"], "id": 100000 + package["material"]["id"]}
+                ContentMaterial,
+                {**package["material"], "id": material_offset + package["material"]["id"]},
             )
         )
         session.add(material)
@@ -268,7 +277,7 @@ def seed_packages(
                 ContentDerivation(
                     **temporal_values(
                         ContentDerivation,
-                        {**row, "id": 100000 + row["id"], "material_id": material.id},
+                        {**row, "id": material_offset + row["id"], "material_id": material.id},
                     )
                 )
             )
@@ -301,9 +310,16 @@ def seed_topics(session: Session, spec: dict[str, Any], sources: list[Source]) -
 
         write(0, DefineTopic(kind=topic["kind"], title=topic["title"], domains=tuple(domains)))
         content = anchor["content"]
-        voice = "description" if content["scope"] == "media_description" else "reported"
-        if topic["seed_relation"] == "opinion":
-            voice = "author"
+        reference = topic.get("seed_reference")
+        if reference is None:
+            voice = "description" if content["scope"] == "media_description" else "reported"
+            if topic["seed_relation"] == "opinion":
+                voice = "author"
+            reference = {
+                "paragraph": 0,
+                "quote": content["paragraphs"][0]["text"][:1000],
+                "voice": voice,
+            }
         write(
             1,
             SetMember(
@@ -313,12 +329,12 @@ def seed_topics(session: Session, spec: dict[str, Any], sources: list[Source]) -
                 basis="Frozen AI technical anchor; classification not a user label",
                 decision_version=spec["id"] + ":manual-seed",
                 evidence=(
-                    EvidenceRef(
-                        article_id=content["article_id"],
-                        material_id=content["material_id"],
-                        paragraph=0,
-                        quote=content["paragraphs"][0]["text"][:1000],
-                        voice=voice,
+                    EvidenceRef.model_validate(
+                        {
+                            **reference,
+                            "article_id": content["article_id"],
+                            "material_id": content["material_id"],
+                        }
                     ),
                 ),
             ),

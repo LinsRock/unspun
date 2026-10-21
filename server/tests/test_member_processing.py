@@ -657,6 +657,80 @@ def test_different_event_and_invalid_evidence_cannot_pass_schema_only(member_db:
     assert out["candidates"]
 
 
+def test_prompt_owns_material_and_supplies_required_output_schema(member_db: MemberDB) -> None:
+    db = member_db
+    db.enqueue()
+    db.step("topic_recall")
+    lease = db.claim("topic_judge")
+    db.handler().run(lease)
+    packet = json.loads(db.calls[-1]["messages"][1]["content"])
+    query = packet["query"]
+    anchor = packet["candidate"]["topic"]["anchors"][0]["snapshot"]
+    assert (query["role"], anchor["role"]) == ("query", "anchor")
+    assert query["content"]["article_id"] == db.article
+    assert anchor["content"]["article_id"] == db.anchor
+    assert query["content"]["paragraphs"][0]["index"] == 0
+    assert "qualification" not in query and "identity" not in query
+    schema = packet["output_schema"]
+    assert set(schema["required"]) == {"classification", "certainty", "basis", "evidence"}
+    ref = schema["$defs"]["EvidenceRef"]
+    assert set(ref["required"]) == {"article_id", "material_id", "paragraph", "quote", "voice"}
+    assert set(ref["properties"]["voice"]["enum"]) == {
+        "reported",
+        "author",
+        "question",
+        "description",
+    }
+
+
+@pytest.mark.parametrize("voice", [None, "query", "anchor"])
+def test_missing_or_role_voice_is_not_repaired_or_saved_as_independent(
+    member_db: MemberDB, voice: str | None
+) -> None:
+    from pydantic import ValidationError
+
+    db = member_db
+    db.enqueue()
+    db.step("topic_recall")
+    lease = db.claim("topic_judge")
+    raw = db.handler().run(lease)["decision"]
+    if voice is None:
+        del raw["evidence"][0]["voice"]
+    else:
+        raw["evidence"][0]["voice"] = voice
+    with pytest.raises(ValidationError):
+        MemberDecision.model_validate(raw)
+    with db.scope() as session:
+        assert session.scalar(select(MemberJudgment)) is None
+        assert session.get(Topic, str(db.topic)).revision == 2  # type: ignore[union-attr]
+
+
+def test_citations_cannot_borrow_another_owner_or_invisible_suffix(member_db: MemberDB) -> None:
+    from copy import deepcopy
+
+    db = member_db
+    db.enqueue()
+    db.step("topic_recall")
+    lease = db.claim("topic_judge")
+    decision = MemberDecision.model_validate(db.handler().run(lease)["decision"])
+    packet = deepcopy(lease.payload)
+    own = packet["query"]["content"]
+    original_quote = decision.evidence[0].quote
+    own["paragraphs"] = [{"kind": "paragraph", "text": "x" * 12000 + original_quote}]
+    with db.scope() as session:
+        with pytest.raises(ValueError, match="visible"):
+            validate_decision(session, packet, decision)
+        wrong_owner = decision.evidence[0].model_copy(
+            update={"material_id": decision.evidence[1].material_id}
+        )
+        for classification in ("same_event", "independent"):
+            invalid = decision.model_copy(
+                update={"classification": classification, "evidence": (wrong_owner,)}
+            )
+            with pytest.raises(ValueError, match="content and candidate"):
+                validate_decision(session, lease.payload, invalid)
+
+
 def test_registered_allocation_fits_existing_total_without_changing_policy(
     member_db: MemberDB,
 ) -> None:

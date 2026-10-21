@@ -1,0 +1,108 @@
+{
+  "at": "2026-10-21T04:07:53.061911+00:00",
+  "database": "unspun_r206_repair_tests_v2_20261021",
+  "baseline_tests": 1036,
+  "full_regression_passed": 1050,
+  "skipped": 0,
+  "ruff": "passed",
+  "ruff_format_files": 178,
+  "pyright": "0 errors, 0 warnings",
+  "schema_check": "no new upgrade operations",
+  "deployment_and_ci_scope_tests": 29,
+  "legacy_ranking_cases": 40,
+  "legacy_ranking_identical": true,
+  "source_freeze": "member-repair-freeze-v1.json",
+  "independent_read_only_review": [
+    "required schema and visible citation validation",
+    "TaskAttempt persistent phase counters and terminal evidence",
+    "full DB-verified blind completion gate",
+    "explicit sealed seed references",
+    "review challenge cap guard and natural/challenge separation",
+    "full reservation bound remains unchanged; stop when required"
+  ],
+  "failure_notes": [
+    "Initial full regression during source editing: 1 ImportError, 1047 passed; retained. Final run was performed after source edits stopped.",
+    "Initial typing/lint and tooling path failures retained; corrected before freeze and all paid work.",
+    "Unfrozen extra 0.03 draft corrected by free full-window reservation audit; no ledger reservation was created or released."
+  ],
+  "logs": {
+    "baseline": {
+      "path": "docs/acceptance/r2-06-repair/logs/baseline.log.gz",
+      "sha256": "860acc6c32fd3d5ed2d4a7f234fbde5dd2fae23375837169bf1c765176c3f2ac"
+    },
+    "targeted-first": {
+      "path": "docs/acceptance/r2-06-repair/logs/targeted-first.log.gz",
+      "sha256": "e0dda7de205874273be99ce98a95523e45c3ceed5d1ad49a5ed291e6e275c81a"
+    },
+    "targeted-v2": {
+      "path": "docs/acceptance/r2-06-repair/logs/targeted-v2.log.gz",
+      "sha256": "16111468b58b575efb804df4ef32998a5c6b64b98b0daf05899054a471ff0426"
+    },
+    "runner-tests": {
+      "path": "docs/acceptance/r2-06-repair/logs/runner-tests.log.gz",
+      "sha256": "ce5a7782e6eaebf3c6cf51c125c6e23a9ad3dc1c5b74d6c6451a5164e743baa1"
+    },
+    "runner-v2": {
+      "path": "docs/acceptance/r2-06-repair/logs/runner-v2.log.gz",
+      "sha256": "6520462987386b91431c3f82e4b988bf99b19197d5e814be31e7aebd139274cb"
+    },
+    "regression-first": {
+      "path": "docs/acceptance/r2-06-repair/logs/regression-first.log.gz",
+      "sha256": "0a930e238e50885a65ca55afd7e601de8535f4eec51730f186eb80d93e012e0e"
+    },
+    "regression-v2": {
+      "path": "docs/acceptance/r2-06-repair/logs/regression-v2.log.gz",
+      "sha256": "14f9b93c9c540dbe17535b9fce10934fe1ca21a3d16c0ca3ef7a74f93e2ac6a9"
+    },
+    "regression-final": {
+      "path": "docs/acceptance/r2-06-repair/logs/regression-final.log.gz",
+      "sha256": "1cf31983b58967ba0e73ad2f502d1c50539c69b24803a90b1c8811bb485a9e74"
+    },
+    "pyright-first": {
+      "path": "docs/acceptance/r2-06-repair/logs/pyright-first.log.gz",
+      "sha256": "40958ea246e2b36fe3065ef4420953b05a8d1efb8bc824c3fd37bfb4d27de42f"
+    },
+    "pyright-v2": {
+      "path": "docs/acceptance/r2-06-repair/logs/pyright-v2.log.gz",
+      "sha256": "b90d28bb1dd8f02e04803d456f308d40e5b1155a2691bb435007445df1cd83c9"
+    },
+    "pyright-v3": {
+      "path": "docs/acceptance/r2-06-repair/logs/pyright-v3.log.gz",
+      "sha256": "b13d9887d123c5b73d725b2035929b14cf72a3c77000bb8d5ac93e86fbcc0b99"
+    },
+    "pyright-v4": {
+      "path": "docs/acceptance/r2-06-repair/logs/pyright-v4.log.gz",
+      "sha256": "808775ea069b3e954d2e4d28730ac25625ba8bc2427034a5a3a48d4016b7b66d"
+    },
+    "pyright-v5": {
+      "path": "docs/acceptance/r2-06-repair/logs/pyright-v5.log.gz",
+      "sha256": "41436013a08f935d3d169ae1e30983b2c2f2993f6b34703da64907d2fa457f75"
+    },
+    "pyright-final": {
+      "path": "docs/acceptance/r2-06-repair/logs/pyright-final.log.gz",
+      "sha256": "5bf0e733ce862ad074e6f9657da3287d87d0c03bad23e87195077add8d3590fb"
+    },
+    "pyright-final-v2": {
+      "path": "docs/acceptance/r2-06-repair/logs/pyright-final-v2.log.gz",
+      "sha256": "6fc5de5f9dfb56984dec0971827187911b9f584b914abe04f19658b6653ee8b9"
+    },
+    "schema-final": {
+      "path": "docs/acceptance/r2-06-repair/logs/schema-final.log.gz",
+      "sha256": "1556a520c9db985c4c13220dc2538f704c8626ad68654eca899f021fee3c0cbc"
+    },
+    "predeploy-v2": {
+      "path": "docs/acceptance/r2-06-repair/logs/predeploy-v2.log.gz",
+      "sha256": "3a38a064a67815f3703e6e2ff0cbb6e3569231f06d31ed8e37654a5064cece04"
+    },
+    "deploy-ci-tests": {
+      "path": "docs/acceptance/r2-06-repair/logs/deploy-ci-tests.log.gz",
+      "sha256": "b428c4b0c8dad5ebcc61dcdf21759217cba873ef67561077c466b4040ec27424"
+    },
+    "recovery-before": {
+      "path": "docs/acceptance/r2-06-repair/logs/recovery-before.log.gz",
+      "sha256": "a8c4cac200c0d768db383babe895c5ced9922e00936a74685dc7d4a5c393a9f8"
+    }
+  },
+  "paid_requests": 0,
+  "blind_root_materials_read": false
+}

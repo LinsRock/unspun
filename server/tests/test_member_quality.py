@@ -98,7 +98,7 @@ def test_internal_retry_counts_as_another_physical_request(member_db: MemberDB) 
 
 
 def test_real_frozen_admission_does_not_certify_excluded_inputs(db_session: Session) -> None:
-    value = quality.registration()
+    value = quality.registration(require_current_contract=False)
     packages = json.loads((quality.ROOT / "docs/evaluations/r2/member-inputs-v1.json").read_text())
     seed_packages(db_session, packages["packages"])
 

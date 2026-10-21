@@ -21,6 +21,7 @@ from unspun.core.member_contracts import (
     MemberDecision,
     MemberReview,
     member_contract,
+    project_material,
 )
 from unspun.core.member_models import ContentVector, MemberJudgment
 from unspun.core.member_recall import (
@@ -41,36 +42,22 @@ from unspun.core.topics import mutate_topic
 from unspun.pipeline.r1_worker import Blocked, SessionScope
 
 
-def _prompt_material(snapshot: dict[str, Any]) -> dict[str, Any]:
-    content = snapshot["content"]
-    remaining = 12000
-    paragraphs: list[dict[str, Any]] = []
-    for paragraph in content["paragraphs"]:
-        if remaining <= 0:
-            break
-        text = paragraph["text"][:remaining]
-        paragraphs.append({**paragraph, "text": text})
-        remaining -= len(text)
-    return {
-        "content": {
-            key: paragraphs if key == "paragraphs" else content[key]
-            for key in ("article_id", "material_id", "title", "metadata", "scope", "paragraphs")
-        }
-    }
-
-
 def _prompt_packet(packet: dict[str, Any], draft: dict[str, Any] | None) -> dict[str, Any]:
     topic = packet["candidate"]["topic"]
     projected = {
-        "query": _prompt_material(packet["query"]),
+        "query": project_material(packet["query"], "query"),
         "candidate": {
             "topic": {
                 **topic,
                 "anchors": [
-                    {**a, "snapshot": _prompt_material(a["snapshot"])} for a in topic["anchors"]
+                    {**a, "snapshot": project_material(a["snapshot"], "anchor")}
+                    for a in topic["anchors"]
                 ],
             }
         },
+        "output_schema": (
+            MemberReview if draft is not None else MemberDecision
+        ).model_json_schema(),
     }
     if draft is not None:
         projected.update(decision=draft, decision_fingerprint=packet["decision_fingerprint"])
@@ -108,12 +95,17 @@ def _enqueue(session: Session, kind: str, payload: dict[str, Any]) -> int:
 
 
 def enqueue_member_processing(
-    session: Session, article_id: int, *, sources: list[Source], now: datetime
+    session: Session,
+    article_id: int,
+    *,
+    sources: list[Source],
+    now: datetime,
+    topic_ids: frozenset[str] | None = None,
 ) -> int | None:
     """An internal explicit entry, never called by reading or the R1 scheduler/card chain."""
     if not get_settings().r2_member_processing_enabled:
         return None
-    plan = recall_plan(session, article_id, sources, now)
+    plan = recall_plan(session, article_id, sources, now, topic_ids=topic_ids)
     _enabled(sources, plan["query"])
     return _enqueue(session, "topic_recall", plan)
 
@@ -125,8 +117,10 @@ class MemberHandler:
         *,
         scope: SessionScope = session_scope,
         client_factory: Callable[[CallContext], LlmClient] | None = None,
+        topic_ids: frozenset[str] | None = None,
     ) -> None:
         self.sources = list(sources.values())
+        self.topic_ids = topic_ids
         self.scope = scope
         self.client_factory: Callable[[CallContext], LlmClient] = client_factory or (
             lambda context: LlmClient(context=context)
@@ -169,11 +163,19 @@ class MemberHandler:
             _enabled(self.sources, query)
             if recall:
                 if fingerprint(
-                    recall_plan(session, query["content"]["article_id"], self.sources, now)
+                    recall_plan(
+                        session,
+                        query["content"]["article_id"],
+                        self.sources,
+                        now,
+                        topic_ids=self.topic_ids,
+                    )
                 ) != fingerprint(packet):
                     raise ValueError("recall candidates changed")
             else:
                 candidate = packet["candidate"]["topic"]
+                if self.topic_ids is not None and candidate["id"] not in self.topic_ids:
+                    raise ValueError("candidate is outside the registered topic pool")
                 live = topic_candidate(session, candidate["id"], self.sources, now)
                 if fingerprint(live) != fingerprint(candidate):
                     raise ValueError("candidate input changed")

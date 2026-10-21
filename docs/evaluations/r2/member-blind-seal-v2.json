@@ -1,0 +1,112 @@
+{
+  "schema_version": "r206-blind-redacted-seal-v2",
+  "id": "r206-blind-v1",
+  "sealed_at": "2026-10-21T03:55:51.686135+00:00",
+  "sealed_directory": "/Users/li.cong/.cache/unspun-r206-repair-20261021/blind",
+  "reviewer_kind": "independent_read_only_ai_technical",
+  "counts": {
+    "qualified_inventory_examined": 141,
+    "new_input_packages": 12,
+    "new_topics": 6,
+    "registered_queries": 6,
+    "executable_queries": 6,
+    "unavailable_queries": 0,
+    "reporting_families": 9,
+    "expected_association_pairs": 3,
+    "identity_conflicts": 0,
+    "canonical_conflicts": 0,
+    "offset_conflicts": 0,
+    "exact_reuses": 0,
+    "paid_requests": 0,
+    "database_writes": 0
+  },
+  "covered_dimensions": [
+    "relation_granularity",
+    "same_subject_distinct_activities",
+    "partial_overlap",
+    "multi_subject_query",
+    "opinion_attribution",
+    "background",
+    "query_anchor_ownership",
+    "unknown_original_time",
+    "long_input_below_actual_truncation_limits",
+    "independently_verified_event_occurrence_time"
+  ],
+  "verified_provenance_only_dimensions": [
+    "verified_real_reprint_source_chain_with_one_qualified_endpoint"
+  ],
+  "missing_or_unmeasured_dimensions": [
+    "end_to_end_reprint_relation_with_two_qualified_inputs",
+    "recently_discovered_old_original_background",
+    "actual_context_truncation",
+    "new_cross_language_positive_association",
+    "real_32_and_12_topic_pool_pressure"
+  ],
+  "family_isolation": {
+    "old_r201_inventory_objects": 83,
+    "old_r206_frozen_packages": 32,
+    "exact_old_overlap": 0,
+    "old_reporting_family_overlap": 0,
+    "new_regression_members": 0,
+    "all_query_and_anchor_roles_on_holdout_side": true,
+    "rule": "Exclude all old R2-01 83 objects/reporting families plus all 32 old R2-06 frozen inputs/anchors and their topic families. Prior deployment audit full-corpus inventories are retained source stock, not used repair/model inputs. All selected related query/anchor families stay wholly on holdout side.",
+    "original_frozen_groups_unchanged": true
+  },
+  "admission": {
+    "genuine_current_input_checked": true,
+    "qualified": 12,
+    "not_qualified_or_unavailable": 0,
+    "no_fabricated_ready": true,
+    "no_paid_regeneration": true,
+    "material_offset": 200000,
+    "derivation_offset": 200000,
+    "original_ids_urls_fingerprints_preserved": true,
+    "existing_evaluation_objects_untouched": true
+  },
+  "release_rule": "Do not open private materials or labels during repair. The reviewed entry may consume sealed inputs only after source/contract freeze and old regression completion sentinel. Root unblinds for reporting only after all first outputs finish or the first run stops at a registered guard.",
+  "user_acceptance": null,
+  "technical_overall_pass": null,
+  "files": [
+    {
+      "path": "inputs.json",
+      "sha256": "7d96d867d283056aec664a29ac2ab122a73febf6e22a9e3d4da0135eeed90468"
+    },
+    {
+      "path": "registration.json",
+      "sha256": "d91261d197c4428e377a0108bc0205227d1b5d7e43ab2f8549bd58f976e8a4ce"
+    },
+    {
+      "path": "provenance.json",
+      "sha256": "fc046e20d5613fc54bdd27626dddf0e75cff5b0310f87630437f89c98b3ce93f"
+    },
+    {
+      "path": "availability.json",
+      "sha256": "6ac9cdc311467f18b610f76bad4fa138818edfb9c69bbcad66f8361250b4058d"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "f39e9be5042903b4687651ad13f799a8daafa95d829fb0c51ffaacaa296bc8a0"
+    },
+    {
+      "path": "seed-references-v1.json",
+      "sha256": "267ea85f676c41458bb8c70febb34d91c7f0cc466d4aacc4cdd907f8997d6288"
+    },
+    {
+      "path": "manifest-v2.json",
+      "sha256": "f5cf8f612ab646268641746f6bd91f13fcef8626ed256984a771bd13da56ea7a"
+    }
+  ],
+  "previous_seal": {
+    "path": "docs/evaluations/r2/member-blind-seal-v1.json",
+    "sha256": "a41cecf7416b8eba52ec131a4b237fe1528a59a57eb7494f64c3a2411af6f163"
+  },
+  "addendum": {
+    "purpose": "Explicit independently reviewed manual seed references; no inferred voice or paragraph-zero assumption.",
+    "seed_reference_file": "seed-references-v1.json",
+    "format": "topic_id -> {paragraph, quote, voice}; article/material IDs come from actual current_input ownership",
+    "reference_count": 6,
+    "materials_labels_topics_queries_families_splits_unchanged": true,
+    "original_v1_files_unchanged": true,
+    "prepared_without_paid_calls_or_database_writes": true
+  }
+}

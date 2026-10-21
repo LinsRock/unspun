@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-21T04:07:52.962946+00:00",
+  "source_freeze_sha256": "1ede7fe0369fe5f758d290847f1870c54594476c3f39f1e2c391ff651e2e3305",
+  "frozen_source_config_registration_test_files": 103,
+  "original_freeze_verified": 27,
+  "old_member_freeze_verified": 11,
+  "protected_prior_artifacts_unchanged": 161,
+  "original_prices_full_reservation_and_r1_contract_unchanged": true,
+  "r204_worktree_unchanged": true,
+  "actual_imports": {
+    "unspun": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/__init__.py",
+    "unspun.core.member_contracts": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/member_contracts.py",
+    "unspun.core.member_recall": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/member_recall.py",
+    "unspun.pipeline.member_processing": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/pipeline/member_processing.py",
+    "unspun.evaluation.member_quality": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/evaluation/member_quality.py",
+    "unspun.evaluation.member_retest": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/evaluation/member_retest.py",
+    "unspun.evaluation.member_retest_challenge": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/evaluation/member_retest_challenge.py",
+    "unspun.core.billing": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/billing.py",
+    "unspun.core.tasks": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/tasks.py"
+  },
+  "blind_root_materials_read_during_repair": false,
+  "new_paid_calls_at_freeze": 0
+}
