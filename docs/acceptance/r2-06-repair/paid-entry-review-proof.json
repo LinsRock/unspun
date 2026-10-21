@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-21T04:14:08.704936+00:00",
+  "head": "26ddfa20f69c0a26297a4202d146e2b45b670a79",
+  "preparation_pr": "https://github.com/LinsRock/unspun/pull/121",
+  "pr_ci": "https://github.com/LinsRock/unspun/actions/runs/39542454715",
+  "pr_ci_conclusion": "success",
+  "source_freeze_verified_on_merged_main": true,
+  "paid_requests_before_merge": 0,
+  "production_activation_authorized": false
+}

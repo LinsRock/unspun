@@ -1,0 +1,688 @@
+{
+  "schema_version": "r206-independent-technical-review-v3",
+  "reviewed_at": "2026-10-21T04:36:33.407626+00:00",
+  "reviewer": "the same independent read-only holdout-preparation agent; final review performed only after the frozen first run halted",
+  "source_freeze_sha256": "1ede7fe0369fe5f758d290847f1870c54594476c3f39f1e2c391ff651e2e3305",
+  "review_scope": "First outputs, frozen relation-label denominators, full-basis grounding of all actually approved/applied associations, real review/CAS, partial holdout coverage and actual incremental fees. Not a new model run or retrospective relabel.",
+  "original_artifacts_modified": false,
+  "source_contract_expectations_changed": false,
+  "database_writes": 0,
+  "paid_requests": 0,
+  "http_requests": 0,
+  "phase_label_metrics_verified": {
+    "regression": {
+      "first_output_count": 40,
+      "all_schema_valid": true,
+      "valid_references": {
+        "numerator": 36,
+        "denominator": 40,
+        "value": 0.9
+      },
+      "label_association_precision": {
+        "numerator": 5,
+        "denominator": 7,
+        "value": 0.7142857142857143
+      },
+      "label_final_coverage": {
+        "numerator": 2,
+        "denominator": 6,
+        "value": 0.3333333333333333
+      },
+      "expected_pairs": 6,
+      "classification_expectations_unchanged": true
+    },
+    "blind": {
+      "first_output_count": 2,
+      "all_schema_valid": true,
+      "valid_references": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "label_association_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "label_final_coverage": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0.0
+      },
+      "expected_pairs": 3,
+      "classification_expectations_unchanged": true
+    }
+  },
+  "reference_failures": [
+    {
+      "task_id": 54,
+      "article_id": 8881,
+      "topic": "france",
+      "schema_valid": true,
+      "reference_valid": false,
+      "validator_error": "evidence voice exceeds the observed material scope",
+      "issues": [
+        {
+          "type": "scope_voice_mismatch",
+          "article_id": 8868,
+          "material_id": 100025,
+          "paragraph": 1,
+          "scope": "media_description",
+          "required_voice": "description",
+          "actual_voice": "reported"
+        },
+        {
+          "type": "scope_voice_mismatch",
+          "article_id": 8868,
+          "material_id": 100025,
+          "paragraph": 2,
+          "scope": "media_description",
+          "required_voice": "description",
+          "actual_voice": "reported"
+        },
+        {
+          "type": "scope_voice_mismatch",
+          "article_id": 8868,
+          "material_id": 100025,
+          "paragraph": 3,
+          "scope": "media_description",
+          "required_voice": "description",
+          "actual_voice": "reported"
+        }
+      ],
+      "not_repaired": true,
+      "no_reviewer_call": true
+    },
+    {
+      "task_id": 64,
+      "article_id": 8899,
+      "topic": "huang",
+      "schema_valid": true,
+      "reference_valid": false,
+      "validator_error": "evidence quote is outside the visible supplied paragraph",
+      "issues": [
+        {
+          "type": "wrong_paragraph_or_invisible_quote",
+          "article_id": 8879,
+          "material_id": 100036,
+          "claimed_paragraph": 1,
+          "actual_visible_matching_paragraphs": [
+            0
+          ]
+        },
+        {
+          "type": "wrong_paragraph_or_invisible_quote",
+          "article_id": 8879,
+          "material_id": 100036,
+          "claimed_paragraph": 2,
+          "actual_visible_matching_paragraphs": [
+            1
+          ]
+        }
+      ],
+      "not_repaired": true,
+      "no_reviewer_call": true
+    },
+    {
+      "task_id": 59,
+      "article_id": 8898,
+      "topic": "france",
+      "schema_valid": true,
+      "reference_valid": false,
+      "validator_error": "evidence voice exceeds the observed material scope",
+      "issues": [
+        {
+          "type": "scope_voice_mismatch",
+          "article_id": 8868,
+          "material_id": 100025,
+          "paragraph": 1,
+          "scope": "media_description",
+          "required_voice": "description",
+          "actual_voice": "reported"
+        },
+        {
+          "type": "scope_voice_mismatch",
+          "article_id": 8868,
+          "material_id": 100025,
+          "paragraph": 2,
+          "scope": "media_description",
+          "required_voice": "description",
+          "actual_voice": "reported"
+        },
+        {
+          "type": "scope_voice_mismatch",
+          "article_id": 8868,
+          "material_id": 100025,
+          "paragraph": 3,
+          "scope": "media_description",
+          "required_voice": "description",
+          "actual_voice": "reported"
+        }
+      ],
+      "not_repaired": true,
+      "no_reviewer_call": true
+    },
+    {
+      "task_id": 75,
+      "article_id": 8893,
+      "topic": "westbank",
+      "schema_valid": true,
+      "reference_valid": false,
+      "validator_error": "evidence voice exceeds the observed material scope",
+      "issues": [
+        {
+          "type": "scope_voice_mismatch",
+          "article_id": 8872,
+          "material_id": 100029,
+          "paragraph": 1,
+          "scope": "media_description",
+          "required_voice": "description",
+          "actual_voice": "reported"
+        }
+      ],
+      "not_repaired": true,
+      "no_reviewer_call": true
+    }
+  ],
+  "old_failure_cases": [
+    {
+      "case": "relation_granularity",
+      "task_id": 64,
+      "article_id": 8899,
+      "frozen_allowed": [
+        "opinion",
+        "background"
+      ],
+      "actual_first_classification": "same_event",
+      "conclusion": "Still misclassifies contextual analysis as the launch-event report. Also two anchor quotations use off-by-one paragraph indices. No review or CAS; structural/schema success does not repair either failure."
+    },
+    {
+      "case": "date_conflict",
+      "task_id": 69,
+      "review_task_id": 73,
+      "article_id": 8905,
+      "conclusion": "Judgment again inferred a typo from feed dates. Real independent reviewer explicitly rejected that inference, retained conflicting dates and blocked CAS. This proves one natural real interception, not all date conflicts or a real correction of the source."
+    },
+    {
+      "case": "old_anchor_content_contamination",
+      "task_id": 105,
+      "article_id": 8926,
+      "frozen_label": "independent",
+      "actual_first_classification": "independent",
+      "conclusion": "The old incorrect era-system association is absent in this first classification. However the independent basis hallucinates Fumio Kishida and a sakaki-tree offering whereas the actual query names Takaichi Sanae and a ritual-fee offering. No member write or reviewer occurred; label correctness is not proof of fully grounded prose."
+    },
+    {
+      "case": "newly_observed_approved_basis_contamination",
+      "task_id": 76,
+      "article_id": 8893,
+      "frozen_allowed": [
+        "same_issue",
+        "background"
+      ],
+      "actual_first_classification": "same_issue",
+      "label_compatible": true,
+      "unsupported_basis_assertion": "The query mentions the \"Wagner mercenary force\"",
+      "query_actual_only_paragraph": "Plus, masked Israeli settlers attack a group of European diplomats, and a playboy inherits the world’s most notorious mercenary force.",
+      "query_title": "Zelensky Takes a Risk by Publicly Confronting Trump Over Russia",
+      "word_absent_from_query_material_and_metadata": "Wagner",
+      "word_present_in_anchor_material": true,
+      "actual_review_approved": true,
+      "actual_review_issues": [],
+      "actual_cas_applied": true,
+      "conclusion": "The frozen relationship label remains correct. The stored basis falsely attributes an anchor-only name to the query. This is an unsupported approved write and a real reviewer miss under the unchanged v3 requirement that every basis assertion be supported by its actual owner. Do not erase the first output or relabel the expected association."
+    }
+  ],
+  "actual_applied_association_audit": [
+    {
+      "judgment_task_id": 76,
+      "article_id": 8893,
+      "topic_id": "3440c2a7-4293-57d8-a612-1028526a82d4",
+      "expected_revision": 2,
+      "actual_applied_revision": 3,
+      "matching_member_and_change_receipt": true,
+      "review_approved": true,
+      "review_issues": [],
+      "exact_review_fingerprint_matches": true,
+      "label_correct": true,
+      "strict_grounding_valid": false
+    },
+    {
+      "judgment_task_id": 89,
+      "article_id": 8906,
+      "topic_id": "e168a7d3-4514-5d70-ac10-c98666c71192",
+      "expected_revision": 2,
+      "actual_applied_revision": 3,
+      "matching_member_and_change_receipt": true,
+      "review_approved": true,
+      "review_issues": [],
+      "exact_review_fingerprint_matches": true,
+      "label_correct": true,
+      "strict_grounding_valid": true
+    }
+  ],
+  "verified_supported_applied_case": {
+    "task_id": 89,
+    "article_id": 8906,
+    "conclusion": "Query and anchor each explicitly identify the same Li Qiang/Rasulzoda meeting, October 18 and matching cooperation substance. Exact quotes and reported voices are valid. Copied review fingerprint, approval and revision-3 CAS receipt match."
+  },
+  "verified_first_blind_association": {
+    "task_id": 108,
+    "article_id": 9192,
+    "label_compatible": true,
+    "basis_supported": true,
+    "conclusion": "The query itself identifies the Musk announcement, October 19, SpaceX shares and US-child recipients. The comparative Anthropic portion is not transferred into the registered Musk event. Both owner citations are exact and valid. A review was queued but HTTP was blocked before reservation; no real reviewer or CAS result exists."
+  },
+  "strict_grounding_metrics": {
+    "label_compatible_final_coverage_preserved": {
+      "numerator": 2,
+      "denominator": 6,
+      "value": 0.3333333333333333
+    },
+    "strictly_supported_final_member_coverage": {
+      "numerator": 1,
+      "denominator": 6,
+      "value": 0.16666666666666666
+    },
+    "different_topic_false_merge_among_applied": {
+      "numerator": 0,
+      "denominator": 2,
+      "value": 0.0
+    },
+    "all_invalid_applied_including_unsupported_basis": {
+      "numerator": 1,
+      "denominator": 2,
+      "value": 0.5
+    },
+    "real_review_rejection": {
+      "numerator": 1,
+      "denominator": 3,
+      "value": 0.3333333333333333
+    },
+    "unsupported_decisions_among_actual_reviews": 2,
+    "unsupported_real_review_interception": {
+      "numerator": 1,
+      "denominator": 2,
+      "value": 0.5
+    },
+    "approved_decisions_with_unsupported_basis": {
+      "numerator": 1,
+      "denominator": 2,
+      "value": 0.5
+    },
+    "definition": "Strict unsupported-review denominator includes one wrong date decision rejected by the reviewer and one label-compatible decision with anchor-to-query basis contamination approved by the reviewer. It excludes four reference-invalid decisions never reviewed and the blind decision blocked before HTTP. Frozen raw relation scores 5/7 and 1/1 remain unchanged."
+  },
+  "blind_partial_population": {
+    "registered_queries": 6,
+    "started_queries": 1,
+    "not_started_queries": [
+      9051,
+      9125,
+      9182,
+      9098,
+      8981
+    ],
+    "not_started_count": 5,
+    "registered_expected_pairs": 3,
+    "started_expected_pairs": 1,
+    "not_started_expected_pairs": 2,
+    "registered_recall_reach": {
+      "numerator": 1,
+      "denominator": 3,
+      "value": 0.3333333333333333
+    },
+    "recall_for_started_queries": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0
+    },
+    "label_precision_among_actual_associations": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0
+    },
+    "final_member_coverage_registered": {
+      "numerator": 0,
+      "denominator": 3,
+      "value": 0.0
+    },
+    "final_member_coverage_started": {
+      "numerator": 0,
+      "denominator": 1,
+      "value": 0.0
+    },
+    "not_started_are_not_negative_judgments": true,
+    "natural_reviewed_associations": 0,
+    "natural_applied_members": 0,
+    "conclusion": "Five queries have no recall task, judgment, billed request or outcome; they remain unmeasured. Registered-set reach 1/3 is a campaign/budget coverage result, not evidence that the retrieval algorithm missed the other two positives."
+  },
+  "separate_review_challenges": {
+    "registered": 5,
+    "executed": 0,
+    "real_review_calls": 0,
+    "actual_revision_race_cas": "unmeasured",
+    "excluded_from_natural_denominators": true
+  },
+  "cost_review": {
+    "new_physical_requests": 48,
+    "new_known_usd": "0.01958302",
+    "by_phase": {
+      "regression": {
+        "physical_requests": 43,
+        "known_usd": "0.01878064",
+        "stage_counts": {
+          "topic_judgment": 40,
+          "topic_review": 3
+        }
+      },
+      "blind": {
+        "physical_requests": 5,
+        "known_usd": "0.00080238",
+        "stage_counts": {
+          "topic_embedding": 3,
+          "topic_judgment": 2
+        }
+      }
+    },
+    "cumulative_with_previous_requests": 107,
+    "cumulative_with_previous_known_usd": "0.03171912",
+    "original_seven_holds_unchanged": true,
+    "original_hold_usd": "0.484867",
+    "new_unknown_holds": "0",
+    "blocked_task": 110,
+    "next_full_reservation_usd": "0.171034",
+    "would_occupy_pool_usd": "0.20275312",
+    "pool_cap_usd": "0.20",
+    "blocked_before_http": true,
+    "successful_complete_warm_query": {
+      "article_id": 8906,
+      "judgment_task": 89,
+      "physical_requests": 5,
+      "judgment_requests": 4,
+      "real_review_requests": 1,
+      "actual_cas_applied": 1,
+      "incremental_paid_usd": "0.0023726",
+      "all_selected_negative_calls_included": true,
+      "new_embedding_calls": 0,
+      "description": "A measured warm-cache complete-query incremental cost. It excludes historical embedding acquisition and cannot be described as a measured cold complete chain."
+    },
+    "cold_vectors": {
+      "new_vectors": 3,
+      "physical_requests": 3,
+      "known_usd": "0.00001388",
+      "cold_query_reached_review_or_cas": false,
+      "cold_complete_success_chain_cost": null
+    },
+    "warm_vectors": {
+      "per_query_unique_lookup_occurrences": 89,
+      "distinct_reused_vector_versions_across_all_queries": 19,
+      "physical_embedding_calls": 0,
+      "new_paid_embedding_usd": "0"
+    },
+    "report_v1_naming_issue": "unique_vector_versions_planned_across_queries=89 is a sum of per-query unique references. The true cross-query union is 19. Likewise 89 warm opportunities are not 89 distinct vectors. Keep raw v1 and clarify in the addendum."
+  },
+  "required_real_dimension_limits": {
+    "verified_real_reprint_provenance": "Prepared and source-verified, but only one endpoint has R1 qualification; no end-to-end reprint relation measured.",
+    "recently_discovered_old_original_background": "Missing actual eligible material; ordinary knowledge/profile not substituted.",
+    "independently_verified_occurrence_time": "Source-provenance evidence prepared for a new anchor. Its planned positive background query did not start; its appearance as an unrelated negative candidate does not prove the occurrence-preserving positive relation.",
+    "actual_context_truncation": "Unmeasured",
+    "new_cross_language_positive_association": "Not in new holdout",
+    "real_32_and_12_pool_pressure": "Unmeasured"
+  },
+  "retained_original_rows_independently_verified": {
+    "database": "unspun_quality_r1_20261016",
+    "before_restore": "unspun_r206_repair_restore_before_20261021",
+    "all_original_rows_unchanged": true,
+    "tables": [
+      {
+        "table": "alembic_version",
+        "original_rows": 1,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "articles",
+        "original_rows": 55,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "billed_requests",
+        "original_rows": 460,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "budget_carry",
+        "original_rows": 1,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "budget_policy",
+        "original_rows": 1,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "content_derivations",
+        "original_rows": 168,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "content_feedback",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "content_identities",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "content_materials",
+        "original_rows": 55,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "content_observations",
+        "original_rows": 24,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "content_urls",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "content_vectors",
+        "original_rows": 19,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "digests",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "discovery_batches",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "event_viewpoints",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "events",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "expense_audit",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "expense_entries",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "expense_rules",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "feed_preferences",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "fetch_logs",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "fx_rates",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "llm_usage",
+        "original_rows": 453,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "member_judgments",
+        "original_rows": 31,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "pipeline_runs",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "pipeline_tasks",
+        "original_rows": 52,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "reader_changes",
+        "original_rows": 21,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "reader_interests",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "reader_state",
+        "original_rows": 1,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "source_states",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "task_attempts",
+        "original_rows": 52,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "topic_changes",
+        "original_rows": 20,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "topic_derivations",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "topic_members",
+        "original_rows": 10,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "topic_updates",
+        "original_rows": 0,
+        "all_original_rows_unchanged": true
+      },
+      {
+        "table": "topics",
+        "original_rows": 10,
+        "all_original_rows_unchanged": true
+      }
+    ]
+  },
+  "report_interpretation": {
+    "raw_relation_labels": "Verified as frozen; retain regression 5/7 and final label coverage 2/6, blind 1/1 and final label coverage 0/3.",
+    "strict_grounding": "Regression strict member coverage is only 1/6; one approved write has unsupported basis. The reviewer intercepted 1/2 unsupported actual reviews under this broader mandatory support rule.",
+    "complete_success_chain_cost": "The single reported complete chain is correctly measured only as incremental warm-cache cost. No successful cold chain exists.",
+    "overall_technical_pass": false,
+    "user_acceptance": null,
+    "production_new_chain_enabled": false
+  },
+  "evidence_pins": [
+    {
+      "path": "docs/acceptance/r2-06-repair/results-v1.json",
+      "sha256": "6caf196cceee5cbf8c43ab9bd2e07efdc8a525c89c919da61e7fff96b87f6a99"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/physical-requests.json.gz",
+      "sha256": "11b01a676e3495446bb0dea194eb0d78b3dec6c915c1569eaae7d796a048c3bc"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/judgments.json.gz",
+      "sha256": "b4394333941771755ece56beb9a1017c45e50685e4aad1b3ca6c4ba37fbd9a0c"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/tasks.json.gz",
+      "sha256": "b54af781cdfc44c694b7693c46f6450f217a221cbef8d2736dc3c4dbf7588ee6"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/attempts.json.gz",
+      "sha256": "5a44e4e33dfaffdc97d078807871497fcc02a4b42fe1b453ce267cb87eede7a5"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/vectors.json.gz",
+      "sha256": "57a61529cae51e3d22589a1af5bb88a43b2bf3f6c30e520f73aa04556e15d16f"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/regression-first-run.ndjson",
+      "sha256": "b4725902bfa6e4e7a41c5cdaebf7010d4a1cb2f6ef2b98ef73be4b2d2141665c"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/blind-first-run.ndjson",
+      "sha256": "b269c0ee7eda72d8cf4f37046b16a8dbf4b860f59e11d68910490289343ca2e8"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/fee-reconciliation.json",
+      "sha256": "078720076f442330743234dcb72e5856e344800fddec3add38cff6f83e9da5b2"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/before-recovery.json",
+      "sha256": "26a72bf0a320abcfea5e41bf36325b40fbd30710e81ed2e9b8294f0fc6426e98"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/after-recovery.json",
+      "sha256": "a61c27e50663a74af31e0436cb94d87c07b72a06e69a7e679c30874ba66ce64d"
+    },
+    {
+      "path": "docs/acceptance/r2-06-repair/final-member-chain.json",
+      "sha256": "64de95de508f95a37d46ed72cf405911810ba04e593801253deca4780efcfb47"
+    },
+    {
+      "path": "docs/evaluations/r2/member-blind-seal-v1.json",
+      "sha256": "a41cecf7416b8eba52ec131a4b237fe1528a59a57eb7494f64c3a2411af6f163"
+    },
+    {
+      "path": "docs/evaluations/r2/member-blind-seal-v2.json",
+      "sha256": "c88c2c37279c90d259896d325aed2183621ce5c0e75a35f7a068fcbdf92e79d6"
+    },
+    {
+      "path": "private sealed registration.json",
+      "sha256": "d91261d197c4428e377a0108bc0205227d1b5d7e43ab2f8549bd58f976e8a4ce"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-21T04:28:47.239092+00:00",
+  "source_freeze_sha256": "1ede7fe0369fe5f758d290847f1870c54594476c3f39f1e2c391ff651e2e3305",
+  "frozen_source_config_registration_test_files": 103,
+  "original_freeze_verified": 27,
+  "old_member_freeze_verified": 11,
+  "protected_prior_artifacts_unchanged": 161,
+  "original_prices_full_reservation_and_r1_contract_unchanged": true,
+  "r204_worktree_unchanged": true,
+  "blind_root_materials_read_during_repair": false,
+  "new_paid_calls_at_freeze": 0
+}

@@ -1,0 +1,219 @@
+{
+  "checked_at": "2026-10-21T04:21:02.796693+00:00",
+  "mode": "read-only",
+  "health": {
+    "status": "ok",
+    "version": "26ddfa20f69c0a26297a4202d146e2b45b670a79",
+    "database": "ok"
+  },
+  "api_metadata": {
+    "python": "/app/.venv/bin/python",
+    "unspun": "/app/src/unspun",
+    "source_sha256": {
+      "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "api/admin/__init__.py": "8105cc0153401fa1cc27dd33272e96cc14e81c3dbe477e634622ba9e588a2e72",
+      "api/admin/auth.py": "585118a205948baa48a758b181c416c3dabf06ee3495877e8c96fa522be4ae97",
+      "api/admin/configuration.py": "2209ace50f3e6b27afe0980b287a5890d1aa52395d2da17644f56a8e3ea9ff42",
+      "api/admin/content.py": "2ffc4f6be7af4ee35ded17b92b59d886aca52f8bdb0f55b54abda2de4b2795c8",
+      "api/admin/costs.py": "a874680621de4e772eb02a912dcc07ca477ef6d7de3600874a7060ffab24be87",
+      "api/admin/expenses.py": "51ea6d4cd5390b07637851f4181017db9659e1431311ea87c38849663a837718",
+      "api/admin/exports.py": "449ea31106639d739be55e2de4d291178889679ac5b5cd3273d44a8fa5b47a32",
+      "api/admin/overview.py": "9181ef048f9e386b9e5a7a98d2bc44b3f299642afdca2a31df6d6f308b838424",
+      "api/admin/query.py": "e2b03cf49493f93206ce7b02b490c8299f89adc9be28ebc1d49d8fbd008098af",
+      "api/admin/r1.py": "2224f586e25e4d5983b19f4c98792414fa4583d392919eae15d5888ad37719ce",
+      "api/admin/ranges.py": "f72cc3d494a9d7342a0bd8f58d714c73452e25aeb586f64316f2b187e19b917a",
+      "api/admin/runs.py": "bd32f5fe404270108d7bfc027ac9042e5f7a028b5ef4ef546cbd1f327f06f06d",
+      "api/admin/schemas.py": "1a0b9c854f80b41994f3f0bd9f64e2f1504a40887a5d2f2cfb7f593b1cc462b4",
+      "api/admin/sources.py": "4ad854f8563c423767f22c41774ec86e55c611543734ef53c21ff05495cdb88b",
+      "api/app.py": "219284593978619b1b119325ce8b127d279311e459c49bb678605b6a94ceb71a",
+      "api/contents.py": "2d1c87af0b8e1f200c06b7a07940718a2353f0cd8d4f57bc893a324118fd6ca7",
+      "api/digest.py": "83cddc420fd7d173659658feeabeb5958856079913fc01638d8ef822f4fc8319",
+      "api/events.py": "98b131a846d84145888b7fb0f9b4725268a55c979840f8440cb472aa9b53f9c8",
+      "api/feed_preferences.py": "a948eec9def0d532cfa698ccc0247129be27a0934e4a18dd9b749da38ec99044",
+      "api/reader.py": "18b3282fa1f52e573c9b445920afdcafa817815a36e92348f8740e295744cdea",
+      "api/report.py": "02902f3621da9362d0708cc3fe67843c374f17cc997a8b45c7ee280fd0d485f7",
+      "core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "core/billing.py": "82ce574b59a359808d2d25791874d073389459a1cb3587ab8a34dea9b5abb1a8",
+      "core/billing_admin.py": "8c7503ca2246c132b8964c12389b572585a2a2fbbbaff10fd5bf9366b2fb1f2d",
+      "core/billing_models.py": "1c8e05f8bffeabd0e41e794b11ec00956c9fc7c261fddd25f0ec9b651f081a5d",
+      "core/config.py": "1430d74f3f9381455c195f9330f54ed67b0ba2c01388c764001da3f3f65a7efa",
+      "core/content.py": "e51a0aca1322078ab36fa3b9f3790122052202896a96920dc8f91e72aff8da20",
+      "core/content_costs.py": "925441aebb00b0a096874c0da846788745e3b24eb131824fef1e03d15b678928",
+      "core/content_feed.py": "55a60881223e69574ccf3322cd2a6571769834b40f69159ab8065d67eb47debc",
+      "core/content_publication.py": "e93241b2bf81fb38769066670333d1dabadbb5f116e7651c583a986553507ee2",
+      "core/content_reading.py": "0d4efacb9c12acbcaf2d7d34ba0709df12bc12cf19a39fa2ef0e2622b5a4bf26",
+      "core/db.py": "07362d229e547e59f59fc5eb7a4b1bac96a42b246e680b80674d02d938c0511d",
+      "core/expense_allocation.py": "cad554e28abbbacc3ff9bda4c6f5e9bc9ada80744cc2e0efe000990da5caea47",
+      "core/expenses.py": "7332bf086e106bd25fa79245302b78f57a05511d940841a92efdf1a984daef3c",
+      "core/feed_query.py": "43768e4f3ba20cc0fde66a4a4ad9d6506e741115fc9a671b5545d5a19ff32496",
+      "core/grounding.py": "dc9840203dec0416e70b0af1c77e649bd5e1c1d9312c5b5882dc300c0a356121",
+      "core/html_text.py": "8ed1e1da0739b72b57ccf1c466ac64c4efcde68854dc9d17e70ecf8805511d1f",
+      "core/llm.py": "baed745df0120df733dfc7304c84f4c8a8b5f3f0da43b465231f21f3c33a1e0c",
+      "core/logging.py": "9cbe3baa022c7741c3a7f22a49f274255cfd93073208b5f36f637a60081a94c4",
+      "core/member_contracts.py": "9e5643b1b5748edacaa294cf09bc656e15cf688ba5f9d7cfc510d4a605c68366",
+      "core/member_models.py": "5a0f57500b8578d7e49b58162922cdff386e2a0d82883b463d487f833125d1d1",
+      "core/member_recall.py": "c2baf710fdd28aa2b778beb9138d0f844269612119a27a17c413ab7f8a55dfc0",
+      "core/models.py": "f0ac8f30496877984c0523faca2203d1de02efc6ad88d31072b3c846f39bef3b",
+      "core/params.py": "c1bc8b948014e671ad3fb78ac1e1e6f522c43bf5126d7417caea1eee84babde0",
+      "core/public_impact.py": "319ce964591f687d661acfd6a1426d54718ef81263134a9baf0728c540100981",
+      "core/publication.py": "4eea7f2a8c99a3f51c2db6a2b4cbf3dcf07025dc9dbd5edb4592d753f17a8fcb",
+      "core/reader.py": "e05a238d87a43d73a8322fedd18cfd8369a708cada98a85441aec53632c4138a",
+      "core/reader_models.py": "34d6780081674079e8c85fea2aaf3d89106a0d0b6f8c5eaa165872740d476873",
+      "core/reading.py": "5b3a38f259b22d3f05f78eab41ee778e23d45a3394eb648dd6ba4e473ee8aaef",
+      "core/review_budget.py": "87416be2ce778a85ca7807218ca5bd1172ae06fc4fe134507645f5cc0a6a85f4",
+      "core/sources.py": "3a75b08be8df8f0be494e1d8169d932b71244fae71ef7b64b1fa4440ab8bd1e6",
+      "core/task_models.py": "1fe520826f276e6acb998f105ed5a568fad2f35c2309e7b751918307b80fd9bb",
+      "core/tasks.py": "54b9ae230f617a2b490a2223b60ed82c5bb3808357b42c6fa267b79db24f5768",
+      "core/topic_contracts.py": "8c89e6665c67b547e0a44902bfc8aeeae0e0fe5c29c742985f825cbb6e72a5ce",
+      "core/topic_models.py": "1091b317c1e1cde9de68e4e6a0c9c985670538dbacab0966cb5c28a094e6624e",
+      "core/topics.py": "5239e58235c21d317086c2fadc6bc6d879cbba5b93321c7ce9326d545d0fdea0",
+      "evaluation/__init__.py": "c21b5923e1dfb0fa9cab0e513821b7116f66a0d39a8a076085a0dd3b4984eec6",
+      "evaluation/baseline.py": "274da6583a414dc5d519308f69ce64bd61d85bca412ae6827a74fd172d2ee457",
+      "evaluation/content_quality.py": "7db46e15f4544645cc4f6e2a9ebb76a1559997b87db01c80c83294c82fa35ee4",
+      "evaluation/feed_ranking.py": "03de5de16e8034fe3a19eee88600bed345a9ce128bc8d6fd2a7c4e8d63d6cf78",
+      "evaluation/feed_suite.py": "b5e65bbb8b1c8bcd3b3043e51259ccbfbb0816247b83a3f50a5ae594c6830dc7",
+      "evaluation/member_quality.py": "19b67416cdec38132ea62a6a806d8f155067d5e1fd6830fa5d4b8ddb1c1f5fdf",
+      "evaluation/member_retest.py": "45b0f5cde2ede9ed4493e4adfd5e968b4b83be634b1482767b948c6c5058677e",
+      "evaluation/member_retest_challenge.py": "008958b69037e3ecb6b25cbd62f0ce4e5c5aecb4c67eb57a6625ff3f71b37929",
+      "evaluation/observe_sources.py": "f956befb724c45c04ac3635f844812355c2852a9df68deee4845320f202a04e7",
+      "evaluation/preview_feed.py": "8e0e8016b7d68c0212e7d11123b6445e5ab3f07ef031bdf943240f657dbabd9c",
+      "evaluation/preview_reading.py": "ef12bb9e80b22b3449d0b25f04d1d1608fdc8c441259c2d1ab942a83a61e2138",
+      "evaluation/quality.py": "26bfc062ae0b69d6f5a13b23f1cabfa9dc482fda7989aa2ef3ad86b69a8c4857",
+      "evaluation/r1_benchmark.py": "cdcee7533454811540b6a8ccdcf23181852b972fbe7fccd12d085a62bf290955",
+      "evaluation/r1_inputs.py": "3bba5335d8628008c66dc2fd20a53e570ea33d6e17a0a8404c353514c7f3cc69",
+      "evaluation/run_feed_ranking.py": "823161b3a61154c0a001d322be5deda5d0ef074678a2443971ab145e1fcd2ddc",
+      "evaluation/run_quality.py": "28ab7c149d31ab9db6d25980d178f072c3aa9c3dc5b564b59707bffef675a8c7",
+      "pipeline/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pipeline/cluster.py": "652b728c6edbdb49b6a8ba2802ef29d3dfd39eee95198b3d7dc0c79af9675fff",
+      "pipeline/content_processing.py": "b88d5ae3256b14e730a34fca0bca8a5044621fff14ee720bc0fdfe4e78366d03",
+      "pipeline/digest.py": "b5edc1562c9da2b743e23adcc2d8be529fb44f7f9b10e2084d1e4d41f9b1dbef",
+      "pipeline/discovery.py": "762e4835615bd73aa3fe8288274eec33f41a8888b7669e3aa0ffb9ff205eac3c",
+      "pipeline/discovery_quotas.py": "7bd0685707ef0dd3603609ff3c1b7885c69c8c06b56976c252dfe8a88b98b12a",
+      "pipeline/editions.py": "55d30c447d67c55eeaa3a64fd4fc159ffe0db5755525b73358d1d1487d639dda",
+      "pipeline/extract.py": "3d42c02ca597e1da29ad65a7821d5b2812f0b9b4b459f859745e276df2563ca9",
+      "pipeline/feeds.py": "2c29eb623674660a91f72b36d9a12c2577c1e9e4073ecb20919f558bc5cf993a",
+      "pipeline/materials.py": "5ddb9cd0fd5b5968d6bf193a905eba4db481a5fb67659cd619eb91703073147d",
+      "pipeline/member_processing.py": "6b8f6716330ddd8fa9f5b4be332866544997c88577cbb16fddd591f6c5b35c6f",
+      "pipeline/public_sources.py": "b91eee4f1c3179ba363b8f696d248f668c6a64fe20d5bae4cf715602a316c76d",
+      "pipeline/r1_runtime.py": "7cb00c5765f7799f2bbf5fe297f774a1d6f4135ffeea0830b1990838682e2f64",
+      "pipeline/r1_worker.py": "311be6fa49013e4dfa13a1414402da6897f073d1209d1d93aa2fc0544fc04060",
+      "pipeline/repair_grounding.py": "57cbca2e0908fe880d5037ca0235167a16bc3529dc8b268a61cd5a5a89b78d31",
+      "pipeline/score.py": "2798cfeb8e1b340b166c016e146d24fa85d19c2b70c039c0b3f66a54c96f14b9",
+      "pipeline/summarize.py": "4c23e68586aad9d3de990674fa2d95a718767c1f53031cedee404ccb7726dbe4",
+      "pipeline/viewpoints.py": "a0cc939ae708c385d5626cddef027bb97fdd6867b929e7518966d82e25f2fd4c"
+    },
+    "config_sha256": {
+      "media_groups.yml": "9a7c0ac391e163779e176f4f601faddb369cbb1ae25ed03d59b4c33c82d50071",
+      "r1-reader.yml": "16aefedf76fd1c9c4e36fd5b4dd21378d9de3bc9705d87e8612ea3c6c215f90b",
+      "scoring.yml": "2f2099d10e0702d223453b7e1c738b62ad4c30696093feaece57601d5fac6dc8",
+      "sources.yml": "4c21aaace4c8c68d0181e101a136883fb43972c12e5af47caba410d9ec1bef43"
+    },
+    "read_only": "on",
+    "schema": "000019",
+    "indexes": [
+      {
+        "indexname": "ix_articles_canonical_identity",
+        "indexdef": "CREATE INDEX ix_articles_canonical_identity ON public.articles USING btree (COALESCE(canonical_content_id, id))"
+      },
+      {
+        "indexname": "ix_content_derivations_ready_card",
+        "indexdef": "CREATE INDEX ix_content_derivations_ready_card ON public.content_derivations USING btree (contract_version, review_contract, article_id, material_id) WHERE ((kind = 'card'::text) AND (status = 'ready'::text))"
+      }
+    ]
+  },
+  "running_containers": [
+    {
+      "name": "unspun-r1-worker-1",
+      "image": "ghcr.io/linsrock/unspun-server:26ddfa20f69c0a26297a4202d146e2b45b670a79",
+      "image_id": "sha256:bcb19c9b46b48c45c8fb339b3c0e4826385c5384dd63b3c22c5facfb76c143d2",
+      "status": "running",
+      "started_at": "2026-10-21T04:19:31.578779008Z",
+      "restart_count": 0,
+      "app_version": "26ddfa20f69c0a26297a4202d146e2b45b670a79",
+      "published_ports": {
+        "8000/tcp": null
+      }
+    },
+    {
+      "name": "unspun-api-1",
+      "image": "ghcr.io/linsrock/unspun-server:26ddfa20f69c0a26297a4202d146e2b45b670a79",
+      "image_id": "sha256:bcb19c9b46b48c45c8fb339b3c0e4826385c5384dd63b3c22c5facfb76c143d2",
+      "status": "running",
+      "started_at": "2026-10-21T04:19:31.853651853Z",
+      "restart_count": 0,
+      "app_version": "26ddfa20f69c0a26297a4202d146e2b45b670a79",
+      "published_ports": {
+        "8000/tcp": null
+      }
+    },
+    {
+      "name": "unspun-web-1",
+      "image": "ghcr.io/linsrock/unspun-web:d72861bf854465a7a1107d149fad82dfe50281bb",
+      "image_id": "sha256:4fd084fbdba2bfa801b33d3047c1d9a5eee271ab3107d2c80dff5320a8c485ed",
+      "status": "running",
+      "started_at": "2026-10-20T06:14:33.897946668Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {
+        "2019/tcp": null,
+        "443/tcp": null,
+        "443/udp": null,
+        "80/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      }
+    },
+    {
+      "name": "unspun-rsshub-1",
+      "image": "diygod/rsshub:2026-10-09",
+      "image_id": "sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09",
+      "status": "running",
+      "started_at": "2026-10-10T03:10:15.100859601Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {
+        "1200/tcp": null
+      }
+    },
+    {
+      "name": "unspun-db-backup-1",
+      "image": "pgvector/pgvector:pg17",
+      "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d",
+      "status": "running",
+      "started_at": "2026-10-08T10:35:07.972814371Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {
+        "5432/tcp": null
+      }
+    },
+    {
+      "name": "unspun-db-1",
+      "image": "pgvector/pgvector:pg17",
+      "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d",
+      "status": "running",
+      "started_at": "2026-10-08T10:35:02.033634023Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {
+        "5432/tcp": null
+      }
+    },
+    {
+      "name": "unspun-edge-cloudflared-1",
+      "image": "cloudflare/cloudflared:latest",
+      "image_id": "sha256:9b49eed8f62806d5d45ddf59ecefb5710429598ea6d3fcccd2af938f621b2b07",
+      "status": "running",
+      "started_at": "2026-10-08T10:28:32.973936954Z",
+      "restart_count": 0,
+      "app_version": null,
+      "published_ports": {}
+    }
+  ],
+  "legacy_workers": 0,
+  "r1_workers": 1
+}

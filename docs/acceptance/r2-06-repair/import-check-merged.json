@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-21T04:15:33.842100+00:00",
+  "git_head": "26ddfa20f69c0a26297a4202d146e2b45b670a79",
+  "imports": {
+    "unspun": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/__init__.py",
+    "unspun.core.member_contracts": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/member_contracts.py",
+    "unspun.core.member_recall": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/member_recall.py",
+    "unspun.pipeline.member_processing": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/pipeline/member_processing.py",
+    "unspun.evaluation.member_retest": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/evaluation/member_retest.py",
+    "unspun.evaluation.member_retest_challenge": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/evaluation/member_retest_challenge.py",
+    "unspun.core.billing": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/billing.py",
+    "unspun.core.tasks": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/tasks.py"
+  }
+}
