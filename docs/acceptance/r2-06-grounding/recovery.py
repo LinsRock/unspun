@@ -36,8 +36,16 @@ if a.phase=='after':
    q=old.dialect.identifier_preparer.quote(name);keys=inspect(old).get_pk_constraint(name)['constrained_columns']
    rows=[dict(r) for r in old.execute(text('SELECT * FROM '+q)).mappings()]
    current={tuple(r[k] for k in keys):dict(r) for r in new.execute(text('SELECT * FROM '+q)).mappings()}
-   assert all(current[tuple(r[k] for k in keys)]==r for r in rows),name
-   retained.append({'table':name,'original_rows':len(rows),'all_original_rows_unchanged':True})
+   unchanged=all(current[tuple(r[k] for k in keys)]==r for r in rows)
+   allowed=False
+   if name=='budget_policy' and not unchanged:
+    revision=json.loads((OUT/'allocation.json').read_text())
+    assert len(rows)==1 and revision['before']['stage_caps']==rows[0]['stage_caps']
+    expected={**rows[0],'stage_caps':revision['after']['stage_caps']}
+    assert current[tuple(rows[0][k] for k in keys)]==expected
+    allowed=True
+   else:assert unchanged,name
+   retained.append({'table':name,'original_rows':len(rows),'all_original_rows_unchanged':unchanged,'authorized_registered_stage_caps_only':allowed})
  report['retained_original_rows']=retained
 with (OUT/(a.phase+'-recovery.json')).open('x') as f:json.dump(report,f,indent=2,default=str)
 print('Full backup/restore verified:',restore)

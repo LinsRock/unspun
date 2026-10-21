@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-21T07:12:38.374465+00:00",
+  "pr_url": "https://github.com/LinsRock/unspun/pull/124",
+  "merge_revision": "99d639a993884a72e031890d7bcd0d2e60826afc",
+  "pr_ci_url": "https://github.com/LinsRock/unspun/actions/runs/39559187560",
+  "main_ci_url": "https://github.com/LinsRock/unspun/actions/runs/39559828945",
+  "pr_ci_passed": true,
+  "main_ci_checked": true,
+  "runtime_deployment_verified": true,
+  "runtime_merge_revision": "beb8e03ade1bfac90ffd509eb340f35210494275",
+  "runtime_pr_url": "https://github.com/LinsRock/unspun/pull/123",
+  "runtime_main_ci_url": "https://github.com/LinsRock/unspun/actions/runs/39556445688",
+  "evaluation_only_main_deploy_skipped": true,
+  "local_evaluation_sources_frozen": true,
+  "deployed_runtime_source_hashes_match": true,
+  "total_source_files": 95,
+  "deployed_eval_tool_differences_disclosed": {
+    "evaluation/member_grounding_challenge.py": {
+      "local": "f705cdfe0affdeb43f9928b6d27da0c4cadd07bd46fbc8531fad68f3f34a9090",
+      "deployed": "29ecd5b2e49c0befe5adf8327b93cd63e025da4a8fee4de410421ddf258b63bc"
+    },
+    "evaluation/member_grounding.py": {
+      "local": "6a877db9b6015b1cc5c534e658be9ea604eadc23fad328bb71103494d87e69f7",
+      "deployed": "9e294fd23a65278952f0423b20ff8227f9d0867e21ec24e3f765167190efcfa7"
+    }
+  },
+  "source_freeze_sha256": "2af01778ca1242e89ce014f5820bebd8a713675439136959b601bc7db604df7e",
+  "execution_fingerprint": "249a9da41881da1a33209d612d263997fb5ce74ff03cb8b8ec08a7eabd96413e",
+  "production_enabled": false,
+  "production_member_tasks": 0,
+  "production_member_calls": 0,
+  "new_production_stage_allocations": 0,
+  "new_production_tables_empty": 7,
+  "schema": "000019",
+  "new_paid_requests_before_proof": 0
+}

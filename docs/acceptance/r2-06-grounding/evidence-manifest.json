@@ -1,0 +1,782 @@
+{
+  "at": "2026-10-21T07:35:45.480977+00:00",
+  "id": "r206-grounding-evidence-v1",
+  "first_outputs_never_overwritten": true,
+  "files": [
+    {
+      "path": "docs/acceptance/r2-06-grounding/after-recovery.json",
+      "bytes": 11611,
+      "sha256": "252663109585a93003af9837a02ee81bb69d23b2f145cdff84b0b15a77bfc9aa"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/allocation.json",
+      "bytes": 5523,
+      "sha256": "20f630f43d8ef9ec8178eedfd0616dd3c50048bf14ea24ecb967095a7cff67a0"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/allocation.log.gz",
+      "bytes": 280,
+      "sha256": "3261536db1147329552d47df15c9127b0a35e792734dcbe4ff5113c162f893b1"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/attempts.json.gz",
+      "bytes": 1351,
+      "sha256": "2fe426dc5762788338bfcafa58027250244637cfd202dd1162e7da8f50ce9158"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/before-recovery.json",
+      "bytes": 5532,
+      "sha256": "09fb1dce607e06785529f7646db383be44fc483e13defc53a1f6c5c162652ab9"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/capture-ledgers.py",
+      "bytes": 1113,
+      "sha256": "72ebc594fcea3d59c50c6f935f178adc3695288b2afc10cade3f0994da39c44a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/capture.py",
+      "bytes": 3317,
+      "sha256": "b8e2f95fb2745898a3bcc13fa925ff134ffcf90072440f47d3681c1d3b6cd24b"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/challenge-before-run.json",
+      "bytes": 10792,
+      "sha256": "ef9348a72fa1da9e0bc8d9ebd9ec42b459ba6b45d9eb455d5b10490258c4a85d"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/challenge-first-run.ndjson",
+      "bytes": 333658,
+      "sha256": "51169f96b49f474bc3bbb2a3296b80bc0127c21375b7512135fb5eeedcd8ea17"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-entry-tests.log.gz",
+      "bytes": 51,
+      "sha256": "0c21856cd9711d96f0448e10297066d6f3f38a2119551960bf315b8e0c2b10ac"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-main-ci.json",
+      "bytes": 7739,
+      "sha256": "c0678166dc5926158fd690a25c3fa7111d43d2cefa58039930baea9dbf01b103"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-member-chain.json",
+      "bytes": 2312,
+      "sha256": "f8ddde0e591bc61e21d8d92179039ef5b9609faae2a8a3f21069742d8bede2f7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-merged.json",
+      "bytes": 239,
+      "sha256": "b9b534977b6e8db8e9e68e708a11d2900a4d9eaa85b38ac8ee3b38a24ef3ade0"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-pr-ci.json",
+      "bytes": 7739,
+      "sha256": "336af3c56218d3bf390a8ca0fcb0977418734fb482a7ff0fe93b496e66c49753"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-preflight-failure.json",
+      "bytes": 666,
+      "sha256": "7290880e886a1ae2bb1a8c733916ef5ec113ae30cd1227d8b7f2b30fc4b1fc8a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-refresh.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-review.json",
+      "bytes": 952,
+      "sha256": "55b9ee3c1155fc451568e190e70a3d36a842cc83054a8dc69171b909b93c7f07"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-runtime.json",
+      "bytes": 13717,
+      "sha256": "f9968c76f17b37ecffd5fa3a81aea76306546c6256a28526773b5c0120208f45"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/credential-validation.json",
+      "bytes": 1857,
+      "sha256": "f33b85654cd893ad0131844b65f30900db7499f81add6561b460a28ecab5d14c"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/delivery-review.json",
+      "bytes": 1141,
+      "sha256": "f57fe60e3f715fb8f3035b64731eaf74a095ed7660c4adecee24d14050875107"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/allocation-reviewed.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/challenge-run.log.gz",
+      "bytes": 116,
+      "sha256": "fa71d47ff841ff73646c250f856d40e2dec77a6cf94658bbbcea9f42a70c30d7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/challenge-seed.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/credential-main-watch.log.gz",
+      "bytes": 1239,
+      "sha256": "196b7e76e5f707287c1e4f2b59114dfbabd6eb9b9289977d0fc6c431b7152e12"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/credential-pr-watch.log.gz",
+      "bytes": 1246,
+      "sha256": "57f6e7f2867e90661c2380758073fa7441d3ed52f36d3a07410337b4662ff546"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/exposed-run.log.gz",
+      "bytes": 158,
+      "sha256": "65e72cad4e87620b18b44fbedfe52bba08a9151ff36dcbffaf2c5306b9af5a25"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/exposed-seed.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/final-audit.log.gz",
+      "bytes": 732,
+      "sha256": "f8ff3ba8b5ecc825eb6e415e40547923934c456a9ef8d6e8f77e37662f4d6884"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/final-capture.log.gz",
+      "bytes": 376,
+      "sha256": "2fd360ac5e8a03d374c101ce6687e52df0d98f032154802d7c042bb18512d78b"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/final-freeze.log.gz",
+      "bytes": 92,
+      "sha256": "a919412af185dfbb618f7a4131486342354dec1c5cf3186c60a8c687cfe10548"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/final-ledgers.log.gz",
+      "bytes": 52,
+      "sha256": "d8424b211c12fcdadd6033c605726350d5b768bfbcfcbbe00fbeef624f24b7ce"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/paid-entry-v2.log.gz",
+      "bytes": 801,
+      "sha256": "50372df7ba2e174d17240a3b32799d78a65d2261b1410b517469ddc32b92f533"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/production-fee-window.log.gz",
+      "bytes": 76,
+      "sha256": "711ad0a87e73ffbd672e2b9f52a1d288e75c8577cdf6ccf0bcede80b6e6f6fd2"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/recovery-after.log.gz",
+      "bytes": 90,
+      "sha256": "eacdac3a278dd058b9605eb0b605f1ebe066824a0ddce58bb5fffb88588e7eeb"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/report-final.log.gz",
+      "bytes": 1730,
+      "sha256": "07fdc8096ab3cae9f81ac99ed9862f89d99b5e469bf2801d9ca8f5fe9d75131b"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/report-initial.log.gz",
+      "bytes": 638,
+      "sha256": "ffa46ff0e1b0191305fe895d2cea25a1d01e49f45faf26459ebedd08f3a05306"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/execution-logs/unknown-cost-check.log.gz",
+      "bytes": 242,
+      "sha256": "1b84b37eee8a043d276c24643665a2f5aee28d068e14cbe57b1d4d6267e5ce22"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/exposed-admission-before.json",
+      "bytes": 347,
+      "sha256": "b8eb0460b1b50fcb0b0949dabea1f178cf793e7b4510544bf2eef373844bb97f"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/exposed-before-allocate.json",
+      "bytes": 10790,
+      "sha256": "0ffd1ac96ca8c8fd6b861552e21d1d8f3a8f1ef4fad227002312a845be76c4f7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/exposed-before-refresh.json",
+      "bytes": 10790,
+      "sha256": "e33cf3e515e557ef2fd925074874712f283d5e815ef37b5a180cbe5a7abe70ab"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/exposed-before-run.json",
+      "bytes": 11349,
+      "sha256": "63d3f937ddcb7a6505bcd3796b291781fe5bdaa1c0afbed4f5cd7e3e4f2d966b"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/exposed-first-run.ndjson",
+      "bytes": 789906,
+      "sha256": "c5421b33f31534c548679d5cca5f22aea7f65a388966854b867c40be39147376"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/exposed-gate.json",
+      "bytes": 1167,
+      "sha256": "04d0ab979d1be9c56549e29f2ac6a7780db3865ec80ed288ce75059c577c4204"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/fee-reconciliation.json",
+      "bytes": 2097,
+      "sha256": "3cb1076f472eafc8b7e51d32726204eaed212b8bf727c4b3af9a5b30e08b1d55"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-audit.json",
+      "bytes": 1438,
+      "sha256": "f1ca92c5f3318592d62b223423b27be951804a9e84b27159ed1fe505d631e9bf"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-audit.py",
+      "bytes": 5157,
+      "sha256": "b51f77e360c1ba95ba6733d5e3b078eef74996bb6d0a4f720038efffde5119f8"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-boundaries.json",
+      "bytes": 1874,
+      "sha256": "e29db9833443540cc56de6f933e5d893cc2799c41317779c94271268a33e27a7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-evaluation.json",
+      "bytes": 6789,
+      "sha256": "99a9a7dabc25fe450955c5ebecd3f3383d8f7a1284ea8244bc93a4c4ae135174"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-freeze-and-gate.py",
+      "bytes": 2179,
+      "sha256": "2eeed62a33ed0021061b3240c03ad5105596c773f7b13a31fbbd7d719d399fc9"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-freeze-check.json",
+      "bytes": 1583,
+      "sha256": "a6a3b0fb6fba5e5251357fad1708d7f4f5d8d0e5d9b2f986fa07380289521fe6"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-member-chain.json",
+      "bytes": 2312,
+      "sha256": "d59187a0fada11e6d2bb664412e036ef6b4c8ece0cbe8af42b5a208e91b1b4b3"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-observation.json",
+      "bytes": 46138,
+      "sha256": "e85019b9dedeb5ef98c03b73eb9f1b691b26ebe86753e91c4b52ea62539c1213"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-production.json",
+      "bytes": 264210,
+      "sha256": "3e41d14ae3ebed5b550280539c63e637e42cc28ba4a9cbfcce87e66b2118d106"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-protected-production.json",
+      "bytes": 5096,
+      "sha256": "35ecce7e0dccd22c56f82f887a67ef7e9dd8680fd93367ef6063246d66da97d6"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-reading.json",
+      "bytes": 29073,
+      "sha256": "8df37cc64e0c5b5d18ea42408ee10fd1035e3873748a4edadb08dc757906e7b7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-retained.json",
+      "bytes": 718,
+      "sha256": "30cbbcb8c939b38f6bb0556b68fb1769b93ed9b63a14a9ecc361efce25a7982a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/final-runtime.json",
+      "bytes": 13718,
+      "sha256": "70a64189dcab851fb2b6a5e72d3f7b713493241bc160a683d1cad3b8e5197149"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/format-credential-final.log.gz",
+      "bytes": 48,
+      "sha256": "da386aee45d9836db31c98b7cf6b6714e6a48a358915859681c593b1aad31a6b"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/freeze-created-v2.json",
+      "bytes": 1362,
+      "sha256": "c1ff1e373eb8919c48f9782c871d800ad67c68d4916f16b36994d2b2ec53a3e2"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/freeze-created-v2.log.gz",
+      "bytes": 304,
+      "sha256": "d88fe5a00f1aa2ba6381560ec3623d7c94852b02c15fbe476f2fcebc80d969cc"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/freeze-created.json",
+      "bytes": 1318,
+      "sha256": "9173208f64bf8120a34f7a71aa52c7ae4ae71f18ea837a39357ab14c6c826b91"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/freeze-verified-v2.json",
+      "bytes": 1362,
+      "sha256": "40c9deb5db282d606b5f7b7ac7331b0337ade495a3e42f22c355f19de97acbcd"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/freeze-verified.json",
+      "bytes": 1318,
+      "sha256": "0086b8361b2ac6c4ef9a0123d368bad664075534cce43975c7d598f8c89cabad"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/freeze.py",
+      "bytes": 5223,
+      "sha256": "9a7e799066823efe7dd1b5fa1d343ceed1e6f9e4030ef4ddb8e8e760f269f519"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/import-check.json",
+      "bytes": 1001,
+      "sha256": "dba0b588758498106267a9ab00b16b369ec24dea30e08bebd0ac5d53d0fb87ca"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/judgments.json.gz",
+      "bytes": 48886,
+      "sha256": "b8cbefb251eae64b8770623ea38402ea9cabe0519b6425448baf6f941ad05cb1"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/legacy-ranking-check.json",
+      "bytes": 177,
+      "sha256": "c6bc3b3faa2376122127dfaefd89713136398a24241fc608a816d16c85034983"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/lint-credential.log.gz",
+      "bytes": 39,
+      "sha256": "f3af4d142827f5aad2eb0c72d556d325488a57fb6219aac10afeb51085667d53"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/baseline.log.gz",
+      "bytes": 138,
+      "sha256": "4ee40d4105ef9a4ad4a40af4ee2af9f0a401918c0239be90a4d6708c752451ad"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/ci-scope-tests.log.gz",
+      "bytes": 512,
+      "sha256": "da8df7fea302519478135e15b842e33044a65d26800cf7c8399b3aa0eb64c564"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/deploy-tests.log.gz",
+      "bytes": 661,
+      "sha256": "3807c9b6bd322dee9e7c51b2c26e5a56ae8b9a44437b9ca6ea1964531fb7af2b"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/execution-lint-v2.log.gz",
+      "bytes": 1621,
+      "sha256": "7306186d51337f51d17b66d2d4a037e95095f44b8afe9c144ea12d5821ab89bb"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/execution-lint.log.gz",
+      "bytes": 1309,
+      "sha256": "edec00170b8b85d1607f131eae6c84cac848ab0dada734ee861947ad442b3af2"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/execution-tests-v2.log.gz",
+      "bytes": 2061,
+      "sha256": "102deba3af592e0205ae1222d797062e1bf62bcf71a1402ccde897032d11301a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/execution-tests-v3.log.gz",
+      "bytes": 74,
+      "sha256": "e6bebbd133ca77dee2ea9d4896ddb08d39c146323d6589ed398819a0cf13e77d"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/format-final.log.gz",
+      "bytes": 65,
+      "sha256": "83e9576cdcb6bd71bf0aeaf197cefe5030ef96a1e220620489cdca7ce9aff518"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/format-first.log.gz",
+      "bytes": 87,
+      "sha256": "645fca815f7be844499df0b494aa81adfd13dfb4e4fb4f05041c6831fc04c42e"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/freeze-created.log.gz",
+      "bytes": 315,
+      "sha256": "69f0652c99b7873553c15a869839b967f2391ed0dc9547d9e3f10fec01b2a122"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/grounding-first.log.gz",
+      "bytes": 73,
+      "sha256": "c39ff8755634b6e134b79e91e0cbf8e7f765a7aa2472475068ffb2bbaf4b9d08"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-final.log.gz",
+      "bytes": 54,
+      "sha256": "7b1c88436635db1bd7e35093126e0b5fb8b7d091f65892d9c834f5add1f7024e"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-first.log.gz",
+      "bytes": 317,
+      "sha256": "51b8f6ae12a84679f6bc9c64c7e33807d8a4481bea8821ec40c551a8f64bb90a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-v2.log.gz",
+      "bytes": 1026,
+      "sha256": "1fcc505ca7922b468c413c3ac1eca9f38535d634963a383bc419ca30cae46482"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-v3.log.gz",
+      "bytes": 271,
+      "sha256": "cf290aec7c2fd475a07e1bd8e2df6f5efebc946298ab26ebe18e773c5ee14e89"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-v4.log.gz",
+      "bytes": 259,
+      "sha256": "b1df3c2ca2bbb477358ff7f0ca1a423223d994281e1ad145fe1ab8a37357eca7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-v5.log.gz",
+      "bytes": 51,
+      "sha256": "f5813fa0d7a02ee28819d7100c2aa8ff85b839267066f4ce606c7b57c088b7be"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/member-first.log.gz",
+      "bytes": 6075,
+      "sha256": "e974cc2edd226d7a219a40b77ec0930686c9ea31951e823b00f6c7e0d648fa6a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/member-v2.log.gz",
+      "bytes": 1161,
+      "sha256": "d382ce90e0a8a7da2233eca25dd272f359c0633f83d1059bc4ce86969d2f88ab"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/member-v3.log.gz",
+      "bytes": 76,
+      "sha256": "769dab4d5adb9f9498dcea15476a9753a196c89c886af91c713f08eb2cf0a03d"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/migrate-final.log.gz",
+      "bytes": 38,
+      "sha256": "121df708b37193a067aab71ffc7a34c96574158e5bd657ebb9072ad7e8e8a6a1"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/predeploy.log.gz",
+      "bytes": 485,
+      "sha256": "fab90fdc848d4ece88a8d3ddead99a49331816483964a6770103d7e0503def8f"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/prepare-registration.log.gz",
+      "bytes": 662,
+      "sha256": "e3aed6318ede11a730569e0e94b7c8d25c79276076db8af7d758b8d50448c5c2"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-final.log.gz",
+      "bytes": 71,
+      "sha256": "1d70fb83d9920dc5f67cf7b9fd2cdd62d5b9d386b5757e5910a5d1e03d1ae851"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-first.log.gz",
+      "bytes": 631,
+      "sha256": "c326e334ce82e080d133781b2b8a80e7d7a00552f4309b060e4d356e51e45dd4"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v2.log.gz",
+      "bytes": 363,
+      "sha256": "cc3df28c44cfbe8761ef6f9dafa167c3f5005821c5f5a82d0ae16b2a40584dfd"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v3.log.gz",
+      "bytes": 460,
+      "sha256": "5cba665cfb04dda01a5d54db8806195f9855db19dcdf4e60f6b2d6396d21f61a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v4.log.gz",
+      "bytes": 750,
+      "sha256": "eb2ae2fff1addb48f1ee39c3d066afaed72898a68af28fc01426eae321f04392"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v5.log.gz",
+      "bytes": 318,
+      "sha256": "b325dab9ae0319e178aaaee9198ded357778ec54d86ab8afc6ef0cc3226182ad"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v6.log.gz",
+      "bytes": 68,
+      "sha256": "6880e7a7bf97f0d90c8ae5c786d5e1925c6ecc889059814c069eae4650f92a64"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v7.log.gz",
+      "bytes": 313,
+      "sha256": "37105a9856d8bc631fb2e141504e251fbd4a4842f152079c1e2e59c4deea09e9"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/recovery-before.log.gz",
+      "bytes": 108,
+      "sha256": "3d36b3578cceb0971e90d56986a88ea902267d935b92ae497539cf2e05924b58"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/regression-final.log.gz",
+      "bytes": 139,
+      "sha256": "ce06184a4bdd65fc6e3b77e834be279c926351b458250284be33a8e2242b8d4e"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/logs/schema-final.log.gz",
+      "bytes": 73,
+      "sha256": "3cd24a41e79cbc315e440f682625cacf7662fce56e2ec3120ef5ef56ada21b3d"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/paid-entry-review-proof-v2.json",
+      "bytes": 1724,
+      "sha256": "da18663f07fd7dedc93a9075c717f4915ce727bef7ce067a7fcf67073014f10b"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/paid-entry-review-proof.json",
+      "bytes": 923,
+      "sha256": "5b8f762086c0c2f401e69083a5cbeb8343fe278d598ba8aef740b24a18721aae"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/paid-stop.json",
+      "bytes": 6385,
+      "sha256": "69a690e136a5718b2ecb8be30782ccb96ab3ce6fc01a9133c727c54dae63e175"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/physical-requests.json.gz",
+      "bytes": 19733,
+      "sha256": "45e07ad7879b830bc18ca8a648d1ac8aab33e55fd4ebc47630aa85c0020c8a47"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-audit.json",
+      "bytes": 5631,
+      "sha256": "1922bbe97053599cf748f216edfd6caee6d66d7fc1936d18b99a4207a388a242"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-boundaries.json",
+      "bytes": 1874,
+      "sha256": "704f5b3be1d45bff7948768b3798a065057ca1a9daf82f8e556b103d9033c9b6"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-evaluation.json",
+      "bytes": 6412,
+      "sha256": "c9e636136b6783d604b76d17490fe1ba347e72f001cbb3374cd5fa4279d2efd7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-member-chain.json",
+      "bytes": 2313,
+      "sha256": "cd2385d8e7033ea99f6a0bea020ad43da841033d35e1e9013dc3e1530f48b30a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-observation.json",
+      "bytes": 46138,
+      "sha256": "5633bf4dd163fe87200c4cd12bb3bd5c346b4a4f3f855c53de43c5a98664d18c"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-production.json",
+      "bytes": 264204,
+      "sha256": "f7b9c42b49acfcf596f563d129d3770ab7753e8c4e186b984e72bb2b752e6f28"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-protected-production.json",
+      "bytes": 5096,
+      "sha256": "bee641365f1208d9d242e0e66d9e9684d2760b6868d945f93e61298b6a67e3b5"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-reading.json",
+      "bytes": 29073,
+      "sha256": "00ede907da9dd97d80387641241e60d6e18ba33c7dfe2d797a867c7279f29715"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-retained.json",
+      "bytes": 718,
+      "sha256": "00eaf2a0ff5667e2725fad5f6b2c9921df7bee8d4dcabcc1d1b151b42e317dbb"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/postdeploy-runtime.json",
+      "bytes": 13718,
+      "sha256": "d47e1285d268713401b717b84e76eea1c651b3dbb73b6003923ab2eded84042f"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-boundaries.json",
+      "bytes": 1874,
+      "sha256": "e4b833cd0915bdc11ff4d9490e401b851c289c4483cc2cb89a4b23ca03669afd"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-evaluation.json",
+      "bytes": 6412,
+      "sha256": "4457e0a3c4e358ee1781a0c90cdb7b60fa937448ab7c3aa9a0fd133f59b9ae23"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-member-chain.json",
+      "bytes": 2313,
+      "sha256": "2bdc1db8499c358684d28f8ebdf20c5b4e249bcf1a86cf6f05c5a45e7b2b1673"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-observation.json",
+      "bytes": 46138,
+      "sha256": "10b7e2531ef7f3e67997f4ebe62408690939d4630160b6cad89ac491dfdd1763"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-production.json",
+      "bytes": 258166,
+      "sha256": "e58cf5b3d0fcb3dd901a9867d93e7bd61b6643d5875d645dd13b3f8cae64b4cd"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-protected-production.json",
+      "bytes": 4586,
+      "sha256": "35d1125e481f466521069070c5ee0517b77fcdb274edece5105cdc8822d4ca0e"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-reading.json",
+      "bytes": 28338,
+      "sha256": "b9d8f701921536b246e0868652e5a6a4cf570fc33095ed7551955c3b869cde11"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-retained.json",
+      "bytes": 718,
+      "sha256": "806d819cb3558d44da18372f904c67f0a550c4552ae440158663cff0eb5eb961"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/predeploy-runtime.json",
+      "bytes": 13391,
+      "sha256": "6841d44f6bf5592b2c859e64caab6d644245af8bb2d0f32dbc01b22f2cd1383a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/preparation-main-ci.json",
+      "bytes": 16920,
+      "sha256": "26fa86653f9d295e092a5bde3158b8d52f6d79dbfeba12d843d172847ceab7d7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/preparation-merged.json",
+      "bytes": 255,
+      "sha256": "b342371af4a62e74f3d9225741c7bb6ed02c07a6fd4b9d64c2081ed6be0812d7"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/preparation-pr-ci.json",
+      "bytes": 11336,
+      "sha256": "37a39f8ffe54e4e508cb61b7d99d9b13b2a8cae2a34d3cb51d97f8a0cb759470"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/preparation-review.json",
+      "bytes": 1382,
+      "sha256": "38f2d66bcfb9cc8c948a62d8f311f3ac90a3e9331feaa5416fe74d8e2d78ea8f"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/prepare-challenges.py",
+      "bytes": 6078,
+      "sha256": "f44cc1a409bc75b263f7c21e937b54a6c8bf14532984c3c38ca75ef5d7776ec1"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/prepare-registration.py",
+      "bytes": 5223,
+      "sha256": "0431d875ee007b4d7cbc3c46b91b201aa3faf4aacea4b01791940e3dd78369a1"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/prepay-member-chain.json",
+      "bytes": 2312,
+      "sha256": "175c82dd8a6034caacbea529dbfb71e9bd728a8fadca4f079748a72f102e1beb"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/prepay-production.json",
+      "bytes": 264203,
+      "sha256": "be438a791de0323ef0af63e4f105cdf40c5886b4fb86ace7204ee2a86918d971"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/production-cost-window.py",
+      "bytes": 716,
+      "sha256": "cc0e5c52d3d0e1d43749d9ad9b214a8aea451044e49254b8bcd3e890cb5811ad"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/production-fee-window.json",
+      "bytes": 1192,
+      "sha256": "12ca2f83e5f8afe8859389f4672ffd90b2af3f2eb890e2019b87b3c401e43b6a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/pyright-credential.log.gz",
+      "bytes": 53,
+      "sha256": "7673cf47ecf297a30b151ff80feb3b30f71e205edc1c51791328c093824e4bab"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/reconstructed-requests.json.gz",
+      "bytes": 58274,
+      "sha256": "8ee51352cf9a164459df4f8350d18f3a687165c9462075c258a92e00ac7aa9c0"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/recovery.py",
+      "bytes": 3654,
+      "sha256": "c812b43f6302da93535871a446957f0febabe7083766a999dcc09dd31c6a670d"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/regression-credential-final.log.gz",
+      "bytes": 117,
+      "sha256": "62e8b8d239f16601ae07726810f4412f3a17ea865c6fae4a8c93ea185ec3b44a"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/report-final.py",
+      "bytes": 12993,
+      "sha256": "ecba4b85ef691dace7e149500f50e3c15c1cf0c6ead5a3bc503fd58f6063ebff"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/report-initial.py",
+      "bytes": 20029,
+      "sha256": "5c9c89794666c41e860cebe66cb9ce87a205fd04ff235a539c80b54ae32b275c"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/reservation-audit.json",
+      "bytes": 7348,
+      "sha256": "8603adda41207b87345bbe4fb81e5f40a91c2cd208121072779650fe5aed8194"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/reservation-audit.py",
+      "bytes": 3355,
+      "sha256": "e7a396ed73e1c3cefc5dcd4f301d887b380a8362587eef53fc5bec0c704d2e93"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/results-final.json",
+      "bytes": 11789,
+      "sha256": "bc5967299ddf9377a6bfa92eaae25f584a7ee7037e63dabb7b99718099a35336"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/results-initial.json",
+      "bytes": 112798,
+      "sha256": "04c40e7755ce82234a261869dadb5569bd48d04d33b8cd4a77ec1e2db4df3298"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/strict-findings.json",
+      "bytes": 3452,
+      "sha256": "9024342d23af1a3f0a8f9af0f90096d2094ede681c969586b909ef69d756de90"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/strict-review-packets.json",
+      "bytes": 26042,
+      "sha256": "167aaf88722b1e3c1359fd8ac449656e713746d92b077da4cd93190dd22d76ed"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/strict-review-packets.py",
+      "bytes": 1897,
+      "sha256": "9b928c2797ecbd138ee91cf0f54673f4ec643a5e3838138eca6b80ffe5fb6bea"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/tasks.json.gz",
+      "bytes": 160009,
+      "sha256": "e0feecb266910784880fa399c4354b9b32c76fbfad26983b101f42c5529547e1"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/unknown-cost-check.json",
+      "bytes": 14644,
+      "sha256": "439da6ec186a86bc2d50e0f79be7be881b99b95937a912ff09af3ae7f763f440"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/unknown-cost-check.py",
+      "bytes": 1996,
+      "sha256": "c81dee83e136eb647c1a7643f17083463c03885b727b58c177ba9cac43d86fdc"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/validation.json",
+      "bytes": 8276,
+      "sha256": "e5766ded567a0149de10bf889937a287a10d45044be1803918d40536635eeab4"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/vectors.json.gz",
+      "bytes": 228927,
+      "sha256": "09d38c1d7588824e6ebd6cffb63736e101e949da747f6214812f6e32b05f1847"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/verify-paid-entry-v2.py",
+      "bytes": 3477,
+      "sha256": "aa1fd741447ba03c1033449c6eaaba22558bf32a5582b285e5f848cd8780bd1e"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/verify-paid-entry.py",
+      "bytes": 2938,
+      "sha256": "4313444813e66eee0379ea002100aca9b59fd3733a1897d9b8e94bd82330e08a"
+    }
+  ]
+}

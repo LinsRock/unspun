@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("phase", choices=("predeploy", "postdeploy"))
+parser.add_argument("phase", choices=("predeploy", "postdeploy", "final"))
 args = parser.parse_args()
 output = Path(__file__).parent
 

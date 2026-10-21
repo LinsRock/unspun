@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-21T07:35:45.480587+00:00",
+  "reviewer": "primary-agent evidence/source review; no fresh blind reviewer invoked",
+  "status": "reviewed, technical validation remains failed",
+  "raw_first_outputs_retained": true,
+  "strict_schema_failures_never_independent_success": true,
+  "natural_and_challenge_denominators_separate": true,
+  "recall_only_measured_on_started_queries": "3/3 observed; only 3/9 registered expected pairs reached",
+  "no_natural_success_chain_cost_claim": true,
+  "audit_cas_control_cost_not_complete_chain": "0.0078384 for four real audits and CAS only",
+  "partial_query_cost_reporting": "Initial global phase-completion flags are diagnostic; final attempted-query cost records use actual per-query terminal task states and never claim successful full chains.",
+  "old_task76_bad_write_and_task110_verified_by_full_recovery": true,
+  "unknown_cost_stops_all_phases_and_hold_retained": true,
+  "no_full_provider_key_in_text_or_gzip": true,
+  "remaining_conditions_in_acceptance_and_board": true,
+  "source_freeze_not_modified_after_pay": true,
+  "runtime_and_local_evaluation_revision_disclosed": true
+}

@@ -1,0 +1,76 @@
+{
+  "captured_at": "2026-10-21T06:45:29.994755+00:00",
+  "app_version": "beb8e03ade1bfac90ffd509eb340f35210494275",
+  "settings": {
+    "r1_worker_enabled": true,
+    "summary_model": "google/gemini-2.5-flash-lite",
+    "importance_model": "google/gemini-2.5-flash",
+    "viewpoint_model": "google/gemini-2.5-flash",
+    "grounding_budget_24h_usd": 0.4,
+    "digest_model": "google/gemini-2.5-flash-lite",
+    "embedding_model": "qwen/qwen3-embedding-8b"
+  },
+  "runtime": {
+    "version": "r1-runtime-v1",
+    "config_fingerprint": "51e0b8646e85377ae9425837756542e8ced0d750d8acab114622a9088c814dba",
+    "stages": {
+      "discovery": [
+        "bbc-world",
+        "bbc-zhongwen",
+        "douban-book",
+        "people-frontpage",
+        "wsj-world",
+        "zaobao-china",
+        "zaobao-world",
+        "zhihu-daily"
+      ],
+      "material": [
+        "bbc-world",
+        "bbc-zhongwen",
+        "douban-book",
+        "people-frontpage",
+        "wsj-world",
+        "zaobao-china",
+        "zaobao-world",
+        "zhihu-daily"
+      ],
+      "paid": [
+        "bbc-world",
+        "bbc-zhongwen",
+        "douban-book",
+        "people-frontpage",
+        "wsj-world",
+        "zaobao-china",
+        "zaobao-world",
+        "zhihu-daily"
+      ],
+      "guide": [
+        "bbc-world",
+        "bbc-zhongwen",
+        "douban-book",
+        "people-frontpage",
+        "wsj-world",
+        "zaobao-china",
+        "zaobao-world",
+        "zhihu-daily"
+      ]
+    },
+    "publication": [
+      "bbc-world",
+      "bbc-zhongwen",
+      "douban-book",
+      "people-frontpage",
+      "wsj-world",
+      "zaobao-china",
+      "zaobao-world",
+      "zhihu-daily"
+    ],
+    "legacy_worker_started": false,
+    "member_processing_enabled": false
+  },
+  "retired_module_present": {
+    "main": false,
+    "fetcher": false
+  },
+  "fixture_directory_present": false
+}

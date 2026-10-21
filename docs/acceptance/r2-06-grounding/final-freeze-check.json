@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-21T07:29:50.833113+00:00",
+  "source_freeze_sha256": "2af01778ca1242e89ce014f5820bebd8a713675439136959b601bc7db604df7e",
+  "current_frozen_files_verified": 109,
+  "paid_attempts_at_final": 139,
+  "new_paid_attempts": 32,
+  "source_or_parameters_changed_after_first_paid_output": false,
+  "failed_gate_probe": {
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/evaluation/member_grounding.py\", line 754, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/evaluation/member_grounding.py\", line 704, in main\n    require_exposed_pass(engine, execution)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/evaluation/member_grounding.py\", line 632, in require_exposed_pass\n    raise ValueError(\"exposed gates must pass before any fresh blind preparation or paid run\")\nValueError: exposed gates must pass before any fresh blind preparation or paid run\n",
+    "paid_request_count_unchanged": true,
+    "fresh_blind_not_opened": true
+  },
+  "new_blind_seal_absent": true,
+  "new_blind_first_output_absent": true,
+  "r204_original_worktree_unchanged": true,
+  "original_r2_and_v3_artifacts_verified_at_freeze_v2": true,
+  "all_paid_work_stopped": true
+}
