@@ -1,0 +1,2505 @@
+{
+  "version": "r2-member-selection-offline-v1",
+  "source": "docs/acceptance/r2-06-grounding/tasks.json.gz",
+  "source_sha256": "e0feecb266910784880fa399c4354b9b32c76fbfad26983b101f42c5529547e1",
+  "semantic_credit": false,
+  "new_blind": false,
+  "paid_calls": 0,
+  "cases": [
+    {
+      "id": "attribution-control",
+      "task_id": 132,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_f451ed2de8e152be0348f7af",
+                "start": 0,
+                "end": 95,
+                "quote": "距离法国总统选举仅剩约半年，这次震动全国的示威活动自然也成为政治议题。属中间派的马克龙政府，以及极右翼总统候选人勒庞（Marine Le Pen），均将这次的一系列暴力行为归咎于极左翼团体。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 89,
+                  "end": 94
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 86,
+                  "end": 89
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 79,
+                  "end": 86
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 40,
+                  "end": 45
+                }
+              ]
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4a67dd5b3e566a50668bbc9a",
+                "start": 0,
+                "end": 122,
+                "quote": "In a social media post, Macron denounced the violence and said that vandals and looters will be \"prosecuted and punished\"."
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 24,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 31,
+                  "end": 40
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 41,
+                  "end": 53
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "control",
+      "rejection_target": null,
+      "review_note": "保留暴力行为归因范围；离线控制不计语义成绩。"
+    },
+    {
+      "id": "attribution-expanded",
+      "task_id": 132,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_f451ed2de8e152be0348f7af",
+                "start": 0,
+                "end": 95,
+                "quote": "距离法国总统选举仅剩约半年，这次震动全国的示威活动自然也成为政治议题。属中间派的马克龙政府，以及极右翼总统候选人勒庞（Marine Le Pen），均将这次的一系列暴力行为归咎于极左翼团体。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 89,
+                  "end": 94
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 86,
+                  "end": 89
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 21,
+                  "end": 25
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 40,
+                  "end": 45
+                }
+              ]
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4a67dd5b3e566a50668bbc9a",
+                "start": 0,
+                "end": 122,
+                "quote": "In a social media post, Macron denounced the violence and said that vandals and looters will be \"prosecuted and punished\"."
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 24,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 31,
+                  "end": 40
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 41,
+                  "end": 53
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "semantic",
+      "rejection_target": "query_facts/0",
+      "review_note": "所有span都存在，但把暴力行为扩大为整场示威。必须由query_support拒绝。"
+    },
+    {
+      "id": "analysis-contribution-control",
+      "task_id": 138,
+      "decision": {
+        "identity": "same_occurrence",
+        "contribution": "opinion",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_dc0953b0b99865ccf0b134d7",
+                "start": 0,
+                "end": 107,
+                "quote": "中共中央纪委国家监委星期天（10月18日）在官网通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。这名已退休两年半的官员，由此成为2022年中共二十大后第六名被查的广西高官，也是今年第55名落马的中管干部。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 27,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 30,
+                  "end": 32
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 32,
+                  "end": 38
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 10
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 14,
+                  "end": 20
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_2c7dceadca60e73383812288",
+                "start": 0,
+                "end": 53,
+                "quote": "中共中央纪委国家监委星期天（10月18日）在网站通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 27,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 30,
+                  "end": 32
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 32,
+                  "end": 38
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 10
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 14,
+                  "end": 20
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "assessment",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "compatible"
+        }
+      },
+      "expected_boundary": "control",
+      "rejection_target": null,
+      "review_note": "身份一致仍按查询分析贡献投影opinion；旧可接受opinion/background不改。"
+    },
+    {
+      "id": "analysis-as-report",
+      "task_id": 138,
+      "decision": {
+        "identity": "same_occurrence",
+        "contribution": "report",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_dc0953b0b99865ccf0b134d7",
+                "start": 0,
+                "end": 107,
+                "quote": "中共中央纪委国家监委星期天（10月18日）在官网通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。这名已退休两年半的官员，由此成为2022年中共二十大后第六名被查的广西高官，也是今年第55名落马的中管干部。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 27,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 30,
+                  "end": 32
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 32,
+                  "end": 38
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 10
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 14,
+                  "end": 20
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_2c7dceadca60e73383812288",
+                "start": 0,
+                "end": 53,
+                "quote": "中共中央纪委国家监委星期天（10月18日）在网站通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 27,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 30,
+                  "end": 32
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 32,
+                  "end": 38
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 10
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 14,
+                  "end": 20
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "same_occurrence",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "compatible"
+        }
+      },
+      "expected_boundary": "semantic",
+      "rejection_target": "contribution",
+      "review_note": "取真实报道句不能掩盖全文主要增加人物背景/观察分析；关系审核检查查询整体贡献。"
+    },
+    {
+      "id": "anchor-borrowed-as-query",
+      "task_id": 138,
+      "decision": {
+        "identity": "same_occurrence",
+        "contribution": "opinion",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_82593c27f05d3e957d4fcefc",
+                "start": 0,
+                "end": 88,
+                "quote": "据《新京报》旗下“政事儿”报道，公开简历显示，黄日波生于1958年7月，广西靖西壮族人，无党派人士，毕业于英国里丁大学食品科学与工程系生物工程专业，研究生学历，理学博士、教授。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 23,
+                  "end": 26
+                }
+              ]
+            },
+            "action": {
+              "status": "unknown",
+              "spans": []
+            },
+            "object": {
+              "status": "unknown",
+              "spans": []
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 28,
+                  "end": 35
+                }
+              ],
+              "role": "mentioned",
+              "precision": "month"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_2c7dceadca60e73383812288",
+                "start": 0,
+                "end": 53,
+                "quote": "中共中央纪委国家监委星期天（10月18日）在网站通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 27,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 30,
+                  "end": 32
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 32,
+                  "end": 38
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 10
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 14,
+                  "end": 20
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "assessment",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "compatible"
+        }
+      },
+      "expected_boundary": "mechanical",
+      "rejection_target": null,
+      "review_note": "anchor原文reference不得用于query；不从另一端补出生日期。"
+    },
+    {
+      "id": "query-borrowed-as-anchor",
+      "task_id": 138,
+      "decision": {
+        "identity": "same_occurrence",
+        "contribution": "opinion",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_dc0953b0b99865ccf0b134d7",
+                "start": 0,
+                "end": 107,
+                "quote": "中共中央纪委国家监委星期天（10月18日）在官网通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。这名已退休两年半的官员，由此成为2022年中共二十大后第六名被查的广西高官，也是今年第55名落马的中管干部。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 27,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 30,
+                  "end": 32
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 32,
+                  "end": 38
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 10
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 14,
+                  "end": 20
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_dc0953b0b99865ccf0b134d7",
+                "start": 0,
+                "end": 107,
+                "quote": "中共中央纪委国家监委星期天（10月18日）在官网通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。这名已退休两年半的官员，由此成为2022年中共二十大后第六名被查的广西高官，也是今年第55名落马的中管干部。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 27,
+                  "end": 30
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 30,
+                  "end": 32
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 32,
+                  "end": 38
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 10
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 14,
+                  "end": 20
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "assessment",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "compatible"
+        }
+      },
+      "expected_boundary": "mechanical",
+      "rejection_target": null,
+      "review_note": ""
+    },
+    {
+      "id": "date-precision-control",
+      "task_id": 126,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_b40b822028f64e548171ff17",
+                "start": 0,
+                "end": 79,
+                "quote": "法國人在星期日（10月18日）醒來時面對著遍地破壞的景象。此前一天發生暴動和示威，巴黎街頭店舖櫥窗被砸碎，汽車被燒毀，自行車燒焦，人行道上堆滿玻璃碎片和瓦礫。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 15,
+                  "end": 17
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 21,
+                  "end": 28
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 8,
+                  "end": 14
+                }
+              ],
+              "role": "mentioned",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_10aca1b49c06afec9eacdf10",
+                "start": 0,
+                "end": 118,
+                "quote": "At least 1,200 people were arrested on Saturday as riot police deployed tear gas and water cannons to disperse crowds."
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 15,
+                  "end": 21
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 22,
+                  "end": 35
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 14
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 39,
+                  "end": 47
+                }
+              ],
+              "role": "occurrence",
+              "precision": "relative"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "control",
+      "rejection_target": null,
+      "review_note": "月日无年份，相对星期不归一化；不从feed补日期。"
+    },
+    {
+      "id": "month-day-promoted-to-date",
+      "task_id": 126,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_b40b822028f64e548171ff17",
+                "start": 0,
+                "end": 79,
+                "quote": "法國人在星期日（10月18日）醒來時面對著遍地破壞的景象。此前一天發生暴動和示威，巴黎街頭店舖櫥窗被砸碎，汽車被燒毀，自行車燒焦，人行道上堆滿玻璃碎片和瓦礫。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 15,
+                  "end": 17
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 21,
+                  "end": 28
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 8,
+                  "end": 14
+                }
+              ],
+              "role": "mentioned",
+              "precision": "day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_10aca1b49c06afec9eacdf10",
+                "start": 0,
+                "end": 118,
+                "quote": "At least 1,200 people were arrested on Saturday as riot police deployed tear gas and water cannons to disperse crowds."
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 15,
+                  "end": 21
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 22,
+                  "end": 35
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 14
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 39,
+                  "end": 47
+                }
+              ],
+              "role": "occurrence",
+              "precision": "relative"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "semantic",
+      "rejection_target": "query_facts/0",
+      "review_note": "月日不能升级为含年份的完整日期，精度需要语义检查。"
+    },
+    {
+      "id": "relative-day-promoted-to-date",
+      "task_id": 126,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_b40b822028f64e548171ff17",
+                "start": 0,
+                "end": 79,
+                "quote": "法國人在星期日（10月18日）醒來時面對著遍地破壞的景象。此前一天發生暴動和示威，巴黎街頭店舖櫥窗被砸碎，汽車被燒毀，自行車燒焦，人行道上堆滿玻璃碎片和瓦礫。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 15,
+                  "end": 17
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 21,
+                  "end": 28
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 8,
+                  "end": 14
+                }
+              ],
+              "role": "mentioned",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_10aca1b49c06afec9eacdf10",
+                "start": 0,
+                "end": 118,
+                "quote": "At least 1,200 people were arrested on Saturday as riot police deployed tear gas and water cannons to disperse crowds."
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 15,
+                  "end": 21
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 22,
+                  "end": 35
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 14
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 39,
+                  "end": 47
+                }
+              ],
+              "role": "occurrence",
+              "precision": "day"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "semantic",
+      "rejection_target": "anchor_facts/0",
+      "review_note": "Saturday保持relative，不借feed定为2026-10-17。"
+    },
+    {
+      "id": "feed-year-invented",
+      "task_id": 126,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_b40b822028f64e548171ff17",
+                "start": 0,
+                "end": 79,
+                "quote": "法國人在星期日（10月18日）醒來時面對著遍地破壞的景象。此前一天發生暴動和示威，巴黎街頭店舖櫥窗被砸碎，汽車被燒毀，自行車燒焦，人行道上堆滿玻璃碎片和瓦礫。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 15,
+                  "end": 17
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 21,
+                  "end": 28
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 8,
+                  "end": 14
+                }
+              ],
+              "role": "mentioned",
+              "precision": "month_day",
+              "at": "2026-10-18"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_10aca1b49c06afec9eacdf10",
+                "start": 0,
+                "end": 118,
+                "quote": "At least 1,200 people were arrested on Saturday as riot police deployed tear gas and water cannons to disperse crowds."
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 15,
+                  "end": 21
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 22,
+                  "end": 35
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 14
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 39,
+                  "end": 47
+                }
+              ],
+              "role": "occurrence",
+              "precision": "relative"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "schema",
+      "rejection_target": null,
+      "review_note": "自由日期/年份字段不属于选择契约。"
+    },
+    {
+      "id": "date-conflict-hidden",
+      "task_id": 143,
+      "decision": {
+        "identity": "same_occurrence",
+        "contribution": "report",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4af1c17c5083caf2da498736",
+                "start": 0,
+                "end": 114,
+                "quote": "路透社报道，这起发生在韦恩赖特加军基地（CFB Wainwright）的火灾始于当地星期六（10月17日）下午4时左右（新加坡时间18日早6时左右）。当时阵风风速高达每小时96公里，极大地加剧火势。目前共有39人在医院接受治疗。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 36,
+                  "end": 38
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 38,
+                  "end": 40
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 11,
+                  "end": 19
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 46,
+                  "end": 52
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_20901896e03ad3fcea98ce81",
+                "start": 0,
+                "end": 71,
+                "quote": "新华社引述加拿大媒体报道，位于西部阿伯塔省（Alberta）首府埃德蒙顿东南约200公里处的温赖特军事基地，星期六（9月17日）晚上发生火灾。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 46,
+                  "end": 53
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 66,
+                  "end": 68
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 68,
+                  "end": 70
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 58,
+                  "end": 63
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "same_occurrence",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "compatible"
+        }
+      },
+      "expected_boundary": "semantic",
+      "rejection_target": "relation",
+      "review_note": "原文10月17日/9月17日不相容，不猜笔误或用feed纠正。"
+    },
+    {
+      "id": "date-conflict-retained",
+      "task_id": 143,
+      "decision": {
+        "identity": "same_occurrence",
+        "contribution": "report",
+        "certainty": "uncertain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4af1c17c5083caf2da498736",
+                "start": 0,
+                "end": 114,
+                "quote": "路透社报道，这起发生在韦恩赖特加军基地（CFB Wainwright）的火灾始于当地星期六（10月17日）下午4时左右（新加坡时间18日早6时左右）。当时阵风风速高达每小时96公里，极大地加剧火势。目前共有39人在医院接受治疗。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 36,
+                  "end": 38
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 38,
+                  "end": 40
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 11,
+                  "end": 19
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 46,
+                  "end": 52
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_20901896e03ad3fcea98ce81",
+                "start": 0,
+                "end": 71,
+                "quote": "新华社引述加拿大媒体报道，位于西部阿伯塔省（Alberta）首府埃德蒙顿东南约200公里处的温赖特军事基地，星期六（9月17日）晚上发生火灾。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 46,
+                  "end": 53
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 66,
+                  "end": 68
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 68,
+                  "end": 70
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 58,
+                  "end": 63
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "same_occurrence",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "conflicting"
+        }
+      },
+      "expected_boundary": "control",
+      "rejection_target": null,
+      "review_note": "不确定投影independent，双方原文保留；不算正确关联。"
+    },
+    {
+      "id": "date-conflict-certain-report",
+      "task_id": 143,
+      "decision": {
+        "identity": "same_occurrence",
+        "contribution": "report",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4af1c17c5083caf2da498736",
+                "start": 0,
+                "end": 114,
+                "quote": "路透社报道，这起发生在韦恩赖特加军基地（CFB Wainwright）的火灾始于当地星期六（10月17日）下午4时左右（新加坡时间18日早6时左右）。当时阵风风速高达每小时96公里，极大地加剧火势。目前共有39人在医院接受治疗。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 36,
+                  "end": 38
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 38,
+                  "end": 40
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 11,
+                  "end": 19
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 46,
+                  "end": 52
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_20901896e03ad3fcea98ce81",
+                "start": 0,
+                "end": 71,
+                "quote": "新华社引述加拿大媒体报道，位于西部阿伯塔省（Alberta）首府埃德蒙顿东南约200公里处的温赖特军事基地，星期六（9月17日）晚上发生火灾。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 46,
+                  "end": 53
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 66,
+                  "end": 68
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 68,
+                  "end": 70
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 3
+                }
+              ]
+            },
+            "time": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 58,
+                  "end": 63
+                }
+              ],
+              "role": "occurrence",
+              "precision": "month_day"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "same_occurrence",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "conflicting"
+        }
+      },
+      "expected_boundary": "mechanical",
+      "rejection_target": null,
+      "review_note": "显式冲突不得仍certain same_event。"
+    },
+    {
+      "id": "name-carney-control",
+      "task_id": 143,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4156b9820fae49aca6caac2d",
+                "start": 0,
+                "end": 52,
+                "quote": "加拿大总理卡尼星期天（18日）早些时候说，这是加拿大武装部队本土有史以来在和平时期遭受的最严重惨剧之一。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 7
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 19,
+                  "end": 20
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 44,
+                  "end": 51
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_76f988ac107a3dc26a0b809d",
+                "start": 0,
+                "end": 36,
+                "quote": "加拿大总理卡尼在社交媒体发文说，军事基地发生“严重事故”，引发一场大火。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 7
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 12,
+                  "end": 14
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 23,
+                  "end": 27
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "control",
+      "rejection_target": null,
+      "review_note": ""
+    },
+    {
+      "id": "name-harper-invented",
+      "task_id": 143,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4156b9820fae49aca6caac2d",
+                "start": 0,
+                "end": 52,
+                "quote": "加拿大总理哈珀星期天（18日）早些时候说，这是加拿大武装部队本土有史以来在和平时期遭受的最严重惨剧之一。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 7
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 19,
+                  "end": 20
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 44,
+                  "end": 51
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_76f988ac107a3dc26a0b809d",
+                "start": 0,
+                "end": 36,
+                "quote": "加拿大总理卡尼在社交媒体发文说，军事基地发生“严重事故”，引发一场大火。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 7
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 12,
+                  "end": 14
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 23,
+                  "end": 27
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "mechanical",
+      "rejection_target": null,
+      "review_note": "同长错误人名也不能替换原文。"
+    },
+    {
+      "id": "name-role-misattributed",
+      "task_id": 143,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4156b9820fae49aca6caac2d",
+                "start": 0,
+                "end": 52,
+                "quote": "加拿大总理卡尼星期天（18日）早些时候说，这是加拿大武装部队本土有史以来在和平时期遭受的最严重惨剧之一。"
+              },
+              {
+                "reference_id": "ref_feb852023176588c55501d7e",
+                "start": 0,
+                "end": 97,
+                "quote": "驻扎在事发基地以西约210公里的埃德蒙顿（Edmonton）的加拿大第一师指挥官拉特兰少将（Wade Rutland）形容，这起火灾是一起“罕见且蔓延极快”的事件，“我绝对从未见过这样的景象”。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 1,
+                  "start": 40,
+                  "end": 59
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 19,
+                  "end": 20
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 44,
+                  "end": 51
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_76f988ac107a3dc26a0b809d",
+                "start": 0,
+                "end": 36,
+                "quote": "加拿大总理卡尼在社交媒体发文说，军事基地发生“严重事故”，引发一场大火。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 7
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 12,
+                  "end": 14
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 23,
+                  "end": 27
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "semantic",
+      "rejection_target": "query_facts/0",
+      "review_note": "所有人名都存在，但把卡尼的说法挂给拉特兰；引用匹配不能代替主体支持。"
+    },
+    {
+      "id": "exact-position-required",
+      "task_id": 143,
+      "decision": {
+        "identity": "related",
+        "contribution": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_4156b9820fae49aca6caac2d",
+                "start": 1,
+                "end": 53,
+                "quote": "加拿大总理卡尼星期天（18日）早些时候说，这是加拿大武装部队本土有史以来在和平时期遭受的最严重惨剧之一。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 7
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 19,
+                  "end": 20
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 44,
+                  "end": 51
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "anchor_facts": [
+          {
+            "citations": [
+              {
+                "reference_id": "ref_76f988ac107a3dc26a0b809d",
+                "start": 0,
+                "end": 36,
+                "quote": "加拿大总理卡尼在社交媒体发文说，军事基地发生“严重事故”，引发一场大火。"
+              }
+            ],
+            "subject": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 0,
+                  "end": 7
+                }
+              ]
+            },
+            "action": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 12,
+                  "end": 14
+                }
+              ]
+            },
+            "object": {
+              "status": "known",
+              "spans": [
+                {
+                  "citation_index": 0,
+                  "start": 23,
+                  "end": 27
+                }
+              ]
+            },
+            "location": {
+              "status": "unknown",
+              "spans": []
+            },
+            "attribution": {
+              "status": "unknown",
+              "spans": []
+            },
+            "time": {
+              "status": "unknown",
+              "spans": [],
+              "role": "unknown",
+              "precision": "unknown"
+            }
+          }
+        ],
+        "relation": {
+          "reason": "context",
+          "query_fact_indices": [
+            0
+          ],
+          "anchor_fact_indices": [
+            0
+          ],
+          "time": "unknown"
+        }
+      },
+      "expected_boundary": "mechanical",
+      "rejection_target": null,
+      "review_note": "不得搜索同文本修正错位置。"
+    }
+  ]
+}

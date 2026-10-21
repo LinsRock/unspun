@@ -22,7 +22,12 @@ from unspun.core.config import get_settings
 from unspun.core.content import fingerprint
 from unspun.core.db import get_engine
 from unspun.core.llm import LlmClient, parse_json_content
-from unspun.core.member_contracts import MemberDecision, MemberReview, member_contract
+from unspun.core.member_contracts import (
+    MemberDecision,
+    MemberReview,
+    member_contract,
+    project_classification,
+)
 from unspun.core.member_evidence import review_supported
 from unspun.core.member_models import ContentVector, MemberJudgment
 from unspun.core.member_recall import current_input, vector_input
@@ -531,13 +536,18 @@ def verify_exposed_database(
             )
         except (KeyError, IndexError, TypeError, ValueError):
             continue
-        if raw.get("certainty") == "certain" and raw.get("classification") != "independent":
+        classification = (
+            project_classification(raw)
+            if execution["contract"]["version"] == "r2-member-v6"
+            else raw.get("classification")
+        )
+        if raw.get("certainty") == "certain" and classification not in (None, "independent"):
             associated += 1
             task = judges[identity]
             allowed = queries[task.article_id]["expected_associations"].get(
                 names[task.payload["candidate"]["topic"]["id"]], []
             )
-            correct += raw.get("classification") in allowed
+            correct += classification in allowed
     applied = list(
         session.scalars(
             select(MemberJudgment).where(

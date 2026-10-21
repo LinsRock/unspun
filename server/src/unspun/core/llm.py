@@ -177,7 +177,13 @@ class LlmClient:
         # Models that spend reasoning tokens can exhaust the completion budget
         # and return JSON cut off mid-string; one retry with a doubled budget
         # recovers those instead of failing the article every cycle.
-        for attempt_max_tokens in (max_tokens, max_tokens * 2):
+        from unspun.core.member_contracts import MEMBER_OUTPUT_BYTES, MEMBER_OUTPUT_TOKENS
+
+        member_call = self._context.stage in {"topic_judgment", "topic_review"}
+        sizes = (max_tokens,) if member_call else (max_tokens, max_tokens * 2)
+        if member_call and max_tokens != MEMBER_OUTPUT_TOKENS:
+            raise LlmError("member output token limit differs from the frozen contract")
+        for attempt_max_tokens in sizes:
             if purpose == "grounding" and self._context.stage == "legacy":
                 from unspun.core.review_budget import require_grounding_budget
 
@@ -200,6 +206,11 @@ class LlmClient:
             )
             choice: dict[str, Any] = data["choices"][0]
             content = str(choice["message"]["content"])
+            if member_call:
+                if len(content.encode()) > MEMBER_OUTPUT_BYTES:
+                    raise LlmError("member output exceeds registered byte bound")
+                if choice.get("finish_reason") != "stop":
+                    raise LlmError("member completion did not stop normally; no automatic retry")
             if choice.get("finish_reason") == "length":
                 # The budget ran out, but the JSON may still have closed in
                 # time; only retry when it is actually unparseable.

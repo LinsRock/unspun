@@ -1,0 +1,1 @@
+{"read_only": "on", "existing_cutover_valid": true, "scope": "production", "enabled": true, "version": "r1-budget-v3", "key_matches": true, "provider_queries": 0, "database_writes": 0}
