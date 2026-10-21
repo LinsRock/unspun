@@ -14,7 +14,7 @@
 | 原累计评测 | $0.44635293 / 532条usage | 540 | 8笔，$0.514613 | 原七笔$0.484867及新增$0.029746均保留 |
 | 同一R2-06池（评测子集） | $0.07734293 / 139次 | 不重置 | 新hold $0.029746 | 已知+新hold $0.10708893；$0.30上限不变，余量不可自动使用 |
 
-原评测六笔没有提供方ID：两笔ConnectError、一笔ConnectTimeout、三笔RemoteProtocolError；另有一笔403区域错误和一笔新429，均不能推定免费。生产10笔和评测2笔可定位ID各一次GET generation，全部404；一次GET key为200。[认证查询结果](r2-06-zero-paid/provider-receipts-v2.json)无可结算逐笔凭证，因此未调用结算、未改变数据库、未释放任何预留。最初在无凭据API容器遇到13次本地LocalProtocolError，未到达提供方；[首次记录](r2-06-zero-paid/provider-receipts.json)保留，修正为既有持钥worker后无网络重试和持续轮询。未更换提供方路由。
+原评测六笔没有提供方ID：两笔ConnectError、一笔ConnectTimeout、三笔RemoteProtocolError；另有一笔403区域错误和一笔新429，均不能推定免费。生产10笔和评测2笔可定位ID各一次GET generation，全部404；专门审计的一次GET key为200，部署前截面另有一次成功GET key。完整[免费查询清单](r2-06-zero-paid/delivery-query-accounting.json)登记12次generation、2次key，无持续轮询；原账本审计中的key_gets=1仅统计专门查询脚本，本补录保留原记录并补齐截面查询。[认证查询结果](r2-06-zero-paid/provider-receipts-v2.json)无可结算逐笔凭证，因此未调用结算、未改变数据库、未释放任何预留。最初在无凭据API容器遇到13次本地LocalProtocolError，未到达提供方；[首次记录](r2-06-zero-paid/provider-receipts.json)保留，修正为既有持钥worker后无网络重试和持续轮询。未更换提供方路由。
 
 生产429原错误明确为Google AI Studio共享上游池限流，余额不足并非该响应的解释。[物理调用核查](r2-06-zero-paid/backoff-physical-check.json)确认10笔未知之后各任务新增HTTP均0。代码路径是HTTPStatusError后60秒退避，下一次遇到UsageUnknown后每300秒budget_deferred；截面累计1068次无需HTTP的deferred领取。保护避免了原请求重复付费，但没有提供方级冷却、没有捕获Retry-After，也没有有界结束；不能称为完善的429恢复策略。本批仅提出有界恢复条件，不重发原未知或调整生产调度。
 
@@ -31,6 +31,8 @@
 | 日期冲突/人名 | task126把anchor的Saturday和feed日期补为精确10月17日/2026；task143忽略10月17日/9月17日冲突，并将Carney写成Harper | 未修复、未重审付费；不能以feed“纠正”原文或称日期审核已测通过 |
 | 语义漏拦 | task132 query_facts/3把“暴力冲突归因极左翼”扩大为“抗议归因极左翼”；协议合法的query_support标supported | 真实子审核漏拦1/1继续保留；后续格式阻断不是语义拦截成功 |
 | 上游限流 | task146及生产10笔429均缺费用；provider shared pool错误有原响应，404无逐笔费用 | 全额hold及停止保留；账务和协议修复不解决上游容量 |
+
+本次逐段复核还[补充发现](r2-06-zero-paid/additional-semantic-finding.json)：task126的query_facts/0、/1同样添加了引用未含的2026年份；原query段落只明确月日，不能把feed年份静默作为发生年份。原strict-findings中query_facts_supported=true的首次审阅原件不改，本发现并列追加，完整依据原本已不合格，旧指标不变。
 
 v4自然关系2/4、严格最终覆盖0/9、自然CAS0、完整自然审核bundle0仍是实际结果。只启动4/17查询，其余13未测；新揭封6查询0/6。挑战的日期完整审核及真实双连接CAS未测。正确控制仅有一次4审核→CAS、$0.0078384，不能当自然完整链成本。新协议未进行真实生成，以上语义结论不因此升级。
 
@@ -52,9 +54,11 @@ v4自然关系2/4、严格最终覆盖0/9、自然CAS0、完整自然审核bundl
 
 新建`unspun_r206_zero_paid_tests_20261021`迁移后基线1078项、0跳过，最终[完整回归1112项、0跳过](r2-06-zero-paid/validation.json)通过，包含18项新增协议故障及16份真实内容离线回放。Ruff/格式/Pyright、schema无漂移、18项部署+11项CI范围测试及40案例旧排序通过；首次格式/类型检查失败保留，未覆盖旧失败日志。[旧冻结核验](r2-06-zero-paid/freeze-verification.json)逐份检查历史冻结Git blob和旧证据，原标签/评分/paid-stop、R2-04 worktree保留。
 
-[原累计评测备份恢复](r2-06-zero-paid/before-recovery.json)在新库核对所有表计数/内容散列及序列，原task76违规写入、task110、原预算政策和全部账务原样保护。生产部署前记录阅读、保留表、新链/阶段、R2-04原观察容器和文件；部署后按相同只读探针复核。测试数据库和worktree本批保留，不实施清理。
+[原累计评测备份恢复](r2-06-zero-paid/before-recovery.json)及[交付后新库恢复](r2-06-zero-paid/after-recovery.json)核对全部表计数/内容散列和序列完全一致，原task76违规写入、task110、原预算政策和全部账务原样保护。测试数据库、备份和worktree本批保留，不实施清理。
 
-[源码及调用方审查](r2-06-zero-paid/review.json)通过，[导入核验](r2-06-zero-paid/import-check.json)和[本批源码散列](r2-06-zero-paid/source-manifest.json)已记录。PR/CI及实际部署证据在完成后追加到此节。任何部署仅交付关闭状态的核心，不授权运行成员链。
+[源码及调用方审查](r2-06-zero-paid/review.json)通过，[导入核验](r2-06-zero-paid/import-check.json)和[本批源码散列](r2-06-zero-paid/source-manifest.json)已记录。[PR #126](https://github.com/LinsRock/unspun/pull/126)经[PR CI](https://github.com/LinsRock/unspun/actions/runs/39574011447)合并为`cb4aab93c2036d68bf25fcc6b96f48d333aaa88d`；[主干CI](https://github.com/LinsRock/unspun/actions/runs/39574799279)及实际Deploy步骤成功，API与受控worker运行同一新镜像，旧web容器不变。首次合并请求遇到传输EOF，确认远端仍OPEN后才重试；[首次失败](r2-06-zero-paid/merge-first-attempt.json)保留，未重复变更或绕过CI。
+
+09:19 UTC[部署后交付断言](r2-06-zero-paid/final-audit.json)全部通过：96份生产源码与本轮一致，schema仍000019；新链flag/runtime关闭、handlers/任务/调用0、七张表空、新阶段分配0；legacy worker 0、受控worker 1。两份账本的全部未知请求、已知费用、政策和carry与部署前完全一致。151个合格详情及推荐/最新前两页、阅读状态/兴趣/反馈/历史/身份/URL等保留数据不变。R2-04三个原观察容器、331份原件及干净原worktree保持，890份历史冻结/原始证据散列不变。部署后没有再查询提供方；外部浏览器验收和用户认可仍为null。任何部署仅交付关闭状态的核心，不授权运行成员链。
 
 ## 恢复条件
 

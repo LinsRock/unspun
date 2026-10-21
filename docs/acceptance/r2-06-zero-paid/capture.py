@@ -16,7 +16,7 @@ output = Path(__file__).parent
 
 def capture(name, command, script, env=None):
     target = output / f"{args.phase}-{name}.json"
-    if target.exists():
+    if target.exists() or target.with_suffix(".json.gz").exists():
         print("Retained existing", target.name, flush=True)
         return
     result = subprocess.run(
@@ -51,10 +51,18 @@ for name, script in (
         else api_python
     )
     capture(name, command, (ROOT / script).read_text())
+production_probe = (ROOT / "docs/acceptance/r2-04/snapshot.py").read_text()
+if args.phase != "predeploy":
+    # Reuse the retained credentialled lookup, with no further provider queries.
+    provider_block = 'if mode == "production":\n    with httpx.Client('
+    assert production_probe.count(provider_block) == 1
+    production_probe = production_probe.replace(
+        provider_block, "if False:  # Bounded provider queries already captured.\n    with httpx.Client("
+    )
 capture(
     "production",
     ["ssh", "unspun", "docker exec -i unspun-r1-worker-1 python - production"],
-    (ROOT / "docs/acceptance/r2-04/snapshot.py").read_text(),
+    production_probe,
 )
 environment = dict(
     os.environ,

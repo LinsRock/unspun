@@ -1,0 +1,43 @@
+{
+  "at": "2026-10-21T09:21:01.892474+00:00",
+  "reviewer": "primary agent, incremental delivery diff and evidence review; not independent semantic or user acceptance",
+  "status": "passed",
+  "runtime_changes_after_core_merge": 0,
+  "verified": [
+    "Core PR and main required checks pass and actual Deploy step succeeded.",
+    "API and worker version/image agree; all 96 source hashes match the reviewed core.",
+    "Both ledgers retain every unknown ID, provider ID and full hold; all known totals, policy and carry match before deployment.",
+    "Two authenticated key GETs are now explicitly inventoried: dedicated audit plus predeploy snapshot. The original one-GET scope is retained and clarified.",
+    "Postdeploy snapshot disables provider queries; compressed evidence is recognized without recapture.",
+    "151 qualified details, both feed pages, retained records and all protected evidence match.",
+    "Original evaluation backup restores into a new DB with all tables and sequences matching; no original ledger mutation.",
+    "Additional date finding is appended without rewriting first findings, labels or metrics.",
+    "Semantic failure, 2/4 and null remain explicit."
+  ],
+  "compressed_artifacts": {
+    "postdeploy-production.json.gz": {
+      "original_sha256": "1d24f5a2e5a5dd880d43dfd17c429052864e2c1642f0fa6c0b3e78eed8309798",
+      "original_bytes": 272583,
+      "gzip_sha256": "71478fe06bb8bc73a5f0b7c717de4d2a149634b00188a08d0be4fddd4b224973"
+    },
+    "postdeploy-observation.json.gz": {
+      "original_sha256": "fe84447f7f2625a62c1c75f9f0bdafaa1d490edb81fce0fc94894ea0ed759de0",
+      "original_bytes": 46138,
+      "gzip_sha256": "67bc62e3a058e5470e6dcd22c213fdd433eb7ee2df3df545eeb29eaaa133125d"
+    },
+    "logs/core-main-watch.log.gz": {
+      "original_sha256": "941db7797d66d538321a7fca476acedddd2eb7faae85a1109021dff8e94f585c",
+      "original_bytes": 59369,
+      "gzip_sha256": "e86085e19c111ab7d18f0591815b24b1eab003baea875cea19323e0cc458aceb"
+    },
+    "logs/pr-ci-watch.log.gz": {
+      "original_sha256": "7f1ce822cfcc7307a23e924be0bea4fa100c054908b4c44499023da0e698ba43",
+      "original_bytes": 18883,
+      "gzip_sha256": "0c96bdd01175a4694988fd81459e71ae3e81aea69bf80a8ad147f5b19f6dce6f"
+    }
+  },
+  "paid_generation": 0,
+  "paid_embedding": 0,
+  "paid_retries": 0,
+  "user_acceptance": null
+}

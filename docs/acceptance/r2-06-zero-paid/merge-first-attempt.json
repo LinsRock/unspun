@@ -1,0 +1,8 @@
+{
+  "pr": 126,
+  "head": "26d141ce7d8e35502e1a574632fb2151e2c6c62c",
+  "checks": "all selected and required-checks passed",
+  "error": "Post https://api.github.com/graphql: EOF",
+  "next_action": "read remote merge state before any retry",
+  "paid_requests": 0
+}
