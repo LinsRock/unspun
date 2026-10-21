@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-21T09:17:45.677072+00:00",
+  "scope": "Complete batch query inventory; ledger-audit.json key_gets=1 counted the dedicated provider-query run only. The predeploy snapshot made one additional key GET. Original evidence is retained.",
+  "authenticated_generation_gets": 12,
+  "authenticated_key_gets": 2,
+  "queries": [
+    {
+      "evidence": "provider-receipts-v2.json",
+      "generation_gets": 12,
+      "key_gets": 1,
+      "started_at": "2026-10-21T08:45:56.175869+00:00",
+      "completed_at": "2026-10-21T08:46:00.377739+00:00"
+    },
+    {
+      "evidence": "predeploy-production.json.gz",
+      "generation_gets": 0,
+      "key_gets": 1,
+      "at": "2026-10-21T08:47:30.098580+00:00"
+    }
+  ],
+  "local_preflight_failures_before_network": 13,
+  "provider_network_retries": 0,
+  "postdeploy_provider_queries": 0,
+  "settlements": 0,
+  "released_holds": 0,
+  "confirmed_free_unknown_requests": 0,
+  "paid_generation": 0,
+  "paid_embedding": 0,
+  "paid_retries": 0
+}

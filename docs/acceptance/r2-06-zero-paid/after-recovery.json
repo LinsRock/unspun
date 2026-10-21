@@ -1,0 +1,241 @@
+{
+  "at": "2026-10-21T09:03:45.486588+00:00",
+  "source": "unspun_quality_r1_20261016",
+  "restore": "unspun_r206_zero_paid_restore_after_20261021",
+  "snapshot": {
+    "tables": {
+      "alembic_version": {
+        "rows": 1,
+        "hash": "3bf327182e6d71c7851b4658443e8ae6"
+      },
+      "articles": {
+        "rows": 67,
+        "hash": "82be08ea95b57485f343688a67f257a4"
+      },
+      "billed_requests": {
+        "rows": 540,
+        "hash": "5eb35df52355c4fbf33f22a60ddbf3ba"
+      },
+      "budget_carry": {
+        "rows": 1,
+        "hash": "a90531cf640989e308992155a2f392e0"
+      },
+      "budget_policy": {
+        "rows": 1,
+        "hash": "0ed871d103f147f526bcea5ee72c3a58"
+      },
+      "content_derivations": {
+        "rows": 204,
+        "hash": "a3647c4473baa4fcbbd4766e5ea9b1fc"
+      },
+      "content_feedback": {
+        "rows": 0,
+        "hash": null
+      },
+      "content_identities": {
+        "rows": 0,
+        "hash": null
+      },
+      "content_materials": {
+        "rows": 67,
+        "hash": "59ccd35115f78dcb495edd7b6b1e7568"
+      },
+      "content_observations": {
+        "rows": 24,
+        "hash": "d1ab699de23019d80166da99f8c90322"
+      },
+      "content_urls": {
+        "rows": 0,
+        "hash": null
+      },
+      "content_vectors": {
+        "rows": 22,
+        "hash": "767d1c7463421707b5dae6044dbe41db"
+      },
+      "digests": {
+        "rows": 0,
+        "hash": null
+      },
+      "discovery_batches": {
+        "rows": 0,
+        "hash": null
+      },
+      "event_viewpoints": {
+        "rows": 0,
+        "hash": null
+      },
+      "events": {
+        "rows": 0,
+        "hash": null
+      },
+      "expense_audit": {
+        "rows": 0,
+        "hash": null
+      },
+      "expense_entries": {
+        "rows": 0,
+        "hash": null
+      },
+      "expense_rules": {
+        "rows": 0,
+        "hash": null
+      },
+      "feed_preferences": {
+        "rows": 0,
+        "hash": null
+      },
+      "fetch_logs": {
+        "rows": 0,
+        "hash": null
+      },
+      "fx_rates": {
+        "rows": 0,
+        "hash": null
+      },
+      "llm_usage": {
+        "rows": 532,
+        "hash": "38c8729e23969790ab619f415bec5bcc"
+      },
+      "member_judgments": {
+        "rows": 86,
+        "hash": "3c21a087d5ecf0794043f4566a6685bb"
+      },
+      "pipeline_runs": {
+        "rows": 0,
+        "hash": null
+      },
+      "pipeline_tasks": {
+        "rows": 147,
+        "hash": "2aa5102f8c93f214fb78071cd5a7d74b"
+      },
+      "reader_changes": {
+        "rows": 21,
+        "hash": "5b08a2fad20b06c2462ee1bf486b9a1d"
+      },
+      "reader_interests": {
+        "rows": 0,
+        "hash": null
+      },
+      "reader_state": {
+        "rows": 1,
+        "hash": "f064e83b57524ced73ff0e0b14b19168"
+      },
+      "source_states": {
+        "rows": 0,
+        "hash": null
+      },
+      "task_attempts": {
+        "rows": 146,
+        "hash": "92ee1a70d219a47bfb95cd50202d8538"
+      },
+      "topic_changes": {
+        "rows": 103,
+        "hash": "cc030a5229bb6eb71b595e76f915102d"
+      },
+      "topic_derivations": {
+        "rows": 0,
+        "hash": null
+      },
+      "topic_members": {
+        "rows": 53,
+        "hash": "e4a8f644e0bb523c2533a16d4ce6300e"
+      },
+      "topic_updates": {
+        "rows": 0,
+        "hash": null
+      },
+      "topics": {
+        "rows": 50,
+        "hash": "54104bb87cab2ab6dc2ffc0d723004a7"
+      }
+    },
+    "sequences": [
+      {
+        "sequencename": "articles_id_seq",
+        "last_value": 24
+      },
+      {
+        "sequencename": "content_derivations_id_seq",
+        "last_value": 89
+      },
+      {
+        "sequencename": "content_identities_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "content_materials_id_seq",
+        "last_value": 24
+      },
+      {
+        "sequencename": "content_observations_id_seq",
+        "last_value": 24
+      },
+      {
+        "sequencename": "content_urls_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "digests_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "discovery_batches_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "event_viewpoints_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "events_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "expense_audit_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "expense_entries_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "expense_rules_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "fetch_logs_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "fx_rates_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "llm_usage_id_seq",
+        "last_value": 548
+      },
+      {
+        "sequencename": "pipeline_runs_id_seq",
+        "last_value": null
+      },
+      {
+        "sequencename": "pipeline_tasks_id_seq",
+        "last_value": 147
+      },
+      {
+        "sequencename": "task_attempts_id_seq",
+        "last_value": 146
+      }
+    ]
+  },
+  "all_table_counts_hashes_sequences_match": true,
+  "backup": {
+    "path": "/Users/li.cong/.cache/unspun-r206-zero-paid-20261021/after-r206-zero-paid.dump",
+    "sha256": "5d8ab87f0a5eb70cbe0d3db8623c08e34ce5e75011ef6f799487a0b0502e8caa",
+    "bytes": 2389871
+  },
+  "paid_requests": 0,
+  "parallel_spending_allocation_created": false,
+  "original_database_all_tables_and_sequences_unchanged_since_batch_start": true,
+  "original_task76_task110_and_all_holds_preserved": true
+}
