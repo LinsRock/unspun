@@ -1,0 +1,2411 @@
+{
+  "schema_version": "r206-grounding-initial-report-v1",
+  "at": "2026-10-21T07:18:21.842064+00:00",
+  "source_freeze_sha256": "2af01778ca1242e89ce014f5820bebd8a713675439136959b601bc7db604df7e",
+  "execution_fingerprint": "249a9da41881da1a33209d612d263997fb5ce74ff03cb8b8ec08a7eabd96413e",
+  "phases": {
+    "exposed": {
+      "registration_id": "r206-grounding-v1:exposed",
+      "registered_queries": 18,
+      "started_queries": 4,
+      "expected_pairs": 9,
+      "selected_pairs": 16,
+      "last_event": "halt",
+      "last_record": {
+        "at": "2026-10-21T07:17:16.660555+00:00",
+        "event": "halt",
+        "reason": "budget/request/unknown guard"
+      },
+      "metrics": {
+        "candidate_recall": {
+          "numerator": 3,
+          "denominator": 9,
+          "value": 0.3333333333333333
+        },
+        "raw_association_precision": {
+          "numerator": 2,
+          "denominator": 4,
+          "value": 0.5
+        },
+        "all_first_label_accuracy": {
+          "numerator": 13,
+          "denominator": 16,
+          "value": 0.8125
+        },
+        "schema_valid": {
+          "numerator": 11,
+          "denominator": 16,
+          "value": 0.6875
+        },
+        "strict_references": {
+          "numerator": 11,
+          "denominator": 16,
+          "value": 0.6875
+        },
+        "label_compatible_final_coverage": {
+          "numerator": 0,
+          "denominator": 9,
+          "value": 0.0
+        },
+        "strict_supported_final_coverage": "pending separate complete-basis review",
+        "different_topic_false_merges_among_applied": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "wrong_relation_among_applied": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "raw_false_associations_among_negatives": {
+          "numerator": 1,
+          "denominator": 13,
+          "value": 0.07692307692307693
+        },
+        "applied_among_attempted_negatives": {
+          "numerator": 0,
+          "denominator": 13,
+          "value": 0.0
+        },
+        "all_invalid_applied": "pending separate complete-basis review",
+        "review_interception": "pending supportedness review of all actually reviewed decisions",
+        "real_reviewed_decisions": 2,
+        "complete_review_bundles": 0,
+        "rejected_review_decisions": 0,
+        "actual_cas_applied": 0,
+        "stale_cas": 0
+      },
+      "layers": {
+        "domain": 33,
+        "sql32": 33,
+        "valid_anchor32": 33,
+        "metadata12": 33
+      },
+      "pair_results": [
+        {
+          "article_id": 8881,
+          "topic": "france",
+          "judge_task_id": 126,
+          "judgment_fingerprint": "dd722f7495e77af942bb4aad3d1cebbec748191c9c8cb644bf24ebf00fc1e24b",
+          "allowed": [
+            "same_event"
+          ],
+          "association_expected": true,
+          "first_output": {
+            "classification": "same_event",
+            "certainty": "certain",
+            "query_facts": [
+              {
+                "text": "France experienced widespread destruction on Sunday, October 18, 2026, following riots and demonstrations the previous day.",
+                "citations": [
+                  {
+                    "reference_id": "ref_b40b822028f64e548171ff17",
+                    "quote": "法國人在星期日（10月18日）醒來時面對著遍地破壞的景象。此前一天發生暴動和示威，巴黎街頭店舖櫥窗被砸碎，汽車被燒毀，自行車燒焦，人行道上堆滿玻璃碎片和瓦礫。"
+                  }
+                ]
+              },
+              {
+                "text": "Approximately 550,000 protesters participated in demonstrations across France on Saturday, October 17, 2026, with about 1,800 arrests made.",
+                "citations": [
+                  {
+                    "reference_id": "ref_58708ac7b8b32c26e316fd5f",
+                    "quote": "警察表示，星期六（17日）約有55萬名示威者走上街頭，參加大致和平的抗議活動，期間約有1800人被捕。"
+                  }
+                ]
+              },
+              {
+                "text": "Protesters were demonstrating against rising fuel prices, the high cost of living, and the deterioration of public services, including schools.",
+                "citations": [
+                  {
+                    "reference_id": "ref_0dbad67e144cec422362b237",
+                    "quote": "他們是在抗議燃料價格上升、生活成本高企，以及包括學校在內的公共服務惡化。"
+                  }
+                ]
+              },
+              {
+                "text": "Violence and looting occurred in Paris, Marseille, and other towns, with some individuals setting fire to cars and buildings.",
+                "citations": [
+                  {
+                    "reference_id": "ref_01c84a23ff91cc7b52511d57",
+                    "quote": "一些暴徒也出現在巴黎、馬賽（Marseille）及其他城鎮和城市，部分人身穿黑衣並佩戴面罩和頭套，有人縱火焚燒汽車和建築物。"
+                  },
+                  {
+                    "reference_id": "ref_d1ee5caa60246916b704b882",
+                    "quote": "巴黎、馬賽和里爾（Lille），以及其他地區，都出現廣泛的搶掠行為。"
+                  }
+                ]
+              }
+            ],
+            "anchor_facts": [
+              {
+                "text": "An estimated 550,000 people took part in protests across France on Saturday, October 17, 2026.",
+                "citations": [
+                  {
+                    "reference_id": "ref_d5304ab3ad7ec93a0b6294d2",
+                    "quote": "An estimated 550,000 people took part in protests across France, demanding greater investment in education and action on the rising cost of living."
+                  }
+                ]
+              },
+              {
+                "text": "The demonstrations quickly descended into violence, with cars and buildings set alight and shops ransacked.",
+                "citations": [
+                  {
+                    "reference_id": "ref_015fee2fd8b0ae0252452f88",
+                    "quote": "The demonstrations quickly descended into violence, with cars and buildings set alight and shops ransacked."
+                  }
+                ]
+              },
+              {
+                "text": "At least 1,200 people were arrested on Saturday, October 17, 2026, as riot police deployed tear gas and water cannons to disperse crowds.",
+                "citations": [
+                  {
+                    "reference_id": "ref_10aca1b49c06afec9eacdf10",
+                    "quote": "At least 1,200 people were arrested on Saturday as riot police deployed tear gas and water cannons to disperse crowds."
+                  }
+                ]
+              }
+            ],
+            "relation_inferences": [
+              {
+                "text": "The query reports on the same nationwide protests and riots in France in October 2026 as the anchor, detailing the destruction, number of participants, arrests, and reasons for the protests.",
+                "query_fact_indices": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "anchor_fact_indices": [
+                  0,
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": true,
+          "label_correct": true,
+          "judgment_status": "draft",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [
+            130
+          ],
+          "real_audit_http_calls": 1,
+          "actual_audit_kinds": [
+            "query_support"
+          ],
+          "review_task_statuses": [
+            "failed"
+          ],
+          "basis": "Query[0]: France experienced widespread destruction on Sunday, October 18, 2026, following riots and demonstrations the previous day.\nQuery[1]: Approximately 550,000 protesters participated in demonstrations across France on Saturday, October 17, 2026, with about 1,800 arrests made.\nQuery[2]: Protesters were demonstrating against rising fuel prices, the high cost of living, and the deterioration of public services, including schools.\nQuery[3]: Violence and looting occurred in Paris, Marseille, and other towns, with some individuals setting fire to cars and buildings.\nAnchor[0]: An estimated 550,000 people took part in protests across France on Saturday, October 17, 2026.\nAnchor[1]: The demonstrations quickly descended into violence, with cars and buildings set alight and shops ransacked.\nAnchor[2]: At least 1,200 people were arrested on Saturday, October 17, 2026, as riot police deployed tear gas and water cannons to disperse crowds.\nInference[0]: The query reports on the same nationwide protests and riots in France in October 2026 as the anchor, detailing the destruction, number of participants, arrests, and reasons for the protests."
+        },
+        {
+          "article_id": 8881,
+          "topic": "hongkong",
+          "judge_task_id": 127,
+          "judgment_fingerprint": "fb0e7d1f29c09b3f4bf825bc7be2efb554b94ca4235d606d682a8cae1c3b4a43",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [],
+            "anchor_facts": [],
+            "relation_inferences": []
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": "independent",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": "No supported association proposed."
+        },
+        {
+          "article_id": 8881,
+          "topic": "westbank",
+          "judge_task_id": 128,
+          "judgment_fingerprint": "67a9b628f0564304cd93f180fb445502b72fa590899f73cf7c82d552f4207547",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [],
+            "anchor_facts": [],
+            "relation_inferences": []
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": "independent",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": "No supported association proposed."
+        },
+        {
+          "article_id": 8881,
+          "topic": "canada",
+          "judge_task_id": 129,
+          "judgment_fingerprint": "4e65599d52ef0e1bf47d2b3cb29543f52f7128c74e98b2160015953ddf484995",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [],
+            "anchor_facts": [],
+            "relation_inferences": []
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": "independent",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": "No supported association proposed."
+        },
+        {
+          "article_id": 8898,
+          "topic": "france",
+          "judge_task_id": 132,
+          "judgment_fingerprint": "29e3a1430db3058b8e3c5f4d7dcb9d35cea1c87449d7dfa1090447a7902dc369",
+          "allowed": [
+            "same_event"
+          ],
+          "association_expected": true,
+          "first_output": {
+            "classification": "same_event",
+            "certainty": "certain",
+            "query_facts": [
+              {
+                "text": "France experienced nationwide large-scale demonstrations with over 2000 arrests and significant economic losses.",
+                "citations": [
+                  {
+                    "reference_id": "ref_856308e97b0e249851bb179f",
+                    "quote": "（巴黎综合电）因不满生活费高涨、公共服务退化，法国多座城市爆发大规模示威，部分地区局势失控冲突升级，演变为法国数十年来最严重暴乱之一。数百人受伤，被捕人数升至至少2000人，造成的经济损失难以估量。"
+                  }
+                ]
+              },
+              {
+                "text": "Demonstrations occurred in Paris, Marseille, Nice, Nantes, Bordeaux, Limoges, Lille, Toulouse, and Strasbourg.",
+                "citations": [
+                  {
+                    "reference_id": "ref_21cfa964e4cbccc69bedd81d",
+                    "quote": "综合法新社和路透社报道，巴黎、马赛、尼斯、南特、波尔多、利摩日、里尔、图卢兹和斯特拉斯堡等多座城市星期六（10月17日）爆发规模不一的抗议活动，趁乱洗劫行为此起彼落。"
+                  }
+                ]
+              },
+              {
+                "text": "French Interior Minister Laurent Nunez stated that at least 2000 people were arrested.",
+                "citations": [
+                  {
+                    "reference_id": "ref_b4ee4d884c4d2fed3690abcd",
+                    "quote": "法国内政部长努涅斯（Laurent Nunez）星期天（18日）说，警方逮捕至少2000人，经调查确认肇事者身份后会依法处置。"
+                  }
+                ]
+              },
+              {
+                "text": "The protests were attributed by some politicians to far-left elements.",
+                "citations": [
+                  {
+                    "reference_id": "ref_4374916d2df7d70b71191a25",
+                    "quote": "政客批评暴力冲突由极左翼分子引起"
+                  }
+                ]
+              }
+            ],
+            "anchor_facts": [
+              {
+                "text": "An estimated 550,000 people participated in protests across France.",
+                "citations": [
+                  {
+                    "reference_id": "ref_d5304ab3ad7ec93a0b6294d2",
+                    "quote": "An estimated 550,000 people took part in protests across France, demanding greater investment in education and action on the rising cost of living."
+                  }
+                ]
+              },
+              {
+                "text": "The demonstrations turned violent with cars and buildings set alight and shops ransacked.",
+                "citations": [
+                  {
+                    "reference_id": "ref_015fee2fd8b0ae0252452f88",
+                    "quote": "The demonstrations quickly descended into violence, with cars and buildings set alight and shops ransacked."
+                  }
+                ]
+              },
+              {
+                "text": "At least 1,200 people were arrested.",
+                "citations": [
+                  {
+                    "reference_id": "ref_10aca1b49c06afec9eacdf10",
+                    "quote": "At least 1,200 people were arrested on Saturday as riot police deployed tear gas and water cannons to disperse crowds."
+                  }
+                ]
+              }
+            ],
+            "relation_inferences": [
+              {
+                "text": "The query and anchor both report on nationwide protests and riots in France in October 2026, including details on the scale of participation and arrests.",
+                "query_fact_indices": [
+                  0,
+                  1,
+                  2
+                ],
+                "anchor_fact_indices": [
+                  0,
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": true,
+          "label_correct": true,
+          "judgment_status": "draft",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [
+            136
+          ],
+          "real_audit_http_calls": 2,
+          "actual_audit_kinds": [
+            "query_support",
+            "anchor_support"
+          ],
+          "review_task_statuses": [
+            "failed"
+          ],
+          "basis": "Query[0]: France experienced nationwide large-scale demonstrations with over 2000 arrests and significant economic losses.\nQuery[1]: Demonstrations occurred in Paris, Marseille, Nice, Nantes, Bordeaux, Limoges, Lille, Toulouse, and Strasbourg.\nQuery[2]: French Interior Minister Laurent Nunez stated that at least 2000 people were arrested.\nQuery[3]: The protests were attributed by some politicians to far-left elements.\nAnchor[0]: An estimated 550,000 people participated in protests across France.\nAnchor[1]: The demonstrations turned violent with cars and buildings set alight and shops ransacked.\nAnchor[2]: At least 1,200 people were arrested.\nInference[0]: The query and anchor both report on nationwide protests and riots in France in October 2026, including details on the scale of participation and arrests."
+        },
+        {
+          "article_id": 8898,
+          "topic": "canada",
+          "judge_task_id": 133,
+          "judgment_fingerprint": "c295b076296c46397dfc19eb4108ae9c6822287aef3435cb9ebe8c8af74413af",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [],
+            "anchor_facts": [],
+            "relation_inferences": []
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": "independent",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": "No supported association proposed."
+        },
+        {
+          "article_id": 8898,
+          "topic": "hongkong",
+          "judge_task_id": 134,
+          "judgment_fingerprint": "bd40debed9cf7ea96b7b7d316bbc8708abe6fec355d5590a177a2234bb502202",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [],
+            "anchor_facts": [],
+            "relation_inferences": []
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": "independent",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": "No supported association proposed."
+        },
+        {
+          "article_id": 8898,
+          "topic": "westbank",
+          "judge_task_id": 135,
+          "judgment_fingerprint": "4b8956762fdd0f96661d71604d32d53256be66c48353f0d10c38faabe25f313b",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [],
+            "anchor_facts": [],
+            "relation_inferences": []
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": "independent",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": "No supported association proposed."
+        },
+        {
+          "article_id": 8899,
+          "topic": "huang",
+          "judge_task_id": 138,
+          "judgment_fingerprint": "8513ba68852682fbc8fc57814bf971d3119ca72bacbc4b2e3573ed1da328d311",
+          "allowed": [
+            "opinion",
+            "background"
+          ],
+          "association_expected": true,
+          "first_output": {
+            "classification": "same_event",
+            "certainty": "certain",
+            "query_facts": [
+              {
+                "text": "Huang Ribo, former vice chairman of the Guangxi Zhuang Autonomous Region Political Consultative Conference, is under investigation, becoming the first \"tiger\" to fall in Guangxi this year.",
+                "citations": [
+                  {
+                    "reference_id": "ref_856be210e6857b7e74a7ee20",
+                    "quote": "中国广西壮族自治区政协原副主席黄日波官宣被查，成为今年广西落马“首虎”。"
+                  }
+                ]
+              },
+              {
+                "text": "Huang Ribo, a non-party affiliated vice-provincial official, was investigated a week before the Fifth Plenary Session of the 19th Central Committee of the Communist Party of China.",
+                "citations": [
+                  {
+                    "reference_id": "ref_856be210e6857b7e74a7ee20",
+                    "quote": "受访观察人士分析，这名无党派副省级官员在中共召开五中全会一周前落马，可能是官方在释放信息要进一步全面治理腐败，不仅对内全面从严治党，也对其他掌握公共资源的现任或退休党外官员全面整肃。"
+                  }
+                ]
+              },
+              {
+                "text": "The Central Commission for Discipline Inspection and the National Supervisory Commission announced on Sunday (October 18) that Huang Ribo is under investigation for suspected serious violations of duty.",
+                "citations": [
+                  {
+                    "reference_id": "ref_dc0953b0b99865ccf0b134d7",
+                    "quote": "中共中央纪委国家监委星期天（10月18日）在官网通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。"
+                  }
+                ]
+              },
+              {
+                "text": "Huang Ribo, who retired two and a half years ago, is the sixth high-ranking official from Guangxi to be investigated since the 20th National Congress of the CPC in 2022, and the 55th centrally managed cadre to fall this year.",
+                "citations": [
+                  {
+                    "reference_id": "ref_dc0953b0b99865ccf0b134d7",
+                    "quote": "这名已退休两年半的官员，由此成为2022年中共二十大后第六名被查的广西高官，也是今年第55名落马的中管干部。"
+                  }
+                ]
+              }
+            ],
+            "anchor_facts": [
+              {
+                "text": "Huang Ribo, former vice chairman of the Guangxi Zhuang Autonomous Region Political Consultative Conference, is under investigation.",
+                "citations": [
+                  {
+                    "reference_id": "ref_8ccce0cb6e180997eeeec5b3",
+                    "quote": "中国广西壮族自治区政协原副主席黄日波被查。"
+                  }
+                ]
+              },
+              {
+                "text": "The Central Commission for Discipline Inspection and the National Supervisory Commission announced on Sunday (October 18) that Huang Ribo is under investigation for suspected serious violations of duty.",
+                "citations": [
+                  {
+                    "reference_id": "ref_2c7dceadca60e73383812288",
+                    "quote": "中共中央纪委国家监委星期天（10月18日）在网站通报，黄日波涉嫌严重职务违法，目前正接受国家监委监察调查。"
+                  }
+                ]
+              },
+              {
+                "text": "According to public records, Huang Ribo was born in July 1958, is of Jingxi Zhuang ethnicity from Guangxi, is a non-party affiliated individual, graduated with a PhD in biological engineering from the University of Reading in the UK, and holds a professorship.",
+                "citations": [
+                  {
+                    "reference_id": "ref_82593c27f05d3e957d4fcefc",
+                    "quote": "据《新京报》旗下“政事儿”报道，公开简历显示，黄日波生于1958年7月，广西靖西壮族人，无党派人士，毕业于英国里丁大学食品科学与工程系生物工程专业，研究生学历，理学博士、教授。"
+                  }
+                ]
+              },
+              {
+                "text": "He previously served as a professor at the School of Life Sciences and Technology at Guangxi University, president of the Guangxi Academy of Sciences, and vice chairman of the Guangxi Association for Science and Technology. In 2008, he became vice chairman of the Guangxi Political Consultative Conference, and in 2013, vice chairman of the Guangxi People's Government. In 2018, he once again served as vice chairman of the Guangxi Political Consultative Conference and concurrently as chairman of the Autonomous Region Association for Science and Technology, before retiring and subsequently being investigated.",
+                "citations": [
+                  {
+                    "reference_id": "ref_6cf237cfc8d53483e18771a2",
+                    "quote": "他曾任广西大学生命科学与技术学院教授、广西科学院院长、广西壮族自治区科协副主席等职，2008年任广西政协副主席，2013年任广西人民政府副主席，2018年再次担任广西政协副主席，并兼任自治区科协主席，后卸任，至此番被查。"
+                  }
+                ]
+              }
+            ],
+            "relation_inferences": [
+              {
+                "text": "The query reports the investigation of Huang Ribo, identifying him as the first \"tiger\" to fall in Guangxi this year and a non-party affiliated vice-provincial official investigated a week before a major CPC meeting. The anchor also reports the investigation of Huang Ribo, a former vice chairman of the Guangxi Political Consultative Conference, for suspected violations of duty, and provides details about his background and career.",
+                "query_fact_indices": [
+                  0,
+                  1,
+                  2
+                ],
+                "anchor_fact_indices": [
+                  0,
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          "judge_status": "failed",
+          "schema_valid": false,
+          "reference_valid": false,
+          "schema_error": "8 validation errors for MemberDecision\nquery_facts.0.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribo, former vice ...l in Guangxi this year.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.1.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribo, a non-party ...mmunist Party of China.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.2.text\n  String should have at most 160 characters [type=string_too_long, input_value='The Central Commission f...ous violations of duty.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.3.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribo, who retired ...adre to fall this year.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.1.text\n  String should have at most 160 characters [type=string_too_long, input_value='The Central Commission f...ous violations of duty.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.2.text\n  String should have at most 160 characters [type=string_too_long, input_value='According to public reco... holds a professorship.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.3.text\n  String should have at most 160 characters [type=string_too_long, input_value=\"He previously served as ...tly being investigated.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nrelation_inferences.0.text\n  String should have at most 240 characters [type=string_too_long, input_value='The query reports the in... background and career.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long",
+          "reference_error": null,
+          "associated": true,
+          "label_correct": false,
+          "judgment_status": null,
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": null
+        },
+        {
+          "article_id": 8899,
+          "topic": "hongkong",
+          "judge_task_id": 139,
+          "judgment_fingerprint": "3361c1a3447142b7924e4c2df39bca229a20ff73a26dfb358c23d507dcf71b29",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [],
+            "anchor_facts": [],
+            "relation_inferences": []
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": "independent",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": "No supported association proposed."
+        },
+        {
+          "article_id": 8899,
+          "topic": "tajikistan",
+          "judge_task_id": 140,
+          "judgment_fingerprint": "78420d53ed4fdf8b4eee63c5de68daff30b9ee207e1906ec383a639764254c41",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [
+              {
+                "text": "Huang Ribao, former vice chairman of the Guangxi Zhuang Autonomous Region Political Consultative Conference, is under investigation, becoming the first \"tiger\" to fall in Guangxi this year.",
+                "citations": [
+                  {
+                    "reference_id": "ref_856be210e6857b7e74a7ee20",
+                    "quote": "中国广西壮族自治区政协原副主席黄日波官宣被查，成为今年广西落马“首虎”。"
+                  }
+                ]
+              },
+              {
+                "text": "Huang Ribao, a non-party affiliated official at the vice-provincial level, was investigated a week before the Fifth Plenary Session of the 19th Central Committee of the Communist Party of China.",
+                "citations": [
+                  {
+                    "reference_id": "ref_856be210e6857b7e74a7ee20",
+                    "quote": "这名无党派副省级官员在中共召开五中全会一周前落马，可能是官方在释放信息要进一步全面治理腐败，不仅对内全面从严治党，也对其他掌握公共资源的现任或退休党外官员全面整肃。"
+                  }
+                ]
+              },
+              {
+                "text": "Huang Ribao, 68, is from Jingxi, Guangxi, holds a postgraduate degree and a PhD in bioengineering from the University of Reading in the UK, and is also a professor.",
+                "citations": [
+                  {
+                    "reference_id": "ref_6a461be744784247e23bf9ac",
+                    "quote": "公开资料显示，黄日波今年68岁，来自广西靖西，毕业于英国里丁大学生物工程专业，研究生学历，理学博士，也是一名教授。"
+                  }
+                ]
+              },
+              {
+                "text": "Huang Ribao, a non-party affiliated official of the Zhuang ethnic group, has spent over 40 years in public service, all within Guangxi.",
+                "citations": [
+                  {
+                    "reference_id": "ref_27a10763ee61f0e8b06f56f0",
+                    "quote": "这名无党派壮族官员40多年的仕途从未离开广西。"
+                  }
+                ]
+              }
+            ],
+            "anchor_facts": [
+              {
+                "text": "Premier Li Qiang held talks with Tajikistan Prime Minister Rasulzoda on the afternoon of October 18.",
+                "citations": [
+                  {
+                    "reference_id": "ref_625c71e8d19b8e07e3e7399c",
+                    "quote": "10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。"
+                  }
+                ]
+              },
+              {
+                "text": "Li Qiang stated that China and Tajikistan, as important members of the Global South, should unite and cooperate more closely to safeguard their common interests and uphold international fairness and justice.",
+                "citations": [
+                  {
+                    "reference_id": "ref_76c07272811560d3ac482288",
+                    "quote": "当前国际形势持续复杂变化，中塔同为全球南方重要成员，应当更加紧密团结协作，维护两国共同利益，捍卫国际公平正义。"
+                  }
+                ]
+              },
+              {
+                "text": "Rasulzoda stated that China is Tajikistan's most important trading and investment partner and thanked China for its long-term strong support for Tajikistan's economic development.",
+                "citations": [
+                  {
+                    "reference_id": "ref_978a878d4d997061a07eb3bf",
+                    "quote": "中国是塔方最重要的贸易、投资合作伙伴，感谢中国长期以来为塔经济发展提供的大力支持。"
+                  }
+                ]
+              },
+              {
+                "text": "Following the talks, both sides witnessed the signing of multiple documents in areas such as infrastructure construction, education, anti-corruption, and standardization cooperation.",
+                "citations": [
+                  {
+                    "reference_id": "ref_22bea6bdef67256a9ef6bfe2",
+                    "quote": "会谈后，双方共同见证签署基础设施建设、教育、反腐、标准化合作等领域多项文件。"
+                  }
+                ]
+              }
+            ],
+            "relation_inferences": []
+          },
+          "judge_status": "failed",
+          "schema_valid": false,
+          "reference_valid": false,
+          "schema_error": "6 validation errors for MemberDecision\nquery_facts.0.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribao, former vice...l in Guangxi this year.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.1.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribao, a non-party...mmunist Party of China.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.2.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribao, 68, is from...nd is also a professor.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.1.text\n  String should have at most 160 characters [type=string_too_long, input_value='Li Qiang stated that Chi...l fairness and justice.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.2.text\n  String should have at most 160 characters [type=string_too_long, input_value=\"Rasulzoda stated that Ch...s economic development.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.3.text\n  String should have at most 160 characters [type=string_too_long, input_value='Following the talks, bot...ardization cooperation.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long",
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": null,
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": null
+        },
+        {
+          "article_id": 8899,
+          "topic": "uzbekistan",
+          "judge_task_id": 141,
+          "judgment_fingerprint": "146001885fd981437dbe68a62dba4535fd741ae43c3ec016a042a19366751221",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [
+              {
+                "text": "Huang Ribao, former vice chairman of the Guangxi Zhuang Autonomous Region Political Consultative Conference, was investigated, becoming the first \"tiger\" to fall in Guangxi this year.",
+                "citations": [
+                  {
+                    "reference_id": "ref_856be210e6857b7e74a7ee20",
+                    "quote": "中国广西壮族自治区政协原副主席黄日波官宣被查，成为今年广西落马“首虎”。"
+                  }
+                ]
+              },
+              {
+                "text": "Huang Ribao, a non-partisan official at the vice-provincial level, was investigated a week before the Fifth Plenary Session of the 19th Central Committee of the Communist Party of China.",
+                "citations": [
+                  {
+                    "reference_id": "ref_856be210e6857b7e74a7ee20",
+                    "quote": "受访观察人士分析，这名无党派副省级官员在中共召开五中全会一周前落马，可能是官方在释放信息要进一步全面治理腐败，不仅对内全面从严治党，也对其他掌握公共资源的现任或退休党外官员全面整肃。"
+                  }
+                ]
+              },
+              {
+                "text": "Huang Ribao, 68, is from Jingxi, Guangxi, graduated with a postgraduate degree in bioengineering from the University of Reading in the UK, holds a doctorate in science, and is a professor.",
+                "citations": [
+                  {
+                    "reference_id": "ref_6a461be744784247e23bf9ac",
+                    "quote": "公开资料显示，黄日波今年68岁，来自广西靖西，毕业于英国里丁大学生物工程专业，研究生学历，理学博士，也是一名教授。"
+                  }
+                ]
+              },
+              {
+                "text": "Huang Ribao had extensive interactions with former Guangxi government chairman Lan Tianli, who was known as \"Zhuang Wang\" and investigated in May last year, in different positions.",
+                "citations": [
+                  {
+                    "reference_id": "ref_27a10763ee61f0e8b06f56f0",
+                    "quote": "与去年5月任上被查、有“壮王”之称的广西政府原主席蓝天立更在不同岗位多有交集。"
+                  }
+                ]
+              }
+            ],
+            "anchor_facts": [
+              {
+                "text": "Chinese Premier Li Qiang visited Uzbekistan and met with Uzbek President Mirziyoyev and Prime Minister Aripov, calling for continued firm support for each other's core interests and deepening cooperation in areas such as energy and artificial intelligence (AI).",
+                "citations": [
+                  {
+                    "reference_id": "ref_f5ea5c45290b5d7cd6c90159",
+                    "quote": "中国国务院总理李强访问乌兹别克斯坦期间，分别与乌总统米尔济约耶夫与总理阿里波夫会面，他呼吁中乌双方继续坚定支持彼此核心利益，并深化能源及人工智能（AI）等领域合作。"
+                  }
+                ]
+              },
+              {
+                "text": "Li Qiang stated that China is willing to strengthen strategic alignment with Uzbekistan, further leverage economic complementarity, import more high-quality specialty products from Uzbekistan, and welcome Uzbekistan to actively explore the Chinese market using platforms like the China International Import Expo.",
+                "citations": [
+                  {
+                    "reference_id": "ref_c0fb951ec23346cd135ee678",
+                    "quote": "李强表示，中方愿同乌方加强发展战略对接，进一步发挥经济互补优势。中国愿进口乌方更多优质特色商品，欢迎乌方用好中国国际进口博览会等平台，积极开拓中国市场。"
+                  }
+                ]
+              },
+              {
+                "text": "Uzbek President Mirziyoyev stated that Uzbekistan firmly adheres to the One-China principle, firmly supports China in safeguarding its core interests, and will continue to jointly combat the \"three forces\" (terrorism, separatism, and extremism).",
+                "citations": [
+                  {
+                    "reference_id": "ref_33c039acde20cb6aeba06ecf",
+                    "quote": "新华社引述米尔济约耶夫指，乌中关系当前迎来“黄金时代”，乌兹别克斯坦坚定恪守一个中国原则，坚定支持中方维护自身核心利益，将继续合力打击“三股势力”（恐怖主义、分裂主义和极端主义）。"
+                  }
+                ]
+              },
+              {
+                "text": "After the talks, both sides witnessed the signing of multiple cooperation documents in areas such as economy and trade, education, customs, health, and poverty reduction.",
+                "citations": [
+                  {
+                    "reference_id": "ref_1208f842e1de63527c419eca",
+                    "quote": "会谈后，双方共同见证签署经贸、教育、海关、卫生、减贫等领域多项合作文件。"
+                  }
+                ]
+              }
+            ],
+            "relation_inferences": []
+          },
+          "judge_status": "failed",
+          "schema_valid": false,
+          "reference_valid": false,
+          "schema_error": "8 validation errors for MemberDecision\nquery_facts.0.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribao, former vice...l in Guangxi this year.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.1.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribao, a non-parti...mmunist Party of China.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.2.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribao, 68, is from...ce, and is a professor.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.3.text\n  String should have at most 160 characters [type=string_too_long, input_value='Huang Ribao had extensiv...in different positions.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.0.text\n  String should have at most 160 characters [type=string_too_long, input_value=\"Chinese Premier Li Qiang...cial intelligence (AI).\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.1.text\n  String should have at most 160 characters [type=string_too_long, input_value='Li Qiang stated that Chi...ernational Import Expo.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.2.text\n  String should have at most 160 characters [type=string_too_long, input_value='Uzbek President Mirziyoy...ratism, and extremism).', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.3.text\n  String should have at most 160 characters [type=string_too_long, input_value='After the talks, both si... and poverty reduction.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long",
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": null,
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": null
+        },
+        {
+          "article_id": 8905,
+          "topic": "canada",
+          "judge_task_id": 143,
+          "judgment_fingerprint": "13a7c0f8f0155c12526adca3bb1296a7a98255ca1fda949e17c769171915205b",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "same_event",
+            "certainty": "certain",
+            "query_facts": [
+              {
+                "text": "A grass fire occurred at a military base in Alberta, Canada, during an exercise.",
+                "citations": [
+                  {
+                    "reference_id": "ref_d9e5549a2fb17689fdedaa31",
+                    "quote": "加拿大艾伯塔省一处军事基地在进行演习时发生草地火灾，并在强风助长下迅速蔓延，导致至少四名士兵死亡、39人受伤，其中19人情况危殆。"
+                  }
+                ]
+              },
+              {
+                "text": "The fire spread rapidly due to strong winds, resulting in at least four soldiers dead and 39 injured.",
+                "citations": [
+                  {
+                    "reference_id": "ref_d9e5549a2fb17689fdedaa31",
+                    "quote": "加拿大艾伯塔省一处军事基地在进行演习时发生草地火灾，并在强风助长下迅速蔓延，导致至少四名士兵死亡、39人受伤，其中19人情况危殆。"
+                  }
+                ]
+              },
+              {
+                "text": "The incident happened at CFB Wainwright around 4 p.m. local time on Saturday (around 6 a.m. Singapore time on the 18th).",
+                "citations": [
+                  {
+                    "reference_id": "ref_4af1c17c5083caf2da498736",
+                    "quote": "路透社报道，这起发生在韦恩赖特加军基地（CFB Wainwright）的火灾始于当地星期六（10月17日）下午4时左右（新加坡时间18日早6时左右）。"
+                  }
+                ]
+              },
+              {
+                "text": "Canadian Prime Minister Harper called it one of the most serious tragedies in the Canadian Armed Forces' history during peacetime.",
+                "citations": [
+                  {
+                    "reference_id": "ref_4156b9820fae49aca6caac2d",
+                    "quote": "加拿大总理卡尼星期天（18日）早些时候说，这是加拿大武装部队本土有史以来在和平时期遭受的最严重惨剧之一。"
+                  }
+                ]
+              }
+            ],
+            "anchor_facts": [
+              {
+                "text": "A major fire broke out at a Canadian military base, and the fire was spreading rapidly with the help of strong winds.",
+                "citations": [
+                  {
+                    "reference_id": "ref_f32bd873483ec17da478fd91",
+                    "quote": "加拿大一个军事基地发生重大火灾，火势在强风助推下正迅速蔓延。"
+                  }
+                ]
+              },
+              {
+                "text": "The fire occurred at the Wainwright Military Base, about 200 kilometers southeast of Edmonton, Alberta, on Saturday night (September 17).",
+                "citations": [
+                  {
+                    "reference_id": "ref_20901896e03ad3fcea98ce81",
+                    "quote": "新华社引述加拿大媒体报道，位于西部阿伯塔省（Alberta）首府埃德蒙顿东南约200公里处的温赖特军事基地，星期六（9月17日）晚上发生火灾。"
+                  }
+                ]
+              },
+              {
+                "text": "Canadian Defence Minister David McGuinty stated that the incident caused \"casualties\" but did not disclose the exact number.",
+                "citations": [
+                  {
+                    "reference_id": "ref_60bf1a02e169958a58140401",
+                    "quote": "另据法新社报道，加拿大国防部长麦金蒂（David McGuinty）说，事件造成“人员伤亡”，但他未透露确切的人数。"
+                  }
+                ]
+              },
+              {
+                "text": "Canadian Prime Minister Harper posted on social media that a \"serious accident\" occurred at the military base, causing a large fire.",
+                "citations": [
+                  {
+                    "reference_id": "ref_76f988ac107a3dc26a0b809d",
+                    "quote": "加拿大总理卡尼在社交媒体发文说，军事基地发生“严重事故”，引发一场大火。"
+                  }
+                ]
+              }
+            ],
+            "relation_inferences": [
+              {
+                "text": "The query and anchor both report a major fire at the Wainwright military base in Alberta, Canada, which occurred on Saturday, October 17th (query) / September 17th (anchor), resulting in casualties.",
+                "query_fact_indices": [
+                  0,
+                  1,
+                  2
+                ],
+                "anchor_fact_indices": [
+                  0,
+                  1,
+                  2,
+                  3
+                ]
+              }
+            ]
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": true,
+          "label_correct": false,
+          "judgment_status": "draft",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [
+            147
+          ],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [
+            "pending"
+          ],
+          "basis": "Query[0]: A grass fire occurred at a military base in Alberta, Canada, during an exercise.\nQuery[1]: The fire spread rapidly due to strong winds, resulting in at least four soldiers dead and 39 injured.\nQuery[2]: The incident happened at CFB Wainwright around 4 p.m. local time on Saturday (around 6 a.m. Singapore time on the 18th).\nQuery[3]: Canadian Prime Minister Harper called it one of the most serious tragedies in the Canadian Armed Forces' history during peacetime.\nAnchor[0]: A major fire broke out at a Canadian military base, and the fire was spreading rapidly with the help of strong winds.\nAnchor[1]: The fire occurred at the Wainwright Military Base, about 200 kilometers southeast of Edmonton, Alberta, on Saturday night (September 17).\nAnchor[2]: Canadian Defence Minister David McGuinty stated that the incident caused \"casualties\" but did not disclose the exact number.\nAnchor[3]: Canadian Prime Minister Harper posted on social media that a \"serious accident\" occurred at the military base, causing a large fire.\nInference[0]: The query and anchor both report a major fire at the Wainwright military base in Alberta, Canada, which occurred on Saturday, October 17th (query) / September 17th (anchor), resulting in casualties."
+        },
+        {
+          "article_id": 8905,
+          "topic": "hongkong",
+          "judge_task_id": 144,
+          "judgment_fingerprint": "0952dd8936defc98e4a59655993b99c01abf4bcad827c8c8b00fc961cacbd1e3",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [
+              {
+                "text": "A grassland fire occurred at a Canadian military base during an exercise, spreading rapidly due to strong winds, resulting in at least four soldiers dead and 39 injured, with 19 in critical condition.",
+                "citations": [
+                  {
+                    "reference_id": "ref_d9e5549a2fb17689fdedaa31",
+                    "quote": "加拿大艾伯塔省一处军事基地在进行演习时发生草地火灾，并在强风助长下迅速蔓延，导致至少四名士兵死亡、39人受伤，其中19人情况危殆。"
+                  }
+                ]
+              },
+              {
+                "text": "The fire at CFB Wainwright began around 4 p.m. local time on Saturday (around 6 a.m. on the 18th, Singapore time), with wind gusts up to 96 kilometers per hour exacerbating the flames.",
+                "citations": [
+                  {
+                    "reference_id": "ref_4af1c17c5083caf2da498736",
+                    "quote": "路透社报道，这起发生在韦恩赖特加军基地（CFB Wainwright）的火灾始于当地星期六（10月17日）下午4时左右（新加坡时间18日早6时左右）。当时阵风风速高达每小时96公里，极大地加剧火势。"
+                  }
+                ]
+              },
+              {
+                "text": "Canadian Prime Minister Harper stated that this was one of the most serious tragedies in the Canadian Armed Forces' history during peacetime.",
+                "citations": [
+                  {
+                    "reference_id": "ref_4156b9820fae49aca6caac2d",
+                    "quote": "加拿大总理卡尼星期天（18日）早些时候说，这是加拿大武装部队本土有史以来在和平时期遭受的最严重惨剧之一。"
+                  }
+                ]
+              },
+              {
+                "text": "He also ordered flags to be flown at half-mast on all federal government buildings across the country in mourning for the fallen soldiers.",
+                "citations": [
+                  {
+                    "reference_id": "ref_853ae8e1df4be747313d8cc1",
+                    "quote": "他也说，已下令全国所有联邦政府建筑物降半旗致哀。“全国都在为我们失去的这些勇敢军人哀悼。”"
+                  }
+                ]
+              }
+            ],
+            "anchor_facts": [
+              {
+                "text": "The Hong Fu Court fire in Tai Po, Hong Kong, occurred on November 26, 2025, a five-alarm fire that affected seven out of eight buildings in the complex, resulting in 168 deaths.",
+                "citations": [
+                  {
+                    "reference_id": "ref_3aa87ccd1b6050e52e30969b",
+                    "quote": "香港大埔公共屋苑宏福苑于2025年11月26日发生五级火灾，全苑共八座大厦，其中七幢起火，共造成168人死亡。"
+                  }
+                ]
+              },
+              {
+                "text": "An independent commission investigating the fire began a series of public hearings on March 19, 2026.",
+                "citations": [
+                  {
+                    "reference_id": "ref_3aa87ccd1b6050e52e30969b",
+                    "quote": "负责调查这场火灾的独立委员会于2026年3月19日起举行一系列公开听证会。"
+                  }
+                ]
+              },
+              {
+                "text": "The independent commission held 30 hearings from March to July of the current year, heard testimony from 80 witnesses, and processed over 1 million files.",
+                "citations": [
+                  {
+                    "reference_id": "ref_3aa87ccd1b6050e52e30969b",
+                    "quote": "由港府成立的独立委员会，在今年3月至7月举行了30场听证会，听取80名证人供词，处理逾100万个档案。"
+                  }
+                ]
+              },
+              {
+                "text": "The independent commission is expected to submit its final report to Chief Executive John Lee by Thursday, October 22nd.",
+                "citations": [
+                  {
+                    "reference_id": "ref_3aa87ccd1b6050e52e30969b",
+                    "quote": "据香港媒体消息，独立委员会最快将于星期四（10月22日）向行政长官李家超提交最终报告。"
+                  }
+                ]
+              }
+            ],
+            "relation_inferences": []
+          },
+          "judge_status": "failed",
+          "schema_valid": false,
+          "reference_valid": false,
+          "schema_error": "3 validation errors for MemberDecision\nquery_facts.0.text\n  String should have at most 160 characters [type=string_too_long, input_value='A grassland fire occurre... in critical condition.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nquery_facts.1.text\n  String should have at most 160 characters [type=string_too_long, input_value='The fire at CFB Wainwrig...xacerbating the flames.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nanchor_facts.0.text\n  String should have at most 160 characters [type=string_too_long, input_value='The Hong Fu Court fire i...esulting in 168 deaths.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long",
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": null,
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": null
+        },
+        {
+          "article_id": 8905,
+          "topic": "westbank",
+          "judge_task_id": 145,
+          "judgment_fingerprint": "1bc74e9bcb124fa6886b3e6fd55c0766ece44febd33b85e80ea00bf04500be14",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": {
+            "classification": "independent",
+            "certainty": "certain",
+            "query_facts": [],
+            "anchor_facts": [],
+            "relation_inferences": []
+          },
+          "judge_status": "completed",
+          "schema_valid": true,
+          "reference_valid": true,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": true,
+          "judgment_status": "independent",
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": "No supported association proposed."
+        },
+        {
+          "article_id": 8905,
+          "topic": "mercenary",
+          "judge_task_id": 146,
+          "judgment_fingerprint": "ea0dda2b538b4f5cd3986374c1eb3870ca9ab3fdaa038acd1db9b4b19cb7641a",
+          "allowed": [],
+          "association_expected": false,
+          "first_output": null,
+          "judge_status": "failed",
+          "schema_valid": false,
+          "reference_valid": false,
+          "schema_error": null,
+          "reference_error": null,
+          "associated": false,
+          "label_correct": false,
+          "judgment_status": null,
+          "applied": false,
+          "label_compatible_applied": false,
+          "review": null,
+          "complete_bound_audit_protocol_pass": false,
+          "review_task_ids": [],
+          "real_audit_http_calls": 0,
+          "actual_audit_kinds": [],
+          "review_task_statuses": [],
+          "basis": null
+        }
+      ],
+      "expected_pair_losses": [
+        {
+          "article_id": 8881,
+          "topic": "france",
+          "first_loss": null
+        },
+        {
+          "article_id": 8898,
+          "topic": "france",
+          "first_loss": null
+        },
+        {
+          "article_id": 8899,
+          "topic": "huang",
+          "first_loss": null
+        },
+        {
+          "article_id": 8893,
+          "topic": "mercenary",
+          "first_loss": "not_started"
+        },
+        {
+          "article_id": 8893,
+          "topic": "westbank",
+          "first_loss": "not_started"
+        },
+        {
+          "article_id": 8906,
+          "topic": "tajikistan",
+          "first_loss": "not_started"
+        },
+        {
+          "article_id": 9192,
+          "topic": "blind-topic-01",
+          "first_loss": "not_started"
+        },
+        {
+          "article_id": 9051,
+          "topic": "blind-topic-02",
+          "first_loss": "not_started"
+        },
+        {
+          "article_id": 9125,
+          "topic": "blind-topic-03",
+          "first_loss": "not_started"
+        }
+      ],
+      "audit_details": [
+        {
+          "request_id": "aef444b4de094d148ecfe7524134cde7",
+          "task_id": 130,
+          "article_id": 8881,
+          "kind": "query_support",
+          "first_output": {
+            "kind": "query_support",
+            "binding": {
+              "decision_fingerprint": "cd9495a502698abebfb49b6c7027554efbcb0b2fda56c97523a2faf34ee78d7c",
+              "materials_fingerprint": "fef09bbbf041bd424957ac0defa76b745d12194e66e202764682d05ad9c6c8ff",
+              "contract_fingerprint": "e79180ac1ea78b70a99b1cd2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+              "references_fingerprint": "125dbe5a411cbaffc43675508ec609853910b1f195daf8512f67e7786d563cc2",
+              "packet_fingerprint": "dd722f7495e77af942bb4aad3d1cebbec748191c9c8cb644bf24ebf00fc1e24b"
+            },
+            "checks": [
+              {
+                "target": "query_facts/0",
+                "status": "supported",
+                "issues": []
+              },
+              {
+                "target": "query_facts/1",
+                "status": "supported",
+                "issues": []
+              },
+              {
+                "target": "query_facts/2",
+                "status": "supported",
+                "issues": []
+              },
+              {
+                "target": "query_facts/3",
+                "status": "supported",
+                "issues": []
+              }
+            ],
+            "issues": []
+          },
+          "protocol_valid": false,
+          "supported_by_model": false,
+          "error": "1 validation error for MemberAudit\nbinding.contract_fingerprint\n  String should match pattern '^[0-9a-f]{64}$' [type=string_pattern_mismatch, input_value='e79180ac1ea78b70a99b1cd2...7723641c55f09a48f8cd404', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_pattern_mismatch",
+          "known_usd": "0.0030556"
+        },
+        {
+          "request_id": "b0465d0e6e05470392863242b185a9ab",
+          "task_id": 136,
+          "article_id": 8898,
+          "kind": "query_support",
+          "first_output": {
+            "kind": "query_support",
+            "binding": {
+              "decision_fingerprint": "03a08798034efb3b7393b1cc2cadcc960985d5e0b1d0417a274eab76926e05ad",
+              "materials_fingerprint": "615174d50f092f6ece3ee4d3bed7cceb9aacf5a039b2aafd01355be2170446f3",
+              "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+              "references_fingerprint": "03821331b3bb19728b8d1ec0dbd1d7fe77dcc5305d7de17ba59a910bf9c62844",
+              "packet_fingerprint": "29e3a1430db3058b8e3c5f4d7dcb9d35cea1c87449d7dfa1090447a7902dc369"
+            },
+            "checks": [
+              {
+                "target": "query_facts/0",
+                "status": "supported",
+                "issues": []
+              },
+              {
+                "target": "query_facts/1",
+                "status": "supported",
+                "issues": []
+              },
+              {
+                "target": "query_facts/2",
+                "status": "supported",
+                "issues": []
+              },
+              {
+                "target": "query_facts/3",
+                "status": "supported",
+                "issues": []
+              }
+            ],
+            "issues": []
+          },
+          "protocol_valid": true,
+          "supported_by_model": true,
+          "error": null,
+          "known_usd": "0.0027031"
+        },
+        {
+          "request_id": "3b92fa40d9dc469c817f091e6a747f1d",
+          "task_id": 136,
+          "article_id": 8898,
+          "kind": "anchor_support",
+          "first_output": {
+            "kind": "anchor_support",
+            "binding": {
+              "decision_fingerprint": "03a08798034efb3b7393b1cc2cadcc960985d5e0b1d0417a274eab76926e05ad",
+              "materials_fingerprint": "615174d50f092f6ece3ee4d3bed7cceb9aacf5a039b2aafd01355be2170446f3",
+              "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+              "references_fingerprint": "03821331b3bb19728b8d1ec0db1d7fe77dcc5305d7de17ba59a910bf9c62844",
+              "packet_fingerprint": "29e3a1430db3058b8e3c5f4d7dcb9d35cea1c87449d7dfa1090447a7902dc369"
+            },
+            "checks": [
+              {
+                "target": "anchor_facts/0",
+                "status": "supported",
+                "issues": []
+              },
+              {
+                "target": "anchor_facts/1",
+                "status": "supported",
+                "issues": []
+              },
+              {
+                "target": "anchor_facts/2",
+                "status": "supported",
+                "issues": []
+              }
+            ],
+            "issues": []
+          },
+          "protocol_valid": false,
+          "supported_by_model": false,
+          "error": "1 validation error for MemberAudit\nbinding.references_fingerprint\n  String should match pattern '^[0-9a-f]{64}$' [type=string_pattern_mismatch, input_value='03821331b3bb19728b8d1ec0...d7de17ba59a910bf9c62844', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_pattern_mismatch",
+          "known_usd": "0.0018172"
+        }
+      ],
+      "costs": {
+        "topic_embedding": {
+          "physical_requests": 0,
+          "known_usd": "0",
+          "held_usd": "0"
+        },
+        "topic_judgment": {
+          "physical_requests": 16,
+          "known_usd": "0.01123181",
+          "held_usd": "0.029746000000"
+        },
+        "topic_review": {
+          "physical_requests": 3,
+          "known_usd": "0.0075759",
+          "held_usd": "0"
+        }
+      },
+      "retries": 0,
+      "warm_lookup_occurrences": 37,
+      "distinct_warm_versions": 14,
+      "all_first_outputs_preserved": true,
+      "complete_query_costs": [
+        {
+          "article_id": 8881,
+          "query_run_finished": false,
+          "all_task_statuses": {
+            "completed": 5,
+            "failed": 1
+          },
+          "actual_embedding_http_calls": 0,
+          "actual_judgment_http_calls": 4,
+          "actual_audit_http_calls": 1,
+          "physical_requests": 5,
+          "complete_query_known_usd": "0.00602051",
+          "active_held_usd": "0",
+          "cache_state_before": {
+            "unique_inputs": 9,
+            "warm_versions": 9
+          },
+          "complete_four_audit_and_cas_pairs": [],
+          "basis_success_pending_strict_review": true,
+          "includes_all_selected_negative_judgments": true
+        },
+        {
+          "article_id": 8898,
+          "query_run_finished": false,
+          "all_task_statuses": {
+            "completed": 5,
+            "failed": 1
+          },
+          "actual_embedding_http_calls": 0,
+          "actual_judgment_http_calls": 4,
+          "actual_audit_http_calls": 2,
+          "physical_requests": 6,
+          "complete_query_known_usd": "0.0069220",
+          "active_held_usd": "0",
+          "cache_state_before": {
+            "unique_inputs": 9,
+            "warm_versions": 9
+          },
+          "complete_four_audit_and_cas_pairs": [],
+          "basis_success_pending_strict_review": true,
+          "includes_all_selected_negative_judgments": true
+        },
+        {
+          "article_id": 8899,
+          "query_run_finished": false,
+          "all_task_statuses": {
+            "completed": 2,
+            "failed": 3
+          },
+          "actual_embedding_http_calls": 0,
+          "actual_judgment_http_calls": 4,
+          "actual_audit_http_calls": 0,
+          "physical_requests": 4,
+          "complete_query_known_usd": "0.0037193",
+          "active_held_usd": "0",
+          "cache_state_before": {
+            "unique_inputs": 10,
+            "warm_versions": 10
+          },
+          "complete_four_audit_and_cas_pairs": [],
+          "basis_success_pending_strict_review": true,
+          "includes_all_selected_negative_judgments": true
+        },
+        {
+          "article_id": 8905,
+          "query_run_finished": false,
+          "all_task_statuses": {
+            "completed": 3,
+            "failed": 2,
+            "pending": 1
+          },
+          "actual_embedding_http_calls": 0,
+          "actual_judgment_http_calls": 4,
+          "actual_audit_http_calls": 0,
+          "physical_requests": 4,
+          "complete_query_known_usd": "0.0021459",
+          "active_held_usd": "0.029746000000",
+          "cache_state_before": {
+            "unique_inputs": 9,
+            "warm_versions": 9
+          },
+          "complete_four_audit_and_cas_pairs": [],
+          "basis_success_pending_strict_review": true,
+          "includes_all_selected_negative_judgments": true
+        }
+      ]
+    }
+  },
+  "separate_challenges": {
+    "cases": [
+      {
+        "id": "anchor-as-query",
+        "expected": "rejected",
+        "article_id": 8893,
+        "judge_task_id": 111,
+        "judge_status": "completed",
+        "judgment_fingerprint": "c90331d2999cefa1130ae125a6eb4d5220e26213dceaecbc07921e8931dc9ef4",
+        "actual_status": "rejected",
+        "review": {
+          "audits": [
+            {
+              "kind": "query_support",
+              "checks": [
+                {
+                  "issues": [
+                    "The query does not explicitly name the Wagner mercenary force. It refers to \"the world's most notorious mercenary force\" but does not use the name \"Wagner\"."
+                  ],
+                  "status": "unsupported",
+                  "target": "query_facts/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "c90331d2999cefa1130ae125a6eb4d5220e26213dceaecbc07921e8931dc9ef4",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "1da16587516b346d1e4587a642a294ed24cb78da895b649390b3ba5f3001da5e",
+                "materials_fingerprint": "67e0e797352ec6b19b453126ef96412caee43be13e1a694fb428013e71bb1dae",
+                "references_fingerprint": "604af6712596870a30356b0d8f033c5ce6ce0cc075a30e4772448ff97c0cb407"
+              }
+            }
+          ],
+          "binding": {
+            "packet_fingerprint": "c90331d2999cefa1130ae125a6eb4d5220e26213dceaecbc07921e8931dc9ef4",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "1da16587516b346d1e4587a642a294ed24cb78da895b649390b3ba5f3001da5e",
+            "materials_fingerprint": "67e0e797352ec6b19b453126ef96412caee43be13e1a694fb428013e71bb1dae",
+            "references_fingerprint": "604af6712596870a30356b0d8f033c5ce6ce0cc075a30e4772448ff97c0cb407"
+          }
+        },
+        "audit_http_calls": 1,
+        "audit_kinds": [
+          "query_support"
+        ],
+        "known_usd": "0.0014887",
+        "pre_llm_case": false,
+        "replayed_real_audit": false,
+        "natural_end_to_end": false
+      },
+      {
+        "id": "date-conflict",
+        "expected": "rejected",
+        "article_id": 8905,
+        "judge_task_id": 113,
+        "judge_status": "completed",
+        "judgment_fingerprint": "8894f9a567a5549d573b73e8a4885f614cbdb641ec676a1fa15f6a2a8e2d7830",
+        "actual_status": "draft",
+        "review": null,
+        "audit_http_calls": 2,
+        "audit_kinds": [
+          "query_support",
+          "anchor_support"
+        ],
+        "known_usd": "0.0036331",
+        "pre_llm_case": false,
+        "replayed_real_audit": false,
+        "natural_end_to_end": false
+      },
+      {
+        "id": "analysis-as-report",
+        "expected": "rejected",
+        "article_id": 8899,
+        "judge_task_id": 115,
+        "judge_status": "completed",
+        "judgment_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+        "actual_status": "rejected",
+        "review": {
+          "audits": [
+            {
+              "kind": "query_support",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "query_facts/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+                "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+                "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae"
+              }
+            },
+            {
+              "kind": "anchor_support",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "anchor_facts/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+                "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+                "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae"
+              }
+            },
+            {
+              "kind": "relation",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "classification"
+                },
+                {
+                  "issues": [
+                    "The inference text claims that the query contributes only the same announcement report, not context or observer analysis. However, the query's first paragraph explicitly includes observer analysis regarding Huang Ribo's investigation and its potential implications, which is not present in the anchor's report of the investigation."
+                  ],
+                  "status": "unsupported",
+                  "target": "relation_inferences/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+                "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+                "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae"
+              }
+            }
+          ],
+          "binding": {
+            "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+            "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+            "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae"
+          }
+        },
+        "audit_http_calls": 3,
+        "audit_kinds": [
+          "query_support",
+          "anchor_support",
+          "relation"
+        ],
+        "known_usd": "0.0063289",
+        "pre_llm_case": false,
+        "replayed_real_audit": false,
+        "natural_end_to_end": false
+      },
+      {
+        "id": "invalid-voice",
+        "expected": "failed",
+        "article_id": 8881,
+        "judge_task_id": 117,
+        "judge_status": "failed",
+        "judgment_fingerprint": null,
+        "actual_status": "failed",
+        "review": null,
+        "audit_http_calls": 0,
+        "audit_kinds": [],
+        "known_usd": "0",
+        "pre_llm_case": true,
+        "replayed_real_audit": false,
+        "natural_end_to_end": false
+      },
+      {
+        "id": "invalid-paragraph",
+        "expected": "failed",
+        "article_id": 8899,
+        "judge_task_id": 118,
+        "judge_status": "failed",
+        "judgment_fingerprint": null,
+        "actual_status": "failed",
+        "review": null,
+        "audit_http_calls": 0,
+        "audit_kinds": [],
+        "known_usd": "0",
+        "pre_llm_case": true,
+        "replayed_real_audit": false,
+        "natural_end_to_end": false
+      },
+      {
+        "id": "correct-complete",
+        "expected": "applied",
+        "article_id": 8906,
+        "judge_task_id": 119,
+        "judge_status": "completed",
+        "judgment_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+        "actual_status": "applied",
+        "review": {
+          "audits": [
+            {
+              "kind": "query_support",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "query_facts/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+                "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+                "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+              }
+            },
+            {
+              "kind": "anchor_support",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "anchor_facts/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+                "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+                "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+              }
+            },
+            {
+              "kind": "relation",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "classification"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "relation_inferences/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+                "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+                "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+              }
+            },
+            {
+              "kind": "complete_basis",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "query_facts/0"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "anchor_facts/0"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "relation_inferences/0"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "basis_complete"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "attribution"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "scope"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "dates"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+                "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+                "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+              }
+            }
+          ],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        },
+        "audit_http_calls": 4,
+        "audit_kinds": [
+          "query_support",
+          "anchor_support",
+          "relation",
+          "complete_basis"
+        ],
+        "known_usd": "0.0078384",
+        "pre_llm_case": false,
+        "replayed_real_audit": false,
+        "natural_end_to_end": false
+      },
+      {
+        "id": "stale-audit-replay",
+        "expected": "rejected",
+        "article_id": 8906,
+        "judge_task_id": 121,
+        "judge_status": "completed",
+        "judgment_fingerprint": "dbbca3794325cc8e20ca9d2d1598e55f71a4589f582d90af3f9e58994da04b36",
+        "actual_status": "rejected",
+        "review": {
+          "audits": [
+            {
+              "kind": "query_support",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "query_facts/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+                "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+                "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+              }
+            },
+            {
+              "kind": "anchor_support",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "anchor_facts/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+                "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+                "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+              }
+            },
+            {
+              "kind": "relation",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "classification"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "relation_inferences/0"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+                "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+                "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+              }
+            },
+            {
+              "kind": "complete_basis",
+              "checks": [
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "query_facts/0"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "anchor_facts/0"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "relation_inferences/0"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "basis_complete"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "attribution"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "scope"
+                },
+                {
+                  "issues": [],
+                  "status": "supported",
+                  "target": "dates"
+                }
+              ],
+              "issues": [],
+              "binding": {
+                "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+                "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+                "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+                "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+                "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+              }
+            }
+          ],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        },
+        "audit_http_calls": 0,
+        "audit_kinds": [],
+        "known_usd": "0",
+        "pre_llm_case": false,
+        "replayed_real_audit": true,
+        "natural_end_to_end": false
+      },
+      {
+        "id": "cas-race-a",
+        "expected": "applied_or_stale",
+        "article_id": 8881,
+        "judge_task_id": 123,
+        "judge_status": "completed",
+        "judgment_fingerprint": "01e578ddc6f82d318033b3bde3cbd101a66fdbe7358e8a1b7d52533b6679b914",
+        "actual_status": "draft",
+        "review": null,
+        "audit_http_calls": 3,
+        "audit_kinds": [
+          "query_support",
+          "anchor_support",
+          "relation"
+        ],
+        "known_usd": "0.0075270",
+        "pre_llm_case": false,
+        "replayed_real_audit": false,
+        "natural_end_to_end": false
+      },
+      {
+        "id": "cas-race-b",
+        "expected": "applied_or_stale",
+        "article_id": 8898,
+        "judge_task_id": null,
+        "judge_status": null,
+        "judgment_fingerprint": null,
+        "actual_status": null,
+        "review": null,
+        "audit_http_calls": 0,
+        "audit_kinds": [],
+        "known_usd": "0",
+        "pre_llm_case": false,
+        "replayed_real_audit": false,
+        "natural_end_to_end": false
+      }
+    ],
+    "last_event": "race_unmeasured",
+    "real_physical_requests": 13,
+    "known_usd": "0.0268161",
+    "actual_cas_event": null,
+    "not_natural_quality": true,
+    "audit_details": [
+      {
+        "request_id": "68209498d5ea450db75737fee345d99f",
+        "task_id": 112,
+        "article_id": 8893,
+        "kind": "query_support",
+        "first_output": {
+          "kind": "query_support",
+          "binding": {
+            "decision_fingerprint": "1da16587516b346d1e4587a642a294ed24cb78da895b649390b3ba5f3001da5e",
+            "materials_fingerprint": "67e0e797352ec6b19b453126ef96412caee43be13e1a694fb428013e71bb1dae",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "604af6712596870a30356b0d8f033c5ce6ce0cc075a30e4772448ff97c0cb407",
+            "packet_fingerprint": "c90331d2999cefa1130ae125a6eb4d5220e26213dceaecbc07921e8931dc9ef4"
+          },
+          "checks": [
+            {
+              "target": "query_facts/0",
+              "status": "unsupported",
+              "issues": [
+                "The query does not explicitly name the Wagner mercenary force. It refers to \"the world's most notorious mercenary force\" but does not use the name \"Wagner\"."
+              ]
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": false,
+        "error": null,
+        "known_usd": "0.0014887"
+      },
+      {
+        "request_id": "098c191cc2ff4800a9b4cd3385b96299",
+        "task_id": 114,
+        "article_id": 8905,
+        "kind": "query_support",
+        "first_output": {
+          "kind": "query_support",
+          "binding": {
+            "decision_fingerprint": "b4fd6c95747c2d3598b133285a1473ba5c02b27f685fcc561159a997b3b3f2b5",
+            "materials_fingerprint": "1522b6c28604278c7da6f3161281a2aeb58f43c52d069f7d742da71d51379d71",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "e88c542e54b5173775b16a68d04c81b97201f9f1b2e5e12ef3fb5b622afe8a24",
+            "packet_fingerprint": "8894f9a567a5549d573b73e8a4885f614cbdb641ec676a1fa15f6a2a8e2d7830"
+          },
+          "checks": [
+            {
+              "target": "query_facts/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.001832"
+      },
+      {
+        "request_id": "3a02370c503740d4b5e1402f4e0257de",
+        "task_id": 114,
+        "article_id": 8905,
+        "kind": "anchor_support",
+        "first_output": {
+          "kind": "anchor_support",
+          "binding": {
+            "decision_fingerprint": "b4fd6c95747c2d3598b133285a1473ba5c02b27f685fcc561159a997b3b3f2b5",
+            "materials_fingerprint": "1522b6c28604278c7da6f3161281a2aeb58f43c52d069f7d742da71d51379d71",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "e88c542e54b5173775b16a68d04c81b97201f9f1b2e5e12ef3fb5b622afe8a24",
+            "packet_fingerprint": "8894e1d8f1e3cd1b0da69ec08894f9a567a5549d573b73e8a4885f614cbdb641ec676a1fa15f6a2a8e2d7830"
+          },
+          "checks": [
+            {
+              "target": "anchor_facts/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": false,
+        "supported_by_model": false,
+        "error": "1 validation error for MemberAudit\nbinding.packet_fingerprint\n  String should match pattern '^[0-9a-f]{64}$' [type=string_pattern_mismatch, input_value='8894e1d8f1e3cd1b0da69ec0...c676a1fa15f6a2a8e2d7830', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_pattern_mismatch",
+        "known_usd": "0.0018011"
+      },
+      {
+        "request_id": "38da659079774893b1269fc73bbe193b",
+        "task_id": 116,
+        "article_id": 8899,
+        "kind": "query_support",
+        "first_output": {
+          "kind": "query_support",
+          "binding": {
+            "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+            "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae",
+            "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7"
+          },
+          "checks": [
+            {
+              "target": "query_facts/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.0021132"
+      },
+      {
+        "request_id": "a070d0367a404d02b6bf2811893879e3",
+        "task_id": 116,
+        "article_id": 8899,
+        "kind": "anchor_support",
+        "first_output": {
+          "kind": "anchor_support",
+          "binding": {
+            "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+            "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae",
+            "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7"
+          },
+          "checks": [
+            {
+              "target": "anchor_facts/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.0015348"
+      },
+      {
+        "request_id": "22c714e92c2444da97d7b5302ecce375",
+        "task_id": 116,
+        "article_id": 8899,
+        "kind": "relation",
+        "first_output": {
+          "kind": "relation",
+          "binding": {
+            "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+            "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae",
+            "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7"
+          },
+          "checks": [
+            {
+              "target": "classification",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "relation_inferences/0",
+              "status": "unsupported",
+              "issues": [
+                "The inference text claims that the query contributes only the same announcement report, not context or observer analysis. However, the query's first paragraph explicitly includes observer analysis regarding Huang Ribo's investigation and its potential implications, which is not present in the anchor's report of the investigation."
+              ]
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": false,
+        "error": null,
+        "known_usd": "0.0026809"
+      },
+      {
+        "request_id": "4e985f9100fe445abfb4de7f6b122853",
+        "task_id": 120,
+        "article_id": 8906,
+        "kind": "query_support",
+        "first_output": {
+          "kind": "query_support",
+          "binding": {
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6",
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7"
+          },
+          "checks": [
+            {
+              "target": "query_facts/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.0015245"
+      },
+      {
+        "request_id": "831cc14abed6454f8c30ef46cf138e92",
+        "task_id": 120,
+        "article_id": 8906,
+        "kind": "anchor_support",
+        "first_output": {
+          "kind": "anchor_support",
+          "binding": {
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6",
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7"
+          },
+          "checks": [
+            {
+              "target": "anchor_facts/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.0016773"
+      },
+      {
+        "request_id": "97d5796db42b4e869e54383c966e749c",
+        "task_id": 120,
+        "article_id": 8906,
+        "kind": "relation",
+        "first_output": {
+          "kind": "relation",
+          "binding": {
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6",
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7"
+          },
+          "checks": [
+            {
+              "target": "classification",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "relation_inferences/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.0022544"
+      },
+      {
+        "request_id": "1990503d346c47bb9fa76af9782aaa0b",
+        "task_id": 120,
+        "article_id": 8906,
+        "kind": "complete_basis",
+        "first_output": {
+          "kind": "complete_basis",
+          "binding": {
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6",
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7"
+          },
+          "checks": [
+            {
+              "target": "query_facts/0",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "anchor_facts/0",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "relation_inferences/0",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "basis_complete",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "attribution",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "scope",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "dates",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.0023822"
+      },
+      {
+        "request_id": "9fc9d5e9436a40a89760a1b16141a5d7",
+        "task_id": 124,
+        "article_id": 8881,
+        "kind": "query_support",
+        "first_output": {
+          "kind": "query_support",
+          "binding": {
+            "decision_fingerprint": "6ae3d2129999596af4367d4bec0d5a749e05b49d8a24816e75770c3c36d20512",
+            "materials_fingerprint": "fef09bbbf041bd424957ac0defa76b745d12194e66e202764682d05ad9c6c8ff",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "125dbe5a411cbaffc43675508ec609853910b1f195daf8512f67e7786d563cc2",
+            "packet_fingerprint": "01e578ddc6f82d318033b3bde3cbd101a66fdbe7358e8a1b7d52533b6679b914"
+          },
+          "checks": [
+            {
+              "target": "query_facts/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.0027988"
+      },
+      {
+        "request_id": "a0d07fbe89df4ba6b0b792a02f1c7f68",
+        "task_id": 124,
+        "article_id": 8881,
+        "kind": "anchor_support",
+        "first_output": {
+          "kind": "anchor_support",
+          "binding": {
+            "decision_fingerprint": "6ae3d2129999596af4367d4bec0d5a749e05b49d8a24816e75770c3c36d20512",
+            "materials_fingerprint": "fef09bbbf041bd424957ac0defa76b745d12194e66e202764682d05ad9c6c8ff",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "125dbe5a411cbaffc43675508ec609853910b1f195daf8512f67e7786d563cc2",
+            "packet_fingerprint": "01e578ddc6f82d318033b3bde3cbd101a66fdbe7358e8a1b7d52533b6679b914"
+          },
+          "checks": [
+            {
+              "target": "anchor_facts/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": true,
+        "supported_by_model": true,
+        "error": null,
+        "known_usd": "0.0015283"
+      },
+      {
+        "request_id": "4083b2fef6404386822187cd2a8d63db",
+        "task_id": 124,
+        "article_id": 8881,
+        "kind": "relation",
+        "first_output": {
+          "kind": "relation",
+          "binding": {
+            "decision_fingerprint": "6ae3d2129999596af4367d4bec0d5a749e05b49d8a24816e75770c3c36d20512",
+            "materials_fingerprint": "fef09bbbf041bd424957ac0defa76b745d12194e66e20274682d05ad9c6c8ff",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "references_fingerprint": "125dbe5a411cbaffc43675508ec609853910b1f195daf8512f67e7786d563cc2",
+            "packet_fingerprint": "01e578ddc6f82d318033b3bde3cbd101a66fdbe7358e8a1b7d52533b6679b914"
+          },
+          "checks": [
+            {
+              "target": "classification",
+              "status": "supported",
+              "issues": []
+            },
+            {
+              "target": "relation_inferences/0",
+              "status": "supported",
+              "issues": []
+            }
+          ],
+          "issues": []
+        },
+        "protocol_valid": false,
+        "supported_by_model": false,
+        "error": "1 validation error for MemberAudit\nbinding.materials_fingerprint\n  String should match pattern '^[0-9a-f]{64}$' [type=string_pattern_mismatch, input_value='fef09bbbf041bd424957ac0d...66e20274682d05ad9c6c8ff', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_pattern_mismatch",
+        "known_usd": "0.0031999"
+      }
+    ]
+  },
+  "new_physical_requests": 32,
+  "new_known_usd": "0.04562381",
+  "cumulative_r206_known_usd": "0.07734293",
+  "cumulative_r206_requests": 139,
+  "peak_known_plus_full_reservation_usd": "0.239993430000",
+  "same_pool_cap_usd": "0.30",
+  "original_seven_holds_unchanged": true,
+  "old_held_usd": "0.484867",
+  "new_unresolved_holds": [
+    {
+      "id": "9bc36dfe3a5c455e9df54756b70f1579",
+      "status": "usage_unknown",
+      "reserved_usd": "0.029746000000",
+      "provider_generation_id": "gen-1792567035-xqUccUdgq5n1RaXx5duo"
+    }
+  ],
+  "request_reconstruction_failures": [],
+  "every_reconstructed_payload_matches_original_hash": true,
+  "old_task76_and_task110_retained": true,
+  "strict_basis_review_pending": true,
+  "fresh_blind_prepared": false,
+  "first_output_hashes": {
+    "exposed": "c5421b33f31534c548679d5cca5f22aea7f65a388966854b867c40be39147376",
+    "challenge": "51169f96b49f474bc3bbb2a3296b80bc0127c21375b7512135fb5eeedcd8ea17"
+  },
+  "source_or_parameter_tuning_after_first_output": false,
+  "user_acceptance": null,
+  "production_enabled": false
+}

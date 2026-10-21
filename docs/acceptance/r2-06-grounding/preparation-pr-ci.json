@@ -1,0 +1,358 @@
+{
+  "conclusion": "success",
+  "headSha": "cf3c3eb38d0315b80514bb8a57dc6d83402639e5",
+  "jobs": [
+    {
+      "completedAt": "2026-10-21T06:30:44Z",
+      "conclusion": "success",
+      "databaseId": 119075280820,
+      "name": "conventions",
+      "startedAt": "2026-10-21T06:30:37Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-21T06:30:39Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-21T06:30:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:41Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "startedAt": "2026-10-21T06:30:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:42Z",
+          "conclusion": "success",
+          "name": "Validate PR title (Conventional Commits)",
+          "number": 3,
+          "startedAt": "2026-10-21T06:30:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:42Z",
+          "conclusion": "success",
+          "name": "Check for CJK text outside docs/",
+          "number": 4,
+          "startedAt": "2026-10-21T06:30:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:42Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 8,
+          "startedAt": "2026-10-21T06:30:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:42Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 9,
+          "startedAt": "2026-10-21T06:30:42Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119075280820"
+    },
+    {
+      "completedAt": "2026-10-21T06:30:42Z",
+      "conclusion": "success",
+      "databaseId": 119075281142,
+      "name": "changes",
+      "startedAt": "2026-10-21T06:30:36Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-21T06:30:38Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-21T06:30:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:40Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "startedAt": "2026-10-21T06:30:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:40Z",
+          "conclusion": "success",
+          "name": "Run python3 -m unittest discover -s .github/tests -v",
+          "number": 3,
+          "startedAt": "2026-10-21T06:30:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:40Z",
+          "conclusion": "success",
+          "name": "Run python3 .github/scripts/ci_scope.py",
+          "number": 4,
+          "startedAt": "2026-10-21T06:30:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:40Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 8,
+          "startedAt": "2026-10-21T06:30:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:30:40Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 9,
+          "startedAt": "2026-10-21T06:30:40Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119075281142"
+    },
+    {
+      "completedAt": "2026-10-21T06:34:01Z",
+      "conclusion": "success",
+      "databaseId": 119075327693,
+      "name": "server",
+      "startedAt": "2026-10-21T06:30:44Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-21T06:30:47Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-21T06:30:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:31:11Z",
+          "conclusion": "success",
+          "name": "Initialize containers",
+          "number": 2,
+          "startedAt": "2026-10-21T06:30:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:31:13Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3,
+          "startedAt": "2026-10-21T06:31:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:31:15Z",
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@v5",
+          "number": 4,
+          "startedAt": "2026-10-21T06:31:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:31:16Z",
+          "conclusion": "success",
+          "name": "Run uv sync --frozen",
+          "number": 5,
+          "startedAt": "2026-10-21T06:31:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:31:16Z",
+          "conclusion": "success",
+          "name": "Run uv run ruff check .",
+          "number": 6,
+          "startedAt": "2026-10-21T06:31:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:31:16Z",
+          "conclusion": "success",
+          "name": "Run uv run ruff format --check .",
+          "number": 7,
+          "startedAt": "2026-10-21T06:31:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:31:34Z",
+          "conclusion": "success",
+          "name": "Run uv run pyright",
+          "number": 8,
+          "startedAt": "2026-10-21T06:31:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:31:36Z",
+          "conclusion": "success",
+          "name": "Run uv run alembic upgrade head",
+          "number": 9,
+          "startedAt": "2026-10-21T06:31:34Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:33:57Z",
+          "conclusion": "success",
+          "name": "Run uv run pytest",
+          "number": 10,
+          "startedAt": "2026-10-21T06:31:36Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:33:57Z",
+          "conclusion": "success",
+          "name": "Verify frozen M3-B event-set ranking",
+          "number": 11,
+          "startedAt": "2026-10-21T06:33:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:33:58Z",
+          "conclusion": "success",
+          "name": "Post Run astral-sh/setup-uv@v5",
+          "number": 20,
+          "startedAt": "2026-10-21T06:33:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:33:58Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 21,
+          "startedAt": "2026-10-21T06:33:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:33:58Z",
+          "conclusion": "success",
+          "name": "Stop containers",
+          "number": 22,
+          "startedAt": "2026-10-21T06:33:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:33:58Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 23,
+          "startedAt": "2026-10-21T06:33:58Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119075327693"
+    },
+    {
+      "completedAt": "2026-10-21T06:30:42Z",
+      "conclusion": "skipped",
+      "databaseId": 119075329291,
+      "name": "admin-prototype",
+      "startedAt": "2026-10-21T06:30:42Z",
+      "status": "completed",
+      "steps": [],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119075329291"
+    },
+    {
+      "completedAt": "2026-10-21T06:30:42Z",
+      "conclusion": "skipped",
+      "databaseId": 119075329296,
+      "name": "web",
+      "startedAt": "2026-10-21T06:30:42Z",
+      "status": "completed",
+      "steps": [],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119075329296"
+    },
+    {
+      "completedAt": "2026-10-21T06:30:42Z",
+      "conclusion": "skipped",
+      "databaseId": 119075329687,
+      "name": "deploy-safety",
+      "startedAt": "2026-10-21T06:30:42Z",
+      "status": "completed",
+      "steps": [],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119075329687"
+    },
+    {
+      "completedAt": "2026-10-21T06:34:10Z",
+      "conclusion": "success",
+      "databaseId": 119076427759,
+      "name": "required-checks",
+      "startedAt": "2026-10-21T06:34:04Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-21T06:34:05Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-21T06:34:05Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:34:07Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "startedAt": "2026-10-21T06:34:05Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:34:07Z",
+          "conclusion": "success",
+          "name": "Run python3 .github/scripts/ci_scope.py --verify-needs",
+          "number": 3,
+          "startedAt": "2026-10-21T06:34:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:34:07Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 6,
+          "startedAt": "2026-10-21T06:34:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-21T06:34:07Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 7,
+          "startedAt": "2026-10-21T06:34:07Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119076427759"
+    },
+    {
+      "completedAt": "2026-10-21T06:34:10Z",
+      "conclusion": "skipped",
+      "databaseId": 119076480156,
+      "name": "build-push",
+      "startedAt": "2026-10-21T06:34:10Z",
+      "status": "completed",
+      "steps": [],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119076480156"
+    },
+    {
+      "completedAt": "2026-10-21T06:34:10Z",
+      "conclusion": "skipped",
+      "databaseId": 119076480594,
+      "name": "deploy",
+      "startedAt": "2026-10-21T06:34:10Z",
+      "status": "completed",
+      "steps": [],
+      "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572/job/119076480594"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/LinsRock/unspun/actions/runs/39555840572"
+}

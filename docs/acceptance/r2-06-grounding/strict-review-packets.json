@@ -1,0 +1,605 @@
+[
+  {
+    "task_id": 111,
+    "article_id": 8893,
+    "topic_id": "4b48a04d-31ae-5d5e-a85e-3a3760647bd4",
+    "status": "rejected",
+    "judgment_fingerprint": "c90331d2999cefa1130ae125a6eb4d5220e26213dceaecbc07921e8931dc9ef4",
+    "classification": "same_issue",
+    "facts": [
+      {
+        "target": "query_facts/0",
+        "claim": "The query explicitly names the Wagner mercenary force.",
+        "citations": [
+          {
+            "quote": "Plus, masked Israeli settlers attack a group of European diplomats, and a playboy inherits the world’s most notorious mercenary force.",
+            "reference_id": "ref_4683f4a5bbc63f3ca9c01165",
+            "server_expanded": {
+              "role": "query",
+              "article_id": 8893,
+              "material_id": 100053,
+              "paragraph": 0,
+              "voice": "reported",
+              "scope": "preview",
+              "visible_text": "Plus, masked Israeli settlers attack a group of European diplomats, and a playboy inherits the world’s most notorious mercenary force."
+            }
+          }
+        ]
+      },
+      {
+        "target": "anchor_facts/0",
+        "claim": "The anchor concerns the son of the Wagner Group founder.",
+        "citations": [
+          {
+            "quote": "The son of Wagner Group’s late founder hangs on to an African stronghold, making a fortune from guns, drugs and gold.",
+            "reference_id": "ref_fd5740cac2af3b37bd908cb7",
+            "server_expanded": {
+              "role": "anchor",
+              "article_id": 8861,
+              "material_id": 100018,
+              "paragraph": 0,
+              "voice": "reported",
+              "scope": "preview",
+              "visible_text": "The son of Wagner Group’s late founder hangs on to an African stronghold, making a fortune from guns, drugs and gold."
+            }
+          }
+        ]
+      }
+    ],
+    "relation_inferences": [
+      {
+        "text": "Both cover the continuing mercenary-force succession issue.",
+        "query_fact_indices": [
+          0
+        ],
+        "anchor_fact_indices": [
+          0
+        ]
+      }
+    ],
+    "basis": null,
+    "review": {
+      "audits": [
+        {
+          "kind": "query_support",
+          "checks": [
+            {
+              "issues": [
+                "The query does not explicitly name the Wagner mercenary force. It refers to \"the world's most notorious mercenary force\" but does not use the name \"Wagner\"."
+              ],
+              "status": "unsupported",
+              "target": "query_facts/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "c90331d2999cefa1130ae125a6eb4d5220e26213dceaecbc07921e8931dc9ef4",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "1da16587516b346d1e4587a642a294ed24cb78da895b649390b3ba5f3001da5e",
+            "materials_fingerprint": "67e0e797352ec6b19b453126ef96412caee43be13e1a694fb428013e71bb1dae",
+            "references_fingerprint": "604af6712596870a30356b0d8f033c5ce6ce0cc075a30e4772448ff97c0cb407"
+          }
+        }
+      ],
+      "binding": {
+        "packet_fingerprint": "c90331d2999cefa1130ae125a6eb4d5220e26213dceaecbc07921e8931dc9ef4",
+        "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+        "decision_fingerprint": "1da16587516b346d1e4587a642a294ed24cb78da895b649390b3ba5f3001da5e",
+        "materials_fingerprint": "67e0e797352ec6b19b453126ef96412caee43be13e1a694fb428013e71bb1dae",
+        "references_fingerprint": "604af6712596870a30356b0d8f033c5ce6ce0cc075a30e4772448ff97c0cb407"
+      }
+    },
+    "source_titles": {
+      "query": "Zelensky Takes a Risk by Publicly Confronting Trump Over Russia",
+      "anchors": [
+        "The Playboy Who Inherited the World’s Most Notorious Mercenary Force"
+      ]
+    }
+  },
+  {
+    "task_id": 115,
+    "article_id": 8899,
+    "topic_id": "d89ba81d-583e-5370-9f38-4eae277c92a0",
+    "status": "rejected",
+    "judgment_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+    "classification": "same_event",
+    "facts": [
+      {
+        "target": "query_facts/0",
+        "claim": "The query includes observer analysis of Huang Ribo being investigated.",
+        "citations": [
+          {
+            "quote": "中国广西壮族自治区政协原副主席黄日波官宣被查，成为今年广西落马“首虎”。受访观察人士分析，这名无党派副省级官员在中共召开五中全会一周前落马，可能是官方在释放信息要进一步全面治理腐败，不仅对内全面从严治党，也对其他掌握公共资源的现任或退休党外官员全面整肃。",
+            "reference_id": "ref_856be210e6857b7e74a7ee20",
+            "server_expanded": {
+              "role": "query",
+              "article_id": 8899,
+              "material_id": 100059,
+              "paragraph": 0,
+              "voice": "reported",
+              "scope": "open_text_unit",
+              "visible_text": "中国广西壮族自治区政协原副主席黄日波官宣被查，成为今年广西落马“首虎”。受访观察人士分析，这名无党派副省级官员在中共召开五中全会一周前落马，可能是官方在释放信息要进一步全面治理腐败，不仅对内全面从严治党，也对其他掌握公共资源的现任或退休党外官员全面整肃。"
+            }
+          }
+        ]
+      },
+      {
+        "target": "anchor_facts/0",
+        "claim": "The anchor reports that Huang Ribo is under investigation.",
+        "citations": [
+          {
+            "quote": "中国广西壮族自治区政协原副主席黄日波被查。",
+            "reference_id": "ref_8ccce0cb6e180997eeeec5b3",
+            "server_expanded": {
+              "role": "anchor",
+              "article_id": 8879,
+              "material_id": 100036,
+              "paragraph": 0,
+              "voice": "reported",
+              "scope": "open_text_unit",
+              "visible_text": "中国广西壮族自治区政协原副主席黄日波被查。"
+            }
+          }
+        ]
+      }
+    ],
+    "relation_inferences": [
+      {
+        "text": "The query contributes only the same announcement report, not context or observer analysis.",
+        "query_fact_indices": [
+          0
+        ],
+        "anchor_fact_indices": [
+          0
+        ]
+      }
+    ],
+    "basis": null,
+    "review": {
+      "audits": [
+        {
+          "kind": "query_support",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "query_facts/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+            "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+            "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae"
+          }
+        },
+        {
+          "kind": "anchor_support",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "anchor_facts/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+            "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+            "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae"
+          }
+        },
+        {
+          "kind": "relation",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "classification"
+            },
+            {
+              "issues": [
+                "The inference text claims that the query contributes only the same announcement report, not context or observer analysis. However, the query's first paragraph explicitly includes observer analysis regarding Huang Ribo's investigation and its potential implications, which is not present in the anchor's report of the investigation."
+              ],
+              "status": "unsupported",
+              "target": "relation_inferences/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+            "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+            "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae"
+          }
+        }
+      ],
+      "binding": {
+        "packet_fingerprint": "69994b8326c80f0d04df06e99bec7b9978c95dab788147f9637a693b9f3e4bf7",
+        "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+        "decision_fingerprint": "42ab2ccb91b811092047e70dc26befb617377892d3e31c1b84c6bb81b636c2af",
+        "materials_fingerprint": "9ef1ec30af52457729bda9e3b36fb43d3b134e1298e7c03b839e4178b29c1fdb",
+        "references_fingerprint": "7c2d631909ccc1d0f6ef053f850f34aa92232f5261aff1202ff0a9ca719833ae"
+      }
+    },
+    "source_titles": {
+      "query": "与“壮王”蓝天立多有交集 今年广西“首虎”黄日波落马",
+      "anchors": [
+        "涉嫌严重职务违法 广西政协原副主席黄日波被查"
+      ]
+    }
+  },
+  {
+    "task_id": 119,
+    "article_id": 8906,
+    "topic_id": "65a5fc68-e41b-57be-b414-46f05ccfd94e",
+    "status": "applied",
+    "judgment_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+    "classification": "same_event",
+    "facts": [
+      {
+        "target": "query_facts/0",
+        "claim": "Li Qiang met Rasulzoda in Dushanbe on October 18.",
+        "citations": [
+          {
+            "quote": "据新华社报道，李强星期天（10月18日）在塔吉克斯坦首都杜尚别，同塔吉克斯坦总理拉苏尔佐达举行会谈时说，中方愿同塔方深入对接发展战略，推动高质量共建“一带一路”，深化贸易投资、绿色矿产、互联互通、清洁能源、人工智能等领域合作，更好实现互利共赢。中方愿进口塔方更多优质商品，鼓励中国企业赴塔投资兴业，希望塔方继续为企业提供良好营商环境。",
+            "reference_id": "ref_2088c76e08e02ba66b346384",
+            "server_expanded": {
+              "role": "query",
+              "article_id": 8906,
+              "material_id": 100067,
+              "paragraph": 1,
+              "voice": "reported",
+              "scope": "open_text_unit",
+              "visible_text": "据新华社报道，李强星期天（10月18日）在塔吉克斯坦首都杜尚别，同塔吉克斯坦总理拉苏尔佐达举行会谈时说，中方愿同塔方深入对接发展战略，推动高质量共建“一带一路”，深化贸易投资、绿色矿产、互联互通、清洁能源、人工智能等领域合作，更好实现互利共赢。中方愿进口塔方更多优质商品，鼓励中国企业赴塔投资兴业，希望塔方继续为企业提供良好营商环境。"
+            }
+          }
+        ]
+      },
+      {
+        "target": "anchor_facts/0",
+        "claim": "Li Qiang met Rasulzoda in Dushanbe on October 18.",
+        "citations": [
+          {
+            "quote": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。",
+            "reference_id": "ref_625c71e8d19b8e07e3e7399c",
+            "server_expanded": {
+              "role": "anchor",
+              "article_id": 8985,
+              "material_id": 100098,
+              "paragraph": 0,
+              "voice": "reported",
+              "scope": "editorial_edition",
+              "visible_text": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。"
+            }
+          }
+        ]
+      }
+    ],
+    "relation_inferences": [
+      {
+        "text": "Both report the same October 18 meeting between the same participants.",
+        "query_fact_indices": [
+          0
+        ],
+        "anchor_fact_indices": [
+          0
+        ]
+      }
+    ],
+    "basis": null,
+    "review": {
+      "audits": [
+        {
+          "kind": "query_support",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "query_facts/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        },
+        {
+          "kind": "anchor_support",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "anchor_facts/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        },
+        {
+          "kind": "relation",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "classification"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "relation_inferences/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        },
+        {
+          "kind": "complete_basis",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "query_facts/0"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "anchor_facts/0"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "relation_inferences/0"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "basis_complete"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "attribution"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "scope"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "dates"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        }
+      ],
+      "binding": {
+        "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+        "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+        "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+        "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+        "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+      }
+    },
+    "source_titles": {
+      "query": "李强：中国愿同塔吉克斯坦深入对接发展战略",
+      "anchors": [
+        "李强同塔吉克斯坦总理拉苏尔佐达会谈"
+      ]
+    }
+  },
+  {
+    "task_id": 121,
+    "article_id": 8906,
+    "topic_id": "a83c18a2-c3c1-55b8-9f73-5127d8ed849f",
+    "status": "rejected",
+    "judgment_fingerprint": "dbbca3794325cc8e20ca9d2d1598e55f71a4589f582d90af3f9e58994da04b36",
+    "classification": "same_event",
+    "facts": [
+      {
+        "target": "query_facts/0",
+        "claim": "Li Qiang met Rasulzoda in Dushanbe on October 18.",
+        "citations": [
+          {
+            "quote": "据新华社报道，李强星期天（10月18日）在塔吉克斯坦首都杜尚别，同塔吉克斯坦总理拉苏尔佐达举行会谈时说，中方愿同塔方深入对接发展战略，推动高质量共建“一带一路”，深化贸易投资、绿色矿产、互联互通、清洁能源、人工智能等领域合作，更好实现互利共赢。中方愿进口塔方更多优质商品，鼓励中国企业赴塔投资兴业，希望塔方继续为企业提供良好营商环境。",
+            "reference_id": "ref_2088c76e08e02ba66b346384",
+            "server_expanded": {
+              "role": "query",
+              "article_id": 8906,
+              "material_id": 100067,
+              "paragraph": 1,
+              "voice": "reported",
+              "scope": "open_text_unit",
+              "visible_text": "据新华社报道，李强星期天（10月18日）在塔吉克斯坦首都杜尚别，同塔吉克斯坦总理拉苏尔佐达举行会谈时说，中方愿同塔方深入对接发展战略，推动高质量共建“一带一路”，深化贸易投资、绿色矿产、互联互通、清洁能源、人工智能等领域合作，更好实现互利共赢。中方愿进口塔方更多优质商品，鼓励中国企业赴塔投资兴业，希望塔方继续为企业提供良好营商环境。"
+            }
+          }
+        ]
+      },
+      {
+        "target": "anchor_facts/0",
+        "claim": "Li Qiang met Rasulzoda in Dushanbe on October 18.",
+        "citations": [
+          {
+            "quote": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。",
+            "reference_id": "ref_625c71e8d19b8e07e3e7399c",
+            "server_expanded": {
+              "role": "anchor",
+              "article_id": 8985,
+              "material_id": 100098,
+              "paragraph": 0,
+              "voice": "reported",
+              "scope": "editorial_edition",
+              "visible_text": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。"
+            }
+          }
+        ]
+      }
+    ],
+    "relation_inferences": [
+      {
+        "text": "Both report the same October 18 meeting between the same participants.",
+        "query_fact_indices": [
+          0
+        ],
+        "anchor_fact_indices": [
+          0
+        ]
+      }
+    ],
+    "basis": null,
+    "review": {
+      "audits": [
+        {
+          "kind": "query_support",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "query_facts/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        },
+        {
+          "kind": "anchor_support",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "anchor_facts/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        },
+        {
+          "kind": "relation",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "classification"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "relation_inferences/0"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        },
+        {
+          "kind": "complete_basis",
+          "checks": [
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "query_facts/0"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "anchor_facts/0"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "relation_inferences/0"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "basis_complete"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "attribution"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "scope"
+            },
+            {
+              "issues": [],
+              "status": "supported",
+              "target": "dates"
+            }
+          ],
+          "issues": [],
+          "binding": {
+            "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+            "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+            "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+            "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+            "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+          }
+        }
+      ],
+      "binding": {
+        "packet_fingerprint": "26ecc4bdcff1ebb13ce3bec8508c8bb28c1c73a15f868546826fa8ffd23526f7",
+        "contract_fingerprint": "e79180ac1ea78b70a99b1cdb2a1e9b5b4fea5c18f7723641c55f09a48f8cd404",
+        "decision_fingerprint": "a09468cfaf7a1b9c44cefdb5d7e5ce8aac2feb7a0a6bfd2f6f16ec8107ca5b0c",
+        "materials_fingerprint": "b68284934033699b95925af95e908bff891c26999eca06deaf87aa9dfafe2542",
+        "references_fingerprint": "9f2ae9331d624ce7b0ec061bb072af5bb6a1f98a757cd8f4efc23a625d271ed6"
+      }
+    },
+    "source_titles": {
+      "query": "李强：中国愿同塔吉克斯坦深入对接发展战略",
+      "anchors": [
+        "李强同塔吉克斯坦总理拉苏尔佐达会谈"
+      ]
+    }
+  }
+]

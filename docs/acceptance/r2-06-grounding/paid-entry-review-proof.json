@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-21T06:47:13.445380+00:00",
+  "pr_url": "https://github.com/LinsRock/unspun/pull/123",
+  "merge_revision": "beb8e03ade1bfac90ffd509eb340f35210494275",
+  "pr_ci_url": "https://github.com/LinsRock/unspun/actions/runs/39555840572",
+  "main_ci_url": "https://github.com/LinsRock/unspun/actions/runs/39556445688",
+  "pr_ci_passed": true,
+  "main_ci_deployed": true,
+  "deployed_source_hashes_match": true,
+  "deployed_source_files": 95,
+  "source_freeze_sha256": "1b1b8348123fc1e4d190f304ebde53e116517924be6d798735aa01528494ccdd",
+  "execution_fingerprint": "249a9da41881da1a33209d612d263997fb5ce74ff03cb8b8ec08a7eabd96413e",
+  "production_enabled": false,
+  "production_member_tasks": 0,
+  "production_member_calls": 0,
+  "new_production_stage_allocations": 0,
+  "new_production_tables_empty": 7,
+  "schema": "000019",
+  "r204_containers_and_old_files_unchanged": true,
+  "new_paid_requests_before_proof": 0
+}

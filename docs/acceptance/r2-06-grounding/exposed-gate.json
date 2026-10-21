@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-21T07:26:35.984920+00:00",
+  "exposed_numeric_and_strict_basis_pass": false,
+  "metrics": {
+    "candidate_recall": {
+      "numerator": 3,
+      "denominator": 9,
+      "value": 0.3333333333333333
+    },
+    "judgment_precision": {
+      "numerator": 2,
+      "denominator": 4,
+      "value": 0.5
+    },
+    "strict_supported_final_coverage": {
+      "numerator": 0,
+      "denominator": 9,
+      "value": 0.0
+    },
+    "all_invalid_applied": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    }
+  },
+  "real_challenges_pass": false,
+  "strict_basis_review_complete": true,
+  "strict_basis_findings": [],
+  "source_freeze_sha256": "2af01778ca1242e89ce014f5820bebd8a713675439136959b601bc7db604df7e",
+  "execution_fingerprint": "249a9da41881da1a33209d612d263997fb5ce74ff03cb8b8ec08a7eabd96413e",
+  "first_output_sha256": "c5421b33f31534c548679d5cca5f22aea7f65a388966854b867c40be39147376",
+  "challenge_first_output_sha256": "51169f96b49f474bc3bbb2a3296b80bc0127c21375b7512135fb5eeedcd8ea17",
+  "global_paid_stop": true,
+  "fresh_blind_preparation_authorized": false,
+  "quality_recall_on_unstarted_queries_not_inferred": true
+}

@@ -1,0 +1,335 @@
+{
+  "at": "2026-10-21T07:26:35.984676+00:00",
+  "status": "failed_partial_exposed_and_global_paid_stop",
+  "source_freeze_sha256": "2af01778ca1242e89ce014f5820bebd8a713675439136959b601bc7db604df7e",
+  "execution_fingerprint": "249a9da41881da1a33209d612d263997fb5ce74ff03cb8b8ec08a7eabd96413e",
+  "exposed": {
+    "registered": 18,
+    "genuinely_unavailable_identity_conflict": 1,
+    "executable": 17,
+    "started_queries": 4,
+    "prior_regression_started": 4,
+    "prior_regression_executable": 11,
+    "previously_unsealed_started": 0,
+    "previously_unsealed_registered": 6,
+    "unstarted_executable": 13,
+    "last_query_incomplete": 8905,
+    "first_model_outputs_returned": 15,
+    "first_physical_judge_attempts": 16,
+    "malformed_long_fact_decisions": 4,
+    "http_error_without_decision": 1,
+    "metrics": {
+      "candidate_recall_on_started_queries": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "registered_expected_pairs_reached": {
+        "numerator": 3,
+        "denominator": 9,
+        "value": 0.3333333333333333
+      },
+      "raw_relation_precision": {
+        "numerator": 2,
+        "denominator": 4,
+        "value": 0.5
+      },
+      "schema_valid_over_physical_judge_attempts": {
+        "numerator": 11,
+        "denominator": 16,
+        "value": 0.6875
+      },
+      "schema_valid_over_returned_json_decisions": {
+        "numerator": 11,
+        "denominator": 15,
+        "value": 0.7333333333333333
+      },
+      "strict_references_over_attempts": {
+        "numerator": 11,
+        "denominator": 16,
+        "value": 0.6875
+      },
+      "strict_references_among_schema_valid": {
+        "numerator": 11,
+        "denominator": 11,
+        "value": 1.0
+      },
+      "legal_first_label_accuracy": {
+        "numerator": 10,
+        "denominator": 16,
+        "value": 0.625
+      },
+      "strict_supported_final_coverage_registered": {
+        "numerator": 0,
+        "denominator": 9,
+        "value": 0.0
+      },
+      "strict_supported_final_coverage_observed": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0.0
+      },
+      "invalid_writes_among_natural_applied": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "false_merges_among_natural_applied": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "negative_pairs_applied": {
+        "numerator": 0,
+        "denominator": 13,
+        "value": 0.0
+      },
+      "unsupported_reviewed_full_bases": 2,
+      "semantic_rejections_among_unsupported_reviewed_bases": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "protocol_blocks_among_unsupported_reviewed_bases": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "query_subaudit_false_support_of_checked_overbroad_claim": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "all_complete_review_bundles": 0,
+      "actual_natural_cas_applied": 0
+    },
+    "raw_initial_13_of_16_label_agreement_is_diagnostic_only": true,
+    "malformed_independent_outputs_never_counted_as_success": 3,
+    "warm_vector_lookups": 37,
+    "distinct_warm_versions": 14,
+    "new_embedding_requests": 0,
+    "cold_vectors": "unmeasured because global stop preceded all new exposed material queries",
+    "complete_successful_natural_cold_chain_cost": "unmeasured",
+    "complete_successful_natural_warm_chain_cost": "unmeasured; zero natural applied decisions",
+    "actual_failed_query_costs": [
+      {
+        "article_id": 8881,
+        "all_task_statuses": {
+          "completed": 5,
+          "failed": 1
+        },
+        "actual_embedding_http_calls": 0,
+        "actual_judgment_http_calls": 4,
+        "actual_audit_http_calls": 1,
+        "physical_requests": 5,
+        "active_held_usd": "0",
+        "cache_state_before": {
+          "unique_inputs": 9,
+          "warm_versions": 9
+        },
+        "complete_four_audit_and_cas_pairs": [],
+        "includes_all_selected_negative_judgments": true,
+        "ran_to_terminal_with_failures": true,
+        "attempted_query_known_usd": "0.00602051",
+        "complete_successful_natural_chain": false
+      },
+      {
+        "article_id": 8898,
+        "all_task_statuses": {
+          "completed": 5,
+          "failed": 1
+        },
+        "actual_embedding_http_calls": 0,
+        "actual_judgment_http_calls": 4,
+        "actual_audit_http_calls": 2,
+        "physical_requests": 6,
+        "active_held_usd": "0",
+        "cache_state_before": {
+          "unique_inputs": 9,
+          "warm_versions": 9
+        },
+        "complete_four_audit_and_cas_pairs": [],
+        "includes_all_selected_negative_judgments": true,
+        "ran_to_terminal_with_failures": true,
+        "attempted_query_known_usd": "0.0069220",
+        "complete_successful_natural_chain": false
+      },
+      {
+        "article_id": 8899,
+        "all_task_statuses": {
+          "completed": 2,
+          "failed": 3
+        },
+        "actual_embedding_http_calls": 0,
+        "actual_judgment_http_calls": 4,
+        "actual_audit_http_calls": 0,
+        "physical_requests": 4,
+        "active_held_usd": "0",
+        "cache_state_before": {
+          "unique_inputs": 10,
+          "warm_versions": 10
+        },
+        "complete_four_audit_and_cas_pairs": [],
+        "includes_all_selected_negative_judgments": true,
+        "ran_to_terminal_with_failures": true,
+        "attempted_query_known_usd": "0.0037193",
+        "complete_successful_natural_chain": false
+      },
+      {
+        "article_id": 8905,
+        "all_task_statuses": {
+          "completed": 3,
+          "failed": 2,
+          "pending": 1
+        },
+        "actual_embedding_http_calls": 0,
+        "actual_judgment_http_calls": 4,
+        "actual_audit_http_calls": 0,
+        "physical_requests": 4,
+        "active_held_usd": "0.029746000000",
+        "cache_state_before": {
+          "unique_inputs": 9,
+          "warm_versions": 9
+        },
+        "complete_four_audit_and_cas_pairs": [],
+        "includes_all_selected_negative_judgments": true,
+        "ran_to_terminal_with_failures": false,
+        "attempted_query_known_usd": "0.0021459",
+        "complete_successful_natural_chain": false
+      }
+    ],
+    "initial_report_cost_completion_flag_is_not_per_query_terminal_success": true
+  },
+  "separate_challenges": {
+    "semantic_adversaries": {
+      "registered": 3,
+      "explicit_semantic_rejections": 2,
+      "date_conflict_full_review_unmeasured": 1,
+      "invalid_writes": 0
+    },
+    "forbidden_voice_and_paragraph": {
+      "blocked": 2,
+      "attempted": 2,
+      "paid_requests": 0
+    },
+    "supported_control": {
+      "complete_bound_audits": 4,
+      "paid_review_requests": 4,
+      "real_cas_applied": 1,
+      "applied_revision": 3,
+      "strict_supported_applied": 1,
+      "known_usd": "0.0078384",
+      "includes_natural_embedding_recall_judgment": false
+    },
+    "stale_real_review_replay": {
+      "blocked": 1,
+      "attempted": 1,
+      "additional_http_requests": 0
+    },
+    "cas_competition": {
+      "status": "unmeasured",
+      "reason": "First real control relation audit returned an invalid material fingerprint; the second control and concurrent apply were never reached.",
+      "first_control_paid_audits": 3,
+      "known_usd": "0.0075270"
+    },
+    "independent_relation_classification_subcheck_miss": {
+      "case": "analysis-as-report",
+      "classification_check": "supported despite the registered opinion/background contribution",
+      "inference_check": "unsupported; the whole relation audit rejected the unchanged decision",
+      "invalid_write": false
+    },
+    "natural_end_to_end": false,
+    "all_challenges_pass": false
+  },
+  "fresh_blind": {
+    "prepared": false,
+    "read": false,
+    "executed": false,
+    "status": "blocked before preparation by failed exposed/challenge gate and mandatory unknown-cost stop",
+    "family_isolation_or_missing_real_dimensions_verified": false,
+    "synthetic_or_fake_ready_substitutions": 0
+  },
+  "money": {
+    "new_paid_attempts": 32,
+    "new_settled_known_requests": 31,
+    "new_unknown_requests": 1,
+    "new_known_usd": "0.04562381",
+    "previous_pool_requests": 107,
+    "previous_pool_known_usd": "0.03171912",
+    "same_pool_cumulative_requests": 139,
+    "same_pool_cumulative_known_usd": "0.07734293",
+    "same_pool_active_full_holds_usd": "0.029746",
+    "same_pool_known_plus_active_full_holds_usd": "0.10708893",
+    "same_pool_limit_usd": "0.30",
+    "unused_after_active_hold_usd": "0.19291107",
+    "unused_is_not_permission_to_resume": true,
+    "original_seven_holds_usd": "0.484867",
+    "all_eight_holds_usd": "0.514613",
+    "evaluation_limit_usd": "1.50",
+    "evaluation_all_time_accounting": {
+      "period": "since_cutover",
+      "known_spend_usd": "0.44635292999999987",
+      "historical_carry_usd": "0E-12",
+      "carry_basis": "isolated-evaluation-allocation",
+      "unresolved_holds_usd": "0.514613000000",
+      "occupancy_usd": "0.96096592999999987",
+      "holds_are_not_actual_fees": true
+    },
+    "peak_known_plus_one_full_reservation_usd": "0.239993430000",
+    "provider_usage_before": "9.41449723",
+    "provider_usage_after": "9.46012104",
+    "provider_delta_usd": "0.04562381",
+    "concurrent_r1_known_usd": "0",
+    "provider_minus_known_new_and_r1_residual_usd": "0E-8",
+    "zero_residual_does_not_prove_the_429_was_free": true,
+    "unknown_generation_lookup_http_status": 404,
+    "retained_unknown_request_id": "9bc36dfe3a5c455e9df54756b70f1579",
+    "stop_was_unknown_not_budget_exhaustion": true,
+    "old_holds_not_released": true,
+    "allocation_not_reset": true,
+    "paid_retries": 0,
+    "phase_paid_attempts": {
+      "challenge": 13,
+      "exposed": 19,
+      "blind": 0
+    },
+    "cumulative_stage_paid_attempts": {
+      "topic_embedding": 22,
+      "topic_judgment": 98,
+      "topic_review": 19
+    },
+    "new_stage_costs": {
+      "topic_embedding": {
+        "requests": 0,
+        "known_usd": "0"
+      },
+      "topic_judgment": {
+        "requests": 16,
+        "known_usd": "0.01123181",
+        "held_usd": "0.029746"
+      },
+      "topic_review": {
+        "requests": 16,
+        "known_usd": "0.0343920",
+        "held_usd": "0"
+      }
+    }
+  },
+  "original_task76_invalid_write_retained": true,
+  "old_task110_untouched": true,
+  "all_new_paid_work_stopped": true,
+  "production_enabled": false,
+  "user_acceptance": null,
+  "first_output_hashes": {
+    "exposed": "c5421b33f31534c548679d5cca5f22aea7f65a388966854b867c40be39147376",
+    "challenge": "51169f96b49f474bc3bbb2a3296b80bc0127c21375b7512135fb5eeedcd8ea17"
+  },
+  "source_or_parameters_changed_after_first_paid_output": false,
+  "remaining": [
+    "Reconcile the new 429 generation with a genuine cost receipt without releasing the original seven holds or bypassing the global stop.",
+    "Fix reliable schema-length compliance and audit fingerprint transmission in a separately reviewed, newly frozen implementation; retain these first failures.",
+    "Validate date conflicts and contribution granularity semantically, plus the overbroad query attribution false support.",
+    "Complete the 13 unstarted exposed queries, the pending date review, full real CAS competition, cold vectors and complete successful natural cold/warm chain costs only under a new reviewed continuation registration and remaining same-pool authorization.",
+    "Do not prepare a fresh independent family-isolated blind holdout until all original numeric and strict-basis gates and real challenges pass; real repost/original-background and other registered missing dimensions remain unmeasured."
+  ]
+}

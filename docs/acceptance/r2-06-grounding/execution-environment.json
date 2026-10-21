@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-21T07:38:55.286460+00:00",
+  "supplement_to_evidence_manifest_sha256": "7a50a4238515a334feda4a62808969a3f5e5eca75c910c4eea2b3cee14aae6d5",
+  "python": "3.13.2 (main, Mar 17 2025, 21:26:38) [Clang 20.1.0 ]",
+  "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+  "evaluation_python": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/.venv/bin/python",
+  "actual_member_contract_import": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/core/member_contracts.py",
+  "packages": {
+    "httpx": "0.28.1",
+    "socksio": "1.0.0",
+    "pydantic": "2.13.5",
+    "sqlalchemy": "2.1.4",
+    "psycopg": "3.3.6"
+  },
+  "project_dependencies_and_lock_unchanged": true,
+  "local_proxy_extra": "socksio==1.0.0 installed only in the isolated evaluation venv after uv sync --frozen for the existing SOCKS proxy. It is not a new production dependency, provider routing change, or fee allocation. Reproduction with --proxy needs this local extra.",
+  "proxy": "socks5://127.0.0.1:12061",
+  "credentials_not_recorded": true,
+  "paid_requests": 0
+}

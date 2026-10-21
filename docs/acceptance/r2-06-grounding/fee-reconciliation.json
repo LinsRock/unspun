@@ -1,0 +1,66 @@
+{
+  "new_paid_attempts": 32,
+  "new_settled_known_requests": 31,
+  "new_unknown_requests": 1,
+  "new_known_usd": "0.04562381",
+  "previous_pool_requests": 107,
+  "previous_pool_known_usd": "0.03171912",
+  "same_pool_cumulative_requests": 139,
+  "same_pool_cumulative_known_usd": "0.07734293",
+  "same_pool_active_full_holds_usd": "0.029746",
+  "same_pool_known_plus_active_full_holds_usd": "0.10708893",
+  "same_pool_limit_usd": "0.30",
+  "unused_after_active_hold_usd": "0.19291107",
+  "unused_is_not_permission_to_resume": true,
+  "original_seven_holds_usd": "0.484867",
+  "all_eight_holds_usd": "0.514613",
+  "evaluation_limit_usd": "1.50",
+  "evaluation_all_time_accounting": {
+    "period": "since_cutover",
+    "known_spend_usd": "0.44635292999999987",
+    "historical_carry_usd": "0E-12",
+    "carry_basis": "isolated-evaluation-allocation",
+    "unresolved_holds_usd": "0.514613000000",
+    "occupancy_usd": "0.96096592999999987",
+    "holds_are_not_actual_fees": true
+  },
+  "peak_known_plus_one_full_reservation_usd": "0.239993430000",
+  "provider_usage_before": "9.41449723",
+  "provider_usage_after": "9.46012104",
+  "provider_delta_usd": "0.04562381",
+  "concurrent_r1_known_usd": "0",
+  "provider_minus_known_new_and_r1_residual_usd": "0E-8",
+  "zero_residual_does_not_prove_the_429_was_free": true,
+  "unknown_generation_lookup_http_status": 404,
+  "retained_unknown_request_id": "9bc36dfe3a5c455e9df54756b70f1579",
+  "stop_was_unknown_not_budget_exhaustion": true,
+  "old_holds_not_released": true,
+  "allocation_not_reset": true,
+  "paid_retries": 0,
+  "phase_paid_attempts": {
+    "challenge": 13,
+    "exposed": 19,
+    "blind": 0
+  },
+  "cumulative_stage_paid_attempts": {
+    "topic_embedding": 22,
+    "topic_judgment": 98,
+    "topic_review": 19
+  },
+  "new_stage_costs": {
+    "topic_embedding": {
+      "requests": 0,
+      "known_usd": "0"
+    },
+    "topic_judgment": {
+      "requests": 16,
+      "known_usd": "0.01123181",
+      "held_usd": "0.029746"
+    },
+    "topic_review": {
+      "requests": 16,
+      "known_usd": "0.0343920",
+      "held_usd": "0"
+    }
+  }
+}
