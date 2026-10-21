@@ -7,6 +7,7 @@ from unspun.core.member_contracts import (
     AUDIT_KINDS,
     AuditKind,
     MemberAudit,
+    MemberAuditContent,
     MemberDecision,
     MemberReview,
     ReviewBinding,
@@ -124,12 +125,10 @@ def review_supported(
 def audit_packet(
     packet: dict[str, Any], decision: MemberDecision, kind: AuditKind
 ) -> dict[str, Any]:
-    binding = review_binding(packet, decision)
     out: dict[str, Any] = {
         "kind": kind,
-        "binding": binding.model_dump(mode="json"),
         "targets": audit_targets(decision, kind),
-        "output_schema": MemberAudit.model_json_schema(),
+        "output_schema": MemberAuditContent.model_json_schema(),
     }
     if kind in ("query_support", "anchor_support"):
         role: Literal["query", "anchor"] = "query" if kind == "query_support" else "anchor"

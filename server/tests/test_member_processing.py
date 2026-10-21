@@ -123,8 +123,6 @@ class MemberDB:
             packet = json.loads(payload["messages"][1]["content"])
             if "kind" in packet:
                 out = {
-                    "kind": packet["kind"],
-                    "binding": packet["binding"],
                     "checks": [
                         {
                             "target": target,

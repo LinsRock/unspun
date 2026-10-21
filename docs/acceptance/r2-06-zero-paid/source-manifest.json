@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-21T09:01:52.386243+00:00",
+  "contract": {
+    "version": "r2-member-v5",
+    "recall": "material-subject-ranked-32-valid-anchors-stratified-12-v2",
+    "embedding": "material-prefix-24000-bytes-v1",
+    "semantic_input": "owned-facts-reference-catalog-12000-chars-v3",
+    "references": "owned-visible-paragraph-voice-id-v1",
+    "audits": "query-only-anchor-only-relation-complete-basis-receipted-v2",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "dimensions": 1024,
+    "judgment_model": "google/gemini-2.5-flash-lite",
+    "review_model": "google/gemini-2.5-flash",
+    "judgment_prompt": "ca1f7e59bff5d6342ffe36ead017e3a3b16016feb4dc4d5a0cd685921cc66c6d",
+    "review_prompt": "857fd3cbe5bb7f78ca0ae228036479b5cc0b36e85b72687139ac8f014d9c11f6",
+    "decision_schema": "d1f1b545adce5188aef00a9ea443498c9331befb9e5eeb224050ce5975a10166",
+    "review_schema": "9e68029237dd34c56a1da1e74b24a9c9ceb752cda5f25a0011021150ce8fcbe2",
+    "audit_envelope_schema": "f775e712d129f2192f56730ae5c2bdd29a2a95554f4557bdd4a4473c3c736781",
+    "review_bundle_schema": "424e0ec53b0491a5be21d23a4fbf90d8d36154227b95bc7206da082c8074c57e"
+  },
+  "paid_execution_authorized": false,
+  "files": {
+    "server/src/unspun/core/llm.py": "9e2f5984510694269c65ccb5e46c144630f543a18616e78288cc430ae8d7d142",
+    "server/src/unspun/core/member_contracts.py": "325b98c2fbb7c1e4aedd112c6afb3184cee6a671f6d0a64031fbfcf2bdae863b",
+    "server/src/unspun/core/member_evidence.py": "5d8569c0e64b87da270f67d056e37faac8fbce21452cbe9b0f1de2c9e6471039",
+    "server/src/unspun/core/member_receipts.py": "4a1d1ee3f1ae016e93686d388c7b7ecd7c20d75e3c8546633d8e91ffcfb3f336",
+    "server/src/unspun/pipeline/member_processing.py": "74900104b40c287d707f73bf25ec801ae8b96a62d51c58d82c2305b6ef13235b",
+    "server/tests/test_member_receipts.py": "16c3e3f364b5dc9f4ae17047b483204bf72e3dfe25a50211430608a1cbb0e2b2",
+    "server/tests/test_member_receipt_replay.py": "9e1c3d16b5ca01bdef1831b9403861762edcf94ff35d1dbf2a88e237ff37cd90",
+    "server/tests/test_member_grounding.py": "fd131b3c8a3d7a6d223c5b856b1e658a09e1e320c16421c466c1a19b3c581d84",
+    "server/tests/test_member_processing.py": "cb682574831f1695acf12a1b9d6aea4b61c464bf6e850552a8b6566e86ec3886"
+  }
+}

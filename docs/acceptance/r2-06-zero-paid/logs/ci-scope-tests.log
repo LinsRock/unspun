@@ -1,0 +1,17 @@
+test_api_and_dependency_changes_also_check_frontend (test_ci_scope.ScopeChecks.test_api_and_dependency_changes_also_check_frontend) ... ok
+test_ci_and_unknown_inputs_cannot_bypass_validation (test_ci_scope.ScopeChecks.test_ci_and_unknown_inputs_cannot_bypass_validation) ... ok
+test_deployment_can_reuse_images_but_tests_do_not_release (test_ci_scope.ScopeChecks.test_deployment_can_reuse_images_but_tests_do_not_release) ... ok
+test_docs_and_offline_evaluation_do_not_publish (test_ci_scope.ScopeChecks.test_docs_and_offline_evaluation_do_not_publish) ... ok
+test_frontend_and_proxy_build_only_web (test_ci_scope.ScopeChecks.test_frontend_and_proxy_build_only_web) ... ok
+test_real_git_diff_includes_both_sides_of_rename_and_pr_merge_base (test_ci_scope.ScopeChecks.test_real_git_diff_includes_both_sides_of_rename_and_pr_merge_base) ... ok
+test_release_baseline_ignores_docs_and_obsolete_release_jobs (test_ci_scope.ScopeChecks.test_release_baseline_ignores_docs_and_obsolete_release_jobs) ... ok
+test_release_history_follows_pages_instead_of_releasing_for_docs (test_ci_scope.ScopeChecks.test_release_history_follows_pages_instead_of_releasing_for_docs) ... ok
+test_required_gate_rejects_failed_cancelled_or_skipped_selected_checks (test_ci_scope.ScopeChecks.test_required_gate_rejects_failed_cancelled_or_skipped_selected_checks) ... ok
+test_reverted_runtime_and_later_docs_still_publish_after_a_failed_release (test_ci_scope.ScopeChecks.test_reverted_runtime_and_later_docs_still_publish_after_a_failed_release) ... ok
+test_runtime_and_migrations_build_only_server (test_ci_scope.ScopeChecks.test_runtime_and_migrations_build_only_server) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.425s
+
+OK
+Release history unavailable; checking all repository inputs.
