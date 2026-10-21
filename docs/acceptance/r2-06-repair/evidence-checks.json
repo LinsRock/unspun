@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-21T04:42:49.061750+00:00",
+  "checks": {
+    "frozen_103_source_config_registration_test_hashes": true,
+    "independent_review_original_artifact_pins": true,
+    "final_report_input_pins": true,
+    "first_output_pins": true,
+    "all_48_real_request_responses_retained": true,
+    "blocked_review_has_no_request": true,
+    "no_challenge_outputs_or_paid_requests": true,
+    "strict_failure_and_empty_acceptance_preserved": true,
+    "engineering_delivery_separate_from_real_failure": true,
+    "provider_and_original_holds_reconciled": true,
+    "new_narrative_local_links_exist": true,
+    "no_provider_key_in_new_evidence_or_logs": true
+  },
+  "all_passed": true,
+  "paid_requests": 0,
+  "database_writes": 0
+}

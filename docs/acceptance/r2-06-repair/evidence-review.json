@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-21T04:42:36.979859+00:00",
+  "reviewer": "same single independent read-only holdout reviewer",
+  "scope": [
+    "acceptance narrative",
+    "CLAUDE current phase",
+    "R2 task board section 14",
+    "results-v2",
+    "fee-reconciliation-v2",
+    "compile-final",
+    "delivery"
+  ],
+  "substantive_accounting_or_quality_discrepancies": [],
+  "wording_correction": "Replaced sealed before fixes with sealed before source freeze and paid retest; preparation ran concurrently with repair and no fixing-agent material or label access occurred.",
+  "strict_denominators_verified": {
+    "supported_final_coverage": "1/6",
+    "all_invalid_applied": "1/2",
+    "real_unsupported_review_interception": "1/2"
+  },
+  "warm_cache_occurrences": 89,
+  "warm_distinct_versions": 19,
+  "v2_input_hashes_verified": true,
+  "no_missing_dimension_or_citation_failure_counted_as_success": true,
+  "database_access": false,
+  "network_access": false,
+  "database_writes": 0,
+  "paid_requests": 0,
+  "original_evidence_modified": false,
+  "source_or_parameter_edits_after_first_output": false
+}

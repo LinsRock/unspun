@@ -1,0 +1,111 @@
+{
+  "captured_at": "2026-10-21T04:29:00.802665+00:00",
+  "configured_member_processing_enabled": false,
+  "runtime": {
+    "version": "r1-runtime-v1",
+    "config_fingerprint": "51e0b8646e85377ae9425837756542e8ced0d750d8acab114622a9088c814dba",
+    "stages": {
+      "discovery": [
+        "bbc-world",
+        "bbc-zhongwen",
+        "douban-book",
+        "people-frontpage",
+        "wsj-world",
+        "zaobao-china",
+        "zaobao-world",
+        "zhihu-daily"
+      ],
+      "material": [
+        "bbc-world",
+        "bbc-zhongwen",
+        "douban-book",
+        "people-frontpage",
+        "wsj-world",
+        "zaobao-china",
+        "zaobao-world",
+        "zhihu-daily"
+      ],
+      "paid": [
+        "bbc-world",
+        "bbc-zhongwen",
+        "douban-book",
+        "people-frontpage",
+        "wsj-world",
+        "zaobao-china",
+        "zaobao-world",
+        "zhihu-daily"
+      ],
+      "guide": [
+        "bbc-world",
+        "bbc-zhongwen",
+        "douban-book",
+        "people-frontpage",
+        "wsj-world",
+        "zaobao-china",
+        "zaobao-world",
+        "zhihu-daily"
+      ]
+    },
+    "publication": [
+      "bbc-world",
+      "bbc-zhongwen",
+      "douban-book",
+      "people-frontpage",
+      "wsj-world",
+      "zaobao-china",
+      "zaobao-world",
+      "zhihu-daily"
+    ],
+    "legacy_worker_started": false,
+    "member_processing_enabled": false
+  },
+  "member_handlers": [],
+  "tables": {
+    "topics": {
+      "exists": true,
+      "rows": 0
+    },
+    "topic_members": {
+      "exists": true,
+      "rows": 0
+    },
+    "topic_changes": {
+      "exists": true,
+      "rows": 0
+    },
+    "topic_updates": {
+      "exists": true,
+      "rows": 0
+    },
+    "topic_derivations": {
+      "exists": true,
+      "rows": 0
+    },
+    "content_vectors": {
+      "exists": true,
+      "rows": 0
+    },
+    "member_judgments": {
+      "exists": true,
+      "rows": 0
+    }
+  },
+  "read_only": "on",
+  "schema": "000019",
+  "topic_tasks": [],
+  "topic_calls": [],
+  "policy": {
+    "scope": "production",
+    "enabled": true,
+    "monthly_limit_usd": "13.500000000000",
+    "stage_caps": {
+      "card": "10",
+      "guide": "2",
+      "legacy": "13.50",
+      "embedding": "1"
+    },
+    "version": "r1-budget-v3"
+  },
+  "database_writes": 0,
+  "paid_requests": 0
+}
