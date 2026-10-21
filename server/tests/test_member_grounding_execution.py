@@ -277,3 +277,63 @@ def test_challenge_replays_actual_audit_and_races_two_complete_reviews(
     assert sorted(raced["statuses"]) == ["applied", "stale"]
     assert raced["accepted_task_completions"] == [True, True]
     assert all(r.get("natural_end_to_end", False) is False for r in records)
+
+
+@pytest.mark.parametrize("entry", ["exposed", "challenge"])
+def test_cli_uses_ssh_helpers_cached_setting_without_a_return_value(
+    member_db: MemberDB, monkeypatch: pytest.MonkeyPatch, tmp_path: Path, entry: str
+) -> None:
+    import sys
+
+    from sqlalchemy import Engine
+
+    from unspun.core.config import get_settings
+    from unspun.evaluation import member_grounding_challenge as challenge
+
+    module = grounding if entry == "exposed" else challenge
+    monkeypatch.setenv("UNSPUN_GROUNDING_BUDGET_24H_USD", "1.00")
+    exe, value = execution(member_db)
+
+    def loaded() -> dict[str, Any]:
+        return exe
+
+    def ignored(_: dict[str, Any]) -> None:
+        return None
+
+    def original_database() -> None:
+        return None
+
+    def selected(_: dict[str, Any]) -> dict[str, Any]:
+        return value
+
+    def engine() -> Engine:
+        return member_db.billing.engine
+
+    def load_key(_: str) -> None:
+        # The real helper mutates the settings cache; its return value is None.
+        get_settings().openrouter_api_key = "synthetic-ssh-loaded-key"
+
+    def refresh(
+        _: Engine, execution: dict[str, Any], phase: str, proxy: str | None
+    ) -> dict[str, Any]:
+        assert execution == exe and proxy is None
+        assert get_settings().openrouter_api_key == "synthetic-ssh-loaded-key"
+        return {"phase": phase, "paid_requests": 0}
+
+    monkeypatch.setattr(module, "load_execution", loaded)
+    monkeypatch.setattr(module, "require_original_database", original_database)
+    monkeypatch.setattr(module, "require_reviewed_entry", ignored)
+    monkeypatch.setattr(module, "get_engine", engine)
+    monkeypatch.setattr(module, "load_key_from_ssh", load_key)
+    monkeypatch.setattr(module, "refresh", refresh)
+    monkeypatch.setattr(module, "EVIDENCE", tmp_path)
+    monkeypatch.setattr(grounding, "exposed_spec", selected)
+    if entry == "challenge":
+        monkeypatch.setattr(challenge, "challenge_spec", selected)
+    monkeypatch.setattr(sys, "argv", ["member-grounding", "refresh"])
+    module.main()
+    name = "exposed" if entry == "exposed" else "challenge"
+    assert (
+        json.loads((tmp_path / (name + "-before-refresh.json")).read_text())["paid_requests"] == 0
+    )
+    assert not member_db.billing.requests() and not member_db.calls

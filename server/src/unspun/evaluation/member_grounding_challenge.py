@@ -359,7 +359,8 @@ def main() -> None:
             if args.action == "seed":
                 seed_namespace(engine, spec)
                 return
-            key = load_key_from_ssh("unspun")
+            load_key_from_ssh("unspun")
+            key = get_settings().openrouter_api_key
             if not key:
                 raise ValueError("original provider credential unavailable")
             os.environ["UNSPUN_OPENROUTER_API_KEY"] = key

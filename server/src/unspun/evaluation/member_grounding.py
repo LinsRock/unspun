@@ -45,7 +45,7 @@ from unspun.pipeline.r1_worker import Handlers, process_one
 
 EVIDENCE = ROOT / "docs/acceptance/r2-06-grounding"
 EXECUTION = ROOT / "docs/evaluations/r2/member-grounding-budget-v1.json"
-FREEZE = ROOT / "docs/evaluations/r2/member-grounding-freeze-v1.json"
+FREEZE = ROOT / "docs/evaluations/r2/member-grounding-freeze-v2.json"
 UNFINISHED = {"pending", "running", "retry_wait", "budget_deferred"}
 
 
@@ -139,13 +139,15 @@ def require_exact_inputs(session: Session, spec: dict[str, Any]) -> None:
 
 
 def require_reviewed_entry(execution: dict[str, Any]) -> None:
-    proof = json.loads((EVIDENCE / "paid-entry-review-proof.json").read_text())
+    proof = json.loads((EVIDENCE / "paid-entry-review-proof-v2.json").read_text())
     if not (
         proof["source_freeze_sha256"] == sha(FREEZE)
         and proof["execution_fingerprint"] == fingerprint(execution)
         and proof["pr_ci_passed"] is True
-        and proof["main_ci_deployed"] is True
-        and proof["deployed_source_hashes_match"] is True
+        and proof["main_ci_checked"] is True
+        and proof["runtime_deployment_verified"] is True
+        and proof["local_evaluation_sources_frozen"] is True
+        and proof["deployed_runtime_source_hashes_match"] is True
         and proof["production_enabled"] is False
     ):
         raise ValueError(
@@ -714,7 +716,8 @@ def main() -> None:
                 return
             if args.action != "refresh":
                 require_reviewed_entry(execution)
-            key = load_key_from_ssh("unspun")
+            load_key_from_ssh("unspun")
+            key = get_settings().openrouter_api_key
             if not key:
                 raise ValueError("original provider credential is unavailable")
             get_settings.cache_clear()
