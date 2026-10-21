@@ -70,7 +70,7 @@ def verify_snapshot(root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     }
     for name in ("evaluation", "production"):
         ledger = evidence[name]
-        rows = []
+        rows: list[dict[str, Any]] = []
         for row in ledger["unknown_requests"]:
             generation = row["provider_generation_id"]
             lookup = lookups.get(generation)
