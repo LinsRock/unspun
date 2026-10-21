@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-21T06:54:45.335180+00:00",
+  "source_freeze_sha256": "2af01778ca1242e89ce014f5820bebd8a713675439136959b601bc7db604df7e",
+  "frozen_files": 109,
+  "prepared_v1_frozen_blobs_verified": 109,
+  "previous_v3_source_frozen_blobs_verified": 103,
+  "original_r2_freeze_verified": 27,
+  "previous_evidence_files_unchanged": 279,
+  "billing_full_window_prices_R1_dependencies_unchanged": true,
+  "r204_original_worktree_unchanged": true,
+  "actual_imports": {
+    "unspun.core.member_contracts": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/core/member_contracts.py",
+    "unspun.core.member_evidence": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/core/member_evidence.py",
+    "unspun.pipeline.member_processing": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/pipeline/member_processing.py",
+    "unspun.evaluation.member_grounding": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/evaluation/member_grounding.py",
+    "unspun.evaluation.member_grounding_challenge": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-grounding/server/src/unspun/evaluation/member_grounding_challenge.py"
+  },
+  "new_paid_requests_at_freeze": 0,
+  "new_blind_prepared": false
+}
