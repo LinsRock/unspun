@@ -1,0 +1,422 @@
+{
+  "id": "r206-repair-source-freeze-v1",
+  "at": "2026-10-21T04:05:13.185883+00:00",
+  "previous_pool_requests": 59,
+  "previous_pool_known_usd": "0.0121361",
+  "new_real_requests_at_freeze": 0,
+  "root_blind_materials_read": false,
+  "files": [
+    {
+      "path": "server/src/unspun/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/src/unspun/api/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/src/unspun/api/admin/__init__.py",
+      "sha256": "8105cc0153401fa1cc27dd33272e96cc14e81c3dbe477e634622ba9e588a2e72"
+    },
+    {
+      "path": "server/src/unspun/api/admin/auth.py",
+      "sha256": "585118a205948baa48a758b181c416c3dabf06ee3495877e8c96fa522be4ae97"
+    },
+    {
+      "path": "server/src/unspun/api/admin/configuration.py",
+      "sha256": "2209ace50f3e6b27afe0980b287a5890d1aa52395d2da17644f56a8e3ea9ff42"
+    },
+    {
+      "path": "server/src/unspun/api/admin/content.py",
+      "sha256": "2ffc4f6be7af4ee35ded17b92b59d886aca52f8bdb0f55b54abda2de4b2795c8"
+    },
+    {
+      "path": "server/src/unspun/api/admin/costs.py",
+      "sha256": "a874680621de4e772eb02a912dcc07ca477ef6d7de3600874a7060ffab24be87"
+    },
+    {
+      "path": "server/src/unspun/api/admin/expenses.py",
+      "sha256": "51ea6d4cd5390b07637851f4181017db9659e1431311ea87c38849663a837718"
+    },
+    {
+      "path": "server/src/unspun/api/admin/exports.py",
+      "sha256": "449ea31106639d739be55e2de4d291178889679ac5b5cd3273d44a8fa5b47a32"
+    },
+    {
+      "path": "server/src/unspun/api/admin/overview.py",
+      "sha256": "9181ef048f9e386b9e5a7a98d2bc44b3f299642afdca2a31df6d6f308b838424"
+    },
+    {
+      "path": "server/src/unspun/api/admin/query.py",
+      "sha256": "e2b03cf49493f93206ce7b02b490c8299f89adc9be28ebc1d49d8fbd008098af"
+    },
+    {
+      "path": "server/src/unspun/api/admin/r1.py",
+      "sha256": "2224f586e25e4d5983b19f4c98792414fa4583d392919eae15d5888ad37719ce"
+    },
+    {
+      "path": "server/src/unspun/api/admin/ranges.py",
+      "sha256": "f72cc3d494a9d7342a0bd8f58d714c73452e25aeb586f64316f2b187e19b917a"
+    },
+    {
+      "path": "server/src/unspun/api/admin/runs.py",
+      "sha256": "bd32f5fe404270108d7bfc027ac9042e5f7a028b5ef4ef546cbd1f327f06f06d"
+    },
+    {
+      "path": "server/src/unspun/api/admin/schemas.py",
+      "sha256": "1a0b9c854f80b41994f3f0bd9f64e2f1504a40887a5d2f2cfb7f593b1cc462b4"
+    },
+    {
+      "path": "server/src/unspun/api/admin/sources.py",
+      "sha256": "4ad854f8563c423767f22c41774ec86e55c611543734ef53c21ff05495cdb88b"
+    },
+    {
+      "path": "server/src/unspun/api/app.py",
+      "sha256": "219284593978619b1b119325ce8b127d279311e459c49bb678605b6a94ceb71a"
+    },
+    {
+      "path": "server/src/unspun/api/contents.py",
+      "sha256": "2d1c87af0b8e1f200c06b7a07940718a2353f0cd8d4f57bc893a324118fd6ca7"
+    },
+    {
+      "path": "server/src/unspun/api/digest.py",
+      "sha256": "83cddc420fd7d173659658feeabeb5958856079913fc01638d8ef822f4fc8319"
+    },
+    {
+      "path": "server/src/unspun/api/events.py",
+      "sha256": "98b131a846d84145888b7fb0f9b4725268a55c979840f8440cb472aa9b53f9c8"
+    },
+    {
+      "path": "server/src/unspun/api/feed_preferences.py",
+      "sha256": "a948eec9def0d532cfa698ccc0247129be27a0934e4a18dd9b749da38ec99044"
+    },
+    {
+      "path": "server/src/unspun/api/reader.py",
+      "sha256": "18b3282fa1f52e573c9b445920afdcafa817815a36e92348f8740e295744cdea"
+    },
+    {
+      "path": "server/src/unspun/api/report.py",
+      "sha256": "02902f3621da9362d0708cc3fe67843c374f17cc997a8b45c7ee280fd0d485f7"
+    },
+    {
+      "path": "server/src/unspun/core/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/src/unspun/core/billing.py",
+      "sha256": "82ce574b59a359808d2d25791874d073389459a1cb3587ab8a34dea9b5abb1a8"
+    },
+    {
+      "path": "server/src/unspun/core/billing_admin.py",
+      "sha256": "8c7503ca2246c132b8964c12389b572585a2a2fbbbaff10fd5bf9366b2fb1f2d"
+    },
+    {
+      "path": "server/src/unspun/core/billing_models.py",
+      "sha256": "1c8e05f8bffeabd0e41e794b11ec00956c9fc7c261fddd25f0ec9b651f081a5d"
+    },
+    {
+      "path": "server/src/unspun/core/config.py",
+      "sha256": "1430d74f3f9381455c195f9330f54ed67b0ba2c01388c764001da3f3f65a7efa"
+    },
+    {
+      "path": "server/src/unspun/core/content.py",
+      "sha256": "e51a0aca1322078ab36fa3b9f3790122052202896a96920dc8f91e72aff8da20"
+    },
+    {
+      "path": "server/src/unspun/core/content_costs.py",
+      "sha256": "925441aebb00b0a096874c0da846788745e3b24eb131824fef1e03d15b678928"
+    },
+    {
+      "path": "server/src/unspun/core/content_feed.py",
+      "sha256": "55a60881223e69574ccf3322cd2a6571769834b40f69159ab8065d67eb47debc"
+    },
+    {
+      "path": "server/src/unspun/core/content_publication.py",
+      "sha256": "e93241b2bf81fb38769066670333d1dabadbb5f116e7651c583a986553507ee2"
+    },
+    {
+      "path": "server/src/unspun/core/content_reading.py",
+      "sha256": "0d4efacb9c12acbcaf2d7d34ba0709df12bc12cf19a39fa2ef0e2622b5a4bf26"
+    },
+    {
+      "path": "server/src/unspun/core/db.py",
+      "sha256": "07362d229e547e59f59fc5eb7a4b1bac96a42b246e680b80674d02d938c0511d"
+    },
+    {
+      "path": "server/src/unspun/core/expense_allocation.py",
+      "sha256": "cad554e28abbbacc3ff9bda4c6f5e9bc9ada80744cc2e0efe000990da5caea47"
+    },
+    {
+      "path": "server/src/unspun/core/expenses.py",
+      "sha256": "7332bf086e106bd25fa79245302b78f57a05511d940841a92efdf1a984daef3c"
+    },
+    {
+      "path": "server/src/unspun/core/feed_query.py",
+      "sha256": "43768e4f3ba20cc0fde66a4a4ad9d6506e741115fc9a671b5545d5a19ff32496"
+    },
+    {
+      "path": "server/src/unspun/core/grounding.py",
+      "sha256": "dc9840203dec0416e70b0af1c77e649bd5e1c1d9312c5b5882dc300c0a356121"
+    },
+    {
+      "path": "server/src/unspun/core/html_text.py",
+      "sha256": "8ed1e1da0739b72b57ccf1c466ac64c4efcde68854dc9d17e70ecf8805511d1f"
+    },
+    {
+      "path": "server/src/unspun/core/llm.py",
+      "sha256": "baed745df0120df733dfc7304c84f4c8a8b5f3f0da43b465231f21f3c33a1e0c"
+    },
+    {
+      "path": "server/src/unspun/core/logging.py",
+      "sha256": "9cbe3baa022c7741c3a7f22a49f274255cfd93073208b5f36f637a60081a94c4"
+    },
+    {
+      "path": "server/src/unspun/core/member_contracts.py",
+      "sha256": "9e5643b1b5748edacaa294cf09bc656e15cf688ba5f9d7cfc510d4a605c68366"
+    },
+    {
+      "path": "server/src/unspun/core/member_models.py",
+      "sha256": "5a0f57500b8578d7e49b58162922cdff386e2a0d82883b463d487f833125d1d1"
+    },
+    {
+      "path": "server/src/unspun/core/member_recall.py",
+      "sha256": "c2baf710fdd28aa2b778beb9138d0f844269612119a27a17c413ab7f8a55dfc0"
+    },
+    {
+      "path": "server/src/unspun/core/models.py",
+      "sha256": "f0ac8f30496877984c0523faca2203d1de02efc6ad88d31072b3c846f39bef3b"
+    },
+    {
+      "path": "server/src/unspun/core/params.py",
+      "sha256": "c1bc8b948014e671ad3fb78ac1e1e6f522c43bf5126d7417caea1eee84babde0"
+    },
+    {
+      "path": "server/src/unspun/core/public_impact.py",
+      "sha256": "319ce964591f687d661acfd6a1426d54718ef81263134a9baf0728c540100981"
+    },
+    {
+      "path": "server/src/unspun/core/publication.py",
+      "sha256": "4eea7f2a8c99a3f51c2db6a2b4cbf3dcf07025dc9dbd5edb4592d753f17a8fcb"
+    },
+    {
+      "path": "server/src/unspun/core/reader.py",
+      "sha256": "e05a238d87a43d73a8322fedd18cfd8369a708cada98a85441aec53632c4138a"
+    },
+    {
+      "path": "server/src/unspun/core/reader_models.py",
+      "sha256": "34d6780081674079e8c85fea2aaf3d89106a0d0b6f8c5eaa165872740d476873"
+    },
+    {
+      "path": "server/src/unspun/core/reading.py",
+      "sha256": "5b3a38f259b22d3f05f78eab41ee778e23d45a3394eb648dd6ba4e473ee8aaef"
+    },
+    {
+      "path": "server/src/unspun/core/review_budget.py",
+      "sha256": "87416be2ce778a85ca7807218ca5bd1172ae06fc4fe134507645f5cc0a6a85f4"
+    },
+    {
+      "path": "server/src/unspun/core/sources.py",
+      "sha256": "3a75b08be8df8f0be494e1d8169d932b71244fae71ef7b64b1fa4440ab8bd1e6"
+    },
+    {
+      "path": "server/src/unspun/core/task_models.py",
+      "sha256": "1fe520826f276e6acb998f105ed5a568fad2f35c2309e7b751918307b80fd9bb"
+    },
+    {
+      "path": "server/src/unspun/core/tasks.py",
+      "sha256": "54b9ae230f617a2b490a2223b60ed82c5bb3808357b42c6fa267b79db24f5768"
+    },
+    {
+      "path": "server/src/unspun/core/topic_contracts.py",
+      "sha256": "8c89e6665c67b547e0a44902bfc8aeeae0e0fe5c29c742985f825cbb6e72a5ce"
+    },
+    {
+      "path": "server/src/unspun/core/topic_models.py",
+      "sha256": "1091b317c1e1cde9de68e4e6a0c9c985670538dbacab0966cb5c28a094e6624e"
+    },
+    {
+      "path": "server/src/unspun/core/topics.py",
+      "sha256": "5239e58235c21d317086c2fadc6bc6d879cbba5b93321c7ce9326d545d0fdea0"
+    },
+    {
+      "path": "server/src/unspun/evaluation/__init__.py",
+      "sha256": "c21b5923e1dfb0fa9cab0e513821b7116f66a0d39a8a076085a0dd3b4984eec6"
+    },
+    {
+      "path": "server/src/unspun/evaluation/baseline.py",
+      "sha256": "274da6583a414dc5d519308f69ce64bd61d85bca412ae6827a74fd172d2ee457"
+    },
+    {
+      "path": "server/src/unspun/evaluation/content_quality.py",
+      "sha256": "7db46e15f4544645cc4f6e2a9ebb76a1559997b87db01c80c83294c82fa35ee4"
+    },
+    {
+      "path": "server/src/unspun/evaluation/feed_ranking.py",
+      "sha256": "03de5de16e8034fe3a19eee88600bed345a9ce128bc8d6fd2a7c4e8d63d6cf78"
+    },
+    {
+      "path": "server/src/unspun/evaluation/feed_suite.py",
+      "sha256": "b5e65bbb8b1c8bcd3b3043e51259ccbfbb0816247b83a3f50a5ae594c6830dc7"
+    },
+    {
+      "path": "server/src/unspun/evaluation/member_quality.py",
+      "sha256": "19b67416cdec38132ea62a6a806d8f155067d5e1fd6830fa5d4b8ddb1c1f5fdf"
+    },
+    {
+      "path": "server/src/unspun/evaluation/member_retest.py",
+      "sha256": "45b0f5cde2ede9ed4493e4adfd5e968b4b83be634b1482767b948c6c5058677e"
+    },
+    {
+      "path": "server/src/unspun/evaluation/member_retest_challenge.py",
+      "sha256": "008958b69037e3ecb6b25cbd62f0ce4e5c5aecb4c67eb57a6625ff3f71b37929"
+    },
+    {
+      "path": "server/src/unspun/evaluation/observe_sources.py",
+      "sha256": "f956befb724c45c04ac3635f844812355c2852a9df68deee4845320f202a04e7"
+    },
+    {
+      "path": "server/src/unspun/evaluation/preview_feed.py",
+      "sha256": "8e0e8016b7d68c0212e7d11123b6445e5ab3f07ef031bdf943240f657dbabd9c"
+    },
+    {
+      "path": "server/src/unspun/evaluation/preview_reading.py",
+      "sha256": "ef12bb9e80b22b3449d0b25f04d1d1608fdc8c441259c2d1ab942a83a61e2138"
+    },
+    {
+      "path": "server/src/unspun/evaluation/quality.py",
+      "sha256": "26bfc062ae0b69d6f5a13b23f1cabfa9dc482fda7989aa2ef3ad86b69a8c4857"
+    },
+    {
+      "path": "server/src/unspun/evaluation/r1_benchmark.py",
+      "sha256": "cdcee7533454811540b6a8ccdcf23181852b972fbe7fccd12d085a62bf290955"
+    },
+    {
+      "path": "server/src/unspun/evaluation/r1_inputs.py",
+      "sha256": "3bba5335d8628008c66dc2fd20a53e570ea33d6e17a0a8404c353514c7f3cc69"
+    },
+    {
+      "path": "server/src/unspun/evaluation/run_feed_ranking.py",
+      "sha256": "823161b3a61154c0a001d322be5deda5d0ef074678a2443971ab145e1fcd2ddc"
+    },
+    {
+      "path": "server/src/unspun/evaluation/run_quality.py",
+      "sha256": "28ab7c149d31ab9db6d25980d178f072c3aa9c3dc5b564b59707bffef675a8c7"
+    },
+    {
+      "path": "server/src/unspun/pipeline/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/src/unspun/pipeline/cluster.py",
+      "sha256": "652b728c6edbdb49b6a8ba2802ef29d3dfd39eee95198b3d7dc0c79af9675fff"
+    },
+    {
+      "path": "server/src/unspun/pipeline/content_processing.py",
+      "sha256": "b88d5ae3256b14e730a34fca0bca8a5044621fff14ee720bc0fdfe4e78366d03"
+    },
+    {
+      "path": "server/src/unspun/pipeline/digest.py",
+      "sha256": "b5edc1562c9da2b743e23adcc2d8be529fb44f7f9b10e2084d1e4d41f9b1dbef"
+    },
+    {
+      "path": "server/src/unspun/pipeline/discovery.py",
+      "sha256": "762e4835615bd73aa3fe8288274eec33f41a8888b7669e3aa0ffb9ff205eac3c"
+    },
+    {
+      "path": "server/src/unspun/pipeline/discovery_quotas.py",
+      "sha256": "7bd0685707ef0dd3603609ff3c1b7885c69c8c06b56976c252dfe8a88b98b12a"
+    },
+    {
+      "path": "server/src/unspun/pipeline/editions.py",
+      "sha256": "55d30c447d67c55eeaa3a64fd4fc159ffe0db5755525b73358d1d1487d639dda"
+    },
+    {
+      "path": "server/src/unspun/pipeline/extract.py",
+      "sha256": "3d42c02ca597e1da29ad65a7821d5b2812f0b9b4b459f859745e276df2563ca9"
+    },
+    {
+      "path": "server/src/unspun/pipeline/feeds.py",
+      "sha256": "2c29eb623674660a91f72b36d9a12c2577c1e9e4073ecb20919f558bc5cf993a"
+    },
+    {
+      "path": "server/src/unspun/pipeline/materials.py",
+      "sha256": "5ddb9cd0fd5b5968d6bf193a905eba4db481a5fb67659cd619eb91703073147d"
+    },
+    {
+      "path": "server/src/unspun/pipeline/member_processing.py",
+      "sha256": "6b8f6716330ddd8fa9f5b4be332866544997c88577cbb16fddd591f6c5b35c6f"
+    },
+    {
+      "path": "server/src/unspun/pipeline/public_sources.py",
+      "sha256": "b91eee4f1c3179ba363b8f696d248f668c6a64fe20d5bae4cf715602a316c76d"
+    },
+    {
+      "path": "server/src/unspun/pipeline/r1_runtime.py",
+      "sha256": "7cb00c5765f7799f2bbf5fe297f774a1d6f4135ffeea0830b1990838682e2f64"
+    },
+    {
+      "path": "server/src/unspun/pipeline/r1_worker.py",
+      "sha256": "311be6fa49013e4dfa13a1414402da6897f073d1209d1d93aa2fc0544fc04060"
+    },
+    {
+      "path": "server/src/unspun/pipeline/repair_grounding.py",
+      "sha256": "57cbca2e0908fe880d5037ca0235167a16bc3529dc8b268a61cd5a5a89b78d31"
+    },
+    {
+      "path": "server/src/unspun/pipeline/score.py",
+      "sha256": "2798cfeb8e1b340b166c016e146d24fa85d19c2b70c039c0b3f66a54c96f14b9"
+    },
+    {
+      "path": "server/src/unspun/pipeline/summarize.py",
+      "sha256": "4c23e68586aad9d3de990674fa2d95a718767c1f53031cedee404ccb7726dbe4"
+    },
+    {
+      "path": "server/src/unspun/pipeline/viewpoints.py",
+      "sha256": "a0cc939ae708c385d5626cddef027bb97fdd6867b929e7518966d82e25f2fd4c"
+    },
+    {
+      "path": "config/media_groups.yml",
+      "sha256": "9a7c0ac391e163779e176f4f601faddb369cbb1ae25ed03d59b4c33c82d50071"
+    },
+    {
+      "path": "config/r1-reader.yml",
+      "sha256": "16aefedf76fd1c9c4e36fd5b4dd21378d9de3bc9705d87e8612ea3c6c215f90b"
+    },
+    {
+      "path": "config/scoring.yml",
+      "sha256": "2f2099d10e0702d223453b7e1c738b62ad4c30696093feaece57601d5fac6dc8"
+    },
+    {
+      "path": "config/sources.yml",
+      "sha256": "4c21aaace4c8c68d0181e101a136883fb43972c12e5af47caba410d9ec1bef43"
+    },
+    {
+      "path": "docs/evaluations/r2/member-retest-v1.json",
+      "sha256": "6ef813f729c26a4d85058ab027a50b62d5b63ade065fe9c2fe92fcdf4da5c5da"
+    },
+    {
+      "path": "docs/evaluations/r2/member-blind-seal-v1.json",
+      "sha256": "a41cecf7416b8eba52ec131a4b237fe1528a59a57eb7494f64c3a2411af6f163"
+    },
+    {
+      "path": "docs/evaluations/r2/member-blind-seal-v2.json",
+      "sha256": "c88c2c37279c90d259896d325aed2183621ce5c0e75a35f7a068fcbdf92e79d6"
+    },
+    {
+      "path": "server/tests/test_member_processing.py",
+      "sha256": "10914680a6d996607eac000aae1c9817aed56104c3fbd28bf8e7be8210b1cbbb"
+    },
+    {
+      "path": "server/tests/test_member_quality.py",
+      "sha256": "c96618101c82fda58000a477d38b4b58ed4acda14dc9bfe7a62f13bd91dca6d5"
+    },
+    {
+      "path": "server/tests/test_member_recall.py",
+      "sha256": "cf28b43aa8d18d93c264962ebc67d4b3a295d3b3547122d8116ac4170297f86d"
+    },
+    {
+      "path": "server/tests/test_member_retest.py",
+      "sha256": "b597dce11e4c768c9876c6ed018f2592efe7f6b4f4dbf7c666ceeae75bcce05d"
+    }
+  ]
+}

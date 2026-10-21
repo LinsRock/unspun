@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 from unspun.core.content import fingerprint
 from unspun.core.content_reading import CardDraft, ContentInput, publication_at
-from unspun.core.member_contracts import MemberDecision, member_contract
+from unspun.core.member_contracts import MemberDecision, member_contract, project_material
 from unspun.core.models import Article
 from unspun.core.sources import Source
 from unspun.core.topic_models import Topic, TopicMember
@@ -181,15 +181,22 @@ def _metadata_selection(
 
 
 def recall_plan(
-    session: Session, article_id: int, sources: list[Source], now: datetime
+    session: Session,
+    article_id: int,
+    sources: list[Source],
+    now: datetime,
+    *,
+    topic_ids: frozenset[str] | None = None,
 ) -> dict[str, Any]:
     query = current_input(session, article_id, sources, now)
     domain_filter = (
         Topic.status == "active",
         or_(*(Topic.domains.contains([d]) for d in _card(query).domains)),
+        Topic.id.in_(topic_ids) if topic_ids is not None else literal(True),
     )
     existing = select(TopicMember.topic_id).where(
-        TopicMember.article_id == query["content"]["article_id"]
+        TopicMember.article_id == query["content"]["article_id"],
+        TopicMember.topic_id.in_(topic_ids) if topic_ids is not None else literal(True),
     )
     title_rank = sum(
         (
@@ -207,6 +214,7 @@ def recall_plan(
         )
     )
     trace: dict[str, Any] = {
+        "topic_scope": sorted(topic_ids) if topic_ids is not None else None,
         "domain_topics": session.scalar(
             select(func.count()).select_from(Topic).where(*domain_filter)
         ),
@@ -256,11 +264,11 @@ def select_candidates(
 
 
 def validate_decision(session: Session, packet: dict[str, Any], decision: MemberDecision) -> None:
-    if not decision.associated:
-        return
     topic = packet["candidate"]["topic"]
-    if decision.classification in {"same_event", "same_issue"} and decision.classification != (
-        "same_event" if topic["kind"] == "event" else "same_issue"
+    if (
+        decision.associated
+        and decision.classification in {"same_event", "same_issue"}
+        and decision.classification != ("same_event" if topic["kind"] == "event" else "same_issue")
     ):
         raise ValueError("decision does not match the topic kind")
     query = packet["query"]["content"]
@@ -270,6 +278,19 @@ def validate_decision(session: Session, packet: dict[str, Any], decision: Member
         for a in topic["anchors"]
     }
     pairs = {(r.article_id, r.material_id) for r in decision.evidence}
-    if own not in pairs or not pairs.intersection(anchors) or not pairs.issubset(anchors | {own}):
+    if not pairs.issubset(anchors | {own}) or (
+        decision.associated and (own not in pairs or not pairs.intersection(anchors))
+    ):
         raise ValueError("association requires content and candidate anchor evidence")
+    visible = {
+        (p["content"]["article_id"], p["content"]["material_id"]): p["content"]["paragraphs"]
+        for p in [
+            project_material(packet["query"], "query"),
+            *(project_material(a["snapshot"], "anchor") for a in topic["anchors"]),
+        ]
+    }
+    for ref in decision.evidence:
+        paragraphs = visible[(ref.article_id, ref.material_id)]
+        if ref.paragraph >= len(paragraphs) or ref.quote not in paragraphs[ref.paragraph]["text"]:
+            raise ValueError("evidence quote is outside the visible supplied paragraph")
     validate_topic_evidence(session, decision.evidence)

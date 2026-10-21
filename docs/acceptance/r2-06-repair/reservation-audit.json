@@ -1,0 +1,56 @@
+{
+  "at": "2026-10-21T04:01:31.641529+00:00",
+  "full_output_window_tokens_including_reasoning": 66559,
+  "max_tokens_does_not_reduce_original_reservation": true,
+  "old_seven_reservations_unchanged": true,
+  "original_pool_usd": "0.20",
+  "previous_pool_spend_usd": "0.01213610",
+  "additional_discretionary_future_credit_hold_created": false,
+  "unfrozen_draft_corrected_before_calls": true,
+  "challenges": [
+    {
+      "case": "date-conflict",
+      "model": "google/gemini-2.5-flash",
+      "full_hold_usd": "0.171057",
+      "maximum_pool_known_before_call_usd": "0.028943",
+      "minimum_initial_pool_occupancy_usd": "0.18319310",
+      "request_fingerprint": "e77f7dc863e96e2f48b2ee1d342611a1c44a7f089e714d7ef2c22cc5eb33689b"
+    },
+    {
+      "case": "anchor-contamination",
+      "model": "google/gemini-2.5-flash",
+      "full_hold_usd": "0.172708",
+      "maximum_pool_known_before_call_usd": "0.027292",
+      "minimum_initial_pool_occupancy_usd": "0.18484410",
+      "request_fingerprint": "8690673ecdcfe6b869918fef43835b10a69d0f234d3d850e79c2892d3072a8a1"
+    },
+    {
+      "case": "analysis-as-report",
+      "model": "google/gemini-2.5-flash",
+      "full_hold_usd": "0.171610",
+      "maximum_pool_known_before_call_usd": "0.028390",
+      "minimum_initial_pool_occupancy_usd": "0.18374610",
+      "request_fingerprint": "6ef18698eb1a5b94c48a5c9c920631311d6df83c8ab223b9a5f9e1445aca40aa"
+    },
+    {
+      "case": "correct-apply",
+      "model": "google/gemini-2.5-flash",
+      "full_hold_usd": "0.172485",
+      "maximum_pool_known_before_call_usd": "0.027515",
+      "minimum_initial_pool_occupancy_usd": "0.18462110",
+      "request_fingerprint": "7b0cc1d28303415170ae7044d24a9b7b6f1cb4b5bedb00b28c5fb161a3982ef4"
+    },
+    {
+      "case": "correct-stale",
+      "model": "google/gemini-2.5-flash",
+      "full_hold_usd": "0.171873",
+      "maximum_pool_known_before_call_usd": "0.028127",
+      "minimum_initial_pool_occupancy_usd": "0.18400910",
+      "request_fingerprint": "58e1b51b7c7e2ece9e2f8ce11059a68e6e6153e23c59a38cf7032a083568fa1c"
+    }
+  ],
+  "interpretation": "Feasible initial prefix only, not a promise that all natural queries and challenges fit. Every actual later request must reserve its full original bound and may stop the batch. No bound or original hold is reduced.",
+  "paid_requests": 0,
+  "database_writes": 0,
+  "blind_materials_read": false
+}

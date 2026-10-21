@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-21T03:41:47.907488+00:00",
+  "worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair",
+  "imports": {
+    "unspun": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/__init__.py",
+    "unspun.core.member_contracts": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/member_contracts.py",
+    "unspun.core.member_recall": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/core/member_recall.py",
+    "unspun.pipeline.member_processing": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-repair/server/src/unspun/pipeline/member_processing.py"
+  }
+}
