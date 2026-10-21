@@ -56,6 +56,38 @@ from unspun.pipeline.r1_worker import Blocked, process_one
 pytest_plugins = ["tests.test_billing"]
 
 
+def decision_for_prompt(
+    packet: dict[str, Any], classification: str = "same_event", certainty: str = "certain"
+) -> dict[str, Any]:
+    facts: list[dict[str, Any]] = []
+    for material in [packet["query"], packet["candidate"]["topic"]["anchors"][0]["snapshot"]]:
+        paragraph = material["content"]["paragraphs"][0]
+        facts.append(
+            {
+                "text": paragraph["text"][:160],
+                "citations": [
+                    {
+                        "reference_id": paragraph["references"][0]["reference_id"],
+                        "quote": paragraph["text"],
+                    }
+                ],
+            }
+        )
+    return {
+        "classification": classification,
+        "certainty": certainty,
+        "query_facts": [facts[0]],
+        "anchor_facts": [facts[1]],
+        "relation_inferences": [
+            {
+                "text": "Both supplied originals support the proposed relation.",
+                "query_fact_indices": [0],
+                "anchor_fact_indices": [0],
+            }
+        ],
+    }
+
+
 @dataclass
 class MemberDB:
     billing: BillingDB
@@ -89,33 +121,22 @@ class MemberDB:
             }
         else:
             packet = json.loads(payload["messages"][1]["content"])
-            if "decision" in packet:
+            if "kind" in packet:
                 out = {
-                    "decision_fingerprint": packet["decision_fingerprint"],
-                    "approved": self.approved,
+                    "kind": packet["kind"],
+                    "binding": packet["binding"],
+                    "checks": [
+                        {
+                            "target": target,
+                            "status": "supported" if self.approved else "unsupported",
+                            "issues": [] if self.approved else ["synthetic unsupported claim"],
+                        }
+                        for target in packet["targets"]
+                    ],
                     "issues": self.issues,
                 }
             else:
-                snapshots = [
-                    packet["query"],
-                    packet["candidate"]["topic"]["anchors"][0]["snapshot"],
-                ]
-                evidence = [
-                    {
-                        "article_id": s["content"]["article_id"],
-                        "material_id": s["content"]["material_id"],
-                        "paragraph": 0,
-                        "quote": s["content"]["paragraphs"][0]["text"],
-                        "voice": "reported",
-                    }
-                    for s in snapshots
-                ]
-                out = {
-                    "classification": self.classification,
-                    "certainty": self.certainty,
-                    "basis": "Synthetic evidence connects exactly the supplied materials",
-                    "evidence": evidence,
-                }
+                out = decision_for_prompt(packet, self.classification, self.certainty)
             data = {
                 "choices": [
                     {
@@ -275,12 +296,12 @@ def test_reviewed_chain_and_atomic_idempotent_successors(
             session, db.article, sources=db.sources, preview=False, as_of=datetime.now(UTC)
         )
         assert session.scalar(select(func.count()).select_from(ContentVector)) == 2
-    assert len(db.calls) == 4
+    assert len(db.calls) == 7
     assert [r.stage for r in db.billing.requests()] == [
         "topic_embedding",
         "topic_embedding",
         "topic_judgment",
-        "topic_review",
+        *(["topic_review"] * 4),
     ]
     assert all(
         r.task_id and r.task_attempt_id and r.article_id == db.article
@@ -461,7 +482,7 @@ def test_input_changes_fence_queued_and_late_results(
     assert db.judgment().status == "stale"
     with db.scope() as session:
         assert session.get(TopicMember, (str(db.topic), db.article)) is None
-    assert len(db.billing.usage()) == 4
+    assert len(db.billing.usage()) == 7
 
 
 def test_vectors_bind_actual_input_and_never_adopt_legacy(member_db: MemberDB) -> None:
@@ -533,8 +554,8 @@ def test_budget_defer_then_resume_preserves_draft_and_physical_retry_costs(
     db.billing.policy(stage_caps=TOPIC_STAGE_CAPS.copy())
     db.step("topic_review")
     assert db.judgment().status == "applied"
-    assert len(db.billing.usage()) == 5
-    assert sum(Decimal(str(r.cost_usd)) for r in db.billing.usage()) == Decimal("0.00005")
+    assert len(db.billing.usage()) == 8
+    assert sum(Decimal(str(r.cost_usd)) for r in db.billing.usage()) == Decimal("0.00008")
 
 
 def test_unknown_full_hold_blocks_retry_after_restart(member_db: MemberDB) -> None:
@@ -603,7 +624,7 @@ def test_forged_expired_lease_and_review_hash_are_rejected(member_db: MemberDB) 
     db.step("topic_judge")
     review = db.claim("topic_review")
     out = db.handler().run(review)
-    out["review"]["decision_fingerprint"] = "0" * 64
+    out["review"]["audits"][0]["binding"]["decision_fingerprint"] = "0" * 64
     assert db.finish(review, out)
     assert db.judgment().status == "rejected"
 
@@ -642,12 +663,19 @@ def test_different_event_and_invalid_evidence_cannot_pass_schema_only(member_db:
     with db.scope() as session:
         for modified in (
             decision.model_copy(update={"classification": "same_issue"}),
-            decision.model_copy(update={"evidence": decision.evidence[:1]}),
+            decision.model_copy(update={"anchor_facts": ()}),
             decision.model_copy(
                 update={
-                    "evidence": tuple(
-                        r.model_copy(update={"quote": "unsupported quotation"})
-                        for r in decision.evidence
+                    "query_facts": (
+                        decision.query_facts[0].model_copy(
+                            update={
+                                "citations": (
+                                    decision.query_facts[0]
+                                    .citations[0]
+                                    .model_copy(update={"quote": "unsupported quotation"}),
+                                )
+                            }
+                        ),
                     )
                 }
             ),
@@ -672,15 +700,16 @@ def test_prompt_owns_material_and_supplies_required_output_schema(member_db: Mem
     assert query["content"]["paragraphs"][0]["index"] == 0
     assert "qualification" not in query and "identity" not in query
     schema = packet["output_schema"]
-    assert set(schema["required"]) == {"classification", "certainty", "basis", "evidence"}
-    ref = schema["$defs"]["EvidenceRef"]
-    assert set(ref["required"]) == {"article_id", "material_id", "paragraph", "quote", "voice"}
-    assert set(ref["properties"]["voice"]["enum"]) == {
-        "reported",
-        "author",
-        "question",
-        "description",
+    assert set(schema["required"]) == {
+        "classification",
+        "certainty",
+        "query_facts",
+        "anchor_facts",
+        "relation_inferences",
     }
+    ref = schema["$defs"]["MemberCitation"]
+    assert set(ref["required"]) == {"reference_id", "quote"}
+    assert "voice" not in ref["properties"]
 
 
 @pytest.mark.parametrize("voice", [None, "query", "anchor"])
@@ -695,9 +724,9 @@ def test_missing_or_role_voice_is_not_repaired_or_saved_as_independent(
     lease = db.claim("topic_judge")
     raw = db.handler().run(lease)["decision"]
     if voice is None:
-        del raw["evidence"][0]["voice"]
+        del raw["query_facts"][0]["citations"][0]["reference_id"]
     else:
-        raw["evidence"][0]["voice"] = voice
+        raw["query_facts"][0]["citations"][0]["voice"] = voice
     with pytest.raises(ValidationError):
         MemberDecision.model_validate(raw)
     with db.scope() as session:
@@ -715,19 +744,19 @@ def test_citations_cannot_borrow_another_owner_or_invisible_suffix(member_db: Me
     decision = MemberDecision.model_validate(db.handler().run(lease)["decision"])
     packet = deepcopy(lease.payload)
     own = packet["query"]["content"]
-    original_quote = decision.evidence[0].quote
+    original_quote = decision.query_facts[0].citations[0].quote
     own["paragraphs"] = [{"kind": "paragraph", "text": "x" * 12000 + original_quote}]
     with db.scope() as session:
-        with pytest.raises(ValueError, match="visible"):
+        with pytest.raises(ValueError, match="stale member reference"):
             validate_decision(session, packet, decision)
-        wrong_owner = decision.evidence[0].model_copy(
-            update={"material_id": decision.evidence[1].material_id}
+        wrong_owner = decision.query_facts[0].model_copy(
+            update={"citations": decision.anchor_facts[0].citations}
         )
         for classification in ("same_event", "independent"):
             invalid = decision.model_copy(
-                update={"classification": classification, "evidence": (wrong_owner,)}
+                update={"classification": classification, "query_facts": (wrong_owner,)}
             )
-            with pytest.raises(ValueError, match="content and candidate"):
+            with pytest.raises(ValueError, match="another role"):
                 validate_decision(session, lease.payload, invalid)
 
 
@@ -792,7 +821,7 @@ def test_two_reviewers_cas_one_topic_without_overwriting_new_revision(member_db:
             )
             == 1
         )
-    assert len(db.billing.usage()) == 7
+    assert len(db.billing.usage()) == 13
 
 
 def test_multiple_topics_keep_independent_cas_and_removals_are_not_readded(

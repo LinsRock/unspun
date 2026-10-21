@@ -1,0 +1,193 @@
+{
+  "at": "2026-10-21T06:29:14.686335+00:00",
+  "test_database": "unspun_r206_grounding_tests_v2_20261021",
+  "baseline_tests_passed": 1050,
+  "final_regression_passed": 1076,
+  "skipped": 0,
+  "ruff": "passed",
+  "format_files": 183,
+  "pyright": "0 errors, 0 warnings",
+  "schema_check": "No new upgrade operations detected.",
+  "deploy_ci_tests_passed": 29,
+  "legacy_ranking_cases": 40,
+  "legacy_ranking_identical": true,
+  "new_paid_requests": 0,
+  "new_blind_prepared": false,
+  "prior_failures_retained": [
+    "Initial root-directory pytest invocation used the existing server-relative config default and failed to load sources; rerun from server/.",
+    "Old mock call-count assertion still expected one reviewer call; changed to the four required audit calls.",
+    "Initial typing/lint issues and a mock CAS-control setup invalidated its own recall by creating topics after enqueue; corrected before final regression and source freeze."
+  ],
+  "logs": {
+    "baseline": {
+      "path": "docs/acceptance/r2-06-grounding/logs/baseline.log.gz",
+      "sha256": "4ee40d4105ef9a4ad4a40af4ee2af9f0a401918c0239be90a4d6708c752451ad",
+      "original_bytes": 1232
+    },
+    "ci-scope-tests": {
+      "path": "docs/acceptance/r2-06-grounding/logs/ci-scope-tests.log.gz",
+      "sha256": "da8df7fea302519478135e15b842e33044a65d26800cf7c8399b3aa0eb64c564",
+      "original_bytes": 1811
+    },
+    "deploy-tests": {
+      "path": "docs/acceptance/r2-06-grounding/logs/deploy-tests.log.gz",
+      "sha256": "3807c9b6bd322dee9e7c51b2c26e5a56ae8b9a44437b9ca6ea1964531fb7af2b",
+      "original_bytes": 2837
+    },
+    "execution-lint-v2": {
+      "path": "docs/acceptance/r2-06-grounding/logs/execution-lint-v2.log.gz",
+      "sha256": "7306186d51337f51d17b66d2d4a037e95095f44b8afe9c144ea12d5821ab89bb",
+      "original_bytes": 8989
+    },
+    "execution-lint": {
+      "path": "docs/acceptance/r2-06-grounding/logs/execution-lint.log.gz",
+      "sha256": "edec00170b8b85d1607f131eae6c84cac848ab0dada734ee861947ad442b3af2",
+      "original_bytes": 4262
+    },
+    "execution-tests-v2": {
+      "path": "docs/acceptance/r2-06-grounding/logs/execution-tests-v2.log.gz",
+      "sha256": "102deba3af592e0205ae1222d797062e1bf62bcf71a1402ccde897032d11301a",
+      "original_bytes": 7076
+    },
+    "execution-tests-v3": {
+      "path": "docs/acceptance/r2-06-grounding/logs/execution-tests-v3.log.gz",
+      "sha256": "e6bebbd133ca77dee2ea9d4896ddb08d39c146323d6589ed398819a0cf13e77d",
+      "original_bytes": 98
+    },
+    "format-final": {
+      "path": "docs/acceptance/r2-06-grounding/logs/format-final.log.gz",
+      "sha256": "83e9576cdcb6bd71bf0aeaf197cefe5030ef96a1e220620489cdca7ce9aff518",
+      "original_bytes": 28
+    },
+    "format-first": {
+      "path": "docs/acceptance/r2-06-grounding/logs/format-first.log.gz",
+      "sha256": "645fca815f7be844499df0b494aa81adfd13dfb4e4fb4f05041c6831fc04c42e",
+      "original_bytes": 50
+    },
+    "freeze-created": {
+      "path": "docs/acceptance/r2-06-grounding/logs/freeze-created.log.gz",
+      "sha256": "69f0652c99b7873553c15a869839b967f2391ed0dc9547d9e3f10fec01b2a122",
+      "original_bytes": 471
+    },
+    "grounding-first": {
+      "path": "docs/acceptance/r2-06-grounding/logs/grounding-first.log.gz",
+      "sha256": "c39ff8755634b6e134b79e91e0cbf8e7f765a7aa2472475068ffb2bbaf4b9d08",
+      "original_bytes": 100
+    },
+    "lint-final": {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-final.log.gz",
+      "sha256": "7b1c88436635db1bd7e35093126e0b5fb8b7d091f65892d9c834f5add1f7024e",
+      "original_bytes": 19
+    },
+    "lint-first": {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-first.log.gz",
+      "sha256": "51b8f6ae12a84679f6bc9c64c7e33807d8a4481bea8821ec40c551a8f64bb90a",
+      "original_bytes": 541
+    },
+    "lint-v2": {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-v2.log.gz",
+      "sha256": "1fcc505ca7922b468c413c3ac1eca9f38535d634963a383bc419ca30cae46482",
+      "original_bytes": 4252
+    },
+    "lint-v3": {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-v3.log.gz",
+      "sha256": "cf290aec7c2fd475a07e1bd8e2df6f5efebc946298ab26ebe18e773c5ee14e89",
+      "original_bytes": 514
+    },
+    "lint-v4": {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-v4.log.gz",
+      "sha256": "b1df3c2ca2bbb477358ff7f0ca1a423223d994281e1ad145fe1ab8a37357eca7",
+      "original_bytes": 494
+    },
+    "lint-v5": {
+      "path": "docs/acceptance/r2-06-grounding/logs/lint-v5.log.gz",
+      "sha256": "f5813fa0d7a02ee28819d7100c2aa8ff85b839267066f4ce606c7b57c088b7be",
+      "original_bytes": 19
+    },
+    "member-first": {
+      "path": "docs/acceptance/r2-06-grounding/logs/member-first.log.gz",
+      "sha256": "e974cc2edd226d7a219a40b77ec0930686c9ea31951e823b00f6c7e0d648fa6a",
+      "original_bytes": 162455
+    },
+    "member-v2": {
+      "path": "docs/acceptance/r2-06-grounding/logs/member-v2.log.gz",
+      "sha256": "d382ce90e0a8a7da2233eca25dd272f359c0633f83d1059bc4ce86969d2f88ab",
+      "original_bytes": 2782
+    },
+    "member-v3": {
+      "path": "docs/acceptance/r2-06-grounding/logs/member-v3.log.gz",
+      "sha256": "769dab4d5adb9f9498dcea15476a9753a196c89c886af91c713f08eb2cf0a03d",
+      "original_bytes": 180
+    },
+    "migrate-final": {
+      "path": "docs/acceptance/r2-06-grounding/logs/migrate-final.log.gz",
+      "sha256": "121df708b37193a067aab71ffc7a34c96574158e5bd657ebb9072ad7e8e8a6a1",
+      "original_bytes": 0
+    },
+    "predeploy": {
+      "path": "docs/acceptance/r2-06-grounding/logs/predeploy.log.gz",
+      "sha256": "fab90fdc848d4ece88a8d3ddead99a49331816483964a6770103d7e0503def8f",
+      "original_bytes": 824
+    },
+    "prepare-registration": {
+      "path": "docs/acceptance/r2-06-grounding/logs/prepare-registration.log.gz",
+      "sha256": "e3aed6318ede11a730569e0e94b7c8d25c79276076db8af7d758b8d50448c5c2",
+      "original_bytes": 1551
+    },
+    "pyright-final": {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-final.log.gz",
+      "sha256": "1d70fb83d9920dc5f67cf7b9fd2cdd62d5b9d386b5757e5910a5d1e03d1ae851",
+      "original_bytes": 37
+    },
+    "pyright-first": {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-first.log.gz",
+      "sha256": "c326e334ce82e080d133781b2b8a80e7d7a00552f4309b060e4d356e51e45dd4",
+      "original_bytes": 4878
+    },
+    "pyright-v2": {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v2.log.gz",
+      "sha256": "cc3df28c44cfbe8761ef6f9dafa167c3f5005821c5f5a82d0ae16b2a40584dfd",
+      "original_bytes": 1081
+    },
+    "pyright-v3": {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v3.log.gz",
+      "sha256": "5cba665cfb04dda01a5d54db8806195f9855db19dcdf4e60f6b2d6396d21f61a",
+      "original_bytes": 3169
+    },
+    "pyright-v4": {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v4.log.gz",
+      "sha256": "eb2ae2fff1addb48f1ee39c3d066afaed72898a68af28fc01426eae321f04392",
+      "original_bytes": 6114
+    },
+    "pyright-v5": {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v5.log.gz",
+      "sha256": "b325dab9ae0319e178aaaee9198ded357778ec54d86ab8afc6ef0cc3226182ad",
+      "original_bytes": 686
+    },
+    "pyright-v6": {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v6.log.gz",
+      "sha256": "6880e7a7bf97f0d90c8ae5c786d5e1925c6ecc889059814c069eae4650f92a64",
+      "original_bytes": 37
+    },
+    "pyright-v7": {
+      "path": "docs/acceptance/r2-06-grounding/logs/pyright-v7.log.gz",
+      "sha256": "37105a9856d8bc631fb2e141504e251fbd4a4842f152079c1e2e59c4deea09e9",
+      "original_bytes": 690
+    },
+    "recovery-before": {
+      "path": "docs/acceptance/r2-06-grounding/logs/recovery-before.log.gz",
+      "sha256": "3d36b3578cceb0971e90d56986a88ea902267d935b92ae497539cf2e05924b58",
+      "original_bytes": 76
+    },
+    "regression-final": {
+      "path": "docs/acceptance/r2-06-grounding/logs/regression-final.log.gz",
+      "sha256": "ce06184a4bdd65fc6e3b77e834be279c926351b458250284be33a8e2242b8d4e",
+      "original_bytes": 1232
+    },
+    "schema-final": {
+      "path": "docs/acceptance/r2-06-grounding/logs/schema-final.log.gz",
+      "sha256": "3cd24a41e79cbc315e440f682625cacf7662fce56e2ec3120ef5ef56ada21b3d",
+      "original_bytes": 36
+    }
+  }
+}

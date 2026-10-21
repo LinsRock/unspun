@@ -1,0 +1,732 @@
+{
+  "schema_version": "r206-grounding-exposed-v1",
+  "id": "r206-grounding-v1:exposed",
+  "at": "2026-10-21T06:01:16.407452+00:00",
+  "base_revision": "4f275b9d236acc315c49a735c6527b43ffc7cde9",
+  "topics": [
+    {
+      "key": "france",
+      "id": "494cf63e-19ea-523e-9b90-82fc89dec515",
+      "kind": "event",
+      "title": "France nationwide protests and riots, October 2026",
+      "anchors": [
+        8868
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "1464e699-4e0d-575a-b853-d74fc9871e84",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "How day of protests unfolded as disorder breaks out across France",
+        "voice": "description"
+      }
+    },
+    {
+      "key": "huang",
+      "id": "ecd21a56-4132-5a29-9a4f-40e486eaec65",
+      "kind": "event",
+      "title": "Investigation of Huang Ribo announced October 18, 2026",
+      "anchors": [
+        8879
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "f5fcc013-f7c6-509f-a60e-1916440b418b",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "中国广西壮族自治区政协原副主席黄日波被查。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "canada",
+      "id": "c266c563-c753-54d0-acba-ac9f542cc24c",
+      "kind": "event",
+      "title": "Wainwright military base fire reported as September 17 in retained anchor",
+      "anchors": [
+        8878
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "加拿大一个军事基地发生重大火灾，火势在强风助推下正迅速蔓延。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "mercenary",
+      "id": "b9263839-e508-515e-9bac-8b9944973066",
+      "kind": "issue",
+      "title": "Ownership and activities of the inherited Wagner mercenary force",
+      "anchors": [
+        8861
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "a295d553-a96c-5030-a74b-a0bc7df64746",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "The son of Wagner Group’s late founder hangs on to an African stronghold, making a fortune from guns, drugs and gold.",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "westbank",
+      "id": "528789b1-1499-5b13-92d3-00351e757559",
+      "kind": "issue",
+      "title": "Israeli settler violence against Palestinians and visitors in the West Bank",
+      "anchors": [
+        8872
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "7c678a06-ce60-56ad-9fe1-a5cd967f74cc",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "Israeli settlers attack Palestinians in West Bank during olive harvest",
+        "voice": "description"
+      }
+    },
+    {
+      "key": "hongkong",
+      "id": "34979cea-66d3-5ccf-a7f5-520396f9d4ed",
+      "kind": "event",
+      "title": "Hong Fuk Court fire and official accountability in Hong Kong",
+      "anchors": [
+        8903
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "opinion",
+      "original_id": "1ef5945b-a464-5436-8829-f0b015b942a2",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "戴庆成：宏福苑大火考验香港高官问责制 香港大埔公共屋苑宏福苑于2025年11月26日发生五级火灾，全苑共八座大厦，其中七幢起火，共造成168人死亡。负责调查这场火灾的独立委员会于2026年3月19日起举行一系列公开听证会。 （法新社档案照片） 香港大埔宏福苑大火发生接近一年，社会等待已久的调查结果终于快要揭盅。 由港府成立的独立委员会，在今年3月至7月举行了30场听证会，听取80名证人供词，处理逾100万个档案。据香港媒体消息，独立委员会最快将于星期四（10月22日）向行政长官李家超提交最终报告。李家超日前表示报告出炉后，会尽快推行改革并追究责任。 不过，在报告公布前夕，香港社会近日已在热烈讨论一个敏感话题：除了前线公务员和私人承建商之外，是否也有政治问责官员需要为事件下台？ 香港香港政治中国早点香港大埔火灾香港特区政府 与“壮王”蓝天立多有交集 今年广西“首虎”黄日波落马 购买此文章",
+        "voice": "author"
+      }
+    },
+    {
+      "key": "uzbekistan",
+      "id": "f789d0f7-4751-5ea8-89a7-b4427cbab7f3",
+      "kind": "event",
+      "title": "Li Qiang meetings with Uzbekistan leaders during the Central Asia visit",
+      "anchors": [
+        8876
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "aaf3cee6-c021-53b6-b5dc-18ae7a194d72",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "中国国务院总理李强访问乌兹别克斯坦期间，分别与乌总统米尔济约耶夫与总理阿里波夫会面，他呼吁中乌双方继续坚定支持彼此核心利益，并深化能源及人工智能（AI）等领域合作。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "tajikistan",
+      "id": "ccad42b0-9ff6-5a9f-b341-54ba9bad43fe",
+      "kind": "event",
+      "title": "Li Qiang talks with Tajikistan prime minister Rasulzoda",
+      "anchors": [
+        8985
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "388ad6c0-5372-57fc-811c-39e889d91ae2",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "deepseek",
+      "id": "b0447e52-dc7c-5cad-a609-e2521a7a4a5d",
+      "kind": "event",
+      "title": "DeepSeek new model release reported October 2026",
+      "anchors": [
+        8896
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "51cf5360-3bd0-5ce3-a8bc-e9dff1857b0c",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "中国人工智能（AI）初创企业深度求索（DeepSeek）发布新版AI模型，称新模型在推理、编程等方面的性能进一步提升，同时缩短任务执行时间和输出长度，降低使用成本。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "japan-era",
+      "id": "57505226-8116-50bf-9e13-2c0b74693dc1",
+      "kind": "issue",
+      "title": "Japanese era names and the historical East Asian era naming system",
+      "anchors": [
+        8904
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "explanation",
+      "original_id": "66d307fb-b1c1-5dc6-a245-6588629265d6",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "年号是一种纪年方式，公元纪年也是一种纪年方式，因此从某种意义上来说，公元纪年可以看作是一种特殊的年号。",
+        "voice": "author"
+      }
+    },
+    {
+      "key": "blind-topic-01",
+      "id": "25da29d2-53fb-5ed1-8708-deea005c2e8b",
+      "kind": "event",
+      "title": "Musk announcement on October 19, 2026 to give SpaceX shares to every child in the United States",
+      "anchors": [
+        9013
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "9248178d-cac2-5eb0-8591-95fdf74d923e",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "科技亿万富翁马斯克星期一（10月19日）说，他将向美国每一名儿童赠送一份其旗下火箭公司SpaceX的股份。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "blind-topic-02",
+      "id": "10cffde4-150c-54ac-b19e-810f41b8d128",
+      "kind": "issue",
+      "title": "Chinese-language translation and reception of Arundhati Roy memoir Mother Mary Comes to Me",
+      "anchors": [
+        9054
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "background",
+      "original_id": "19039fd8-307d-57c5-8409-c5883db12092",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 19,
+        "quote": "今年八月，新书出版前夕，我刚好在译洛伊的巴黎评论访谈，里面提到了一些细节，新书里也有同样的段落。我琢磨了一会儿，翻出新书的稿子，又改了三处细节，其中一处自觉改得极妙，责编也赞同，发来两个感叹号，夸我打磨到最后一刻。我只觉庆幸，又完善了一些。对于珍视的事物，再怎么认真都不为过，万幸，万幸。",
+        "voice": "author"
+      }
+    },
+    {
+      "key": "blind-topic-03",
+      "id": "61f15646-c05e-5e73-8be4-a8cf24c2fa3c",
+      "kind": "event",
+      "title": "Central Institute of Socialism seventieth anniversary ceremony and congratulatory letter on October 20, 2026",
+      "anchors": [
+        9277
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "report",
+      "original_id": "3174d910-5141-518d-ba56-fad08dc37eb5",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 10,
+        "quote": "中央社会主义学院建院70周年庆祝大会20日在京举行。会上宣读了习近平的贺信。中共中央政治局常委、全国政协主席王沪宁出席并讲话。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "blind-topic-04",
+      "id": "20b8f017-bb6d-51b5-82c1-80b4a7471eb0",
+      "kind": "issue",
+      "title": "Whether gold could be a building material under hypothetical planetary metal abundance",
+      "anchors": [
+        9274
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "explanation",
+      "original_id": "84e3ebac-232f-5533-9086-0e06bdfbca0a",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 3,
+        "quote": "黄金如果极度廉价，它确实会大面积出现在建筑工地里，但它的生态位绝对不是去充当“承重骨架”，而是会成为全宇宙最顶级的功能性辅助建材。",
+        "voice": "author"
+      }
+    },
+    {
+      "key": "blind-topic-05",
+      "id": "227ae7c3-362f-5e2f-9f39-d885949ba318",
+      "kind": "issue",
+      "title": "Future climate habitability of regions in China",
+      "anchors": [
+        9099
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "explanation",
+      "original_id": "5a75181c-ebcb-5a18-85d8-5f340e74d2ad",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "泻药。很多人不看题，这个题的关键是“未来”二字，因此我们需要讲的并不是现在哪些地区宜居，而是未来哪些地区宜居，显然不少人都没有注意到这一点，都答偏了。难度还是有的，因为不仅需要考虑气温、湿度、降水、雾霾、极端灾害天气等，还需要考虑未来的气候变化，也就是全球变暖。因此我们需要讲的是未来全球变暖背景下的舒适区，而不是当下的舒适区。",
+        "voice": "author"
+      }
+    },
+    {
+      "key": "blind-topic-06",
+      "id": "8d29a609-7c5d-5e9a-9100-768562995cfc",
+      "kind": "issue",
+      "title": "The novel All Shades of Nothingness and its themes of displacement and nihilism",
+      "anchors": [
+        9055
+      ],
+      "split": "exposed_validation",
+      "seed_relation": "opinion",
+      "original_id": "3f430f40-4f1b-5340-82f1-5ea71fee8168",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 48,
+        "quote": "一定要读一读《万色虚无》",
+        "voice": "author"
+      }
+    }
+  ],
+  "queries": [
+    {
+      "article_id": 8881,
+      "split": "exposed_validation",
+      "expected_associations": {
+        "france": [
+          "same_event"
+        ]
+      },
+      "dimensions": [
+        "cross_language",
+        "unknown_original_time"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "regression",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8898,
+      "split": "exposed_validation",
+      "expected_associations": {
+        "france": [
+          "same_event"
+        ]
+      },
+      "dimensions": [
+        "cross_source",
+        "same_event"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "regression",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8899,
+      "split": "exposed_validation",
+      "expected_associations": {
+        "huang": [
+          "opinion",
+          "background"
+        ]
+      },
+      "dimensions": [
+        "independent_analysis",
+        "opinion_attribution"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "regression",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8905,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "conflicting_dates",
+        "same_subject_insufficient_identity"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "regression",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8893,
+      "split": "exposed_validation",
+      "expected_associations": {
+        "mercenary": [
+          "same_issue",
+          "background"
+        ],
+        "westbank": [
+          "same_issue",
+          "background"
+        ]
+      },
+      "dimensions": [
+        "partial_overlap",
+        "multi_topic",
+        "preview"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "regression",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8874,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "long_input",
+        "independent_knowledge"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "regression",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8903,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "independent_opinion",
+        "different_fires",
+        "existing_member_excluded"
+      ],
+      "unlisted_topics": "independent; audit every actually selected negative candidate",
+      "user_accepted": null,
+      "origin": "The already frozen real supplemental 8903 opinion anchor; newly registered query role before any paid output.",
+      "original_split": "regression",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8877,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "independent_opinion",
+        "review"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "holdout",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8906,
+      "split": "exposed_validation",
+      "expected_associations": {
+        "tajikistan": [
+          "same_event"
+        ]
+      },
+      "dimensions": [
+        "same_person_distinct_events",
+        "positive_holdout"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "holdout",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8876,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "same_person_distinct_events",
+        "negative_holdout",
+        "existing_member_excluded"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "holdout",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8923,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "same_country_distinct_subjects"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "holdout",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 8926,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "same_country_distinct_events"
+      ],
+      "unlisted_topics": "independent; report every selected negative candidate as well",
+      "user_accepted": null,
+      "original_split": "holdout",
+      "exposure_origin": "original"
+    },
+    {
+      "article_id": 9192,
+      "original_id": 9192,
+      "split": "exposed_validation",
+      "expected_associations": {
+        "blind-topic-01": [
+          "same_event"
+        ]
+      },
+      "dimensions": [
+        "same_event",
+        "partial_overlap",
+        "multi_subject_query",
+        "query_anchor_ownership"
+      ],
+      "unlisted_topics": "independent; report every actually selected negative candidate; admission/structural failure is not an independent success",
+      "user_accepted": null,
+      "technical_rationale": "Only the Musk announcement within this comparative article is the same event. The Anthropic fund is a distinct act; anchor material cannot supply missing query facts. The query itself identifies the same actor, gift, recipients and October 19 X announcement.",
+      "technical_evidence": [
+        {
+          "article_id": 9192,
+          "material_id": 235,
+          "paragraph": 4,
+          "text": "马斯克则主张直接分配股权。他星期一（10月19日）在社交媒体X平台写道：“明年，我将向美国的每名儿童赠送一股SpaceX股票，这只是众多举措中的第一步。”"
+        },
+        {
+          "article_id": 9013,
+          "material_id": 114,
+          "paragraph": 0,
+          "text": "科技亿万富翁马斯克星期一（10月19日）说，他将向美国每一名儿童赠送一份其旗下火箭公司SpaceX的股份。"
+        },
+        {
+          "article_id": 9013,
+          "material_id": 114,
+          "paragraph": 1,
+          "text": "法新社报道，身为全球首富的马斯克在X上写道：“明年，我将把SpaceX的一份股份赠送给美国的每一名孩子。”"
+        }
+      ],
+      "original_split": "holdout",
+      "exposure_origin": "previously_blind"
+    },
+    {
+      "article_id": 9051,
+      "original_id": 9051,
+      "split": "exposed_validation",
+      "expected_associations": {
+        "blind-topic-02": [
+          "opinion"
+        ]
+      },
+      "dimensions": [
+        "opinion_attribution",
+        "same_work_different_roles",
+        "distinct_books_negative_candidates",
+        "original_time_not_proven_by_edited_time"
+      ],
+      "unlisted_topics": "independent; report every actually selected negative candidate; admission/structural failure is not an independent success",
+      "user_accepted": null,
+      "technical_rationale": "The first-person reading assessment concerns the identical Roy memoir; classify the author assessment as opinion, not an event or the translator own testimony. A different book about nihilism remains independent.",
+      "technical_evidence": [
+        {
+          "article_id": 9051,
+          "material_id": 190,
+          "paragraph": 1,
+          "text": "1、我一直很期待读到这本书的中文版。以前豆瓣喜欢称学习型友邻，即使从未谋面，但多年书影音的交流，会渐渐熟稔，并深深信任靠谱友邻的趣味和品位，而这本正是我的学习型友邻“别的熊”严选，虽然偶尔我们会在见解上不同，但她的认证也会让我更认真对待这一次的阅读，结果，洛伊这本Mother Mary Comes to Me正中我的靶心。"
+        },
+        {
+          "article_id": 9051,
+          "material_id": 190,
+          "paragraph": 15,
+          "text": "13、最后，我完全不记得自己近二十年前读过《微物之神》这个事实，豆瓣的记录啪啪打疼老脸。所以《我的风暴，我的庇护所》就当作是我读洛伊的第一本书，爱上她的文字的决定性时刻吧。读得顺畅，毫无那种南亚的脑仁疼的粘腻，年度好书有了一本。真的是爱上一个作者，要等云到，等风来。"
+        },
+        {
+          "article_id": 9054,
+          "material_id": 239,
+          "paragraph": 19,
+          "text": "今年八月，新书出版前夕，我刚好在译洛伊的巴黎评论访谈，里面提到了一些细节，新书里也有同样的段落。我琢磨了一会儿，翻出新书的稿子，又改了三处细节，其中一处自觉改得极妙，责编也赞同，发来两个感叹号，夸我打磨到最后一刻。我只觉庆幸，又完善了一些。对于珍视的事物，再怎么认真都不为过，万幸，万幸。"
+        }
+      ],
+      "original_split": "holdout",
+      "exposure_origin": "previously_blind"
+    },
+    {
+      "article_id": 9125,
+      "original_id": 9125,
+      "split": "exposed_validation",
+      "expected_associations": {
+        "blind-topic-03": [
+          "background"
+        ]
+      },
+      "dimensions": [
+        "background",
+        "same_subject_distinct_activities",
+        "occurrence_vs_publication_time",
+        "query_anchor_ownership"
+      ],
+      "unlisted_topics": "independent; report every actually selected negative candidate; admission/structural failure is not an independent success",
+      "user_accepted": null,
+      "technical_rationale": "This earlier institutional history/profile supplies background to the anniversary ceremony. Its October 15 open day and older training anecdotes are different activities from the October 20 ceremony/letter; do not claim that the query reports the later ceremony or borrow anchor facts.",
+      "technical_evidence": [
+        {
+          "article_id": 9125,
+          "material_id": 197,
+          "paragraph": 0,
+          "text": "“取材于《红楼梦》的越剧《我的大观园》近年来广受好评，其中就有不少推动中华优秀传统文化创造性转化、创新性发展的巧思。”10月15日，中央社会主义学院建院70周年开放日活动现场，该院中华文化教研部教授翁贺凯带来一堂“示范课”，短短40分钟，既有理论厚度，又生动鲜活。"
+        },
+        {
+          "article_id": 9125,
+          "material_id": 197,
+          "paragraph": 2,
+          "text": "今年是中央社会主义学院建院70周年。作为中国共产党领导的统一战线性质的高等政治学院、民主党派和无党派人士的联合党校，中央社会主义学院牢记总书记嘱托，坚持走“高层次、正规化、有特色”办学路子，培养造就了一大批政治立场坚定、理论素养深厚、履职能力过硬的党外代表人士，为巩固和壮大爱国统一战线、服务经济社会发展大局作出了重要贡献，书写了同心筑梦的时代篇章。"
+        },
+        {
+          "article_id": 9277,
+          "material_id": 260,
+          "paragraph": 10,
+          "text": "中央社会主义学院建院70周年庆祝大会20日在京举行。会上宣读了习近平的贺信。中共中央政治局常委、全国政协主席王沪宁出席并讲话。"
+        }
+      ],
+      "original_split": "holdout",
+      "exposure_origin": "previously_blind"
+    },
+    {
+      "article_id": 9182,
+      "original_id": 9182,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "same_broad_ai_subject_distinct_actors_and_events",
+        "independent_negative",
+        "opinion_quote_attribution"
+      ],
+      "unlisted_topics": "independent; report every actually selected negative candidate; admission/structural failure is not an independent success",
+      "user_accepted": null,
+      "technical_rationale": "A former central-bank governor warning on investment/financial risk is not the Musk equity gift event, nor the unrelated climate/gold knowledge topics. Broad AI/economy words do not establish membership.",
+      "technical_evidence": [
+        {
+          "article_id": 9182,
+          "material_id": 237,
+          "paragraph": 0,
+          "text": "中国央行前行长周小川警告，随着大量资金涌入人工智能（AI）及相关基础设施领域，部分投资项目一旦失败，可能引发金融市场动荡甚至危机，呼吁提前研究并储备政策工具，以应对潜在金融风险。"
+        },
+        {
+          "article_id": 9182,
+          "material_id": 237,
+          "paragraph": 1,
+          "text": "综合澎湃新闻和财联社报道，周小川星期二（10月20日）在上海举行的2026外滩年会“AI与生产率革命：技术跃迁下的宏观冲击”圆桌讨论上指出，随着AI技术发展，“我们无疑会面临部分投资失败、部分投资成功的局面”。"
+        }
+      ],
+      "original_split": "holdout",
+      "exposure_origin": "previously_blind"
+    },
+    {
+      "article_id": 9098,
+      "original_id": 9098,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "independent_knowledge",
+        "shared_cultural_domain_distinct_subject",
+        "query_anchor_ownership"
+      ],
+      "unlisted_topics": "independent; report every actually selected negative candidate; admission/structural failure is not an independent success",
+      "user_accepted": null,
+      "technical_rationale": "Historical garments and weaving are distinct from the registered book reception, institutional anniversary and scientific topics; do not import a topic narrative into the query.",
+      "technical_evidence": [
+        {
+          "article_id": 9098,
+          "material_id": 173,
+          "paragraph": 0,
+          "text": "因为现代汉服主要仿制古代的礼服，明人私下里不会这么穿。"
+        },
+        {
+          "article_id": 9098,
+          "material_id": 173,
+          "paragraph": 14,
+          "text": "素纱禅衣代表了西汉纱织造工艺的最高水平，绝对不是因为布料差、支数低才透明的。"
+        }
+      ],
+      "original_split": "holdout",
+      "exposure_origin": "previously_blind"
+    },
+    {
+      "article_id": 8981,
+      "original_id": 8981,
+      "split": "exposed_validation",
+      "expected_associations": {},
+      "dimensions": [
+        "long_input",
+        "unknown_original_time",
+        "independent_knowledge",
+        "shared_cultural_domain_distinct_subject"
+      ],
+      "unlisted_topics": "independent; report every actually selected negative candidate; admission/structural failure is not an independent success",
+      "user_accepted": null,
+      "technical_rationale": "First-person pronoun development is an independent linguistics explanation. The current metadata certifies only editorial selection date, not original-answer publication. It remains below the real truncation limits and is not old-original evidence.",
+      "technical_evidence": [
+        {
+          "article_id": 8981,
+          "material_id": 92,
+          "paragraph": 0,
+          "text": "上古汉语本土的第一人称代词有七个：吾、我、卬、余（予）、陽、朕、台（yí）。它们的源流大致如下："
+        }
+      ],
+      "original_split": "holdout",
+      "exposure_origin": "previously_blind"
+    }
+  ],
+  "unavailable_inputs": [
+    {
+      "article_id": 8877,
+      "split": "holdout",
+      "existing_article_id": 19,
+      "url": "https://book.douban.com/review/17835717/",
+      "reason": "same URL/track already exists with different material and metadata fingerprints and different paragraphs; retaining the old object prevents appending this frozen version",
+      "r1_qualification": "qualified in the original R2 frozen materials; unavailable for this cumulative-ledger append, not a negative user judgment"
+    }
+  ],
+  "counts": {
+    "registered_queries": 18,
+    "executable_queries": 17,
+    "topics": 16,
+    "expected_pairs": 9,
+    "previously_blind_queries_now_exposed": 6
+  },
+  "original_freezes_labels_first_outputs_unchanged": true,
+  "reuse_requires_exact_original_package_and_current_input": true,
+  "input_sources": [
+    {
+      "path": "docs/evaluations/r2/member-inputs-v1.json",
+      "sha256": "a4af0daa8a1cfdea80091180b88f75f0caade60d0d7ca2c5997c4e117e245d46",
+      "material_offset": 100000
+    },
+    {
+      "path": "docs/evaluations/r2/member-grounding-exposed-inputs-v1.json.gz",
+      "sha256": "817d1f85d9c9f10032aafe3675677af96014395197a083af16ae423cfe8cf322",
+      "material_offset": 200000
+    }
+  ],
+  "technical_gates": {
+    "candidate_recall_min": 0.9,
+    "judgment_precision_min": 0.95,
+    "final_member_coverage_min": 0.8,
+    "false_merges_max": 0,
+    "unapproved_or_invalid_applied_max": 0,
+    "all_required_real_dimensions_covered": true,
+    "thresholds_are": "AI technical acceptance, not user approval"
+  },
+  "user_acceptance": null,
+  "production_enabled": false
+}

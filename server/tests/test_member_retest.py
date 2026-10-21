@@ -7,7 +7,7 @@ from typing import Any
 
 import pytest
 
-from tests.test_member_processing import MemberDB
+from tests.test_member_processing import MemberDB, decision_for_prompt
 from tests.test_member_quality import spec
 from unspun.core.billing import BudgetExceeded
 from unspun.core.member_recall import recall_plan
@@ -142,7 +142,7 @@ def test_natural_phase_runs_real_queue_handler_and_cas(
     monkeypatch.setattr(retest, "EVIDENCE", tmp_path)
     retest.run_phase(db.billing.engine, execution, value, "regression", Decimal("0.20"), None)
     assert db.judgment().status == "applied"
-    assert len(db.calls) == 4
+    assert len(db.calls) == 7
     assert '"event": "complete"' in (tmp_path / "regression-first-run.ndjson").read_text()
     retest.require_phase_complete(db.billing.engine, execution, "regression", value)
     with db.scope() as session:
@@ -191,16 +191,6 @@ def test_challenge_uses_real_reviewer_and_rejects_registered_revision_race(
     topic = recalled["candidates"][0]["topic"]
     with db.scope() as session:
         query = retest.current_input(session, db.article, db.sources, datetime.now(UTC))
-    refs = [
-        {
-            "article_id": s["content"]["article_id"],
-            "material_id": s["content"]["material_id"],
-            "paragraph": 0,
-            "quote": s["content"]["paragraphs"][0]["text"],
-            "voice": "reported",
-        }
-        for s in [query, topic["anchors"][0]["snapshot"]]
-    ]
     value = spec(db)
     value.update(
         id="synthetic-challenge",
@@ -210,12 +200,11 @@ def test_challenge_uses_real_reviewer_and_rejects_registered_revision_race(
                 "topic_id": str(db.topic),
                 "article_id": db.article,
                 "force_revision_after_review": True,
-                "decision": {
-                    "classification": "same_event",
-                    "certainty": "certain",
-                    "basis": "Synthetic explicit reviewer challenge",
-                    "evidence": refs,
-                },
+                "decision": decision_for_prompt(
+                    __import__(
+                        "unspun.pipeline.member_processing", fromlist=["_prompt_packet"]
+                    )._prompt_packet({"query": query, "candidate": {"topic": topic}}, None)
+                ),
             }
         ],
     )
@@ -235,8 +224,11 @@ def test_challenge_uses_real_reviewer_and_rejects_registered_revision_race(
     monkeypatch.setattr(challenge, "EVIDENCE", tmp_path)
     challenge.run_challenges(db.billing.engine, execution, Decimal("0.20"), None)
     row = db.judgment()
-    assert row.status == "stale" and row.review and row.review["approved"]
-    assert len(db.calls) == 3
     assert '"natural_end_to_end": false' in (tmp_path / "challenge-first-run.ndjson").read_text()
     if limit == 1:
+        assert row.status == "draft" and row.review is None
+        assert len(db.calls) == 3
         assert '"event": "halt"' in (tmp_path / "challenge-first-run.ndjson").read_text()
+    else:
+        assert row.status == "stale" and row.review and len(row.review["audits"]) == 4
+        assert len(db.calls) == 6

@@ -10,7 +10,8 @@ from sqlalchemy.orm import Session
 
 from unspun.core.content import fingerprint
 from unspun.core.content_reading import CardDraft, ContentInput, publication_at
-from unspun.core.member_contracts import MemberDecision, member_contract, project_material
+from unspun.core.member_contracts import MemberDecision, member_contract
+from unspun.core.member_evidence import expanded_evidence
 from unspun.core.models import Article
 from unspun.core.sources import Source
 from unspun.core.topic_models import Topic, TopicMember
@@ -271,26 +272,18 @@ def validate_decision(session: Session, packet: dict[str, Any], decision: Member
         and decision.classification != ("same_event" if topic["kind"] == "event" else "same_issue")
     ):
         raise ValueError("decision does not match the topic kind")
-    query = packet["query"]["content"]
-    own = (query["article_id"], query["material_id"])
-    anchors = {
-        (a["snapshot"]["content"]["article_id"], a["snapshot"]["content"]["material_id"])
-        for a in topic["anchors"]
-    }
-    pairs = {(r.article_id, r.material_id) for r in decision.evidence}
-    if not pairs.issubset(anchors | {own}) or (
-        decision.associated and (own not in pairs or not pairs.intersection(anchors))
+    if decision.associated and not (
+        decision.query_facts and decision.anchor_facts and decision.relation_inferences
     ):
-        raise ValueError("association requires content and candidate anchor evidence")
-    visible = {
-        (p["content"]["article_id"], p["content"]["material_id"]): p["content"]["paragraphs"]
-        for p in [
-            project_material(packet["query"], "query"),
-            *(project_material(a["snapshot"], "anchor") for a in topic["anchors"]),
-        ]
-    }
-    for ref in decision.evidence:
-        paragraphs = visible[(ref.article_id, ref.material_id)]
-        if ref.paragraph >= len(paragraphs) or ref.quote not in paragraphs[ref.paragraph]["text"]:
-            raise ValueError("evidence quote is outside the visible supplied paragraph")
-    validate_topic_evidence(session, decision.evidence)
+        raise ValueError("association requires query facts, anchor facts and relation inferences")
+    for inference in decision.relation_inferences:
+        for indices, facts in (
+            (inference.query_fact_indices, decision.query_facts),
+            (inference.anchor_fact_indices, decision.anchor_facts),
+        ):
+            if len(indices) != len(set(indices)) or any(i >= len(facts) for i in indices):
+                raise ValueError("inference refers to absent or duplicate fact indices")
+            if decision.associated and not indices:
+                raise ValueError("associated inference requires both fact owners")
+    refs = expanded_evidence(packet, decision)
+    validate_topic_evidence(session, refs)

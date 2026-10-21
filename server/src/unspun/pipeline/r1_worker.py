@@ -58,6 +58,7 @@ def process_one(
     scope: SessionScope = session_scope,
     lease_seconds: int = 300,
     source_ids: set[str] | None = None,
+    task_ids: frozenset[int] | None = None,
 ) -> bool:
     kinds = {kind for (lane, kind) in handlers if lane == queue}
     try:
@@ -69,6 +70,7 @@ def process_one(
                 worker=worker,
                 lease_seconds=lease_seconds,
                 source_ids=source_ids,
+                task_ids=task_ids,
             )
     except IntegrityError as error:
         # Two different pending tasks can race for one canonical object. The

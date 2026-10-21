@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-21T06:29:14.686708+00:00",
+  "review_kind": "primary-agent source and affected-caller review; not an independent holdout review",
+  "checked": [
+    "server reference ID scope/owner/paragraph/visible quote and old-field rejection",
+    "query-only support packet has no anchor or relation originals",
+    "all four independent audits require identical five-part binding and complete unique target checks",
+    "no approved-only, partial, edited-basis or stale result can pass CAS",
+    "same-pool cumulative fees, every physical retry and all-phase stop guard",
+    "explicit task-ID claim/reap isolation protects old task110 and old rows",
+    "real-review challenges and two-connection CAS are separate from natural scores",
+    "new blind files are never opened before strict exposed gates and separately reviewed seal",
+    "production defaults/config/models/prices/R1/full reservation algorithm unchanged"
+  ],
+  "findings_fixed_before_freeze": [
+    "Pass explicit task IDs through claim and reap so the old delayed task cannot be consumed.",
+    "Count four audit requests in all existing queue/recovery tests.",
+    "Compare exposed gate ratios to DB first outputs and applied-row strict findings; require complete real challenge CAS competition."
+  ],
+  "unresolved_engineering_findings": [],
+  "real_model_quality_claimed": false,
+  "paid_requests": 0
+}

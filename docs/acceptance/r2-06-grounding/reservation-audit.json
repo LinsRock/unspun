@@ -1,0 +1,258 @@
+{
+  "at": "2026-10-21T06:24:08.904070+00:00",
+  "paid_requests": 0,
+  "database_writes": 0,
+  "original_full_output_window_including_reasoning": 66559,
+  "original_algorithm_unchanged": true,
+  "prior_pool_spend_usd": "0.03171912",
+  "pool_cap_usd": "0.30",
+  "original_seven_holds_usd": "0.484867",
+  "sequential_audits_do_not_sum_all_full_holds_at_once": true,
+  "every_call_rechecks_known_plus_active_hold_against_same_pool": true,
+  "rows": [
+    {
+      "case": "anchor-as-query",
+      "kind": "judge",
+      "model": "google/gemini-2.5-flash-lite",
+      "input_bytes": 7583,
+      "complete_hold_usd": "0.029108",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "anchor-as-query",
+      "kind": "query_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 4916,
+      "complete_hold_usd": "0.169479",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "anchor-as-query",
+      "kind": "anchor_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 4701,
+      "complete_hold_usd": "0.169396",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "anchor-as-query",
+      "kind": "relation",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 7482,
+      "complete_hold_usd": "0.170462",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "anchor-as-query",
+      "kind": "complete_basis",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 7371,
+      "complete_hold_usd": "0.170420",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "date-conflict",
+      "kind": "judge",
+      "model": "google/gemini-2.5-flash-lite",
+      "input_bytes": 13853,
+      "complete_hold_usd": "0.030258",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "date-conflict",
+      "kind": "query_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 8544,
+      "complete_hold_usd": "0.170869",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "date-conflict",
+      "kind": "anchor_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 7551,
+      "complete_hold_usd": "0.170489",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "date-conflict",
+      "kind": "relation",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 13988,
+      "complete_hold_usd": "0.172956",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "date-conflict",
+      "kind": "complete_basis",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 13877,
+      "complete_hold_usd": "0.172914",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "analysis-as-report",
+      "kind": "judge",
+      "model": "google/gemini-2.5-flash-lite",
+      "input_bytes": 15284,
+      "complete_hold_usd": "0.030520",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "analysis-as-report",
+      "kind": "query_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 11613,
+      "complete_hold_usd": "0.172046",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "analysis-as-report",
+      "kind": "anchor_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 5933,
+      "complete_hold_usd": "0.169869",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "analysis-as-report",
+      "kind": "relation",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 15470,
+      "complete_hold_usd": "0.173524",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "analysis-as-report",
+      "kind": "complete_basis",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 15359,
+      "complete_hold_usd": "0.173482",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "correct-complete",
+      "kind": "judge",
+      "model": "google/gemini-2.5-flash-lite",
+      "input_bytes": 12696,
+      "complete_hold_usd": "0.030046",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "correct-complete",
+      "kind": "query_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 6786,
+      "complete_hold_usd": "0.170196",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "correct-complete",
+      "kind": "anchor_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 8334,
+      "complete_hold_usd": "0.170789",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "correct-complete",
+      "kind": "relation",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 12984,
+      "complete_hold_usd": "0.172571",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "correct-complete",
+      "kind": "complete_basis",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 12873,
+      "complete_hold_usd": "0.172529",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-a",
+      "kind": "judge",
+      "model": "google/gemini-2.5-flash-lite",
+      "input_bytes": 21239,
+      "complete_hold_usd": "0.031612",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-a",
+      "kind": "query_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 17048,
+      "complete_hold_usd": "0.174129",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-a",
+      "kind": "anchor_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 6129,
+      "complete_hold_usd": "0.169944",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-a",
+      "kind": "relation",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 21038,
+      "complete_hold_usd": "0.175659",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-a",
+      "kind": "complete_basis",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 20927,
+      "complete_hold_usd": "0.175616",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-b",
+      "kind": "judge",
+      "model": "google/gemini-2.5-flash-lite",
+      "input_bytes": 17090,
+      "complete_hold_usd": "0.030851",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-b",
+      "kind": "query_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 13116,
+      "complete_hold_usd": "0.172622",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-b",
+      "kind": "anchor_support",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 6129,
+      "complete_hold_usd": "0.169944",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-b",
+      "kind": "relation",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 17110,
+      "complete_hold_usd": "0.174153",
+      "is_not_expected_actual_fee": true
+    },
+    {
+      "case": "cas-race-b",
+      "kind": "complete_basis",
+      "model": "google/gemini-2.5-flash",
+      "input_bytes": 16999,
+      "complete_hold_usd": "0.174111",
+      "is_not_expected_actual_fee": true
+    }
+  ],
+  "maximum_review_hold_usd": "0.175659",
+  "minimum_review_hold_usd": "0.169396",
+  "future_discretionary_reserve_usd": "0",
+  "complete_known_plus_hold_at_start_fits": true
+}
