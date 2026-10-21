@@ -24,5 +24,8 @@
   "provider_queries": 0,
   "semantic_pass": false,
   "r206_status": "2/4",
-  "user_acceptance": null
+  "user_acceptance": null,
+  "merged_runtime_revision": "f7a7499d384f770efbbb1e59e7cad1852d0c4ee0",
+  "runtime_diff_to_reviewed_head": "identical",
+  "delivery_note": "Runtime/source gates pass; ambient old R1 activity is independently attributed before deployment. Global zero-paid production window is false. Original holds/rows/evaluation data preserved; no semantic credit."
 }

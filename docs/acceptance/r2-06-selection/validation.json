@@ -29,5 +29,7 @@
     "New old-registration test initially matched only contract errors; existing frozen-source rejection is also accepted.",
     "First-initialization mock was corrected to start without the synthetic evaluation policy/carry; no production accounting algorithm changed."
   ],
-  "deployment_preflight": "existing production cutover confirmed valid read-only; initialize-production now skips provider query for this path"
+  "deployment_preflight": "existing production cutover confirmed valid read-only; initialize-production now skips provider query for this path",
+  "paid_scope": "this R2-06 work only; ambient production activity separately recorded in final-audit.json",
+  "whole_production_window_zero_paid": false
 }
