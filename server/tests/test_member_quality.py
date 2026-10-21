@@ -139,7 +139,7 @@ def test_batch_uses_actual_handler_queue_and_cas(
     ]
     assert records[-1]["event"] == "complete"
     assert db.judgment().status == "applied"
-    assert len(db.calls) == 4
+    assert len(db.calls) == 7
 
 
 def test_allocation_retains_original_known_cost_and_unknown_holds(member_db: MemberDB) -> None:

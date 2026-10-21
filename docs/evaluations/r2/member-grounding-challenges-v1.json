@@ -1,0 +1,611 @@
+{
+  "schema_version": "r206-grounding-challenges-v1",
+  "id": "r206-grounding-v1:challenge",
+  "topics": [
+    {
+      "key": "anchor-as-query",
+      "id": "4b48a04d-31ae-5d5e-a85e-3a3760647bd4",
+      "kind": "issue",
+      "title": "Ownership and activities of the inherited Wagner mercenary force",
+      "anchors": [
+        8861
+      ],
+      "split": "review_challenge",
+      "seed_relation": "report",
+      "original_id": "a295d553-a96c-5030-a74b-a0bc7df64746",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "The son of Wagner Group’s late founder hangs on to an African stronghold, making a fortune from guns, drugs and gold.",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "date-conflict",
+      "id": "40397746-1c12-5ed7-8cbb-0a554c640a2e",
+      "kind": "event",
+      "title": "Wainwright military base fire reported as September 17 in retained anchor",
+      "anchors": [
+        8878
+      ],
+      "split": "review_challenge",
+      "seed_relation": "report",
+      "original_id": "4bb3ec32-4cb5-51dd-b685-b7d82c776e00",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "加拿大一个军事基地发生重大火灾，火势在强风助推下正迅速蔓延。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "analysis-as-report",
+      "id": "d89ba81d-583e-5370-9f38-4eae277c92a0",
+      "kind": "event",
+      "title": "Investigation of Huang Ribo announced October 18, 2026",
+      "anchors": [
+        8879
+      ],
+      "split": "review_challenge",
+      "seed_relation": "report",
+      "original_id": "f5fcc013-f7c6-509f-a60e-1916440b418b",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "中国广西壮族自治区政协原副主席黄日波被查。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "invalid-voice",
+      "id": "7eb7df4f-003e-5b49-95e0-1bf4b4086902",
+      "kind": "event",
+      "title": "France nationwide protests and riots, October 2026",
+      "anchors": [
+        8868
+      ],
+      "split": "review_challenge",
+      "seed_relation": "report",
+      "original_id": "1464e699-4e0d-575a-b853-d74fc9871e84",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "How day of protests unfolded as disorder breaks out across France",
+        "voice": "description"
+      }
+    },
+    {
+      "key": "invalid-paragraph",
+      "id": "a30dfb9f-6aab-5ef2-9554-d68cd91739f6",
+      "kind": "event",
+      "title": "Investigation of Huang Ribo announced October 18, 2026",
+      "anchors": [
+        8879
+      ],
+      "split": "review_challenge",
+      "seed_relation": "report",
+      "original_id": "f5fcc013-f7c6-509f-a60e-1916440b418b",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "中国广西壮族自治区政协原副主席黄日波被查。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "correct-complete",
+      "id": "65a5fc68-e41b-57be-b414-46f05ccfd94e",
+      "kind": "event",
+      "title": "Li Qiang talks with Tajikistan prime minister Rasulzoda",
+      "anchors": [
+        8985
+      ],
+      "split": "review_challenge",
+      "seed_relation": "report",
+      "original_id": "388ad6c0-5372-57fc-811c-39e889d91ae2",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "stale-audit-replay",
+      "id": "a83c18a2-c3c1-55b8-9f73-5127d8ed849f",
+      "kind": "event",
+      "title": "Li Qiang talks with Tajikistan prime minister Rasulzoda",
+      "anchors": [
+        8985
+      ],
+      "split": "review_challenge",
+      "seed_relation": "report",
+      "original_id": "388ad6c0-5372-57fc-811c-39e889d91ae2",
+      "original_split": "holdout",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。",
+        "voice": "reported"
+      }
+    },
+    {
+      "key": "cas-race",
+      "id": "464be649-d807-53e0-a477-fd8080f698ff",
+      "kind": "event",
+      "title": "France nationwide protests and riots, October 2026",
+      "anchors": [
+        8868
+      ],
+      "split": "review_challenge",
+      "seed_relation": "report",
+      "original_id": "1464e699-4e0d-575a-b853-d74fc9871e84",
+      "original_split": "regression",
+      "seed_reference": {
+        "paragraph": 0,
+        "quote": "How day of protests unfolded as disorder breaks out across France",
+        "voice": "description"
+      }
+    }
+  ],
+  "queries": [
+    {
+      "article_id": 8881,
+      "split": "review_challenge"
+    },
+    {
+      "article_id": 8893,
+      "split": "review_challenge"
+    },
+    {
+      "article_id": 8898,
+      "split": "review_challenge"
+    },
+    {
+      "article_id": 8899,
+      "split": "review_challenge"
+    },
+    {
+      "article_id": 8905,
+      "split": "review_challenge"
+    },
+    {
+      "article_id": 8906,
+      "split": "review_challenge"
+    }
+  ],
+  "input_sources": [
+    {
+      "path": "docs/evaluations/r2/member-inputs-v1.json",
+      "sha256": "a4af0daa8a1cfdea80091180b88f75f0caade60d0d7ca2c5997c4e117e245d46",
+      "material_offset": 100000
+    },
+    {
+      "path": "docs/evaluations/r2/member-grounding-exposed-inputs-v1.json.gz",
+      "sha256": "817d1f85d9c9f10032aafe3675677af96014395197a083af16ae423cfe8cf322",
+      "material_offset": 200000
+    }
+  ],
+  "cases": [
+    {
+      "id": "anchor-as-query",
+      "article_id": 8893,
+      "topic_id": "4b48a04d-31ae-5d5e-a85e-3a3760647bd4",
+      "decision": {
+        "classification": "same_issue",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "The query explicitly names the Wagner mercenary force.",
+            "citations": [
+              {
+                "reference_id": "ref_4683f4a5bbc63f3ca9c01165",
+                "quote": "Plus, masked Israeli settlers attack a group of European diplomats, and a playboy inherits the world’s most notorious mercenary force."
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "The anchor concerns the son of the Wagner Group founder.",
+            "citations": [
+              {
+                "reference_id": "ref_fd5740cac2af3b37bd908cb7",
+                "quote": "The son of Wagner Group’s late founder hangs on to an African stronghold, making a fortune from guns, drugs and gold."
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "Both cover the continuing mercenary-force succession issue.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "rejected",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment."
+    },
+    {
+      "id": "date-conflict",
+      "article_id": 8905,
+      "topic_id": "40397746-1c12-5ed7-8cbb-0a554c640a2e",
+      "decision": {
+        "classification": "same_event",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "The query places the Wainwright fire on October 17.",
+            "citations": [
+              {
+                "reference_id": "ref_4af1c17c5083caf2da498736",
+                "quote": "路透社报道，这起发生在韦恩赖特加军基地（CFB Wainwright）的火灾始于当地星期六（10月17日）下午4时左右（新加坡时间18日早6时左右）。当时阵风风速高达每小时96公里，极大地加剧火势。目前共有39人在医院接受治疗。"
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "The anchor places the Wainwright fire on September 17.",
+            "citations": [
+              {
+                "reference_id": "ref_20901896e03ad3fcea98ce81",
+                "quote": "新华社引述加拿大媒体报道，位于西部阿伯塔省（Alberta）首府埃德蒙顿东南约200公里处的温赖特军事基地，星期六（9月17日）晚上发生火灾。"
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "The September date is a typo because the feed dates align with October.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "rejected",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment."
+    },
+    {
+      "id": "analysis-as-report",
+      "article_id": 8899,
+      "topic_id": "d89ba81d-583e-5370-9f38-4eae277c92a0",
+      "decision": {
+        "classification": "same_event",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "The query includes observer analysis of Huang Ribo being investigated.",
+            "citations": [
+              {
+                "reference_id": "ref_856be210e6857b7e74a7ee20",
+                "quote": "中国广西壮族自治区政协原副主席黄日波官宣被查，成为今年广西落马“首虎”。受访观察人士分析，这名无党派副省级官员在中共召开五中全会一周前落马，可能是官方在释放信息要进一步全面治理腐败，不仅对内全面从严治党，也对其他掌握公共资源的现任或退休党外官员全面整肃。"
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "The anchor reports that Huang Ribo is under investigation.",
+            "citations": [
+              {
+                "reference_id": "ref_8ccce0cb6e180997eeeec5b3",
+                "quote": "中国广西壮族自治区政协原副主席黄日波被查。"
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "The query contributes only the same announcement report, not context or observer analysis.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "rejected",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment."
+    },
+    {
+      "id": "invalid-voice",
+      "article_id": 8881,
+      "topic_id": "7eb7df4f-003e-5b49-95e0-1bf4b4086902",
+      "decision": {
+        "classification": "same_event",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "The query reports French protests turning violent.",
+            "citations": [
+              {
+                "reference_id": "ref_7e7f3131a9f44f12be31bd73",
+                "quote": "法國多地抗議變暴力衝突 巴黎街頭滿是焚毀汽車和碎玻璃"
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "The media description concerns protests across France.",
+            "citations": [
+              {
+                "reference_id": "ref_7bc9d9822f0cddebfd4fd830",
+                "quote": "How day of protests unfolded as disorder breaks out across France"
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "Both report the same protests.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "failed",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment.",
+      "pre_llm_failure": "scope-forbidden reported-voice reference ID is not in the server catalog"
+    },
+    {
+      "id": "invalid-paragraph",
+      "article_id": 8899,
+      "topic_id": "a30dfb9f-6aab-5ef2-9554-d68cd91739f6",
+      "decision": {
+        "classification": "background",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "The query includes analysis of Huang Ribo being investigated.",
+            "citations": [
+              {
+                "reference_id": "ref_856be210e6857b7e74a7ee20",
+                "quote": "中国广西壮族自治区政协原副主席黄日波官宣被查，成为今年广西落马“首虎”。受访观察人士分析，这名无党派副省级官员在中共召开五中全会一周前落马，可能是官方在释放信息要进一步全面治理腐败，不仅对内全面从严治党，也对其他掌握公共资源的现任或退休党外官员全面整肃。"
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "The anchor reports that Huang Ribo is under investigation.",
+            "citations": [
+              {
+                "reference_id": "ref_2c7dceadca60e73383812288",
+                "quote": "中国广西壮族自治区政协原副主席黄日波被查。"
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "This contextual analysis is background to the investigation.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "failed",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment.",
+      "pre_llm_failure": "paragraph-one reference with an exact quote copied from paragraph zero"
+    },
+    {
+      "id": "correct-complete",
+      "article_id": 8906,
+      "topic_id": "65a5fc68-e41b-57be-b414-46f05ccfd94e",
+      "decision": {
+        "classification": "same_event",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "Li Qiang met Rasulzoda in Dushanbe on October 18.",
+            "citations": [
+              {
+                "reference_id": "ref_2088c76e08e02ba66b346384",
+                "quote": "据新华社报道，李强星期天（10月18日）在塔吉克斯坦首都杜尚别，同塔吉克斯坦总理拉苏尔佐达举行会谈时说，中方愿同塔方深入对接发展战略，推动高质量共建“一带一路”，深化贸易投资、绿色矿产、互联互通、清洁能源、人工智能等领域合作，更好实现互利共赢。中方愿进口塔方更多优质商品，鼓励中国企业赴塔投资兴业，希望塔方继续为企业提供良好营商环境。"
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "Li Qiang met Rasulzoda in Dushanbe on October 18.",
+            "citations": [
+              {
+                "reference_id": "ref_625c71e8d19b8e07e3e7399c",
+                "quote": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。"
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "Both report the same October 18 meeting between the same participants.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "applied",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment."
+    },
+    {
+      "id": "stale-audit-replay",
+      "article_id": 8906,
+      "topic_id": "a83c18a2-c3c1-55b8-9f73-5127d8ed849f",
+      "decision": {
+        "classification": "same_event",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "Li Qiang met Rasulzoda in Dushanbe on October 18.",
+            "citations": [
+              {
+                "reference_id": "ref_2088c76e08e02ba66b346384",
+                "quote": "据新华社报道，李强星期天（10月18日）在塔吉克斯坦首都杜尚别，同塔吉克斯坦总理拉苏尔佐达举行会谈时说，中方愿同塔方深入对接发展战略，推动高质量共建“一带一路”，深化贸易投资、绿色矿产、互联互通、清洁能源、人工智能等领域合作，更好实现互利共赢。中方愿进口塔方更多优质商品，鼓励中国企业赴塔投资兴业，希望塔方继续为企业提供良好营商环境。"
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "Li Qiang met Rasulzoda in Dushanbe on October 18.",
+            "citations": [
+              {
+                "reference_id": "ref_625c71e8d19b8e07e3e7399c",
+                "quote": "本报杜尚别10月18日电 （记者王洲）10月18日下午，国务院总理李强在杜尚别同塔吉克斯坦总理拉苏尔佐达举行会谈。"
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "Both report the same October 18 meeting between the same participants.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "rejected",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment.",
+      "replay_actual_review_from": "correct-complete",
+      "new_reviewer_http_calls": 0
+    },
+    {
+      "id": "cas-race-a",
+      "article_id": 8881,
+      "topic_id": "464be649-d807-53e0-a477-fd8080f698ff",
+      "decision": {
+        "classification": "same_event",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "The query reports protests turning violent in French cities.",
+            "citations": [
+              {
+                "reference_id": "ref_7e7f3131a9f44f12be31bd73",
+                "quote": "法國多地抗議變暴力衝突 巴黎街頭滿是焚毀汽車和碎玻璃"
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "The media description concerns protests across France.",
+            "citations": [
+              {
+                "reference_id": "ref_239d88fe93718bde8d2e61d5",
+                "quote": "How day of protests unfolded as disorder breaks out across France"
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "Both concern the same nationwide French protests and disorder.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "applied_or_stale",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment.",
+      "cas_competition_group": "france-two-actual-reviews"
+    },
+    {
+      "id": "cas-race-b",
+      "article_id": 8898,
+      "topic_id": "464be649-d807-53e0-a477-fd8080f698ff",
+      "decision": {
+        "classification": "same_event",
+        "certainty": "certain",
+        "query_facts": [
+          {
+            "text": "The query reports large French protests and escalating disorder.",
+            "citations": [
+              {
+                "reference_id": "ref_856308e97b0e249851bb179f",
+                "quote": "（巴黎综合电）因不满生活费高涨、公共服务退化，法国多座城市爆发大规模示威，部分地区局势失控冲突升级，演变为法国数十年来最严重暴乱之一。数百人受伤，被捕人数升至至少2000人，造成的经济损失难以估量。"
+              }
+            ]
+          }
+        ],
+        "anchor_facts": [
+          {
+            "text": "The media description concerns protests across France.",
+            "citations": [
+              {
+                "reference_id": "ref_239d88fe93718bde8d2e61d5",
+                "quote": "How day of protests unfolded as disorder breaks out across France"
+              }
+            ]
+          }
+        ],
+        "relation_inferences": [
+          {
+            "text": "Both concern the same nationwide French protests and disorder.",
+            "query_fact_indices": [
+              0
+            ],
+            "anchor_fact_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "expected_status": "applied_or_stale",
+      "natural_end_to_end": false,
+      "decision_origin": "Explicit manual challenge over genuine admitted originals; no model judgment.",
+      "cas_competition_group": "france-two-actual-reviews"
+    }
+  ],
+  "population": {
+    "registered_cases": 9,
+    "structural_pre_llm_cases": 2,
+    "paid_or_actual_review_cases": 7,
+    "same_topic_two_query_actual_cas_competition": true
+  },
+  "natural_end_to_end": false,
+  "material_origin": "Only the exact existing exposed originals; injected decisions are challenge artifacts and never natural quality.",
+  "user_acceptance": null,
+  "production_enabled": false
+}

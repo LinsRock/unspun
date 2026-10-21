@@ -16,12 +16,23 @@ from unspun.core.content import fingerprint
 from unspun.core.db import session_scope
 from unspun.core.llm import LlmClient
 from unspun.core.member_contracts import (
+    AUDIT_KINDS,
+    AUDIT_PROMPTS,
     JUDGE_PROMPT,
-    REVIEW_PROMPT,
+    AuditKind,
+    MemberAudit,
     MemberDecision,
     MemberReview,
     member_contract,
     project_material,
+)
+from unspun.core.member_evidence import (
+    audit_packet,
+    audit_supported,
+    audit_targets,
+    expanded_evidence,
+    review_binding,
+    review_supported,
 )
 from unspun.core.member_models import ContentVector, MemberJudgment
 from unspun.core.member_recall import (
@@ -42,9 +53,13 @@ from unspun.core.topics import mutate_topic
 from unspun.pipeline.r1_worker import Blocked, SessionScope
 
 
-def _prompt_packet(packet: dict[str, Any], draft: dict[str, Any] | None) -> dict[str, Any]:
+def _prompt_packet(
+    packet: dict[str, Any], draft: dict[str, Any] | None, kind: AuditKind = "complete_basis"
+) -> dict[str, Any]:
+    if draft is not None:
+        return audit_packet(packet, MemberDecision.model_validate(draft), kind)
     topic = packet["candidate"]["topic"]
-    projected = {
+    return {
         "query": project_material(packet["query"], "query"),
         "candidate": {
             "topic": {
@@ -55,13 +70,8 @@ def _prompt_packet(packet: dict[str, Any], draft: dict[str, Any] | None) -> dict
                 ],
             }
         },
-        "output_schema": (
-            MemberReview if draft is not None else MemberDecision
-        ).model_json_schema(),
+        "output_schema": MemberDecision.model_json_schema(),
     }
-    if draft is not None:
-        projected.update(decision=draft, decision_fingerprint=packet["decision_fingerprint"])
-    return projected
 
 
 def _enabled(sources: list[Source], snapshot: dict[str, Any]) -> None:
@@ -260,6 +270,12 @@ class MemberHandler:
                 if lease.kind == "topic_review"
                 else None
             )
+            if row is not None and (
+                row.input_snapshot
+                != {k: lease.payload[k] for k in ("query", "candidate", "contract")}
+                or fingerprint(row.input_snapshot) != row.input_fingerprint
+            ):
+                raise Blocked("review original packet binding changed")
             draft = row.decision if row is not None else None
             if lease.kind == "topic_review" and (
                 draft is None or fingerprint(draft) != lease.payload["decision_fingerprint"]
@@ -274,29 +290,66 @@ class MemberHandler:
             ]
             vectors = {fingerprint(vector_input(s)): self._vector(lease, s) for s in snapshots}
             return {"candidates": select_candidates(plan, vectors)}
+        if draft is not None:
+            decision = MemberDecision.model_validate(draft)
+            binding = review_binding(lease.payload, decision)
+            if lease.payload.get("review_binding") != binding.model_dump(mode="json"):
+                raise Blocked("review binding changed or is missing")
+            audits: list[MemberAudit] = []
+            for kind in AUDIT_KINDS:
+                with self.scope() as session:
+                    self._guard(session, lease)
+                    self._validate(session, lease.payload)
+                    live = session.get(
+                        MemberJudgment, lease.payload["decision_key"], populate_existing=True
+                    )
+                    if live is None or fingerprint(live.decision) != binding.decision_fingerprint:
+                        raise Blocked("review decision changed between audits")
+                    validate_decision(session, lease.payload, decision)
+                context = CallContext(
+                    stage="topic_review",
+                    phase="review",
+                    logical_key=lease.kind + ":" + lease.input_fingerprint + ":" + kind,
+                    lease=lease,
+                )
+                with Session(engine) as session, self.client_factory(context) as client:
+                    raw = client.chat_json(
+                        session,
+                        model=get_settings().viewpoint_model,
+                        system=AUDIT_PROMPTS[kind],
+                        user=json.dumps(
+                            _prompt_packet(lease.payload, draft, kind), ensure_ascii=False
+                        ),
+                        purpose="grounding",
+                        max_tokens=4096,
+                    )
+                audit = MemberAudit.model_validate(raw)
+                audits.append(audit)
+                if audit.kind != kind or not audit_supported(
+                    audit, binding, audit_targets(decision, kind)
+                ):
+                    break
+            return {
+                "review": MemberReview(binding=binding, audits=tuple(audits)).model_dump(
+                    mode="json"
+                )
+            }
         context = CallContext(
-            stage="topic_review" if lease.kind == "topic_review" else "topic_judgment",
-            phase="review" if lease.kind == "topic_review" else "judge",
+            stage="topic_judgment",
+            phase="judge",
             logical_key=lease.kind + ":" + lease.input_fingerprint,
             lease=lease,
         )
-        packet = _prompt_packet(lease.payload, draft)
         with Session(engine) as session, self.client_factory(context) as client:
             raw = client.chat_json(
                 session,
-                model=get_settings().viewpoint_model
-                if draft is not None
-                else get_settings().summary_model,
-                system=REVIEW_PROMPT if draft is not None else JUDGE_PROMPT,
-                user=json.dumps(packet, ensure_ascii=False),
-                purpose="grounding" if draft is not None else "topic_judgment",
+                model=get_settings().summary_model,
+                system=JUDGE_PROMPT,
+                user=json.dumps(_prompt_packet(lease.payload, None), ensure_ascii=False),
+                purpose="topic_judgment",
                 max_tokens=4096,
             )
-        return (
-            {"review": MemberReview.model_validate(raw).model_dump(mode="json")}
-            if draft is not None
-            else {"decision": MemberDecision.model_validate(raw).model_dump(mode="json")}
-        )
+        return {"decision": MemberDecision.model_validate(raw).model_dump(mode="json")}
 
     def apply(self, session: Session, lease: Lease, result: dict[str, Any]) -> dict[str, Any]:
         self._guard(session, lease)
@@ -335,20 +388,23 @@ class MemberHandler:
                 **packet,
                 "decision_key": row.input_fingerprint,
                 "decision_fingerprint": fingerprint(row.decision),
+                "review_binding": review_binding(packet, decision).model_dump(mode="json"),
             }
             return {"review_task": _enqueue(session, "topic_review", review)}
         row = session.get(MemberJudgment, packet["decision_key"], with_for_update=True)
         if row is None or fingerprint(row.decision) != packet["decision_fingerprint"]:
             raise Blocked("review decision changed or is missing")
+        if (
+            row.input_snapshot != {k: packet[k] for k in ("query", "candidate", "contract")}
+            or fingerprint(row.input_snapshot) != row.input_fingerprint
+        ):
+            raise Blocked("review original packet binding changed")
         if row.status != "draft":
             return {"status": row.status, "revision": row.applied_revision}
         review = MemberReview.model_validate(result["review"])
         row.review = review.model_dump(mode="json")
-        if (
-            review.decision_fingerprint != fingerprint(row.decision)
-            or not review.approved
-            or review.issues
-        ):
+        decision = MemberDecision.model_validate(row.decision)
+        if not review_supported(packet, decision, review):
             row.status = "rejected"
             return {"status": row.status}
         topic = session.scalar(
@@ -395,7 +451,11 @@ class MemberHandler:
                     ),
                     basis=decision.basis,
                     decision_version=fingerprint(packet["contract"]),
-                    evidence=tuple(r for r in decision.evidence if r.article_id == row.article_id),
+                    evidence=tuple(
+                        r
+                        for r in expanded_evidence(packet, decision)
+                        if r.article_id == row.article_id
+                    ),
                 ),
             ),
             sources=self.sources,

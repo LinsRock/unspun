@@ -1,0 +1,132 @@
+{
+  "schema_version": "r206-grounding-budget-v1",
+  "id": "r206-grounding-v1",
+  "at": "2026-10-21T06:01:16.408246+00:00",
+  "authorized_by": "User explicitly raised the SAME cumulative R2-06 pool from 0.20 to 0.30 for grounding hardening and validation; no automatic extension.",
+  "contract": {
+    "version": "r2-member-v4",
+    "recall": "material-subject-ranked-32-valid-anchors-stratified-12-v2",
+    "embedding": "material-prefix-24000-bytes-v1",
+    "semantic_input": "owned-facts-reference-catalog-12000-chars-v3",
+    "references": "owned-visible-paragraph-voice-id-v1",
+    "audits": "query-only-anchor-only-relation-complete-basis-bound-v1",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "dimensions": 1024,
+    "judgment_model": "google/gemini-2.5-flash-lite",
+    "review_model": "google/gemini-2.5-flash",
+    "judgment_prompt": "ca1f7e59bff5d6342ffe36ead017e3a3b16016feb4dc4d5a0cd685921cc66c6d",
+    "review_prompt": "8ee3c397bc878c9476e432f44e81ba8f56fbc4c32a6bc62ab3099e1556ceebe3",
+    "decision_schema": "d1f1b545adce5188aef00a9ea443498c9331befb9e5eeb224050ce5975a10166",
+    "review_schema": "7878ec67e4d1f4b04909b2dd9259f2b0430d6543e922d4f42cdc64f9778fcfd1",
+    "review_bundle_schema": "693f48f0b58ca5fbf03476ecfcec6db2f764e659bd1f96271856664b3c5295a1"
+  },
+  "exposed_registration": {
+    "path": "docs/evaluations/r2/member-grounding-exposed-v1.json",
+    "sha256": "fc9e39c149473ec489da52b30b2d9ea22643616881148179331a3034e676612f"
+  },
+  "original_holds": [
+    {
+      "id": "11d92ba4336740e08c40dca7fff1cce3",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028794000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "5c68c196f8514836a38280edc782806a",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028760000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+      "status": "usage_unknown",
+      "reserved_usd": "0.170674000000",
+      "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG"
+    },
+    {
+      "id": "bdbdbb331ac546eb84d6f42b502f362b",
+      "status": "usage_unknown",
+      "reserved_usd": "0.170674000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028261000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028967000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "ffefcd48948944c48a3da4a60f17fbb6",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028737000000",
+      "provider_generation_id": null
+    }
+  ],
+  "budget": {
+    "batch_limit_usd": "0.30",
+    "previous_spend_usd": "0.03171912",
+    "previous_physical_requests": 107,
+    "previous_stage_counts": {
+      "topic_embedding": 22,
+      "topic_judgment": 82,
+      "topic_review": 3
+    },
+    "future_reserved_usd": "0",
+    "maximum_new_known_plus_active_reservation_usd": "0.26828088",
+    "physical_request_limit": 360,
+    "stage_physical_limits": {
+      "topic_embedding": 80,
+      "topic_judgment": 184,
+      "topic_review": 96
+    },
+    "previous_stage_caps_usd": {
+      "topic_embedding": "0.02",
+      "topic_judgment": "0.08",
+      "topic_review": "0.20"
+    },
+    "stage_caps_usd": {
+      "topic_embedding": "0.02",
+      "topic_judgment": "0.13",
+      "topic_review": "0.30"
+    },
+    "stage_ceilings_are_overlapping_not_separate_allocations": true,
+    "original_evaluation_limit_usd": "1.50",
+    "original_unknown_holds_usd": "0.484867",
+    "full_reservation_algorithm_unchanged": true,
+    "grounding_budget_24h_usd": "1.00",
+    "production_grounding_budget_unchanged": "0.40",
+    "retry_policy": "No task execution retry; existing at most one length-truncation physical retry counts in every cap.",
+    "stop_policy": "Any new unknown/active unresolved cost or reached monetary/physical limit stops ALL paid phases immediately. No release/reset/automatic increase."
+  },
+  "phases": {
+    "challenge": {
+      "physical_request_limit": 36,
+      "cumulative_pool_ceiling_usd": "0.30"
+    },
+    "exposed": {
+      "physical_request_limit": 124,
+      "cumulative_pool_ceiling_usd": "0.30"
+    },
+    "blind": {
+      "physical_request_limit": 93,
+      "cumulative_pool_ceiling_usd": "0.30"
+    }
+  },
+  "new_physical_requests_at_most": 253,
+  "new_blind_seal": "docs/evaluations/r2/member-grounding-blind-seal-v1.json",
+  "new_blind_preparation_requires": "Completed isolated regression, real challenges and exposed numeric gates 90%/95%/80%, zero invalid writes, plus complete basis review. Failure means NO fresh blind preparation or paid run.",
+  "new_blind_registration_is_append_only_after_gate_and_reviewed_before_pay": true,
+  "original_unfinished_task_110_preserved_not_resumed": true,
+  "production_enabled": false,
+  "user_acceptance": null,
+  "challenge_registration": {
+    "path": "docs/evaluations/r2/member-grounding-challenges-v1.json",
+    "sha256": "04873a7b0795a0c3e7b641871fbb9ccaadbd0efb9f1c18fca5a68e13ccff4cad"
+  }
+}

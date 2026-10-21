@@ -115,12 +115,15 @@ def _source_failure(session: Session, task: PipelineTask, now: datetime) -> None
     task.due_at = source.next_due_at
 
 
-def reap_expired(session: Session, now: datetime, limit: int = 100) -> int:
+def reap_expired(
+    session: Session, now: datetime, limit: int = 100, *, task_ids: frozenset[int] | None = None
+) -> int:
     rows = session.scalars(
         select(PipelineTask)
         .where(
             PipelineTask.status == "running",
             PipelineTask.lease_until <= now,
+            *([PipelineTask.id.in_(task_ids)] if task_ids is not None else []),
         )
         .order_by(PipelineTask.lease_until, PipelineTask.id)
         .limit(limit)
@@ -154,13 +157,14 @@ def claim(
     now: datetime | None = None,
     lease_seconds: int = 120,
     source_ids: set[str] | None = None,
+    task_ids: frozenset[int] | None = None,
 ) -> Lease | None:
-    if not kinds or source_ids == set():
+    if not kinds or source_ids == set() or task_ids == frozenset():
         return None
     if not 1 <= lease_seconds <= 3600:
         raise ValueError("lease must be between 1 and 3600 seconds")
     now = now or datetime.now(UTC)
-    reap_expired(session, now)
+    reap_expired(session, now, task_ids=task_ids)
     active = aliased(PipelineTask)
     disabled_source = exists(
         select(SourceState.source_id).where(
@@ -173,6 +177,7 @@ def claim(
         .where(
             PipelineTask.queue == queue,
             PipelineTask.kind.in_(kinds),
+            *([PipelineTask.id.in_(task_ids)] if task_ids is not None else []),
             *([PipelineTask.source_id.in_(source_ids)] if source_ids is not None else []),
             PipelineTask.status.in_(["pending", "retry_wait", "budget_deferred"]),
             PipelineTask.due_at <= now,
