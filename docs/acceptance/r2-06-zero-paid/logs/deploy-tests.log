@@ -1,0 +1,23 @@
+test_budget_or_r1_preflight_failure_does_not_start_target_services (test_deploy.DeploymentSafety.test_budget_or_r1_preflight_failure_does_not_start_target_services) ... ok
+test_closed_paid_stages_do_not_initialize_budget_or_start_legacy_worker (test_deploy.DeploymentSafety.test_closed_paid_stages_do_not_initialize_budget_or_start_legacy_worker) ... ok
+test_deploy_only_reuses_both_and_refuses_mutable_images (test_deploy.DeploymentSafety.test_deploy_only_reuses_both_and_refuses_mutable_images) ... ok
+test_failures_do_not_start_target_services (test_deploy.DeploymentSafety.test_failures_do_not_start_target_services) ... ok
+test_interrupt_cannot_remove_another_deployments_migration (test_deploy.DeploymentSafety.test_interrupt_cannot_remove_another_deployments_migration) ... ok
+test_invalid_paid_probe_stops_before_budget_or_services (test_deploy.DeploymentSafety.test_invalid_paid_probe_stops_before_budget_or_services) ... ok
+test_old_healthy_api_cannot_pass_target_smoke_check (test_deploy.DeploymentSafety.test_old_healthy_api_cannot_pass_target_smoke_check) ... ok
+test_paid_rollout_initializes_and_checks_before_starting_services (test_deploy.DeploymentSafety.test_paid_rollout_initializes_and_checks_before_starting_services) ... ok
+test_retired_service_is_absent_even_for_rollback_images (test_deploy.DeploymentSafety.test_retired_service_is_absent_even_for_rollback_images) ... ok
+test_server_only_release_reuses_running_web_digest (test_deploy.DeploymentSafety.test_server_only_release_reuses_running_web_digest) ... ok
+test_sigterm_during_migration_cleans_container_and_does_not_start (test_deploy.DeploymentSafety.test_sigterm_during_migration_cleans_container_and_does_not_start) ... ok
+test_success_orders_database_migration_then_services (test_deploy.DeploymentSafety.test_success_orders_database_migration_then_services) ... ok
+test_terminal_output_with_closed_stdin_can_migrate (test_deploy.DeploymentSafety.test_terminal_output_with_closed_stdin_can_migrate) ... ok
+test_unresolved_image_stops_before_pull_or_migration (test_deploy.DeploymentSafety.test_unresolved_image_stops_before_pull_or_migration) ... ok
+test_web_only_release_reuses_immutable_running_server (test_deploy.DeploymentSafety.test_web_only_release_reuses_immutable_running_server) ... ok
+test_failed_command_preserves_output_and_status (test_verifier_process.VerifierProcesses.test_failed_command_preserves_output_and_status) ... ok
+test_timeout_stops_descendants_before_returning (test_verifier_process.VerifierProcesses.test_timeout_stops_descendants_before_returning) ... ok
+test_timeout_stops_descendants_of_an_already_exited_parent (test_verifier_process.VerifierProcesses.test_timeout_stops_descendants_of_an_already_exited_parent) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 16.164s
+
+OK

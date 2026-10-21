@@ -1,0 +1,760 @@
+{
+  "production": {
+    "at": "2026-10-21T08:43:54.121755+00:00",
+    "database": "unspun",
+    "known": {
+      "requests": 18989,
+      "usd": "7.80032630"
+    },
+    "physical_requests": 349,
+    "unresolved_count": 10,
+    "held_usd": "0.431089000000",
+    "rows": [
+      {
+        "id": "423dc795be044129b57e2f2cbabf3413",
+        "stage": "card",
+        "phase": "review",
+        "task_id": 1197,
+        "task_attempt_id": 715,
+        "object_key": "content:9052",
+        "model": "google/gemini-2.5-flash",
+        "provider_generation_id": "gen-1792504851-aJfa3TLvI95u9KPleuZ5",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.171661000000",
+        "started_at": "2026-10-20 14:00:51.394057+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792504851-aJfa3TLvI95u9KPleuZ5",
+          "at": "2026-10-21T08:45:56.726428+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792504851-aJfa3TLvI95u9KPleuZ5 not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "409a5fe079a847128313e4a07ba8f5c2",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1236,
+        "task_attempt_id": 752,
+        "object_key": "content:8966",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792512014-KqEUkGHgrUKye3TKAmj1",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.028639000000",
+        "started_at": "2026-10-20 16:00:13.211088+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792512014-KqEUkGHgrUKye3TKAmj1",
+          "at": "2026-10-21T08:45:56.966728+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792512014-KqEUkGHgrUKye3TKAmj1 not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "af1ccc22400f4fb5bd83cb6e47fb6b4b",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1241,
+        "task_attempt_id": 756,
+        "object_key": "content:9167",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792512018-71NfbpIwAaqeDbv8ziXL",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.028915000000",
+        "started_at": "2026-10-20 16:00:18.586298+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792512018-71NfbpIwAaqeDbv8ziXL",
+          "at": "2026-10-21T08:45:57.378085+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792512018-71NfbpIwAaqeDbv8ziXL not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "4c11eeeba5074a9981bd338ba69b6b10",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1285,
+        "task_attempt_id": 838,
+        "object_key": "content:8944",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792519207-8n4WIU9qeFgZVkQTkERc",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.028557000000",
+        "started_at": "2026-10-20 18:00:06.936832+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792519207-8n4WIU9qeFgZVkQTkERc",
+          "at": "2026-10-21T08:45:57.872103+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792519207-8n4WIU9qeFgZVkQTkERc not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "78d8a779076d46369b428e707b07c334",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1303,
+        "task_attempt_id": 845,
+        "object_key": "content:9191",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792519216-6XQG14GjkGpNZq76sY7K",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.028784000000",
+        "started_at": "2026-10-20 18:00:16.532906+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792519216-6XQG14GjkGpNZq76sY7K",
+          "at": "2026-10-21T08:45:58.075426+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792519216-6XQG14GjkGpNZq76sY7K not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "43fe19b0d9cb443d81e8b751907b1c0a",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1690,
+        "task_attempt_id": 1692,
+        "object_key": "content:8970",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792562417-BlLff7A3yNgxPx26H6vV",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.029144000000",
+        "started_at": "2026-10-21 06:00:16.714387+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792562417-BlLff7A3yNgxPx26H6vV",
+          "at": "2026-10-21T08:45:58.460984+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792562417-BlLff7A3yNgxPx26H6vV not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "eb59bb50f4d740849c01011c3f1be468",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1692,
+        "task_attempt_id": 1695,
+        "object_key": "content:9280",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792562421-q2hFvof5pkEhaVVhharA",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.029074000000",
+        "started_at": "2026-10-21 06:00:21.096687+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792562421-q2hFvof5pkEhaVVhharA",
+          "at": "2026-10-21T08:45:58.699488+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792562421-q2hFvof5pkEhaVVhharA not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "20a8ab2297c142fea154dcd5575a967d",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1747,
+        "task_attempt_id": 1877,
+        "object_key": "content:9096",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792569612-QscEJVHs6x8wizbe0mOA",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.028553000000",
+        "started_at": "2026-10-21 08:00:12.596034+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792569612-QscEJVHs6x8wizbe0mOA",
+          "at": "2026-10-21T08:45:59.120233+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792569612-QscEJVHs6x8wizbe0mOA not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "6a14fa61a2224536bdae8c561e8b2dbe",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1757,
+        "task_attempt_id": 1879,
+        "object_key": "content:9281",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792569613-NIoWKFZQpIbeAzom1R6B",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.028871000000",
+        "started_at": "2026-10-21 08:00:13.324196+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792569613-NIoWKFZQpIbeAzom1R6B",
+          "at": "2026-10-21T08:45:59.721028+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792569613-NIoWKFZQpIbeAzom1R6B not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      },
+      {
+        "id": "904dab25197442218fdbb0eb1a411ece",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": 1759,
+        "task_attempt_id": 1882,
+        "object_key": "content:9297",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792569619-QQOjDARd72XBKzrv7sT5",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.028891000000",
+        "started_at": "2026-10-21 08:00:18.935420+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792569619-QQOjDARd72XBKzrv7sT5",
+          "at": "2026-10-21T08:46:00.031940+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792569619-QQOjDARd72XBKzrv7sT5 not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      }
+    ],
+    "settlements": 0,
+    "paid_requests_by_this_batch": 0
+  },
+  "production_backoff": {
+    "rows": [
+      {
+        "id": "423dc795be044129b57e2f2cbabf3413",
+        "task_id": 1197,
+        "physical_calls_for_task": 2,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 60.648807,
+        "http_free_deferrals": 223,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "409a5fe079a847128313e4a07ba8f5c2",
+        "task_id": 1236,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 64.220523,
+        "http_free_deferrals": 200,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "af1ccc22400f4fb5bd83cb6e47fb6b4b",
+        "task_id": 1241,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 60.68609,
+        "http_free_deferrals": 200,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "4c11eeeba5074a9981bd338ba69b6b10",
+        "task_id": 1285,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 61.261339,
+        "http_free_deferrals": 176,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "78d8a779076d46369b428e707b07c334",
+        "task_id": 1303,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 62.730428,
+        "http_free_deferrals": 176,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "43fe19b0d9cb443d81e8b751907b1c0a",
+        "task_id": 1690,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 64.642496,
+        "http_free_deferrals": 33,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "eb59bb50f4d740849c01011c3f1be468",
+        "task_id": 1692,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 60.796173,
+        "http_free_deferrals": 33,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "20a8ab2297c142fea154dcd5575a967d",
+        "task_id": 1747,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 60.120723,
+        "http_free_deferrals": 9,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "6a14fa61a2224536bdae8c561e8b2dbe",
+        "task_id": 1757,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 64.821862,
+        "http_free_deferrals": 9,
+        "last_status": "budget_deferred"
+      },
+      {
+        "id": "904dab25197442218fdbb0eb1a411ece",
+        "task_id": 1759,
+        "physical_calls_for_task": 1,
+        "physical_calls_after_unknown": 0,
+        "first_retry_delay_seconds": 64.200452,
+        "http_free_deferrals": 9,
+        "last_status": "budget_deferred"
+      }
+    ],
+    "deferred_count": 1068,
+    "mechanism": "HTTPStatusError -> retry_wait 60s; subsequent UsageUnknown -> budget_deferred 300s; no Retry-After capture/provider cooldown; existing object hold prevents HTTP",
+    "batch_did_not_retry_or_change_routing": true
+  },
+  "evaluation": {
+    "at": "2026-10-21T08:43:57.246001+00:00",
+    "database": "unspun_quality_r1_20261016",
+    "known": {
+      "requests": 532,
+      "usd": "0.44635293"
+    },
+    "physical_requests": 540,
+    "unresolved_count": 8,
+    "held_usd": "0.514613000000",
+    "rows": [
+      {
+        "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+        "stage": "card",
+        "phase": "baseline",
+        "task_id": null,
+        "task_attempt_id": null,
+        "object_key": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": null,
+        "http_status": null,
+        "error": "ConnectError",
+        "reserved_usd": "0.028261000000",
+        "started_at": "2026-10-16 08:31:09.170417+00:00",
+        "provider_error": null,
+        "receipt": {
+          "status": "no_provider_id"
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": true
+      },
+      {
+        "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": null,
+        "task_attempt_id": null,
+        "object_key": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": null,
+        "http_status": null,
+        "error": "ConnectError",
+        "reserved_usd": "0.028967000000",
+        "started_at": "2026-10-16 10:21:19.943998+00:00",
+        "provider_error": null,
+        "receipt": {
+          "status": "no_provider_id"
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": true
+      },
+      {
+        "id": "5c68c196f8514836a38280edc782806a",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": null,
+        "task_attempt_id": null,
+        "object_key": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": null,
+        "http_status": null,
+        "error": "ConnectTimeout",
+        "reserved_usd": "0.028760000000",
+        "started_at": "2026-10-16 19:16:57.144859+00:00",
+        "provider_error": null,
+        "receipt": {
+          "status": "no_provider_id"
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": true
+      },
+      {
+        "id": "bdbdbb331ac546eb84d6f42b502f362b",
+        "stage": "card",
+        "phase": "review",
+        "task_id": null,
+        "task_attempt_id": null,
+        "object_key": null,
+        "model": "google/gemini-2.5-flash",
+        "provider_generation_id": null,
+        "http_status": null,
+        "error": "RemoteProtocolError",
+        "reserved_usd": "0.170674000000",
+        "started_at": "2026-10-17 08:17:31.488417+00:00",
+        "provider_error": null,
+        "receipt": {
+          "status": "no_provider_id"
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": true
+      },
+      {
+        "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+        "stage": "card",
+        "phase": "review",
+        "task_id": null,
+        "task_attempt_id": null,
+        "object_key": null,
+        "model": "google/gemini-2.5-flash",
+        "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+        "http_status": 403,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.170674000000",
+        "started_at": "2026-10-17 09:21:37.534326+00:00",
+        "provider_error": {
+          "code": 403,
+          "message": "This model is not available in your region.",
+          "metadata": {
+            "routing_funnel": [
+              {
+                "step": "Initial Endpoints",
+                "endpoint_count": 7
+              }
+            ],
+            "failed_routing_step": "Gate Endpoints with Geo Restrictions"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG",
+          "at": "2026-10-21T08:45:56.292946+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792228899-g8CyAm1fHk5FLCwMg6dG not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": true
+      },
+      {
+        "id": "11d92ba4336740e08c40dca7fff1cce3",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": null,
+        "task_attempt_id": null,
+        "object_key": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": null,
+        "http_status": null,
+        "error": "RemoteProtocolError",
+        "reserved_usd": "0.028794000000",
+        "started_at": "2026-10-17 09:26:36.998722+00:00",
+        "provider_error": null,
+        "receipt": {
+          "status": "no_provider_id"
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": true
+      },
+      {
+        "id": "ffefcd48948944c48a3da4a60f17fbb6",
+        "stage": "card",
+        "phase": "generate",
+        "task_id": null,
+        "task_attempt_id": null,
+        "object_key": null,
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": null,
+        "http_status": null,
+        "error": "RemoteProtocolError",
+        "reserved_usd": "0.028737000000",
+        "started_at": "2026-10-17 09:27:27.721999+00:00",
+        "provider_error": null,
+        "receipt": {
+          "status": "no_provider_id"
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": true
+      },
+      {
+        "id": "9bc36dfe3a5c455e9df54756b70f1579",
+        "stage": "topic_judgment",
+        "phase": "judge",
+        "task_id": 146,
+        "task_attempt_id": 146,
+        "object_key": "content:8905",
+        "model": "google/gemini-2.5-flash-lite",
+        "provider_generation_id": "gen-1792567035-xqUccUdgq5n1RaXx5duo",
+        "http_status": 429,
+        "error": "provider cost missing or invalid",
+        "reserved_usd": "0.029746000000",
+        "started_at": "2026-10-21 07:17:14.130160+00:00",
+        "provider_error": {
+          "code": 429,
+          "message": "Provider returned error",
+          "metadata": {
+            "raw": "google/gemini-2.5-flash-lite is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations",
+            "is_byok": false,
+            "remedy_hint": "Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing",
+            "limit_source": "upstream_provider_shared_pool",
+            "provider_name": "Google AI Studio",
+            "provider_error_code": "429"
+          }
+        },
+        "receipt": {
+          "id": "gen-1792567035-xqUccUdgq5n1RaXx5duo",
+          "at": "2026-10-21T08:45:58.890982+00:00",
+          "method": "GET",
+          "http_status": 404,
+          "payload": {
+            "error": {
+              "message": "Generation gen-1792567035-xqUccUdgq5n1RaXx5duo not found",
+              "code": 404
+            }
+          }
+        },
+        "hold_action": "retain_full",
+        "confirmed_cost": null,
+        "protected_original_seven": false
+      }
+    ],
+    "settlements": 0,
+    "paid_requests_by_this_batch": 0
+  },
+  "generation_gets": 12,
+  "key_gets": 1,
+  "transport_preflight_failures": 13,
+  "provider_retries_after_network": 0,
+  "confirmed_free_requests": 0,
+  "original_eval_seven_held_usd": "0.484867",
+  "new_eval_hold_usd": "0.029746",
+  "r206_pool_known_usd": "0.07734293",
+  "r206_pool_physical_requests": 139,
+  "r206_pool_cap_usd": "0.30",
+  "paid_stop_retained": true,
+  "auto_resume": false
+}

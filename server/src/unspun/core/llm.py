@@ -67,6 +67,27 @@ def parse_json_content(content: str) -> dict[str, Any]:
     return parsed  # pyright: ignore[reportUnknownVariableType]
 
 
+def chat_request(
+    *, model: str, system: str, user: str, purpose: str, max_tokens: int
+) -> dict[str, Any]:
+    """Build the exact chat body shared by transport and receipt verification."""
+    return {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        "response_format": {"type": "json_object"},
+        "usage": {"include": True},
+        "max_tokens": max_tokens,
+        **(
+            {"temperature": 0}
+            if purpose in {"summary", "viewpoint", "grounding", "topic_judgment"}
+            else {}
+        ),
+    }
+
+
 class LlmClient:
     def __init__(
         self,
@@ -169,21 +190,13 @@ class LlmClient:
                 "/chat/completions",
                 purpose,
                 model,
-                {
-                    "model": model,
-                    "messages": [
-                        {"role": "system", "content": system},
-                        {"role": "user", "content": user},
-                    ],
-                    "response_format": {"type": "json_object"},
-                    "usage": {"include": True},
-                    "max_tokens": attempt_max_tokens,
-                    **(
-                        {"temperature": 0}
-                        if purpose in {"summary", "viewpoint", "grounding", "topic_judgment"}
-                        else {}
-                    ),
-                },
+                chat_request(
+                    model=model,
+                    system=system,
+                    user=user,
+                    purpose=purpose,
+                    max_tokens=attempt_max_tokens,
+                ),
             )
             choice: dict[str, Any] = data["choices"][0]
             content = str(choice["message"]["content"])

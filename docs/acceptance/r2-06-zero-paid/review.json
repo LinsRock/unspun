@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-21T09:01:52.389597+00:00",
+  "reviewer": "primary agent source, diff and affected-caller review; not independent semantic or user acceptance",
+  "status": "passed",
+  "files": [
+    "server/src/unspun/core/llm.py",
+    "server/src/unspun/core/member_contracts.py",
+    "server/src/unspun/core/member_evidence.py",
+    "server/src/unspun/core/member_receipts.py",
+    "server/src/unspun/pipeline/member_processing.py",
+    "server/tests/test_member_receipts.py",
+    "server/tests/test_member_receipt_replay.py",
+    "server/tests/test_member_grounding.py",
+    "server/tests/test_member_processing.py"
+  ],
+  "checks": [
+    "Model schema is checks/issues only; old binding/kind are forbidden, never stripped in runtime.",
+    "Envelope creation requires the physical journal record, exact request/cache fingerprint and original response; arbitrary JSON cannot be stamped.",
+    "Current TaskAttempt and task lease are checked after HTTP; CAS rechecks the complete receipt and original decision/material fence.",
+    "Cross-attempt cached audits fail closed; exact same-attempt cache remains reusable without HTTP.",
+    "Provider generation reuse across different physical requests is rejected.",
+    "Four audit kinds, full target coverage, original reference/quote/voice/owner gates and exact original decision are preserved.",
+    "Shared chat payload refactor preserves R1 fields, temperature, usage, model parameters and provider cap; 1112 regression and old ranking pass.",
+    "No billing price/window/allocation, model, routes, production flags or database migration changed.",
+    "Offline fixtures explicitly use projected archived content, new synthetic receipt IDs and isolated DB; no semantic credit.",
+    "Resource and minimal-call proposal do not rewrite frozen labels, thresholds, failed lengths or first outputs."
+  ],
+  "retained_limitations": [
+    "Real v5 output compliance, meaning and complete natural chain costs remain unmeasured.",
+    "The existing production five-minute no-HTTP deferral loop is audited, not changed.",
+    "Cross-lease audit reuse has no automatic recovery path.",
+    "160/240 remain unvalidated engineering caps pending separately frozen semantic redesign."
+  ],
+  "paid_stop_unchanged": true,
+  "r206_status": "2/4",
+  "user_acceptance": null
+}

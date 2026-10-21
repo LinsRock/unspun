@@ -14,7 +14,7 @@ from unspun.core.billing import CallContext
 from unspun.core.config import get_settings
 from unspun.core.content import fingerprint
 from unspun.core.db import session_scope
-from unspun.core.llm import LlmClient
+from unspun.core.llm import LlmClient, LlmError
 from unspun.core.member_contracts import (
     AUDIT_KINDS,
     AUDIT_PROMPTS,
@@ -44,6 +44,7 @@ from unspun.core.member_recall import (
     validate_decision,
     vector_input,
 )
+from unspun.core.member_receipts import audit_from_call
 from unspun.core.sources import Source
 from unspun.core.task_models import PipelineTask
 from unspun.core.tasks import Lease, enqueue
@@ -323,7 +324,18 @@ class MemberHandler:
                         purpose="grounding",
                         max_tokens=4096,
                     )
-                audit = MemberAudit.model_validate(raw)
+                    if not client.call_ids:
+                        raise Blocked("audit has no physical call receipt")
+                    call_id = client.call_ids[-1]
+                with self.scope() as session:
+                    self._guard(session, lease)
+                    self._validate(session, lease.payload)
+                    live = session.get(
+                        MemberJudgment, lease.payload["decision_key"], populate_existing=True
+                    )
+                    if live is None or fingerprint(live.decision) != binding.decision_fingerprint:
+                        raise Blocked("review decision changed during audit")
+                    audit = audit_from_call(session, lease, decision, kind, call_id, raw)
                 audits.append(audit)
                 if audit.kind != kind or not audit_supported(
                     audit, binding, audit_targets(decision, kind)
@@ -407,6 +419,25 @@ class MemberHandler:
         if not review_supported(packet, decision, review):
             row.status = "rejected"
             return {"status": row.status}
+        for audit in review.audits:
+            try:
+                original = audit_from_call(
+                    session,
+                    lease,
+                    decision,
+                    audit.kind,
+                    audit.receipt.request_id,
+                    {
+                        "checks": [c.model_dump(mode="json") for c in audit.checks],
+                        "issues": list(audit.issues),
+                    },
+                )
+            except (LlmError, ValueError):
+                row.status = "rejected"
+                return {"status": row.status}
+            if audit != original:
+                row.status = "rejected"
+                return {"status": row.status}
         topic = session.scalar(
             select(Topic)
             .where(Topic.id == row.topic_id)

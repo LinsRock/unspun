@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-21T09:01:52.389510+00:00",
+  "test_database": "unspun_r206_zero_paid_tests_20261021",
+  "baseline_passed": 1078,
+  "regression_passed": 1112,
+  "skipped": 0,
+  "new_fault_cases": 18,
+  "real_audit_content_offline_replay_cases": 16,
+  "semantic_pass": false,
+  "ruff": "passed",
+  "format": "passed",
+  "pyright": "0 errors, 0 warnings",
+  "schema": "No new upgrade operations detected.",
+  "deploy_tests": 18,
+  "ci_scope_tests": 11,
+  "legacy_ranking_cases": 40,
+  "legacy_ranking_identical": true,
+  "paid_generation": 0,
+  "paid_embedding": 0,
+  "paid_retries": 0,
+  "initial_failures_retained": [
+    "First free query used the API container without a configured key: LocalProtocolError, no provider response. Raw attempt retained; worker credential preflight added.",
+    "First new fault-test lint check found one long line and import order. Formatting corrected.",
+    "First replay typing check found inferred dict/list types; explicit annotations added. Logs retained."
+  ],
+  "user_acceptance": null
+}

@@ -47,7 +47,8 @@ def test_query_support_packet_has_only_query_original(member_db: MemberDB) -> No
     assert own["materials"][0]["role"] == "query"
     assert all(m["content"]["article_id"] == db.anchor for m in anchor["materials"])
     assert "query" not in anchor and "decision" not in anchor
-    assert all(p["binding"] == audits[0]["binding"] for p in audits)
+    assert all("binding" not in p for p in audits)
+    assert all(set(p["output_schema"]["properties"]) == {"checks", "issues"} for p in audits)
     assert all("audits" not in p for p in audits)  # Earlier approval never primes another auditor.
 
 
