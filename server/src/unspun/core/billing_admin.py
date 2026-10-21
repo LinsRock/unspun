@@ -9,7 +9,7 @@ import httpx
 from sqlalchemy.orm import Session
 
 from unspun.core.billing import DatabaseJournal, budget_status, initialize_budget, usd
-from unspun.core.billing_models import BilledRequest
+from unspun.core.billing_models import BilledRequest, BudgetPolicy
 from unspun.core.config import get_settings
 from unspun.core.db import get_engine
 from unspun.core.llm import LlmError
@@ -49,18 +49,26 @@ def main() -> None:
             initialize_budget(session, scope="evaluation")
             session.commit()
         elif args.action == "initialize-production":
-            data = provider_key_status(client)
-            initialize_budget(
-                session,
-                scope="production",
-                provider_monthly_usd=Decimal(str(data["usage_monthly"])),
-                provider_usage_usd=Decimal(str(data["usage"])),
-                provider_limit_usd=usd(data.get("limit")),
-                provider_limit_kind="monthly"
-                if data.get("limit_reset") == "monthly"
-                else "lifetime",
-            )
-            session.commit()
+            policy = session.get(BudgetPolicy, 1)
+            if policy is not None and policy.enabled:
+                # Repeated deployments reuse the existing cutover without a
+                # provider query or ledger mutation. Invalid cutovers fail closed.
+                from unspun.pipeline.r1_runtime import check_paid_budget
+
+                check_paid_budget(session, settings)
+            else:
+                data = provider_key_status(client)
+                initialize_budget(
+                    session,
+                    scope="production",
+                    provider_monthly_usd=Decimal(str(data["usage_monthly"])),
+                    provider_usage_usd=Decimal(str(data["usage"])),
+                    provider_limit_usd=usd(data.get("limit")),
+                    provider_limit_kind="monthly"
+                    if data.get("limit_reset") == "monthly"
+                    else "lifetime",
+                )
+                session.commit()
         elif args.action == "reconcile":
             row = session.get(BilledRequest, args.request_id)
             if row is None or not row.provider_generation_id:

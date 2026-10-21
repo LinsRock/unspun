@@ -14,11 +14,13 @@ from unspun.core.content import fingerprint
 from unspun.core.llm import LlmError, chat_request, parse_json_content
 from unspun.core.member_contracts import (
     AUDIT_PROMPTS,
+    MEMBER_OUTPUT_BYTES,
     AuditKind,
     AuditReceipt,
     MemberAudit,
     MemberAuditContent,
     MemberDecision,
+    member_contract,
 )
 from unspun.core.member_evidence import audit_packet, review_binding
 from unspun.core.task_models import TaskAttempt
@@ -43,7 +45,9 @@ def audit_from_call(
     attempt = session.get(TaskAttempt, lease.attempt_id, populate_existing=True)
     model = get_settings().viewpoint_model
     if (
-        row is None
+        lease.strategy_version != member_contract()["version"]
+        or lease.payload.get("contract") != member_contract()
+        or row is None
         or attempt is None
         or attempt.task_id != lease.task_id
         or attempt.claim_version != lease.version
@@ -79,7 +83,7 @@ def audit_from_call(
     ):
         raise LlmError("audit provider response is replayed across physical requests")
     logical_key = lease.kind + ":" + lease.input_fingerprint + ":" + kind
-    # Both registered transport sizes remain physical calls in the original ledger.
+    # v6 has one physical output size; an old retry cannot become a new receipt.
     expected = [
         {
             **chat_request(
@@ -91,7 +95,7 @@ def audit_from_call(
             ),
             "provider": provider_cap(model),
         }
-        for size in (4096, 8192)
+        for size in (4096,)
     ]
     if not any(
         row.request_fingerprint == fingerprint(request)
@@ -100,7 +104,15 @@ def audit_from_call(
     ):
         raise LlmError("audit request fingerprint or cache association does not match")
     try:
-        original = parse_json_content(row.response_payload["choices"][0]["message"]["content"])
+        choice = row.response_payload["choices"][0]
+        content_text = choice["message"]["content"]
+        if (
+            choice.get("finish_reason") != "stop"
+            or not isinstance(content_text, str)
+            or len(content_text.encode()) > MEMBER_OUTPUT_BYTES
+        ):
+            raise LlmError("audit response exceeds or did not complete within registered bounds")
+        original = parse_json_content(content_text)
     except (KeyError, IndexError, TypeError, ValueError) as error:
         raise LlmError("audit physical response has no valid content") from error
     if fingerprint(original) != fingerprint(raw):

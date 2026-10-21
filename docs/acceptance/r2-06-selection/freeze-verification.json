@@ -1,0 +1,27 @@
+{
+  "base": "0138014",
+  "old_artifacts_unchanged": 956,
+  "historical_source_freezes": [
+    {
+      "freeze": "member-grounding-freeze-v2.json",
+      "revision": "99d639a",
+      "files": 109
+    },
+    {
+      "freeze": "member-grounding-freeze-v1.json",
+      "revision": "beb8e03",
+      "files": 109
+    },
+    {
+      "freeze": "member-repair-freeze-v1.json",
+      "revision": "4f275b9",
+      "files": 103
+    }
+  ],
+  "ranking_identical": true,
+  "ranking_cases": 40,
+  "r204_worktree_unchanged": true,
+  "paid_stop_unchanged": true,
+  "paid_requests": 0,
+  "user_acceptance": null
+}

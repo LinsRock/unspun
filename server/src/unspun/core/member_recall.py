@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 from unspun.core.content import fingerprint
 from unspun.core.content_reading import CardDraft, ContentInput, publication_at
 from unspun.core.member_contracts import MemberDecision, member_contract
-from unspun.core.member_evidence import expanded_evidence
+from unspun.core.member_evidence import validate_selection
 from unspun.core.models import Article
 from unspun.core.sources import Source
 from unspun.core.topic_models import Topic, TopicMember
@@ -265,25 +265,4 @@ def select_candidates(
 
 
 def validate_decision(session: Session, packet: dict[str, Any], decision: MemberDecision) -> None:
-    topic = packet["candidate"]["topic"]
-    if (
-        decision.associated
-        and decision.classification in {"same_event", "same_issue"}
-        and decision.classification != ("same_event" if topic["kind"] == "event" else "same_issue")
-    ):
-        raise ValueError("decision does not match the topic kind")
-    if decision.associated and not (
-        decision.query_facts and decision.anchor_facts and decision.relation_inferences
-    ):
-        raise ValueError("association requires query facts, anchor facts and relation inferences")
-    for inference in decision.relation_inferences:
-        for indices, facts in (
-            (inference.query_fact_indices, decision.query_facts),
-            (inference.anchor_fact_indices, decision.anchor_facts),
-        ):
-            if len(indices) != len(set(indices)) or any(i >= len(facts) for i in indices):
-                raise ValueError("inference refers to absent or duplicate fact indices")
-            if decision.associated and not indices:
-                raise ValueError("associated inference requires both fact owners")
-    refs = expanded_evidence(packet, decision)
-    validate_topic_evidence(session, refs)
+    validate_topic_evidence(session, validate_selection(packet, decision))

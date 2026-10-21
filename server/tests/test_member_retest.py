@@ -9,7 +9,6 @@ import pytest
 
 from tests.test_member_processing import MemberDB, decision_for_prompt
 from tests.test_member_quality import spec
-from unspun.core.billing import BudgetExceeded
 from unspun.core.member_recall import recall_plan
 from unspun.evaluation import member_retest as retest
 from unspun.pipeline.member_processing import MemberHandler
@@ -95,7 +94,7 @@ def test_phase_guard_stops_before_a_second_physical_call(member_db: MemberDB) ->
             journal_factory=lambda _: journal,
         ),
     )
-    with pytest.raises(BudgetExceeded, match="phase physical request cap"):
+    with pytest.raises(Blocked, match="phase physical request cap"):
         handler.run(lease)
     assert len(db.calls) == len(db.billing.requests()) == 1
 

@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-21T09:58:28.381189+00:00",
+  "reviewer": "primary agent source/diff and affected callers; not independent semantic or user acceptance",
+  "status": "passed",
+  "callers": {
+    "member_processing": "v6 only; max_attempts=1; no second lease, no automatic budget retry; projected relation/basis; complete audit receipt recheck before CAS",
+    "member_recall": "only validate_decision adapter changed; vector_input and recall/rank selection unchanged",
+    "member_evidence": "exact owner-bound offsets and role spans; complete targets include identity/contribution/projection/relation; same_event and provenance prerequisites; semantic audits still required",
+    "member_receipts": "v5 physical response/task/attempt/lease/request/cache replay fences retained; v6 current contract and only 4096 normally finished response accepted",
+    "llm": "single member request with raw byte/finish bound; R1 transport and fallback retry unchanged; accounting reservation/prices unchanged",
+    "evaluation.member_grounding": "first recognizable v6 association projected before schema success, preserving precision denominator; strict CAS/coverage/original thresholds unchanged",
+    "evaluation.member_quality/member_retest/challenges": "old execution contract/hash guards still reject; no old registration/decision conversion; no new paid registration",
+    "api/frontend/topic_models/billing/tasks/r1_worker": "no API/storage schema changes; members use existing SetMember and CAS; no changes to model/budget/allocation/general retry framework",
+    "billing_admin": "Deployment initialize-production reuses enabled policy only after the existing check_paid_budget validator; no provider GET or ledger mutation; initial-cutover algorithm unchanged. Seven isolated mock cases cover valid reuse, five invalid cutovers and genuine first initialization."
+  },
+  "retained_limitations": [
+    "Real model selection accuracy, audit semantic rejection, complete cold/warm success costs and original failed quality gates remain unmeasured/failed.",
+    "Six semantic fault fixtures pass exact-position checks and rely on explicitly mocked unsupported audit replies; no semantic score is awarded.",
+    "Output/quote byte bounds are engineering allocations, not guarantees that any input fits 4096 tokens."
+  ],
+  "paid_generation": 0,
+  "paid_embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "semantic_pass": false,
+  "r206_status": "2/4",
+  "user_acceptance": null
+}

@@ -13,11 +13,12 @@ from sqlalchemy.orm import Session
 from tests.test_member_processing import MemberDB
 from unspun.core.billing import BudgetExceeded
 from unspun.core.content_publication import qualified_item
-from unspun.core.llm import LlmClient
+from unspun.core.llm import LlmClient, LlmError
 from unspun.core.sources import load_sources
 from unspun.evaluation import member_quality as quality
 from unspun.evaluation.member_quality import MemberBatchJournal, seed_packages, seed_topics
 from unspun.pipeline.member_processing import MemberHandler
+from unspun.pipeline.r1_worker import Blocked
 
 pytest_plugins = ["tests.test_member_processing"]
 
@@ -57,7 +58,7 @@ def test_call_limit_reconstructed_after_client_restart(member_db: MemberDB) -> N
     db.enqueue()
     lease = db.claim("topic_recall")
     for _ in range(2):
-        with pytest.raises(BudgetExceeded, match="cap reached"):
+        with pytest.raises(Blocked, match="cap reached"):
             handler(db, value).run(lease)
     assert len(db.calls) == len(db.billing.requests()) == 1
 
@@ -65,7 +66,7 @@ def test_call_limit_reconstructed_after_client_restart(member_db: MemberDB) -> N
 def test_pooled_cap_includes_actual_prior_fees_and_new_reservation(member_db: MemberDB) -> None:
     db = member_db
     db.enqueue()
-    with pytest.raises(BudgetExceeded, match="pooled budget"):
+    with pytest.raises(Blocked, match="pooled budget"):
         handler(db, spec(db), "0.001").run(db.claim("topic_recall"))
     assert len(db.calls) == 1
     assert db.billing.requests()[0].status == "responded"
@@ -79,19 +80,19 @@ def test_new_unknown_stops_further_paid_requests_and_preserves_hold(member_db: M
     with pytest.raises(httpx.ReadTimeout):
         handler(db, spec(db)).run(lease)
     db.unknown = False
-    with pytest.raises(BudgetExceeded, match="new unknown"):
+    with pytest.raises(Blocked, match="new unknown"):
         handler(db, spec(db)).run(lease)
     assert len(db.calls) == 1
     row = db.billing.requests()[0]
     assert row.status == "usage_unknown" and row.reserved_usd == Decimal("0.001")
 
 
-def test_internal_retry_counts_as_another_physical_request(member_db: MemberDB) -> None:
+def test_member_truncation_stops_at_first_physical_request(member_db: MemberDB) -> None:
     db = member_db
     db.enqueue()
     db.step("topic_recall")
     db.truncate = True
-    with pytest.raises(BudgetExceeded, match="cap reached"):
+    with pytest.raises(LlmError, match="no automatic retry"):
         handler(db, spec(db, physical_request_limit=3)).run(db.claim("topic_judge"))
     assert len(db.calls) == len(db.billing.requests()) == 3
     assert db.billing.requests()[-1].response_payload

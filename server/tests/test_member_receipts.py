@@ -124,6 +124,11 @@ def test_same_attempt_cache_is_verified_but_new_lease_replay_is_rejected(
     assert db.handler().run(lease) == first
     assert len(db.calls) == before
     with db.scope() as session:
+        task = session.get(PipelineTask, lease.task_id)
+        assert task and task.max_attempts == 1
+        # Fault injection only: force a second lease to exercise the independent
+        # physical-attempt fence, despite the normal single-attempt policy.
+        task.max_attempts = 2
         fail(
             session,
             lease,
@@ -132,11 +137,22 @@ def test_same_attempt_cache_is_verified_but_new_lease_replay_is_rejected(
         )
     current = db.claim("topic_review")
     assert current.attempt_id != lease.attempt_id
-    with pytest.raises(LlmError, match="current settled request and lease"):
+    with pytest.raises(Blocked, match="lease"):
         db.handler().run(current)
+    receipt = first["review"]["audits"][0]
+    with db.scope() as session, pytest.raises(LlmError, match="current settled request and lease"):
+        audit_from_call(
+            session,
+            current,
+            MemberDecision.model_validate(db.judgment().decision),
+            "query_support",
+            receipt["receipt"]["request_id"],
+            {k: receipt[k] for k in ("checks", "issues")},
+        )
     assert len(db.calls) == before
-    assert db.finish(current, deepcopy(first))
-    assert db.judgment().status == "rejected"
+    with pytest.raises(Blocked, match="lease"):
+        db.finish(current, deepcopy(first))
+    assert db.judgment().status == "draft"
 
 
 def test_late_http_response_stays_billed_without_creating_an_envelope(member_db: MemberDB) -> None:

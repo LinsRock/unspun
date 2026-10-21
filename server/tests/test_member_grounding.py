@@ -184,7 +184,7 @@ def test_unknown_reference_is_failure_even_for_independent(member_db: MemberDB) 
     db = member_db
     lease, out = judged(db)
     raw = deepcopy(out["decision"])
-    raw["classification"] = "independent"
+    raw["identity"] = "none"
     raw["query_facts"][0]["citations"][0]["reference_id"] = "ref_" + "0" * 24
     decision = MemberDecision.model_validate(raw)
     with db.scope() as session, pytest.raises(ValueError, match="unknown or stale"):

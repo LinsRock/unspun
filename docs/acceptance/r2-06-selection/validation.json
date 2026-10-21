@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-21T10:08:49.251473+00:00",
+  "test_database": "unspun_r206_selection_tests_20261021",
+  "baseline_passed": 1112,
+  "regression_passed": 1164,
+  "skipped": 0,
+  "new_tests": 52,
+  "offline_original_cases": 17,
+  "injected_semantic_rejections": 6,
+  "old_real_protocol_rejections": 16,
+  "ruff": "passed",
+  "format": "passed",
+  "pyright": "0 errors, 0 warnings",
+  "schema": "No new upgrade operations detected.",
+  "deploy_tests": 18,
+  "ci_scope_tests": 11,
+  "legacy_ranking_cases": 40,
+  "legacy_ranking_identical": true,
+  "paid_generation": 0,
+  "paid_embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "semantic_pass": false,
+  "r206_status": "2/4",
+  "user_acceptance": null,
+  "initial_failures_retained": [
+    "Initial format/type checks and synthetic role fixtures were corrected.",
+    "v5 retry test was updated to inject an otherwise forbidden second lease; both handler and physical receipt fences reject it.",
+    "New old-registration test initially matched only contract errors; existing frozen-source rejection is also accepted.",
+    "First-initialization mock was corrected to start without the synthetic evaluation policy/carry; no production accounting algorithm changed."
+  ],
+  "deployment_preflight": "existing production cutover confirmed valid read-only; initialize-production now skips provider query for this path"
+}

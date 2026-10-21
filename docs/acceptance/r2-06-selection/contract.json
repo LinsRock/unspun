@@ -1,0 +1,416 @@
+{
+  "frozen_design_commit": "440c4c5",
+  "contract": {
+    "version": "r2-member-v6",
+    "recall": "material-subject-ranked-32-valid-anchors-stratified-12-v2",
+    "embedding": "material-prefix-24000-bytes-v1",
+    "semantic_input": "owned-selections-codepoint-ranges-12000-chars-v4",
+    "references": "owned-visible-paragraph-voice-id-v1",
+    "projection": "single-identity-contribution-legacy-label-v1",
+    "resources": {
+      "output_tokens": 4096,
+      "output_bytes": 65536,
+      "quote_bytes": 16384,
+      "judgments": 1,
+      "audits": 4,
+      "task_attempts": 1
+    },
+    "audits": "query-only-anchor-only-relation-complete-basis-receipted-v2",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "dimensions": 1024,
+    "judgment_model": "google/gemini-2.5-flash-lite",
+    "review_model": "google/gemini-2.5-flash",
+    "judgment_prompt": "8cb43b660879b3fc3915749d4bd611eb1428ea81a02a284621efe998ddf5c43e",
+    "review_prompt": "9112499c714e2564d96f8c31ed41ef4c496180033aee694f7c862f8c2d346d19",
+    "decision_schema": "22bfe5d50e39d07f0748379c29752795850c1923da7a0cb7d9c8562cc274114e",
+    "review_schema": "9e68029237dd34c56a1da1e74b24a9c9ceb752cda5f25a0011021150ce8fcbe2",
+    "audit_envelope_schema": "f775e712d129f2192f56730ae5c2bdd29a2a95554f4557bdd4a4473c3c736781",
+    "review_bundle_schema": "424e0ec53b0491a5be21d23a4fbf90d8d36154227b95bc7206da082c8074c57e"
+  },
+  "fingerprint": "1a8417d2f0d62bf9171f02c346d8f4cc3f821d38bd98a8cbb65e99311ca1d7ad",
+  "decision_schema": {
+    "$defs": {
+      "FactSpan": {
+        "additionalProperties": false,
+        "properties": {
+          "citation_index": {
+            "maximum": 1,
+            "minimum": 0,
+            "title": "Citation Index",
+            "type": "integer"
+          },
+          "start": {
+            "maximum": 8000,
+            "minimum": 0,
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "maximum": 8000,
+            "minimum": 0,
+            "title": "End",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "citation_index",
+          "start",
+          "end"
+        ],
+        "title": "FactSpan",
+        "type": "object"
+      },
+      "MemberCitation": {
+        "additionalProperties": false,
+        "properties": {
+          "reference_id": {
+            "pattern": "^ref_[0-9a-f]{24}$",
+            "title": "Reference Id",
+            "type": "string"
+          },
+          "start": {
+            "maximum": 12000,
+            "minimum": 0,
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "maximum": 12000,
+            "minimum": 0,
+            "title": "End",
+            "type": "integer"
+          },
+          "quote": {
+            "maxLength": 8000,
+            "minLength": 8,
+            "title": "Quote",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference_id",
+          "start",
+          "end",
+          "quote"
+        ],
+        "title": "MemberCitation",
+        "type": "object"
+      },
+      "MemberFact": {
+        "additionalProperties": false,
+        "properties": {
+          "citations": {
+            "items": {
+              "$ref": "#/$defs/MemberCitation"
+            },
+            "maxItems": 2,
+            "minItems": 1,
+            "title": "Citations",
+            "type": "array"
+          },
+          "subject": {
+            "$ref": "#/$defs/SelectedRole"
+          },
+          "action": {
+            "$ref": "#/$defs/SelectedRole"
+          },
+          "object": {
+            "$ref": "#/$defs/SelectedRole"
+          },
+          "location": {
+            "$ref": "#/$defs/SelectedRole"
+          },
+          "attribution": {
+            "$ref": "#/$defs/SelectedRole"
+          },
+          "time": {
+            "$ref": "#/$defs/SelectedTime"
+          }
+        },
+        "required": [
+          "citations",
+          "subject",
+          "action",
+          "object",
+          "location",
+          "attribution",
+          "time"
+        ],
+        "title": "MemberFact",
+        "type": "object"
+      },
+      "MemberRelation": {
+        "additionalProperties": false,
+        "properties": {
+          "reason": {
+            "enum": [
+              "same_occurrence",
+              "same_issue",
+              "context",
+              "assessment",
+              "explanation",
+              "provenance",
+              "none"
+            ],
+            "title": "Reason",
+            "type": "string"
+          },
+          "query_fact_indices": {
+            "items": {
+              "maximum": 3,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "maxItems": 4,
+            "title": "Query Fact Indices",
+            "type": "array"
+          },
+          "anchor_fact_indices": {
+            "items": {
+              "maximum": 3,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "maxItems": 4,
+            "title": "Anchor Fact Indices",
+            "type": "array"
+          },
+          "time": {
+            "enum": [
+              "compatible",
+              "conflicting",
+              "unknown",
+              "not_applicable"
+            ],
+            "title": "Time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason",
+          "query_fact_indices",
+          "anchor_fact_indices",
+          "time"
+        ],
+        "title": "MemberRelation",
+        "type": "object"
+      },
+      "SelectedRole": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "enum": [
+              "known",
+              "unknown",
+              "conflict"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "spans": {
+            "items": {
+              "$ref": "#/$defs/FactSpan"
+            },
+            "maxItems": 2,
+            "title": "Spans",
+            "type": "array"
+          }
+        },
+        "required": [
+          "status",
+          "spans"
+        ],
+        "title": "SelectedRole",
+        "type": "object"
+      },
+      "SelectedTime": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "enum": [
+              "known",
+              "unknown",
+              "conflict"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "spans": {
+            "items": {
+              "$ref": "#/$defs/FactSpan"
+            },
+            "maxItems": 2,
+            "title": "Spans",
+            "type": "array"
+          },
+          "role": {
+            "enum": [
+              "occurrence",
+              "report",
+              "mentioned",
+              "unknown"
+            ],
+            "title": "Role",
+            "type": "string"
+          },
+          "precision": {
+            "enum": [
+              "timestamp",
+              "day",
+              "month_day",
+              "month",
+              "year",
+              "relative",
+              "mixed",
+              "unknown"
+            ],
+            "title": "Precision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "spans",
+          "role",
+          "precision"
+        ],
+        "title": "SelectedTime",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "identity": {
+        "enum": [
+          "same_occurrence",
+          "same_issue",
+          "related",
+          "none",
+          "uncertain"
+        ],
+        "title": "Identity",
+        "type": "string"
+      },
+      "contribution": {
+        "enum": [
+          "report",
+          "background",
+          "opinion",
+          "explanation",
+          "reprint",
+          "none",
+          "uncertain"
+        ],
+        "title": "Contribution",
+        "type": "string"
+      },
+      "certainty": {
+        "enum": [
+          "certain",
+          "uncertain"
+        ],
+        "title": "Certainty",
+        "type": "string"
+      },
+      "query_facts": {
+        "items": {
+          "$ref": "#/$defs/MemberFact"
+        },
+        "maxItems": 4,
+        "title": "Query Facts",
+        "type": "array"
+      },
+      "anchor_facts": {
+        "items": {
+          "$ref": "#/$defs/MemberFact"
+        },
+        "maxItems": 4,
+        "title": "Anchor Facts",
+        "type": "array"
+      },
+      "relation": {
+        "$ref": "#/$defs/MemberRelation"
+      }
+    },
+    "required": [
+      "identity",
+      "contribution",
+      "certainty",
+      "query_facts",
+      "anchor_facts",
+      "relation"
+    ],
+    "title": "MemberDecision",
+    "type": "object"
+  },
+  "audit_schema": {
+    "$defs": {
+      "MemberAuditCheck": {
+        "additionalProperties": false,
+        "properties": {
+          "target": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Target",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "supported",
+              "unsupported",
+              "uncertain"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "issues": {
+            "items": {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Issues",
+            "type": "array"
+          }
+        },
+        "required": [
+          "target",
+          "status",
+          "issues"
+        ],
+        "title": "MemberAuditCheck",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "description": "Model-authored audit content; association metadata is never model output.",
+    "properties": {
+      "checks": {
+        "items": {
+          "$ref": "#/$defs/MemberAuditCheck"
+        },
+        "maxItems": 20,
+        "minItems": 1,
+        "title": "Checks",
+        "type": "array"
+      },
+      "issues": {
+        "items": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "maxItems": 10,
+        "title": "Issues",
+        "type": "array"
+      }
+    },
+    "required": [
+      "checks",
+      "issues"
+    ],
+    "title": "MemberAuditContent",
+    "type": "object"
+  }
+}

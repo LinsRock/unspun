@@ -12,7 +12,7 @@
 - `query_facts`、`anchor_facts`各≤4项，名称沿用但内容仅为原文选择，不再含自由复述text。
 - 每项含1..2条citations：服务端原reference_id、原段落Unicode码点起止`start/end`（0基、左闭右开）、严格相等的原文quote。不得自动搜索别的位置修正索引，任何角色/voice/scope错配均拒绝。
 - 每项必填subject、action、object、location、attribution和time。前五者各为`status`（known/unknown/conflict）及≤2个`spans`；span指定citation_index及quote内Unicode码点start/end，不生成名字/事实文本。known至少1，unknown为空，conflict必须2个不同span。每个span非空且在所属quote内。
-- time同样选择span，并必填`role`（occurrence/report/mentioned/unknown）与`precision`（timestamp/day/month_day/month/year/relative/mixed/unknown）。unknown精度保持unknown，conflict保留两端；不得补ISO日期、年份、时区或纠错。feed/发现/处理日期只是元数据，不能作为发生时间证据；锚点不能补查询。
+- time同样选择span，并必填`role`（occurrence/report/mentioned/unknown）与`precision`（timestamp/day/month_day/month/year/relative/mixed/unknown）。day须有原文明示的年月日，timestamp还须明确时间/时区；month_day不含年份，relative不做日历转换。unknown精度保持unknown，conflict保留两端；不得补ISO日期、年份、时区或纠错。feed/发现/处理日期只是元数据，不能作为发生时间证据；锚点不能补查询。
 - `relation`仅一项结构化推断：reason（same_occurrence/same_issue/context/assessment/explanation/provenance/none）、两端事实索引、time（compatible/conflicting/unknown/not_applicable）。没有自由推断文本。关联必须指向两端；索引不得重复/越界。time不是日期归一化或相等判断，仍须语义审核。
 
 引用严格匹配只证明位置存在，不证明选出的主体、动作、对象、归因范围和角色正确。四审核独立验证完整选择及上下文；例如把“警方将暴力冲突归因极左翼”选成“警方将整场抗议归因极左翼”，即使每个span都存在，仍必须拒绝。查询支持仅给query原文，锚点支持仅给各anchor原文，关系/完整依据不看其他审核结果。支持/不确定/问题的原输出保留，不删去不支持的字段来批准。
@@ -46,7 +46,7 @@
 
 ## 接线、验证与交付计划
 
-沿用v5物理request/response、task/attempt/租约及五指纹绑定，在HTTP后和CAS前重查；只缩成员传输重试边界，R1请求和重试语义不变。不加表/迁移/通用框架。现有队列、召回、账本、topic revision CAS及查询来源资格保持。
+沿用v5物理request/response、task/attempt/租约及五指纹绑定，在HTTP后和CAS前重查；只缩成员传输重试边界，R1请求和重试语义不变。不加表/迁移/通用框架。部署前审查确认原initialize-production即使已有有效预算也会GET key；在本批部署前收紧为已有enabled生产预算先执行原check_paid_budget只读校验，成功复用、异常失败，不查询提供方或写账本。首次初始化仍走原凭证查询/初始化流程，本批不执行。现有队列、召回、账本、topic revision CAS及查询来源资格保持。
 
 使用已暴露真实原件登记离线挑战：法国归因范围、人物分析冒充报道、月日/年份/相对日期、原文日期冲突、Carney/Harper、query/anchor借用、旧协议/旧租约重放。原文位置匹配但语义错误的案例须进入审核并验证拒绝传播，mock结果明确不是模型语义成绩。保留v5错包/凭证/晚返回/CAS故障回归，新增单请求/失败终止与资源边界测试。新隔离库完整回归、旧40例排序、冻结Git blob/原件/paid-stop核对，审查受影响调用方。PR、必需CI、合并后核对实际部署源码、关闭状态、阅读数据、账本和R2-04保护；简洁更新任务板和交接。
 

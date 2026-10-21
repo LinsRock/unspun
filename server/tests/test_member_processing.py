@@ -25,9 +25,7 @@ from tests.test_topics import DEFINITION, member, write
 from unspun.core.billing import (
     STAGE_CAPS,
     TOPIC_STAGE_CAPS,
-    BudgetExceeded,
     CallContext,
-    UsageUnknown,
 )
 from unspun.core.config import Settings, get_settings
 from unspun.core.content import fingerprint
@@ -59,32 +57,58 @@ pytest_plugins = ["tests.test_billing"]
 def decision_for_prompt(
     packet: dict[str, Any], classification: str = "same_event", certainty: str = "certain"
 ) -> dict[str, Any]:
+    # Deliberately synthetic role support; this fixture tests protocol, never semantics.
     facts: list[dict[str, Any]] = []
     for material in [packet["query"], packet["candidate"]["topic"]["anchors"][0]["snapshot"]]:
         paragraph = material["content"]["paragraphs"][0]
+        role = {"status": "known", "spans": [{"citation_index": 0, "start": 0, "end": 8}]}
         facts.append(
             {
-                "text": paragraph["text"][:160],
                 "citations": [
                     {
                         "reference_id": paragraph["references"][0]["reference_id"],
                         "quote": paragraph["text"],
+                        "start": 0,
+                        "end": len(paragraph["text"]),
                     }
                 ],
+                **{
+                    name: role
+                    for name in ("subject", "action", "object", "location", "attribution")
+                },
+                "time": {**role, "role": "occurrence", "precision": "relative"},
             }
         )
+    identity = {
+        "same_event": "same_occurrence",
+        "same_issue": "same_issue",
+        "independent": "none",
+    }.get(classification, "related")
+    reason = {
+        "same_event": "same_occurrence",
+        "same_issue": "same_issue",
+        "background": "context",
+        "opinion": "assessment",
+        "explanation": "explanation",
+        "reprint": "provenance",
+        "independent": "none",
+    }[classification]
     return {
-        "classification": classification,
+        "identity": identity,
+        "contribution": "report"
+        if classification in ("same_event", "same_issue")
+        else "none"
+        if classification == "independent"
+        else classification,
         "certainty": certainty,
         "query_facts": [facts[0]],
         "anchor_facts": [facts[1]],
-        "relation_inferences": [
-            {
-                "text": "Both supplied originals support the proposed relation.",
-                "query_fact_indices": [0],
-                "anchor_fact_indices": [0],
-            }
-        ],
+        "relation": {
+            "reason": reason,
+            "query_fact_indices": [0],
+            "anchor_fact_indices": [0],
+            "time": "compatible",
+        },
     }
 
 
@@ -432,10 +456,10 @@ def test_expired_claim_rejects_checkpoint_and_late_result(member_db: MemberDB) -
         task = session.get(PipelineTask, lease.task_id)
         assert task
         task.due_at = datetime.now(UTC) - timedelta(seconds=1)
-    newer = db.claim("topic_recall")
-    assert newer.version > lease.version
-    assert db.handler().run(newer) == out
-    assert db.finish(newer, out)
+    with db.scope() as session:
+        task = session.get(PipelineTask, lease.task_id)
+        assert task and task.status == "failed" and task.max_attempts == 1
+        assert claim(session, queue="paid", kinds={"topic_recall"}, worker="no-retry") is None
     assert len(db.calls) == 2
 
 
@@ -477,7 +501,7 @@ def test_input_changes_fence_queued_and_late_results(
                     assert material
                     material.extractor_version = "changed-extractor"
     assert db.finish(lease, out)
-    assert db.judgment().status == "stale"
+    assert db.judgment().status == ("rejected" if change == "contract" else "stale")
     with db.scope() as session:
         assert session.get(TopicMember, (str(db.topic), db.article)) is None
     assert len(db.billing.usage()) == 7
@@ -530,30 +554,25 @@ def test_shared_queue_parallel_claim_and_enqueue_are_idempotent(member_db: Membe
     assert results.count(True) == 1 and len(db.calls) == 2
 
 
-def test_budget_defer_then_resume_preserves_draft_and_physical_retry_costs(
-    member_db: MemberDB,
-) -> None:
+def test_budget_failure_stops_without_auto_resume_and_preserves_draft(member_db: MemberDB) -> None:
     db = member_db
     db.enqueue()
     db.step("topic_recall")
-    db.truncate = True
     db.step("topic_judge")
-    assert len(db.billing.requests()) == 4
     db.billing.policy(stage_caps={**TOPIC_STAGE_CAPS, "topic_review": "0"})
     handler = db.handler()
     assert process_one(
         "paid", {("paid", "topic_review"): handler}, worker="budget-worker", scope=db.scope
     )
-    assert db.judgment().status == "draft" and len(db.calls) == 4
+    assert db.judgment().status == "draft" and len(db.calls) == 3
     with db.scope() as session:
         task = session.scalar(select(PipelineTask).where(PipelineTask.kind == "topic_review"))
-        assert task and task.status == "budget_deferred" and task.failures == 0
-        task.due_at = datetime.now(UTC) - timedelta(seconds=1)
+        assert task and task.status == "blocked" and task.max_attempts == 1
     db.billing.policy(stage_caps=TOPIC_STAGE_CAPS.copy())
-    db.step("topic_review")
-    assert db.judgment().status == "applied"
-    assert len(db.billing.usage()) == 8
-    assert sum(Decimal(str(r.cost_usd)) for r in db.billing.usage()) == Decimal("0.00008")
+    assert not process_one(
+        "paid", {("paid", "topic_review"): handler}, worker="budget-worker", scope=db.scope
+    )
+    assert len(db.billing.usage()) == 3
 
 
 def test_unknown_full_hold_blocks_retry_after_restart(member_db: MemberDB) -> None:
@@ -566,7 +585,7 @@ def test_unknown_full_hold_blocks_retry_after_restart(member_db: MemberDB) -> No
     held = db.billing.requests()[0]
     assert held.status == "usage_unknown" and held.reserved_usd > 0
     db.unknown = False
-    with pytest.raises(UsageUnknown):
+    with pytest.raises(Blocked):
         db.handler().run(lease)
     assert db.billing.requests()[0].reserved_usd == held.reserved_usd
     assert len(db.calls) == 1 and not db.billing.usage()
@@ -604,10 +623,10 @@ def test_new_stages_require_allocation_and_fit_original_production_total(
     db.enqueue()
     lease = db.claim("topic_recall")
     db.billing.policy(stage_caps=STAGE_CAPS.copy())
-    with pytest.raises(BudgetExceeded, match="explicit allocation"):
+    with pytest.raises(Blocked, match="explicit allocation"):
         db.handler().run(lease)
     db.billing.policy(scope="production", stage_caps={**STAGE_CAPS, **TOPIC_STAGE_CAPS})
-    with pytest.raises(BudgetExceeded, match="original production total"):
+    with pytest.raises(Blocked, match="original production total"):
         db.handler().run(lease)
     assert not db.calls and not db.billing.requests()
 
@@ -660,7 +679,7 @@ def test_different_event_and_invalid_evidence_cannot_pass_schema_only(member_db:
     decision = MemberDecision.model_validate(result["decision"])
     with db.scope() as session:
         for modified in (
-            decision.model_copy(update={"classification": "same_issue"}),
+            decision.model_copy(update={"identity": "same_issue"}),
             decision.model_copy(update={"anchor_facts": ()}),
             decision.model_copy(
                 update={
@@ -699,14 +718,15 @@ def test_prompt_owns_material_and_supplies_required_output_schema(member_db: Mem
     assert "qualification" not in query and "identity" not in query
     schema = packet["output_schema"]
     assert set(schema["required"]) == {
-        "classification",
+        "identity",
+        "contribution",
         "certainty",
         "query_facts",
         "anchor_facts",
-        "relation_inferences",
+        "relation",
     }
     ref = schema["$defs"]["MemberCitation"]
-    assert set(ref["required"]) == {"reference_id", "quote"}
+    assert set(ref["required"]) == {"reference_id", "quote", "start", "end"}
     assert "voice" not in ref["properties"]
 
 
@@ -750,9 +770,9 @@ def test_citations_cannot_borrow_another_owner_or_invisible_suffix(member_db: Me
         wrong_owner = decision.query_facts[0].model_copy(
             update={"citations": decision.anchor_facts[0].citations}
         )
-        for classification in ("same_event", "independent"):
+        for identity in ("same_occurrence", "none"):
             invalid = decision.model_copy(
-                update={"classification": classification, "query_facts": (wrong_owner,)}
+                update={"identity": identity, "query_facts": (wrong_owner,)}
             )
             with pytest.raises(ValueError, match="another role"):
                 validate_decision(session, lease.payload, invalid)

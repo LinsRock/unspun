@@ -10,7 +10,7 @@ from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
-from unspun.core.billing import CallContext
+from unspun.core.billing import BudgetExceeded, CallContext
 from unspun.core.config import get_settings
 from unspun.core.content import fingerprint
 from unspun.core.db import session_scope
@@ -102,6 +102,7 @@ def _enqueue(session: Session, kind: str, payload: dict[str, Any]) -> int:
         input_fingerprint=fingerprint(payload),
         strategy_version=str(payload["contract"]["version"]),
         payload=payload,
+        max_attempts=1,
     )
 
 
@@ -147,6 +148,7 @@ class MemberHandler:
         if (
             task is None
             or task.status != "running"
+            or task.attempts != 1
             or task.claim_version != lease.version
             or task.claimed_by != lease.worker
             or task.lease_until is None
@@ -262,6 +264,14 @@ class MemberHandler:
         return vector
 
     def run(self, lease: Lease) -> dict[str, Any]:
+        try:
+            return self._run(lease)
+        except BudgetExceeded as error:
+            # A failed new member chain has no automatic budget retry. Unknown
+            # reservations remain in the original journal, without reconciliation.
+            raise Blocked(str(error)) from error
+
+    def _run(self, lease: Lease) -> dict[str, Any]:
         with self.scope() as session:
             self._guard(session, lease)
             self._validate(session, lease.payload, recall=lease.kind == "topic_recall")
