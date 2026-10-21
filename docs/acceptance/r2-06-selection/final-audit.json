@@ -1,0 +1,62 @@
+{
+  "at": "2026-10-21T10:59:40.362664+00:00",
+  "production_revision": "f7a7499d384f770efbbb1e59e7cad1852d0c4ee0",
+  "delivery_checks": "passed_with_explicit_ambient_r1_activity",
+  "source_hashes_match": 96,
+  "schema": "000019",
+  "production_member_enabled": false,
+  "member_tasks": 0,
+  "member_calls": 0,
+  "empty_member_tables": 7,
+  "new_stage_allocations": 0,
+  "legacy_workers": 0,
+  "r1_workers": 1,
+  "protected_original_details_unchanged": 151,
+  "qualified_detail_count": 153,
+  "ambient_new_published_ids": [
+    9058,
+    9282
+  ],
+  "reader_event_tables_unchanged": [
+    "events",
+    "reader_state",
+    "reader_interests",
+    "content_feedback",
+    "reader_changes"
+  ],
+  "original_identity_url_rows_unchanged": {
+    "content_identities": 522,
+    "content_urls": 563
+  },
+  "live_first_two_pages_identical": false,
+  "legacy_frozen_ranking_cases_identical": 40,
+  "r204_containers_unchanged": 3,
+  "r204_original_files_unchanged": 331,
+  "r204_worktree_unchanged": true,
+  "protected_artifacts_unchanged": 956,
+  "original_evaluation_all_tables_and_sequences_unchanged": true,
+  "original_holds_preserved": true,
+  "production_unknown_count": 12,
+  "production_holds_usd": "0.489258",
+  "evaluation_unknown_count": 8,
+  "evaluation_holds_usd": "0.514613",
+  "original_seven_holds_usd": "0.484867",
+  "whole_production_window_zero_paid": false,
+  "ambient_r1_before_deployment": {
+    "physical_calls": 7,
+    "known_calls": 5,
+    "known_usd": "0.0044030",
+    "new_unknown_calls": 2,
+    "new_holds_usd": "0.058169000000"
+  },
+  "paid_scope": "this R2-06 work only; ambient existing R1 activity is explicitly separate",
+  "paid_generation": 0,
+  "paid_embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "new_blind_prepared_or_read": false,
+  "paid_stop_unchanged": true,
+  "semantic_pass": false,
+  "r206_status": "2/4",
+  "user_acceptance": null
+}
