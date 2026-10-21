@@ -1,0 +1,71 @@
+{
+  "candidate_revision": "f7a7499d384f770efbbb1e59e7cad1852d0c4ee0",
+  "candidate_contract": "r2-member-v6",
+  "scope": "verify the recorded unaccepted candidate; no execution or approval entry",
+  "files": {
+    "contract": {
+      "path": "docs/acceptance/r2-06-selection/contract.json",
+      "sha256": "16214e976883ffe280b9a66af59c16ec35283c6886f91bfeaf4b1b7707592643"
+    },
+    "sources": {
+      "path": "docs/acceptance/r2-06-selection/source-manifest.json",
+      "sha256": "43a8d1ab5a35fb790ec0933f1468f1f847d91b22f0beb9927c17e312540f4681"
+    },
+    "delivery": {
+      "path": "docs/acceptance/r2-06-selection/final-audit.json",
+      "sha256": "ae4f7f465b1ec08a19ee805f6fb411489fc3ddf070c66f88afa6408e69f085a2"
+    },
+    "offline": {
+      "path": "docs/acceptance/r2-06-selection/challenges.json",
+      "sha256": "954048350f79276bbfe1a096ea081c02e4a90a8a5be69cf06105ed0fad2360c8"
+    },
+    "validation": {
+      "path": "docs/acceptance/r2-06-selection/validation.json",
+      "sha256": "ccaf1ce7719167073657eb421eee2671ec27d79676f095a145a78acfec2f4179"
+    },
+    "execution": {
+      "path": "docs/evaluations/r2/member-grounding-budget-v1.json",
+      "sha256": "55ebffacdb9b5a79167e52c721bedf62ba001892c471c9a4e1eaf7352da26912"
+    },
+    "exposed": {
+      "path": "docs/evaluations/r2/member-grounding-exposed-v1.json",
+      "sha256": "fc9e39c149473ec489da52b30b2d9ea22643616881148179331a3034e676612f"
+    },
+    "old_results": {
+      "path": "docs/acceptance/r2-06-grounding/results-final.json",
+      "sha256": "bc5967299ddf9377a6bfa92eaae25f584a7ee7037e63dabb7b99718099a35336"
+    },
+    "old_gate": {
+      "path": "docs/acceptance/r2-06-grounding/exposed-gate.json",
+      "sha256": "04d0ab979d1be9c56549e29f2ac6a7780db3865ec80ed288ce75059c577c4204"
+    },
+    "first_outputs": {
+      "path": "docs/acceptance/r2-06-grounding/exposed-first-run.ndjson",
+      "sha256": "c5421b33f31534c548679d5cca5f22aea7f65a388966854b867c40be39147376"
+    },
+    "challenge_outputs": {
+      "path": "docs/acceptance/r2-06-grounding/challenge-first-run.ndjson",
+      "sha256": "51169f96b49f474bc3bbb2a3296b80bc0127c21375b7512135fb5eeedcd8ea17"
+    },
+    "paid_stop": {
+      "path": "docs/acceptance/r2-06-grounding/paid-stop.json",
+      "sha256": "69a690e136a5718b2ecb8be30782ccb96ab3ce6fc01a9133c727c54dae63e175"
+    },
+    "evaluation": {
+      "path": "docs/acceptance/r2-06-selection/postdeploy-evaluation.json",
+      "sha256": "b48d1619726c498fdbb721850638af61705652fecbe71d581a36f03ab5037220"
+    },
+    "production": {
+      "path": "docs/acceptance/r2-06-selection/postdeploy-production.json.gz",
+      "sha256": "ec64400b21b615620dcf4163c74cf413ae374a5311e85e117564b2ac979d58d4"
+    },
+    "provider_receipts": {
+      "path": "docs/acceptance/r2-06-zero-paid/provider-receipts-v2.json",
+      "sha256": "7b1c9981767e3891e0b3e66a0c7804424d4871026a2a33274bdf95b3abba076a"
+    },
+    "ledger_audit": {
+      "path": "docs/acceptance/r2-06-zero-paid/ledger-audit.json",
+      "sha256": "5f6508680d829fa29e7c6429330e32606778821f2c3b74828d5f910ed90b0757"
+    }
+  }
+}

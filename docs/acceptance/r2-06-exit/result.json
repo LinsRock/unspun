@@ -1,0 +1,91 @@
+{
+  "verdict": "not_accepted",
+  "exit_code": 2,
+  "candidate": {
+    "revision": "f7a7499d384f770efbbb1e59e7cad1852d0c4ee0",
+    "contract": "r2-member-v6",
+    "fingerprint": "1a8417d2f0d62bf9171f02c346d8f4cc3f821d38bd98a8cbb65e99311ca1d7ad",
+    "runtime_source_files_verified": 96,
+    "real_semantic_status": "unmeasured",
+    "real_metrics": null,
+    "engineering_pass_does_not_supply_semantic_evidence": true
+  },
+  "last_real_run": {
+    "contract": "r2-member-v4",
+    "status": "failed_partial_exposed_and_global_paid_stop",
+    "metrics": {
+      "candidate_recall": {
+        "numerator": 3,
+        "denominator": 9,
+        "value": 0.3333333333333333
+      },
+      "judgment_precision": {
+        "numerator": 2,
+        "denominator": 4,
+        "value": 0.5
+      },
+      "strict_supported_final_coverage": {
+        "numerator": 0,
+        "denominator": 9,
+        "value": 0.0
+      },
+      "all_invalid_applied": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      }
+    },
+    "real_challenges_pass": false,
+    "counts_as_current_candidate_evidence": false
+  },
+  "frozen_population": {
+    "registered_queries": 18,
+    "executable_queries": 17,
+    "topics": 16,
+    "expected_pairs": 9,
+    "previously_blind_queries_now_exposed": 6
+  },
+  "original_quality_gates": {
+    "candidate_recall_min": 0.9,
+    "judgment_precision_min": 0.95,
+    "final_member_coverage_min": 0.8,
+    "false_merges_max": 0,
+    "unapproved_or_invalid_applied_max": 0,
+    "all_required_real_dimensions_covered": true,
+    "thresholds_are": "AI technical acceptance, not user approval"
+  },
+  "blockers": [
+    "Unresolved fees have no authoritative per-request final cost receipts.",
+    "Paid-stop remains; no separate explicit paid-resume authorization exists.",
+    "The old v4 execution registration cannot run the v6 candidate.",
+    "No real v6 exposed/challenge result; offline results earn no semantic credit.",
+    "Independent blind and missing real dimensions remain unmeasured and out of scope.",
+    "The admin correction checklist is unimplemented and out of scope."
+  ],
+  "fee_snapshots": {
+    "evaluation": {
+      "snapshot_at": "2026-10-21T10:54:48.412127+00:00",
+      "unresolved_count": 8,
+      "held_usd": "0.514613000000"
+    },
+    "production": {
+      "snapshot_at": "2026-10-21T10:54:46.428747+00:00",
+      "unresolved_count": 12,
+      "held_usd": "0.489258000000"
+    }
+  },
+  "same_pool": {
+    "physical_requests": 139,
+    "known_usd": "0.07734293",
+    "unresolved_hold_usd": "0.029746",
+    "cap_usd": "0.30",
+    "evaluation_allocation_usd": "1.50"
+  },
+  "r206_status": "2/4",
+  "user_acceptance": null,
+  "automatic_next_action": null,
+  "fresh_blind_preparation_authorized": false,
+  "production_activation_authorized": false,
+  "new_requests_or_database_writes": 0,
+  "evidence_scope": "frozen local snapshot; no live production claim"
+}
