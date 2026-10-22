@@ -14,7 +14,10 @@ import type { MemberContent, MemberTaskDetail, TopicDetail, TopicMember } from '
 const topicId = 'a0766133-d589-47fe-bfb6-e94190141150'
 const quote = '这是该事件的真实原文材料，必须保留完整的来源归属。'
 const topic: TopicDetail['topic'] = { id: topicId, title: '原文核验话题', kind: 'event', domains: ['technology'], status: 'active', revision: 7, definition_revision: 1, created_at: '2026-10-21T08:00:00Z', updated_at: '2026-10-22T08:00:00Z' }
-const member: TopicMember = { article_id: 7, title: '成员原始报道', url: 'https://example.com/original', source_id: 'xinhua', material_id: 100, scope: 'open_text_unit', active: true, relation: 'report', basis: '该报道记述了本事件。', decision_version: 'r2-member-v6', evidence: [{ article_id: 7, material_id: 100, paragraph: 0, quote, voice: 'reported' }], check: { valid: true, reasons: [] } }
+const member: TopicMember = {
+  article_id: 7, title: '成员原始报道', source_id: 'xinhua', material_id: 100, scope: 'open_text_unit', active: true, relation: 'report', basis: '该报道记述了本事件。', decision_version: 'r2-member-v6', evidence: [{ article_id: 7, material_id: 100, paragraph: 0, quote, voice: 'reported' }], check: { valid: true, reasons: [] },
+  url: 'https://example.com/original',
+}
 const content: MemberContent = { article_id: 7, requested_article_id: 7, title: '成员原始报道', url: member.url, source_id: 'xinhua', material_id: 100, scope: 'open_text_unit', paragraphs: [{ index: 0, text: quote, voice: null, allowed_voices: ['reported', 'author', 'question', 'description'] }] }
 const detail: TopicDetail = {
   topic, members: [member], members_total: 1, member_page: 1, page_size: 25,
