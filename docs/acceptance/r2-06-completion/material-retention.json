@@ -1,0 +1,75 @@
+{
+  "article_id": 9334,
+  "current_material_id": 349,
+  "read_only": "on",
+  "materials": [
+    {
+      "id": 345,
+      "scope": "open_text_unit",
+      "body_sha256": "f104fa84220e86e9e5ee8a85099f0a290e1bf2bc996a54d982f34bb2db14bf91",
+      "text_fingerprint": "50094f41c4d24f58235295b77d9d8484245a2aa9dfffebd04838ff18a7ea28b3",
+      "metadata_fingerprint": "6c45e85629ffda0eb19a6bf7b0a8276cd7ae115f1e9485cfc1f18f50138e548f",
+      "retrieved_at": "2026-10-22 02:00:11.507904+00:00"
+    },
+    {
+      "id": 349,
+      "scope": "open_text_unit",
+      "body_sha256": "77a892b865b3b9b420deb0dfb2f72f287da24cac9a8024908e2f5271a17a0766",
+      "text_fingerprint": "d903ddcdc5392471e92cb378ad1b3356416fe6c3725cfed9c70f633f30c5cd44",
+      "metadata_fingerprint": "db788d659d3220601461505fb26ab9bba6573d026c6ad1d4f7d0de9abdb6c227",
+      "retrieved_at": "2026-10-22 04:00:09.413771+00:00"
+    }
+  ],
+  "derivations": [
+    {
+      "id": 625,
+      "material_id": 345,
+      "kind": "card",
+      "status": "invalidated",
+      "created_at": "2026-10-22 02:00:11.846500+00:00",
+      "updated_at": "2026-10-22 02:00:18.802769+00:00"
+    },
+    {
+      "id": 631,
+      "material_id": 345,
+      "kind": "features",
+      "status": "invalidated",
+      "created_at": "2026-10-22 02:00:18.782937+00:00",
+      "updated_at": "2026-10-22 02:00:18.794507+00:00"
+    },
+    {
+      "id": 632,
+      "material_id": 345,
+      "kind": "admission",
+      "status": "invalidated",
+      "created_at": "2026-10-22 02:00:18.782937+00:00",
+      "updated_at": "2026-10-22 02:00:18.799549+00:00"
+    },
+    {
+      "id": 639,
+      "material_id": 349,
+      "kind": "card",
+      "status": "ready",
+      "created_at": "2026-10-22 04:00:09.832311+00:00",
+      "updated_at": "2026-10-22 04:00:15.415043+00:00"
+    },
+    {
+      "id": 642,
+      "material_id": 349,
+      "kind": "features",
+      "status": "ready",
+      "created_at": "2026-10-22 04:00:15.269144+00:00",
+      "updated_at": "2026-10-22 04:00:15.368224+00:00"
+    },
+    {
+      "id": 643,
+      "material_id": 349,
+      "kind": "admission",
+      "status": "ready",
+      "created_at": "2026-10-22 04:00:15.269144+00:00",
+      "updated_at": "2026-10-22 04:00:15.406130+00:00"
+    }
+  ],
+  "provider_queries": 0,
+  "database_writes": 0
+}
