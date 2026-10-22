@@ -1,0 +1,280 @@
+{
+  "schema_version": "r206-selection-execution-v1",
+  "id": "r206-selection-execution-v1",
+  "preparation_status": "candidate_unreviewed_not_authorized",
+  "contract": {
+    "version": "r2-member-v6",
+    "recall": "material-subject-ranked-32-valid-anchors-stratified-12-v2",
+    "embedding": "material-prefix-24000-bytes-v1",
+    "semantic_input": "owned-selections-codepoint-ranges-12000-chars-v4",
+    "references": "owned-visible-paragraph-voice-id-v1",
+    "projection": "single-identity-contribution-legacy-label-v1",
+    "resources": {
+      "output_tokens": 4096,
+      "output_bytes": 65536,
+      "quote_bytes": 16384,
+      "judgments": 1,
+      "audits": 4,
+      "task_attempts": 1
+    },
+    "audits": "query-only-anchor-only-relation-complete-basis-receipted-v2",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "dimensions": 1024,
+    "judgment_model": "google/gemini-2.5-flash-lite",
+    "review_model": "google/gemini-2.5-flash",
+    "judgment_prompt": "8cb43b660879b3fc3915749d4bd611eb1428ea81a02a284621efe998ddf5c43e",
+    "review_prompt": "9112499c714e2564d96f8c31ed41ef4c496180033aee694f7c862f8c2d346d19",
+    "decision_schema": "22bfe5d50e39d07f0748379c29752795850c1923da7a0cb7d9c8562cc274114e",
+    "review_schema": "9e68029237dd34c56a1da1e74b24a9c9ceb752cda5f25a0011021150ce8fcbe2",
+    "audit_envelope_schema": "f775e712d129f2192f56730ae5c2bdd29a2a95554f4557bdd4a4473c3c736781",
+    "review_bundle_schema": "424e0ec53b0491a5be21d23a4fbf90d8d36154227b95bc7206da082c8074c57e"
+  },
+  "frozen_contract": {
+    "path": "docs/acceptance/r2-06-selection/contract.json",
+    "sha256": "16214e976883ffe280b9a66af59c16ec35283c6886f91bfeaf4b1b7707592643"
+  },
+  "previous_execution": {
+    "path": "docs/evaluations/r2/member-grounding-budget-v1.json",
+    "sha256": "55ebffacdb9b5a79167e52c721bedf62ba001892c471c9a4e1eaf7352da26912"
+  },
+  "previous_stop": {
+    "path": "docs/acceptance/r2-06-grounding/paid-stop.json",
+    "sha256": "69a690e136a5718b2ecb8be30782ccb96ab3ce6fc01a9133c727c54dae63e175"
+  },
+  "protected_artifacts": [
+    {
+      "path": "docs/evaluations/r2/member-grounding-exposed-v1.json",
+      "sha256": "fc9e39c149473ec489da52b30b2d9ea22643616881148179331a3034e676612f"
+    },
+    {
+      "path": "docs/evaluations/r2/member-grounding-challenges-v1.json",
+      "sha256": "04873a7b0795a0c3e7b641871fbb9ccaadbd0efb9f1c18fca5a68e13ccff4cad"
+    },
+    {
+      "path": "docs/acceptance/r2-06-selection/challenges.json",
+      "sha256": "954048350f79276bbfe1a096ea081c02e4a90a8a5be69cf06105ed0fad2360c8"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/tasks.json.gz",
+      "sha256": "e0feecb266910784880fa399c4354b9b32c76fbfad26983b101f42c5529547e1"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/physical-requests.json.gz",
+      "sha256": "45e07ad7879b830bc18ca8a648d1ac8aab33e55fd4ebc47630aa85c0020c8a47"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/exposed-first-run.ndjson",
+      "sha256": "c5421b33f31534c548679d5cca5f22aea7f65a388966854b867c40be39147376"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/challenge-first-run.ndjson",
+      "sha256": "51169f96b49f474bc3bbb2a3296b80bc0127c21375b7512135fb5eeedcd8ea17"
+    },
+    {
+      "path": "docs/acceptance/r2-06-grounding/results-final.json",
+      "sha256": "bc5967299ddf9377a6bfa92eaae25f584a7ee7037e63dabb7b99718099a35336"
+    },
+    {
+      "path": "docs/evaluations/r2/member-inputs-v1.json",
+      "sha256": "a4af0daa8a1cfdea80091180b88f75f0caade60d0d7ca2c5997c4e117e245d46"
+    },
+    {
+      "path": "docs/evaluations/r2/member-grounding-exposed-inputs-v1.json.gz",
+      "sha256": "817d1f85d9c9f10032aafe3675677af96014395197a083af16ae423cfe8cf322"
+    }
+  ],
+  "exposed_registration": {
+    "path": "docs/evaluations/r2/member-selection-exposed-v1.json",
+    "sha256": "f4cc5b4a4bd11b999e0e2f6b7915597fa0706185f6ff7e33f03733e44e55293d"
+  },
+  "challenge_registration": {
+    "path": "docs/evaluations/r2/member-selection-challenges-v1.json",
+    "sha256": "98698fe06b290ca31da537c6f65b2142838da000ca4e4a5eb9dc5531cf4d41f9"
+  },
+  "evidence_directory": "docs/evaluations/r2/member-selection-run-v1",
+  "required_source_paths": [
+    "config/media_groups.yml",
+    "config/r1-reader.yml",
+    "config/scoring.yml",
+    "config/sources.yml",
+    "server/src/unspun/core/__init__.py",
+    "server/src/unspun/core/billing.py",
+    "server/src/unspun/core/billing_admin.py",
+    "server/src/unspun/core/billing_models.py",
+    "server/src/unspun/core/config.py",
+    "server/src/unspun/core/content.py",
+    "server/src/unspun/core/content_costs.py",
+    "server/src/unspun/core/content_feed.py",
+    "server/src/unspun/core/content_publication.py",
+    "server/src/unspun/core/content_reading.py",
+    "server/src/unspun/core/db.py",
+    "server/src/unspun/core/expense_allocation.py",
+    "server/src/unspun/core/expenses.py",
+    "server/src/unspun/core/feed_query.py",
+    "server/src/unspun/core/grounding.py",
+    "server/src/unspun/core/html_text.py",
+    "server/src/unspun/core/llm.py",
+    "server/src/unspun/core/logging.py",
+    "server/src/unspun/core/member_contracts.py",
+    "server/src/unspun/core/member_evidence.py",
+    "server/src/unspun/core/member_models.py",
+    "server/src/unspun/core/member_recall.py",
+    "server/src/unspun/core/member_receipts.py",
+    "server/src/unspun/core/models.py",
+    "server/src/unspun/core/params.py",
+    "server/src/unspun/core/public_impact.py",
+    "server/src/unspun/core/publication.py",
+    "server/src/unspun/core/reader.py",
+    "server/src/unspun/core/reader_models.py",
+    "server/src/unspun/core/reading.py",
+    "server/src/unspun/core/review_budget.py",
+    "server/src/unspun/core/sources.py",
+    "server/src/unspun/core/task_models.py",
+    "server/src/unspun/core/tasks.py",
+    "server/src/unspun/core/topic_contracts.py",
+    "server/src/unspun/core/topic_models.py",
+    "server/src/unspun/core/topics.py",
+    "server/src/unspun/evaluation/member_grounding.py",
+    "server/src/unspun/evaluation/member_quality.py",
+    "server/src/unspun/evaluation/member_retest.py",
+    "server/src/unspun/evaluation/member_selection_execution.py",
+    "server/src/unspun/evaluation/run_quality.py",
+    "server/src/unspun/pipeline/__init__.py",
+    "server/src/unspun/pipeline/cluster.py",
+    "server/src/unspun/pipeline/content_processing.py",
+    "server/src/unspun/pipeline/digest.py",
+    "server/src/unspun/pipeline/discovery.py",
+    "server/src/unspun/pipeline/discovery_quotas.py",
+    "server/src/unspun/pipeline/editions.py",
+    "server/src/unspun/pipeline/extract.py",
+    "server/src/unspun/pipeline/feeds.py",
+    "server/src/unspun/pipeline/materials.py",
+    "server/src/unspun/pipeline/member_processing.py",
+    "server/src/unspun/pipeline/public_sources.py",
+    "server/src/unspun/pipeline/r1_runtime.py",
+    "server/src/unspun/pipeline/r1_worker.py",
+    "server/src/unspun/pipeline/repair_grounding.py",
+    "server/src/unspun/pipeline/score.py",
+    "server/src/unspun/pipeline/summarize.py",
+    "server/src/unspun/pipeline/viewpoints.py"
+  ],
+  "provider_reads": {
+    "base_url": "https://openrouter.ai/api/v1",
+    "method": "GET",
+    "path": "/key",
+    "maximum_per_authorized_phase": 1,
+    "generation_lookups": 0,
+    "retries": 0
+  },
+  "original_holds": [
+    {
+      "id": "11d92ba4336740e08c40dca7fff1cce3",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028794000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "5c68c196f8514836a38280edc782806a",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028760000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "b3b9eefb524b4754ba2fc57cd20c77f0",
+      "status": "usage_unknown",
+      "reserved_usd": "0.170674000000",
+      "provider_generation_id": "gen-1792228899-g8CyAm1fHk5FLCwMg6dG"
+    },
+    {
+      "id": "bdbdbb331ac546eb84d6f42b502f362b",
+      "status": "usage_unknown",
+      "reserved_usd": "0.170674000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "e22da10bc4274aebb4cb03d8f3b53a98",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028261000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "f69f0a1c006e4a698d6acda91f9ba4fe",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028967000000",
+      "provider_generation_id": null
+    },
+    {
+      "id": "ffefcd48948944c48a3da4a60f17fbb6",
+      "status": "usage_unknown",
+      "reserved_usd": "0.028737000000",
+      "provider_generation_id": null
+    }
+  ],
+  "stopped_request": {
+    "id": "9bc36dfe3a5c455e9df54756b70f1579",
+    "provider_generation_id": "gen-1792567035-xqUccUdgq5n1RaXx5duo",
+    "reserved_usd": "0.029746000000",
+    "request_fingerprint": "0772d120745560ca42ddebbc843ebbcff9d8c197c305520002975a8ee52bff20",
+    "original_response_fingerprint": "7d1349cfb4bcf3dc23aba1a4b81797df588ccae1f9d05ada13c794fd935a8303"
+  },
+  "budget": {
+    "batch_limit_usd": "0.30",
+    "previous_spend_usd": "0.07734293",
+    "previous_physical_requests": 139,
+    "previous_stage_counts": {
+      "topic_embedding": 22,
+      "topic_judgment": 98,
+      "topic_review": 19
+    },
+    "future_reserved_usd": "0",
+    "physical_request_limit": 360,
+    "stage_physical_limits": {
+      "topic_embedding": 80,
+      "topic_judgment": 184,
+      "topic_review": 96
+    },
+    "previous_stage_caps_usd": {
+      "topic_embedding": "0.02",
+      "topic_judgment": "0.08",
+      "topic_review": "0.20"
+    },
+    "stage_caps_usd": {
+      "topic_embedding": "0.02",
+      "topic_judgment": "0.13",
+      "topic_review": "0.30"
+    },
+    "stage_ceilings_are_overlapping_not_separate_allocations": true,
+    "original_evaluation_limit_usd": "1.50",
+    "original_unknown_holds_usd": "0.484867",
+    "full_reservation_algorithm_unchanged": true,
+    "grounding_budget_24h_usd": "1.00",
+    "production_grounding_budget_unchanged": "0.40",
+    "retry_policy": "One judgment plus at most four audits; one attempt; no physical, task or repair retry.",
+    "stop_policy": "Any new unknown/active unresolved cost or reached monetary/physical limit stops ALL paid phases immediately. No release/reset/automatic increase.",
+    "residual_before_stopped_hold_usd": "0.22265707",
+    "residual_while_stopped_hold_remains_usd": "0.19291107",
+    "post_receipt_room": "0.22265707 minus the genuine reconciled stopped-request cost; this is not authorization"
+  },
+  "phases": {
+    "challenge": {
+      "physical_request_limit": 36,
+      "cumulative_pool_ceiling_usd": "0.30",
+      "previous_physical_requests": 13
+    },
+    "exposed": {
+      "physical_request_limit": 124,
+      "cumulative_pool_ceiling_usd": "0.30",
+      "previous_physical_requests": 19
+    }
+  },
+  "phase_order": [
+    "exposed",
+    "challenge"
+  ],
+  "production_enabled": false,
+  "user_acceptance": null,
+  "new_blind_preparation_or_read": false,
+  "automatic_fee_settlement": false,
+  "paid_authorization": null,
+  "entry_review": null
+}

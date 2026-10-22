@@ -1,0 +1,54 @@
+{
+  "schema_version": "r206-completion-engineering-review-v1",
+  "at": "2026-10-22T04:01:17.831731+00:00",
+  "status": "engineering_review_passed_not_paid_authority",
+  "reviewers": [
+    "root",
+    "member_admin_ui"
+  ],
+  "reviewed_callers": [
+    "authenticated admin router and same-origin writes",
+    "independent write transaction and existing TopicMutation CAS/idempotency",
+    "current qualified content, canonical material and original evidence ownership",
+    "frontend DTO, retained pending mutation and conflict refresh",
+    "member/derivative live validity and retained audit history",
+    "recall/judge/review task filtering, physical receipt ownership and full known/held cost totals",
+    "v6 entry registration, original labels/denominators, first-output reports and physical limits",
+    "separate genuine receipt, reconciliation, review and paid authorization gates"
+  ],
+  "resolved_findings": [
+    {
+      "finding": "Topic-scoped drilldown omitted recall tasks",
+      "fix": "Include payload.topics containment; isolated regression and real preview task142 verified"
+    },
+    {
+      "finding": "Positive CAS controls used background despite original same_event labels; one attribution reversed subject/object",
+      "fix": "Register exact report/same_occurrence selections from full originals; preserve literal relative times and old labels"
+    },
+    {
+      "finding": "Huang controls attached announcement date to suspected misconduct",
+      "fix": "Select the commission announcement action consistently for positive, negative and replay cases"
+    },
+    {
+      "finding": "Malformed non-object/non-string first outputs could crash the report",
+      "fix": "Type-check content and catch LlmError; retain all first attempts in schema denominator"
+    }
+  ],
+  "independent_registration_review": {
+    "corrected_cases_checked_against_retained_originals": 5,
+    "maximum_new_challenge_audits": 23,
+    "registered_queries": 18,
+    "executable_queries": 17,
+    "expected_pairs": 9
+  },
+  "old_model_prompt_budget_core_pipeline_changes": false,
+  "real_semantic_credit": false,
+  "paid_authority": false,
+  "independent_reviewer_provider_or_database_access": false,
+  "remaining_real_execution_prerequisites": [
+    "authentic stopped-request cost receipt",
+    "separately authorized actual reconciliation without touching original seven holds",
+    "complete paid-entry review including CI/deployed source and genuine receipt provenance",
+    "separate explicit paid authorization"
+  ]
+}
