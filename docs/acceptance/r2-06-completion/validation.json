@@ -1,0 +1,63 @@
+{
+  "status": "implementation_verified_delivery_in_progress",
+  "base_revision": "4c7b8d2cac374ae006099560813ab5944c459536",
+  "scope_contract_commit": "e9d5c89",
+  "worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-completion",
+  "isolated_database": "unspun_r206_completion_tests_20261022",
+  "checks": {
+    "backend_full_before_final_review_fixes": {
+      "passed": 1185,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 137.05
+    },
+    "admin_api_after_recall_filter_fix": {
+      "passed": 5,
+      "failures": 0,
+      "seconds": 1.22
+    },
+    "frontend_full": {
+      "passed": 115,
+      "files": 22,
+      "failures": 0
+    },
+    "frontend_typecheck_lint_build": "passed",
+    "backend_ruff_format_pyright": "passed",
+    "alembic_schema_drift": false,
+    "frozen_legacy_ranking_cases": 40,
+    "frozen_legacy_ranking_bytes_unchanged": true,
+    "final_selection_receipt_execution_suite": {
+      "passed": 102,
+      "failures": 0,
+      "seconds": 42.88
+    },
+    "independent_engineering_and_registration_review": "passed; not paid authority"
+  },
+  "page_preview": "http://127.0.0.1:5266/admin/topics?topic=367d10b9-22ae-4af6-ab11-61c00a2c7ace",
+  "page_delivery_instruction": "快速完成 别墨迹",
+  "page_delivery_instruction_context": "After concrete real-API preview and request to proceed with PR/CI/merge/deployment",
+  "page_subjective_rating": null,
+  "generation": 0,
+  "embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "fee_reconciliation_or_hold_release": false,
+  "new_blind_prepared_or_read": false,
+  "real_v6_semantics": "unmeasured",
+  "r206_user_acceptance": null,
+  "pr": null,
+  "deployment": null,
+  "predeploy": {
+    "runtime_version": "f7a7499d384f770efbbb1e59e7cad1852d0c4ee0",
+    "schema": "000019",
+    "member_processing_enabled": false,
+    "member_tasks_and_calls": 0,
+    "production_unresolved_requests": 16,
+    "production_unresolved_full_usd": "0.605395",
+    "evaluation_unresolved_requests": 8,
+    "evaluation_unresolved_full_usd": "0.514613",
+    "r204_containers": 3,
+    "r204_original_files": 331
+  },
+  "source_freeze_sha256": "31243b7fa7997a8f39443e73b486e6130a75d97c4a49c44a43d989ce5d6225de"
+}

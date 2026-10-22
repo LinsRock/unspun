@@ -53,10 +53,10 @@ function renderAdmin(path: string, failFirst = false) {
   )
 }
 
-test('admin workspace has six entries and the source query', async () => {
+test('admin workspace includes topic members and the source query', async () => {
   renderAdmin('/admin/sources')
   expect(await screen.findByRole('navigation', { name: '后台导航' }, { timeout: 5000 })).toBeTruthy()
-  for (const name of ['运营总览', '信息源', '内容工作区', '运行与任务', '费用与预算', '配置与审计']) {
+  for (const name of ['运营总览', '信息源', '内容工作区', '话题与成员', '运行与任务', '费用与预算', '配置与审计']) {
     expect(screen.getByRole('link', { name })).toBeTruthy()
   }
   expect(screen.getByRole('heading', { name: '信息源' })).toBeTruthy()

@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Button, ConfigProvider, theme as antdTheme } from 'antd'
-import { AppstoreOutlined, FileTextOutlined, GlobalOutlined, DeploymentUnitOutlined, WalletOutlined, SettingOutlined, SearchOutlined, ReloadOutlined, ArrowUpOutlined } from '@ant-design/icons'
+import { AppstoreOutlined, FileTextOutlined, GlobalOutlined, DeploymentUnitOutlined, WalletOutlined, SettingOutlined, SearchOutlined, ReloadOutlined, ArrowUpOutlined, BranchesOutlined } from '@ant-design/icons'
 import WorkspaceSearch from './WorkspaceSearch'
 import zhCN from 'antd/locale/zh_CN'
 import { useEffect, useState } from 'react'
@@ -15,12 +15,14 @@ import RunsPage from './RunsPage'
 import ConfigurationPage from './ConfigurationPage'
 import CostsPage from './CostsPage'
 import OverviewPage from './OverviewPage'
+import TopicsPage from './TopicsPage'
 import { parseRange, presetRange, rangeSearch, type AdminRange } from './adminFilters'
 import './admin.css'
 
 const pages = [
   { path: '/admin', label: '运营总览', icon: AppstoreOutlined, description: '把握产出、异常与成本，找到下一步行动。' },
   { path: '/admin/content', label: '内容工作区', icon: FileTextOutlined, description: '从原始报道到事件，追溯内容与证据。' },
+  { path: '/admin/topics', label: '话题与成员', icon: BranchesOutlined, description: '核验原文与成员归属，追溯人工修订、判断和费用。' },
   { path: '/admin/sources', label: '信息源', icon: GlobalOutlined, description: '查看来源配置、采集结果与抓取异常。' },
   { path: '/admin/runs', label: '运行与任务', icon: DeploymentUnitOutlined, description: '追踪处理轮次，定位当前积压和失败对象。' },
   { path: '/admin/costs', label: '费用与预算', icon: WalletOutlined, description: '查看运行费用、付款记录和本月模型预算。' },
@@ -45,13 +47,15 @@ export default function AdminLayout() {
   const location = useLocation()
   const [search, setSearch] = useSearchParams()
   const [openedAt, setOpenedAt] = useState(() => new Date())
+  const [topicRefresh, setTopicRefresh] = useState(0)
   const range = parseRange(search, openedAt)
   const page = pages.find((entry) => entry.path === location.pathname)
+  const currentOnly = page?.path === '/admin/configuration' || page?.path === '/admin/topics'
   const query = useQuery({
     queryKey: ['admin', 'range', range.start, range.end],
     queryFn: ({ signal }) => fetchAdminRange(range, signal),
     retry: false,
-    enabled: Boolean(page) && page?.path !== '/admin/configuration',
+    enabled: Boolean(page) && !currentOnly,
   })
 
   useEffect(() => {
@@ -113,8 +117,8 @@ export default function AdminLayout() {
           <div className="admin-workspace-label"><span className="admin-dot" />个人情报工作站<small>工作区</small></div>
           <nav aria-label="后台导航">
             <span className="admin-nav-caption">运营</span>
-            {pages.map((entry, index) => <div key={entry.path}>
-              {index === 5 && <span className="admin-nav-caption admin-nav-system">系统</span>}
+            {pages.map(entry => <div key={entry.path}>
+              {entry.path === '/admin/configuration' && <span className="admin-nav-caption admin-nav-system">系统</span>}
               <NavLink end to={{ pathname: entry.path, search: rangeSearch(new URLSearchParams(), range).toString() }} className={({ isActive }) => isActive ? 'admin-nav-link active' : 'admin-nav-link'}>
                 <entry.icon aria-hidden="true" /><span>{entry.label}</span>
               </NavLink>
@@ -129,11 +133,11 @@ export default function AdminLayout() {
             <>
               <div className="admin-heading">
                 <div><h1>{page.label}</h1><p className="admin-page-description">{page.description}</p></div>
-                <div className="admin-heading-controls">{page.path !== '/admin/configuration' && <DateRange range={range} onApply={applyRange} />}<Button aria-label="刷新工作区" icon={<ReloadOutlined />} onClick={() => { if (range.period !== 'custom') applyRange(presetRange(range.period)); void queryClient.invalidateQueries({ queryKey: ['admin'] }) }}>刷新</Button></div>
+                <div className="admin-heading-controls">{!currentOnly && <DateRange range={range} onApply={applyRange} />}<Button aria-label="刷新工作区" icon={<ReloadOutlined />} onClick={() => { if (!currentOnly && range.period !== 'custom') applyRange(presetRange(range.period)); if (page.path === '/admin/topics') setTopicRefresh(value => value + 1); void queryClient.invalidateQueries({ queryKey: ['admin'] }) }}>刷新</Button></div>
               </div>
-              <div className="admin-range-caption"><span className="admin-dot" />{page.path === '/admin/configuration' ? '当前部署配置 · 不受日期范围影响' : '北京时间 · 所选期间'}{page.path !== '/admin/configuration' && query.data && <><details><summary>统计范围</summary><p>{new Date(query.data.range.start).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })} 至 {new Date(query.data.range.end).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })} · 起点包含，终点不包含</p></details><span className="admin-updated">快照 {new Date(query.data.as_of).toLocaleTimeString('zh-CN', { timeZone: 'Asia/Shanghai' })}</span></>}</div>
-              {page.path !== '/admin/configuration' && query.isPending && <p role="status">正在确认查询时间…</p>}
-              {page.path !== '/admin/configuration' && query.isError && (
+              <div className="admin-range-caption"><span className="admin-dot" />{page.path === '/admin/topics' ? '当前话题与保留记录 · 不受日期范围影响' : page.path === '/admin/configuration' ? '当前部署配置 · 不受日期范围影响' : '北京时间 · 所选期间'}{!currentOnly && query.data && <><details><summary>统计范围</summary><p>{new Date(query.data.range.start).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })} 至 {new Date(query.data.range.end).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })} · 起点包含，终点不包含</p></details><span className="admin-updated">快照 {new Date(query.data.as_of).toLocaleTimeString('zh-CN', { timeZone: 'Asia/Shanghai' })}</span></>}</div>
+              {!currentOnly && query.isPending && <p role="status">正在确认查询时间…</p>}
+              {!currentOnly && query.isError && (
                 <div role="alert" className="admin-state">
                   <p>无法获取查询时间，请检查网络后重试。</p>
                   <Button onClick={() => void query.refetch()}>重试</Button>
@@ -143,6 +147,7 @@ export default function AdminLayout() {
               {query.isSuccess && page.path === '/admin/content' && <ContentPage range={range} />}
               {query.isSuccess && page.path === '/admin/runs' && <RunsPage range={range} />}
               {page.path === '/admin/configuration' && <ConfigurationPage />}
+              {page.path === '/admin/topics' && <TopicsPage key={topicRefresh} />}
               {query.isSuccess && page.path === '/admin/costs' && <CostsPage range={range} />}
               {query.isSuccess && page.path === '/admin' && <OverviewPage range={range} />}
             </>

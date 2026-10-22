@@ -1,0 +1,61 @@
+{
+  "status": "prepared_unreviewed_not_authorized",
+  "execution_fingerprint": "1f3bc4364d7d3c8cbcbcaf824fcefaaf7cb6961cb311cba47dfb2076c605d9f3",
+  "contract": {
+    "version": "r2-member-v6",
+    "recall": "material-subject-ranked-32-valid-anchors-stratified-12-v2",
+    "embedding": "material-prefix-24000-bytes-v1",
+    "semantic_input": "owned-selections-codepoint-ranges-12000-chars-v4",
+    "references": "owned-visible-paragraph-voice-id-v1",
+    "projection": "single-identity-contribution-legacy-label-v1",
+    "resources": {
+      "output_tokens": 4096,
+      "output_bytes": 65536,
+      "quote_bytes": 16384,
+      "judgments": 1,
+      "audits": 4,
+      "task_attempts": 1
+    },
+    "audits": "query-only-anchor-only-relation-complete-basis-receipted-v2",
+    "embedding_model": "qwen/qwen3-embedding-8b",
+    "dimensions": 1024,
+    "judgment_model": "google/gemini-2.5-flash-lite",
+    "review_model": "google/gemini-2.5-flash",
+    "judgment_prompt": "8cb43b660879b3fc3915749d4bd611eb1428ea81a02a284621efe998ddf5c43e",
+    "review_prompt": "9112499c714e2564d96f8c31ed41ef4c496180033aee694f7c862f8c2d346d19",
+    "decision_schema": "22bfe5d50e39d07f0748379c29752795850c1923da7a0cb7d9c8562cc274114e",
+    "review_schema": "9e68029237dd34c56a1da1e74b24a9c9ceb752cda5f25a0011021150ce8fcbe2",
+    "audit_envelope_schema": "f775e712d129f2192f56730ae5c2bdd29a2a95554f4557bdd4a4473c3c736781",
+    "review_bundle_schema": "424e0ec53b0491a5be21d23a4fbf90d8d36154227b95bc7206da082c8074c57e"
+  },
+  "registered_queries": 18,
+  "executable_queries": 17,
+  "expected_pairs": 9,
+  "challenge_cases": 19,
+  "challenge_maximum_new_physical_audits": 23,
+  "historical_phase_requests": {
+    "challenge": 13,
+    "exposed": 19
+  },
+  "remaining_phase_requests": {
+    "challenge": 23,
+    "exposed": 105
+  },
+  "prior_paid_calls": 139,
+  "prior_known_usd": "0.07734293",
+  "retained_new_hold_usd": "0.029746",
+  "retained_original_seven_holds_usd": "0.484867",
+  "requirements": [
+    "Detached review of exact v6 execution, source freeze and challenge expectations",
+    "Authentic per-request provider receipt for the stopped R2-06 request",
+    "Separately authorized reconciliation reflected in the original ledger",
+    "Separate explicit user authorization bound to that review and receipt"
+  ],
+  "old_stop_preserved": true,
+  "paid_calls": 0,
+  "provider_lookups": 0,
+  "database_access": false,
+  "new_blind_prepared_or_read": false,
+  "semantic_credit": false,
+  "user_acceptance": null
+}

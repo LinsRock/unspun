@@ -1,0 +1,78 @@
+{
+  "topic_id": "367d10b9-22ae-4af6-ab11-61c00a2c7ace",
+  "pageErrors": [],
+  "writes": [
+    {
+      "mutation_id": "57ec6205-3cef-4f9f-8705-970a2d10395d",
+      "expected_revision": 2,
+      "reason": "本地预览：将作者自述修正为观点关系，并核验丢失响应的幂等提交。",
+      "article_id": 9054,
+      "material_id": 200239,
+      "relation": "opinion",
+      "basis": "作者以亲身翻译经历说明与该作品的关系，保留作者视角。",
+      "evidence": [
+        {
+          "article_id": 9054,
+          "material_id": 200239,
+          "paragraph": 1,
+          "quote": "接下这本书是在去年二月，那时我还在译一本长篇小说",
+          "voice": "author"
+        }
+      ]
+    },
+    {
+      "mutation_id": "57ec6205-3cef-4f9f-8705-970a2d10395d",
+      "expected_revision": 2,
+      "reason": "本地预览：将作者自述修正为观点关系，并核验丢失响应的幂等提交。",
+      "article_id": 9054,
+      "material_id": 200239,
+      "relation": "opinion",
+      "basis": "作者以亲身翻译经历说明与该作品的关系，保留作者视角。",
+      "evidence": [
+        {
+          "article_id": 9054,
+          "material_id": 200239,
+          "paragraph": 1,
+          "quote": "接下这本书是在去年二月，那时我还在译一本长篇小说",
+          "voice": "author"
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "originalRangeSelection": true,
+    "committedLostResponse": {
+      "topic_id": "367d10b9-22ae-4af6-ab11-61c00a2c7ace",
+      "revision": 3,
+      "mutation_id": "57ec6205-3cef-4f9f-8705-970a2d10395d"
+    },
+    "idempotentReplayRevision": 3,
+    "conflictRefreshRevision": 6,
+    "removedRetained": true,
+    "finalRevision": 10,
+    "retainedDraftInvalidated": {
+      "from_revision": 9,
+      "to_revision": 10,
+      "retained_revision": 9,
+      "check": {
+        "valid": false,
+        "reasons": [
+          "derivation_input_changed"
+        ]
+      }
+    },
+    "realUnknownCost": {
+      "known_usd": "0",
+      "held_usd": "0.029746000000",
+      "unknown_requests": 1,
+      "physical_requests": 1
+    },
+    "realReviewTask": {
+      "id": 147,
+      "kind": "topic_review",
+      "judgments": 1
+    },
+    "mobileWidth": 390,
+    "mobileListOverflow": false
+  }
+}

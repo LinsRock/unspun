@@ -1,0 +1,273 @@
+{
+  "schema_version": "r206-selection-source-freeze-v1",
+  "at": "2026-10-22T04:01:03.217408+00:00",
+  "status": "candidate_unreviewed_not_authorized",
+  "execution_fingerprint": "1f3bc4364d7d3c8cbcbcaf824fcefaaf7cb6961cb311cba47dfb2076c605d9f3",
+  "files": [
+    {
+      "path": "config/media_groups.yml",
+      "sha256": "9a7c0ac391e163779e176f4f601faddb369cbb1ae25ed03d59b4c33c82d50071"
+    },
+    {
+      "path": "config/r1-reader.yml",
+      "sha256": "16aefedf76fd1c9c4e36fd5b4dd21378d9de3bc9705d87e8612ea3c6c215f90b"
+    },
+    {
+      "path": "config/scoring.yml",
+      "sha256": "2f2099d10e0702d223453b7e1c738b62ad4c30696093feaece57601d5fac6dc8"
+    },
+    {
+      "path": "config/sources.yml",
+      "sha256": "4c21aaace4c8c68d0181e101a136883fb43972c12e5af47caba410d9ec1bef43"
+    },
+    {
+      "path": "server/src/unspun/core/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/src/unspun/core/billing.py",
+      "sha256": "82ce574b59a359808d2d25791874d073389459a1cb3587ab8a34dea9b5abb1a8"
+    },
+    {
+      "path": "server/src/unspun/core/billing_admin.py",
+      "sha256": "09641b4b02a899b85b64cfa8caca125da189b0168b804f15de1e8b1de3aacff8"
+    },
+    {
+      "path": "server/src/unspun/core/billing_models.py",
+      "sha256": "1c8e05f8bffeabd0e41e794b11ec00956c9fc7c261fddd25f0ec9b651f081a5d"
+    },
+    {
+      "path": "server/src/unspun/core/config.py",
+      "sha256": "1430d74f3f9381455c195f9330f54ed67b0ba2c01388c764001da3f3f65a7efa"
+    },
+    {
+      "path": "server/src/unspun/core/content.py",
+      "sha256": "e51a0aca1322078ab36fa3b9f3790122052202896a96920dc8f91e72aff8da20"
+    },
+    {
+      "path": "server/src/unspun/core/content_costs.py",
+      "sha256": "925441aebb00b0a096874c0da846788745e3b24eb131824fef1e03d15b678928"
+    },
+    {
+      "path": "server/src/unspun/core/content_feed.py",
+      "sha256": "55a60881223e69574ccf3322cd2a6571769834b40f69159ab8065d67eb47debc"
+    },
+    {
+      "path": "server/src/unspun/core/content_publication.py",
+      "sha256": "e93241b2bf81fb38769066670333d1dabadbb5f116e7651c583a986553507ee2"
+    },
+    {
+      "path": "server/src/unspun/core/content_reading.py",
+      "sha256": "0d4efacb9c12acbcaf2d7d34ba0709df12bc12cf19a39fa2ef0e2622b5a4bf26"
+    },
+    {
+      "path": "server/src/unspun/core/db.py",
+      "sha256": "07362d229e547e59f59fc5eb7a4b1bac96a42b246e680b80674d02d938c0511d"
+    },
+    {
+      "path": "server/src/unspun/core/expense_allocation.py",
+      "sha256": "cad554e28abbbacc3ff9bda4c6f5e9bc9ada80744cc2e0efe000990da5caea47"
+    },
+    {
+      "path": "server/src/unspun/core/expenses.py",
+      "sha256": "7332bf086e106bd25fa79245302b78f57a05511d940841a92efdf1a984daef3c"
+    },
+    {
+      "path": "server/src/unspun/core/feed_query.py",
+      "sha256": "43768e4f3ba20cc0fde66a4a4ad9d6506e741115fc9a671b5545d5a19ff32496"
+    },
+    {
+      "path": "server/src/unspun/core/grounding.py",
+      "sha256": "dc9840203dec0416e70b0af1c77e649bd5e1c1d9312c5b5882dc300c0a356121"
+    },
+    {
+      "path": "server/src/unspun/core/html_text.py",
+      "sha256": "8ed1e1da0739b72b57ccf1c466ac64c4efcde68854dc9d17e70ecf8805511d1f"
+    },
+    {
+      "path": "server/src/unspun/core/llm.py",
+      "sha256": "678347b2529d66b00bbada4f85b0f9e386fe518302351c4253bc7e564d255356"
+    },
+    {
+      "path": "server/src/unspun/core/logging.py",
+      "sha256": "9cbe3baa022c7741c3a7f22a49f274255cfd93073208b5f36f637a60081a94c4"
+    },
+    {
+      "path": "server/src/unspun/core/member_contracts.py",
+      "sha256": "0c8661554d12d6134b75243c87ee6b9d017e76d4e11f93aa7c1a4120152d6ef0"
+    },
+    {
+      "path": "server/src/unspun/core/member_evidence.py",
+      "sha256": "c6b644e2dc4058729c88f1ec1fbd5feea4cd51827981cc73399daafb16dbd057"
+    },
+    {
+      "path": "server/src/unspun/core/member_models.py",
+      "sha256": "5a0f57500b8578d7e49b58162922cdff386e2a0d82883b463d487f833125d1d1"
+    },
+    {
+      "path": "server/src/unspun/core/member_recall.py",
+      "sha256": "cf4f31627c33e289bb2f487dcd67732f01d62fb793da37c4b480b3ff9b68cfa4"
+    },
+    {
+      "path": "server/src/unspun/core/member_receipts.py",
+      "sha256": "6b9eec1503a1ab9c5f5afd3393a2dbfb3e618f9305078a31cdcf0bce3161eeb9"
+    },
+    {
+      "path": "server/src/unspun/core/models.py",
+      "sha256": "f0ac8f30496877984c0523faca2203d1de02efc6ad88d31072b3c846f39bef3b"
+    },
+    {
+      "path": "server/src/unspun/core/params.py",
+      "sha256": "c1bc8b948014e671ad3fb78ac1e1e6f522c43bf5126d7417caea1eee84babde0"
+    },
+    {
+      "path": "server/src/unspun/core/public_impact.py",
+      "sha256": "319ce964591f687d661acfd6a1426d54718ef81263134a9baf0728c540100981"
+    },
+    {
+      "path": "server/src/unspun/core/publication.py",
+      "sha256": "4eea7f2a8c99a3f51c2db6a2b4cbf3dcf07025dc9dbd5edb4592d753f17a8fcb"
+    },
+    {
+      "path": "server/src/unspun/core/reader.py",
+      "sha256": "e05a238d87a43d73a8322fedd18cfd8369a708cada98a85441aec53632c4138a"
+    },
+    {
+      "path": "server/src/unspun/core/reader_models.py",
+      "sha256": "34d6780081674079e8c85fea2aaf3d89106a0d0b6f8c5eaa165872740d476873"
+    },
+    {
+      "path": "server/src/unspun/core/reading.py",
+      "sha256": "5b3a38f259b22d3f05f78eab41ee778e23d45a3394eb648dd6ba4e473ee8aaef"
+    },
+    {
+      "path": "server/src/unspun/core/review_budget.py",
+      "sha256": "87416be2ce778a85ca7807218ca5bd1172ae06fc4fe134507645f5cc0a6a85f4"
+    },
+    {
+      "path": "server/src/unspun/core/sources.py",
+      "sha256": "3a75b08be8df8f0be494e1d8169d932b71244fae71ef7b64b1fa4440ab8bd1e6"
+    },
+    {
+      "path": "server/src/unspun/core/task_models.py",
+      "sha256": "1fe520826f276e6acb998f105ed5a568fad2f35c2309e7b751918307b80fd9bb"
+    },
+    {
+      "path": "server/src/unspun/core/tasks.py",
+      "sha256": "931e444698662e7cd0bca1b78a7ffcb20d9a3f7e87700ae0de5a26a098efd781"
+    },
+    {
+      "path": "server/src/unspun/core/topic_contracts.py",
+      "sha256": "8c89e6665c67b547e0a44902bfc8aeeae0e0fe5c29c742985f825cbb6e72a5ce"
+    },
+    {
+      "path": "server/src/unspun/core/topic_models.py",
+      "sha256": "1091b317c1e1cde9de68e4e6a0c9c985670538dbacab0966cb5c28a094e6624e"
+    },
+    {
+      "path": "server/src/unspun/core/topics.py",
+      "sha256": "5239e58235c21d317086c2fadc6bc6d879cbba5b93321c7ce9326d545d0fdea0"
+    },
+    {
+      "path": "server/src/unspun/evaluation/member_grounding.py",
+      "sha256": "5e2e20040e2aa8b6c7844e4ac1d41b6ed822c7a78a5e562be1550c48f7fa7fe1"
+    },
+    {
+      "path": "server/src/unspun/evaluation/member_quality.py",
+      "sha256": "19b67416cdec38132ea62a6a806d8f155067d5e1fd6830fa5d4b8ddb1c1f5fdf"
+    },
+    {
+      "path": "server/src/unspun/evaluation/member_retest.py",
+      "sha256": "45b0f5cde2ede9ed4493e4adfd5e968b4b83be634b1482767b948c6c5058677e"
+    },
+    {
+      "path": "server/src/unspun/evaluation/member_selection_execution.py",
+      "sha256": "da3966221f493c7ce51691a7145cc5316d6412a030fffa4d0eb48fc8535b1dd0"
+    },
+    {
+      "path": "server/src/unspun/evaluation/run_quality.py",
+      "sha256": "28ab7c149d31ab9db6d25980d178f072c3aa9c3dc5b564b59707bffef675a8c7"
+    },
+    {
+      "path": "server/src/unspun/pipeline/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/src/unspun/pipeline/cluster.py",
+      "sha256": "652b728c6edbdb49b6a8ba2802ef29d3dfd39eee95198b3d7dc0c79af9675fff"
+    },
+    {
+      "path": "server/src/unspun/pipeline/content_processing.py",
+      "sha256": "b88d5ae3256b14e730a34fca0bca8a5044621fff14ee720bc0fdfe4e78366d03"
+    },
+    {
+      "path": "server/src/unspun/pipeline/digest.py",
+      "sha256": "b5edc1562c9da2b743e23adcc2d8be529fb44f7f9b10e2084d1e4d41f9b1dbef"
+    },
+    {
+      "path": "server/src/unspun/pipeline/discovery.py",
+      "sha256": "762e4835615bd73aa3fe8288274eec33f41a8888b7669e3aa0ffb9ff205eac3c"
+    },
+    {
+      "path": "server/src/unspun/pipeline/discovery_quotas.py",
+      "sha256": "7bd0685707ef0dd3603609ff3c1b7885c69c8c06b56976c252dfe8a88b98b12a"
+    },
+    {
+      "path": "server/src/unspun/pipeline/editions.py",
+      "sha256": "55d30c447d67c55eeaa3a64fd4fc159ffe0db5755525b73358d1d1487d639dda"
+    },
+    {
+      "path": "server/src/unspun/pipeline/extract.py",
+      "sha256": "3d42c02ca597e1da29ad65a7821d5b2812f0b9b4b459f859745e276df2563ca9"
+    },
+    {
+      "path": "server/src/unspun/pipeline/feeds.py",
+      "sha256": "2c29eb623674660a91f72b36d9a12c2577c1e9e4073ecb20919f558bc5cf993a"
+    },
+    {
+      "path": "server/src/unspun/pipeline/materials.py",
+      "sha256": "5ddb9cd0fd5b5968d6bf193a905eba4db481a5fb67659cd619eb91703073147d"
+    },
+    {
+      "path": "server/src/unspun/pipeline/member_processing.py",
+      "sha256": "37c18d49b0a1f3346324b989cd2dab6b44696c8af381f0769c8ce07cfed4a1f6"
+    },
+    {
+      "path": "server/src/unspun/pipeline/public_sources.py",
+      "sha256": "b91eee4f1c3179ba363b8f696d248f668c6a64fe20d5bae4cf715602a316c76d"
+    },
+    {
+      "path": "server/src/unspun/pipeline/r1_runtime.py",
+      "sha256": "7cb00c5765f7799f2bbf5fe297f774a1d6f4135ffeea0830b1990838682e2f64"
+    },
+    {
+      "path": "server/src/unspun/pipeline/r1_worker.py",
+      "sha256": "725c339ecd44e3544800a5342380c9a5395fa921909972ba01d56813b3d531eb"
+    },
+    {
+      "path": "server/src/unspun/pipeline/repair_grounding.py",
+      "sha256": "57cbca2e0908fe880d5037ca0235167a16bc3529dc8b268a61cd5a5a89b78d31"
+    },
+    {
+      "path": "server/src/unspun/pipeline/score.py",
+      "sha256": "2798cfeb8e1b340b166c016e146d24fa85d19c2b70c039c0b3f66a54c96f14b9"
+    },
+    {
+      "path": "server/src/unspun/pipeline/summarize.py",
+      "sha256": "4c23e68586aad9d3de990674fa2d95a718767c1f53031cedee404ccb7726dbe4"
+    },
+    {
+      "path": "server/src/unspun/pipeline/viewpoints.py",
+      "sha256": "a0cc939ae708c385d5626cddef027bb97fdd6867b929e7518966d82e25f2fd4c"
+    }
+  ],
+  "test_files": [
+    {
+      "path": "server/tests/test_member_selection_execution.py",
+      "sha256": "8fca96b53c1e870233d66c7e0e42c923859252669c7889b062d8890435def994"
+    }
+  ],
+  "paid_entry_review": false,
+  "paid_authorization": false,
+  "new_blind_prepared_or_read": false
+}
