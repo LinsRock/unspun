@@ -1,5 +1,5 @@
 {
-  "status": "implementation_verified_delivery_in_progress",
+  "status": "implementation_merged_and_deployed_real_quality_unmeasured",
   "base_revision": "4c7b8d2cac374ae006099560813ab5944c459536",
   "scope_contract_commit": "e9d5c89",
   "worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-member-completion",
@@ -31,7 +31,17 @@
       "failures": 0,
       "seconds": 42.88
     },
-    "independent_engineering_and_registration_review": "passed; not paid authority"
+    "independent_engineering_and_registration_review": "passed; not paid authority",
+    "final_pr_ci_backend_full": {
+      "passed": 1192,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 292.65
+    },
+    "frontend_format_fix_regression": {
+      "passed": 11,
+      "failures": 0
+    }
   },
   "page_preview": "http://127.0.0.1:5266/admin/topics?topic=367d10b9-22ae-4af6-ab11-61c00a2c7ace",
   "page_delivery_instruction": "快速完成 别墨迹",
@@ -45,8 +55,19 @@
   "new_blind_prepared_or_read": false,
   "real_v6_semantics": "unmeasured",
   "r206_user_acceptance": null,
-  "pr": null,
-  "deployment": null,
+  "pr": {
+    "number": 131,
+    "url": "https://github.com/LinsRock/unspun/pull/131",
+    "merge_commit": "e48454a36da7b82eda206a8964bed3835df9c5bf"
+  },
+  "deployment": {
+    "run": "https://github.com/LinsRock/unspun/actions/runs/39722629534",
+    "conclusion": "success",
+    "actual_version": "e48454a36da7b82eda206a8964bed3835df9c5bf",
+    "source_files_matched": 98,
+    "admin_probe": "postdeploy-admin.json",
+    "final_audit": "final-audit.json"
+  },
   "predeploy": {
     "runtime_version": "f7a7499d384f770efbbb1e59e7cad1852d0c4ee0",
     "schema": "000019",
@@ -59,5 +80,12 @@
     "r204_containers": 3,
     "r204_original_files": 331
   },
-  "source_freeze_sha256": "31243b7fa7997a8f39443e73b486e6130a75d97c4a49c44a43d989ce5d6225de"
+  "source_freeze_sha256": "31243b7fa7997a8f39443e73b486e6130a75d97c4a49c44a43d989ce5d6225de",
+  "r206_status": "3/4",
+  "whole_production_window_zero_paid": false,
+  "ambient_r1_before_deployment": {
+    "physical_calls": 10,
+    "known_usd": "0.00563220",
+    "new_unknown_calls": 0
+  }
 }

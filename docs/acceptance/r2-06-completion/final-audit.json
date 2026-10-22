@@ -1,0 +1,59 @@
+{
+  "at": "2026-10-22T04:43:30.332006+00:00",
+  "production_revision": "e48454a36da7b82eda206a8964bed3835df9c5bf",
+  "delivery_checks": "passed_with_explained_ambient_r1_activity",
+  "source_hashes_match": 98,
+  "schema": "000019",
+  "member_processing_enabled": false,
+  "member_tasks_and_calls": 0,
+  "empty_member_tables": 7,
+  "new_stage_allocations": 0,
+  "legacy_workers": 0,
+  "r1_workers": 1,
+  "qualified_details": 182,
+  "reader_and_old_identity_url_rows_unchanged": true,
+  "r204_containers_unchanged": 3,
+  "r204_original_files_unchanged": 331,
+  "protected_artifacts_unchanged": 956,
+  "r204_worktree_unchanged": true,
+  "ledgers": {
+    "production": {
+      "known_count_delta": 10,
+      "known_usd_delta": "0.00563220",
+      "unknown_count": 16,
+      "held_usd": "0.605395000000",
+      "new_unknown_ids": []
+    },
+    "evaluation": {
+      "known_count_delta": 0,
+      "known_usd_delta": "0E-8",
+      "unknown_count": 8,
+      "held_usd": "0.514613000000",
+      "new_unknown_ids": []
+    }
+  },
+  "ambient_r1_calls": 10,
+  "whole_production_window_zero_paid": false,
+  "this_r206_work_generation": 0,
+  "this_r206_work_embedding": 0,
+  "this_r206_work_paid_retries": 0,
+  "provider_queries": 0,
+  "fee_reconciliation_or_hold_release": false,
+  "new_blind_prepared_or_read": false,
+  "r206_status": "3/4",
+  "real_v6_semantics": "unmeasured",
+  "user_acceptance": null,
+  "original_body_versions_retained": 178,
+  "unchanged_current_details": 177,
+  "ambient_refreshed_detail_ids": [
+    9334
+  ],
+  "ambient_new_detail_ids": [
+    9232,
+    9354,
+    9398,
+    9407
+  ],
+  "ambient_activity_before_deployment": true,
+  "live_first_two_pages_identical": false
+}
