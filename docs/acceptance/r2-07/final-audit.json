@@ -1,0 +1,60 @@
+{
+  "at": "2026-10-23T06:39:13.421030+00:00",
+  "production_revision": "1d92421a115294debd5075464489d2285cdf62e6",
+  "schema": "000020",
+  "delivery_checks": "passed",
+  "source_files_matched": 104,
+  "unchanged_web_image": "ghcr.io/linsrock/unspun-web:e48454a36da7b82eda206a8964bed3835df9c5bf",
+  "new_chain_processing_and_publication_enabled": false,
+  "topic_handlers_tasks_calls_allocations": 0,
+  "empty_topic_chain_tables": 8,
+  "legacy_workers": 0,
+  "r1_workers": 1,
+  "original_details": 224,
+  "current_qualified_details": 230,
+  "unchanged_current_details": 224,
+  "retained_original_body_versions": 224,
+  "ambient_changed_detail_ids": [],
+  "ambient_new_detail_ids": [
+    9370,
+    9392,
+    9503,
+    9508,
+    9565,
+    9584
+  ],
+  "reader_and_old_identity_url_rows_unchanged": true,
+  "ledgers": {
+    "production": {
+      "known_count_delta": 12,
+      "known_usd_delta": "0.00712790",
+      "unknown_count": 24,
+      "held_usd": "0.834861000000",
+      "prior_unknowns_preserved": 24,
+      "new_unknown_ids": []
+    },
+    "evaluation": {
+      "known_count_delta": 0,
+      "known_usd_delta": "0E-8",
+      "unknown_count": 8,
+      "held_usd": "0.514613000000",
+      "prior_unknowns_preserved": 8,
+      "new_unknown_ids": []
+    }
+  },
+  "ambient_r1_calls": 12,
+  "whole_production_window_zero_paid": false,
+  "r204_containers_unchanged": 3,
+  "r204_original_files_unchanged": 331,
+  "protected_artifacts_unchanged": 956,
+  "r204_worktree_unchanged": true,
+  "this_batch_generation": 0,
+  "this_batch_embedding": 0,
+  "this_batch_paid_retries": 0,
+  "provider_queries": 0,
+  "hold_release_or_reconciliation": false,
+  "r206_status": "deferred; 3/4; real quality not accepted",
+  "r207_real_quality": "unmeasured",
+  "r207_overall_acceptance": false,
+  "user_acceptance": null
+}

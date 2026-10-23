@@ -29,5 +29,32 @@
   "real_quality": "unmeasured",
   "user_acceptance": null,
   "production_activation": false,
-  "r206": "deferred; 3/4; real quality not accepted"
+  "r206": "deferred; 3/4; real quality not accepted",
+  "final_pr_ci": {
+    "backend_passed": 1248,
+    "backend_skipped": 0,
+    "frontend_passed": 115,
+    "legacy_ranking_cases": 40,
+    "url": "https://github.com/LinsRock/unspun/actions/runs/39910719950"
+  },
+  "pr": {
+    "number": 133,
+    "merge_commit": "1d92421a115294debd5075464489d2285cdf62e6",
+    "url": "https://github.com/LinsRock/unspun/pull/133"
+  },
+  "status": "first_backend_delivery_merged_deployed_disabled_real_quality_unmeasured",
+  "deployment": {
+    "run": "https://github.com/LinsRock/unspun/actions/runs/39911478358",
+    "actual_deploy": "success",
+    "version": "1d92421a115294debd5075464489d2285cdf62e6",
+    "schema": "000020",
+    "source_files_matched": 104,
+    "final_audit": "final-audit.json"
+  },
+  "whole_production_window_zero_paid": false,
+  "ambient_r1": {
+    "calls": 12,
+    "known_usd": "0.00712790",
+    "new_qualified_details": 6
+  }
 }
