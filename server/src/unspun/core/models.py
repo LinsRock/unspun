@@ -35,6 +35,7 @@ from unspun.core.reader_models import ContentFeedback as ContentFeedback
 from unspun.core.reader_models import ReaderChange as ReaderChange
 from unspun.core.reader_models import ReaderInterest as ReaderInterest
 from unspun.core.reader_models import ReaderState as ReaderState
+from unspun.core.synthesis_models import TopicSynthesis as TopicSynthesis
 from unspun.core.task_models import DiscoveryBatch as DiscoveryBatch
 from unspun.core.task_models import PipelineTask as PipelineTask
 from unspun.core.task_models import SourceState as SourceState

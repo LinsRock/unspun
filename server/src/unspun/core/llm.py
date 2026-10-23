@@ -82,7 +82,7 @@ def chat_request(
         "max_tokens": max_tokens,
         **(
             {"temperature": 0}
-            if purpose in {"summary", "viewpoint", "grounding", "topic_judgment"}
+            if purpose in {"summary", "viewpoint", "grounding", "topic_judgment", "topic_synthesis"}
             else {}
         ),
     }
@@ -180,7 +180,10 @@ class LlmClient:
         from unspun.core.member_contracts import MEMBER_OUTPUT_BYTES, MEMBER_OUTPUT_TOKENS
 
         member_call = self._context.stage in {"topic_judgment", "topic_review"}
-        sizes = (max_tokens,) if member_call else (max_tokens, max_tokens * 2)
+        synthesis_call = self._context.stage in {"topic_synthesis", "topic_synthesis_review"}
+        if synthesis_call and max_tokens != 4096:
+            raise LlmError("synthesis output token limit differs from the registered contract")
+        sizes = (max_tokens,) if member_call or synthesis_call else (max_tokens, max_tokens * 2)
         if member_call and max_tokens != MEMBER_OUTPUT_TOKENS:
             raise LlmError("member output token limit differs from the frozen contract")
         for attempt_max_tokens in sizes:
@@ -206,7 +209,7 @@ class LlmClient:
             )
             choice: dict[str, Any] = data["choices"][0]
             content = str(choice["message"]["content"])
-            if member_call:
+            if member_call or synthesis_call:
                 if len(content.encode()) > MEMBER_OUTPUT_BYTES:
                     raise LlmError("member output exceeds registered byte bound")
                 if choice.get("finish_reason") != "stop":

@@ -1,0 +1,13 @@
+{
+  "protected_artifacts_unchanged": 956,
+  "r204_worktree_unchanged": true,
+  "paid_stop_unchanged": true,
+  "generation": 0,
+  "embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "all_previous_acceptance_and_evaluation_files_unchanged": 1080,
+  "legacy_ranking_cases": 40,
+  "legacy_ranking_byte_identical": true,
+  "legacy_ranking_sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3"
+}

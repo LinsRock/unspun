@@ -77,6 +77,10 @@ class RecordUpdate(ContentContract):
     update_id: UUID
     summary: Nonblank
     decision_version: Nonblank
+    progress_key: Nonblank | None = None
+    classification: Literal["development", "discussion_focus"] | None = None
+    attribution: Nonblank | None = None
+    limitations: tuple[Nonblank, ...] = ()
     evidence: tuple[EvidenceRef, ...] = Field(min_length=1, max_length=20)
     occurred: TopicTime = TopicTime()
     reported: TopicTime = TopicTime()
@@ -89,6 +93,8 @@ class RetractUpdate(ContentContract):
 
 class TopicClaim(ContentContract):
     text: Nonblank
+    attribution: Nonblank | None = None
+    limitations: tuple[Nonblank, ...] = ()
     evidence: tuple[EvidenceRef, ...] = Field(min_length=1, max_length=20)
 
 

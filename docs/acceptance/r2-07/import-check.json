@@ -1,0 +1,13 @@
+{
+  "python": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview/server/.venv/bin/python3",
+  "worktree_server": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview/server",
+  "imports": {
+    "unspun": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview/server/src/unspun/__init__.py",
+    "unspun.core.billing": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview/server/src/unspun/core/billing.py",
+    "unspun.core.topics": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview/server/src/unspun/core/topics.py",
+    "unspun.core.topic_synthesis": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview/server/src/unspun/core/topic_synthesis.py",
+    "unspun.pipeline.topic_synthesis": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview/server/src/unspun/pipeline/topic_synthesis.py",
+    "unspun.evaluation.synthesis_prepare": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview/server/src/unspun/evaluation/synthesis_prepare.py"
+  },
+  "actual_worktree_imports": true
+}
