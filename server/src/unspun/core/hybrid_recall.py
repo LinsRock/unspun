@@ -21,6 +21,7 @@ from sqlalchemy import (
 from sqlalchemy.dialects.postgresql import JSONPATH, distinct_on
 from sqlalchemy.orm import Session, aliased
 
+from unspun.core.config import get_settings
 from unspun.core.content import fingerprint
 from unspun.core.content_feed import (
     candidate_versions,
@@ -33,9 +34,9 @@ from unspun.core.content_feed import (
 from unspun.core.content_publication import current_versions, qualified_items
 from unspun.core.content_reading import cheap_exclusion, current_value
 from unspun.core.hybrid_contracts import HybridRules, Signal
-from unspun.core.hybrid_ranking import Candidate, time_key
+from unspun.core.hybrid_ranking import Candidate, time_key, topic_preference_score
 from unspun.core.models import Article, ContentDerivation, ContentMaterial, ContentObservation
-from unspun.core.reader_models import ContentFeedback, ReaderInterest
+from unspun.core.reader_models import ContentFeedback, ReaderInterest, TopicPreference
 from unspun.core.sources import Source
 from unspun.core.synthesis_models import TopicSynthesis
 from unspun.core.topic_models import Topic, TopicMember, TopicUpdate
@@ -354,6 +355,15 @@ def topic_candidates(
         for i in interests
         if i.kind in {"domain", "term"}
     ]
+    preferences_enabled = get_settings().r2_topic_preferences_enabled
+    if preferences_enabled:
+        interest_filters.append(
+            Topic.id.in_(
+                select(TopicPreference.topic_id).where(
+                    or_(TopicPreference.followed, TopicPreference.feedback == "interested")
+                )
+            )
+        )
     conditions = {
         "important": Topic.id.in_([s.target_id for s in signals if s.kind == "important"]),
         "interest": or_(False, *interest_filters),
@@ -439,6 +449,17 @@ def topic_candidates(
             interest = min(
                 reader.interest_cap, sum(reader.interest_weights.get(i.kind, 0) for i in matched)
             )
+            preference = session.get(TopicPreference, identity) if preferences_enabled else None
+            direct = (
+                topic_preference_score(
+                    preference.followed if preference else False,
+                    preference.feedback if preference else None,
+                    policy,
+                    reader,
+                )
+                if preferences_enabled
+                else {}
+            )
             version = fingerprint([view, snapshot, topic.revision])
             protected = {
                 str(m["article_id"])
@@ -485,7 +506,8 @@ def topic_candidates(
                     "interest": interest,
                     "feedback": None,
                     "matched_interests": [i.resource_key for i in matched],
-                    "score": interest,
+                    **direct,
+                    "score": interest + direct.get("topic_preference_score", 0),
                 },
                 duplicate_ids=tuple(sorted(duplicates - protected)),
                 unique_ids=tuple(sorted(protected)),
@@ -493,7 +515,9 @@ def topic_candidates(
             attach_signals(c, signals, now, view["material_scope"])
             actual = lanes[identity] - {"important", "public_attention", "interest"}
             actual.update(c.signals)
-            if interest:
+            if interest or (
+                preference and (preference.followed or preference.feedback == "interested")
+            ):
                 actual.add("interest")
             c.lanes = tuple(sorted(actual))
             if c.lanes:

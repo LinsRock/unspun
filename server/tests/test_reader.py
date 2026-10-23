@@ -128,7 +128,7 @@ def test_concurrent_devices_compare_against_current_locked_version(db_session: S
     from sqlalchemy import create_engine, delete
 
     from unspun.core.config import get_settings
-    from unspun.core.reader_models import ReaderInterest
+    from unspun.core.reader_models import ReaderInterest, ReaderRequest
 
     engine = create_engine(get_settings().database_url)
     bodies = [mutation(0), mutation(0)]
@@ -170,6 +170,11 @@ def test_concurrent_devices_compare_against_current_locked_version(db_session: S
             session.execute(
                 delete(ReaderInterest).where(
                     ReaderInterest.resource_key.in_([t.key() for t in targets])
+                )
+            )
+            session.execute(
+                delete(ReaderRequest).where(
+                    ReaderRequest.mutation_id.in_([str(b.mutation_id) for b in bodies])
                 )
             )
             session.execute(
@@ -249,3 +254,22 @@ def test_normalized_terms_remain_revocable_within_the_target_contract() -> None:
         InterestTarget(kind="term", value="\u337f" * 30)
     with pytest.raises(ValidationError):
         InterestTarget(kind="author", value="Name", platform="bad\x00platform")
+
+
+def test_noop_receipt_and_pre_migration_history_remain_replayable(db_session: Session) -> None:
+    from unspun.core.reader_models import ReaderRequest
+
+    no_change = mutation(0)
+    assert mutate(db_session, no_change, "browse", {}, {"sort": "recommended"})["unchanged"]
+    with pytest.raises(HTTPException) as reused:
+        mutate(db_session, no_change, "browse", {}, {"sort": "latest"})
+    assert reused.value.status_code == 409
+    changed = mutation(0)
+    mutate(db_session, changed, "browse", {}, {"sort": "latest"})
+    receipt = db_session.get(ReaderRequest, str(changed.mutation_id))
+    assert receipt
+    db_session.delete(receipt)
+    db_session.flush()
+    mutate(db_session, mutation(1), "browse", {}, {"sort": "recommended"})
+    result = mutate(db_session, changed, "browse", {}, {"sort": "latest"})
+    assert result["replayed"] and result["version"] == 2 and result["sort"] == "recommended"

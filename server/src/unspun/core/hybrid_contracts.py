@@ -66,6 +66,7 @@ class HybridRules(ContentContract):
     topic_update_limit: int = Field(default=32, ge=1, le=32)
     importance_weight: float = Field(default=2, ge=0, le=3)
     attention_weight: float = Field(default=1, ge=0, le=3)
+    topic_follow_weight: float = Field(default=2, ge=0, le=2)
     signals: tuple[Signal, ...] = Field(default=(), max_length=256)
 
     @model_validator(mode="after")

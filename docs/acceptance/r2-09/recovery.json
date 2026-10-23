@@ -1,0 +1,14 @@
+{
+  "from_schema": "000020",
+  "to_schema": "000021",
+  "old_tables_preserved": 36,
+  "old_seeded_content_interest_feedback_history_retained": true,
+  "new_tables_only": [
+    "reader_requests",
+    "topic_preferences"
+  ],
+  "downgrade_rejected_without_changes": true,
+  "full_dump_restore_all_tables_equal": true,
+  "restored_noop_receipt_replayed": true,
+  "production_writes": 0
+}
