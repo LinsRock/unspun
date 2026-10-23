@@ -19,8 +19,8 @@
 
 - [PR CI](https://github.com/LinsRock/unspun/actions/runs/39130375899) 与[主线发布](https://github.com/LinsRock/unspun/actions/runs/39130608356) 均成功，实际 `Deploy` 步骤执行成功，不以跳过部署冒充发布。
 - 前端 **101 项测试**、lint、类型检查、生产构建与 PWA 离线回归通过；后端没有变更，没有向生产或原评测库运行数据库测试，也没有新增付费评测。
-- `2026-10-18T13:19:25Z` 实际服务核对：API 目标版本正确，旧 worker **0**、受控 R1 **1**；唯一发布端口仍为 `127.0.0.1:8080`。web 使用 `8dd144b` 固定镜像，API/R1 复用未改动的 `5586fe8` 固定镜像，见[部署证据](r1-reader-polish/deployment.json)。
-- `2026-10-18T13:57:29Z` 正式 HTTPS Chromium 自动化浏览器检查成功：首屏 **20 张真实卡片、40 个反馈图标**、共同归属和指定文案移除正确，390px 无横向溢出、浏览器错误 0、生产写入尝试 0。使用原有效 Access cookie，没有改变认证。首次 15 秒未取到卡片的超时保留，原因未确定；后续没有修改产品或认证即成功，见[完整结果](r1-reader-polish/official-browser.json)与[正式页面截图](r1-reader-polish/official-mobile.png)。
+- `2026-10-18T13:19:25Z` 实际服务核对：API 目标版本正确，旧 worker **0**、受控 R1 **1**；唯一发布端口仍为 `127.0.0.1:8080`。web 使用 `8dd144b` 固定镜像，API/R1 复用未改动的 `5586fe8` 固定镜像，见[部署证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/deployment.json)。
+- `2026-10-18T13:57:29Z` 正式 HTTPS Chromium 自动化浏览器检查成功：首屏 **20 张真实卡片、40 个反馈图标**、共同归属和指定文案移除正确，390px 无横向溢出、浏览器错误 0、生产写入尝试 0。使用原有效 Access cookie，没有改变认证。首次 15 秒未取到卡片的超时保留，原因未确定；后续没有修改产品或认证即成功，见[完整结果](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/official-browser.json)与[正式页面截图](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/official-mobile.png)。
 
 原[生产任务、费用与重启恢复](r1-production-operation-2026-10-18.md)、[原反馈版本与撤销](r1-reader-final-api-2026-10-17.md)继续保留，未重复运行付费生成。此前 `04:03Z` 的任务/费用计数是历史截面，不冒充本次实时总量。此次用户评分文件指纹仍为 `55e835ffa071c2f8e285e5682c47837a1f97505c3fba229b0456e9869fe6e36c`，43 条样本的 86 个人工评分字段继续为空。
 

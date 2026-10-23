@@ -1,0 +1,16 @@
+# Historical material is opt-in for ripgrep, not excluded from Git or tests.
+# See README.md for current entries and archive/README.md for recovery.
+/archive/
+/acceptance/
+/design/
+/evaluations/
+/feedback/
+/research/
+/superpowers/plans/
+/superpowers/specs/2026-10-1[0-5]-*.md
+/tasks/m*.md
+/tasks/r0.md
+/tasks/r1.md
+/requirement-legacy-*.md
+/roadmaps-legacy-*.md
+/implementation-proposal.md

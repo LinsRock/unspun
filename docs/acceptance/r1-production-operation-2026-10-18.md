@@ -36,7 +36,7 @@ R1 已具备最终用户验收条件。#94、#96、#97 已合并部署，当前�
 
 这是实际进程 stop/start 和待办恢复，没有在生产强杀付费请求。过期领取/晚返回/账务故障注入沿用隔离库已完成证据，不把它们改记为本轮生产破坏测试。后续正常发布也必须保留这些记录。
 
-`04:00Z` 既定自然周期后新增真实对象 **8879**，其中 **8879** 已审核发布；当前共有 36 个 R1 对象、73 个任务和 75 次尝试，正式流 12 条。没有提前改调度或构造新条目。新增 8879 的原发为 `03:18:48Z`，实际发现 `04:00:04Z`、卡片审核完成 `04:00:17Z`，没有把发现/审核时间当作原发。七路各只有一次本周期 discover；随后七个材料任务复核/复用既有对象，仅新对象产生 card 任务 73。七路 next_due 正常推进至 `06:00Z`，BBC World 保留 `12:00Z`。[重启前后与自然新增](r1-production-operation/restart.json)逐条保留旧调用不变和新的任务链。
+`04:00Z` 既定自然周期后新增真实对象 **8879**，其中 **8879** 已审核发布；当前共有 36 个 R1 对象、73 个任务和 75 次尝试，正式流 12 条。没有提前改调度或构造新条目。新增 8879 的原发为 `03:18:48Z`，实际发现 `04:00:04Z`、卡片审核完成 `04:00:17Z`，没有把发现/审核时间当作原发。七路各只有一次本周期 discover；随后七个材料任务复核/复用既有对象，仅新对象产生 card 任务 73。七路 next_due 正常推进至 `06:00Z`，BBC World 保留 `12:00Z`。[重启前后与自然新增](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-production-operation/restart.json)逐条保留旧调用不变和新的任务链。
 
 ## 成本与原账本
 
@@ -64,7 +64,7 @@ R1-15/16 依实际运行和部署事实完成，17 的技术准备已齐，最�
 
 `2026-10-18T04:03:54.344970+00:00`：实际版本 `5586fe882df22a32841accbb59a7e1301e7932ba`；29 个物理请求已知 **$0.0209303**，生产未结 0 笔、保留预留 $0。原评测 7 笔未知预留 $0.484867 继续保留。当前八路原始槽上限 144/日，以当前契约实测均值保守套到每个原始槽、20% 重试压力、每天四份导读场景及 $0.738 新未知失败压力，余下 14 天再加 37 槽冗余，场景 **$4.27308262**，低于保守生产空间 **$4.28724379**。它不是保证账单上界，硬预算和所有未知预留继续先于请求生效。
 
-[实际版本/来源/材料/全部任务与尝试/逐笔费用](r1-production-operation/runtime.json)、[预算与单位成本及提供方核对](r1-production-operation/budget.json)、[真实 HTTP 指纹与用户空评分](r1-production-operation/api.json)、[三类材料与导读抽查](r1-production-operation/reading.json)、[测试](r1-production-operation/tests.json)提供完整下钻。来源数、原始槽、实际候选、准入结果、当前公开条目、导读及用户标签分别计数；NYT 撤下记录仍可能留在运行准入分母中，不冒充当前发布或用户质量。
+[实际版本/来源/材料/全部任务与尝试/逐笔费用](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-production-operation/runtime.json)、[预算与单位成本及提供方核对](r1-production-operation/budget.json)、[真实 HTTP 指纹与用户空评分](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-production-operation/api.json)、[三类材料与导读抽查](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-production-operation/reading.json)、[测试](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-production-operation/tests.json)提供完整下钻。来源数、原始槽、实际候选、准入结果、当前公开条目、导读及用户标签分别计数；NYT 撤下记录仍可能留在运行准入分母中，不冒充当前发布或用户质量。
 
 最后成本分母：card 为 14 个已尝试候选、27 笔请求、已知 $0.0163205；运行准入 13 个中仍含已撤下 NYT 1 个，当前公开为 12。每百尝试候选 $0.116575，原运行每条准入 $0.001255423077；计入全部历史卡片失败/撤下费用后每个当前公开条目 $0.001360041667。新导读 1 份、两笔请求 $0.0046098。这些都不是用户值得看比例。
 

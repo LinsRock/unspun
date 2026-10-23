@@ -25,7 +25,7 @@
 
 ## 隔离验证
 
-显式新建并迁移 `unspun_r1_04_20261016` 至 `000013`。所有 HTTP 为 MockTransport，进程/数据库为真实本机子进程和 Postgres；合成美元不是真实花费。实际摘要见[验证 JSON](r1-04/verification.json)。
+显式新建并迁移 `unspun_r1_04_20261016` 至 `000013`。所有 HTTP 为 MockTransport，进程/数据库为真实本机子进程和 Postgres；合成美元不是真实花费。实际摘要见[验证 JSON](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-04/verification.json)。
 
 | 检查 | 实际结果 |
 | --- | --- |

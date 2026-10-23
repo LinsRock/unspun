@@ -1,6 +1,6 @@
 # R1-16 来源字段复核与材料安全修正
 
-承接原[540 次窗口](r1-source-observation/window.json)与[首轮资格记录](r1-source-observation/qualification-v1.json)，不覆盖旧记录、删失败或调整冻结阈值。本轮以 `3294c19` 目标 Linux 镜像、同一目标网络与 RSSHub 追加 6 路一次探针及 3 份人民日报原页复核；无数据库配置、模型 key、付费调用或生产阶段启用。
+承接原[540 次窗口](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-source-observation/window.json)与[首轮资格记录](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-source-observation/qualification-v1.json)，不覆盖旧记录、删失败或调整冻结阈值。本轮以 `3294c19` 目标 Linux 镜像、同一目标网络与 RSSHub 追加 6 路一次探针及 3 份人民日报原页复核；无数据库配置、模型 key、付费调用或生产阶段启用。
 
 ## 新增来源技术复核
 
@@ -12,7 +12,7 @@
 | `people-frontpage` | 40/40 元数据成功；80/80 为版面材料；两个实际编辑日期 | 原页 `30185945` 的本报评论员、`30186190` 的记者齐中熙和 `30186191` 的版面导读逐一核对。日期只到天且属于编辑版；导读没有扩充为全文，未署名保持未知 |
 | `zhihu-hot` | 20/20 元数据成功；39 份问题背景和 1 份无材料 | 当前 `target.created` 明确为问题创建时间；背景、问题与热榜观测分开。1 份无材料保留在分母内，不声明回答正文、讨论共识或答主身份 |
 
-加上原 7 路，共 **10/18 条适配路径取得有界来源技术复核**。[结构化记录](r1-source-material-gates/evidence.json)包含首尾文件哈希、实际 URL、当前探针时间、字段和依据。仅限所观察范围；整体 G2/16、最终卡片质量和生产发布继续未通过。南方周末当前预览已取得正确的发布方/记者字段，但旧窗口版本的出版方一致性仍单列待复核，没有顺带补勾。
+加上原 7 路，共 **10/18 条适配路径取得有界来源技术复核**。[结构化记录](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-source-material-gates/evidence.json)包含首尾文件哈希、实际 URL、当前探针时间、字段和依据。仅限所观察范围；整体 G2/16、最终卡片质量和生产发布继续未通过。南方周末当前预览已取得正确的发布方/记者字段，但旧窗口版本的出版方一致性仍单列待复核，没有顺带补勾。
 
 ## 新确认的失败与修复
 

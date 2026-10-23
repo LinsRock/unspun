@@ -21,7 +21,7 @@
 
 ## 生产启用范围与新发现
 
-详见[首批记录](r1-production-rollout-2026-10-18.md)、[事先登记 v2](../evaluations/r1/production-rollout-v2.json)、[完整窗口](r1-production-rollout/source-window.json)、[成本投影](r1-production-rollout/cost-projection.json)。不是重做规划。
+详见[首批记录](r1-production-rollout-2026-10-18.md)、[事先登记 v2](../evaluations/r1/production-rollout-v2.json)、[完整窗口](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-production-rollout/source-window.json)、[成本投影](r1-production-rollout/cost-projection.json)。不是重做规划。
 
 完整 v3 窗口从 `2026-10-17T06:02:40Z` 到 `18:32:40Z`，跨上海 10/17、10/18。容器正常退出 0；两路各 26/26，52 条物理观察、104 份材料样本全部归档。
 
@@ -36,7 +36,7 @@
 - 当前契约：card `r1-card-v9`、guide `r1-guide-v5`、review v2。原模型不变：`google/gemini-2.5-flash-lite` 生成，`google/gemini-2.5-flash` 审核。
 - 最终质量已在 #83 完成：card 原回归 18/18、T 5/6、后增 U 10/12；guide 回归 8/8、新材料支持者 7/8。格式/标签/网络失败全部保留并不发布，不为过关再调留出材料。
 - [最终质量](r1-final-content-quality-2026-10-17.md)和[真实运行单位成本](r1-runtime-accounting-2026-10-17.md)区分 known 下界、未知预留、候选与 ready 分母；用户值得看/召回仍无标签，不虚构。
-- #94 最终本地检查：**873 passed、0 skipped**，新建且已迁移的 `unspun_r1_rollout_tests_20261018_025805_b6e5`；Ruff/159 文件格式通过、严格 Pyright 0 错误 0 警告、Compose 旧 0/R1 1/唯一端口 `127.0.0.1:8080`。详见[test-evidence.json](r1-production-rollout/test-evidence.json)。
+- #94 最终本地检查：**873 passed、0 skipped**，新建且已迁移的 `unspun_r1_rollout_tests_20261018_025805_b6e5`；Ruff/159 文件格式通过、严格 Pyright 0 错误 0 警告、Compose 旧 0/R1 1/唯一端口 `127.0.0.1:8080`。详见[test-evidence.json](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-production-rollout/test-evidence.json)。
 - 初始两条旧测试要求所有来源全关，已改为精确登记名单与未合格路径关闭的围栏；跨日后另发现费用测试的固定结束日期已过期，改用当前测试时间窗口。初始 Pyright 缺 worktree `.venv`，建立共享链接后最终通过。不要把最初失败输出当最终结果。
 - 不对原评测库或生产库运行 pytest。后续若改数据库逻辑，仍新建并迁移隔离库；只有 doc/配置追加时按影响范围检查，不重复全量无关检查。
 
@@ -64,4 +64,4 @@
 
 推送/拉取若 SSH origin 失败，沿用清除代理的 HTTPS + `gh auth git-credential`。PR 描述写临时文件用 `--body-file`；不重写已发布历史。CI 必须核对选中检查和 required-checks，main 还要确认实际 deploy 步骤与目标版本，不能因某个 job skipped 误判已部署。
 
-最终只读核对 `2026-10-18T03:03:22Z`：生产仍为 `6cf450b`，旧/R1 worker 均未运行，R1 task/BR 为 0，22 路阶段全关、预算策略/carry 均尚未初始化。[交接时生产证据](r1-production-rollout/pre-activation-production.json)明确本 session 没有启用或新增生产费用。
+最终只读核对 `2026-10-18T03:03:22Z`：生产仍为 `6cf450b`，旧/R1 worker 均未运行，R1 task/BR 为 0，22 路阶段全关、预算策略/carry 均尚未初始化。[交接时生产证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-production-rollout/pre-activation-production.json)明确本 session 没有启用或新增生产费用。

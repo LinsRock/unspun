@@ -10,8 +10,8 @@
 
 - 正式入口：[阅读](https://unspun.farstrand.com/reading)、[关注](https://unspun.farstrand.com/interests)。`2026-10-17T05:33:41Z` 外部探测为 Cloudflare Access 登录 302；登录后的用户体验仍待实际验收。
 - 保留的本机真实 API 预览：[阅读](http://127.0.0.1:5179/reading)、[关注](http://127.0.0.1:5179/interests)，API `127.0.0.1:8113`，显式连接 `unspun_r1_api_20261016`，没有连接默认开发库。当前关注/反馈为空，浏览版本实际为 16，最后一次变更为上轮 `04:51:36Z` 的 browse 操作；本轮浏览器检查没有写入偏好或评分。
-- 恢复后的浏览器记录覆盖桌面 1440px、手机 390px，两页均正常加载、无横向溢出或 page error；没有 API fixture。截图/检查文件保留于 `~/.cache/unspun-r1-runtime/ui/`，结构化记录在[来源修正证据](r1-source-material-gates/evidence.json)中。
-- 页面实际为空流。另一个隔离运行库 `unspun_r1_runtime_preview_20261017` 已有 8 条真实新华社/WSJ 内容、4 份开放文本、2 份预览和 2 份视频简介，10 个任务完成，重启后不重复，模型调用为 0；见[任务链和内容 URL](r1-controlled-runtime/runtime.json)。这些是未付费、未获发布的材料，不能拿它们冒充三类最终合格卡片或用户阅读验收。
+- 恢复后的浏览器记录覆盖桌面 1440px、手机 390px，两页均正常加载、无横向溢出或 page error；没有 API fixture。截图/检查文件保留于 `~/.cache/unspun-r1-runtime/ui/`，结构化记录在[来源修正证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-source-material-gates/evidence.json)中。
+- 页面实际为空流。另一个隔离运行库 `unspun_r1_runtime_preview_20261017` 已有 8 条真实新华社/WSJ 内容、4 份开放文本、2 份预览和 2 份视频简介，10 个任务完成，重启后不重复，模型调用为 0；见[任务链和内容 URL](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-controlled-runtime/runtime.json)。这些是未付费、未获发布的材料，不能拿它们冒充三类最终合格卡片或用户阅读验收。
 
 ## 完成与缺口
 
@@ -47,13 +47,13 @@ S1–S6 没有被本轮扩大启用，澎湃/网易/腾讯、36氪文章、界�
 
 为使后续启用有固定可审阅范围，成本文件另列首轮付费候选：`bbc-zhongwen`、`nyt-world`、`wsj-world`、`zaobao-china`、`zaobao-world`、`douban-book`、`people-frontpage`、`zhihu-daily`，加上仅媒体简介范围的 `xinhua`（仍待新 G2 窗口）。36氪快讯、知乎热榜不因费用被删出来源计划，其本轮付费/发布继续关闭。按原窗口完整 175 身份中的新出现 39 个媒体身份计入（新出现和初始媒体计数均未扣除仅署名项），历史均值的 30 日卡片场景约 $9.05，初始 226 个路径 ID 另约 $0.28。它仍未包含完整当前契约质量、重试、导读和本月全账务验证，**不是已通过预算投影，也没有执行启用**。该范围由本次已获授权的 16 任务固定，后续配置 PR 不得自动扩大。
 
-新华社/BBC World 新窗口已于 **10 月 17 日 14:02（上海）**启动，使用正式 `75c0374` 同一镜像、目标网络、256 MiB/0.5 CPU，无数据库或模型 key；按事先登记的混合范围契约及 v3 提取器计划 26 轮、间隔 30 分钟。当前归档仅含每路各 1 轮，均有真实返回，不把计划数记成成功。名义末轮约在 **10 月 18 日 02:32（上海）**，并非已完成或承诺通过。后续须保留失败、核对实际完成数及逐类型证据；[启动与首轮文件哈希](r1-acceptance-preparation/v3-window-start.json)可追溯。
+新华社/BBC World 新窗口已于 **10 月 17 日 14:02（上海）**启动，使用正式 `75c0374` 同一镜像、目标网络、256 MiB/0.5 CPU，无数据库或模型 key；按事先登记的混合范围契约及 v3 提取器计划 26 轮、间隔 30 分钟。当前归档仅含每路各 1 轮，均有真实返回，不把计划数记成成功。名义末轮约在 **10 月 18 日 02:32（上海）**，并非已完成或承诺通过。后续须保留失败、核对实际完成数及逐类型证据；[启动与首轮文件哈希](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-acceptance-preparation/v3-window-start.json)可追溯。
 
 ## 检查与保留
 
 - #76：新建迁移库 `unspun_r1_runtime_tests_20261017` 完整 825 项通过、零跳过，Ruff/格式/Pyright、11 项 CI/部署检查、旧 40 事件回归及相应必要 CI 通过；[主干实际 deploy 成功](https://github.com/LinsRock/unspun/actions/runs/39006270235)，SSH/API 确认 `1d12343`、DB 正常且无 worker。
-- #77：另建迁移库 `unspun_r1_source_tests_20261017` 完整 830 项通过、零跳过，Ruff/格式/Pyright、旧 40 事件回归及[必要 CI](https://github.com/LinsRock/unspun/actions/runs/39006621841)通过；实际目标响应回放验证材料边界，[主干实际 deploy 成功](https://github.com/LinsRock/unspun/actions/runs/39006772878)，[SSH/API 状态](r1-acceptance-preparation/production-release-00600c3.json)确认 `00600c3`、DB/迁移正常、两个 worker 均未运行；[同一目标镜像的实际重探](r1-acceptance-preparation/postdeploy-materials.json)确认 BBC 视频为简介、豆瓣验证页为 restricted/none，生产阶段仍为 0。
-- #78：再建迁移库 `unspun_r1_scope_tests_20261017`，完整 **837 项通过、零跳过**，严格检查、旧事件回归及[必要 CI](https://github.com/LinsRock/unspun/actions/runs/39007865809)通过；[主干实际 deploy 成功](https://github.com/LinsRock/unspun/actions/runs/39008073457)，[SSH/API 状态](r1-acceptance-preparation/production-release-75c0374.json)确认 `75c0374` / `r1-material-v3`、DB 及两个 worker 停用。7 个只署名视频原页在同一目标镜像[实际重探均为 none、0 字阅读正文，署名证据保留](r1-acceptance-preparation/credits-after-v3.json)。
+- #77：另建迁移库 `unspun_r1_source_tests_20261017` 完整 830 项通过、零跳过，Ruff/格式/Pyright、旧 40 事件回归及[必要 CI](https://github.com/LinsRock/unspun/actions/runs/39006621841)通过；实际目标响应回放验证材料边界，[主干实际 deploy 成功](https://github.com/LinsRock/unspun/actions/runs/39006772878)，[SSH/API 状态](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-acceptance-preparation/production-release-00600c3.json)确认 `00600c3`、DB/迁移正常、两个 worker 均未运行；[同一目标镜像的实际重探](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-acceptance-preparation/postdeploy-materials.json)确认 BBC 视频为简介、豆瓣验证页为 restricted/none，生产阶段仍为 0。
+- #78：再建迁移库 `unspun_r1_scope_tests_20261017`，完整 **837 项通过、零跳过**，严格检查、旧事件回归及[必要 CI](https://github.com/LinsRock/unspun/actions/runs/39007865809)通过；[主干实际 deploy 成功](https://github.com/LinsRock/unspun/actions/runs/39008073457)，[SSH/API 状态](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-acceptance-preparation/production-release-75c0374.json)确认 `75c0374` / `r1-material-v3`、DB 及两个 worker 停用。7 个只署名视频原页在同一目标镜像[实际重探均为 none、0 字阅读正文，署名证据保留](r1-acceptance-preparation/credits-after-v3.json)。
 - 评测库、保留的 API 体验库、真实运行库均未运行清理型完整测试。原冻结输入、T 留出集、旧结果、未知费用、来源失败与用户空字段保留；正文和密钥不进 Git。
 
 生产旧 worker 继续停用，受控 R1 worker 仍零副本，所有生产 R1 paid/publish 开关关闭。回退只回退应用或关闭 R1 阶段，保留任务、增量表、材料、费用与旧日报；不降库删数据，也不恢复旧 AI 循环。

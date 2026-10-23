@@ -2,7 +2,7 @@
 
 本批完成三项约定的诊断/验证报告，不表示受限来源已接入。先登记[v1 边界](../evaluations/r1/source-diagnostics-v1.json)，在目标网络用与生产相同的 RSSHub image ID `sha256:826d9fcc433654bc8b59572558d0038f775c64dfa05e31a637163aed53184a09` 新建私有内存缓存，512 MiB / 0.5 CPU / 256 PID、900 秒上界、无宿主端口。客户端为固定 `75c0374` server 镜像、256 MiB / 0.5 CPU；没有数据库、模型 key 或新增登录凭证。未修改生产容器、配置、镜像和超时。
 
-第一轮 27 次来源客户端请求后，发现私有缓存 TTL 使用镜像默认值，未等同生产配置；因此只为 S5 追加事先登记的[v2 复核](../evaluations/r1/jiemian-cache-v2.json)，显式采用生产 `CACHE_EXPIRE=1800` / `CACHE_CONTENT_EXPIRE=3600`，再执行 4 次请求。两轮及失败全部保留，共 31 次来源客户端请求；RSSHub 内部的上游请求数没有独立埋点，不把 31 当成全部原站请求。两轮 cgroup 内存峰值分别约 360.6 / 240.3 MiB，没有将硬上限调高。最初停止后的立即检查遇到自动删除延迟，后续已确认两个临时容器均不存在，见[原始哈希、逐请求结果、环境与清理证据](r1-source-diagnostics/evidence.json)。
+第一轮 27 次来源客户端请求后，发现私有缓存 TTL 使用镜像默认值，未等同生产配置；因此只为 S5 追加事先登记的[v2 复核](../evaluations/r1/jiemian-cache-v2.json)，显式采用生产 `CACHE_EXPIRE=1800` / `CACHE_CONTENT_EXPIRE=3600`，再执行 4 次请求。两轮及失败全部保留，共 31 次来源客户端请求；RSSHub 内部的上游请求数没有独立埋点，不把 31 当成全部原站请求。两轮 cgroup 内存峰值分别约 360.6 / 240.3 MiB，没有将硬上限调高。最初停止后的立即检查遇到自动删除延迟，后续已确认两个临时容器均不存在，见[原始哈希、逐请求结果、环境与清理证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-source-diagnostics/evidence.json)。
 
 HTTPX 的 25 秒是各网络阶段超时，不是单次请求的整体耗时上限；实际最长 50.569 秒如实记录。本报告不将诊断参数写回生产，也不以延长队列等待证明来源恢复。
 
@@ -19,7 +19,7 @@ HTTPX 的 25 秒是各网络阶段超时，不是单次请求的整体耗时上�
 
 ## 已合并适配与预览复核
 
-[S1–S3 PR #81](https://github.com/LinsRock/unspun/pull/81) 已合并 `811cea9`，必要 CI 及[主干实际 deploy](https://github.com/LinsRock/unspun/actions/runs/39012161383)通过。[目标 SSH/API 复核](r1-public-source-discovery/production-release-811cea9.json)确认 API/DB 正常、迁移 `000015`、旧/R1 两个 worker 均未运行，生产 R1 任务和付费记录仍为 0；新四路全部关闭。按[事先登记的部署后边界](../evaluations/r1/public-source-postdeploy-smoke-v1.json)，正式同一镜像一次[只读复探](r1-public-source-discovery/postdeploy-smoke.json)取得四路列表 34/26/10/10 个对象，6 份开放文本，腾讯两个视频页仍为 none；不是 G2 或最终卡片阅读验收。
+[S1–S3 PR #81](https://github.com/LinsRock/unspun/pull/81) 已合并 `811cea9`，必要 CI 及[主干实际 deploy](https://github.com/LinsRock/unspun/actions/runs/39012161383)通过。[目标 SSH/API 复核](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-public-source-discovery/production-release-811cea9.json)确认 API/DB 正常、迁移 `000015`、旧/R1 两个 worker 均未运行，生产 R1 任务和付费记录仍为 0；新四路全部关闭。按[事先登记的部署后边界](../evaluations/r1/public-source-postdeploy-smoke-v1.json)，正式同一镜像一次[只读复探](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-public-source-discovery/postdeploy-smoke.json)取得四路列表 34/26/10/10 个对象，6 份开放文本，腾讯两个视频页仍为 none；不是 G2 或最终卡片阅读验收。
 
 本机 API 已同步为 `811cea9-local-preview`，继续连接保留的 `unspun_r1_api_20261016`；健康、来源后台和真实 feed 均 200。入口仍为[阅读](http://127.0.0.1:5179/reading)、[关注](http://127.0.0.1:5179/interests)，实际为空流 `no_reviewed_published_contents`。沿用 #81 新建迁移隔离库的 858 项零跳过回归及真实材料证据；本批只补诊断/状态，不以材料探针代替 G1 或三类真实入选内容的阅读与反馈。
 
@@ -27,7 +27,7 @@ HTTPX 的 25 秒是各网络阶段超时，不是单次请求的整体耗时上�
 
 原评测库 `unspun_quality_r1_20261016` 的只读事务复查仍为 `000014`、283 条物理请求、278 条已知费用 **$0.2908491**，5 笔未知预留 **$0.284981**，原 **$0.60** 分配的可用额 **$0.0241699**。新增付费调用和账务写入均为 0，未释放预留或另建额度。用户先前 17 笔日志均对应原已知请求。
 
-仍需能唯一对应下列请求的 OpenRouter generation ID、时间、模型及计费结果；时间为上海时间，内部请求 ID 和预留额在[费用证据](r1-source-diagnostics/evidence.json)中。无对应记录时也需保留查询范围及完整性，不能仅因“没搜到”补零；无需发送 API key。
+仍需能唯一对应下列请求的 OpenRouter generation ID、时间、模型及计费结果；时间为上海时间，内部请求 ID 和预留额在[费用证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-source-diagnostics/evidence.json)中。无对应记录时也需保留查询范围及完整性，不能仅因“没搜到”补零；无需发送 API key。
 
 | 请求开始时间（上海） | 模型 |
 | --- | --- |

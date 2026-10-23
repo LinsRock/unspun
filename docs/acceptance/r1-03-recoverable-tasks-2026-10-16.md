@@ -13,7 +13,7 @@
 
 ## 真实隔离检查
 
-显式新建 `unspun_r1_03_20261016` 并迁至 `000012`。真实并发使用独立连接与已提交记录，测试仅用随机命名的合成任务和回环 HTTP 探针；不把 fixture 当真实来源产出或用户评价。结果摘自实际 JUnit，见[验证摘要](r1-03/verification.json)。
+显式新建 `unspun_r1_03_20261016` 并迁至 `000012`。真实并发使用独立连接与已提交记录，测试仅用随机命名的合成任务和回环 HTTP 探针；不把 fixture 当真实来源产出或用户评价。结果摘自实际 JUnit，见[验证摘要](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-03/verification.json)。
 
 | 检查 | 结果 |
 | --- | --- |

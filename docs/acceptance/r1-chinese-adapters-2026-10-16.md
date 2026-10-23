@@ -1,6 +1,6 @@
 # R1-06＋07 中文栏目适配交付
 
-日期：2026-10-16。依据 D-026 合并关联交付；逐路径发布继续受 16/G2 约束。[机器证据](r1-chinese/verification.json)保留全部单次成功和首轮错误，不包含正文全文或凭证。
+日期：2026-10-16。依据 D-026 合并关联交付；逐路径发布继续受 16/G2 约束。[机器证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-chinese/verification.json)保留全部单次成功和首轮错误，不包含正文全文或凭证。
 
 本批增加 `zhihu-daily`、`people-frontpage`、`zaobao-world`、`bjnews-depth`、`douban-book`、`douban-movie`、`fortune-business`、`fortune-tech`、`infzm-news`。新路径 `legacy_enabled=false`、owner 为 R1，发现、材料、付费、发布四阶段全部关闭；没有恢复旧 worker。
 
