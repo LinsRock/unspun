@@ -96,6 +96,8 @@ class SynthesisDraft(ContentContract):
         elif self.overview or self.guide or progress:
             raise ValueError("abstention must not manufacture text or progress")
         keys = [c.progress_key for c in progress]
+        if len({c.text for c in progress}) != len(progress):
+            raise ValueError("duplicate assertions cannot create multiple progress entries")
         if len(keys) != len(set(keys)):
             raise ValueError("each progress key may be revised only once per draft")
         return self

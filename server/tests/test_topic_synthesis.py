@@ -594,8 +594,10 @@ def test_new_discussion_focus_requires_issue_and_review(
         assert progress.payload["attribution"] and progress.payload["limitations"]
 
 
+@pytest.mark.parametrize("correction", ["text", "attribution", "limitations"])
 def test_correction_is_append_only_and_cannot_refresh_report_time(
     synthesis_db: SynthesisDB,
+    correction: str,
 ) -> None:
     db = synthesis_db
     db.enqueue()
@@ -606,7 +608,10 @@ def test_correction_is_append_only_and_cannot_refresh_report_time(
     lease = db.claim("topic_synthesize")
     draft = copy.deepcopy(prior.draft)
     first = draft["contributions"][0]
-    first.update(change="correction", text=ZH + "1", novelty_basis="Mock supported text correction")
+    first.update(change="correction", novelty_basis="Mock supported assertion correction")
+    first[correction] = (
+        ["Corrected material qualification"] if correction == "limitations" else ZH + "1"
+    )
     first["reported"] = {
         "precision": "date",
         "on": "2026-10-23",
@@ -818,3 +823,19 @@ def test_mock_progress_cannot_become_a_live_input(synthesis_db: SynthesisDB) -> 
                 response_mode="live",
             )
     assert len(db.calls) == 2
+
+
+def test_unchanged_assertion_cannot_refresh_under_a_new_key(synthesis_db: SynthesisDB) -> None:
+    db = synthesis_db
+    db.enqueue()
+    db.step("topic_synthesize")
+    db.step("topic_synthesis_review")
+    draft = copy.deepcopy(db.row().draft)
+    db.enqueue()
+    lease = db.claim("topic_synthesize")
+    draft["contributions"][0]["progress_key"] = "new-source-same-assertion"
+    with db.scope() as session, pytest.raises(ValueError, match="new key"):
+        validate_draft(session, lease.payload, SynthesisDraft.model_validate(draft))
+    draft["contributions"][0].update(progress_key="synthetic-progress", change="correction")
+    with db.scope() as session, pytest.raises(ValueError, match="duplicate assertion"):
+        validate_draft(session, lease.payload, SynthesisDraft.model_validate(draft))

@@ -10,9 +10,9 @@
     "seconds": 162.79
   },
   "final_r207_targeted": {
-    "passed": 53,
+    "passed": 56,
     "skipped": 0,
-    "seconds": 17.98
+    "seconds": 20.06
   },
   "ruff_format_pyright": "passed",
   "alembic_schema": "000020",

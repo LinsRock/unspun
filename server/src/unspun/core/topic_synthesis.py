@@ -148,13 +148,22 @@ def validate_draft(session: Session, packet: dict[str, Any], draft: SynthesisDra
         old = previous.get(key)
         if item.change == "new" and old is not None:
             raise ValueError("existing progress key requires an explicit correction")
+        if item.change == "new" and any(
+            item.text == prior["row"]["payload"]["summary"] for prior in previous.values()
+        ):
+            raise ValueError("an existing assertion cannot become progress under a new key")
         if item.change == "correction":
             if old is None or not old["check"]["valid"]:
                 raise ValueError("correction requires current, supported previous progress")
             payload = old["row"]["payload"]
             if any(item.model_dump(mode="json")[k] != payload[k] for k in ("occurred", "reported")):
                 raise ValueError("text correction cannot refresh original progress times")
-            if item.text == payload["summary"]:
+            if (
+                item.text == payload["summary"]
+                and item.attribution == payload.get("attribution")
+                and list(item.limitations) == payload.get("limitations", [])
+                and item.classification == payload.get("classification")
+            ):
                 raise ValueError("duplicate assertion is not a progress correction")
 
 

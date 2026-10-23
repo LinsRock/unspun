@@ -16,7 +16,9 @@
     "verify generation physical response again before successor audit",
     "check all immutable lease routing fields",
     "semantic verdict must be an actual JSON boolean",
-    "reject mock progress as a live input"
+    "reject mock progress as a live input",
+    "allow attribution/qualification-only corrections while retaining original times",
+    "refuse identical progress assertions under a new key or twice in one batch"
   ],
   "validation": "full regression plus final affected tests; actual CI/deploy pending",
   "no_fee_or_activation_authority": true
