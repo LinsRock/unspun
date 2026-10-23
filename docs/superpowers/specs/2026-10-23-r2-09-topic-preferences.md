@@ -16,7 +16,7 @@
 
 R2-08 原有各通道/总量边界和资格保持。已关注或正反馈的话题按稳定 ID 进入 interest 召回候选，仍须当前合格发布；负反馈不排除候选、不传播给成员/作者/来源/领域，取消关注不等于负反馈。领域/词匹配保持原逻辑，话题偏好不写回这些兴趣。
 
-工程暂定配置：直接关注 +2；正/负反馈复用 R1 的 positive_feedback/negative_feedback（当前 +1.5/-3）。直接负反馈存在时关注加分为 0，但 followed 状态保留，撤销负反馈恢复关注作用。topic ranking 明示 followed、follow_boost、feedback_value、feedback、matched_interests 和合计分；客观重要性/公共关注保持独立且缺失为 null。不改变内容分、资格、既有同作者反馈规则或隐式阅读数据。
+工程暂定配置：直接关注 +2；正/负反馈复用 R1 的 positive_feedback/negative_feedback（当前 +2/-3）。直接负反馈存在时关注加分为 0，但 followed 状态保留，撤销负反馈恢复关注作用。topic ranking 明示 followed、follow_boost、feedback_value、feedback、matched_interests 和合计分；客观重要性/公共关注保持独立且缺失为 null。不改变内容分、资格、既有同作者反馈规则或隐式阅读数据。
 
 最新始终按内容原发/话题有据实质进展，偏好只改变候选召回和理由，不重新排序同批候选。共享 reader version、开关及规则进入 R2-08 快照；成功变更使旧游标 409，空操作/重放不制造版本；关闭开关也使开启状态游标失效。来源、材料、话题依赖变化继续原资格和游标约束。
 
