@@ -30,11 +30,11 @@
 | `2026-10-13-m3a-a4-implementation.md` | M3 的 A4 账务交付记录 |
 | `2026-10-13-m3a-a6-implementation.md` | M3 的 A6 合并及 2026-10-14 后台重设计验收 |
 
-清理前完整版本固定为 `0346d4d`（已纳入 PR #131/132 的后台交付）。被删计划和压缩前的 `CLAUDE.md`、R2 任务板均可由 Git 读取，例如：
+清理前完整版本固定为 `1d92421`（已纳入 PR #131–133 的后台与进展链路交付）。被删计划和压缩前的 `CLAUDE.md`、R2 任务板均可由 Git 读取，例如：
 
 ```bash
-git show 0346d4d:docs/superpowers/plans/2026-10-10-t9-pwa.md
-git show 0346d4d:docs/tasks/r2.md
+git show 1d92421:docs/superpowers/plans/2026-10-10-t9-pwa.md
+git show 1d92421:docs/tasks/r2.md
 ```
 
 历史盘点 JSON 中的旧路径与哈希描述其登记版本，保持原样。搜索原件时明确指定目录，例如 `rg --no-ignore <关键词> docs/acceptance`；`.ignore` 仅控制常规搜索，不影响 Git、直接打开文件或测试读取。

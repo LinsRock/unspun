@@ -8,7 +8,9 @@ Start with `docs/README.md`, then the relevant task section and its specificatio
 
 ## Current boundaries
 
-Product status lives in `docs/tasks/r2.md`: R1 closed; R2-00–03 and R2-05 delivered; R2-04 incomplete; R2-06 remains **3/4, real quality incomplete, v6 semantics unmeasured, overall user acceptance null**. R2-07+ and R3 are pending. Do not resume legacy M3 work from historical plans.
+Product status lives in `docs/tasks/r2.md`: R1 closed; R2-00–03 and R2-05 delivered; R2-04 incomplete; R2-06 remains **3/4, real quality incomplete, v6 semantics unmeasured, overall user acceptance null**. R2-06 is deferred; R2-07 has its first backend implementation, with real quality and activation incomplete. R2-08+ and R3 are pending. Do not resume legacy M3 work from historical plans.
+
+R2-07 follows D-041 and `docs/superpowers/specs/2026-10-23-r2-07-progress-overview.md`; its engineering evidence is in `docs/acceptance/r2-07-progress-overview-2026-10-23.md`. Use reviewed manual member versions in isolation, independent of unaccepted automatic membership. Mock responses are engineering evidence only. Processing/publication default off; no allocation means rejection and other stages cannot fund this chain. Models, budgets, paid-stop, reservations and historical data stay protected.
 
 R2-06 manual corrections and the bounded v6 evaluation entry were deployed as `e48454a` (PR #131). Current delivery and blockers are in `docs/acceptance/r2-06-completion-2026-10-22.md`; read its linked execution registration before continuation. Keep the v6 contract fixed, automated member processing/allocation off and all R2-06 paid phases stopped. Do not automatically repair, retry, resume budgets, convert old tasks, prepare new blind samples or activate production. Preserve unknown reservations, cumulative pools, frozen evidence, old failures and user rating nulls. Provider queries/reconciliation and paid execution still require their separate authorization, genuine per-request receipts and completed execution review. The older `r2-06-exit` record/checker describes its frozen 2026-10-21 snapshot, not current backend delivery.
 

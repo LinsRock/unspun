@@ -7,7 +7,8 @@
 | 查产品目标或调整需求 | [产品定义](product-definition.md)、[需求](requirement.md) |
 | 查交付顺序和下一阶段 | [路线图](roadmaps.md) |
 | 实施或修复 R2 功能 | [R2 任务板](tasks/r2.md)中对应任务，再读该项链接的规范 |
-| 处理 R2-06 验收或继续执行 | [当前交付与剩余门槛](acceptance/r2-06-completion-2026-10-22.md)、[本批契约](superpowers/specs/2026-10-22-r2-06-completion.md)；当前 3/4、真实语义未测、付费停止 |
+| 实施 R2-07 进展与概况 | [当前契约](superpowers/specs/2026-10-23-r2-07-progress-overview.md)、[首批工程记录](acceptance/r2-07-progress-overview-2026-10-23.md)；真实质量与启用尚未完成 |
+| 处理暂缓的 R2-06 验收 | [当前交付与剩余门槛](acceptance/r2-06-completion-2026-10-22.md)、[本批契约](superpowers/specs/2026-10-22-r2-06-completion.md)；当前 3/4、真实语义未测、付费停止 |
 | 调整来源 | [来源计划](source-plan.md)，运行配置另看 `config/sources.yml` |
 | 清理文档或开发资源 | [清理任务板](tasks/cleanup.md)中对应 CL 项 |
 | 修改架构或既有约定 | 搜索[决策日志](decisions.md)中的相关 D 编号，仅阅读有关条目 |

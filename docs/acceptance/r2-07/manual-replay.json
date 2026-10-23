@@ -1,0 +1,692 @@
+{
+  "captured_at": "2026-10-23T06:02:07.051845+00:00",
+  "database": "unspun_r207_materials_20261023",
+  "artifact": "docs/evaluations/r2/member-grounding-exposed-inputs-v1.json.gz",
+  "artifact_sha256": "817d1f85d9c9f10032aafe3675677af96014395197a083af16ae423cfe8cf322",
+  "reviewer": {
+    "actor": "codex:r2-07-manual-source-review",
+    "identity": "agent_manual",
+    "basis": "逐条阅读已暴露保留原文；仅核验成员适用范围，非真人标注、自动归并或真实模型质量"
+  },
+  "automatic_membership_used": false,
+  "human_quality_rating": null,
+  "real_model_quality": "unmeasured",
+  "sets": [
+    {
+      "topic_id": "fea3e2d2-99be-5913-8d5c-722009ae2ada",
+      "title": "AI收益分配方案的报道比较",
+      "manual_members": [
+        {
+          "article_id": 9013,
+          "material_id": 114,
+          "source": "zaobao-world",
+          "url": "https://www.zaobao.com/news/world/story20261019-9861023",
+          "source_capture": "production-read-only:2026-10-21T03:36:46.120178+00:00",
+          "scope": "open_text_unit",
+          "original_metadata_times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-19T09:44:56Z",
+              "on": null,
+              "basis": "feed:feed",
+              "raw": "Mon, 19 Oct 2026 09:44:56 GMT"
+            },
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-19T09:44:56Z",
+              "on": null,
+              "basis": "jsonld:datePublished",
+              "raw": null
+            }
+          ],
+          "relation": "report",
+          "reason": "逐条核验主题关联：AI收益分配方案的报道比较；不扩大为自动归并成果",
+          "evidence": {
+            "article_id": 9013,
+            "material_id": 114,
+            "paragraph": 0,
+            "quote": "科技亿万富翁马斯克星期一（10月19日）说，他将向美国每一名儿童赠送一份其旗下火箭公司SpaceX的股份。",
+            "voice": "reported"
+          }
+        },
+        {
+          "article_id": 9192,
+          "material_id": 235,
+          "source": "zaobao-world",
+          "url": "https://www.zaobao.com/news/world/story20261020-9865565",
+          "source_capture": "production-read-only:2026-10-21T03:36:46.120178+00:00",
+          "scope": "open_text_unit",
+          "original_metadata_times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-20T08:57:21Z",
+              "on": null,
+              "basis": "feed:feed",
+              "raw": "Tue, 20 Oct 2026 08:57:21 GMT"
+            },
+            {
+              "kind": "original",
+              "precision": "time",
+              "at": "2026-10-20T08:57:21Z",
+              "on": null,
+              "basis": "jsonld:datePublished",
+              "raw": null
+            }
+          ],
+          "relation": "report",
+          "reason": "逐条核验主题关联：AI收益分配方案的报道比较；不扩大为自动归并成果",
+          "evidence": {
+            "article_id": 9192,
+            "material_id": 235,
+            "paragraph": 0,
+            "quote": "（华盛顿综合电）人工智能（AI）企业Anthropic和美国富豪马斯克针对如何分享AI热潮带来的部分收益提出不同的红利分享方案，双方的分歧可能会影响AI技术所创造的财富最终如何惠及大众。",
+            "voice": "reported"
+          }
+        }
+      ],
+      "status": "applied",
+      "response_mode": "mock",
+      "draft": {
+        "guide": [
+          {
+            "text": "可先读赠股计划的报道，再看两种分配方式的比较；前者保留了尚无实施细节的限定。",
+            "evidence": [
+              {
+                "quote": "“这只是后续一系列行动中的第一步。”但他并未就计划的具体实施提供更多细节。",
+                "voice": "reported",
+                "paragraph": 2,
+                "article_id": 9013,
+                "material_id": 114
+              },
+              {
+                "quote": "（华盛顿综合电）人工智能（AI）企业Anthropic和美国富豪马斯克针对如何分享AI热潮带来的部分收益提出不同的红利分享方案，双方的分歧可能会影响AI技术所创造的财富最终如何惠及大众。",
+                "voice": "reported",
+                "paragraph": 0,
+                "article_id": 9192,
+                "material_id": 235
+              }
+            ],
+            "attribution": "本组材料的阅读提示",
+            "limitations": [
+              "仅依据两份联合早报已取得的开放正文，不代表完整讨论或独立来源共识。",
+              "计划不等于实施；人数、金额及实施细节不在本次归一化主张中。"
+            ]
+          }
+        ],
+        "reason": "人工写定的mock示例，验证协议与存储，不计真实生成质量",
+        "outcome": "ready",
+        "overview": [
+          {
+            "text": "据联合早报转述，马斯克称将于明年向美国每名儿童赠送SpaceX股份；报道同时指出实施细节尚未提供。",
+            "evidence": [
+              {
+                "quote": "法新社报道，身为全球首富的马斯克在X上写道：“明年，我将把SpaceX的一份股份赠送给美国的每一名孩子。”",
+                "voice": "reported",
+                "paragraph": 1,
+                "article_id": 9013,
+                "material_id": 114
+              },
+              {
+                "quote": "“这只是后续一系列行动中的第一步。”但他并未就计划的具体实施提供更多细节。",
+                "voice": "reported",
+                "paragraph": 2,
+                "article_id": 9013,
+                "material_id": 114
+              }
+            ],
+            "attribution": "联合早报转述马斯克在X的表态；实施细节限定来自该报道",
+            "limitations": [
+              "仅依据两份联合早报已取得的开放正文，不代表完整讨论或独立来源共识。",
+              "计划不等于实施；人数、金额及实施细节不在本次归一化主张中。"
+            ]
+          },
+          {
+            "text": "另一篇报道把Anthropic拟设公益基金与马斯克提出的直接分股并置，增加了收益分配方式的比较焦点。",
+            "evidence": [
+              {
+                "quote": "（华盛顿综合电）人工智能（AI）企业Anthropic和美国富豪马斯克针对如何分享AI热潮带来的部分收益提出不同的红利分享方案，双方的分歧可能会影响AI技术所创造的财富最终如何惠及大众。",
+                "voice": "reported",
+                "paragraph": 0,
+                "article_id": 9192,
+                "material_id": 235
+              },
+              {
+                "quote": "Anthropic上周末宣布，将拿出公司5%的股份设立一个公益基金。这个基金可用于支持多项举措，包括向特定群体直接发放款项，以及应对AI对劳动力市场的冲击。",
+                "voice": "reported",
+                "paragraph": 1,
+                "article_id": 9192,
+                "material_id": 235
+              },
+              {
+                "quote": "马斯克则主张直接分配股权。他星期一（10月19日）在社交媒体X平台写道：“明年，我将向美国的每名儿童赠送一股SpaceX股票，这只是众多举措中的第一步。”",
+                "voice": "reported",
+                "paragraph": 4,
+                "article_id": 9192,
+                "material_id": 235
+              }
+            ],
+            "attribution": "联合早报的报道框架；不是社会讨论转向或共识的判断",
+            "limitations": [
+              "仅依据两份联合早报已取得的开放正文，不代表完整讨论或独立来源共识。",
+              "计划不等于实施；人数、金额及实施细节不在本次归一化主张中。"
+            ]
+          }
+        ],
+        "contributions": [
+          {
+            "text": "据联合早报转述，马斯克称将于明年向美国每名儿童赠送SpaceX股份；报道同时指出实施细节尚未提供。",
+            "change": "new",
+            "evidence": [
+              {
+                "quote": "法新社报道，身为全球首富的马斯克在X上写道：“明年，我将把SpaceX的一份股份赠送给美国的每一名孩子。”",
+                "voice": "reported",
+                "paragraph": 1,
+                "article_id": 9013,
+                "material_id": 114
+              },
+              {
+                "quote": "“这只是后续一系列行动中的第一步。”但他并未就计划的具体实施提供更多细节。",
+                "voice": "reported",
+                "paragraph": 2,
+                "article_id": 9013,
+                "material_id": 114
+              }
+            ],
+            "occurred": {
+              "at": null,
+              "on": null,
+              "basis": null,
+              "precision": "unknown"
+            },
+            "reported": {
+              "at": null,
+              "on": null,
+              "basis": null,
+              "precision": "unknown"
+            },
+            "attribution": "联合早报转述马斯克在X的表态；实施细节限定来自该报道",
+            "limitations": [
+              "仅依据两份联合早报已取得的开放正文，不代表完整讨论或独立来源共识。",
+              "计划不等于实施；人数、金额及实施细节不在本次归一化主张中。"
+            ],
+            "progress_key": "musk-announcement",
+            "novelty_basis": "记录原文中的计划表态，不将其写成已实施；日期保守保留unknown",
+            "classification": "development"
+          },
+          {
+            "text": "另一篇报道把Anthropic拟设公益基金与马斯克提出的直接分股并置，增加了收益分配方式的比较焦点。",
+            "change": "new",
+            "evidence": [
+              {
+                "quote": "（华盛顿综合电）人工智能（AI）企业Anthropic和美国富豪马斯克针对如何分享AI热潮带来的部分收益提出不同的红利分享方案，双方的分歧可能会影响AI技术所创造的财富最终如何惠及大众。",
+                "voice": "reported",
+                "paragraph": 0,
+                "article_id": 9192,
+                "material_id": 235
+              },
+              {
+                "quote": "Anthropic上周末宣布，将拿出公司5%的股份设立一个公益基金。这个基金可用于支持多项举措，包括向特定群体直接发放款项，以及应对AI对劳动力市场的冲击。",
+                "voice": "reported",
+                "paragraph": 1,
+                "article_id": 9192,
+                "material_id": 235
+              },
+              {
+                "quote": "马斯克则主张直接分配股权。他星期一（10月19日）在社交媒体X平台写道：“明年，我将向美国的每名儿童赠送一股SpaceX股票，这只是众多举措中的第一步。”",
+                "voice": "reported",
+                "paragraph": 4,
+                "article_id": 9192,
+                "material_id": 235
+              }
+            ],
+            "occurred": {
+              "at": null,
+              "on": null,
+              "basis": null,
+              "precision": "unknown"
+            },
+            "reported": {
+              "at": null,
+              "on": null,
+              "basis": null,
+              "precision": "unknown"
+            },
+            "attribution": "联合早报的报道框架；不是社会讨论转向或共识的判断",
+            "limitations": [
+              "仅依据两份联合早报已取得的开放正文，不代表完整讨论或独立来源共识。",
+              "计划不等于实施；人数、金额及实施细节不在本次归一化主张中。"
+            ],
+            "progress_key": "distribution-comparison",
+            "novelty_basis": "相对于本组先前单谈赠股的材料，新增两种收益分配方式比较；只限该材料集合",
+            "classification": "discussion_focus"
+          }
+        ]
+      },
+      "review": {
+        "checks": [
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:0",
+            "dimension": "support",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:0",
+            "dimension": "classification",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:0",
+            "dimension": "novelty",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:0",
+            "dimension": "attribution",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:0",
+            "dimension": "time",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:0",
+            "dimension": "scope",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:1",
+            "dimension": "support",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:1",
+            "dimension": "classification",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:1",
+            "dimension": "novelty",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:1",
+            "dimension": "attribution",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:1",
+            "dimension": "time",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "contributions:1",
+            "dimension": "scope",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:0",
+            "dimension": "support",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:0",
+            "dimension": "classification",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:0",
+            "dimension": "novelty",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:0",
+            "dimension": "attribution",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:0",
+            "dimension": "time",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:0",
+            "dimension": "scope",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:1",
+            "dimension": "support",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:1",
+            "dimension": "classification",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:1",
+            "dimension": "novelty",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:1",
+            "dimension": "attribution",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:1",
+            "dimension": "time",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "overview:1",
+            "dimension": "scope",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "guide:0",
+            "dimension": "support",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "guide:0",
+            "dimension": "classification",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "guide:0",
+            "dimension": "novelty",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "guide:0",
+            "dimension": "attribution",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "guide:0",
+            "dimension": "time",
+            "supported": true
+          },
+          {
+            "reason": "明确mock审核结论；不计真实语义成绩",
+            "target": "guide:0",
+            "dimension": "scope",
+            "supported": true
+          }
+        ],
+        "issues": []
+      },
+      "generation_receipt": {
+        "request_id": "7d2b0ae7180847c197348b785fe22be9",
+        "response_mode": "mock",
+        "input_fingerprint": "57a1a880995b36b515b5e3cd98b3d9b78dc4daefb10815452a6bee404eaebe42",
+        "original_attempt_id": 1,
+        "request_fingerprint": "64af0ee57bc6284eedc0bbaa18235dec0e7533ff3350d5e3acf1b8e8893bd79f",
+        "response_fingerprint": "4de4a95700251175b71dfd092098bd57a6521530f8d6a76830f952bf91893470"
+      },
+      "review_receipt": {
+        "request_id": "258a65c149244a3db3c8a688a2dc4806",
+        "response_mode": "mock",
+        "input_fingerprint": "f407e47b0a3533d319e365f517a054c71e4bccabf99d98333cdd21a3b0e03da4",
+        "original_attempt_id": 2,
+        "request_fingerprint": "022e9df2d717e1531ff11ff21191dc36dcbbe9bdb2ffefcd7ca51cc02f7b13c4",
+        "response_fingerprint": "80179ca1832dd88e89be91bb98e053c9f3d624d2584ba235727022ed4d9a015f"
+      },
+      "applied": {
+        "updates": [
+          {
+            "revision": 4,
+            "update_id": "413ab039-4eb9-5d96-8b90-f07173820d31",
+            "contribution_index": 0
+          },
+          {
+            "revision": 5,
+            "update_id": "2ea55ae8-cf15-5089-9aa9-3beaf064b649",
+            "contribution_index": 1
+          }
+        ],
+        "derivations": {
+          "guide": 7,
+          "overview": 6
+        }
+      },
+      "structural_checks": {
+        "updates": [
+          {
+            "valid": true,
+            "reasons": []
+          },
+          {
+            "valid": true,
+            "reasons": []
+          }
+        ],
+        "derivations": [
+          {
+            "valid": true,
+            "reasons": []
+          },
+          {
+            "valid": true,
+            "reasons": []
+          }
+        ]
+      }
+    },
+    {
+      "topic_id": "d99936a5-4420-5b4f-a6f6-63b8061e0ffa",
+      "title": "《我的风暴，我的庇护所》的读后与翻译记录",
+      "manual_members": [
+        {
+          "article_id": 9051,
+          "material_id": 190,
+          "source": "douban-book",
+          "url": "https://book.douban.com/review/17853286/",
+          "source_capture": "production-read-only:2026-10-21T03:36:46.120178+00:00",
+          "scope": "open_text_unit",
+          "original_metadata_times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-12T08:15:38Z",
+              "on": null,
+              "basis": "feed:feed",
+              "raw": "Mon, 12 Oct 2026 08:15:38 GMT"
+            }
+          ],
+          "relation": "opinion",
+          "reason": "逐条核验主题关联：《我的风暴，我的庇护所》的读后与翻译记录；不扩大为自动归并成果",
+          "evidence": {
+            "article_id": 9051,
+            "material_id": 190,
+            "paragraph": 4,
+            "quote": "4、非虚构里一直存在一个问题，就是书里的故事如此抓马，以至让人难以相信这居然都是真的，作者是有意识的虚构还是无意识的夸大了，还能有个录音笔、摄像机贴身记录多年后备用，哪来那么多引号内的直接引语分毫不差？人都是主观的，在年岁渐长见识到许多堪称事故/故事吸附者体质的真人后，我选择相信作者，尊重作者这个版本的真实，作者对待写作的态度是严肃、真诚的。",
+            "voice": "author"
+          }
+        },
+        {
+          "article_id": 9054,
+          "material_id": 239,
+          "source": "douban-book",
+          "url": "https://book.douban.com/review/17856978/",
+          "source_capture": "production-read-only:2026-10-21T03:36:46.120178+00:00",
+          "scope": "open_text_unit",
+          "original_metadata_times": [
+            {
+              "kind": "feed",
+              "precision": "time",
+              "at": "2026-10-15T08:19:06Z",
+              "on": null,
+              "basis": "feed:feed",
+              "raw": "Thu, 15 Oct 2026 08:19:06 GMT"
+            }
+          ],
+          "relation": "background",
+          "reason": "逐条核验主题关联：《我的风暴，我的庇护所》的读后与翻译记录；不扩大为自动归并成果",
+          "evidence": {
+            "article_id": 9054,
+            "material_id": 239,
+            "paragraph": 17,
+            "quote": "交稿之后，又陆续修订了几轮。最后一轮修订，依然会在读到结尾时有掉眼泪的冲动。能量是一种回响，这本《我的风暴，我的庇护所》带给我的回响会延续至无数个九月。",
+            "voice": "author"
+          }
+        }
+      ],
+      "status": "abstained",
+      "response_mode": "mock",
+      "draft": {
+        "guide": [],
+        "reason": "普通观点与翻译背景不足以证明新的讨论焦点，不生成概况/导读",
+        "outcome": "abstained",
+        "overview": [],
+        "contributions": [
+          {
+            "text": "书评作者谈到非虚构叙事的主观性，并表示选择尊重作者这一版本的真实。",
+            "change": "none",
+            "evidence": [
+              {
+                "quote": "4、非虚构里一直存在一个问题，就是书里的故事如此抓马，以至让人难以相信这居然都是真的，作者是有意识的虚构还是无意识的夸大了，还能有个录音笔、摄像机贴身记录多年后备用，哪来那么多引号内的直接引语分毫不差？人都是主观的，在年岁渐长见识到许多堪称事故/故事吸附者体质的真人后，我选择相信作者，尊重作者这个版本的真实，作者对待写作的态度是严肃、真诚的。",
+                "voice": "author",
+                "paragraph": 4,
+                "article_id": 9051,
+                "material_id": 190
+              }
+            ],
+            "occurred": {
+              "at": null,
+              "on": null,
+              "basis": null,
+              "precision": "unknown"
+            },
+            "reported": {
+              "at": null,
+              "on": null,
+              "basis": null,
+              "precision": "unknown"
+            },
+            "attribution": "豆瓣书评作者的读后观点",
+            "limitations": [
+              "只表示这位作者的观点，不代表读者共识或书中事实已经外部核实。"
+            ],
+            "progress_key": null,
+            "novelty_basis": "本组原文不支持实质新进展",
+            "classification": "opinion"
+          },
+          {
+            "text": "另一篇作者记录交稿后的多轮修订，并描述阅读结尾时的情绪反应。",
+            "change": "none",
+            "evidence": [
+              {
+                "quote": "交稿之后，又陆续修订了几轮。最后一轮修订，依然会在读到结尾时有掉眼泪的冲动。能量是一种回响，这本《我的风暴，我的庇护所》带给我的回响会延续至无数个九月。",
+                "voice": "author",
+                "paragraph": 17,
+                "article_id": 9054,
+                "material_id": 239
+              }
+            ],
+            "occurred": {
+              "at": null,
+              "on": null,
+              "basis": null,
+              "precision": "unknown"
+            },
+            "reported": {
+              "at": null,
+              "on": null,
+              "basis": null,
+              "precision": "unknown"
+            },
+            "attribution": "豆瓣文章作者的翻译经历自述",
+            "limitations": [
+              "相对时间和个人体验保留；不足以断言话题出现了新的讨论转折。"
+            ],
+            "progress_key": null,
+            "novelty_basis": "本组原文不支持实质新进展",
+            "classification": "background"
+          }
+        ]
+      },
+      "review": null,
+      "generation_receipt": {
+        "request_id": "4a22c478454d49ce9ddbdf920ae493a9",
+        "response_mode": "mock",
+        "input_fingerprint": "d97b857b1250abe301ea415847bcc13125f5867d5e314144e10627f523b12175",
+        "original_attempt_id": 3,
+        "request_fingerprint": "1af9b72235b05adec630b2becb74342e5eab7b1855c34d6f7681c0b3ed5267ab",
+        "response_fingerprint": "88354f4002f34d74c5ef01170b1d00e88b9bc437d9f0356dc2b58bb910df1c04"
+      },
+      "review_receipt": null,
+      "applied": null,
+      "structural_checks": {
+        "updates": [],
+        "derivations": []
+      }
+    }
+  ],
+  "independent_cards_preserved": {
+    "9192": "ab8a0173a6afa681e3298e839761799febf2bbf34ccf338dfdcf46ddea10e9c9",
+    "9013": "6397f0ada4bfb9c916089dd4f41abcd9d3a5785f2f3624008f8e8e375da8b689",
+    "9051": "6e353b54fa6226acea7834592c7c6af30e373d8cd89932c092754bcd30f6274e",
+    "9054": "f07a0f13364db46f955137f890946daec4aea41537078eb35200a7ca02daf716"
+  },
+  "mock_responses": 3,
+  "mock_calls": [
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "review": false,
+      "transport": "httpx.MockTransport"
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "review": true,
+      "transport": "httpx.MockTransport"
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "review": false,
+      "transport": "httpx.MockTransport"
+    }
+  ],
+  "generation": 0,
+  "embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "model_response_transport": "httpx.MockTransport only",
+  "synthetic_journal_cost_usd": "0",
+  "original_ledger_access": false,
+  "production_access": false
+}

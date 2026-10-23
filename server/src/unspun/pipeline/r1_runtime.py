@@ -28,6 +28,7 @@ from unspun.pipeline.discovery import DiscoveryHandler
 from unspun.pipeline.materials import MaterialHandler
 from unspun.pipeline.member_processing import MemberHandler
 from unspun.pipeline.r1_worker import Handlers, SessionScope, StageHandler, WorkerPool
+from unspun.pipeline.topic_synthesis import SynthesisHandler
 
 log = get_logger("unspun.r1.runtime")
 
@@ -47,6 +48,7 @@ class Runtime:
             "publication": sorted(s.id for s in self.sources.values() if s.r1 and s.r1.publish),
             "legacy_worker_started": False,
             "member_processing_enabled": ("paid", "topic_recall") in self.handlers,
+            "synthesis_enabled": ("paid", "topic_synthesize") in self.handlers,
         }
 
 
@@ -75,6 +77,10 @@ def build_runtime(
             member_handler = MemberHandler(selected, scope=scope)
             for kind in ("topic_recall", "topic_judge", "topic_review"):
                 handlers[("paid", kind)] = member_handler
+        if settings.r2_synthesis_enabled:
+            synthesis_handler = SynthesisHandler(selected, scope=scope)
+            for kind in ("topic_synthesize", "topic_synthesis_review"):
+                handlers[("paid", kind)] = synthesis_handler
     return Runtime(
         selected,
         stages,

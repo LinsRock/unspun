@@ -1,0 +1,25 @@
+{
+  "reviewer": "Codex primary-agent engineering diff/caller review; no independent or human quality claim",
+  "scope": [
+    "additive migration and retained recovery",
+    "R2-05 compatible payloads, snapshots, append-only CAS",
+    "admin manual provenance; no frontend/API surface changes",
+    "physical generation/review receipt and original-attempt cache recovery",
+    "dedicated fee stages, model/phase/lease binding, no default allocation",
+    "R1 and R2-06 branches retain existing behavior",
+    "strict complete semantic checks vs literal matching",
+    "live publication dynamic dependencies and permanent mock exclusion",
+    "bounded read-only future prepare entry"
+  ],
+  "findings_resolved": [
+    "preserve attribution/limitations/progress_key in R2-05 payloads as well as synthesis records",
+    "verify generation physical response again before successor audit",
+    "check all immutable lease routing fields",
+    "semantic verdict must be an actual JSON boolean",
+    "reject mock progress as a live input",
+    "allow attribution/qualification-only corrections while retaining original times",
+    "refuse identical progress assertions under a new key or twice in one batch"
+  ],
+  "validation": "full regression plus final affected tests; actual CI/deploy pending",
+  "no_fee_or_activation_authority": true
+}

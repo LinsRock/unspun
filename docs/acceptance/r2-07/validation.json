@@ -1,0 +1,33 @@
+{
+  "base_revision": "0346d4d4f24f578883c246aeff7710eda0aa7655",
+  "scope_commit": "2ecfccd",
+  "worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-progress-overview",
+  "venv": "server/.venv",
+  "baseline_tests": 1192,
+  "full_regression_before_final_review_additions": {
+    "passed": 1237,
+    "skipped": 0,
+    "seconds": 162.79
+  },
+  "final_r207_targeted": {
+    "passed": 56,
+    "skipped": 0,
+    "seconds": 20.06
+  },
+  "ruff_format_pyright": "passed",
+  "alembic_schema": "000020",
+  "alembic_drift": false,
+  "deploy_tests": 18,
+  "ci_scope_tests": 11,
+  "real_material_sets": 2,
+  "manual_reviewer_identity": "agent_manual",
+  "mock_responses_on_real_materials": 3,
+  "real_generation": 0,
+  "embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "real_quality": "unmeasured",
+  "user_acceptance": null,
+  "production_activation": false,
+  "r206": "deferred; 3/4; real quality not accepted"
+}

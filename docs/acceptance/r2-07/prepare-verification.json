@@ -1,0 +1,13 @@
+{
+  "kind": "unapproved-live-quality-input",
+  "input_fingerprint": "ee77c3cb5cf5300cdb7ea106c17bb22699aa22533e8c5527f72954ab713c717d",
+  "generation": 0,
+  "embedding": 0,
+  "paid_retries": 0,
+  "database_writes": 0,
+  "paid_authorization": false,
+  "quality_measured": false,
+  "output_sha256": "24ea11ac72992921111be39f9037f42ef228bd1889b9574b7126046878c02407",
+  "isolated_database": "unspun_r207_restore_20261023",
+  "mock_progress_excluded": true
+}

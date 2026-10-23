@@ -264,7 +264,7 @@ def _update_check(
     return VersionCheck(valid=valid, reasons=() if valid else ("update_input_changed",))
 
 
-def _topic_snapshot(
+def topic_snapshot(
     session: Session, topic: Topic, sources: list[Source], now: datetime
 ) -> dict[str, Any]:
     if topic.status != "active":
@@ -319,7 +319,7 @@ def derivation_input(
     return fingerprint(
         {
             "kind": kind,
-            "snapshot": _topic_snapshot(session, topic, sources, now),
+            "snapshot": topic_snapshot(session, topic, sources, now),
             "contract": contract.model_dump(mode="json"),
         }
     )
@@ -345,7 +345,7 @@ def validate_version(
     if contract is None or contract.model_dump(mode="json") != row.contract:
         return VersionCheck(valid=False, reasons=("derivation_contract_changed",))
     try:
-        current = _topic_snapshot(session, topic, sources, now)
+        current = topic_snapshot(session, topic, sources, now)
     except (ValueError, KeyError, TypeError):
         return VersionCheck(valid=False, reasons=("derivation_input_unavailable",))
     valid = fingerprint(current) == fingerprint(
@@ -474,7 +474,7 @@ def mutate_topic(
         }
     else:
         assert isinstance(change, SaveDerivation)
-        snapshot = _topic_snapshot(session, topic, sources, now)
+        snapshot = topic_snapshot(session, topic, sources, now)
         actual = fingerprint(
             {
                 "kind": change.kind,

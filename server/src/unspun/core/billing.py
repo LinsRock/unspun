@@ -22,6 +22,9 @@ from unspun.core.content_costs import content_unit_costs
 from unspun.core.llm import LlmError
 from unspun.core.member_contracts import member_contract
 from unspun.core.models import LlmUsage
+from unspun.core.synthesis_contracts import KINDS as SYNTHESIS_KINDS
+from unspun.core.synthesis_contracts import STAGES as SYNTHESIS_STAGES
+from unspun.core.synthesis_contracts import synthesis_contract
 from unspun.core.task_models import PipelineTask, TaskAttempt
 from unspun.core.tasks import Lease
 
@@ -37,7 +40,15 @@ TOPIC_STAGE_CAPS = {
     "topic_review": "0.45",
 }
 Stage = Literal[
-    "legacy", "card", "guide", "embedding", "topic_embedding", "topic_judgment", "topic_review"
+    "legacy",
+    "card",
+    "guide",
+    "embedding",
+    "topic_embedding",
+    "topic_judgment",
+    "topic_review",
+    "topic_synthesis",
+    "topic_synthesis_review",
 ]
 PENDING = ("reserved", "usage_unknown")
 PRICES = {
@@ -227,7 +238,8 @@ class DatabaseJournal:
         now = datetime.now(UTC)
         stage = (
             "embedding"
-            if purpose == "embedding" and context.stage not in TOPIC_STAGE_CAPS
+            if purpose == "embedding"
+            and context.stage not in {*TOPIC_STAGE_CAPS, *SYNTHESIS_STAGES}
             else context.stage
         )
         logical = (
@@ -249,6 +261,54 @@ class DatabaseJournal:
                     "provider key changed; a reviewed accounting cutover is required"
                 )
             lease = context.lease
+            synthesis_kind = lease is not None and lease.kind in SYNTHESIS_KINDS
+            if synthesis_kind or stage in SYNTHESIS_STAGES or purpose == "topic_synthesis":
+                if not get_settings().r2_synthesis_enabled:
+                    raise BudgetExceeded("topic synthesis is disabled")
+                expected = {
+                    "topic_synthesis": ("topic_synthesize", "synthesize", "topic_synthesis"),
+                    "topic_synthesis_review": ("topic_synthesis_review", "review", "grounding"),
+                }.get(stage)
+                if (
+                    lease is None
+                    or lease.queue != "paid"
+                    or not lease.object_key.startswith("topic:")
+                    or expected != (lease.kind, context.phase, purpose)
+                    or lease.strategy_version != synthesis_contract()["version"]
+                    or lease.payload.get("contract") != synthesis_contract()
+                    or not context.logical_key
+                    or model
+                    != (
+                        get_settings().summary_model
+                        if stage == "topic_synthesis"
+                        else get_settings().viewpoint_model
+                    )
+                    or lease.payload.get("response_mode") not in {"live", "mock"}
+                    or (
+                        lease.payload.get("response_mode") == "mock"
+                        and policy.scope != "evaluation"
+                    )
+                ):
+                    raise LlmError("synthesis requires its registered task, stage, model and mode")
+                allocations = {k: usd(v) for k, v in policy.stage_caps.items()}
+                cap = allocations.get(stage)
+                if cap is None or cap <= 0:
+                    raise BudgetExceeded("synthesis stage has no explicit allocation")
+                if policy.incident:
+                    raise BudgetExceeded("synthesis remains stopped by the accounting incident")
+                if policy.scope == "production" and (
+                    any(v is None for v in allocations.values())
+                    or allocations.get("legacy") != 0
+                    or any(
+                        k not in {*STAGE_CAPS, *TOPIC_STAGE_CAPS, *SYNTHESIS_STAGES}
+                        for k in allocations
+                    )
+                    or sum((v for v in allocations.values() if v is not None), Decimal(0))
+                    > min(policy.monthly_limit_usd, PRODUCTION_LIMIT)
+                ):
+                    raise BudgetExceeded(
+                        "synthesis allocations must fit the original production total"
+                    )
             topic_kind = lease is not None and lease.kind in {
                 "topic_recall",
                 "topic_judge",
@@ -284,7 +344,12 @@ class DatabaseJournal:
                 if policy.scope == "production" and (
                     any(v is None for v in allocations.values())
                     or allocations.get("legacy") != 0
-                    or any(k not in STAGE_CAPS and k not in TOPIC_STAGE_CAPS for k in allocations)
+                    or any(
+                        k not in STAGE_CAPS
+                        and k not in TOPIC_STAGE_CAPS
+                        and k not in SYNTHESIS_STAGES
+                        for k in allocations
+                    )
                     or sum((v for v in allocations.values() if v is not None), Decimal(0))
                     > min(policy.monthly_limit_usd, PRODUCTION_LIMIT)
                 ):
@@ -383,10 +448,14 @@ class DatabaseJournal:
                 raise BudgetExceeded(
                     "monthly budget including reservations exhausted", next_month(now)
                 )
-            if policy.scope == "production" or stage in TOPIC_STAGE_CAPS:
+            if (
+                policy.scope == "production"
+                or stage in TOPIC_STAGE_CAPS
+                or stage in SYNTHESIS_STAGES
+            ):
                 cap = min(
                     Decimal(str(policy.stage_caps.get(stage, "0"))),
-                    Decimal({**STAGE_CAPS, **TOPIC_STAGE_CAPS}[stage]),
+                    Decimal({**STAGE_CAPS, **TOPIC_STAGE_CAPS}.get(stage, str(PRODUCTION_LIMIT))),
                 )
                 stage_pending = Decimal(
                     str(
