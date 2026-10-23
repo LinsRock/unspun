@@ -20,11 +20,11 @@
 - 前端 20 文件 **101 项测试通过**，包括原有分页返回、API 版本与撤销，以及新增的归属语义、静默排序/冲突、局部保存与错误加载回归；lint、类型检查和生产构建通过。局部检查曾加入“保存响应后必须持续禁用直到推荐刷新结束”的过度断言并失败；该阶段并非写请求生命周期，已撤回该断言及配套改动，再运行全量 101 项通过，没有隐藏失败或修改服务端语义。
 - 生产构建的 PWA 检查通过：安装资源、IndexedDB 恢复、离线新标签/重载、日期导航、移动布局、API 排除与重连。后端未改，不对原评测库或生产库运行数据库测试。
 - 真实预览为 [阅读](http://127.0.0.1:5181/reading)、[关注](http://127.0.0.1:5181/interests)，代理原 API `8113`，复用原隔离评测库 22 条合格内容，首屏 20 条、43 个要点，`preview=true`；旧预览继续保留。
-- 仓库现有 Chromium 工具完成实际 API 的只读自动化浏览器核对：全部要点及归属保留、无障碍图标/44px 区域、390px 与 1365px 无横向溢出、明暗主题、减少动画，以及长文 11 返回列表位置 `1114 → 1114`。仅有 GET，API 写入尝试 0、浏览器错误 0，详见[浏览器证据](r1-reader-polish/browser.json)。
-- 正式部署前只读 API 同样确认重复归属问题，见[正式材料归属截面](r1-reader-polish/production-attribution.json)。这不是多来源独立验证或新付费质量评测。
+- 仓库现有 Chromium 工具完成实际 API 的只读自动化浏览器核对：全部要点及归属保留、无障碍图标/44px 区域、390px 与 1365px 无横向溢出、明暗主题、减少动画，以及长文 11 返回列表位置 `1114 → 1114`。仅有 GET，API 写入尝试 0、浏览器错误 0，详见[浏览器证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/browser.json)。
+- 正式部署前只读 API 同样确认重复归属问题，见[正式材料归属截面](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/production-attribution.json)。这不是多来源独立验证或新付费质量评测。
 
 原生浏览器工具两次各 30 秒超时，后续上述截图与布局检查来自仓库 Chromium 自动化，不冒充真人手机或外站播放复测；用户此次结论针对整改前正式页面，新界面不预记为用户已经重新体验。界面验收不是算法召回率、所有来源或原 43 条样本质量通过。
 
-[桌面](r1-reader-polish/desktop-light.png)、[手机宽度亮色](r1-reader-polish/mobile-light.png)、[暗色](r1-reader-polish/mobile-dark.png)、[初始加载](r1-reader-polish/mobile-loading.png)、[长文详情](r1-reader-polish/mobile-detail.png)保留实际截图。首次连续切换视口后的截图出现合成时序空白，已在相应固定视口新页面等待实际内容绘制后重取桌面和详情截图，不把空白图作为通过证据。
+[桌面](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/desktop-light.png)、[手机宽度亮色](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/mobile-light.png)、[暗色](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/mobile-dark.png)、[初始加载](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/mobile-loading.png)、[长文详情](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-reader-polish/mobile-detail.png)保留实际截图。首次连续切换视口后的截图出现合成时序空白，已在相应固定视口新页面等待实际内容绘制后重取桌面和详情截图，不把空白图作为通过证据。
 
 后续完成：六项已通过 #99 合并并正常部署为 `8dd144b`，正式 HTTPS 界面与服务副本复核通过；首次正式无头探测超时继续保留，后续成功结果不抹去它。R1-17 已按用户可接受结论及本次修复发布结案，见[最终结案记录](r1-final-acceptance-2026-10-19.md)。

@@ -12,7 +12,7 @@
 
 ## 验证证据
 
-新建 `unspun_r1_ingestion_20261016` 并迁移至 `000014`；完整后端 **725 通过、0 跳过**，其中采集/材料 30 项。真实 PG 并发、legacy 同 URL 不接管、候选先提交、范围/访问失败、版本/失效、重复根变更、重定向和过期元数据结果均覆盖。Ruff、格式、严格 Pyright、Alembic metadata check 通过；旧 40 事件排序 `ready/passed=true, issues=0`。摘要见[实际验证 JSON](r1-ingestion/verification.json)。测试用有限结构/合成片段，不依赖本机正文缓存，不把合成输入称为真实来源。
+新建 `unspun_r1_ingestion_20261016` 并迁移至 `000014`；完整后端 **725 通过、0 跳过**，其中采集/材料 30 项。真实 PG 并发、legacy 同 URL 不接管、候选先提交、范围/访问失败、版本/失效、重复根变更、重定向和过期元数据结果均覆盖。Ruff、格式、严格 Pyright、Alembic metadata check 通过；旧 40 事件排序 `ready/passed=true, issues=0`。摘要见[实际验证 JSON](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-ingestion/verification.json)。测试用有限结构/合成片段，不依赖本机正文缓存，不把合成输入称为真实来源。
 
 额外只读核对了 R0 已存档 C20/C21/C41/C42 完整材料指纹：C21/C41 规范身份一致 `da53263601af5921ca1391ac3733676f6d76e13ed5f82d72afe5ad4ebb4015ce`，C20/C42 不同；没有把全文复制进 Git，也没有重写旧样本。旧时间不因处理/观测时间推进而刷新。
 

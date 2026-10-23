@@ -21,7 +21,7 @@
 | 新边界 | 无事件的文章/帖子/问题/视频/音频，身份/别名唯一，多渠道观测空值，跨对象材料/派生外键，JSON null 不能当审核，时间精度、复用指纹，旧消费者拒绝与真实聚类排除均通过 |
 | 静态与 schema | Ruff、格式检查、严格 Pyright、`alembic check` 通过；无新增升级操作漂移 |
 | 旧标准排序 | 40 事件，`ready=true, passed=true, issues=0`；不算新内容质量通过 |
-| 旧数据升级 | 另建 `unspun_r1_02_upgrade_20261016`，在 `000010` 放入合成旧文章/事件/日报/账务各一条，再迁移；原有列的逐表字节指纹前后相同，旧 `000010` ORM 仍可读取，见[升级证据](r1-02/upgrade-evidence.json) |
+| 旧数据升级 | 另建 `unspun_r1_02_upgrade_20261016`，在 `000010` 放入合成旧文章/事件/日报/账务各一条，再迁移；原有列的逐表字节指纹前后相同，旧 `000010` ORM 仍可读取，见[升级证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-02/upgrade-evidence.json) |
 | 独立代码审查 | `codex review --uncommitted` 无可操作问题；审查子环境 481 项通过、166 项因无 DB 跳过，这些跳过不算通过；上面的 647 项是本会话在明确隔离库上的实际完整执行 |
 | 模型与费用 | 无真实模型调用；升级测试中的费用行是明确标注的合成账务 fixture，不进入真实花费/单价分母 |
 

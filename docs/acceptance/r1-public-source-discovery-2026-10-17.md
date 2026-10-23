@@ -2,7 +2,7 @@
 
 本批交付澎湃右栏、网易当前首页、腾讯 PC 要闻和精选集合四条独立观察路径。旧 feedx 镜像、网易旧榜/移动接口和腾讯热点模块不进入新版适配；旧历史与 owner 不变。四路均为 `legacy_enabled=false`，R1 discovery/material/paid/publish 全关，付费/发布范围为空，不扩大首轮生产名单。
 
-探针边界在请求前登记于[契约](../evaluations/r1/public-source-probes-v1.json)。使用目标 `75c0374` 固定 server 镜像与 `unspun_default` 网络，256 MiB / 0.5 CPU，无数据库或模型 key；按现有客户端 UA、20 秒读取及 2 MiB 上限取得 4 个列表、12 个材料响应，全部 HTTP 200。随后以禁止外部网络的 MockTransport，将目标响应回放给新增适配器；这不是付费模型评测，也不是连续来源窗口。每份响应时间、最终 URL、SHA-256、结构化结果在[证据](r1-public-source-discovery/evidence.json)。正文仅保留在本机私有缓存。
+探针边界在请求前登记于[契约](../evaluations/r1/public-source-probes-v1.json)。使用目标 `75c0374` 固定 server 镜像与 `unspun_default` 网络，256 MiB / 0.5 CPU，无数据库或模型 key；按现有客户端 UA、20 秒读取及 2 MiB 上限取得 4 个列表、12 个材料响应，全部 HTTP 200。随后以禁止外部网络的 MockTransport，将目标响应回放给新增适配器；这不是付费模型评测，也不是连续来源窗口。每份响应时间、最终 URL、SHA-256、结构化结果在[证据](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-public-source-discovery/evidence.json)。正文仅保留在本机私有缓存。
 
 | 路径 | 实际列表结果 | 材料与边界 |
 | --- | --- | --- |

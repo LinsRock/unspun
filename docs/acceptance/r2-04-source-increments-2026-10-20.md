@@ -49,7 +49,7 @@
 
 新建迁移隔离库 `unspun_r204_regression_20261020` 到 `000017`；基线 **940** 项、本批 **942** 项通过，0 跳过；Ruff/format/Pyright、旧排序 **40** 案例、部署/CI 范围 **29** 项（另 8 subtests）通过。[冻结核验](r2-04/freeze-validation.json)为 **27/27**，原八路语义及其他配置、scan v2/candidate v3、留出与用户空评分保持。当前源码/配置差异及 affected callers 已审阅，所有生成/发布仍受原契约与账务限制。
 
-[PR #111](https://github.com/LinsRock/unspun/pull/111) 于 `2026-10-20 07:08:39 UTC` 合并为 **`da971d811f7e6e64273191128eed504fb7675746`**（实现头 `ff5c732`）。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39384278927) 和[主干 CI/发布](https://github.com/LinsRock/unspun/actions/runs/39384621487) 全部成功；[实际任务/步骤](r2-04/main-ci.json)确认执行了 Deploy。代码合并/部署不代表扩源通过。观察源仍关闭，真实新增可读内容为 0，原八路自然运行的新内容/费用应与本批测试分开对账。启动 UID 权限、过大旧取证输出截断及验证脚本调用错误保留在[失败登记](r2-04/failures.json)，不能算来源成功。
+[PR #111](https://github.com/LinsRock/unspun/pull/111) 于 `2026-10-20 07:08:39 UTC` 合并为 **`da971d811f7e6e64273191128eed504fb7675746`**（实现头 `ff5c732`）。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39384278927) 和[主干 CI/发布](https://github.com/LinsRock/unspun/actions/runs/39384621487) 全部成功；[实际任务/步骤](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-04/main-ci.json)确认执行了 Deploy。代码合并/部署不代表扩源通过。观察源仍关闭，真实新增可读内容为 0，原八路自然运行的新内容/费用应与本批测试分开对账。启动 UID 权限、过大旧取证输出截断及验证脚本调用错误保留在[失败登记](r2-04/failures.json)，不能算来源成功。
 
 `07:13–07:15 UTC` 的[部署探针](r2-04/postdeploy-runtime.json)、[实际服务审计](r2-04/postdeploy-audit.json)、[worker 边界](r2-04/postdeploy-boundaries.json)和[交付断言](r2-04/delivery.json)全部通过：API/受控 worker 使用同一固定 `da971d8…` server、82 个源码/四份配置匹配，schema `000017`；web 复用原固定 `d72861b…` 镜像。legacy 所有状态 0、受控 worker 1；API/worker 无观察挂载，唯一发布端口仍为 `127.0.0.1:8080`，新观察容器独立继续。
 

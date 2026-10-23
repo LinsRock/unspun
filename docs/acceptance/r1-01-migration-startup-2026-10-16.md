@@ -43,9 +43,9 @@ SIGKILL、宿主掉电和 Docker daemon 失联无法由 shell trap 保证清理�
 
 ## 验证记录
 
-真实 Docker 验证于 05:24:09–05:26:41 UTC 完成，见[逐项结果](r1-01/isolated-startup.json)。三个 Compose project 各自新建空卷、网络和数据库，分别使用回环 18081/18082/18083；未挂生产卷，也不使用默认本地开发库。结束后仅清理这些专用 project/卷，原本地 db/RSSHub 保持运行。
+真实 Docker 验证于 05:24:09–05:26:41 UTC 完成，见[逐项结果](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-01/isolated-startup.json)。三个 Compose project 各自新建空卷、网络和数据库，分别使用回环 18081/18082/18083；未挂生产卷，也不使用默认本地开发库。结束后仅清理这些专用 project/卷，原本地 db/RSSHub 保持运行。
 
-本机直接拉 GHCR 目标镜像返回 unauthorized；完整 Dockerfile 的基础镜像元数据获取未完成；只读 SSH 镜像导出因链路速度未继续使用。隔离测试改用现有 Python 3.12.15/arm64 缓存基础镜像，复制当前 server 源码、所有迁移与 config，并通过 `uv export --frozen --no-dev --no-emit-project` 和跨平台 wheel 安装补齐 **当前锁文件全部 55 项运行依赖**。[隔离环境版本清单](r1-01/isolation-environment.json)记录锁文件与镜像指纹；SQLAlchemy 2.1.4、Alembic 1.20.0、Pydantic 2.13.5；Postgres/pgvector 17，RSSHub 版本与内存约束不变。测试镜像 `unspun-server:r1-01-isolated` 的 ID 为 `sha256:981b88c4b674a29b949135e546093de848c4461c4eb89cba0a6833e8c4750e8f`；web 使用本机既有 Caddy 镜像，仅验证代理健康，未把旧静态页面算新页面验收。本 PR 不改 server/web 源码；生产 linux/amd64 的正式镜像仍由 CI 正常构建与部署，不以本机 arm64 结果冒充生产平台验证。
+本机直接拉 GHCR 目标镜像返回 unauthorized；完整 Dockerfile 的基础镜像元数据获取未完成；只读 SSH 镜像导出因链路速度未继续使用。隔离测试改用现有 Python 3.12.15/arm64 缓存基础镜像，复制当前 server 源码、所有迁移与 config，并通过 `uv export --frozen --no-dev --no-emit-project` 和跨平台 wheel 安装补齐 **当前锁文件全部 55 项运行依赖**。[隔离环境版本清单](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-01/isolation-environment.json)记录锁文件与镜像指纹；SQLAlchemy 2.1.4、Alembic 1.20.0、Pydantic 2.13.5；Postgres/pgvector 17，RSSHub 版本与内存约束不变。测试镜像 `unspun-server:r1-01-isolated` 的 ID 为 `sha256:981b88c4b674a29b949135e546093de848c4461c4eb89cba0a6833e8c4750e8f`；web 使用本机既有 Caddy 镜像，仅验证代理健康，未把旧静态页面算新页面验收。本 PR 不改 server/web 源码；生产 linux/amd64 的正式镜像仍由 CI 正常构建与部署，不以本机 arm64 结果冒充生产平台验证。
 
 [首轮失败](r1-01/first-environment-failure.json)保留：初用 M0 缓存镜像只复制当前源码，因缺 pgvector 退出 1；没有进入 API/web 启动。之后才按锁文件补齐依赖，没有为消除环境失败修改业务代码。失败和中断场景均先把各自专用库迁到 `000010`，随后只在隔离镜像中挂入 `r101_fault` 迁移：创建测试标记表后抛错，或进入 `SELECT pg_sleep(120)` 再向部署脚本发 SIGTERM。两者均保留 `000010`、标记表不存在、API/web 未创建；移除故障 fixture 后在同一专用库重跑成功。
 
@@ -58,7 +58,7 @@ python3 deploy/tests/verify_startup.py \
   --evidence-dir /absolute/docker-accessible/new-evidence-directory
 ```
 
-通用入口于 05:27:45–05:30:16 UTC 再次完成全部三个场景，见[复现结果](r1-01/isolated-startup-reproduction.json)；新随机项目名、专用卷与原本地库隔离。审查修复后于 05:37:11–05:39:42 UTC 再以当前脚本完成[最后一轮真实复测](r1-01/isolated-startup-reviewed.json)，三场景及故障后重跑全部通过。
+通用入口于 05:27:45–05:30:16 UTC 再次完成全部三个场景，见[复现结果](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-01/isolated-startup-reproduction.json)；新随机项目名、专用卷与原本地库隔离。审查修复后于 05:37:11–05:39:42 UTC 再以当前脚本完成[最后一轮真实复测](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-01/isolated-startup-reviewed.json)，三场景及故障后重跑全部通过。
 
 | 检查 | 实际结果 |
 | --- | --- |

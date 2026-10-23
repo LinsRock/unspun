@@ -12,7 +12,7 @@ API 字段、游标格式、排序版本和 TTL 保持；快照增加检索版�
 
 ## 自然轮次与费用
 
-[只读摘要](r2-03/natural-observation.json)、[生产原始截面](r2-03/natural-production.json)、[原评测截面](r2-03/natural-evaluation.json)各带事务时间；[采集脚本](r2-03/capture.py)只执行 SELECT 和免费 GET /key，REPEATABLE READ / READ ONLY，没有初始化账务或触发任务。首个 API 容器探针因该服务无提供方 key 未形成 JSON，随后在现有受控 worker 中只读取得完整证据，没有调用 worker 处理入口。
+[只读摘要](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/natural-observation.json)、[生产原始截面](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/natural-production.json)、[原评测截面](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/natural-evaluation.json)各带事务时间；[采集脚本](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/capture.py)只执行 SELECT 和免费 GET /key，REPEATABLE READ / READ ONLY，没有初始化账务或触发任务。首个 API 容器探针因该服务无提供方 key 未形成 JSON，随后在现有受控 worker 中只读取得完整证据，没有调用 worker 处理入口。
 
 `2026-10-20 02:56:22 UTC`，八路共有 **60** 份 `r2-discovery-v2` 收据，覆盖 `2026-10-19 10:00` 至 `2026-10-20 02:00 UTC` 的自然轮次。选择 **91** 个材料任务且全部完成；**57** 个新付费任务中 **54** 完成、**3** 失败（原错误保留），**254** 次复用已存在任务、44 次因材料付费范围排除；**12** 次复查选择。收据键唯一、扫描/材料/新付费槽均在原限额内，材料任务引用对应收据，新付费任务未重复计槽。
 
@@ -24,7 +24,7 @@ API 字段、游标格式、排序版本和 TTL 保持；快照增加检索版�
 
 新建迁移隔离库 `unspun_r2_detail_tests_20261020`：基线 **898** 项、实现后完整 **946** 项通过，0 跳过。48 项新增工程边界覆盖 >1,000 条当前候选及历史/过期行、来源/类别贡献、稳定翻页和名额外详情、旧背景/知识/新闻、三类失效/审核/模型/指纹、材料修订、别名/环路/深度、范围/偏好/准入游标冲突、日期/时区/未知及坏时间、GET 无任务和固定查询条数。收费生成/审核全部 mock，没有对生产或原评测库运行数据库测试。
 
-[查询记录](r2-03/query-cost.json)与[复现脚本](r2-03/query-cost.py)保存 3,317 条 mock 合格输入的计划和成本：1,105 条旧契约、1,105 条过期新闻、1,107 条当前候选；旧代码在原始 ready 卡片总量处 503，新代码只载入有界 1,000 条，名额外合格详情正常。EXPLAIN ANALYZE/BUFFERS 包含规划/执行耗时、实际行数与缓存读数；这里是本机隔离工程场景，不能视作 VPS 延迟保证。原推荐多样性 CPU 成本另列，未更改评分算法。
+[查询记录](r2-03/query-cost.json)与[复现脚本](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/query-cost.py)保存 3,317 条 mock 合格输入的计划和成本：1,105 条旧契约、1,105 条过期新闻、1,107 条当前候选；旧代码在原始 ready 卡片总量处 503，新代码只载入有界 1,000 条，名额外合格详情正常。EXPLAIN ANALYZE/BUFFERS 包含规划/执行耗时、实际行数与缓存读数；这里是本机隔离工程场景，不能视作 VPS 延迟保证。原推荐多样性 CPU 成本另列，未更改评分算法。
 
 [冻结对照 v3](../evaluations/r2/candidate-comparison-v3.json)核验 27 个冻结哈希（sources 按冻结 revision）、30 份材料/处理指纹及 20/10 切分。相同 30 份当前材料、原来源政策和两侧相同空偏好下，公开集合、推荐/最新顺序与分值一致。旧偏好未全量保存，不能冒充原生产 46 条整体排序的复现；留出仅作不改规则的契约核对，没有调参。v1、scan v2、43 条原用户空评分和新评分空值均保持。
 
@@ -32,10 +32,10 @@ Ruff、格式、Pyright、旧 40 案例排序、部署/CI 测试通过；API 调
 
 ## PR 与实际部署
 
-[PR #106](https://github.com/LinsRock/unspun/pull/106) 于 `2026-10-20 03:20:13 UTC` 合并为 `6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93`（实现提交 `e2be6cc`）。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39363378021) 与[主干 CI/发布](https://github.com/LinsRock/unspun/actions/runs/39363758658) 均成功，必需检查通过；两次后端各 946 项，前端 101 项及 PWA 离线检查通过。主干实际执行 `Deploy`，于 `03:25:01 UTC` 健康检查通过，不以跳过发布记成功。[PR](r2-03/pr-ci.json)/[main](r2-03/main-ci.json) 的任务和步骤结果保留。
+[PR #106](https://github.com/LinsRock/unspun/pull/106) 于 `2026-10-20 03:20:13 UTC` 合并为 `6f4fe4ff38c0b109f5d4648cddda0d4ae476fb93`（实现提交 `e2be6cc`）。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39363378021) 与[主干 CI/发布](https://github.com/LinsRock/unspun/actions/runs/39363758658) 均成功，必需检查通过；两次后端各 946 项，前端 101 项及 PWA 离线检查通过。主干实际执行 `Deploy`，于 `03:25:01 UTC` 健康检查通过，不以跳过发布记成功。[PR](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/pr-ci.json)/[main](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/main-ci.json) 的任务和步骤结果保留。
 
-`2026-10-20T03:26:09.340915+00:00` 的[运行探针](r2-03/deployment.json)确认 API 与受控 worker 使用同一固定 `6f4fe4f…` server 镜像，web 复用 `8dd144b…`，`APP_VERSION`/health 对应本次运行发布。API 与 worker 的 **84** 个 Python 文件、**4** 份配置逐字节匹配；schema **000017**、两个新索引实存，原来源/材料/配额/模型/预算保持。legacy worker **0**、受控 worker **1**，唯一主机端口仍 `127.0.0.1:8080`。没有手改线上容器、配置或业务数据。
+`2026-10-20T03:26:09.340915+00:00` 的[运行探针](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/deployment.json)确认 API 与受控 worker 使用同一固定 `6f4fe4f…` server 镜像，web 复用 `8dd144b…`，`APP_VERSION`/health 对应本次运行发布。API 与 worker 的 **84** 个 Python 文件、**4** 份配置逐字节匹配；schema **000017**、两个新索引实存，原来源/材料/配额/模型/预算保持。legacy worker **0**、受控 worker **1**，唯一主机端口仍 `127.0.0.1:8080`。没有手改线上容器、配置或业务数据。
 
-[部署前](r2-03/predeploy-reading.json)/[后](r2-03/postdeploy-reading.json)的生产镜像只读重放均为 **95** 个公开对象，集合、推荐/最新前两页相同，NYT 停源内容 404，读取没有新增任务；这是部署代码路径核验，未冒充外部鉴权浏览器或用户体验验收。[部署后生产摘要](r2-03/postdeploy-production.json)保留运行版本、配置和账务；详细自然轮次仍引用首次原始截面，避免复制一份相同收据。[评测复核](r2-03/postdeploy-evaluation.json)保持七笔未知及 `0.484867` 预留。
+[部署前](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/predeploy-reading.json)/[后](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/postdeploy-reading.json)的生产镜像只读重放均为 **95** 个公开对象，集合、推荐/最新前两页相同，NYT 停源内容 404，读取没有新增任务；这是部署代码路径核验，未冒充外部鉴权浏览器或用户体验验收。[部署后生产摘要](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/postdeploy-production.json)保留运行版本、配置和账务；详细自然轮次仍引用首次原始截面，避免复制一份相同收据。[评测复核](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r2-03/postdeploy-evaluation.json)保持七笔未知及 `0.484867` 预留。
 
 [交付断言](r2-03/delivery.json)全部通过；提供方 usage 仍 `9.31817401`、余额 `5.68182599`，相对首次自然观察新增费用 **0**。自然轮次已有 `0.0681814` 费用保留，R2-03 新增付费评测 **0**。部署证据通过同批文档补录 PR 合入，运行版本保持本次代码发布，不把后续纯文档提交当作再次部署。

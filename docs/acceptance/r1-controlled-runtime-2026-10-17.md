@@ -11,7 +11,7 @@
 - 新建 `unspun_r1_runtime_tests_20261017`，迁移至 `000015`；基线 816 项，变更后完整 **825 项通过、零跳过**。Ruff、格式和严格 Pyright 通过；CI 范围/部署脚本 11 项检查通过，旧 40 事件严格回归 `passed=true`。
 - 另建并迁移 `unspun_r1_runtime_preview_20261017`，没有对保留的 API 体验库运行清理型测试。仅本机配置开启 `xinhua`、`wsj-world` 的发现/材料，`max_items` 分别为 6/2；paid/publish 为 false，没有模型 key。这个配置是隔离验证输入，不是生产发布名单，也不作为目标 G2 窗口。
 - `2026-10-17T05:18:45Z` 开始 30 秒 CLI，实际完成 2 个发现和 8 个材料任务；得到 4 份开放文本、2 份预览、2 份媒体简介，独立内容均 `event_id=NULL`。再次运行 5 秒，10 个任务 ID、状态、尝试次数保持不变。模型请求及 usage 行均为 0。
-- [结构化任务、内容 URL、材料指纹及日志哈希](r1-controlled-runtime/runtime.json)保留实际证据。正文、依赖缓存、完整日志和 XML 留在 `~/.cache/unspun-r1-runtime/`，没有复制原文或模拟审批到 Git。
+- [结构化任务、内容 URL、材料指纹及日志哈希](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-controlled-runtime/runtime.json)保留实际证据。正文、依赖缓存、完整日志和 XML 留在 `~/.cache/unspun-r1-runtime/`，没有复制原文或模拟审批到 Git。
 
 真实 API 预览已恢复到 [阅读](http://127.0.0.1:5179/reading)、[关注](http://127.0.0.1:5179/interests)，API 为 `127.0.0.1:8113`，连接原 `unspun_r1_api_20261016`。旧 5178 前端进程的工作目录已不存在且返回 404；新入口 HTTP 200、API/DB 健康，内容流实际为空。既有手机/主题/键盘截图继续见[原页面证据](r1-reader-ui-2026-10-17.md)，本次 HTTP 探测不冒称新增浏览器或真实入选阅读验收。
 
@@ -21,7 +21,7 @@
 
 提供方 key 月限额现观察为 $15、剩余 $5.89249409，而交接记录曾为 $10；本轮没有修改它。这个外部变化不扩大本轮评测或项目预算，不能代替请求级核对。普通 key 仍 `is_management_key=false`，活动查询返回 403。
 
-用户随后提供 17 个 upstream generation ID，实际时间为 `2026-10-16T09:10:20Z–09:10:52Z`。[逐笔只读结果](r1-controlled-runtime/user-log-reconciliation.json)全部为原账本 `responded` 请求；提供方 `/generation` 17 次均 200，费用逐笔一致。它们已包含在已知金额中，没有重复入账，不能关联或释放另外 5 笔未知预留。
+用户随后提供 17 个 upstream generation ID，实际时间为 `2026-10-16T09:10:20Z–09:10:52Z`。[逐笔只读结果](https://github.com/LinsRock/unspun/blob/eb5b19f749c8316174e9cc5f6e838d7bbb0aec85/docs/acceptance/r1-controlled-runtime/user-log-reconciliation.json)全部为原账本 `responded` 请求；提供方 `/generation` 17 次均 200，费用逐笔一致。它们已包含在已知金额中，没有重复入账，不能关联或释放另外 5 笔未知预留。
 
 仍需核对的上海时间如下；对应的模型、请求 ID、预留和错误保留在上述状态文件。超时可能在开始后约两分钟结束，因此查询应覆盖其前后区间；不能仅凭附近另一条成功请求硬配。
 

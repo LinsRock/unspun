@@ -1,9 +1,0 @@
-{
-  "reviewer": "primary agent offline comparison with original query paragraphs and literal citations",
-  "task_id": 126,
-  "new_finding": "query_facts/0 and query_facts/1 also add the year 2026. The cited query paragraphs specify October 18 and October 17 without a year; the retained metadata supplies the feed year. A feed year must not silently become a source occurrence fact.",
-  "prior_strict_findings_preserved": "The original strict-findings.json marked query_facts_supported=true and rejected the complete basis for anchor date precision. This additional finding is appended only; the original review and first scores are unchanged.",
-  "legacy_metric_changes": 0,
-  "semantic_pass": false,
-  "paid_requests": 0
-}
