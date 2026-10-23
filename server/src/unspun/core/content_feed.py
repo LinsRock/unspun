@@ -10,7 +10,7 @@ from typing import Any, Literal
 import yaml
 from fastapi import HTTPException
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from sqlalchemy import DateTime, Select, and_, case, cast, func, or_, select
+from sqlalchemy import DateTime, Select, and_, case, cast, func, or_, select, true
 from sqlalchemy.dialects.postgresql import JSONPATH
 from sqlalchemy.orm import Session
 
@@ -109,7 +109,7 @@ def publication_expression() -> Any:
 
 
 def candidate_versions(
-    *, preview: bool, as_of: datetime, sources: list[Source], bound: int
+    *, preview: bool, as_of: datetime, sources: list[Source], bound: int, condition: Any = None
 ) -> Select[Any]:
     at = publication_expression()
     genre = ContentDerivation.payload["genre"].astext
@@ -117,6 +117,7 @@ def candidate_versions(
     versions = (
         current_versions(preview=preview, as_of=as_of, sources=sources)
         .add_columns(Article.source_id, at.label("publication_at"), evergreen.label("evergreen"))
+        .where(true() if condition is None else condition)
         .where(
             # These are the existing cheap_exclusion/current_value windows, not new scores.
             or_(
@@ -223,11 +224,21 @@ def matches(target: dict[str, Any], item: Item) -> bool:
 
 
 def rank(
-    session: Session, items: list[Item], as_of: datetime, sort: str, policy: ReaderRules
+    session: Session,
+    items: list[Item],
+    as_of: datetime,
+    sort: str,
+    policy: ReaderRules,
+    *,
+    feedback_values: dict[int, str] | None = None,
 ) -> tuple[list[tuple[Item, dict[str, Any]]], str]:
     state = session.get(ReaderState, 1)
     interests = list(session.scalars(select(ReaderInterest).order_by(ReaderInterest.resource_key)))
-    feedback = {article_id: f.value for article_id, f in effective_feedback(session).items()}
+    feedback = (
+        feedback_values
+        if feedback_values is not None
+        else {article_id: f.value for article_id, f in effective_feedback(session).items()}
+    )
     negative_authors: set[tuple[str, str]] = set()
     for item in items:
         if feedback.get(item.article.id) == "not_interested":

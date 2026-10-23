@@ -1,0 +1,4035 @@
+{
+  "contract": "r2-hybrid-v1",
+  "as_of": "2026-10-23T08:00:00+00:00",
+  "material_file": "docs/evaluations/r2/member-grounding-exposed-inputs-v1.json.gz",
+  "sha256": "817d1f85d9c9f10032aafe3675677af96014395197a083af16ae423cfe8cf322",
+  "reviewer": "Codex / agent_manual engineering audit; no human quality rating",
+  "sample_ids": [
+    9192,
+    9013,
+    9051,
+    9054,
+    9125,
+    9277,
+    9182,
+    9098,
+    8981,
+    9274,
+    9099,
+    9055
+  ],
+  "qualified_ids": [
+    "9277",
+    "9274",
+    "9182",
+    "9192",
+    "9125",
+    "9099",
+    "9098",
+    "9013",
+    "8981",
+    "9055",
+    "9054",
+    "9051"
+  ],
+  "selected_by_lane": {
+    "important": 0,
+    "interest": 0,
+    "public_attention": 0,
+    "readable": 12
+  },
+  "missing_important": 12,
+  "missing_public_attention": 12,
+  "real_material_no_preferences": {
+    "recommended": {
+      "order": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9277",
+        "content:8981",
+        "content:9013"
+      ],
+      "rows": [
+        {
+          "type": "content",
+          "id": "9274",
+          "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261021"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.9703703703703703,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.9703703703703703,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.9703703703703703
+          }
+        },
+        {
+          "type": "content",
+          "id": "9182",
+          "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T09:22:24Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7898015873015873,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.7898015873015876,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.7898015873015876
+          }
+        },
+        {
+          "type": "content",
+          "id": "9192",
+          "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T08:57:21Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7885590277777778,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.7885590277777776,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.7885590277777776
+          }
+        },
+        {
+          "type": "content",
+          "id": "9125",
+          "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.738095238095238
+          }
+        },
+        {
+          "type": "content",
+          "id": "9099",
+          "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.738095238095238
+          }
+        },
+        {
+          "type": "content",
+          "id": "9098",
+          "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.25
+          }
+        },
+        {
+          "type": "content",
+          "id": "9055",
+          "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2
+          }
+        },
+        {
+          "type": "content",
+          "id": "9054",
+          "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2
+          }
+        },
+        {
+          "type": "content",
+          "id": "9051",
+          "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2
+          }
+        },
+        {
+          "type": "content",
+          "id": "9277",
+          "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.8095238095238095,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.8095238095238095,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.8095238095238095
+          }
+        },
+        {
+          "type": "content",
+          "id": "8981",
+          "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-19",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261019"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.25
+          }
+        },
+        {
+          "type": "content",
+          "id": "9013",
+          "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.7194907407407407
+          }
+        }
+      ],
+      "reference_cards": [],
+      "unique_content_denominator": 6,
+      "unique_content_compressed": 0
+    },
+    "latest": {
+      "order": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "rows": [
+        {
+          "type": "content",
+          "id": "9277",
+          "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.8095238095238095,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.8095238095238095,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9274",
+          "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261021"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.9703703703703703,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.9703703703703703,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9182",
+          "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T09:22:24Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7898015873015873,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.7898015873015876,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9192",
+          "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T08:57:21Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7885590277777778,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.7885590277777776,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9125",
+          "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9099",
+          "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9098",
+          "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9013",
+          "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "8981",
+          "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-19",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261019"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9055",
+          "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9054",
+          "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9051",
+          "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        }
+      ],
+      "reference_cards": [],
+      "unique_content_denominator": 6,
+      "unique_content_compressed": 0
+    }
+  },
+  "real_material_engineering_culture_interest": {
+    "recommended": {
+      "order": [
+        "content:9125",
+        "content:9098",
+        "content:8981",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9099",
+        "content:9277",
+        "content:9013"
+      ],
+      "rows": [
+        {
+          "type": "content",
+          "id": "9125",
+          "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.738095238095238
+          }
+        },
+        {
+          "type": "content",
+          "id": "9098",
+          "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.25
+          }
+        },
+        {
+          "type": "content",
+          "id": "8981",
+          "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-19",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261019"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.25
+          }
+        },
+        {
+          "type": "content",
+          "id": "9055",
+          "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9054",
+          "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9051",
+          "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9274",
+          "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261021"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.9703703703703703,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.9703703703703703,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.9703703703703703
+          }
+        },
+        {
+          "type": "content",
+          "id": "9182",
+          "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T09:22:24Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7898015873015873,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.7898015873015876,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.7898015873015876
+          }
+        },
+        {
+          "type": "content",
+          "id": "9192",
+          "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T08:57:21Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7885590277777778,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.7885590277777776,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.7885590277777776
+          }
+        },
+        {
+          "type": "content",
+          "id": "9099",
+          "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": -0.75,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.9880952380952381
+          }
+        },
+        {
+          "type": "content",
+          "id": "9277",
+          "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.8095238095238095,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.8095238095238095,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.8095238095238095
+          }
+        },
+        {
+          "type": "content",
+          "id": "9013",
+          "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.7194907407407407
+          }
+        }
+      ],
+      "reference_cards": [],
+      "unique_content_denominator": 6,
+      "unique_content_compressed": 0
+    },
+    "latest": {
+      "order": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "rows": [
+        {
+          "type": "content",
+          "id": "9277",
+          "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.8095238095238095,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.8095238095238095,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9274",
+          "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261021"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.9703703703703703,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.9703703703703703,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9182",
+          "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T09:22:24Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7898015873015873,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.7898015873015876,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9192",
+          "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T08:57:21Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7885590277777778,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.7885590277777776,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9125",
+          "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9099",
+          "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9098",
+          "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9013",
+          "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "8981",
+          "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-19",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261019"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9055",
+          "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9054",
+          "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9051",
+          "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        }
+      ],
+      "reference_cards": [],
+      "unique_content_denominator": 6,
+      "unique_content_compressed": 0
+    }
+  },
+  "offline_ineligible_mock_topic": {
+    "recommended": {
+      "order": [
+        "content:9125",
+        "content:9098",
+        "content:8981",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9099",
+        "content:9277",
+        "content:9013",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada"
+      ],
+      "rows": [
+        {
+          "type": "content",
+          "id": "9125",
+          "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.738095238095238
+          }
+        },
+        {
+          "type": "content",
+          "id": "9098",
+          "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.25
+          }
+        },
+        {
+          "type": "content",
+          "id": "8981",
+          "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-19",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261019"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.25
+          }
+        },
+        {
+          "type": "content",
+          "id": "9055",
+          "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9054",
+          "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9051",
+          "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9274",
+          "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261021"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.9703703703703703,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.9703703703703703,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.9703703703703703
+          }
+        },
+        {
+          "type": "content",
+          "id": "9182",
+          "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T09:22:24Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7898015873015873,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.7898015873015876,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.7898015873015876
+          }
+        },
+        {
+          "type": "content",
+          "id": "9192",
+          "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T08:57:21Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7885590277777778,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.7885590277777776,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.7885590277777776
+          }
+        },
+        {
+          "type": "content",
+          "id": "9099",
+          "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": -0.75,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.9880952380952381
+          }
+        },
+        {
+          "type": "content",
+          "id": "9277",
+          "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.8095238095238095,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.8095238095238095,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.8095238095238095
+          }
+        },
+        {
+          "type": "content",
+          "id": "9013",
+          "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.7194907407407407
+          }
+        },
+        {
+          "type": "topic",
+          "id": "fea3e2d2-99be-5913-8d5c-722009ae2ada",
+          "version": "a8f7fca0b06c855be729d47a4ffb7b5a57857a950424c07e8da72a688570bd2b",
+          "time": {
+            "kind": "occurred",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "score": 0,
+            "fixture": "R2-07 retained mock; ineligible for production",
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "diversity": 0,
+            "total_score": 0
+          }
+        }
+      ],
+      "reference_cards": [],
+      "unique_content_denominator": 6,
+      "unique_content_compressed": 0
+    },
+    "latest": {
+      "order": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "rows": [
+        {
+          "type": "content",
+          "id": "9277",
+          "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.8095238095238095,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.8095238095238095,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9274",
+          "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261021"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.9703703703703703,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.9703703703703703,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9182",
+          "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T09:22:24Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7898015873015873,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.7898015873015876,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9192",
+          "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T08:57:21Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7885590277777778,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.7885590277777776,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9125",
+          "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9099",
+          "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9098",
+          "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9013",
+          "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "8981",
+          "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-19",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261019"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "topic",
+          "id": "fea3e2d2-99be-5913-8d5c-722009ae2ada",
+          "version": "a8f7fca0b06c855be729d47a4ffb7b5a57857a950424c07e8da72a688570bd2b",
+          "time": {
+            "kind": "occurred",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "score": 0,
+            "fixture": "R2-07 retained mock; ineligible for production",
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "diversity": 0.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9055",
+          "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9054",
+          "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9051",
+          "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        }
+      ],
+      "reference_cards": [],
+      "unique_content_denominator": 6,
+      "unique_content_compressed": 0
+    }
+  },
+  "engineering_duplicate_control": {
+    "recommended": {
+      "order": [
+        "content:9125",
+        "content:9098",
+        "content:8981",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9099",
+        "content:9277",
+        "content:engineering-copy-9013",
+        "content:9013",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada"
+      ],
+      "rows": [
+        {
+          "type": "content",
+          "id": "9125",
+          "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.738095238095238
+          }
+        },
+        {
+          "type": "content",
+          "id": "9098",
+          "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.25
+          }
+        },
+        {
+          "type": "content",
+          "id": "8981",
+          "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-19",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261019"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.25
+          }
+        },
+        {
+          "type": "content",
+          "id": "9055",
+          "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9054",
+          "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9051",
+          "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 3.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9274",
+          "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261021"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.9703703703703703,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.9703703703703703,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.9703703703703703
+          }
+        },
+        {
+          "type": "content",
+          "id": "9182",
+          "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T09:22:24Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7898015873015873,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.7898015873015876,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.7898015873015876
+          }
+        },
+        {
+          "type": "content",
+          "id": "9192",
+          "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T08:57:21Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7885590277777778,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 2.7885590277777776,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 2.7885590277777776
+          }
+        },
+        {
+          "type": "content",
+          "id": "9099",
+          "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": -0.75,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.9880952380952381
+          }
+        },
+        {
+          "type": "content",
+          "id": "9277",
+          "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.8095238095238095,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.8095238095238095,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.8095238095238095
+          }
+        },
+        {
+          "type": "content",
+          "id": "engineering-copy-9013",
+          "version": "bf7453b446ed655fa89c4aa0f8afa35e6f71174200b8237d97817d48d50840a4",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "reference",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.7194907407407407
+          }
+        },
+        {
+          "type": "content",
+          "id": "9013",
+          "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "total_score": 1.7194907407407407
+          }
+        },
+        {
+          "type": "topic",
+          "id": "fea3e2d2-99be-5913-8d5c-722009ae2ada",
+          "version": "a8f7fca0b06c855be729d47a4ffb7b5a57857a950424c07e8da72a688570bd2b",
+          "time": {
+            "kind": "occurred",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "score": 0,
+            "fixture": "R2-07 retained mock; ineligible for production",
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "diversity": -0.75,
+            "total_score": -0.75
+          }
+        }
+      ],
+      "reference_cards": [
+        "engineering-copy-9013"
+      ],
+      "unique_content_denominator": 6,
+      "unique_content_compressed": 0,
+      "duplicate_summary_pairs_before": 1,
+      "duplicate_summary_pairs_after": 0
+    },
+    "latest": {
+      "order": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:engineering-copy-9013",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "rows": [
+        {
+          "type": "content",
+          "id": "9277",
+          "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.8095238095238095,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.8095238095238095,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9274",
+          "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-21",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261021"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.9703703703703703,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.9703703703703703,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9182",
+          "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T09:22:24Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7898015873015873,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.7898015873015876,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9192",
+          "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-20T08:57:21Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7885590277777778,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.7885590277777776,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9125",
+          "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "people:frontpage:dated-layout",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9099",
+          "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.7380952380952381,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 2.738095238095238,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9098",
+          "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-20",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261020"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "engineering-copy-9013",
+          "version": "bf7453b446ed655fa89c4aa0f8afa35e6f71174200b8237d97817d48d50840a4",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "reference",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9013",
+          "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+          "time": {
+            "kind": "original",
+            "precision": "time",
+            "at": "2026-10-19T09:44:56Z",
+            "on": null,
+            "basis": "jsonld:datePublished",
+            "raw": null
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 1,
+            "current_value": 0.7194907407407407,
+            "current_reason": "supported_publication_window",
+            "interest": 0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [],
+            "diversity": 0.0,
+            "score": 1.7194907407407407,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "8981",
+          "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+          "time": {
+            "kind": "editorial",
+            "precision": "date",
+            "at": null,
+            "on": "2026-10-19",
+            "basis": "zhihu-daily:list:date",
+            "raw": "20261019"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0.25,
+            "current_reason": "evergreen_supported_material",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.25,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "topic",
+          "id": "fea3e2d2-99be-5913-8d5c-722009ae2ada",
+          "version": "a8f7fca0b06c855be729d47a4ffb7b5a57857a950424c07e8da72a688570bd2b",
+          "time": {
+            "kind": "occurred",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "score": 0,
+            "fixture": "R2-07 retained mock; ineligible for production",
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0,
+            "diversity": 0.0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9055",
+          "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9054",
+          "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        },
+        {
+          "type": "content",
+          "id": "9051",
+          "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+          "time": {
+            "kind": "original",
+            "precision": "unknown"
+          },
+          "presentation": "full",
+          "ranking": {
+            "reading_value": 2,
+            "current_value": 0,
+            "current_reason": "publication_unknown",
+            "interest": 1.0,
+            "feedback": 0,
+            "feedback_value": null,
+            "similar_feedback": 0,
+            "matched_interests": [
+              "domain:71e23a4b09901dbb1b57980be20245dc94912536f6b56a7d463f1c2fd422ca36"
+            ],
+            "diversity": 0.0,
+            "score": 3.0,
+            "important": null,
+            "public_attention": null,
+            "missing_signals": [
+              "important",
+              "public_attention"
+            ],
+            "recall_lanes": [
+              "interest",
+              "readable"
+            ],
+            "importance_boost": 0,
+            "attention_boost": 0
+          }
+        }
+      ],
+      "reference_cards": [
+        "engineering-copy-9013"
+      ],
+      "unique_content_denominator": 6,
+      "unique_content_compressed": 0,
+      "duplicate_summary_pairs_before": 1,
+      "duplicate_summary_pairs_after": 0
+    }
+  },
+  "real_duplicate_ground_truth": null,
+  "real_topic_generation_quality": "unmeasured",
+  "user_acceptance": null,
+  "generation": 0,
+  "embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "production_writes": 0,
+  "isolated_writes_rolled_back": true
+}

@@ -16,6 +16,7 @@ from unspun.core.config import get_settings
 from unspun.core.content_feed import item_out, page
 from unspun.core.content_publication import Item, qualified_item
 from unspun.core.content_reading import GUIDE_VERSION, REVIEW_VERSION, GuideDraft, guide_valid
+from unspun.core.hybrid_feed import page as hybrid_page
 from unspun.core.models import Article, ContentDerivation
 from unspun.core.reader import effective_feedback
 from unspun.core.sources import load_sources
@@ -50,10 +51,13 @@ def local_preview(request: Request, session: Session) -> bool:
 def feed(
     request: Request,
     session: ReadDb,
+    mode: Literal["content", "mixed"] = "content",
     sort: Literal["recommended", "latest"] = "recommended",
     cursor: str | None = Query(default=None, max_length=2000),
     limit: int = Query(default=20, ge=1, le=50),
 ) -> dict[str, Any]:
+    if mode == "mixed":
+        return hybrid_page(session, sort=sort, cursor=cursor, limit=limit, now=datetime.now(UTC))
     return page(
         session,
         preview=local_preview(request, session),

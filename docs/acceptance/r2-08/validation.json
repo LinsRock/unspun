@@ -1,0 +1,44 @@
+{
+  "baseline": "ed21aafcf67675a0233ed71ff5e94233e9349cff",
+  "contract_commit": "4cfa40f",
+  "isolated_worktree": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-hybrid-feed",
+  "import_path": "/Users/li.cong/.config/superpowers/worktrees/unspun/r2-hybrid-feed/server/src/unspun/core/topics.py",
+  "database": "unspun_r208_test_20261023",
+  "baseline_tests": 1248,
+  "final_tests": 1291,
+  "skipped": 0,
+  "hybrid_targeted": 43,
+  "web_tests": 115,
+  "deploy_tests": 18,
+  "ci_scope_tests": 11,
+  "ruff": "passed",
+  "pyright": "passed",
+  "alembic_check": "no new upgrade operations",
+  "schema": "000020",
+  "legacy_ranking": {
+    "cases": 40,
+    "byte_identical": true,
+    "sha256": "a20e6e062b84aef1299b8dfe5eef89d255644104442e033eaa1c2918564852d3"
+  },
+  "existing_evidence_files_unchanged": 416,
+  "performance": {
+    "engineering_history_rows": 10000,
+    "qualified_candidates": 2,
+    "statements": 7,
+    "elapsed_seconds": 0.1148,
+    "snapshot_unchanged": true,
+    "max_fusion_candidates": 632,
+    "ranking_seconds": 0.2441,
+    "production_performance_acceptance": null
+  },
+  "calls": {
+    "generation": 0,
+    "embedding": 0,
+    "paid_retry": 0,
+    "provider_query": 0
+  },
+  "mock_boundary": "Offline ranking fixtures and isolated MockTransport only; never public eligibility",
+  "r206": "deferred; 3/4; quality failed",
+  "r207_real_quality": "unmeasured",
+  "user_acceptance": null
+}

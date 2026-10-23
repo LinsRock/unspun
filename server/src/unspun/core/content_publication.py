@@ -121,6 +121,7 @@ def qualified_items(session: Session, selected: Subquery) -> list[Item]:
         .join(ContentMaterial, ContentMaterial.id == selected.c.material_id)
         .join(ContentDerivation, ContentDerivation.id == selected.c.card_id)
         .order_by(Article.id)
+        .execution_options(populate_existing=True)
     )
     result: list[Item] = []
     for article, material, row, features_at, admission_at in rows:

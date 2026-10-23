@@ -5,7 +5,7 @@ from typing import Any, Literal, cast
 from uuid import UUID
 
 from sqlalchemy import inspect, select
-from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy.dialects.postgresql import distinct_on, insert
 from sqlalchemy.orm import Mapper, Session
 
 from unspun.core.content import ContentContract, fingerprint
@@ -13,7 +13,6 @@ from unspun.core.content_publication import qualified_item
 from unspun.core.db import Base
 from unspun.core.models import (
     Article,
-    ContentDerivation,
     ContentIdentity,
     ContentMaterial,
     ContentUrl,
@@ -110,15 +109,6 @@ def member_input_snapshot(
     if canonical_content_id(session, article_id) != article_id:
         raise ValueError("member identity changed")
     material = session.get(ContentMaterial, material_id, populate_existing=True)
-    # A long-lived session may have cached an earlier ready result. SQL filters
-    # alone do not refresh already loaded ORM payloads during qualification.
-    list(
-        session.scalars(
-            select(ContentDerivation)
-            .where(ContentDerivation.article_id == article_id)
-            .execution_options(populate_existing=True)
-        )
-    )
     item = qualified_item(session, article_id, preview=False, as_of=now, sources=sources)
     if item is None or item.content.material_id != material_id:
         raise ValueError("member material is not currently qualified")
@@ -283,7 +273,8 @@ def topic_snapshot(
     for row in session.scalars(
         select(TopicUpdate)
         .where(TopicUpdate.topic_id == topic.id)
-        .order_by(TopicUpdate.revision)
+        .ext(distinct_on(TopicUpdate.update_id))
+        .order_by(TopicUpdate.update_id, TopicUpdate.revision.desc())
         .execution_options(populate_existing=True)
     ):
         latest[row.update_id] = row
