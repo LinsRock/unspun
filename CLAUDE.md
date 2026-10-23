@@ -1,98 +1,79 @@
 # Unspun
 
-A single-user app for automatic discovery and curation of important developments and personally interesting articles, videos, posts, and discussions. Domestic platforms and Chinese-language sources come first; content can cover the world, with a small set of international sources supplementing coverage.
-Current work: **R2-06 manual corrections and the bounded v6 evaluation entry are delivered; real quality remains incomplete (3/4)**. PR #131 merged/deployed `e48454a` after real-API local preview and the user's subsequent instruction to proceed; see `docs/acceptance/r2-06-completion-2026-10-22.md`. Authenticated topic/member corrections, exact original selection, retained audit/dependency invalidation and recall/judgment/review task-cost drilldown are live at `/admin/topics`. PR/main CI passed (1,192 backend and 115 frontend tests); actual deployment verified 98 source files, protected authentication and unchanged disabled member processing. Independent engineering review corrected control-label/time-role and malformed-report issues; real v6 semantics remain unmeasured and overall user acceptance null. The new entry requires genuine per-request receipts, separately authorized actual reconciliation, completed paid-entry review and explicit paid authorization. No provider query, R2-06 generation/embedding/retry, hold release, old task conversion, blind preparation or activation occurred. Original $0.30/$1.50 budgets, 139/$0.07734293 pool, old seven holds and paid-stop remain. During the observation window, existing R1 made ten card calls before deployment ($0.00563220); production retains 16 holds/$0.605395, evaluation 8/$0.514613. Four new R1 details and one refreshed material explain current 182 details; all 178 previous body versions, reader data, R2-04 resources and 956 frozen artifacts remain. Do not claim whole-window zero fees or unchanged live pages. R2-07+, R2-04 full-window review and cleanup remain outside scope.
+A single-user app for automatic discovery and curation of important developments and personally interesting articles, videos, posts, and discussions. Chinese-language sources and domestic platforms come first, with global coverage and a small set of international sources.
 
-Previous delivered batch: **R2-06 identity/contribution and exact original evidence selections (v6), disabled implementation; last real v4 validation failed, v6 semantics remain unmeasured, and all R2-06 paid phases stopped**. See `docs/acceptance/r2-06-selection-2026-10-21.md`, its frozen contract and D-040. Identity and the query's contribution are separate; facts use owned reference IDs and exact Unicode ranges, with explicit roles/unknowns/conflicts instead of free paraphrases. The server projects one legacy classification, preserving old labels, denominators and all quality gates. Four semantic audits, v5 physical request/response receipts, leases and CAS remain mandatory; literal matches are not semantic support. Each associated candidate allows at most one judgment plus four audits, with no automatic member retry or budget resume. Overall output is 64 KiB, quoted evidence 16 KiB, completion 4096 tokens; resource failure never fabricates/truncates facts or becomes a successful independent decision. R1 retries, models, the 66559 full reservation algorithm and all budgets remain unchanged. This R2-06 work has zero generation, embedding, paid retries and provider lookups. The whole production observation window was not zero-paid: the existing old R1 worker autonomously made seven card calls before this deployment, adding $0.004403 known cost and two unresolved holds/$0.058169; these are separately recorded and never settled or erased. The 17 genuine-original offline cases and injected semantic rejections earn no real semantic credit. Production member processing/allocation stays off; old tasks/registrations are not converted or restarted. Production now retains 12 unresolved holds/$0.489258 (the original ten are intact); the original evaluation ledger retains 8/$0.514613 including the protected original seven/$0.484867. The $0.30 pool, $1.50 allocation and paid-stop remain unchanged; recovery needs per-request genuine receipts, reviewed contracts and separate explicit authorization. No new blind preparation, admin pages, activation, R2-07+, cleanup or R3. R2-06 remains 2/4 and user acceptance null. PR #128 and PR/main CI deployed core f7a7499; actual 96-module/disabled-chain verification passed. The isolated suite passed 1,164 tests. All 151 original details and reader data remain intact; two ambient R1 cards bring qualified details to 153 and change live pages. Original identity/URL rows, R2-04 resources and 956 frozen artifacts were verified unchanged. See the acceptance record and final-audit.json for the explicit ambient-production delta. The prior v5 delivery remains in `docs/acceptance/r2-06-zero-paid-audit-2026-10-21.md`.
+## Read only what the task needs
 
-Prior v4 real validation evidence remains at `docs/acceptance/r2-06-grounding-2026-10-21.md` and `docs/acceptance/r2-06-grounding/results-final.json`. PR #123 deployed core beb8e03; PR #124 merged 99d639a corrected local evaluation credential entry. Its isolated regression had 1,078 passes, zero skips. Natural exposed validation started 4/17 queries: schema 11/16 attempts, relation precision 2/4, observed recall 3/3 (only 3/9 registered expected pairs reached), strict supported final coverage 0/9, natural applied writes 0. All six previously unsealed queries are registered as exposed but 0/6 executed. Separate injected challenges over genuine originals reject anchor-as-query, analysis inference, forbidden voice/paragraph and stale audit replay; one supported control completed four real audits and CAS. Full date-conflict review and real CAS competition remain unmeasured after audit fingerprint failures. Natural complete successful cold/warm chains and cold vectors remain unmeasured. Never mix offline protocol replay or challenge success into natural quality.
-At 07:17 UTC the first new 429 usage-unknown stopped ALL paid work. No paid retry or continuation. Same R2-06 pool: original 107/$0.03171912 plus 32 new attempts/$0.04562381 known, cumulative 139/$0.07734293. Keep the new full $0.029746 reservation (generation lookup 404), seven original $0.484867 holds, original $1.50 ledger, full 66559 reservation algorithm and reviewed same-pool $0.30 cap. All eight holds total $0.514613. Stage ceilings overlap; unused capacity does not authorize bypassing `paid-stop.json`, releasing holds, resetting allocation or automatic expansion. Old task76 invalid applied basis, task110, raw first outputs, frozen splits and scores remain intact; use new namespaces and task-ID claim/reap filters. No new blind preparation/read/run: failed numeric/strict-basis and challenge gates block opening any new seal. Further continuation requires genuine cost reconciliation and a separately reviewed, newly frozen correction/registration; fresh independent family-isolated blind preparation only after every original gate passes. Production member processing, allocation and activation stay off, with zero tasks/calls and seven empty new-chain tables. User acceptance remains null. Admin pages, R2-07+, cleanup/R3 are outside scope. The cleanup entry is `docs/tasks/cleanup.md`, with exact objects, retention dependencies and recovery in `docs/acceptance/cl-00-inventory-2026-10-20.md`. CL-01 removed only the two exclusive legacy modules, their two tests and deployment/startup remnants; deployment evidence is in `docs/acceptance/cl-01-retirement-2026-10-20.md`. CL-02–06 remain pending; old data and unresolved reservations remain intact. R2-00–03 are delivered; the product entry remains `docs/tasks/r2.md`, with R2-03's query contract and deployment evidence under `docs/superpowers/specs/2026-10-20-r2-03-candidate-detail.md` and `docs/acceptance/r2-03-candidate-detail-2026-10-20.md`. Current qualified details and bounded retrieval retain their original scopes, models, quotas and budgets. R2-01 v1, scan v2, candidate v3 and missing user ratings stay frozen. R2-04 has selected The Paper and 36Kr briefs; the user reports the whole window finished: 36Kr 21/21 successful rounds with material review pending, and The Paper 18/21 below the 90% threshold. Both routes remain disabled; full-window review is a separate batch, and paid generation/budget/publication gates remain incomplete. See `docs/acceptance/r2-04-source-increments-2026-10-20.md` for evidence and continuation. R2-05 topic/member/version foundation is delivered and deployed at schema `000018`, with PR/CI, retained-data recovery and production verification in `docs/acceptance/r2-05-topic-foundation-2026-10-20.md`; its internal drafts do not publish topics or regenerate R1 cards. R2-04 stays incomplete and its observer/worktree/raw evidence remain protected. R2-06 first-batch member processing/queue/accounting is delivered and deployed at schema `000019` with its production flag off and no automatic producer or budget-policy changes; real model evaluation has failed its frozen gates; real semantic/reference failures, review grounding, complete fresh holdout validation, admin corrections and activation remain pending, so R2-06 is incomplete. See `docs/acceptance/r2-06-member-processing-2026-10-20.md`. R2-07 onward and R3 remain pending. R1 is closed at 19/19 with qualified user acceptance; `docs/tasks/r1.md` retains its historical evidence. R1's final-only acceptance exception does not extend to R2 page changes. Confirmed direction is in `docs/product-definition.md`; requirements and roadmap remain user-owned. Do not resume legacy M3 work automatically.
-The user confirmed a recommendation-first feed with a latest switch, and daily selections that update when important new content arrives (D-024). Requested sources and validation status live in `docs/source-plan.md`; this list is distinct from the enabled runtime configuration. WeChat public accounts and Xiaohongshu are later exploration items.
-Cross-milestone retirement and cleanup follow D-031: CL-00's read-only inventory is complete; CL-01 removes only the exclusive legacy loop/fetcher and its service/startup remnants, preserving the active `r1-worker`. Shared API/evaluation/event code belongs to CL-04, and the old digest to CL-06 after R3 acceptance. Documentation and development resources have separate CL-02/03 lists; data candidates remain protected or pending under CL-05. All Compose combinations omit the retired `worker`; local defaults leave `r1-worker` disabled, and production retains one controlled consumer. Old summary backlog remains untreated. Rollback must use these retired-service deployment files. Active previews, shared editable targets, frozen evidence, historical failures and all unresolved fee reservations must survive later cleanup.
+Start with `docs/README.md`, then the relevant task section and its specification. Search `docs/decisions.md` for applicable decisions instead of reading the entire log. Do not recursively read `docs/`, all task boards, or every evidence link. `docs/.ignore` keeps historical documents and evidence out of ordinary ripgrep results; read an explicit path or use `rg --no-ignore <pattern> <evidence-directory>` when needed. Historical entries and recovery are indexed in `docs/archive/README.md`.
 
-## Architecture
+## Current boundaries
 
-```
-Browser → Cloudflare Access (login) → Cloudflare Tunnel → VPS
-  cloudflared on the VPS points at 127.0.0.1:8080 (web container, the only published port)
-  web (Caddy: static files + /api/* reverse proxy) → api (FastAPI) → db (Postgres+pgvector)
-  r1-worker (controlled pipeline, same image as api) → db
-```
+Product status lives in `docs/tasks/r2.md`: R1 closed; R2-00–03 and R2-05 delivered; R2-04 incomplete; R2-06 remains **3/4, real quality incomplete, v6 semantics unmeasured, overall user acceptance null**. R2-07+ and R3 are pending. Do not resume legacy M3 work from historical plans.
 
-## Layout
+R2-06 manual corrections and the bounded v6 evaluation entry were deployed as `e48454a` (PR #131). Current delivery and blockers are in `docs/acceptance/r2-06-completion-2026-10-22.md`; read its linked execution registration before continuation. Keep the v6 contract fixed, automated member processing/allocation off and all R2-06 paid phases stopped. Do not automatically repair, retry, resume budgets, convert old tasks, prepare new blind samples or activate production. Preserve unknown reservations, cumulative pools, frozen evidence, old failures and user rating nulls. Provider queries/reconciliation and paid execution still require their separate authorization, genuine per-request receipts and completed execution review. The older `r2-06-exit` record/checker describes its frozen 2026-10-21 snapshot, not current backend delivery.
 
-| Directory | Contents |
-| --- | --- |
-| `server/` | Single Python project: `unspun.api` (FastAPI), `unspun.pipeline` (pipeline), `unspun.core` (config/logging/DB, shared by both) |
-| `web/` | React SPA: Vite + TypeScript strict + Tailwind, oxlint + Vitest |
-| `config/` | Source list, weights, scoring parameters (day-to-day tuning happens here, not in code) |
-| `deploy/` | Dockerfiles, Compose (base + local/prod overlays), Caddyfile, deploy.sh |
-| `docs/` | Requirements and roadmap, in Chinese (the task book — change requirements there first) |
+The user requested documentation cleanup (CL-02); use `docs/tasks/cleanup.md`. Keep frozen evidence at its original path and bytes. CL-01 retired the legacy worker; shared code, development resources and data have separate CL-03–06 scopes. Preserve historical reading, active previews/editable targets and R2-04 observation resources. Recommendation expiry does not authorize data deletion.
+
+## Architecture and layout
+
+Browser -> Cloudflare Access -> Tunnel -> VPS. The tunnel targets
+`127.0.0.1:8080`, the only published port. Caddy serves the React app and proxies
+`/api/*` to FastAPI; the API and controlled `r1-worker` share Postgres + pgvector.
+
+- `server/`: Python; `unspun.api`, `unspun.pipeline`, shared `unspun.core`.
+- `web/`: React, Vite, strict TypeScript, Tailwind, oxlint and Vitest.
+- `config/`: source lists, weights and scoring parameters; tune these here.
+- `deploy/`: Dockerfiles, Compose overlays, Caddy and deploy script.
+- `docs/`: user-owned product direction, requirements and delivery checklists.
+
+Environment variables use `UNSPUN_`; definitions are in `server/src/unspun/core/config.py`.
 
 ## Common commands
 
 ```bash
-# in server/
-uv sync                 # install dependencies
-uv run ruff check . && uv run ruff format .
-uv run pyright          # strict mode
+# server/
+uv sync
+uv run ruff check .
+uv run ruff format --check .
+uv run pyright
 uv run pytest
-uv run alembic revision --autogenerate -m "..."   # create a migration
-uv run uvicorn unspun.api.app:app --reload        # run the API locally (:8000)
+uv run alembic revision --autogenerate -m "..."
+uv run uvicorn unspun.api.app:app --reload  # :8000
 
-# in web/
+# web/
 pnpm install
 pnpm lint && pnpm typecheck && pnpm test
-pnpm dev                # local dev (:5173, /api proxied to :8000)
+pnpm dev  # :5173, /api proxied to :8000
 
-# repo root: local stack (db + api + web + rsshub; r1-worker defaults to 0)
+# repository root; local r1-worker defaults to 0
 docker compose -f deploy/compose.yml -f deploy/compose.local.yml up --build
 ```
 
-## Workflow
+## Workflow and validation
 
-- Always branch + PR; selected CI checks and `required-checks` must pass before merging. Main publishes only cumulative runtime changes, builds affected images, and reuses immutable running references for unchanged services (D-026).
-- R1 used AI-managed intermediate PRs and final user acceptance (D-025). R2 page changes still require a real-API local preview and explicit user acceptance before opening a PR (D-012); documentation and backend work follow the existing review and CI process without additional per-task approval.
-- Keep the retired legacy AI worker absent, including during image rollback. Ordinary deployments, diagnosis, and rollback must not restart it. The controlled R1 runtime retains its registered source, material, and budget boundaries; R2 kickoff does not expand them. See D-025, D-029, and the worker shutdown record.
-- Deployment is the deploy job in `.github/workflows/ci.yml`: cloudflared SSHs into the VPS and runs `deploy/deploy.sh` (resolve release images, wait for DB, migrate with the target image, check budget/preflight, start services without a legacy worker, check the target API version).
-- Environment variables use the `UNSPUN_` prefix and are defined in `server/src/unspun/core/config.py`.
+- Always branch + PR; selected CI checks and `required-checks` must pass before merging. Work through approved batches without extra intermediate approval. Reconcile origin/main before opening a PR.
+- R2 page changes require a real-API local preview and explicit user acceptance before a PR (D-012). R1's AI-managed intermediate delivery exception (D-025) does not extend to R2. Documentation and backend work follow review/CI without additional per-task approval.
+- Requirements belong in `docs/product-definition.md` and `docs/requirement.md`, delivery order in `docs/roadmaps.md`. Distinguish confirmed requirements, suggestions and observed implementation. Change requirements first, then reconcile the task board. Milestone completion needs user confirmation before starting the next one.
+- Plan non-trivial code. Keep recovery/concurrency and budget/accounting independently reviewable; related task IDs may share a PR (D-026). Record a short result and evidence link, not repeated delivery histories.
+- Read applicable decisions before architecture/dependency changes. Record significant choices in `docs/decisions.md`; propose reversals to the user instead of silently overriding them.
+- Run affected checks while iterating and relevant full regression before merging. Review the diff and affected callers once; after fixes, review the additional diff and rerun affected checks. Repeat full review/regression only for material changes or unresolved concerns. For explanation-only docs, check links, state, diff and CI scope; do not run unrelated application tests.
+- Reuse test images, dependency caches, evaluation inputs and tools. Avoid general frameworks or duplicate historical reports for one-off checks. Source observation may start before downstream implementation; publication still needs G2. Preserve migration, recovery, accounting, grounding and real reading/feedback validation.
 
-CI routes checks by changed paths. API contracts and server dependency changes also check the frontend; archived prototypes run only for their own changes. Explanation-only docs do not themselves trigger runtime builds. Evaluation inputs/tools still run backend checks. CI/build configuration changes run all checks, and unknown build inputs take the conservative full path. Main uses paginated production deployment history, verifies the actual deployment step ran, and includes paths touched since that baseline (even reverted changes), so partial failures and rollbacks are not lost. Missing release history falls back to checking/building all inputs. `workflow_dispatch` runs all checks without publishing. Obsolete main runs skip deployment; actual deployment and migration checks remain required. APP_VERSION identifies the assembled release; component image references may retain earlier unchanged revisions.
+CI routing is defined in `.github/scripts/ci_scope.py`. Explanation-only docs do not build runtime images; evaluation inputs/tools run backend checks, prototype changes run their own checks. CI/build changes and unknown build inputs take the conservative full path. Main deploys cumulative runtime changes since the verified production baseline, reuses immutable unchanged images, and skips obsolete runs. Missing history falls back to all checks/builds; `workflow_dispatch` checks without publishing (D-026).
 
-## AI development loop
+Deployment runs through `.github/workflows/ci.yml` and `deploy/deploy.sh`: resolve images, wait for DB, migrate with the target image, check budgets/preflight, start services and verify the target API version. APP_VERSION identifies the assembled release; unchanged component images can retain earlier revisions. Keep the retired worker absent during deployment and rollback; use retired-service deployment files, not old Compose definitions. Production retains one controlled R1 consumer within registered source/material/budget limits (D-025/D-029/D-033).
 
-Rules for AI sessions working on this repo across milestones:
+## Language, commits and PRs
 
-- **Sources of truth**: `docs/product-definition.md` (confirmed direction and design suggestions), `docs/requirement.md` (product spec), and `docs/roadmaps.md` (delivery batches and acceptance). These are living documents owned by the user — distinguish confirmed requirements from proposed defaults and observed implementation. Requirement changes land in `docs/` first; the task board is reconciled afterwards.
-- **Task board**: each milestone has a self-contained board under `docs/tasks/`. Confirm scope at kickoff. Start R2 from `docs/tasks/r2.md`; task IDs are acceptance checklists, and related items may share a delivery PR. Keep recovery/concurrency and budget/accounting independently reviewable; split oversized batches when necessary. R1's historical delivery grouping is recorded in D-026.
-- **Retirement and retention**: use `docs/tasks/cleanup.md` for legacy code/workers, superseded documents, development residue, and unused or stale data. Verify references, ownership, active use, frozen evidence, and recovery before a specific cleanup batch. Recommendation expiry is separate from storage deletion. Keep accounting, unresolved reservations, identity/feedback/task/quota semantics, and required historical reading intact; preserve the existing confirmation rule for schema drops.
-- **Session protocol**: work through approved delivery batches without intermediate user approval. Read the current task board and decisions before each batch and reconcile origin/main before opening its PR. Plan before non-trivial code; run affected checks during iteration and the relevant full regression before merging. Review the diff and affected callers once; after fixes, review the additional diff and rerun affected checks. Repeat full review/regression only for material new changes or unresolved concerns. Update completed checklists and concise new evidence in the same PR.
-- **Execution cost**: reuse existing test images, dependency caches, evaluation inputs, and validation tools. Do not build a general framework or duplicate historical reports for a one-off check. Start read-only source observation as soon as adapters work, in parallel with downstream development; G2 still gates publication. Continue independent implementation while CI runs unless it needs that deployment. Keep migration, recovery, accounting, grounding, and real reading/feedback validation.
-- **Decision log**: `docs/decisions.md` records significant technical choices and why they were made. Check it before proposing architecture or dependency changes; never silently reverse a recorded decision — propose the change to the user and update the log entry instead.
-- **Milestone close**: reconcile `docs/` with what was actually built, record acceptance results on the task board, and confirm with the user before starting the next milestone.
-
-## Language conventions
-
-- Everything in the repo is written in English, with two exemptions:
-  - `docs/` — product documentation stays in Chinese.
-  - User-facing UI copy in `web/src/` — the product UI is Chinese; test assertions follow the UI copy. Comments in `web/src/` are still English.
-- English applies to code, comments, config comments, CI, scripts, log and error messages, commit messages, and PR titles/descriptions.
-- CI enforces this with a CJK scan that fails on Chinese text outside the exemptions above.
-
-## Commit & PR conventions
-
-- Commits follow [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/): `type(scope): subject` — imperative mood, lowercase subject, no trailing period, ≤72 characters.
-  - Types: `feat` `fix` `docs` `ci` `build` `refactor` `test` `perf` `chore`.
-  - Optional scopes: `server` `web` `deploy` `config` `docs`.
-  - The body explains why, not what. Breaking changes use a `BREAKING CHANGE:` footer.
-- PR titles use the same Conventional Commit format (squash merges turn the title into the commit subject); CI validates the title.
-- Keep PRs small and single-topic, and fill in the PR template (Summary / Changes / Testing).
-- Never rewrite published history; pre-convention Chinese commits stay as they are.
+- English throughout the repository except Chinese product documentation in `docs/` and user-facing UI copy/test assertions in `web/src/`. Code comments stay English. CI enforces this.
+- Conventional Commits: `type(scope): subject`; imperative, lowercase, no final period, at most 72 characters. Types: feat, fix, docs, ci, build, refactor, test, perf, chore. Optional scopes: server, web, deploy, config, docs. Bodies explain why; breaking changes use `BREAKING CHANGE:`.
+- PR titles follow the same format; use `.github/pull_request_template.md` (Summary / Changes / Testing). Keep PRs small and single-topic. Never rewrite published history.
 
 ## Hard rules
 
-- No secrets in the repo or in CI logs. Production secrets live only in `~/unspun/.env` on the VPS.
-- Database schema changes must go through Alembic migrations; migrations that drop tables or columns need explicit user confirmation before merging.
-- Never hand-edit containers or data on the production server; every change goes through a PR.
-- Never publish any host port other than `127.0.0.1:8080` (production).
-- Changes to prompts or scoring logic (from M3 on) must pass the standard event-set evaluation before merging.
+- No secrets in the repository or CI logs. Production secrets live only in `~/unspun/.env` on the VPS.
+- Schema changes use Alembic; dropping tables or columns needs explicit user confirmation before merging.
+- Never hand-edit production containers or data; changes go through a PR.
+- Production publishes only `127.0.0.1:8080`.
+- Prompt or scoring changes must pass the standard event-set evaluation before merging.
+- Cleanup uses `docs/tasks/cleanup.md`: verify references, ownership, active use, frozen evidence and recovery. Preserve accounting, unresolved reservations, identity/feedback/task/quota semantics and required historical reading. Do not clear reservations, historical failures or user rating nulls to make checks pass.
