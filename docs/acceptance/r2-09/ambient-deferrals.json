@@ -1,0 +1,183 @@
+{
+  "source": "read-only production database",
+  "new_physical_requests": 0,
+  "derivations": [
+    {
+      "id": 533,
+      "article_id": 9297,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:30:50.893865+00:00"
+    },
+    {
+      "id": 729,
+      "article_id": 9439,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:30:34.681121+00:00"
+    },
+    {
+      "id": 437,
+      "article_id": 8944,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:31:51.603675+00:00"
+    },
+    {
+      "id": 517,
+      "article_id": 8970,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:32:12.373779+00:00"
+    },
+    {
+      "id": 687,
+      "article_id": 9498,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:32:13.329839+00:00"
+    },
+    {
+      "id": 668,
+      "article_id": 9271,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:30:34.908651+00:00"
+    },
+    {
+      "id": 685,
+      "article_id": 9294,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:32:12.844007+00:00"
+    },
+    {
+      "id": 669,
+      "article_id": 9432,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:30:35.152804+00:00"
+    },
+    {
+      "id": 531,
+      "article_id": 9096,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:30:45.413828+00:00"
+    },
+    {
+      "id": 532,
+      "article_id": 9281,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:30:50.662815+00:00"
+    },
+    {
+      "id": 429,
+      "article_id": 8966,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:32:28.588467+00:00"
+    },
+    {
+      "id": 538,
+      "article_id": 9305,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:29:38.644054+00:00"
+    },
+    {
+      "id": 431,
+      "article_id": 9167,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:32:28.804773+00:00"
+    },
+    {
+      "id": 539,
+      "article_id": 9222,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:29:38.892487+00:00"
+    },
+    {
+      "id": 566,
+      "article_id": 9151,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:30:04.18777+00:00"
+    },
+    {
+      "id": 556,
+      "article_id": 8972,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:31:36.311207+00:00"
+    },
+    {
+      "id": 550,
+      "article_id": 9236,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:28:53.011465+00:00"
+    },
+    {
+      "id": 519,
+      "article_id": 9280,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:32:12.614682+00:00"
+    },
+    {
+      "id": 439,
+      "article_id": 9191,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:32:12.135317+00:00"
+    },
+    {
+      "id": 686,
+      "article_id": 9497,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:32:13.088146+00:00"
+    },
+    {
+      "id": 728,
+      "article_id": 9318,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:30:29.469607+00:00"
+    },
+    {
+      "id": 571,
+      "article_id": 8973,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:28:27.798616+00:00"
+    },
+    {
+      "id": 701,
+      "article_id": 9386,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:31:56.851708+00:00"
+    },
+    {
+      "id": 428,
+      "article_id": 9052,
+      "status": "budget_deferred",
+      "reason": "previous physical request awaits reconciliation",
+      "updated_at": "2026-10-23T09:28:53.300567+00:00"
+    }
+  ],
+  "attempts_by_kind": [
+    {
+      "kind": "process_card",
+      "status": "deferred",
+      "error": "previous physical request awaits reconciliation",
+      "attempts": 168
+    }
+  ],
+  "interpretation": "Existing R1 scheduling retries stop at the unresolved-request guard; no provider request, fee, hold release or new-chain task."
+}
