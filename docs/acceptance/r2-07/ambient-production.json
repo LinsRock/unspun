@@ -1,0 +1,174 @@
+{
+  "read_only": "on",
+  "calls": [
+    {
+      "id": "44d5435d64e84d6592c21a21b5cc77fb",
+      "stage": "card",
+      "phase": "generate",
+      "status": "responded",
+      "article_id": 9508,
+      "started_at": "2026-10-23 06:00:13.773000+00:00",
+      "ended_at": "2026-10-23 06:00:15.726184+00:00",
+      "usage_id": 19150,
+      "reserved_usd": "0.028840000000",
+      "cost_usd": "0.0003005",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "ae572d6afd794f8ea876e39844bc9f24",
+      "stage": "card",
+      "phase": "review",
+      "status": "responded",
+      "article_id": 9508,
+      "started_at": "2026-10-23 06:00:15.758577+00:00",
+      "ended_at": "2026-10-23 06:00:17.389135+00:00",
+      "usage_id": 19151,
+      "reserved_usd": "0.170489000000",
+      "cost_usd": "0.0006782",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "b57f2e83c9b546198ad2d4c54d5678fa",
+      "stage": "card",
+      "phase": "generate",
+      "status": "responded",
+      "article_id": 9370,
+      "started_at": "2026-10-23 06:00:17.688679+00:00",
+      "ended_at": "2026-10-23 06:00:19.670908+00:00",
+      "usage_id": 19152,
+      "reserved_usd": "0.029492000000",
+      "cost_usd": "0.0004562",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "40910d8a019048da917ae09c7e983d6b",
+      "stage": "card",
+      "phase": "review",
+      "status": "responded",
+      "article_id": 9370,
+      "started_at": "2026-10-23 06:00:19.708421+00:00",
+      "ended_at": "2026-10-23 06:00:21.215508+00:00",
+      "usage_id": 19153,
+      "reserved_usd": "0.172031000000",
+      "cost_usd": "0.0012317",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "f48f2a46aa6c4a6baa8aaf86ec6ab161",
+      "stage": "card",
+      "phase": "generate",
+      "status": "responded",
+      "article_id": 9565,
+      "started_at": "2026-10-23 06:00:21.480891+00:00",
+      "ended_at": "2026-10-23 06:00:23.359014+00:00",
+      "usage_id": 19154,
+      "reserved_usd": "0.028728000000",
+      "cost_usd": "0.0002937",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "3586f37d06c549a190674d931725976b",
+      "stage": "card",
+      "phase": "review",
+      "status": "responded",
+      "article_id": 9565,
+      "started_at": "2026-10-23 06:00:23.385767+00:00",
+      "ended_at": "2026-10-23 06:00:24.766435+00:00",
+      "usage_id": 19155,
+      "reserved_usd": "0.169949000000",
+      "cost_usd": "0.000776",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "02ff555a162144be967e411093f7aecc",
+      "stage": "card",
+      "phase": "generate",
+      "status": "responded",
+      "article_id": 9503,
+      "started_at": "2026-10-23 06:00:25.244376+00:00",
+      "ended_at": "2026-10-23 06:00:27.098786+00:00",
+      "usage_id": 19156,
+      "reserved_usd": "0.029278000000",
+      "cost_usd": "0.000366",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "6838c3bb667240d6805e13191680cf3c",
+      "stage": "card",
+      "phase": "review",
+      "status": "responded",
+      "article_id": 9503,
+      "started_at": "2026-10-23 06:00:27.130014+00:00",
+      "ended_at": "2026-10-23 06:00:28.305469+00:00",
+      "usage_id": 19157,
+      "reserved_usd": "0.171370000000",
+      "cost_usd": "0.0008898",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "4fa4464fd15d44d4b7661d97c87f3b01",
+      "stage": "card",
+      "phase": "generate",
+      "status": "responded",
+      "article_id": 9584,
+      "started_at": "2026-10-23 06:00:28.565025+00:00",
+      "ended_at": "2026-10-23 06:00:30.000977+00:00",
+      "usage_id": 19158,
+      "reserved_usd": "0.028569000000",
+      "cost_usd": "0.0002237",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "d352c2504afa47229e36fde6d2e5accc",
+      "stage": "card",
+      "phase": "review",
+      "status": "responded",
+      "article_id": 9584,
+      "started_at": "2026-10-23 06:00:30.021530+00:00",
+      "ended_at": "2026-10-23 06:00:31.310074+00:00",
+      "usage_id": 19159,
+      "reserved_usd": "0.169475000000",
+      "cost_usd": "0.0005787",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "03b58c3ba0214cb18fe3f208dd1b3a82",
+      "stage": "card",
+      "phase": "generate",
+      "status": "responded",
+      "article_id": 9392,
+      "started_at": "2026-10-23 06:00:31.560210+00:00",
+      "ended_at": "2026-10-23 06:00:33.702203+00:00",
+      "usage_id": 19160,
+      "reserved_usd": "0.029091000000",
+      "cost_usd": "0.0003977",
+      "strategy_version": "r1-card-v9"
+    },
+    {
+      "id": "5d9de86a71fd4a88aea25268d26caf21",
+      "stage": "card",
+      "phase": "review",
+      "status": "responded",
+      "article_id": 9392,
+      "started_at": "2026-10-23 06:00:33.736195+00:00",
+      "ended_at": "2026-10-23 06:00:34.993251+00:00",
+      "usage_id": 19161,
+      "reserved_usd": "0.171622000000",
+      "cost_usd": "0.0009357",
+      "strategy_version": "r1-card-v9"
+    }
+  ],
+  "tables": {
+    "content_identities": {
+      "rows": 821,
+      "hash": "730d52e2ab42680e5a7546e27650cac8"
+    },
+    "content_urls": {
+      "rows": 870,
+      "hash": "bb985d7c5bb017b34f1ab0c6f3b13f08"
+    }
+  },
+  "articles": {},
+  "database_writes": 0,
+  "provider_queries": 0
+}

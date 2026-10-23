@@ -20,6 +20,6 @@
     "allow attribution/qualification-only corrections while retaining original times",
     "refuse identical progress assertions under a new key or twice in one batch"
   ],
-  "validation": "full regression plus final affected tests; actual CI/deploy pending",
+  "validation": "Full local regression, final 56 affected tests, PR/main CI passed; final PR has 1248 backend and 115 frontend passes; actual disabled production deployment verified",
   "no_fee_or_activation_authority": true
 }
