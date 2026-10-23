@@ -1,0 +1,147 @@
+{
+  "read_only": "on",
+  "calls": [
+    {
+      "id": "38c1964b7a3743378365d8bee6071134",
+      "article_id": 9427,
+      "source_id": "wsj-world",
+      "stage": "card",
+      "phase": "generate",
+      "started_at": "2026-10-23 08:00:12.534021+00:00",
+      "ended_at": "2026-10-23 08:00:14.057050+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.0001855"
+    },
+    {
+      "id": "cd6c552accf64566851f2eb19cb10644",
+      "article_id": 9585,
+      "source_id": "people-frontpage",
+      "stage": "card",
+      "phase": "generate",
+      "started_at": "2026-10-23 08:00:14.614625+00:00",
+      "ended_at": "2026-10-23 08:00:16.976495+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.0003591"
+    },
+    {
+      "id": "a45b8b5b242f4f51a81df651ad0cccbb",
+      "article_id": 9585,
+      "source_id": "people-frontpage",
+      "stage": "card",
+      "phase": "review",
+      "started_at": "2026-10-23 08:00:17.023247+00:00",
+      "ended_at": "2026-10-23 08:00:18.201531+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.0008831"
+    },
+    {
+      "id": "7c9b6430ff564cb9a9378eb00f41180c",
+      "article_id": 9518,
+      "source_id": "zaobao-china",
+      "stage": "card",
+      "phase": "generate",
+      "started_at": "2026-10-23 08:00:18.993266+00:00",
+      "ended_at": "2026-10-23 08:00:20.866224+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.0003056"
+    },
+    {
+      "id": "42761afe7a03490592c36d7ab60e2436",
+      "article_id": 9518,
+      "source_id": "zaobao-china",
+      "stage": "card",
+      "phase": "review",
+      "started_at": "2026-10-23 08:00:20.895317+00:00",
+      "ended_at": "2026-10-23 08:00:22.064059+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.0007295"
+    },
+    {
+      "id": "9bae1d21aed84944b4f20550cf25ec16",
+      "article_id": 9514,
+      "source_id": "zaobao-world",
+      "stage": "card",
+      "phase": "generate",
+      "started_at": "2026-10-23 08:00:22.366096+00:00",
+      "ended_at": "2026-10-23 08:00:24.416350+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.0003446"
+    },
+    {
+      "id": "4515ed27b42249fb87880ca661cc2dcc",
+      "article_id": 9514,
+      "source_id": "zaobao-world",
+      "stage": "card",
+      "phase": "review",
+      "started_at": "2026-10-23 08:00:24.459897+00:00",
+      "ended_at": "2026-10-23 08:00:25.660442+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.0008193"
+    },
+    {
+      "id": "8760847d5b4143d8adcbd985db3e0b58",
+      "article_id": 9058,
+      "source_id": "douban-book",
+      "stage": "card",
+      "phase": "generate",
+      "started_at": "2026-10-23 08:00:30.954596+00:00",
+      "ended_at": "2026-10-23 08:00:33.247253+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.00056"
+    },
+    {
+      "id": "c39ec7e75fb14381879be5426ad30040",
+      "article_id": 9058,
+      "source_id": "douban-book",
+      "stage": "card",
+      "phase": "review",
+      "started_at": "2026-10-23 08:00:33.288566+00:00",
+      "ended_at": "2026-10-23 08:00:34.505612+00:00",
+      "strategy_version": "r1-card-v9",
+      "kind": "process_card",
+      "cost_usd": "0.001415"
+    }
+  ],
+  "materials": [
+    {
+      "id": 287,
+      "scope": "open_text_unit",
+      "retrieved_at": "2026-10-21 10:00:28.670472+00:00",
+      "body_sha256": "6fcd049040b51bf4bc0f6373826a0528e4659f2016042fa0c7b91842be893dd1"
+    },
+    {
+      "id": 451,
+      "scope": "open_text_unit",
+      "retrieved_at": "2026-10-23 08:00:26.129056+00:00",
+      "body_sha256": "e8fbabe5f6635e07502822f70ba36258bdb2209bafcae19fa5d1afbe3507d737"
+    }
+  ],
+  "cards": [
+    {
+      "id": 543,
+      "material_id": 287,
+      "input_fingerprint": "05685285b1e8ae10dd03c78324a195d6878a3f703f8dcf5ee3ce4b156925337a",
+      "status": "invalidated",
+      "created_at": "2026-10-21 10:00:30.786978+00:00",
+      "updated_at": "2026-10-21 10:00:38.408709+00:00",
+      "payload_sha256": "bef27811ce025a6db344cccd94c5d8923f20b66f756f54cd3d1f1d7ba6661276"
+    },
+    {
+      "id": 829,
+      "material_id": 451,
+      "input_fingerprint": "c771cd4863069b9e72e7ae795cab4eb07e2102724565aa16669329e395845f6b",
+      "status": "ready",
+      "created_at": "2026-10-23 08:00:26.823699+00:00",
+      "updated_at": "2026-10-23 08:00:34.552393+00:00",
+      "payload_sha256": "2fcc0ec3e50223c9d515851bb545fe4158cd592280b50a299b079fe59b843bfc"
+    }
+  ]
+}

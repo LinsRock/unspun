@@ -40,5 +40,8 @@
   "mock_boundary": "Offline ranking fixtures and isolated MockTransport only; never public eligibility",
   "r206": "deferred; 3/4; quality failed",
   "r207_real_quality": "unmeasured",
-  "user_acceptance": null
+  "user_acceptance": null,
+  "pr": "https://github.com/LinsRock/unspun/pull/136",
+  "pr_ci": "https://github.com/LinsRock/unspun/actions/runs/39923121915",
+  "main_ci_and_deploy": "https://github.com/LinsRock/unspun/actions/runs/39924652208"
 }
