@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     r2_member_processing_enabled: bool = False
     r2_synthesis_enabled: bool = False
     r2_topic_publication_enabled: bool = False
+    r2_hybrid_enabled: bool = False
     log_json: bool = True
     # Default fits local dev (run from server/); the container image sets
     # UNSPUN_CONFIG_DIR=/app/config.

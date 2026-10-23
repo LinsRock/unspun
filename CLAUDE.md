@@ -8,7 +8,7 @@ Start with `docs/README.md`, then the relevant task section and its specificatio
 
 ## Current boundaries
 
-Product status lives in `docs/tasks/r2.md`: R1 closed; R2-00–03 and R2-05 delivered; R2-04 incomplete; R2-06 remains **3/4, real quality incomplete, v6 semantics unmeasured, overall user acceptance null**. R2-06 is deferred; R2-07 has its first backend delivery deployed at `1d92421` / schema `000020`, with processing/publication off and real quality incomplete. R2-08+ and R3 are pending. Do not resume legacy M3 work from historical plans.
+Product status lives in `docs/tasks/r2.md`: R1 closed; R2-00–03 and R2-05 delivered; R2-04 incomplete; R2-06 remains **3/4, real quality incomplete, v6 semantics unmeasured, overall user acceptance null**. R2-06 is deferred; R2-07 has its first backend delivery deployed at `1d92421` / schema `000020`, with processing/publication off and real quality incomplete. R2-08 has its first hybrid backend implemented with the entry default off; delivery evidence is in `docs/acceptance/r2-08-hybrid-feed-2026-10-23.md`. R2-09+ and R3 are pending. Do not resume legacy M3 work from historical plans.
 
 R2-07 follows D-041 and `docs/superpowers/specs/2026-10-23-r2-07-progress-overview.md`; its engineering evidence is in `docs/acceptance/r2-07-progress-overview-2026-10-23.md`. Use reviewed manual member versions in isolation, independent of unaccepted automatic membership. Mock responses are engineering evidence only. Processing/publication default off; no allocation means rejection and other stages cannot fund this chain. Models, budgets, paid-stop, reservations and historical data stay protected.
 
