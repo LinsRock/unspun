@@ -1,0 +1,63 @@
+{
+  "checked_at": "2026-10-23T08:39:47.748747+00:00",
+  "production_revision": "13b6fdd7d71cc1a8041b8b6c0e441fe0e4954f5e",
+  "schema": "000020",
+  "read_only_checks": true,
+  "source_files_matched": 109,
+  "hybrid_member_synthesis_publication_enabled": false,
+  "topic_tables_empty": 8,
+  "topic_tasks_calls": 0,
+  "original_details_unchanged": 230,
+  "original_body_versions_preserved": 231,
+  "ambient_changed_detail_ids": [
+    "9058"
+  ],
+  "current_details": 234,
+  "new_ambient_detail_ids": [
+    "9514",
+    "9518",
+    "9585"
+  ],
+  "reader_and_legacy_rows_preserved": true,
+  "previous_identity_url_rows_preserved": true,
+  "model_budget_carry_config_preserved": true,
+  "ledgers": {
+    "production": {
+      "existing_unknowns_preserved": 24,
+      "unknowns_now": 24,
+      "reserved_usd": "0.834861000000",
+      "ambient_new_calls": 9,
+      "ambient_known_calls": 9,
+      "ambient_known_usd": "0.0056017",
+      "new_unknown_ids": []
+    },
+    "evaluation": {
+      "existing_unknowns_preserved": 8,
+      "unknowns_now": 8,
+      "reserved_usd": "0.514613000000",
+      "ambient_new_calls": 0,
+      "ambient_known_calls": 0,
+      "ambient_known_usd": "0",
+      "new_unknown_ids": []
+    }
+  },
+  "protected_evidence_files": 416,
+  "r204_files": 331,
+  "r204_containers": 3,
+  "r204_worktree_preserved": true,
+  "legacy_workers": 0,
+  "r1_workers": 1,
+  "web_image_reused": "ghcr.io/linsrock/unspun-web:e48454a36da7b82eda206a8964bed3835df9c5bf",
+  "only_published_port": "127.0.0.1:8080",
+  "generation": 0,
+  "embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "r206": "deferred, 3/4, real quality failed",
+  "r207_real_quality": "unmeasured",
+  "user_acceptance": null,
+  "production_enablement": false,
+  "disabled_handler_rejection_status": 404,
+  "closure_probe": "Deployed API-container read function and settings; authenticated route contract also tested in CI",
+  "changed_content_original_card_payload_preserved": true
+}
