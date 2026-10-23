@@ -13,7 +13,14 @@ from sqlalchemy.orm import Session
 
 from unspun.core.content import fingerprint
 from unspun.core.models import Article
-from unspun.core.reader_models import ContentFeedback, ReaderChange, ReaderInterest, ReaderState
+from unspun.core.reader_models import (
+    ContentFeedback,
+    ReaderChange,
+    ReaderInterest,
+    ReaderRequest,
+    ReaderState,
+)
+from unspun.core.reader_targets import change_topic_preference, topic_preferences
 from unspun.core.sources import load_sources
 
 DOMAIN_KEYS = {
@@ -109,7 +116,11 @@ def support(target: dict[str, Any]) -> dict[str, Any]:
 
 
 def snapshot(
-    session: Session, *, replayed: bool = False, unchanged: bool = False
+    session: Session,
+    *,
+    replayed: bool = False,
+    unchanged: bool = False,
+    include_topics: bool = False,
 ) -> dict[str, Any]:
     state = session.get(ReaderState, 1)
     interests = list(session.scalars(select(ReaderInterest).order_by(ReaderInterest.resource_key)))
@@ -130,6 +141,7 @@ def snapshot(
             {"content_id": article_id, "value": f.value, "version": f.version}
             for article_id, f in sorted(feedback.items())
         ],
+        **({"topic_preferences": topic_preferences(session)} if include_topics else {}),
         "replayed": replayed,
         "unchanged": unchanged,
     }
@@ -175,6 +187,8 @@ def mutate(
     kind: str,
     target: dict[str, Any],
     value: dict[str, Any] | None,
+    *,
+    include_topics: bool = False,
 ) -> dict[str, Any]:
     mutation_id = str(body.mutation_id)
     fp = fingerprint(
@@ -190,16 +204,31 @@ def mutate(
         .execution_options(populate_existing=True)
     )
     assert state
-    receipt = session.scalar(select(ReaderChange).where(ReaderChange.mutation_id == mutation_id))
+    receipt = session.get(ReaderRequest, mutation_id) or session.scalar(
+        select(ReaderChange).where(ReaderChange.mutation_id == mutation_id)
+    )
     if receipt:
         if receipt.fingerprint != fp:
             raise HTTPException(
-                409, detail={"code": "mutation_id_reused", "current": snapshot(session)}
+                409,
+                detail={
+                    "code": "mutation_id_reused",
+                    "current": snapshot(session, include_topics=include_topics),
+                },
             )
-        return snapshot(session, replayed=True)
+        return snapshot(
+            session,
+            replayed=True,
+            include_topics=include_topics,
+            unchanged=isinstance(receipt, ReaderRequest) and receipt.unchanged,
+        )
     if state.version != body.version:
         raise HTTPException(
-            409, detail={"code": "reader_version_conflict", "current": snapshot(session)}
+            409,
+            detail={
+                "code": "reader_version_conflict",
+                "current": snapshot(session, include_topics=include_topics),
+            },
         )
     before: dict[str, Any] | None = None
     changed = True
@@ -256,6 +285,9 @@ def mutate(
         elif existing:
             for alias in group:
                 session.delete(alias)
+    elif kind in {"topic_follow", "topic_feedback"}:
+        before, after = change_topic_preference(session, kind, target, value, state.version + 1)
+        changed = before != after
     elif kind == "browse":
         before = {"sort": state.sort}
         after = value
@@ -265,8 +297,17 @@ def mutate(
             state.sort = after["sort"]
     else:
         raise ValueError("unsupported reader mutation")
+    session.add(
+        ReaderRequest(
+            mutation_id=mutation_id,
+            fingerprint=fp,
+            version=state.version + int(changed),
+            unchanged=not changed,
+        )
+    )
     if not changed:
-        return snapshot(session, unchanged=True)
+        session.flush()
+        return snapshot(session, unchanged=True, include_topics=include_topics)
     state.version += 1
     state.last_mutation_id = mutation_id
     state.last_mutation_fingerprint = fp
@@ -282,4 +323,4 @@ def mutate(
         )
     )
     session.flush()
-    return snapshot(session)
+    return snapshot(session, include_topics=include_topics)

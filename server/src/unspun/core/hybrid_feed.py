@@ -73,6 +73,7 @@ def page(
             "reader": reader_snapshot,
             "sources": [s.model_dump(mode="json") for s in sources],
             "topic_publication": get_settings().r2_topic_publication_enabled,
+            "topic_preferences": get_settings().r2_topic_preferences_enabled,
             "candidates": [
                 {
                     **asdict(c),

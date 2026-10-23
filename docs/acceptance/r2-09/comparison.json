@@ -1,0 +1,885 @@
+{
+  "contract": "r2-topic-preferences-v1",
+  "as_of": "2026-10-23T08:00:00+00:00",
+  "material_file": "docs/evaluations/r2/member-grounding-exposed-inputs-v1.json.gz",
+  "sha256": "817d1f85d9c9f10032aafe3675677af96014395197a083af16ae423cfe8cf322",
+  "reviewer": "Codex engineering comparison; no human quality rating",
+  "candidates": [
+    {
+      "type": "content",
+      "id": "9277",
+      "version": "f4c17bfcc732a8331d94f62be970ac64c577e37f970bb3bf1ff5508c83bea765",
+      "time": {
+        "kind": "editorial",
+        "precision": "date",
+        "at": null,
+        "on": "2026-10-21",
+        "basis": "people:frontpage:dated-layout",
+        "raw": null
+      }
+    },
+    {
+      "type": "content",
+      "id": "9274",
+      "version": "d68305ad1fd1328654f108e53e9adf5d33174fce3fc637d7b8b19dd2c17a3631",
+      "time": {
+        "kind": "editorial",
+        "precision": "date",
+        "at": null,
+        "on": "2026-10-21",
+        "basis": "zhihu-daily:list:date",
+        "raw": "20261021"
+      }
+    },
+    {
+      "type": "content",
+      "id": "9182",
+      "version": "44e20d52ac396b699f1f92ebc87fd96ad5006b647c2f90dcc02812e027487f71",
+      "time": {
+        "kind": "original",
+        "precision": "time",
+        "at": "2026-10-20T09:22:24Z",
+        "on": null,
+        "basis": "jsonld:datePublished",
+        "raw": null
+      }
+    },
+    {
+      "type": "content",
+      "id": "9192",
+      "version": "afe04081bc39d7432dc0a33cb4a264ba76ac8d1b4aa8930292eceb57092e15cd",
+      "time": {
+        "kind": "original",
+        "precision": "time",
+        "at": "2026-10-20T08:57:21Z",
+        "on": null,
+        "basis": "jsonld:datePublished",
+        "raw": null
+      }
+    },
+    {
+      "type": "content",
+      "id": "9125",
+      "version": "817afa805dbe1460eff225e2fa755f5e55263a0a4755ffaa4efe4c0ce8a9fbd1",
+      "time": {
+        "kind": "editorial",
+        "precision": "date",
+        "at": null,
+        "on": "2026-10-20",
+        "basis": "people:frontpage:dated-layout",
+        "raw": null
+      }
+    },
+    {
+      "type": "content",
+      "id": "9099",
+      "version": "40d03fa752f46ff3f3d24c18e359263239f5bd0143962487bfd1dc5edb0bccb9",
+      "time": {
+        "kind": "editorial",
+        "precision": "date",
+        "at": null,
+        "on": "2026-10-20",
+        "basis": "zhihu-daily:list:date",
+        "raw": "20261020"
+      }
+    },
+    {
+      "type": "content",
+      "id": "9098",
+      "version": "1db790e58d24c8480efce2907b5c51baff5690ece159050f3615aab723065ba8",
+      "time": {
+        "kind": "editorial",
+        "precision": "date",
+        "at": null,
+        "on": "2026-10-20",
+        "basis": "zhihu-daily:list:date",
+        "raw": "20261020"
+      }
+    },
+    {
+      "type": "content",
+      "id": "9013",
+      "version": "aea65be42ba264d336cb1d49217cef0ff256c8950a47780add96e8391a13863b",
+      "time": {
+        "kind": "original",
+        "precision": "time",
+        "at": "2026-10-19T09:44:56Z",
+        "on": null,
+        "basis": "jsonld:datePublished",
+        "raw": null
+      }
+    },
+    {
+      "type": "content",
+      "id": "8981",
+      "version": "38edd79d6f1634ff553c1f9a3a86413950a1ea36150d124e21f00a58b2283c8f",
+      "time": {
+        "kind": "editorial",
+        "precision": "date",
+        "at": null,
+        "on": "2026-10-19",
+        "basis": "zhihu-daily:list:date",
+        "raw": "20261019"
+      }
+    },
+    {
+      "type": "content",
+      "id": "9055",
+      "version": "d180604703d5a6c42247d2a87dbc2e517306742d3d377055fb2ad898c9127361",
+      "time": {
+        "kind": "original",
+        "precision": "unknown"
+      }
+    },
+    {
+      "type": "content",
+      "id": "9054",
+      "version": "1dc09983b1284d6b80d55d3d946fa52f8d6dc440ac48b7569645d3b959e15a8d",
+      "time": {
+        "kind": "original",
+        "precision": "unknown"
+      }
+    },
+    {
+      "type": "content",
+      "id": "9051",
+      "version": "78ccb69c930e9ff4a0d4acae79fa2d4a4b1f4f21aeb5f5ceb0765bc1eced03f9",
+      "time": {
+        "kind": "original",
+        "precision": "unknown"
+      }
+    },
+    {
+      "type": "topic",
+      "id": "fea3e2d2-99be-5913-8d5c-722009ae2ada",
+      "version": "a8f7fca0b06c855be729d47a4ffb7b5a57857a950424c07e8da72a688570bd2b",
+      "time": {
+        "kind": "occurred",
+        "precision": "unknown"
+      }
+    },
+    {
+      "type": "topic",
+      "id": "engineering-unrelated-topic",
+      "version": "a8f7fca0b06c855be729d47a4ffb7b5a57857a950424c07e8da72a688570bd2b",
+      "time": {
+        "kind": "occurred",
+        "precision": "unknown"
+      }
+    }
+  ],
+  "qualified_content_count": 12,
+  "topic_provenance": "retained R2-07 ineligible mock and named engineering control; pure ranker only",
+  "scenarios": {
+    "baseline": {
+      "recommended": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9277",
+        "content:8981",
+        "content:9013",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": false,
+        "follow_boost": 0,
+        "feedback_value": null,
+        "feedback": 0,
+        "topic_preference_score": 0,
+        "score": 0,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": 0
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "follow": {
+      "recommended": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:8981",
+        "content:9277",
+        "content:9013",
+        "topic:engineering-unrelated-topic"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": true,
+        "follow_boost": 2,
+        "feedback_value": null,
+        "feedback": 0,
+        "topic_preference_score": 2,
+        "score": 2,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": 2
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "positive": {
+      "recommended": [
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9277",
+        "content:8981",
+        "content:9013",
+        "topic:engineering-unrelated-topic"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": true,
+        "follow_boost": 2,
+        "feedback_value": "interested",
+        "feedback": 2.0,
+        "topic_preference_score": 4.0,
+        "score": 4.0,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": 4.0
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "negative": {
+      "recommended": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9277",
+        "content:8981",
+        "content:9013",
+        "topic:engineering-unrelated-topic",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": true,
+        "follow_boost": 0,
+        "feedback_value": "not_interested",
+        "feedback": -3.0,
+        "topic_preference_score": -3.0,
+        "score": -3.0,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": -3.0
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "modify_positive": {
+      "recommended": [
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9277",
+        "content:8981",
+        "content:9013",
+        "topic:engineering-unrelated-topic"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": true,
+        "follow_boost": 2,
+        "feedback_value": "interested",
+        "feedback": 2.0,
+        "topic_preference_score": 4.0,
+        "score": 4.0,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": 4.0
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "revoke_feedback": {
+      "recommended": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:8981",
+        "content:9277",
+        "content:9013",
+        "topic:engineering-unrelated-topic"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": true,
+        "follow_boost": 2,
+        "feedback_value": null,
+        "feedback": 0,
+        "topic_preference_score": 2,
+        "score": 2,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": 2
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "unfollow": {
+      "recommended": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9277",
+        "content:8981",
+        "content:9013",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": false,
+        "follow_boost": 0,
+        "feedback_value": null,
+        "feedback": 0,
+        "topic_preference_score": 0,
+        "score": 0,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": 0
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "positive_only": {
+      "recommended": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:8981",
+        "content:9277",
+        "content:9013",
+        "topic:engineering-unrelated-topic"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": false,
+        "follow_boost": 0,
+        "feedback_value": "interested",
+        "feedback": 2.0,
+        "topic_preference_score": 2.0,
+        "score": 2.0,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": 2.0
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "negative_only": {
+      "recommended": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9277",
+        "content:8981",
+        "content:9013",
+        "topic:engineering-unrelated-topic",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": false,
+        "follow_boost": 0,
+        "feedback_value": "not_interested",
+        "feedback": -3.0,
+        "topic_preference_score": -3.0,
+        "score": -3.0,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": -3.0
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    },
+    "revoke_all": {
+      "recommended": [
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9055",
+        "content:9054",
+        "content:9051",
+        "content:9277",
+        "content:8981",
+        "content:9013",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic"
+      ],
+      "latest": [
+        "content:9277",
+        "content:9274",
+        "content:9182",
+        "content:9192",
+        "content:9125",
+        "content:9099",
+        "content:9098",
+        "content:9013",
+        "content:8981",
+        "topic:fea3e2d2-99be-5913-8d5c-722009ae2ada",
+        "topic:engineering-unrelated-topic",
+        "content:9055",
+        "content:9054",
+        "content:9051"
+      ],
+      "target_reasons": {
+        "followed": false,
+        "follow_boost": 0,
+        "feedback_value": null,
+        "feedback": 0,
+        "topic_preference_score": 0,
+        "score": 0,
+        "important": null,
+        "public_attention": null,
+        "missing_signals": [
+          "important",
+          "public_attention"
+        ],
+        "recall_lanes": [
+          "readable"
+        ],
+        "importance_boost": 0,
+        "attention_boost": 0,
+        "diversity": 0,
+        "total_score": 0
+      },
+      "other_base_scores": {
+        "content:9277": 1.8095238095238095,
+        "content:9274": 2.9703703703703703,
+        "content:9182": 2.7898015873015876,
+        "content:9192": 2.7885590277777776,
+        "content:9125": 2.738095238095238,
+        "content:9099": 2.738095238095238,
+        "content:9098": 2.25,
+        "content:9013": 1.7194907407407407,
+        "content:8981": 2.25,
+        "content:9055": 2,
+        "content:9054": 2,
+        "content:9051": 2,
+        "topic:engineering-unrelated-topic": 0
+      }
+    }
+  },
+  "latest_unchanged": true,
+  "other_base_scores_unchanged": true,
+  "generation": 0,
+  "embedding": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "production_writes": 0,
+  "isolated_writes_rolled_back": true,
+  "real_topic_quality": "unmeasured",
+  "user_acceptance": null
+}

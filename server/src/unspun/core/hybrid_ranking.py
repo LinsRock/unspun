@@ -39,6 +39,27 @@ def time_key(value: dict[str, Any]) -> datetime:
     return datetime.min.replace(tzinfo=UTC)
 
 
+def topic_preference_score(
+    followed: bool, feedback: str | None, policy: HybridRules, reader: ReaderRules
+) -> dict[str, Any]:
+    """Direct topic signals never propagate; explicit rejection suspends follow boost."""
+    follow_boost = policy.topic_follow_weight if followed and feedback != "not_interested" else 0
+    score = (
+        reader.positive_feedback
+        if feedback == "interested"
+        else reader.negative_feedback
+        if feedback == "not_interested"
+        else 0
+    )
+    return {
+        "followed": followed,
+        "follow_boost": follow_boost,
+        "feedback_value": feedback,
+        "feedback": score,
+        "topic_preference_score": follow_boost + score,
+    }
+
+
 def ordered(
     candidates: list[Candidate], sort: str, policy: HybridRules, reader: ReaderRules
 ) -> list[tuple[Candidate, dict[str, Any]]]:

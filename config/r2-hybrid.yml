@@ -7,6 +7,7 @@ topic_member_limit: 16
 topic_update_limit: 32
 importance_weight: 2
 attention_weight: 1
+topic_follow_weight: 2
 # Only reviewed, version-bound observations may be registered here by PR.
 # No producer is enabled. Missing public signals remain missing.
 signals: []
