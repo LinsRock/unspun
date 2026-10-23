@@ -1,6 +1,6 @@
 # R2-09 话题偏好后端交接
 
-本批从 `origin/main 0aa1aaa` 建立独立 worktree/venv，实际 Python 导入已核验；先提交 `347ddd5` / `40dcc86` [类型化目标契约](../superpowers/specs/2026-10-23-r2-09-topic-preferences.md)，再实施。后端实现与隔离验证完成后经 PR/CI 交付；当前 PR、合并和关闭部署尚待完成，不预记生产启用。
+本批从 `origin/main 0aa1aaa` 建立独立 worktree/venv，实际 Python 导入已核验；先提交 `347ddd5` / `40dcc86` [类型化目标契约](../superpowers/specs/2026-10-23-r2-09-topic-preferences.md)，再实施。后端实现、隔离验证、PR/CI/合并及关闭部署核验已完成；生产启用与用户主观效果另验。
 
 ## 页面接入出口
 
@@ -28,6 +28,16 @@ R2-08 将关注/正反馈的确切话题 ID 加入有界 interest 召回，仍�
 
 基线 1,291 项、定向 34 项通过；完整回归 **1,306 项、0 跳过**，Ruff/格式/Pyright 与迁移无漂移检查通过。425 份受保护现存文件保持，旧 40 例排序前后字节一致，前端 115 项及 lint/typecheck、部署/CI 路由 26 项（另 8 subtests）通过。已审查原 Reader 与 `web/src/reader` 调用方、共享资格、召回及迁移：旧端点 DTO 不增字段，旧调用不选新入口；无页面、付费生产者、预算或来源变更。
 
+## PR、CI 与关闭部署
+
+[PR #138](https://github.com/LinsRock/unspun/pull/138) 已合并为 `b5def2e7e6bb292b6280267bbe8cc76993bbc85f`。[PR CI](https://github.com/LinsRock/unspun/actions/runs/39930209350) 与[主干 CI/实际 Deploy](https://github.com/LinsRock/unspun/actions/runs/39931216163) 全部必需检查通过；PR CI 确认后端 1,306、前端 115 和旧 40 例排序通过。
+
+[部署断言](r2-09/deployment.json)确认 API/受控 R1 worker 实际为 `b5def2e`、schema `000021`，111 个源码散列一致；web 复用原不可变镜像。新偏好、混合流、成员处理、合成与话题发布均关闭，worker 的新链 handlers 关闭；话题任务/调用/偏好为 0，旧 worker 0、受控 R1 worker 1，仅发布 `127.0.0.1:8080`。实际 HTTP 无身份为 401；容器内独立进程仅替换认证依赖后，新偏好/混合读取为 404，运行中的服务及配置未更改。
+
+234 条旧合格详情的当前材料/卡片不变，读者/旧 Event/日报、预算/carry 与原材料/身份/URL 行保持。生产 24 笔 `$0.834861`、原评测 8 笔 `$0.514613` 未知预留保持，未新增物理请求、释放或结算；425 份受保护文件及 R2-04 的 331 原件/三容器/原 worktree 保持。
+
+首次“所有派生整行散列不变”断言未通过，原因已单列在[旧 R1 延期复核](r2-09/ambient-deferrals.json)：831 条派生中 807 条整行不变，24 条原 card 仍因 `previous physical request awaits reconciliation` 停在 budget_deferred，原调度在本窗口执行了 168 次不发出物理请求的延期复核并刷新元数据。没有新请求/费用，全部合格详情不变；不把这些延期记录写成整行字节未变，也未修复或恢复未知费用任务。
+
 ## 边界与待验
 
-本批生成、embedding、付费重试及提供方查询均 0。预算、paid-stop、未知预留、旧阅读和 R2-04 原件保留；部署前后只读核验及同期旧 R1 自然活动待登记。R2-06 继续暂缓（3/4，真实质量未通过、v6 真实语义未测、整体用户认可 null）；R2-07 真实质量未补记通过。R2-10+ 和清理未开展；本批出口仅是可供页面接入的偏好 API 与排序联动。
+本批生成、embedding、付费重试及提供方查询均 0。预算、paid-stop、未知预留、旧阅读和 R2-04 原件保留；部署前后只读核验及同期旧 R1 无付费延期活动已按上述证据登记。R2-06 继续暂缓（3/4，真实质量未通过、v6 真实语义未测、整体用户认可 null）；R2-07 真实质量未补记通过。R2-10+ 和清理未开展；本批出口仅是可供页面接入的偏好 API 与排序联动。
