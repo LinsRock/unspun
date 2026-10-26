@@ -186,7 +186,10 @@ def card_valid(draft: CardDraft, content: ContentInput) -> bool:
         return False
     if any(topic not in source for topic in draft.topics):
         return False
-    claims = draft.claims + ((draft.reading_reason,) if draft.reading_reason else ())
+    claims = draft.claims
+    # Reuse only this invocation's validation of an equal claim, never a prior read.
+    if draft.reading_reason is not None and draft.reading_reason not in claims:
+        claims += (draft.reading_reason,)
     if not all(claim_valid(claim, source, content.scope) for claim in claims):
         return False
     if draft.genre in {"opinion", "review"} and any(

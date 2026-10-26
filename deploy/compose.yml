@@ -22,6 +22,13 @@ services:
       UNSPUN_APP_VERSION: ${APP_VERSION:-dev}
       UNSPUN_ACCESS_TEAM_DOMAIN: ${ACCESS_TEAM_DOMAIN:-}
       UNSPUN_ACCESS_AUDIENCE: ${ACCESS_AUDIENCE:-}
+      UNSPUN_R2_HYBRID_ENABLED: ${R2_HYBRID_ENABLED:-false}
+      UNSPUN_R2_DISCOVER_HOME_ENABLED: ${R2_DISCOVER_HOME_ENABLED:-false}
+      # Reading enablement must not enable any topic producer or publication.
+      UNSPUN_R2_MEMBER_PROCESSING_ENABLED: "false"
+      UNSPUN_R2_SYNTHESIS_ENABLED: "false"
+      UNSPUN_R2_TOPIC_PUBLICATION_ENABLED: "false"
+      UNSPUN_R2_TOPIC_PREFERENCES_ENABLED: "false"
     depends_on:
       db:
         condition: service_healthy
@@ -37,6 +44,12 @@ services:
       UNSPUN_APP_VERSION: ${APP_VERSION:-dev}
       UNSPUN_OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
       UNSPUN_R1_WORKER_ENABLED: "false"
+      UNSPUN_R2_MEMBER_PROCESSING_ENABLED: "false"
+      UNSPUN_R2_SYNTHESIS_ENABLED: "false"
+      UNSPUN_R2_TOPIC_PUBLICATION_ENABLED: "false"
+      UNSPUN_R2_HYBRID_ENABLED: "false"
+      UNSPUN_R2_DISCOVER_HOME_ENABLED: "false"
+      UNSPUN_R2_TOPIC_PREFERENCES_ENABLED: "false"
     depends_on:
       db:
         condition: service_healthy

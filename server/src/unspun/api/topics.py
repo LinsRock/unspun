@@ -21,7 +21,9 @@ def reading_capabilities() -> dict[str, Any]:
     return {
         "hybrid": settings.r2_hybrid_enabled,
         "topic_preferences": settings.r2_topic_preferences_enabled,
-        "home": "events",
+        "home": "discover"
+        if settings.r2_discover_home_enabled and settings.r2_hybrid_enabled
+        else "events",
         "engineering_preview": False,
     }
 
