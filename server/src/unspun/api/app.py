@@ -9,6 +9,7 @@ from unspun.api.events import router as events_router
 from unspun.api.feed_preferences import router as preferences_router
 from unspun.api.reader import router as reader_router
 from unspun.api.report import router as report_router
+from unspun.api.topics import router as topics_router
 from unspun.core.config import get_settings
 from unspun.core.db import get_engine
 from unspun.core.logging import configure_logging, get_logger
@@ -24,6 +25,7 @@ app.include_router(report_router)
 app.include_router(admin_router)
 app.include_router(reader_router)
 app.include_router(contents_router)
+app.include_router(topics_router)
 
 
 class HealthResponse(BaseModel):

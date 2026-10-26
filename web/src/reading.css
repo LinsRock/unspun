@@ -83,3 +83,5 @@
   .event-expanded { margin-inline: -6px; padding: 14px; }
 }
 @media (min-width: 701px) { .reading-nav .reading-mobile-admin { display: none; } }
+
+@media (max-width: 700px) { .reading-nav.r2-navigation { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

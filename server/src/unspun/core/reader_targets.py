@@ -1,5 +1,6 @@
 """Typed explicit targets and topic-only preference changes under the reader lock."""
 
+from collections.abc import Callable
 from datetime import UTC, datetime
 from typing import Annotated, Any, Literal
 from uuid import UUID
@@ -53,15 +54,18 @@ def change_topic_preference(
     target: dict[str, Any],
     value: dict[str, Any] | None,
     version: int,
+    *,
+    topic_eligible: Callable[[Session, UUID], bool] | None = None,
 ) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
     require_topic_preferences()
     parsed = TopicTarget.model_validate(target)
     identity = str(parsed.id)
     # Revocation and historical replays never depend on current publication.
-    if (
-        value is not None
-        and qualified_topic_text(session, parsed.id, sources=load_sources(), now=datetime.now(UTC))
-        is None
+    if value is not None and not (
+        topic_eligible(session, parsed.id)
+        if topic_eligible is not None
+        else qualified_topic_text(session, parsed.id, sources=load_sources(), now=datetime.now(UTC))
+        is not None
     ):
         raise HTTPException(404, "Current reviewed topic is not published")
     row = session.get(TopicPreference, identity)

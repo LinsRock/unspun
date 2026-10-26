@@ -1,6 +1,7 @@
 """Opt-in, read-only hybrid API with dependency-fenced pagination."""
 
 import base64
+from collections.abc import Callable
 from dataclasses import asdict
 from datetime import datetime, timedelta
 from typing import Any, Literal
@@ -12,11 +13,16 @@ from sqlalchemy.orm import Session
 from unspun.core.config import get_settings
 from unspun.core.content import fingerprint
 from unspun.core.content_feed import rules
-from unspun.core.hybrid_contracts import VERSION, HybridCursor, hybrid_rules
-from unspun.core.hybrid_ranking import ordered, render_page
+from unspun.core.hybrid_contracts import VERSION, HybridCursor, HybridRules, hybrid_rules
+from unspun.core.hybrid_ranking import Candidate, ordered, render_page
 from unspun.core.hybrid_recall import content_candidates, topic_candidates
 from unspun.core.reader_models import ReaderInterest
-from unspun.core.sources import load_sources
+from unspun.core.sources import Source, load_sources
+
+TopicLoader = Callable[
+    [Session, list[Source], HybridRules, list[ReaderInterest], datetime],
+    tuple[list[Candidate], dict[str, int]],
+]
 
 
 def _cursor(value: str, sort: str, limit: int, now: datetime) -> HybridCursor:
@@ -44,6 +50,7 @@ def page(
     cursor: str | None,
     limit: int,
     now: datetime,
+    topic_loader: TopicLoader | None = None,
 ) -> dict[str, Any]:
     if not get_settings().r2_hybrid_enabled:
         raise HTTPException(404, "Hybrid feed is disabled")
@@ -61,8 +68,8 @@ def page(
         session, sources, policy, interests, now, as_of
     )
     topics, topic_counts = (
-        topic_candidates(session, sources, policy, interests, now)
-        if get_settings().r2_topic_publication_enabled
+        (topic_loader or topic_candidates)(session, sources, policy, interests, now)
+        if topic_loader is not None or get_settings().r2_topic_publication_enabled
         else ([], {})
     )
     candidates = contents + topics

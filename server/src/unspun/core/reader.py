@@ -1,6 +1,7 @@
 """Single-user CAS mutations; replays never resurrect revoked preferences."""
 
 import unicodedata
+from collections.abc import Callable
 from datetime import UTC, datetime
 from typing import Any, Literal
 from uuid import UUID
@@ -189,6 +190,7 @@ def mutate(
     value: dict[str, Any] | None,
     *,
     include_topics: bool = False,
+    topic_eligible: Callable[[Session, UUID], bool] | None = None,
 ) -> dict[str, Any]:
     mutation_id = str(body.mutation_id)
     fp = fingerprint(
@@ -286,7 +288,9 @@ def mutate(
             for alias in group:
                 session.delete(alias)
     elif kind in {"topic_follow", "topic_feedback"}:
-        before, after = change_topic_preference(session, kind, target, value, state.version + 1)
+        before, after = change_topic_preference(
+            session, kind, target, value, state.version + 1, topic_eligible=topic_eligible
+        )
         changed = before != after
     elif kind == "browse":
         before = {"sort": state.sort}
