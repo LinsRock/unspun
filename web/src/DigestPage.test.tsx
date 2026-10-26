@@ -155,12 +155,12 @@ test('missing digest and an empty generated digest have distinct states', async 
   await screen.findByText(/过去 24 小时暂无入选事件/)
 })
 
-test('invalid calendar date does not call the API', () => {
+test('invalid calendar date does not request a digest', () => {
   const fetch = vi.fn()
   vi.stubGlobal('fetch', fetch)
   renderDigest('/digest?date=2026-02-30')
   expect(screen.getByText(/日期无效/)).toBeTruthy()
-  expect(fetch).not.toHaveBeenCalled()
+  expect(fetch.mock.calls.every(call => !String(call[0]).startsWith('/api/digest'))).toBe(true)
 })
 
 test('network error offers a retry and recovers', async () => {

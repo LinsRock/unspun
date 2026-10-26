@@ -1,13 +1,16 @@
 import { lazy, Suspense } from 'react'
-import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
+import { Link, Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 
 import DigestPage from './DigestPage'
 import FeedPage from './FeedPage'
 import ReportPanel from './ReportPanel'
 import ThemeToggle from './ThemeToggle'
 import { ReaderSkeleton } from './reader/LoadingState'
+import { useCapabilities } from './reader/capabilities'
 import './reading.css'
 
+const HybridPage = lazy(() => import('./reader/HybridPage'))
+const TopicPage = lazy(() => import('./reader/TopicPage'))
 const ReadingPage = lazy(() => import('./reader/ReadingPage'))
 const ContentPage = lazy(() => import('./reader/ContentPage'))
 const InterestsPage = lazy(() => import('./reader/InterestsPage'))
@@ -24,6 +27,15 @@ const pages = [
 
 export default function App() {
   const location = useLocation()
+  const capabilities = useCapabilities()
+  const hybrid = capabilities.data?.hybrid === true
+  const previewHome = capabilities.data?.home === 'discover'
+  const navigation = hybrid ? [
+    { to: '/discover', label: '发现', symbol: '◉' },
+    { to: '/interests', label: '我的关注', symbol: '☆' },
+    { to: '/history', label: '历史阅读', symbol: '▤' },
+    { to: '/admin', label: '管理后台', symbol: '▦' },
+  ] : pages
   if (location.pathname === '/admin' || location.pathname.startsWith('/admin/')) {
     return <Suspense fallback={<p role="status">正在打开管理后台…</p>}><AdminLayout /></Suspense>
   }
@@ -38,20 +50,24 @@ export default function App() {
       <header className="reading-sidebar">
         <Link to="/" className="reading-brand" aria-label="Unspun 首页"><span className="reading-brand-mark">u<span>↗</span></span><strong>unspun<small>INTELLIGENCE</small></strong></Link>
         <p className="reading-sidebar-note">个人情报站 · 让信息回归全貌</p>
-        <nav aria-label="主导航" className="reading-nav">
-          {pages.map(({ to, label, symbol }) => <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => `${isActive ? 'active' : ''} ${to === '/admin' ? 'reading-mobile-admin' : ''}`}><span aria-hidden="true">{symbol}</span>{label}</NavLink>)}
+        <nav aria-label="主导航" className={`reading-nav ${hybrid ? 'r2-navigation' : ''}`}>
+          {navigation.map(({ to, label, symbol }) => <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => `${isActive ? 'active' : ''} ${to === '/admin' ? 'reading-mobile-admin' : ''}`}><span aria-hidden="true">{symbol}</span>{label}</NavLink>)}
         </nav>
         <div className="reading-sidebar-footer"><Link to="/admin">管理后台 <span aria-hidden="true">↗</span></Link><ThemeToggle /></div>
       </header>
-      <main id="page-content" className="reading-main">
-        <div className="reading-topbar"><span>阅读空间 / {location.pathname.startsWith('/reading') ? '发现阅读' : location.pathname === '/interests' ? '我的关注' : location.pathname === '/digest' ? '每日日报' : '实时事件流'}</span></div>
+      <main id="page-content" tabIndex={-1} className="reading-main">
+        <div className="reading-topbar"><span>阅读空间 / {location.pathname.startsWith('/topics/') ? '话题详情' : location.pathname === '/discover' || location.pathname === '/' && previewHome ? '发现' : location.pathname.startsWith('/reading') ? '独立阅读' : location.pathname === '/history' ? '历史阅读' : location.pathname === '/interests' ? '我的关注' : location.pathname === '/digest' ? '每日日报' : '实时事件流'}</span></div>
         <div className="reading-page">
           <Suspense fallback={<ReaderSkeleton layout={location.pathname.startsWith('/reading/') ? 'detail' : location.pathname === '/interests' ? 'interests' : 'feed'} label="正在打开阅读空间" />}>
           <Routes>
+            <Route path="/discover" element={<HybridPage />} />
+            <Route path="/topics/:id" element={<TopicPage />} />
+            <Route path="/history" element={<div className="r1-reader"><div className="feed-heading"><div><h1>历史阅读</h1><p>继续访问已有内容、事件与日报。</p></div></div><div className="r1-content-list"><article className="r1-content-card"><h2><Link to="/reading">独立内容</Link></h2><p>已取得的正文、导读与原文入口。</p></article><article className="r1-content-card"><h2><Link to="/events">历史事件流</Link></h2><p>保留原排序、筛选与来源阅读。</p></article><article className="r1-content-card"><h2><Link to="/digest">历史日报</Link></h2><p>按日期回看已保存的日报。</p></article></div></div>} />
+            <Route path="/events" element={<FeedPage />} />
             <Route path="/reading" element={<ReadingPage />} />
             <Route path="/reading/:id" element={<ContentPage />} />
             <Route path="/interests" element={<InterestsPage />} />
-            <Route path="/" element={<FeedPage />} />
+            <Route path="/" element={capabilities.isPending ? <ReaderSkeleton /> : previewHome ? <Navigate to="/discover" replace /> : <FeedPage />} />
             <Route path="/digest" element={<DigestPage />} />
             <Route
               path="/report"

@@ -8,6 +8,9 @@ import { GENRES, guideMessage, publication, SCOPES, TIME_LABELS } from './presen
 import { safeHref } from '../links'
 import ClaimList from './ClaimList'
 import { LoadingStatus, ReaderSkeleton } from './LoadingState'
+import { readingReturn } from './navigation'
+import TargetActions from './TargetActions'
+import ReaderNotice from './ReaderNotice'
 import './reader.css'
 
 export default function ContentPage() {
@@ -16,19 +19,21 @@ export default function ContentPage() {
   const query = useQuery({ queryKey: ['r1-content', id], enabled: Number.isSafeInteger(id) && id > 0, queryFn: ({ signal }) => getDetail(id, signal), retry: false, refetchInterval: query => ['pending', 'generating', 'review_pending'].includes(query.state.data?.guide.status ?? '') ? 5000 : query.state.data?.guide.status === 'budget_deferred' ? 60_000 : false })
   const guide = useMutation({ retry: false, mutationFn: () => request<GuideState>(`/api/contents/${id}/guide`, { method: 'POST' }), onSuccess: () => { void client.invalidateQueries({ queryKey: ['r1-content', id] }) }, onError: () => setGuideError('暂未确认导读请求结果，请刷新状态后核对。重复请求不会生成第二份任务。') })
   useEffect(() => { window.scrollTo(0, 0) }, [id])
-  const item = query.data
-  const state = location.state as { returnTo?: string } | null
-  const returnTo = state?.returnTo?.startsWith('/reading?') ? state.returnTo : '/reading'
+  const item = query.error ? undefined : query.data
+  const state = location.state as { returnTo?: string; topicReturnTo?: string } | null
+  const returnTo = readingReturn(state?.returnTo, '/reading')
   async function follow(target: InterestTarget) { await profile.change('/api/interests', 'PUT', { target }) }
   if (query.isPending && query.fetchStatus !== 'idle') return <div className="r1-reader r1-detail"><Link className="r1-back" to={returnTo}>← 返回阅读列表</Link><ReaderSkeleton layout="detail" label="正在加载来源材料" /></div>
-  if (!item) return <section className="r1-reader r1-empty"><h1>{query.error instanceof ReaderError && query.error.status === 404 ? '这条内容尚无可发布的当前版本' : '暂时无法打开内容'}</h1><p>材料更新、审核状态或发布范围可能已变化。</p><Link to={returnTo}>返回阅读列表</Link></section>
+  if (!item) return <section className="r1-reader r1-empty"><h1>{query.error instanceof ReaderError && query.error.status === 404 ? '这条内容尚无可发布的当前版本' : '暂时无法打开内容'}</h1><p>材料更新、审核状态或发布范围可能已变化。</p><ReaderNotice error={query.error} retry={() => void query.refetch()} /><Link to={returnTo}>返回阅读列表</Link></section>
   const short = ['preview', 'feed_lead', 'question_background', 'media_description'].includes(item.material_scope)
   return <article className="r1-reader r1-detail">
-    <Link className="r1-back" to={returnTo}>← 返回阅读列表</Link>
+    <Link className="r1-back" to={returnTo} state={{ returnTo: state?.topicReturnTo }}>← {returnTo.startsWith('/topics/') ? '返回话题' : '返回阅读列表'}</Link>
     {item.preview && <p className="r1-notice">隔离技术预览 · 尚未正式发布</p>}
     <header className="r1-detail-header"><p className="r1-eyebrow">{GENRES[item.card.genre] ?? '内容'} / {item.source_name}</p><h1>{item.title}</h1><p>{publication(item.metadata)}</p><p>{item.metadata.publisher ? `发布方：${item.metadata.publisher}` : '发布方尚未核实'}</p><div className="r1-byline">{item.metadata.authors.map((author, index) => <span key={index}>{author.role === 'reporter' ? '记者' : author.role === 'editor' ? '编辑' : '署名'}：{author.name} <button disabled={profile.saving || !profile.online || !profile.data || !(author.platform ?? item.metadata.platform)} onClick={() => void follow({ kind: 'author', value: author.name, platform: author.platform ?? item.metadata.platform ?? undefined, author_id: author.platform_id })}>关注署名</button></span>)}</div></header>
     <div className="r1-source-actions"><a href={safeHref(item.url)} target="_blank" rel="noopener noreferrer">打开原文 ↗</a><button disabled={profile.saving || !profile.online || !profile.data} onClick={() => void follow({ kind: 'source', value: item.source_id })}>关注这个来源</button></div>
     {profile.message && <p role="status" className="r1-notice">{profile.message}</p>}
+    <TargetActions target={{ type: 'content', id: item.id }} title={item.title} profile={profile} />
+    {profile.error && <ReaderNotice error={profile.error} retry={() => void profile.refetch()} />}
     <p className="r1-scope-banner">{SCOPES[item.material_scope] ?? '材料范围待核对'}{short ? '。以下只呈现实际取得的材料。' : '。不将未取得的部分称为全文。'}</p>
     {item.material_scope === 'question_background' && <p className="r1-method">这是问题线索，尚未取得回答，不代表社区结论。</p>}
     {item.material_scope === 'media_description' && <p className="r1-method">仅整理公开简介；未观看或收听，不提供观后结论、转录或时间点。</p>}
