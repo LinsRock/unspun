@@ -1,6 +1,6 @@
 # R2-11 首批阅读入口启用准备
 
-**出口：待明确启用授权的 PR；未合并、未部署，生产首页与开关不变。** 本批只准备既有合格内容的混合读取和发现首页，不代表完整话题链、真实模型质量或整个 R2 通过。范围见[本批契约](../superpowers/specs/2026-10-26-r2-11-reading-enablement.md)；页面沿用 [R2-10 已通过的体验](r2-10-reading-preview-2026-10-26.md)，这里只补正式配置及旧链接兼容，不补记新用户评分。
+**出口：[草稿 PR #142](https://github.com/LinsRock/unspun/pull/142)，待明确启用授权；未合并、未部署，生产首页与开关不变。** 必需 CI 见 [PR 检查](https://github.com/LinsRock/unspun/pull/142/checks)。 本批只准备既有合格内容的混合读取和发现首页，不代表完整话题链、真实模型质量或整个 R2 通过。范围见[本批契约](../superpowers/specs/2026-10-26-r2-11-reading-enablement.md)；页面沿用 [R2-10 已通过的体验](r2-10-reading-preview-2026-10-26.md)，这里只补正式配置及旧链接兼容，不补记新用户评分。
 
 基线 `origin/main d975e9d`；独立 worktree `/Users/li.cong/.config/superpowers/worktrees/unspun/r2-reading-enablement`，分支 `feat/r2-reading-enablement`，`server/.venv` 和源码导入指向本 worktree。新测试库 `unspun_r211_test_20261026`、真实阅读库 `unspun_r211_reading_20261026` 均从空库迁移至 `000021`；本 PR 无迁移。
 
@@ -11,7 +11,7 @@
 | 项目 | 已核对结果 |
 | --- | --- |
 | 实际部署 | API、受控 R1 worker、web 均为 `51fc29e0a87b1768537fe62ae00b2c0c3e03fec0` 固定镜像；schema `000021`，114 个服务端源码哈希与基线相符；正式首页 `events`、`engineering_preview: false` |
-| 关闭范围 | 成员处理、合成、话题发布、混合、话题偏好全为 false；话题、成员、合成、偏好为 0；未登录正式读取 401，认证后的关闭入口 404。生产 `.env` 尚无两个 R2-11 覆盖键 |
+| 关闭范围 | 成员处理、合成、话题发布、混合、话题偏好全为 false；话题、成员、合成、偏好为 0；实际未登录 HTTP 401；独立只读短进程仅替换认证依赖后，关闭入口 404（不冒充已登录生产浏览器验收）。生产 `.env` 尚无两个 R2-11 覆盖键 |
 | 合格内容 | 初始 373 条、8 路既有来源；收尾 374 条，原 373 条 ID/材料/卡片版本/正文逐项保持，旧 R1 自然新增 `9909`。没有导入或发布工程话题 |
 | 读者与历史 | Reader v14 / recommended，无当前兴趣或内容反馈，保留 14 条变更；旧事件偏好 v15 / newest / today。读者、旧事件、观点、6 份日报、预算行均保持；材料/身份/URL 原行保留 |
 | 生产预算 | 原 `$15` 总额、生产 `$13.50`、评测 `$1.50`、审核 `$0.40/24h` 不变。生产 stage caps 仍为 card 10 / guide 2 / embedding 1 / legacy 13.50，没有新话题分配 |
