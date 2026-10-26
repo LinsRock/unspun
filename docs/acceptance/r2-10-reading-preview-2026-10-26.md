@@ -1,14 +1,14 @@
 # R2-10 实现与真实 API 本地体验
 
-**实现、自检及本地回归完成；2026-10-26 用户明确回复“通过”，本次页面体验验收通过。** 按用户本次要求及 D-012，继续既有 PR/必需 CI/合并/关闭部署流程。该回复只记录本次页面体验，不推断逐设备评分；模型质量和生产启用不由页面验收替代。
+**实现、自检及回归完成；2026-10-26 用户明确回复“通过”，本次页面体验验收通过。** 按用户本次要求及 D-012，已完成 [PR #140](https://github.com/LinsRock/unspun/pull/140)、必需 CI、合并与 `51fc29e` 关闭部署。该回复只记录本次页面体验，不推断逐设备评分；模型质量和生产启用不由页面验收替代。
 
 基线 `origin/main 707aff8697f752ab360e0f46cad5494a9a5ad76f`；worktree 为 `/Users/li.cong/.config/superpowers/worktrees/unspun/r2-reading-pages`，分支 `feat/r2-reading-pages`。独立 `server/.venv` 的 Python 和 `unspun.__file__` 均指向该 worktree；先提交 [R2-10 契约](../superpowers/specs/2026-10-26-r2-10-reading-pages.md) `7fa1f47` 再实现。新测试库、预览库均从空库迁移至 `000021`，本批无 schema 变更。
 
 ## 持续预览与材料
 
-- 电脑：[发现](http://127.0.0.1:5178/discover)；同一局域网手机：[发现](http://192.168.125.177:5178/discover)。电脑保持开机、网络地址不变时可继续访问。
+- 电脑：[发现](http://127.0.0.1:5178/discover)；同一局域网手机：[发现](http://192.168.125.10:5178/discover)。电脑保持开机、网络地址不变时可继续访问；交付时恢复原服务后局域网地址由 `.177` 更新为 `.10`。
 - [收益分配话题示例](http://127.0.0.1:5178/topics/fea3e2d2-99be-5913-8d5c-722009ae2ada)；[读后与翻译背景示例](http://127.0.0.1:5178/topics/d99936a5-4420-5b4f-a6f6-63b8061e0ffa)。手机使用上述局域网主机及相同路径。
-- API 为 `127.0.0.1:8010`，网页为 `:5178`；独立 tmux 会话 `unspun-r210-api`、`unspun-r210-web` 持续运行，不依赖本次工具调用存活。环境文件在本机 `/tmp/unspun-r210-preview.env`，不含模型密钥；数据库 `unspun_r210_preview_20261026`。API 启动入口为 `unspun.evaluation.preview_topics:create_app --factory`，网页代理使用 `UNSPUN_DEV_API_URL=http://127.0.0.1:8010`。
+- API 为 `127.0.0.1:8010`，网页为 `:5178`；独立 tmux 会话 `unspun-r210-api`、`unspun-r210-web` 持续运行，不依赖本次工具调用存活。环境及启动脚本在本机 `/Users/li.cong/.cache/unspun/r2-10-delivery/`（`preview.env`、`start-preview-api.sh`、`start-preview-web.sh`），不含模型密钥；数据库 `unspun_r210_preview_20261026`。API 启动入口为 `unspun.evaluation.preview_topics:create_app --factory`，网页代理使用 `UNSPUN_DEV_API_URL=http://127.0.0.1:8010`。恢复时复用原库，不重置材料或偏好；关机后须先启动原 Colima/数据库，再用脚本恢复两个 tmux 会话。
 
 12 份真实材料复用已暴露的 [R2 原件](../evaluations/r2/member-grounding-exposed-inputs-v1.json.gz)，SHA256 `817d1f85d9c9f10032aafe3675677af96014395197a083af16ae423cfe8cf322`。原 ID 为 9192/9013/9051/9054/9125/9277/9182/9098/8981/9274/9099/9055；Article、材料及全部原派生行逐项比较无差异，原 URL、时间和审核版本保持，未重抓或重生成。
 
@@ -29,18 +29,33 @@
 | 检查 | 结果 |
 | --- | --- |
 | 隔离基线 | 后端 1,306、前端 115 项通过 |
-| 全量回归 | 后端 1,326、前端 131 项通过；之后补充的按 ID 过期话题、LAN 同源及 HTTP UUID 等定向回归为后端 22、前端 38 项通过 |
+| 全量回归 | 本地后端 1,326、前端 131 项通过，最终定向回归后端 22、前端 38 项通过；最终提交 [PR CI](https://github.com/LinsRock/unspun/actions/runs/40281437852) 全量后端 **1,328**、前端 **132** 项通过，`required-checks` 通过 |
 | 静态及构建 | Ruff/格式、Pyright、oxlint、TypeScript、正式 web build 通过 |
 | 旧行为 | 固定 40 例排序通过，与基线源码运行结果逐字节一致；旧排序实现未改；PWA 安装、IndexedDB 恢复、离线新标签/刷新、日期导航及 API 排除通过 |
-| 部署/CI 路由本地检查 | 18 + 11 项通过；远端 PR CI 与关闭部署结果另行记录 |
+| 部署/CI 路由本地检查 | 18 + 11 项通过；远端必需 CI 与实际关闭部署通过，见下方交付核验 |
 | 真实 API 浏览器 | 390/768/1440 宽度 × 明暗主题；关注/正负反馈/修改/撤销、分页返回、409 重载、离线禁写、键盘跳转与 Enter 操作、局域网 HTTP 实际保存通过；无横向溢出、无页面脚本错误 |
-| 原件与运行边界 | 431 份既有验收/评测/配置文件字节一致；预览 12 份原始行一致；主工作区无修改；未连接生产或原评测库 |
+| 原件与运行边界 | 431 份既有验收/评测/配置文件字节一致；预览 12 份原始行一致；主工作区无修改；实现和本地自检阶段未连接生产或原评测库，验收后交付阶段仅作只读核验 |
 
-浏览器复现入口：在 `web/` 执行 `UNSPUN_R210_PREVIEW_URL=http://127.0.0.1:5178 UNSPUN_R210_LAN_URL=http://192.168.125.177:5178 node src/reader/preview.e2e.mjs`。该测试会操作隔离偏好，须在无人体验且没有已有话题偏好的新预览状态下执行；已完成验证，不在用户验收时后台重复运行。普通日志及截图留本机 `/tmp/unspun-r210-*`，不提交整份运行日志。
+浏览器复现入口：在 `web/` 执行 `UNSPUN_R210_PREVIEW_URL=http://127.0.0.1:5178 UNSPUN_R210_LAN_URL=http://192.168.125.10:5178 node src/reader/preview.e2e.mjs`。该测试会操作隔离偏好，须在无人体验且没有已有话题偏好的新预览状态下执行；已完成验证，不在用户验收时后台重复运行。普通日志及截图仅留本机临时位置，不作为长期原件或提交整份日志；最终检查结果可由上述 CI 核对。
 
 调用方审查覆盖 `/api/feed` 旧 content 模式、独立详情、Reader 旧 DTO/内容别名与 CAS、R2-07 公开资格、R2-08 游标及时间、R2-09 取消/撤销、后台、旧事件/日报和 digest-only 缓存。新只读 `GET /api/topics/{UUID}` 按 ID 实时核验，已验证超出混合时效窗口仍可直接阅读，失效时不退回旧文本；来源/归属/引文/限定及日期精度保留。共享偏好成功和冲突都读取当前完整状态，不自动重放失败意图。返回位置绑定读者版本和快照；失效快照清空再加载。
 
 新增服务参数只能由独立 evaluation 工厂传入，正式 HTTP 接口没有 mock/preview 开关。预览不创建 BudgetPolicy、PipelineTask、BilledRequest 或 TopicSynthesis（均 0）；浏览器自检的 Reader 审计正常保留，已取消测试关注/反馈并还原排序。生产配置、付费处理、账务/预留和原资格代码未修改；旧主入口 `/` 与 PWA `/digest` 保持，生产主入口切换留 R2-11。
+
+## PR、CI 与关闭部署核验
+
+[PR #140](https://github.com/LinsRock/unspun/pull/140) 的最终 head `4a6c731` 在用户体验通过后提交，[必需 CI](https://github.com/LinsRock/unspun/actions/runs/40281437852) 全部通过后合并为 `51fc29e0a87b1768537fe62ae00b2c0c3e03fec0`。[主干流水线](https://github.com/LinsRock/unspun/actions/runs/40282347428) 的检查、固定镜像构建与实际 Deploy 步骤均成功；以下为 2026-10-26 15:04（北京时间）起的线上只读核验。预览 worktree、虚拟环境及隔离库保留，交付文档分支不改变已验收代码。
+
+| 核验 | 结果 |
+| --- | --- |
+| 实际版本 | API、受控 R1 worker、web 均使用固定 `51fc29e` 镜像；健康检查版本一致，schema 保持 `000021`；114 个 Python 源码与 18 个网页构建文件哈希匹配 |
+| 关闭边界 | API/worker 的成员处理、合成、话题发布、混合及偏好开关全为 false；正式能力为 `home: events`、`engineering_preview: false`；话题任务、调用和偏好均 0 |
+| 认证与入口 | 实际未登录 HTTP 为 401；在独立短进程仅替换认证依赖后，混合、话题偏好及工程话题 ID 均为 404，运行中的服务与认证未改；旧主入口及 PWA `/digest` 保持 |
+| 历史阅读 | 373 条原合格详情逐项一致；旧阅读状态、反馈/变更历史、事件、日报、预算行保持；既有材料、身份和 URL 行保留 |
+| 未知预留与费用 | 本次部署前后生产 29 笔 / `$0.979535000000`、原评测 8 笔 / `$0.514613000000` 均保持；账本复用既有初始化，不查询提供方；核验窗口无新增物理请求，本批生成、embedding、付费重试及提供方查询均 0。这是核验截面，不是新可用预算 |
+| 原件与资源 | 431 份既有验收/评测/配置文件字节一致；R2-04 的 331 份原件、3 个观察容器和 `b5f812c` worktree 保留；受控 R1 worker 为 1，legacy worker 为 0，仅发布 `127.0.0.1:8080` |
+
+1,301 条旧派生行中 1,272 条整行哈希一致，另 29 条原 R1 卡片行在观察窗口变化；部署后这些行均为 `budget_deferred`，原因仍是 `previous physical request awaits reconciliation`，无新增物理请求。该自然延期变化单列，不声称派生全表逐字节不变，也不改变旧失败或未知费用。只读核验脚本与临时结果留本机缓存，不提交整库快照或运行日志。
 
 ## 分开记录的验收项
 
