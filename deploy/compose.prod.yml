@@ -6,6 +6,11 @@ services:
 
   api:
     restart: unless-stopped
+    # R2-11: merging this rollout requires explicit limited enablement approval.
+    # Both remain independently reversible through the deployment .env.
+    environment:
+      UNSPUN_R2_HYBRID_ENABLED: ${R2_HYBRID_ENABLED:-true}
+      UNSPUN_R2_DISCOVER_HOME_ENABLED: ${R2_DISCOVER_HOME_ENABLED:-true}
 
   r1-worker:
     scale: 1

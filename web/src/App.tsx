@@ -29,7 +29,8 @@ export default function App() {
   const location = useLocation()
   const capabilities = useCapabilities()
   const hybrid = capabilities.data?.hybrid === true
-  const previewHome = capabilities.data?.home === 'discover'
+  const legacyHome = location.pathname === '/' && ['sort', 'range', 'unread_only'].some(key => new URLSearchParams(location.search).has(key))
+  const discoverHome = capabilities.data?.home === 'discover' && !legacyHome
   const navigation = hybrid ? [
     { to: '/discover', label: '发现', symbol: '◉' },
     { to: '/interests', label: '我的关注', symbol: '☆' },
@@ -56,7 +57,7 @@ export default function App() {
         <div className="reading-sidebar-footer"><Link to="/admin">管理后台 <span aria-hidden="true">↗</span></Link><ThemeToggle /></div>
       </header>
       <main id="page-content" tabIndex={-1} className="reading-main">
-        <div className="reading-topbar"><span>阅读空间 / {location.pathname.startsWith('/topics/') ? '话题详情' : location.pathname === '/discover' || location.pathname === '/' && previewHome ? '发现' : location.pathname.startsWith('/reading') ? '独立阅读' : location.pathname === '/history' ? '历史阅读' : location.pathname === '/interests' ? '我的关注' : location.pathname === '/digest' ? '每日日报' : '实时事件流'}</span></div>
+        <div className="reading-topbar"><span>阅读空间 / {location.pathname.startsWith('/topics/') ? '话题详情' : location.pathname === '/discover' || location.pathname === '/' && discoverHome ? '发现' : location.pathname.startsWith('/reading') ? '独立阅读' : location.pathname === '/history' ? '历史阅读' : location.pathname === '/interests' ? '我的关注' : location.pathname === '/digest' ? '每日日报' : '实时事件流'}</span></div>
         <div className="reading-page">
           <Suspense fallback={<ReaderSkeleton layout={location.pathname.startsWith('/reading/') ? 'detail' : location.pathname === '/interests' ? 'interests' : 'feed'} label="正在打开阅读空间" />}>
           <Routes>
@@ -67,7 +68,7 @@ export default function App() {
             <Route path="/reading" element={<ReadingPage />} />
             <Route path="/reading/:id" element={<ContentPage />} />
             <Route path="/interests" element={<InterestsPage />} />
-            <Route path="/" element={capabilities.isPending ? <ReaderSkeleton /> : previewHome ? <Navigate to="/discover" replace /> : <FeedPage />} />
+            <Route path="/" element={capabilities.isPending ? <ReaderSkeleton /> : discoverHome ? <Navigate to="/discover" replace /> : <FeedPage />} />
             <Route path="/digest" element={<DigestPage />} />
             <Route
               path="/report"

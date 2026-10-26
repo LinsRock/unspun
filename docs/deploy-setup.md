@@ -76,4 +76,4 @@ Settings → Secrets and variables → Actions：
 
 CL-01 后基础、本地和生产 Compose 均不定义 legacy `worker`；本地 `r1-worker` 默认 0，生产仍为 1。当前启动命令见 [CLAUDE](../CLAUDE.md)。发布继续由 CI 依次执行固定镜像解析/复用、DB 健康、目标镜像迁移、预算初始化与预检、服务启动（`--remove-orphans`）、目标版本健康检查；部署不自动清理镜像。
 
-回退只替换固定 `SERVER_IMAGE`/`WEB_IMAGE` 与 `APP_VERSION`，始终运行当前退役后的 `deploy/deploy.sh`、Compose，不能把旧部署目录一起恢复。先核对目标镜像的迁移头和当前数据库兼容范围；当前 schema 为 `000018`，当前固定镜像与保留数据恢复范围见 [R2-05 验收](acceptance/r2-05-topic-foundation-2026-10-20.md)。CL-01 的 `000017` 历史范围仍留在[原验收](acceptance/cl-01-retirement-2026-10-20.md)，不能直接套用到新 schema。早于当前 revision 的镜像不在直接回退支持范围内，迁移不通过时不进入预算/消费者启动；保留旧服务和数据库，不降级或改写数据库来强行通过。
+回退只替换固定 `SERVER_IMAGE`/`WEB_IMAGE` 与 `APP_VERSION`，始终运行当前退役后的 `deploy/deploy.sh`、Compose，不能把旧部署目录一起恢复。先核对目标镜像的迁移头和当前数据库兼容范围；当前已核对版本为 `51fc29e`、schema `000021`，见 [R2-10 关闭部署](acceptance/r2-10-reading-preview-2026-10-26.md)；R2-11 入口启用 PR 尚待授权，其优先配置回退、固定镜像与核验步骤见[本批交接](acceptance/r2-11-reading-enablement-2026-10-26.md)。CL-01 的 `000017` 历史范围仍留在[原验收](acceptance/cl-01-retirement-2026-10-20.md)，不能直接套用到新 schema。早于当前 revision 的镜像不在直接回退支持范围内，迁移不通过时不进入预算/消费者启动；保留旧服务和数据库，不降级或改写数据库来强行通过。
