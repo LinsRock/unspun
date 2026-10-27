@@ -7,8 +7,8 @@
 | 查产品目标或调整需求 | [产品定义](product-definition.md)、[需求](requirement.md) |
 | 查交付顺序和下一阶段 | [路线图](roadmaps.md) |
 | 实施或修复 R2 功能 | [R2 任务板](tasks/r2.md)中对应任务，再读该项链接的规范 |
-| 体验或继续 R2-10 页面 | [页面与隔离契约](superpowers/specs/2026-10-26-r2-10-reading-pages.md)、[预览与交付记录](acceptance/r2-10-reading-preview-2026-10-26.md)；本次页面体验、PR/CI 与关闭部署已完成，生产入口未切换 |
-| 审查/继续 R2-11 首批启用 | [有限范围契约](superpowers/specs/2026-10-26-r2-11-reading-enablement.md)、[启用准备与回退](acceptance/r2-11-reading-enablement-2026-10-26.md)；只准备既有内容阅读入口 PR，生产未启用，合并须另获明确授权 |
+| 体验或继续 R2-10 页面 | [页面与隔离契约](superpowers/specs/2026-10-26-r2-10-reading-pages.md)、[预览与交付记录](acceptance/r2-10-reading-preview-2026-10-26.md)；页面体验、PR/CI 与关闭部署已完成；当时未切换入口，后续状态见 R2-11 |
+| 查看暂缓的 R2-11 | [有限范围契约](superpowers/specs/2026-10-26-r2-11-reading-enablement.md)、[当前排期与保留交接](acceptance/r2-11-reading-enablement-2026-10-26.md)；保留 8/12 计数、接续脚本及全部结果，不继续探测、不改现网 |
 | 实施 R2-08 混合后端 | [冻结契约](superpowers/specs/2026-10-23-r2-08-hybrid-feed.md)、[首批工程记录](acceptance/r2-08-hybrid-feed-2026-10-23.md)；入口默认关闭，用户效果与启用另验 |
 | 实施 R2-09 话题偏好 | [目标/API 契约](superpowers/specs/2026-10-23-r2-09-topic-preferences.md)、[后端交接](acceptance/r2-09-topic-preferences-2026-10-23.md)；页面、主观效果与启用另验 |
 | 实施 R2-07 进展与概况 | [当前契约](superpowers/specs/2026-10-23-r2-07-progress-overview.md)、[首批工程记录](acceptance/r2-07-progress-overview-2026-10-23.md)；真实质量与启用尚未完成 |

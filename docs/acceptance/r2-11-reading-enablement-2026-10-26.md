@@ -1,5 +1,11 @@
 # R2-11 首批阅读入口启用准备
 
+**当前排期（2026-10-27）：R2-11 暂缓。** 保留 **8/12** 计数、接续环境/脚本及全部结果，不继续探测、不改变现网。此前已获授权的 `4042f20` 有限启用、观察中断、误回退与补核事实，见尚未合并的 [PR #143 固定交接](https://github.com/LinsRock/unspun/blob/6a1592cd8e32157860aeebf6810b3a8c6c4c2a44/docs/acceptance/r2-11-reading-enablement-2026-10-26.md)；本批只读保留本机材料，没有重新探测生产。其旧“到时执行”命令现为恢复入口，须等用户重新排期，不自动消耗剩余四次。24 小时、性能及整体验收仍未完成。
+
+CL-03 已保护 `r2-reading-enablement`、`r2-reading-rollout`、两个 R2-11 库及 `~/.cache/unspun/r2-11-enablement/`、`r2-11-performance/`、`r2-11-rollout/` 的全部文件；见[清理交接](cl-03-local-cleanup-2026-10-27.md)。PR #143 的独有提交保持，必需 CI 未通过不合并。
+
+## 以下为 10 月 26 日启用前的历史准备记录
+
 **出口：[草稿 PR #142](https://github.com/LinsRock/unspun/pull/142)，建议按原单读者范围有限启用，仍待明确授权；未合并、未部署，生产首页与开关不变。** 性能补核及余量见下文，必需 CI 见 [PR 检查](https://github.com/LinsRock/unspun/pull/142/checks)。本批只准备既有合格内容的混合读取和发现首页，不代表完整话题链、真实模型质量或整个 R2 通过。范围见[本批契约](../superpowers/specs/2026-10-26-r2-11-reading-enablement.md)；页面沿用 [R2-10 已通过的体验](r2-10-reading-preview-2026-10-26.md)，这里只补正式配置及旧链接兼容，不补记新用户评分。
 
 基线 `origin/main d975e9d`；独立 worktree `/Users/li.cong/.config/superpowers/worktrees/unspun/r2-reading-enablement`，分支 `feat/r2-reading-enablement`，`server/.venv` 和源码导入指向本 worktree。新测试库 `unspun_r211_test_20261026`、真实阅读库 `unspun_r211_reading_20261026` 均从空库迁移至 `000021`；本 PR 无迁移。
