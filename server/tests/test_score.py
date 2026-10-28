@@ -434,12 +434,7 @@ def test_transient_impact_retries_after_cooldown_without_rescoring(db_session: S
     assert result is not None and result["status"] == "unknown"
 
 
-def test_pending_impact_retry_recovers_without_importance_call(
-    db_session: Session, monkeypatch: pytest.MonkeyPatch
-) -> None:
-    from collections.abc import Generator
-    from contextlib import contextmanager
-
+def test_impact_retry_recovers_without_importance_call(db_session: Session) -> None:
     from unspun.core.llm import LlmError
     from unspun.pipeline import score
 
@@ -463,11 +458,6 @@ def test_pending_impact_retry_recovers_without_importance_call(
                 raise LlmError("Temporary provider failure")
             return {"is_urgent": False, "reason": "Routine reporting", "evidence": []}
 
-    @contextmanager
-    def local_scope() -> Generator[Session]:
-        yield db_session
-
-    monkeypatch.setattr(score, "session_scope", local_scope)
     now = datetime.now(UTC)
     event = Event(
         title="provider retry",
@@ -497,9 +487,9 @@ def test_pending_impact_retry_recovers_without_importance_call(
     db_session.flush()
     fake.failed = False
     saved_scored_at = event.scored_at
-    assert score.refresh_pending_public_impact(fake) == 1
+    assert score.refresh_event_public_impact(db_session, fake, event, now)
     result = event.public_impact
     assert result is not None and result["status"] == "routine"
     assert event.score_final == 64 and event.scored_at == saved_scored_at
     assert fake.calls == 2
-    assert score.refresh_pending_public_impact(fake) == 0
+    assert not score.refresh_event_public_impact(db_session, fake, event, now)

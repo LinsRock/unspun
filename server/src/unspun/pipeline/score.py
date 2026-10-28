@@ -1,24 +1,18 @@
-"""Event scoring: objective signals computed in code, importance from the LLM rubric.
-
-Only events whose content changed since the last scoring are (re)scored, so
-LLM spend tracks real news flow instead of total event count.
-"""
+"""Shared legacy event scoring and impact assessment for explicit repair."""
 
 import math
 from datetime import UTC, datetime, timedelta
 from statistics import mean
 from typing import Any
 
-from sqlalchemy import ColumnElement, or_, select, text
-from sqlalchemy.orm import Session, selectinload
+from sqlalchemy import ColumnElement, or_
+from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
 from unspun.core.content import legacy_event_condition, require_legacy
-from unspun.core.db import session_scope
 from unspun.core.llm import SupportsLlm
-from unspun.core.logging import get_logger
 from unspun.core.models import Article, Event
-from unspun.core.params import ScoringParams, get_scoring_params
+from unspun.core.params import ScoringParams
 from unspun.core.public_impact import (
     ImpactArticle,
     assess_impact,
@@ -26,9 +20,7 @@ from unspun.core.public_impact import (
     unknown_impact,
 )
 from unspun.core.publication import publication_bounds
-from unspun.core.sources import Source, load_sources
-
-log = get_logger("unspun.pipeline.score")
+from unspun.core.sources import Source
 
 PROMPT_ARTICLE_LIMIT = 8
 PROMPT_SUMMARY_CHARS = 500
@@ -256,82 +248,8 @@ def refresh_event_public_impact(
 
 
 def pending_score_conditions() -> tuple[ColumnElement[bool], ...]:
-    # Shared with the daily report so the backlog count matches this query.
+    # Historical backlog reporting remains available after batch retirement.
     return (
         or_(Event.scored_at.is_(None), Event.changed_at > Event.scored_at),
         legacy_event_condition(),
     )
-
-
-def score_pending(client: SupportsLlm, limit: int | None = None) -> int:
-    params = get_scoring_params()
-    if limit is None:
-        limit = params.pipeline.score_batch_limit
-    sources_by_id = {s.id: s for s in load_sources()}
-    with session_scope() as session:
-        ids = list(
-            session.scalars(
-                select(Event.id)
-                .where(*pending_score_conditions())
-                .order_by(Event.changed_at.desc())
-                .limit(limit)
-            )
-        )
-    done = 0
-    for event_id in ids:
-        try:
-            with session_scope() as session:
-                event = session.get(Event, event_id, options=[selectinload(Event.articles)])
-                if event is None:
-                    continue
-                score_event(session, client, event, params, sources_by_id)
-                done += 1
-        except Exception:
-            log.exception("score_failed", event_id=event_id)
-    refresh_pending_public_impact(client)
-    return done
-
-
-def refresh_pending_public_impact(client: SupportsLlm, limit: int = 20) -> int:
-    """Retry up to 20 eligible transient assessments without importance calls."""
-    now = datetime.now(UTC)
-    # Aggregate before LIMIT: expired observations cannot starve recent retries.
-    query = text("""
-        WITH original_times AS (
-            SELECT event_id, min(CASE
-                WHEN reported_precision='time' AND reported_at >= timestamptz '1970-01-01'
-                    AND reported_at <= least(:now, fetched_at + interval '5 minutes')
-                THEN reported_at
-                WHEN reported_precision='date' AND reported_date >= date '1970-01-01'
-                    AND greatest(reported_date::timestamp AT TIME ZONE 'UTC' - interval '14 hours',
-                                  timestamptz '1970-01-01')
-                        <= least(:now, fetched_at + interval '5 minutes')
-                THEN greatest(reported_date::timestamp AT TIME ZONE 'UTC' - interval '14 hours',
-                              timestamptz '1970-01-01') END) AS earliest,
-                bool_or(content_basis='original' AND length(trim(content)) > 0) AS has_original
-            FROM articles WHERE fetched_at <= :now AND processing_track='legacy' GROUP BY event_id
-        )
-        SELECT e.id FROM events e JOIN original_times t ON t.event_id=e.id
-        WHERE NOT EXISTS (SELECT 1 FROM articles a
-                          WHERE a.event_id=e.id AND a.processing_track='r1')
-            AND e.scored_at IS NOT NULL AND e.scored_at >= e.changed_at
-            AND t.earliest >= :now - interval '48 hours' AND t.has_original
-            AND e.public_impact->>'status'='unknown'
-            AND e.public_impact->>'failure_kind' IN ('budget','generation')
-            AND CASE WHEN pg_input_is_valid(e.public_impact->>'assessed_at','timestamptz')
-                THEN (e.public_impact->>'assessed_at')::timestamptz <= :now - interval '1 hour'
-                ELSE true END
-        ORDER BY e.id LIMIT :limit
-    """)
-    with session_scope() as session:
-        ids = list(session.scalars(query, {"now": now, "limit": max(0, min(limit, 20))}))
-    refreshed = 0
-    for event_id in ids:
-        try:
-            with session_scope() as session:
-                event = session.get(Event, event_id, options=[selectinload(Event.articles)])
-                if event and refresh_event_public_impact(session, client, event, now):
-                    refreshed += 1
-        except Exception:
-            log.exception("public_impact_refresh_failed", event_id=event_id)
-    return refreshed

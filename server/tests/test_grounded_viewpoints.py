@@ -188,6 +188,7 @@ def test_bounded_candidate_scan_rotates(
 
 
 @pytest.mark.parametrize("transport_error", [False, True])
+@pytest.mark.legacy_batch
 def test_batch_caps_rejected_attempts(
     db_session: Session, monkeypatch: pytest.MonkeyPatch, transport_error: bool
 ) -> None:
@@ -223,6 +224,7 @@ def test_batch_caps_rejected_attempts(
     assert llm.calls == 2
 
 
+@pytest.mark.legacy_batch
 def test_batch_scan_resumes_after_attempt_budget(
     db_session: Session, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -324,6 +326,7 @@ def test_refresh_preserves_billed_usage_on_decode_failure(
     assert len(db_session.scalars(select(LlmUsage)).all()) == 1
 
 
+@pytest.mark.legacy_batch
 def test_hot_priority_and_background_lane_fairness(
     db_session: Session, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -418,6 +421,7 @@ def test_malformed_review_retains_existing_and_both_fees(db_session: Session) ->
     assert len(db_session.scalars(select(LlmUsage)).all()) == 4
 
 
+@pytest.mark.legacy_batch
 def test_batch_limit_counts_events_with_two_calls(
     db_session: Session, monkeypatch: pytest.MonkeyPatch
 ) -> None:
