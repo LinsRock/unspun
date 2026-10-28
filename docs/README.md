@@ -14,7 +14,7 @@
 | 实施 R2-07 进展与概况 | [当前契约](superpowers/specs/2026-10-23-r2-07-progress-overview.md)、[首批工程记录](acceptance/r2-07-progress-overview-2026-10-23.md)；真实质量与启用尚未完成 |
 | 处理暂缓的 R2-06 验收 | [当前交付与剩余门槛](acceptance/r2-06-completion-2026-10-22.md)、[本批契约](superpowers/specs/2026-10-22-r2-06-completion.md)；当前 3/4、真实语义未测、付费停止 |
 | 调整来源 | [来源计划](source-plan.md)，运行配置另看 `config/sources.yml` |
-| 清理文档或开发资源 | [清理任务板](tasks/cleanup.md)中对应 CL 项 |
+| 清理文档、资源或数据 | [清理任务板](tasks/cleanup.md)中对应 CL 项；CL-05 首批见[保留规则与隔离边界](superpowers/specs/2026-10-27-cl-05-retention-preparation.md) |
 | 修改架构或既有约定 | 搜索[决策日志](decisions.md)中的相关 D 编号，仅阅读有关条目 |
 | 部署或回退 | [部署配置](deploy-setup.md)、[工程约定](../CLAUDE.md)和 `deploy/` |
 | 追查历史、评测、验收或原型 | [历史索引与恢复](archive/README.md)；只打开要核对的原件 |
