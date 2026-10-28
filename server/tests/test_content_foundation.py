@@ -1,7 +1,5 @@
 """R1 contracts and ownership isolation, using only synthetic test material."""
 
-from collections.abc import Generator
-from contextlib import contextmanager
 from datetime import UTC, datetime
 from typing import Any
 
@@ -12,7 +10,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from tests.reading_fixtures import approve
-from tests.test_summarize_cluster import FakeLlm, unit_vector
+from tests.test_summarize_cluster import FakeLlm
 from unspun.core.content import (
     ContentMetadata,
     ContentTime,
@@ -30,7 +28,6 @@ from unspun.core.models import (
 )
 from unspun.core.params import get_scoring_params
 from unspun.core.reading import publication_counts
-from unspun.pipeline import cluster
 from unspun.pipeline.cluster import assign_article
 from unspun.pipeline.score import pending_score_conditions, score_event
 from unspun.pipeline.summarize import (
@@ -263,22 +260,3 @@ def test_legacy_entrypoints_refuse_r1_before_calling_models(db_session: Session)
             call()
     assert event.id not in db_session.scalars(select(Event.id).where(*pending_score_conditions()))
     assert event.id not in candidate_viewpoint_ids(db_session, min_sources=1)
-
-
-def test_clustering_does_not_assign_r1_even_when_legacy_ready(
-    db_session: Session,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    new = article(db_session, "r1-cluster", embedding=unit_vector(0))
-    old = article(db_session, "old-cluster", track="legacy", embedding=unit_vector(0))
-    approve(new)
-    approve(old)
-    db_session.flush()
-
-    @contextmanager
-    def scoped() -> Generator[Session]:
-        yield db_session
-
-    monkeypatch.setattr(cluster, "session_scope", scoped)
-    assert cluster.cluster_pending() == (1, 1)
-    assert old.event_id is not None and new.event_id is None

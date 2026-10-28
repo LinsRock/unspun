@@ -6,16 +6,9 @@ import numpy as np
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from unspun.core.content import is_legacy, legacy_event_condition, require_legacy
-from unspun.core.db import session_scope
-from unspun.core.logging import get_logger
+from unspun.core.content import legacy_event_condition, require_legacy
 from unspun.core.models import Article, Event
-from unspun.core.params import get_scoring_params
-from unspun.core.reading import ready_condition, refresh_event_text
-
-log = get_logger("unspun.pipeline.cluster")
-
-CLUSTER_BATCH_LIMIT = 500
+from unspun.core.reading import refresh_event_text
 
 
 def assign_article(session: Session, article: Article, threshold: float) -> bool:
@@ -69,36 +62,3 @@ def refresh_centroid(session: Session, event: Event) -> None:
     if norm > 0:
         centroid = centroid / norm
     event.centroid = centroid.tolist()
-
-
-def cluster_pending(limit: int = CLUSTER_BATCH_LIMIT) -> tuple[int, int]:
-    """Assign all summarized+embedded articles to events; returns (assigned, created)."""
-    threshold = get_scoring_params().clustering.similarity_threshold
-    with session_scope() as session:
-        ids = list(
-            session.scalars(
-                select(Article.id)
-                .where(
-                    Article.embedding.is_not(None),
-                    Article.event_id.is_(None),
-                    ready_condition(),
-                    Article.processing_track == "legacy",
-                )
-                .order_by(Article.id)
-                .limit(limit)
-            )
-        )
-    assigned = 0
-    created = 0
-    for article_id in ids:
-        try:
-            with session_scope() as session:
-                article = session.get(Article, article_id)
-                if article is None or not is_legacy(article) or article.event_id is not None:
-                    continue
-                if assign_article(session, article, threshold):
-                    created += 1
-                assigned += 1
-        except Exception:
-            log.exception("cluster_assign_failed", article_id=article_id)
-    return assigned, created

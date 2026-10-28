@@ -2,7 +2,6 @@
 
 import copy
 import json
-from itertools import batched
 from typing import Any, cast
 
 import httpx
@@ -42,7 +41,6 @@ from unspun.core.reading import (
     refresh_event_text,
 )
 from unspun.core.review_budget import GroundingBudgetExceeded, require_grounding_budget
-from unspun.pipeline.cluster import refresh_centroid
 
 log = get_logger("unspun.pipeline.summarize")
 
@@ -88,7 +86,6 @@ TITLE_PLACEHOLDERS = {
     "\u4e0d\u8be6",
     "\u65e0",
 }
-EMBED_BATCH_SIZE = 32  # texts per embedding API call, not a tuning knob
 
 
 def summarize_article(session: Session, client: SupportsLlm, article: Article) -> None:
@@ -422,36 +419,4 @@ def summarize_pending(client: SupportsLlm, limit: int | None = None) -> int:
             log.exception("summarize_failed", article_id=article_id)
         else:
             done += 1
-    return done
-
-
-def embed_pending(client: SupportsLlm, limit: int | None = None) -> int:
-    if limit is None:
-        limit = get_scoring_params().pipeline.embed_batch_limit
-    with session_scope() as session:
-        ids = list(
-            session.scalars(
-                select(Article.id)
-                .where(*pending_embedding_conditions())
-                # Same newest-first order as summaries, so hot articles are
-                # not stuck behind old leftovers on the way to clustering.
-                .order_by(Article.published_at.desc().nulls_last(), Article.id.desc())
-                .limit(limit)
-            )
-        )
-    done = 0
-    for batch_ids in batched(ids, EMBED_BATCH_SIZE):
-        try:
-            with session_scope() as session:
-                articles = [
-                    a
-                    for article_id in batch_ids
-                    if (a := session.get(Article, article_id)) is not None
-                ]
-                embed_articles(session, client, articles)
-                for event in {a.event for a in articles if a.event is not None}:
-                    refresh_centroid(session, event)
-                done += len(articles)
-        except Exception:
-            log.exception("embed_batch_failed", article_ids=list(batch_ids))
     return done

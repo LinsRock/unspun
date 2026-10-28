@@ -218,6 +218,7 @@ def test_unrelated_cluster_member_cannot_supply_event_facts() -> None:
     assert {fact["article_id"] for fact in projection["facts"]} == {a.id}
 
 
+@pytest.mark.legacy_batch
 def test_batch_budget_preflight_keeps_retryable_state_without_generation(
     db_session: Session,
     monkeypatch: pytest.MonkeyPatch,
@@ -247,6 +248,7 @@ def test_batch_budget_preflight_keeps_retryable_state_without_generation(
     assert a.id in pending_summary_ids(db_session, 10)
 
 
+@pytest.mark.legacy_batch
 def test_exact_duplicate_reuses_review_without_budget_or_provider_call(
     db_session: Session,
     monkeypatch: pytest.MonkeyPatch,

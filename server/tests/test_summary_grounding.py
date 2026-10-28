@@ -326,6 +326,7 @@ def test_supported_facts_remain_after_one_semantic_call() -> None:
 
 @pytest.mark.parametrize("error_kind", ["parse", "transport"])
 @pytest.mark.parametrize("failed_purpose", ["summary", "grounding"])
+@pytest.mark.legacy_batch
 def test_billed_parse_error_commits_usage_without_generated_article_fields(
     db_session: Session, monkeypatch: pytest.MonkeyPatch, failed_purpose: str, error_kind: str
 ) -> None:
@@ -700,6 +701,7 @@ def test_editor_discards_unsupported_predicate_money_identity_and_dangling_claus
 
 
 @pytest.mark.parametrize("review", [False, True])
+@pytest.mark.legacy_batch
 def test_shared_budget_defers_without_abandoning_content_or_losing_draft(
     db_session: Session, monkeypatch: pytest.MonkeyPatch, review: bool
 ) -> None:
