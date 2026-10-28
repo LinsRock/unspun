@@ -38,4 +38,10 @@
 
 审查覆盖本批差异及调用方、动态注册/运维/恢复引用、旧包装禁跑和历史测试保留边界；未发现未解决问题。76 个本地文档链接及差异格式通过；冻结评测、config、API/core、schema、页面和部署文件与基线逐文件一致。R2-11 三个缓存及 R2-04 保留 worktree 的 **635 份文件**哈希保持（其中 R2-04 工作区 `docs/` **464 份**）；旧原件登记、任务板结论和完整 CL-04 四项验收清单不改。
 
-PR/CI 和可能的自动部署版本在交付后补录。R2-11 保持 **8/12 暂缓**，不追加 mixed 观察、不修改接续资源；新增模型付费、提供方查询、生产数据清理和 R3 均 **0**，不宣称原 R1 自然活动全窗口零费用。
+[PR #146](https://github.com/LinsRock/unspun/pull/146) 的最终 head `47eb646` 在[必需 CI 第 2 次尝试](https://github.com/LinsRock/unspun/actions/runs/40673168603/attempts/2)全部实际通过后，于 **2026-10-28 10:43:35 UTC** 合并为 **`23d654d1229aa4d059eb796cd3f46daa04b4dea7`**。首轮 Web 在未改动的 `CostsPage.test.tsx` 触及默认 5 秒超时，141 项通过、1 项超时；保留[首次失败](https://github.com/LinsRock/unspun/actions/runs/40673168603/attempts/1)，同一 head 按失败作业重跑后 Web/汇总通过，没有改页面、断言或超时门槛。后端 CI 同样为 1,355 通过、13 项排除，固定 40 例通过。
+
+[主干 CI/自动发布](https://github.com/LinsRock/unspun/actions/runs/40674388149)全部成功，server/web/required-checks、镜像构建及 `Deploy` 均实际执行通过。主干后端同为 **1,355 通过、13 排除**，40 例排序通过；没有因耗时较长重跑或提前部署。
+
+**2026-10-28 10:56 UTC** 只读核对：API 和受控 worker 的实际 server 镜像及 `APP_VERSION` 均为 **`23d654d1229aa4d059eb796cd3f46daa04b4dea7`**；Web 复用固定 **`4042f20ddae82b9282e8c3b57c5c99bbcb430125`** 镜像。API 的 mixed/发现首页仍为 true，成员处理/合成/话题发布/话题偏好仍为 false；worker 的 R1 开关为 true、所有 R2 开关为 false。核对仅读取版本/设置，没有 mixed HTTP、观察脚本、手动部署或额外生产数据探针。部署后再次核验上述 635 份文件哈希一致。
+
+R2-11 保持 **8/12 暂缓**，不追加 mixed 观察、不修改接续资源；新增模型付费、提供方查询、生产数据清理和 R3 均 **0**，不宣称原 R1 自然活动全窗口零费用。本次后续文档提交不改变上述实际运行版本。
