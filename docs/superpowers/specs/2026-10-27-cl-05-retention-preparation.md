@@ -4,7 +4,7 @@
 
 ## 当前授权与保护边界
 
-- 从 `origin/main 4042f20` 独立开发。未合并的 [PR #143](https://github.com/LinsRock/unspun/pull/143) 与 [PR #144](https://github.com/LinsRock/unspun/pull/144) 的当前保护登记继续有效。原主干中的“启用准备、等待授权”是旧截面；实际有限启用交接见 [#143 固定版本](https://github.com/LinsRock/unspun/blob/6a1592cd8e32157860aeebf6810b3a8c6c4c2a44/docs/acceptance/r2-11-reading-enablement-2026-10-26.md)，最新暂缓与资源范围见 [CL-03 固定交接](https://github.com/LinsRock/unspun/blob/1f2007fd640cfe4b9618db086f49ad6272cac88e/docs/acceptance/cl-03-local-cleanup-2026-10-27.md)。
+- 开发基线为 `origin/main 4042f20`；2026-10-28 收口已同步最新 main `f5db113`。[PR #143](https://github.com/LinsRock/unspun/pull/143) / [PR #144](https://github.com/LinsRock/unspun/pull/144) 均在最终 head 必需 CI 实际通过后依序合并为 `a0854c4` / `f5db113`，其保护登记继续有效。有限启用、观察缺口与最新暂缓见[完整交接](../../acceptance/r2-11-reading-enablement-2026-10-26.md)，实际回收与保留范围见[CL-03 交接](../../acceptance/cl-03-local-cleanup-2026-10-27.md)。
 - **R2-11 暂缓，8/12、原失败、全部接续脚本/结果/环境保持；“到时执行”不再是授权。** 不调用观察器或 mixed 探测，不改现网开关。
 - 生产仅允许有界 `REPEATABLE READ / READ ONLY` 核对，无删除、归档、压缩、schema 变更。现有预览及 84 个 CL-03 保留库均禁止 apply；R2-04、冻结输入、原累计评测、未知预留、paid-stop、用户空评分保持。
 - 本批主动生成、embedding、付费重试、提供方查询均 0；原 R1 消费者自然活动不算本批调用，也不宣称整个窗口零费用。不购买额度、不绕过 CI。

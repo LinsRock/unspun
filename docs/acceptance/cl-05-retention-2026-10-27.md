@@ -2,6 +2,8 @@
 
 从最新 `origin/main 4042f20ddae82b9282e8c3b57c5c99bbcb430125` 新建 `feat/cl-05-retention` 工作区。交付[保留规则、谓词、上限与恢复](../superpowers/specs/2026-10-27-cl-05-retention-preparation.md)、[精确候选清单](cl-05-candidates-2026-10-27.json)及默认 dry-run 的[隔离入口](../../server/eval/cl05_retention.py)。本批是可复核、可恢复的准备，生产实际清理仍待后续验收。
 
+2026-10-28 收口：已同步 #143 / #144 合并后的最新 main `f5db113` 并解决文档冲突，保留 R2-11 暂缓 **8/12**、CL-03 已完成及下述生产零候选事实。候选原件、工具及测试代码保持本批已验证版本；本次不重复候选查询、隔离清理或恢复演练，不执行生产清理、不手动部署、不恢复模型付费。最终 head 的实际必需检查及合并状态以 [PR #145](https://github.com/LinsRock/unspun/pull/145) 为准，不以早期失败或跳过的检查代替。
+
 ## 当前候选与排除
 
 2026-10-27 最终核对为 **19:35:44 / 19:36:52 +08:00** 两个 RR/READ ONLY 截面，每页最多 50 对象，单 SQL 5 秒、事务 120 秒；先前两页后因终版扩大分隔符匹配而复核，累计严格 **4 页、114 次对象检查、57 个唯一对象**。没有 mixed/API 探测、生产数据写入、文件归档、压缩、schema 变更或定时任务。
@@ -28,7 +30,7 @@
 
 ## 保护核验与检查
 
-[CL-03 固定交接](https://github.com/LinsRock/unspun/blob/1f2007fd640cfe4b9618db086f49ad6272cac88e/docs/acceptance/cl-03-local-cleanup-2026-10-27.md)的 **5,142 个文件** SHA-256 全部相同；9 个关键保留库逐用户表哈希与其保护基线一致，未重启现有预览。未合并 [#143](https://github.com/LinsRock/unspun/pull/143) / [#144](https://github.com/LinsRock/unspun/pull/144) 的工作区、原输出、paid-stop、R2-04 与所有 R2-11 接续资源保持；计数仍 **8/12，剩余 4 次暂缓**。没有执行观察器或改变现网。
+[CL-03 固定交接](https://github.com/LinsRock/unspun/blob/1f2007fd640cfe4b9618db086f49ad6272cac88e/docs/acceptance/cl-03-local-cleanup-2026-10-27.md)的 **5,142 个文件** SHA-256 全部相同；9 个关键保留库逐用户表哈希与其保护基线一致，未重启现有预览。本批核验时尚未合并、现已分别合并为 `a0854c4` / `f5db113` 的 [#143](https://github.com/LinsRock/unspun/pull/143) / [#144](https://github.com/LinsRock/unspun/pull/144) 的工作区、原输出、paid-stop、R2-04 与所有 R2-11 接续资源保持；计数仍 **8/12，剩余 4 次暂缓**。没有执行观察器或改变现网。
 
 后端全回归 **1,369 项通过**；最终“重复执行同一归档路径返回 0、不覆盖原件”的小修订另跑定向 **1 项通过**。Ruff、格式、Pyright 通过。审查覆盖默认只读、调用方/CI 范围、新库身份拒绝、引用闭包、并发锁/回滚、归档耐久性及恢复、保留规则与实际零候选。完整回归曾发现合成历史样本使用 DB/宿主时钟边界导致读取空集，已改为显式过去时间，终版完整回归通过；未修改产品读取行为。
 
