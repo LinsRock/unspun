@@ -1,6 +1,10 @@
 # R2-11 首批阅读入口启用与观察
 
-**当前：用户已明确授权的 [PR #142](https://github.com/LinsRock/unspun/pull/142) 已合并、部署 `4042f20`，仅 mixed/发现首页开启。** 观察曾中断并发生探测器误回退，恢复后补充窗口单列；24 小时、性能和 R2-11 整体验收仍未完成。范围见[本批契约](../superpowers/specs/2026-10-26-r2-11-reading-enablement.md)，页面沿用 [R2-10 已通过的体验](r2-10-reading-preview-2026-10-26.md)；不补记话题链、真实质量或新用户评分。下方准备期证据保留原时点，最新执行状态以本节为准。
+**当前排期（2026-10-28 收口确认）：R2-11 暂缓，保持 8/12。** 保留接续环境、脚本、全部结果及原失败，不继续探测、不改变现网。剩余四次须等用户重新排期；下方旧“到时执行”命令仅为恢复入口，不再是执行授权。24 小时、性能及整体验收仍未完成。
+
+CL-03 已保护 `r2-reading-enablement`、`r2-reading-rollout`、两个 R2-11 库及 `~/.cache/unspun/r2-11-enablement/`、`r2-11-performance/`、`r2-11-rollout/` 的全部文件；见[清理交接](cl-03-local-cleanup-2026-10-27.md)。[PR #143](https://github.com/LinsRock/unspun/pull/143) 的最终 head `6a1592c` 必需 CI 已实际通过，2026-10-28 合并为 `a0854c4`；本次不重新运行生产观察或离线加固。
+
+**已发生的上线事实：** 用户已明确授权的 [PR #142](https://github.com/LinsRock/unspun/pull/142) 已合并、部署 `4042f20`，仅 mixed/发现首页开启。观察中断、探测器误回退及恢复后的补充窗口按原记录保留。范围见[本批契约](../superpowers/specs/2026-10-26-r2-11-reading-enablement.md)，页面沿用 [R2-10 已通过的体验](r2-10-reading-preview-2026-10-26.md)；不补记话题链、真实质量或新用户评分。下方历史证据和恢复说明须服从开头的暂缓安排。
 
 基线 `origin/main d975e9d`；独立 worktree `/Users/li.cong/.config/superpowers/worktrees/unspun/r2-reading-enablement`，分支 `feat/r2-reading-enablement`，`server/.venv` 和源码导入指向本 worktree。新测试库 `unspun_r211_test_20261026`、真实阅读库 `unspun_r211_reading_20261026` 均从空库迁移至 `000021`；本 PR 无迁移。
 
@@ -63,7 +67,7 @@ caffeinate -i /Users/li.cong/.config/superpowers/worktrees/unspun/r2-reading-ena
 
 **离线验证 36 项通过，Ruff 与格式检查通过。** 使用四份保存的连续分页响应，变化/故障输入明确为合成离线样本：覆盖正常兴趣和正反馈扩大候选、Reader 版本/回执、R1 自然请求及在途完成、无法归因增量、400/409、真实违规、两条延迟线、先计数再请求、中断后不重试、原八条记录保持，以及回退 stdin/实际门槛验证。网络连接被测试夹具禁止，使用假认证字符串，不读取正式 token；未执行生产审计或提供方操作。实际提前运行接续命令返回 `NOT DUE`，未访问网络、未改计数。
 
-脚本与校验摘要保留在本机 `observer-hardening-check.json`：`observe-day1.py` SHA-256 `c6a9e3f86f875a8d4b7ad53baf212df3f86c63eb825a80f93f361560b29da587`，`observer_rules.py` `906074459ad54ead3bc76a5960b3b8e24d5321969940c467fab773ab30b45f69`。结果追加到原 [PR #143](https://github.com/LinsRock/unspun/pull/143)，仍为纯文档变更；GitHub 账务/Actions 配额阻塞恢复后只执行该 head 必需 CI，通过后合并，不绕过检查、不重复部署。本节不补齐首轮/约 30 分钟缺失窗口，不构成 24 小时、性能或 R2-11 整体验收。
+脚本与校验摘要保留在本机 `observer-hardening-check.json`：`observe-day1.py` SHA-256 `c6a9e3f86f875a8d4b7ad53baf212df3f86c63eb825a80f93f361560b29da587`，`observer_rules.py` `906074459ad54ead3bc76a5960b3b8e24d5321969940c467fab773ab30b45f69`。结果追加到原 [PR #143](https://github.com/LinsRock/unspun/pull/143)，仍为纯文档变更；原 GitHub 账务/Actions 配额阻塞已解除，最终 head `6a1592c` 的[必需 CI](https://github.com/LinsRock/unspun/actions/runs/40457025345) 实际通过并于 2026-10-28 合并为 `a0854c4`，未重复部署或探测。本节不补齐首轮/约 30 分钟缺失窗口，不构成 24 小时、性能或 R2-11 整体验收。
 
 ## 只读生产与账本截面
 
