@@ -10,7 +10,12 @@
     "replay.py": "a9dfb698276ac3dd04d4d8e4eb69ba4ddb063d3d3667503593b435ebe8e1b614",
     "expected-metadata.json": "38e65663c99c8c13bd77576a3b8c9591f4004bfde94468c02e041f825b0b912b",
     "replay-result.json": "e3827770fbe9a2174f8687ad1ee16b2048f4cd63daa60908d0a4a07eb4b6a26f",
-    "preserved-inputs-before.json": "17c56e8a3b4f5a0123417feae2458681832f65e20da3112afba71daaf595d1c4"
+    "preserved-inputs-before.json": "17c56e8a3b4f5a0123417feae2458681832f65e20da3112afba71daaf595d1c4",
+    "card-inputs.py": "e042d2dd2501a18ca8fe1c61de907a2e5e25ea73a4c2278047ce87db353bb4f2",
+    "card-input-result.json": "f4817e26149dcea1c2bcd16dc6f2ee2ef41fcc8917594680923dbb49f6742762",
+    "runtime-read.py": "d49130c4ba9c58cba36377cd92d039287bdc4deec5f4cebe3771eb4f56653430",
+    "runtime-before.json": "f367e95622361252bface9439a6686be039bfc8ca76a8837572a2dafe6e89604",
+    "runtime-after.json": "d2467647e16332437d17c39234c5a82c564259e79464f83a13b376cae7c14309"
   },
   "prior_window_review_sha256": "ab6f112a1452d5b5267a12c9d9cb80c8c0cc2df4b407fc6c32c6c51ec6811d59",
   "private_inputs_preserved": 330,
@@ -154,6 +159,23 @@
     "default_suite": 1383,
     "skipped": 0,
     "fixed_ranking_events": 40,
-    "ruff_format_pyright": "passed"
+    "ruff_format_pyright": "passed",
+    "current_card_input_contract": "r1-card-v9",
+    "current_card_inputs": 90,
+    "archival_time_insufficient_material_exclusions": 6,
+    "generation_semantics": "unmeasured; input construction and deterministic exclusion only"
+  },
+  "delivery": {
+    "implementation_pr": "https://github.com/LinsRock/unspun/pull/153",
+    "implementation_merge_revision": "201b5bdd0680e1a0bfb031cb30c8523560888830",
+    "pr_ci": "https://github.com/LinsRock/unspun/actions/runs/40865057482",
+    "main_ci_and_actual_deploy": "https://github.com/LinsRock/unspun/actions/runs/40866525747",
+    "runtime_verified_at": "2026-10-29 11:48:01 UTC",
+    "api_worker_revision": "201b5bdd0680e1a0bfb031cb30c8523560888830",
+    "attribution_version": "thepaper-byline-v2",
+    "existing_switches_unchanged": true,
+    "both_sources_stages_and_scopes_closed": true,
+    "web_image_unchanged": true,
+    "mixed_probes": 0
   }
 }
