@@ -53,8 +53,7 @@ venv = ".venv"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-m 'not legacy_batch'"
 markers = [
     "anyio",
-    "legacy_batch: historical batch replay, excluded from current regression",
+    "legacy_batch: retained mock batch regression, included by default",
 ]
