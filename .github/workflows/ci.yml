@@ -124,7 +124,8 @@ jobs:
           --health-timeout 3s
           --health-retries 10
     env:
-      UNSPUN_DATABASE_URL: postgresql+psycopg://unspun:unspun@localhost:5432/unspun_test
+      UNSPUN_DATABASE_URL: postgresql+psycopg://unspun:unspun@127.0.0.1:5432/unspun_test
+      UNSPUN_OPENROUTER_API_KEY: ""
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
@@ -134,8 +135,42 @@ jobs:
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run pyright
-      - run: uv run alembic upgrade head
-      - run: uv run pytest
+      - name: Run mock regressions with external networking blocked
+        working-directory: .
+        env:
+          TEST_DB_CONTAINER: ${{ job.services.db.id }}
+        run: |
+          image="unspun-tests:${GITHUB_SHA}"
+          network="unspun-test-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          docker build -f server/tests/Dockerfile -t "$image" .
+          test "$(docker inspect --format '{{len .NetworkSettings.Networks}}' "$TEST_DB_CONTAINER")" = 1
+          original_network=$(docker inspect --format '{{range $name, $_ := .NetworkSettings.Networks}}{{$name}}{{end}}' "$TEST_DB_CONTAINER")
+          docker network create --internal "$network"
+          cleanup() {
+            test_status=$?
+            trap - EXIT
+            cleanup_status=0
+            docker network connect "$original_network" "$TEST_DB_CONTAINER" || cleanup_status=$?
+            docker network disconnect "$network" "$TEST_DB_CONTAINER" || cleanup_status=$?
+            docker network rm "$network" || cleanup_status=$?
+            if [ "$test_status" -eq 0 ]; then
+              test_status=$cleanup_status
+            fi
+            exit "$test_status"
+          }
+          trap cleanup EXIT
+          docker network connect "$network" "$TEST_DB_CONTAINER"
+          docker network disconnect "$original_network" "$TEST_DB_CONTAINER"
+          test "$(docker inspect --format '{{len .NetworkSettings.Networks}}' "$TEST_DB_CONTAINER")" = 1
+          test "$(docker network inspect --format '{{.Internal}}' "$network")" = true
+          runner=(docker run --rm --network "container:${TEST_DB_CONTAINER}"
+            --volume "$PWD:/workspace:ro"
+            --env "UNSPUN_DATABASE_URL=${UNSPUN_DATABASE_URL}"
+            --env UNSPUN_OPENROUTER_API_KEY= "$image")
+          "${runner[@]}" uv run --no-sync alembic upgrade head
+          "${runner[@]}" uv run --no-sync python tests/check_isolation.py
+          "${runner[@]}" uv run --no-sync pytest -m legacy_batch
+          "${runner[@]}"
       - name: Verify frozen M3-B event-set ranking
         run: >-
           uv run python -m unspun.evaluation.run_feed_ranking
