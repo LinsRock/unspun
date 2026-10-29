@@ -1,0 +1,24 @@
+# Production-only allowlist. Other Dockerfiles and read-only source mounts
+# retain the full checkout, including tests and frozen evaluation inputs.
+# File-only exceptions avoid admitting other files through a directory exception.
+**
+!server/pyproject.toml
+!server/uv.lock
+!server/src/unspun/__init__.py
+!server/src/unspun/api/**/*.py
+!server/src/unspun/core/*.py
+!server/src/unspun/pipeline/*.py
+!server/alembic.ini
+!server/alembic/env.py
+!server/alembic/script.py.mako
+!server/alembic/versions/*.py
+!config/media_groups.yml
+!config/r1-reader.yml
+!config/r2-hybrid.yml
+!config/scoring.yml
+!config/sources.yml
+
+# Never admit local hidden files or bytecode from the selected directories.
+**/.*
+**/__pycache__
+**/*.pyc
