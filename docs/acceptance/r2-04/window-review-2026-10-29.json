@@ -1,0 +1,252 @@
+{
+  "schema_version": "r2-04-finished-window-review-v1",
+  "reviewed_at": "2026-10-29T08:52:02.030609+00:00",
+  "baseline": "ba17f35",
+  "reviewer": "Codex technical review; not user acceptance",
+  "scope": "Only the registered 2026-10-20/21 historical window, read from private originals on 2026-10-29. No repair, recapture or enablement.",
+  "registration": "docs/evaluations/r2/source-increments-window-v1.json",
+  "registration_sha256": "f1fe3b234077475f56ec83a5d275b4f05bc88d42f0a78150f2a8b02dc3283f4f",
+  "collector": "docs/acceptance/r2-04/collect.py",
+  "collector_sha256": "e3abe79042010cda38d9543c013555357fa2b1398889b5e0d9188435926e8960",
+  "collected_at": "2026-10-29T08:40:20.014948+00:00",
+  "private_directory": "/Users/li.cong/.cache/unspun-r204-20261029/whole-window-review",
+  "remote_original_directory": "/home/leon/unspun-observations/r2-04-window-v1/window",
+  "container_state": "exited 0",
+  "container_finished_at": "2026-10-20T16:54:34.101931516Z",
+  "window_started_at": "2026-10-20T06:54:29.643514+00:00",
+  "window_finished_at": "2026-10-20T16:54:33.171395+00:00",
+  "integrity": {
+    "files": 275,
+    "bytes": 5119185,
+    "checked_requests": 78,
+    "checked_responses": 75,
+    "remote_local_archive_members_identical": true,
+    "manifest_sha256": "34f7ca51845752db76c5768ff94e99e0294aa4ebf9e4ecee1be821b4e9b13c3b",
+    "archive_sha256": "87d97d7f8344d51e591ada55de0b4c8d925eef1643e32c98532ab3e0b80ddfee",
+    "all_request_records_match_embedded_records": true,
+    "all_response_bytes_match_recorded_lengths_and_sha256": true,
+    "all_materials_match_embedded_metadata_character_counts_and_text_sha256": true,
+    "registered_script_source_and_config_hashes_match": true,
+    "scheduled_rounds_retained": 42,
+    "planned_material_slots_retained": 84,
+    "retrieved_material_files": 78,
+    "missing_material_slots_unmeasured": 6,
+    "list_identity_title_time_observations_checked_against_raw_responses": 940
+  },
+  "private_audit_references": {
+    "collection.json": "b4c03c4ac0245789e9576b845f6995bd5268a8544d8f4a8c1995b5234c197df1",
+    "remote-manifest.json": "34f7ca51845752db76c5768ff94e99e0294aa4ebf9e4ecee1be821b4e9b13c3b",
+    "offline-review.json": "1515c78569c986224ac23b6c2d95b74bf0d009764ba69fc0d46baa40f94d2f43",
+    "window/run.json": "eeb8c62fceed1e8a0f70f91b966e4016038fca0e7a2cae1d712b66c35e5872df",
+    "window/finished.json": "e11421372446efd4395baf62dee6dc3708c47d2f02b5b22055fbc22df6c678b6"
+  },
+  "public_evidence": {
+    "docs/acceptance/r2-04/window-review-rounds-2026-10-29.csv": "e34213a9965a968a7c8bd3c828ff81b92312fc99c592680c544df2d8d270b631",
+    "docs/acceptance/r2-04/window-review-materials-2026-10-29.csv": "cd3da7d9da86fd07cbaf83608d85104c08d09660d616c9720ec77eb7ad370835"
+  },
+  "sources": {
+    "thepaper-sidebar": {
+      "recorded_rounds": 21,
+      "metadata_successes": 18,
+      "metadata_denominator": 21,
+      "metadata_success_fraction": 0.8571428571428571,
+      "metadata_failure_rounds": [
+        3,
+        4,
+        13
+      ],
+      "maximum_consecutive_metadata_failures": 2,
+      "successes_after_last_failure": 7,
+      "elapsed_seconds": 36000.000347,
+      "local_dates": [
+        "2026-10-20",
+        "2026-10-21"
+      ],
+      "maximum_attempt_gap_seconds": 1800.001687,
+      "maximum_successful_metadata_gap_seconds": 5399.999812,
+      "client_http_attempts_including_redirects": 57,
+      "missing_rounds": [],
+      "automatic_retries": 0,
+      "scheduled_material_slots": 42,
+      "retrieved_materials": 36,
+      "unretrieved_material_slots": 6,
+      "declared_scope_successes": 31,
+      "declared_scope_denominator": 36,
+      "declared_scope_success_fraction": 0.8611111111111112,
+      "distinct_material_urls": 28,
+      "nonempty_distinct_texts": 23,
+      "duplicate_material_observations": 8,
+      "identity_audit_passes": 36,
+      "time_role_audit_passes": 36,
+      "scope_interpretation_audit_passes": 36,
+      "author_audit_failures": 14,
+      "author_failure_distinct_identities": 12,
+      "all_material_checks_pass": 21,
+      "all_material_checks_pass_distinct_identities": 15,
+      "issue_occurrences": {
+        "P03": 5,
+        "P05": 6,
+        "P04": 5,
+        "P02": 5
+      },
+      "list_observations": 520,
+      "distinct_list_identities": 60,
+      "repeated_list_observations": 460,
+      "new_identities_after_round_zero": 30,
+      "new_with_supported_platform_or_brief_time_in_window": 24,
+      "new_without_window_publication_time": 6,
+      "material_time_kind_occurrences": {
+        "original": 23,
+        "reprint": 13
+      },
+      "historical_observation_and_material_review": "fail",
+      "failure_recovery": "observed_after_failure_runs_but_consecutive_failure_gate_failed",
+      "current_availability": "unmeasured",
+      "current_generation_quality": "unmeasured",
+      "current_cost_projection": "unmeasured_historical_projection_failed",
+      "technical_first_party_materials_obtained": 0,
+      "paid_allowed": false,
+      "publication_allowed": false,
+      "published_new_readable_items": 0
+    },
+    "36kr-newsflashes": {
+      "recorded_rounds": 21,
+      "metadata_successes": 21,
+      "metadata_denominator": 21,
+      "metadata_success_fraction": 1.0,
+      "metadata_failure_rounds": [],
+      "maximum_consecutive_metadata_failures": 0,
+      "successes_after_last_failure": null,
+      "elapsed_seconds": 35997.993801,
+      "local_dates": [
+        "2026-10-20",
+        "2026-10-21"
+      ],
+      "maximum_attempt_gap_seconds": 1815.28337,
+      "maximum_successful_metadata_gap_seconds": 1815.28337,
+      "client_http_attempts_including_redirects": 21,
+      "missing_rounds": [],
+      "automatic_retries": 0,
+      "scheduled_material_slots": 42,
+      "retrieved_materials": 42,
+      "unretrieved_material_slots": 0,
+      "declared_scope_successes": 42,
+      "declared_scope_denominator": 42,
+      "declared_scope_success_fraction": 1.0,
+      "distinct_material_urls": 37,
+      "nonempty_distinct_texts": 37,
+      "duplicate_material_observations": 5,
+      "identity_audit_passes": 42,
+      "time_role_audit_passes": 42,
+      "scope_interpretation_audit_passes": 42,
+      "author_audit_failures": 0,
+      "author_failure_distinct_identities": 0,
+      "all_material_checks_pass": 42,
+      "all_material_checks_pass_distinct_identities": 37,
+      "issue_occurrences": {},
+      "list_observations": 420,
+      "distinct_list_identities": 115,
+      "repeated_list_observations": 305,
+      "new_identities_after_round_zero": 95,
+      "new_with_supported_platform_or_brief_time_in_window": 94,
+      "new_without_window_publication_time": 1,
+      "material_time_kind_occurrences": {
+        "original": 42
+      },
+      "historical_observation_and_material_review": "pass_for_complete_brief_only",
+      "failure_recovery": "unmeasured_no_failure_occurred",
+      "current_availability": "unmeasured",
+      "current_generation_quality": "unmeasured",
+      "current_cost_projection": "unmeasured_historical_projection_failed",
+      "technical_first_party_materials_obtained": 0,
+      "paid_allowed": false,
+      "publication_allowed": false,
+      "published_new_readable_items": 0
+    }
+  },
+  "duplicate_contribution": {
+    "exact_nonempty_text_hash_matches_across_selected_materials": 0,
+    "exact_title_pairs_across_routes": [
+      {
+        "thepaper_identity": "34289194",
+        "brief_identity": "4033876506956937",
+        "thepaper_record": "001-thepaper-sidebar/record.json",
+        "brief_record": "001-36kr-newsflashes/record.json",
+        "relation": "title_lead_only_paper_body_not_sampled"
+      },
+      {
+        "thepaper_identity": "34289607",
+        "brief_identity": "4033924056355720",
+        "thepaper_record": "005-thepaper-sidebar/record.json",
+        "brief_record": "003-36kr-newsflashes/record.json",
+        "relation": "title_lead_only_paper_body_not_sampled"
+      },
+      {
+        "thepaper_identity": "34291005",
+        "brief_identity": "4034073896817792",
+        "thepaper_record": "008-thepaper-sidebar/record.json",
+        "brief_record": "008-36kr-newsflashes/record.json",
+        "relation": "shared_xinhua_reporting_plus_paper_cctv_explanation"
+      }
+    ],
+    "new_identity_counts_are_relative_to_round_zero_not_current_production": true,
+    "current_production_exact_or_semantic_increment": "unmeasured_no_production_or_source_queries",
+    "independent_report_count": null
+  },
+  "cache_review": {
+    "configured_feed_ttl_seconds": 1800,
+    "configured_content_ttl_seconds": 3600,
+    "elapsed_spans_both_ttls": true,
+    "cache_bypass_requests": 0,
+    "forced_cold_cache_and_rsshub_upstream_request_counts": "unmeasured",
+    "36kr_distinct_raw_response_fingerprints": 14,
+    "36kr_distinct_entry_identity_title_time_description_sets": 10,
+    "36kr_unchanged_entry_set_rounds": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "36kr_unchanged_entry_set_span_seconds": 12582.521538,
+    "36kr_latest_brief_at_end": "2026-10-20T12:57:27Z",
+    "36kr_after_midnight_publication_or_upstream_quiet_vs_stale": "unmeasured"
+  },
+  "text_normalization_review": {
+    "whitespace_normalized_exact_matches": 77,
+    "duplicate_heading_normalization": {
+      "material": "005-thepaper-sidebar/material-01.json",
+      "raw_characters": 2628,
+      "stored_characters": 2450,
+      "duplicate_heading_occurrences_removed": 8,
+      "all_distinct_headings_and_claims_retained": true
+    }
+  },
+  "this_batch_actions": {
+    "generation_requests": 0,
+    "embedding_requests": 0,
+    "paid_retries": 0,
+    "provider_queries": 0,
+    "new_source_requests": 0,
+    "observation_container_starts": 0,
+    "production_writes": 0,
+    "paid_stop_or_reservation_changes": 0,
+    "r2_06_probes": 0,
+    "r2_11_probes": 0,
+    "cleanup_actions": 0
+  },
+  "boundaries": {
+    "sources_remain_off": true,
+    "production_configuration_and_data_untouched": true,
+    "budgets_paid_stop_unknown_reservations_and_frozen_originals_preserved": true,
+    "r2_06": "deferred_3_of_4",
+    "r2_11": "deferred_8_of_12",
+    "r3_started": false,
+    "r2_04_overall_accepted": false,
+    "user_acceptance": null,
+    "followup_execution_authorized_by_this_review": false
+  }
+}
