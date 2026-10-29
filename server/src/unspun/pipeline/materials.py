@@ -363,11 +363,13 @@ def retrieve_material(
             elif 200 <= status < 300:
                 page = TextPage(response.text)
                 if config.adapter in {"thepaper", "netease", "tencent"}:
-                    from unspun.pipeline.public_sources import public_material
+                    from unspun.pipeline.public_sources import PAPER_BYLINE_VERSION, public_material
 
                     metadata, text_body, basis = public_material(
                         page, response.text, url, metadata, now
                     )
+                    if config.adapter == "thepaper":
+                        evidence["attribution_version"] = PAPER_BYLINE_VERSION
                 else:
                     metadata = _metadata(page, response.text, url, now, metadata)
                     text_body, basis = _body(page, response.text, url)

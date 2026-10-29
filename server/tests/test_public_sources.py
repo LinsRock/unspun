@@ -310,6 +310,107 @@ def test_paper_editor_after_reporter_is_not_labelled_as_reporter() -> None:
     assert result.metadata.publisher == "Wire Agency"
 
 
+@pytest.mark.parametrize(
+    ("label", "role"),
+    [
+        ("\u9996\u5e2d\u8bb0\u8005", "reporter"),
+        ("\u89c1\u4e60\u8bb0\u8005", "reporter"),
+        ("\u4e3b\u7b14", "unknown"),
+        ("\u8bbe\u8ba1", "unknown"),
+    ],
+)
+def test_paper_qualified_and_unsupported_labels_are_not_people(label: str, role: str) -> None:
+    result = material(
+        "thepaper",
+        paper_html(
+            contId=1,
+            author="\u6f8e\u6e43\u65b0\u95fb" + label + " Lin",
+            source="\u6f8e\u6e43\u65b0\u95fb",
+            content="<p>Actual text.</p>",
+        ),
+    )
+    assert [(a.name, a.role) for a in result.metadata.authors] == [("Lin", role)]
+    assert result.metadata.authors[0].basis.endswith(label)
+
+
+@pytest.mark.parametrize("credit", ["\u6765\u6e90", "\u7d20\u6750\u6765\u6e90"])
+def test_paper_source_and_design_boundaries_stop_editor_role_propagation(credit: str) -> None:
+    result = material(
+        "thepaper",
+        paper_html(
+            contId=1,
+            author=(
+                "\u6f8e\u6e43\u65b0\u95fb\u8bb0\u8005 Lin \u7f16\u8f91 Chen "
+                "\u8bbe\u8ba1 Wu " + credit + " \u76f8\u5173\u4eba\u58eb "
+                "\u5b9e\u4e60\u751f Lan"
+            ),
+            source="\u6f8e\u6e43\u65b0\u95fb",
+            contType=9,
+            content="",
+        ),
+    )
+    assert [(a.name, a.role) for a in result.metadata.authors] == [
+        ("Lin", "reporter"),
+        ("Chen", "editor"),
+        ("Wu", "unknown"),
+        ("Lan", "unknown"),
+    ]
+    assert result.metadata.publisher == "\u6f8e\u6e43\u65b0\u95fb"
+    assert result.scope == "none" and result.access_status == "unavailable"
+    assert not result.paragraphs
+
+
+@pytest.mark.parametrize(
+    "publisher",
+    [
+        "\u201cCity Daily\u201d\u5fae\u4fe1\u516c\u53f7",
+        "\u201cEmbassy\u201d\u5fae\u4fe1\u516c\u4f17\u53f7",
+        "Ministry\u7f51\u7ad9",
+        "@Daily",
+        "\u65b0\u534e\u793e",
+        "\u592e\u89c6\u65b0\u95fb",
+    ],
+)
+def test_paper_explicit_outlet_credit_keeps_personal_author_unknown(publisher: str) -> None:
+    result = material(
+        "thepaper",
+        paper_html(contId=1, author=publisher, content="<p>Actual text.</p>"),
+    )
+    assert result.metadata.publisher == publisher
+    assert not result.metadata.authors
+    assert result.evidence["attribution_version"] == "thepaper-byline-v2"
+
+
+def test_paper_reprint_keeps_people_separate_from_credited_outlet() -> None:
+    result = material(
+        "thepaper",
+        paper_html(
+            contId=1,
+            author="Lin\u3001Chen/\u201cDaily\u201d\u5fae\u4fe1\u516c\u53f7",
+            content="<p>Actual text.</p>",
+        ),
+    )
+    assert [(a.name, a.role) for a in result.metadata.authors] == [
+        ("Lin", "author"),
+        ("Chen", "author"),
+    ]
+    assert result.metadata.publisher == "\u201cDaily\u201d\u5fae\u4fe1\u516c\u53f7"
+
+
+@pytest.mark.parametrize("credit", ["\u6765\u6e90", "\u7d20\u6750\u6765\u6e90"])
+def test_paper_outlet_after_source_boundary_preserves_preceding_person(credit: str) -> None:
+    result = material(
+        "thepaper",
+        paper_html(
+            contId=1,
+            author="\u8bb0\u8005 Lin " + credit + " Ministry\u7f51\u7ad9",
+            content="<p>Actual text.</p>",
+        ),
+    )
+    assert [(a.name, a.role) for a in result.metadata.authors] == [("Lin", "reporter")]
+    assert result.metadata.publisher == "Ministry\u7f51\u7ad9"
+
+
 def test_netease_reprint_and_source_link_do_not_replace_original_time() -> None:
     original = ContentTime(
         kind="original",

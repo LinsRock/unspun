@@ -1,0 +1,159 @@
+{
+  "schema_version": "r2-04-attribution-offline-v1",
+  "base_revision": "8ad7abc4295e1301b2ac163b7b035f481ee26ac2",
+  "attribution_version": "thepaper-byline-v2",
+  "metadata_contract": "r1-metadata-v1",
+  "material_contract": "r1-material-v3",
+  "evidence_kind": "offline replay of existing private responses; not a new observation",
+  "private_directory": "/Users/li.cong/.cache/unspun-r204-20261029/attribution-offline",
+  "private_artifacts_sha256": {
+    "replay.py": "a9dfb698276ac3dd04d4d8e4eb69ba4ddb063d3d3667503593b435ebe8e1b614",
+    "expected-metadata.json": "38e65663c99c8c13bd77576a3b8c9591f4004bfde94468c02e041f825b0b912b",
+    "replay-result.json": "e3827770fbe9a2174f8687ad1ee16b2048f4cd63daa60908d0a4a07eb4b6a26f",
+    "preserved-inputs-before.json": "17c56e8a3b4f5a0123417feae2458681832f65e20da3112afba71daaf595d1c4"
+  },
+  "prior_window_review_sha256": "ab6f112a1452d5b5267a12c9d9cb80c8c0cc2df4b407fc6c32c6c51ec6811d59",
+  "private_inputs_preserved": 330,
+  "earlier_partial_window_files_match_finished_window": 44,
+  "summary": {
+    "window": {
+      "36kr-newsflashes": {
+        "materials": 42,
+        "unique_identities": 37,
+        "metadata_changed": 0,
+        "scope_counts": {
+          "complete_brief": 42
+        },
+        "exact_expected_metadata_matches": 42,
+        "all_other_fields_equal": true
+      },
+      "thepaper-sidebar": {
+        "materials": 36,
+        "unique_identities": 28,
+        "metadata_changed": 14,
+        "scope_counts": {
+          "open_text_unit": 31,
+          "none": 5
+        },
+        "exact_expected_metadata_matches": 36,
+        "all_other_fields_equal": true
+      }
+    },
+    "comparison": {
+      "36kr-newsflashes": {
+        "materials": 3,
+        "unique_identities": 3,
+        "metadata_changed": 0,
+        "scope_counts": {
+          "complete_brief": 3
+        },
+        "exact_expected_metadata_matches": 3,
+        "all_other_fields_equal": true
+      },
+      "netease-home": {
+        "materials": 3,
+        "unique_identities": 3,
+        "metadata_changed": 0,
+        "scope_counts": {
+          "open_text_unit": 3
+        },
+        "exact_expected_metadata_matches": 3,
+        "all_other_fields_equal": true
+      },
+      "tencent-headlines": {
+        "materials": 3,
+        "unique_identities": 3,
+        "metadata_changed": 0,
+        "scope_counts": {
+          "open_text_unit": 3
+        },
+        "exact_expected_metadata_matches": 3,
+        "all_other_fields_equal": true
+      },
+      "thepaper-sidebar": {
+        "materials": 3,
+        "unique_identities": 3,
+        "metadata_changed": 0,
+        "scope_counts": {
+          "open_text_unit": 2,
+          "none": 1
+        },
+        "exact_expected_metadata_matches": 3,
+        "all_other_fields_equal": true
+      }
+    }
+  },
+  "thepaper_all_acquired": {
+    "materials": 39,
+    "unique_identities": 29,
+    "metadata_expected_matches": 39,
+    "nonempty": 33,
+    "none_unavailable": 6
+  },
+  "window_changed_identities": [
+    "34280094",
+    "34281346",
+    "34282373",
+    "34282485",
+    "34282643",
+    "34282817",
+    "34283051",
+    "34283132",
+    "34283182",
+    "34288084",
+    "34292916",
+    "34293255"
+  ],
+  "all_materials": 90,
+  "all_list_rounds_including_failures": 46,
+  "archived_client_attempts_replayed": 94,
+  "archived_responses_checked": 91,
+  "identity_time_paragraphs_scope_access_and_other_fields_preserved": true,
+  "comparison_replay_reference": "current-contract-replay.json",
+  "tencent_redirect_limitation": "Three missing Location headers reused the immediate next archived request, as in the previous replay; no new redirect evidence.",
+  "historical_window_unchanged": {
+    "thepaper_metadata_successes": 18,
+    "thepaper_metadata_attempts": 21,
+    "thepaper_material_successes": 31,
+    "thepaper_materials_acquired": 36,
+    "thepaper_planned_material_slots": 42,
+    "thepaper_unmeasured_slots": 6,
+    "thepaper_timeout_rounds": [
+      3,
+      4,
+      13
+    ],
+    "thepaper_max_consecutive_failures": 2,
+    "original_byline_errors": 14,
+    "original_byline_error_identities": 12,
+    "thepaper_observation_material_gate": "failed",
+    "36kr_gate": "historical complete_brief technical scope only; current availability and generation unmeasured"
+  },
+  "new_observation_started": false,
+  "external_source_requests": 0,
+  "generation_requests": 0,
+  "embedding_requests": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "production_data_writes": 0,
+  "sources_remain_closed": [
+    "thepaper-sidebar",
+    "36kr-newsflashes"
+  ],
+  "r2_06": "deferred 3/4",
+  "r2_11": "deferred 8/12",
+  "r2_04_accepted": false,
+  "user_acceptance": null,
+  "local_validation": {
+    "fresh_database": "unspun-r204-attribution-20261029-db/unspun_test",
+    "schema": "000021",
+    "empty_real_key": true,
+    "external_ipv4_ipv6_blocked": true,
+    "source_regressions": 38,
+    "legacy_mock_regressions": 13,
+    "default_suite": 1383,
+    "skipped": 0,
+    "fixed_ranking_events": 40,
+    "ruff_format_pyright": "passed"
+  }
+}
