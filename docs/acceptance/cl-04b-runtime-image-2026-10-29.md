@@ -31,10 +31,18 @@
 
 最终镜像不挂源码，在新建的 `unspun-cl04b-20261029-smoke-final-db` / `unspun_smoke` 和专属 internal 网络上验证：全部 **91 个模块导入**、5 份配置的实际 loader、完整迁移至 `000021` 及重复执行、预算 CLI `status`、修复 CLI `--help`、真实 Uvicorn 启动及 `/api/health`、受控 worker `--check` 和有界启动/停止通过。真实 key 为空时预算预检仍以 2 退出；正向预检只用明确无效的合成 key 字符串和新库合成预算，重用初始化不查询提供方。来源下次调度设在隔离验证之后，未触发抓取或处理；结束后 `articles`、`pipeline_tasks`、`task_attempts`、`billed_requests`、`llm_usage` 均为 0。IPv4/IPv6 原生外连失败，无真实模型调用或提供方查询。
 
-基线新隔离库先通过 13 项 mock，再默认执行 **1,368 项全部通过、0 跳过/排除**。独立测试镜像由原 `server/tests/Dockerfile` 重建，以当前完整源码只读挂载，在另一个新库 `unspun-cl04b-20261029-final-tests-db` / `unspun_test` 上重复空真实密钥、空库和 IPv4/IPv6 外网阻断预检，先 **13 项通过**，再默认 **1,368 项全部通过、0 跳过/排除**。固定 **40 例排序通过**（ready/pass true、issues 0）。Ruff、223 文件格式、Pyright（0 错误/警告）、CI 路由 11 项、部署安全 19 项和 Bash 语法检查通过；PR/CI 交付事实另补录。
+基线新隔离库先通过 13 项 mock，再默认执行 **1,368 项全部通过、0 跳过/排除**。独立测试镜像由原 `server/tests/Dockerfile` 重建，以当前完整源码只读挂载，在另一个新库 `unspun-cl04b-20261029-final-tests-db` / `unspun_test` 上重复空真实密钥、空库和 IPv4/IPv6 外网阻断预检，先 **13 项通过**，再默认 **1,368 项全部通过、0 跳过/排除**。固定 **40 例排序通过**（ready/pass true、issues 0）。Ruff、223 文件格式、Pyright（0 错误/警告）、CI 路由 11 项、部署安全 19 项和 Bash 语法检查通过。
 
 差异及调用方审查覆盖 editable 导入路径、包内文件读取、全部迁移、预算初始化/预检/失败关闭、运维/回退、独立测试镜像及默认收集、容器用户/CMD/环境/端口、最终层和污染上下文边界，无未解决问题。最终仅改生产 Dockerfile、生产专用 ignore 和三份说明文档；业务源码、lock/依赖声明、测试正文/断言/marker、schema、运行 YAML、Compose、部署脚本、Web、R2 任务板及原验收/冻结输入均与基线一致。原登记 **635 份保护文件**逐项哈希保持，完整 CL-04 四项验收清单不改；84 个本地文档链接有效，`git diff --check` 通过。新增 ignore 作为既有分类器的未知构建输入走保守完整 CI，不缩减检查范围。
 
 普通日志、逐文件哈希及本批新资源归属仅存 `~/.cache/unspun/cl-04b-image-20261029/`，不提交整套环境快照。
 
-R2-11 继续 **8/12 暂缓**；预算、paid-stop、未知预留、冻结输入、R2-04/11 原件和已登记环境保持。当前及已验证回退镜像保留，不清除镜像或卷。真实模型付费、提供方查询、mixed 探测、生产数据清理、CL-06 和 R3 均为 **0**；本批完成后不自动扩大清理范围。
+[PR #150](https://github.com/LinsRock/unspun/pull/150) 最终 head **`181c6b2`** 的[必需 CI](https://github.com/LinsRock/unspun/actions/runs/40832012540)首轮全部实际通过，**2026-10-29 07:02:29 UTC** 合并为 **`b10df5ac66973b1d3d90573a828180de0d2b97b5`**。CI 日志确认新空库/空真实密钥/IPv4 与 IPv6 真实出网阻断，先 **13 项通过**，随后默认收集并执行 **1,368 项全部通过、无跳过/排除**，固定 **40 例排序通过**；Web **142 项**、lint/typecheck/build/PWA、原型 build、部署安全和 `required-checks` 同时通过，无失败重跑或门槛调整。
+
+[主干 CI/自动部署](https://github.com/LinsRock/unspun/actions/runs/40832884930)首轮全部实际通过：13 项预检、默认 **1,368 项全部通过、无跳过/排除**、固定 40 例、Web/原型/部署安全/汇总、server 与 Web 镜像发布及 `Deploy` 均成功，无重跑；部署日志的目标健康检查与 RSSHub 健康均通过。
+
+**2026-10-29 07:16:50 UTC** 部署后仅读取版本/既有开关并与发布前比较：API/受控 worker 的实际 server 镜像及 `APP_VERSION` 均为 **`b10df5ac66973b1d3d90573a828180de0d2b97b5`**，Web 同为该固定版本（本批未知构建输入按保守路径重建两个镜像）。API mixed/发现首页继续为 true，成员处理/合成/话题发布/话题偏好为 false；worker R1 为 true、全部 R2 开关为 false，两个预览开关保持 false。没有 mixed HTTP、观察脚本、手动部署或额外业务数据探针。部署后再次核验 **635 份保护文件**字节一致；没有清除当前、回退或本批镜像/卷。独立 worktree、venv 和本批隔离资源保留供复核，归属见本机 `registration.json`。
+
+CL-04B 已按本独立批次交付；本补录为纯文档，不改变上述实际运行版本。完整 CL-04 清单仍未勾选。
+
+R2-11 继续 **8/12 暂缓**；预算、paid-stop、未知预留、冻结输入、R2-04/11 原件和已登记环境保持。当前及已验证回退镜像保留，不清除镜像或卷。本批主动执行的真实模型付费、提供方查询、mixed 探测、生产数据清理、CL-06 和 R3 均为 **0**，不据此归零既有 R1 自然活动费用；本批完成后不自动扩大清理范围。
