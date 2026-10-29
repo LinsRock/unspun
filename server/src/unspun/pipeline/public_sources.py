@@ -18,6 +18,7 @@ from unspun.core.sources import Source
 from unspun.pipeline.discovery import DiscoveryItem, DiscoveryResult, public_url
 
 VERSION = "r1-public-sources-v1"
+PAPER_BYLINE_VERSION = "thepaper-byline-v2"
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 
 
@@ -273,11 +274,17 @@ def discover_public(
     )
 
 
-def _paper_authors(raw: str) -> tuple[Author, ...]:
+def _paper_credits(raw: str) -> tuple[tuple[Author, ...], str | None]:
     # A byline can credit reporters, production staff and interns together.
     # Preserve each explicit role boundary; a production label is not a name.
     labels = list(
-        re.finditer(r"(\u8bb0\u8005|\u7f16\u8f91|\u5236\u4f5c|\u5b9e\u4e60\u751f)[\s\uff1a:]+", raw)
+        re.finditer(
+            r"(?:\u6f8e\u6e43\u65b0\u95fb)?"
+            r"((?:\u9996\u5e2d|\u89c1\u4e60)?\u8bb0\u8005|\u7f16\u8f91|\u5236\u4f5c|"
+            r"\u5b9e\u4e60\u751f|\u4e3b\u7b14|\u8bbe\u8ba1|\u7d20\u6750\u6765\u6e90|\u6765\u6e90)"
+            r"[\s\uff1a:]+",
+            raw,
+        )
     )
     segments: list[tuple[str, str]] = []
     if labels:
@@ -290,10 +297,18 @@ def _paper_authors(raw: str) -> tuple[Author, ...]:
     else:
         segments.append(("", raw))
     authors: list[Author] = []
+    publisher = None
     for label, names in segments:
+        names = names.strip()
+        if _paper_is_publisher(names):
+            publisher = publisher or names
+            continue
+        # Source credits can name generic contributors, not identified people.
+        if label in {"\u6765\u6e90", "\u7d20\u6750\u6765\u6e90"}:
+            continue
         role: Literal["author", "reporter", "editor", "unknown"] = (
             "reporter"
-            if label == "\u8bb0\u8005"
+            if label.endswith("\u8bb0\u8005")
             else "editor"
             if label == "\u7f16\u8f91"
             else "unknown"
@@ -310,7 +325,18 @@ def _paper_authors(raw: str) -> tuple[Author, ...]:
                 )
                 if author not in authors:
                     authors.append(author)
-    return tuple(authors)
+    return tuple(authors), publisher
+
+
+def _paper_is_publisher(raw: str) -> bool:
+    # These are explicit outlet/account markers, not guesses from name length.
+    return (
+        raw in {"\u6f8e\u6e43\u65b0\u95fb", "\u65b0\u534e\u793e", "\u592e\u89c6\u65b0\u95fb"}
+        or raw.startswith("@")
+        or raw.endswith(
+            ("\u5fae\u4fe1\u516c\u53f7", "\u5fae\u4fe1\u516c\u4f17\u53f7", "\u7f51\u7ad9")
+        )
+    )
 
 
 def public_material(
@@ -337,13 +363,12 @@ def public_material(
         author = _text(detail.get("author"))
         publisher = _text(detail.get("source")) or None
         names, separator, credited = author.partition("/")
+        names = names.strip()
         if separator and credited:
             publisher = credited.strip() or publisher
-        if names in {"\u6f8e\u6e43\u65b0\u95fb", "\u65b0\u534e\u793e", "\u592e\u89c6\u65b0\u95fb"}:
-            publisher = publisher or names
-            names = ""
-        values["authors"] = _paper_authors(names)
-        values["publisher"] = publisher
+        authors, credited_publisher = _paper_credits(names)
+        values["authors"] = authors
+        values["publisher"] = publisher or credited_publisher
         kind = (
             "original"
             if detail.get("originalFlag") == "1"
