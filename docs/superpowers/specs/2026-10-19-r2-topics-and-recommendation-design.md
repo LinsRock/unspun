@@ -22,7 +22,7 @@ R2 先建立供给与选材基线，处理扩大使用前的查询和采样边�
 | [contents.py](../../../server/src/unspun/api/contents.py) 的 `find_item` | 详情也通过当前推荐候选查找；受全局候选上限及推荐时效限制 | 详情按 ID 核验当前合格版本，推荐准入与合格旧材料可读性分开 |
 | [content_processing.py](../../../server/src/unspun/pipeline/content_processing.py)、[content_feed.py](../../../server/src/unspun/core/content_feed.py) | 当前卡片 `topics` 要求为空；排序使用阅读价值、当前价值、显式匹配/反馈与多样性 | 话题特征与重要性等使用独立版本；保留已合格 R1 卡片的可读性 |
 | [reader.py](../../../server/src/unspun/core/reader.py)、[reader_models.py](../../../server/src/unspun/core/reader_models.py) | 支持领域、主题词、来源、作者；反馈目标仅内容；CAS 与撤销已实现 | 增量增加话题目标，保留原主题词、反馈与变更历史的含义 |
-| [cluster.py](../../../server/src/unspun/pipeline/cluster.py) | 最近质心分配只服务 legacy；一个 `event_id` 不能表达新版多对多关系 | 向量只召回候选，建立新版话题成员与依据，不自动转换旧事件 |
+| [cluster.py](https://github.com/LinsRock/unspun/blob/af3b02e/server/src/unspun/pipeline/cluster.py) | 最近质心分配只服务 legacy；一个 `event_id` 不能表达新版多对多关系 | 向量只召回候选，建立新版话题成员与依据，不自动转换旧事件 |
 | [task_models.py](../../../server/src/unspun/core/task_models.py)、[billing.py](../../../server/src/unspun/core/billing.py) | 已有独立任务、领取版本、账务与总额预留；队列和费用阶段有枚举约束 | 话题阶段显式接线并纳入原总额，不能仅新增调用绕开限额 |
 | [App.tsx](../../../web/src/App.tsx) | `/reading` 为独立阅读，`/` 与品牌链接仍进入旧事件流 | 混合流交付时收敛新版主入口，保留可访问的旧事件和日报入口 |
 

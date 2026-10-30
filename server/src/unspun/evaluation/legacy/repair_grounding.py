@@ -22,9 +22,9 @@ from unspun.core.params import get_scoring_params
 from unspun.core.reading import event_reading, refresh_event_text
 from unspun.core.review_budget import require_grounding_budget
 from unspun.core.sources import load_sources
-from unspun.pipeline.score import score_event
-from unspun.pipeline.summarize import embed_articles, summarize_article
-from unspun.pipeline.viewpoints import input_fingerprint, refresh_event_viewpoint
+from unspun.evaluation.legacy.score import score_event
+from unspun.evaluation.legacy.summarize import embed_articles, summarize_article
+from unspun.evaluation.legacy.viewpoints import input_fingerprint, refresh_event_viewpoint
 
 
 class UsageCommittingClient:

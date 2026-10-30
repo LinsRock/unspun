@@ -83,7 +83,7 @@ try {
   const manifest = await (
     await context.request.get(`${baseURL}/manifest.webmanifest`)
   ).json()
-  assert.equal(manifest.start_url, '/digest')
+  assert.equal(manifest.start_url, '/')
   assert.equal(manifest.display, 'standalone')
   for (const icon of manifest.icons) {
     const response = await context.request.get(`${baseURL}${icon.src}`)
@@ -96,7 +96,7 @@ try {
   }
   await context.unroute('**/api/digest/*')
   await context.setOffline(true)
-  // Close the original tab and reopen the default installed-app start URL.
+  // Close the original tab and reopen the retained historical digest URL.
   await page.close()
   const offlinePage = await context.newPage()
   await offlinePage.goto(`${baseURL}/digest`)

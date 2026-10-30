@@ -5,8 +5,8 @@ import { MemoryRouter, useLocation } from 'react-router-dom'
 import { afterEach, expect, it, vi } from 'vitest'
 import App from './App'
 
-vi.mock('./FeedPage', () => ({ default: () => <h1>实时事件流</h1> }))
-vi.mock('./DigestPage', () => ({ default: () => <h1>每日日报</h1> }))
+vi.mock('./FeedPage', () => ({ default: () => <h1>历史事件</h1> }))
+vi.mock('./DigestPage', () => ({ default: () => <h1>历史日报</h1> }))
 vi.mock('./reader/HybridPage', () => ({ default: () => <h1>跟上变化，发现好内容</h1> }))
 vi.mock('./reader/ContentPage', () => ({ default: () => <h1>独立内容详情</h1> }))
 
@@ -28,12 +28,12 @@ it('opens the accepted discovery page using formal capabilities', async () => {
 })
 
 it.each([
-  ['/?sort=hot&range=all#saved', '实时事件流'],
-  ['/?range=24h', '实时事件流'],
-  ['/?unread_only=true', '实时事件流'],
-  ['/?sort=invalid&range=invalid', '实时事件流'],
-  ['/events?sort=important&range=all', '实时事件流'],
-  ['/digest?date=2026-10-18', '每日日报'],
+  ['/?sort=hot&range=all#saved', '历史事件'],
+  ['/?range=24h', '历史事件'],
+  ['/?unread_only=true', '历史事件'],
+  ['/?sort=invalid&range=invalid', '历史事件'],
+  ['/events?sort=important&range=all', '历史事件'],
+  ['/digest?date=2026-10-18', '历史日报'],
   ['/reading/9192', '独立内容详情'],
 ])('preserves the historical URL %s through enablement', async (path, heading) => {
   setup(path)
@@ -43,6 +43,6 @@ it.each([
 
 it.each([true, false])('restores the event home with hybrid=%s without rewriting URLs', async hybrid => {
   setup('/', 'events', hybrid)
-  await screen.findByRole('heading', { name: '实时事件流' })
+  await screen.findByRole('heading', { name: '历史事件' })
   expect(screen.getByLabelText('当前位置').textContent).toBe('/')
 })

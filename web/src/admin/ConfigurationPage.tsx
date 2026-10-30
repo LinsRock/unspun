@@ -20,13 +20,13 @@ export default function ConfigurationPage() {
       { title: '来源', dataIndex: 'name' }, { title: 'ID', dataIndex: 'id' }, { title: '语言 / 地区', render: (_, row: ConfigurationResult['sources'][number]) => `${row.lang} / ${row.region}` }, { title: '权重', dataIndex: 'weight' }, { title: '超时', dataIndex: 'timeout_seconds', render: (value: number | null) => value === null ? '默认值' : `${value} 秒` },
     ]} />}
     {config && tab === 'pipeline' && <div className="admin-config-grid">
-      <section><div className="admin-section-heading"><h2>运行节奏</h2><span className="admin-scope">当前部署</span></div><dl>{[
+      <section><div className="admin-section-heading"><h2>旧管线参数</h2><span className="admin-scope">已退役 · 兼容保留</span></div><dl>{[
         ['抓取间隔', `${config.pipeline.fetch_interval_minutes} 分钟`], ['摘要批次', config.pipeline.summary_batch_limit], ['Embedding 批次', config.pipeline.embed_batch_limit], ['评分批次', config.pipeline.score_batch_limit], ['日报调度', `${config.pipeline.digest_hour}:00 · ${config.pipeline.digest_timezone}`],
-      ].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p className="admin-footnote">调度配置不代表历史实际执行时间。</p></section>
+      ].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p className="admin-footnote">旧事件和日报生成已退役；这些值仅用于旧配置兼容，不代表当前调度。</p></section>
       <section><div className="admin-section-heading"><h2>模型路由</h2><span className="admin-scope">OpenRouter</span></div><dl>{[
-        ['文章摘要', config.pipeline.summary_model], ['重要性评分', config.pipeline.importance_model], ['观点生成', config.pipeline.viewpoint_model], ['日报生成', config.pipeline.digest_model], ['向量嵌入', config.pipeline.embedding_model],
+        ['文章摘要', config.pipeline.summary_model], ['旧事件评分（已退役）', config.pipeline.importance_model], ['观点生成', config.pipeline.viewpoint_model], ['日报生成（已退役）', config.pipeline.digest_model], ['向量嵌入', config.pipeline.embedding_model],
       ].map(([label, value]) => <div key={label}><dt>{label}</dt><dd><code>{value}</code></dd></div>)}</dl></section>
-      <section><div className="admin-section-heading"><h2>预算与失败约束</h2><span className="admin-scope">保护机制</span></div><dl><div><dt>审核限额</dt><dd>${config.pipeline.grounding_budget_24h_usd} / 滚动 24 小时</dd></div><div><dt>摘要失败上限</dt><dd>{config.pipeline.max_summary_failures} 次</dd></div><div><dt>模型凭证</dt><dd><span className={`admin-credential ${config.credentials.openrouter_configured ? '' : 'missing'}`}><i className="admin-dot" />{config.credentials.openrouter_configured ? '已配置' : '未配置'}</span></dd></div></dl><p className="admin-footnote">长期配置通过仓库评审与部署生效；凭证仅展示配置状态。</p></section>
+      <section><div className="admin-section-heading"><h2>预算与失败约束</h2><span className="admin-scope">保护机制</span></div><dl><div><dt>审核限额</dt><dd>${config.pipeline.grounding_budget_24h_usd} / 滚动 24 小时</dd></div><div><dt>旧摘要失败上限</dt><dd>{config.pipeline.max_summary_failures} 次</dd></div><div><dt>模型凭证</dt><dd><span className={`admin-credential ${config.credentials.openrouter_configured ? '' : 'missing'}`}><i className="admin-dot" />{config.credentials.openrouter_configured ? '已配置' : '未配置'}</span></dd></div></dl><p className="admin-footnote">长期配置通过仓库评审与部署生效；凭证仅展示配置状态。</p></section>
     </div>}
     {config && tab === 'audit' && <Empty description="历史操作记录未记录；配置变更与任务审计将在 M3-C 接入。" />}
   </div>

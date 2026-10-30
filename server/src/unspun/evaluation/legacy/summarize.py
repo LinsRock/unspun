@@ -50,7 +50,7 @@ from unspun.core.reading import (
 )
 from unspun.core.review_budget import GroundingBudgetExceeded, require_grounding_budget
 
-log = get_logger("unspun.pipeline.summarize")
+log = get_logger("unspun.evaluation.legacy.summarize")
 
 SUMMARY_SYSTEM = (
     "You summarize news articles for a personal intelligence reader. "

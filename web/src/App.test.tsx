@@ -247,7 +247,7 @@ test('shows the empty state when there are no events', async () => {
   stubEvents({ events: [] })
   renderApp()
   await waitFor(() => {
-    expect(screen.getByText(/暂无可发布的事件/)).toBeTruthy()
+    expect(screen.getByText(/没有已保存的事件/)).toBeTruthy()
   })
 })
 
@@ -284,9 +284,9 @@ test('direct digest and unknown routes render their own page', async () => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 404 }))
   const view = renderApp('/digest')
   expect(
-    screen.getByRole('heading', { level: 1, name: '每日日报' }),
+    screen.getByRole('heading', { level: 1, name: '历史日报' }),
   ).toBeTruthy()
-  await screen.findByText(/这一天的日报尚未生成/)
+  await screen.findByText(/没有已保存的日报/)
   view.unmount()
   renderApp('/missing')
   expect(screen.getByRole('heading', { name: '页面不存在' })).toBeTruthy()

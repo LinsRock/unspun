@@ -34,8 +34,8 @@ time, rather than immutable copies of loaded Python modules. Reports retain fail
 # Explicit event repair
 
 ```sh
-uv run python -m unspun.pipeline.repair_grounding --event-id 123
-uv run python -m unspun.pipeline.repair_grounding --event-id 123 --apply \
+uv run python -m unspun.evaluation.legacy.repair_grounding --event-id 123
+uv run python -m unspun.evaluation.legacy.repair_grounding --event-id 123 --apply \
   --max-articles 100 --max-calls 250
 ```
 
@@ -66,3 +66,12 @@ does not infer approval for unchanged original titles or budget-paused drafts.
 The local reading preview labels all synthetic approvals and cannot connect
 to a production database. See the reading publication design and acceptance
 record under `docs/` for real read-only audit evidence and validation limits.
+
+## Retired event and digest generation
+
+CL-04/06 moved the old generators and explicit repair CLI into
+`unspun.evaluation.legacy`. Production images exclude this entire package.
+The default mock regressions still cover it in an isolated database with an
+empty real key and blocked external networking. Historical snapshots use the
+read-only API and do not import these tools. Real repair or paid replay requires
+its own registered environment and authorization; never restart the old worker.

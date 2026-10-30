@@ -136,7 +136,7 @@ test('date navigation requests a historical digest and latest is explicit', asyn
 test('missing digest and an empty generated digest have distinct states', async () => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 404 }))
   const view = renderDigest()
-  await screen.findByText(/这一天的日报尚未生成/)
+  await screen.findByText(/这一天没有已保存的日报/)
   view.unmount()
   vi.stubGlobal(
     'fetch',
@@ -200,4 +200,15 @@ test('viewpoint links reject unsafe URLs', async () => {
   await screen.findByText('日报导语')
   expect(screen.getByText('甲的观点').closest('a')).toBeNull()
   expect(document.querySelector('a[href^="javascript:"]')).toBeNull()
+})
+
+
+test('historical digest defaults to latest saved snapshot without a daily promise', async () => {
+  const fetch = vi.fn().mockResolvedValue({ ok: true, json: () => Promise.resolve(digest) })
+  vi.stubGlobal('fetch', fetch)
+  renderDigest('/digest')
+  await screen.findByText('日报导语')
+  expect(fetch).toHaveBeenCalledWith('/api/digest/latest')
+  expect(screen.getByRole('heading', { name: '历史日报' })).toBeTruthy()
+  expect(screen.queryByRole('button', { name: '今天' })).toBeNull()
 })

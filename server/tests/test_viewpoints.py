@@ -13,7 +13,7 @@ from unspun.core.llm import LlmError
 from unspun.core.models import Article, Event, EventViewpoint, LlmUsage
 from unspun.core.params import ViewpointsParams, load_scoring_params
 from unspun.core.sources import Source
-from unspun.pipeline.viewpoints import (
+from unspun.evaluation.legacy.viewpoints import (
     candidate_viewpoint_ids,
     input_fingerprint,
     is_eligible,

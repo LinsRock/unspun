@@ -30,6 +30,7 @@ from unspun.core.content_reading import ContentInput
 from unspun.core.db import get_engine
 from unspun.core.llm import LlmClient
 from unspun.core.models import Article
+from unspun.evaluation.legacy.summarize import summarize_article
 from unspun.evaluation.run_quality import (
     BudgetLedger,
     EvaluationJournal,
@@ -37,7 +38,6 @@ from unspun.evaluation.run_quality import (
     require_isolated_database,
 )
 from unspun.pipeline.content_processing import organize, processing_fingerprint
-from unspun.pipeline.summarize import summarize_article
 
 
 def material_input(item: dict[str, Any], index: int) -> ContentInput:

@@ -1,7 +1,7 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query'
 import type { InfiniteData } from '@tanstack/react-query'
-import { useFeedPreferences } from './feedPreferences'
 
 import { FeedChangedError, fetchEvents } from './api'
 import type { EventsResponse, FeedRange, FeedSort } from './api'
@@ -20,15 +20,15 @@ function beijingTime(value: string): string {
   return new Date(value).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
 }
 export default function FeedPage() {
-  const preferences = useFeedPreferences()
-  const { sort, range } = preferences.choice
-  const { invalid, reload } = preferences
+  const [search, setSearch] = useSearchParams()
+  const sort: FeedSort = SORTS.find(s => s.value === search.get('sort'))?.value ?? 'newest'
+  const range: FeedRange = RANGES.find(r => r.value === search.get('range'))?.value ?? 'all'
+  const invalid = search.has('sort') && !SORTS.some(s => s.value === search.get('sort')) || search.has('range') && !RANGES.some(r => r.value === search.get('range'))
   const client = useQueryClient()
   const key = ['events', sort, range]
   const query = useInfiniteQuery({
     queryKey: key,
     gcTime: 0,
-    enabled: preferences.ready,
     refetchOnWindowFocus: false,
     queryFn: ({ pageParam, signal }) => fetchEvents(sort, range, pageParam, signal),
     initialPageParam: undefined as string | undefined,
@@ -47,35 +47,28 @@ export default function FeedPage() {
     client.setQueryData<InfiniteData<EventsResponse>>(currentKey, (data) => data && ({ ...data, pages: data.pages.slice(0, 1), pageParams: data.pageParams.slice(0, 1) }))
     await client.refetchQueries({ queryKey: currentKey, exact: true, type: 'active' })
   }, [client, sort, range])
-  useEffect(() => {
-    const timer = window.setInterval(() => { void restart() }, 5 * 60 * 1000)
-    return () => window.clearInterval(timer)
-  }, [restart])
-  useEffect(() => {
-    const refresh = () => { if (document.visibilityState === 'visible') { void reload(); void restart() } }
-    window.addEventListener('focus', refresh)
-    document.addEventListener('visibilitychange', refresh)
-    return () => { window.removeEventListener('focus', refresh); document.removeEventListener('visibilitychange', refresh) }
-  }, [reload, restart])
-  function change(field: 'sort' | 'range', value: string) { void preferences.change(field, value) }
+  function change(field: 'sort' | 'range', value: string) {
+    const next = new URLSearchParams(search)
+    next.set('sort', sort); next.set('range', range); next.set(field, value)
+    next.delete('unread_only')
+    setSearch(next)
+  }
   return (
     <div>
       {import.meta.env.VITE_READING_PREVIEW === 'true' && <p className="mb-5 rounded-ctl border border-line bg-accent-soft px-4 py-3 text-xs leading-relaxed text-ink-2">本地交互预览 · 下列“演示”内容均为模拟，不是真实新闻。另保留 40 个生产历史样本在后台；因缺少完整审核凭证，不作为已发布内容。预览时钟固定于 10 月 14 日。</p>}
       {import.meta.env.VITE_M3B_PREVIEW === 'true' && <p className="mb-4 rounded-ctl border border-line bg-amber-soft p-3 text-xs text-ink-2">本地验收预览 · 固定于 2026-10-14 13:53（北京时间）。包含40个真实事件快照及明确标记的模拟案例；不连接生产或付费处理。</p>}
       <div className="feed-heading">
-        <div><h1>实时事件流</h1><p>看清发生了什么，再沿着证据深入。</p></div>
-        <button type="button" onClick={() => { void reload(); void restart() }} disabled={query.isFetching}>{query.isFetching ? '刷新中…' : '刷新'}</button>
+        <div><h1>历史事件</h1><p>回看已保存的事件与来源；筛选仅用于本次浏览。</p></div>
+        <button type="button" onClick={() => { void restart() }} disabled={query.isFetching}>{query.isFetching ? '刷新中…' : '刷新'}</button>
       </div>
       <div className="feed-controls">
         <div role="group" aria-label="事件排序" className="flex rounded-ctl bg-bg-sunk p-1">
-          {SORTS.map((s) => <button key={s.value} type="button" disabled={!preferences.ready || preferences.saving || !preferences.online} aria-pressed={sort === s.value} onClick={() => change('sort', s.value)} className={`rounded-ctl px-3 py-2 text-sm ${sort === s.value ? 'bg-surface font-semibold text-accent-ink shadow-card' : 'text-ink-3 hover:text-ink'}`}>{s.label}</button>)}
+          {SORTS.map((s) => <button key={s.value} type="button" aria-pressed={sort === s.value} onClick={() => change('sort', s.value)} className={`rounded-ctl px-3 py-2 text-sm ${sort === s.value ? 'bg-surface font-semibold text-accent-ink shadow-card' : 'text-ink-3 hover:text-ink'}`}>{s.label}</button>)}
         </div>
-        <select disabled={!preferences.ready || preferences.saving || !preferences.online} aria-label="时间范围" value={range} onChange={(e) => change('range', e.target.value)} className="max-w-full rounded-ctl border border-line bg-surface px-3 py-2 text-sm text-ink">
+        <select aria-label="时间范围" value={range} onChange={(e) => change('range', e.target.value)} className="max-w-full rounded-ctl border border-line bg-surface px-3 py-2 text-sm text-ink">
           {RANGES.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
         </select>
       </div>
-      {preferences.message && <p role="status" className="mb-3 text-sm text-amber">{preferences.message}</p>}
-      {!preferences.online && <p role="status" className="mb-3 text-sm text-amber">网络不可用，偏好暂不能保存；不会离线排队。</p>}
       <details className="feed-method">
         <summary>{SORTS.find((s) => s.value === sort)!.label} · {RANGES.find((r) => r.value === range)!.label} <span className="ml-2">查看阅读规则</span></summary>
         <p>{SORTS.find((s) => s.value === sort)!.explanation}</p>
@@ -86,7 +79,7 @@ export default function FeedPage() {
       {invalid && <p role="status" className="mb-4 text-xs text-amber">筛选参数无效，已恢复默认选择。</p>}
       {query.isPending && <p role="status" className="text-sm text-ink-3">加载中…</p>}
       {query.error != null && <div role="alert" className="mb-3 text-sm text-hot">{query.error instanceof FeedChangedError ? '事件数据已变化，请刷新并从第一页继续。' : '加载失败，请稍后重试'} <button type="button" onClick={() => void (query.error instanceof FeedChangedError ? restart() : query.refetch())} className="ml-2 text-accent-ink underline">重试</button></div>}
-      {events?.length === 0 && !query.error && <div className="feed-empty"><h2>这个范围内，暂无可发布的事件</h2><p>有依据、中文完整的内容审核通过后会出现在这里。</p><button type="button" onClick={() => change('range', 'all')} className="text-accent-ink underline">查看全部</button><a href="/admin/content" className="ml-5 text-xs text-ink-3 underline">查看后台内容状态</a></div>}
+      {events?.length === 0 && !query.error && <div className="feed-empty"><h2>这个范围内，没有已保存的事件</h2><p>可以扩大时间范围，查找以前保存的事件。</p><button type="button" onClick={() => change('range', 'all')} className="text-accent-ink underline">查看全部</button><a href="/admin/content" className="ml-5 text-xs text-ink-3 underline">查看后台内容状态</a></div>}
       {events && <div className={events.length ? "feed-results" : undefined}>{events.map((event, index) => <div key={event.id}>{range === 'all' && event.earliest_reported_precision === 'unknown' && events[index - 1]?.earliest_reported_precision !== 'unknown' && <h2 className="mb-3 mt-4 text-sm font-semibold text-ink-3">报道时间未知</h2>}<EventCard event={event} sort={sort} /></div>)}</div>}
       {query.hasNextPage && <button type="button" disabled={query.isFetching || query.error instanceof FeedChangedError} onClick={() => void query.fetchNextPage()} className="mt-5 w-full rounded-ctl border border-line bg-surface py-3 text-sm text-accent-ink disabled:opacity-50">{query.isFetchingNextPage ? '加载中…' : '加载更多'}</button>}
     </div>

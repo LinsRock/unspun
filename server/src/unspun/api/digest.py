@@ -9,9 +9,8 @@ from pydantic import BaseModel, BeforeValidator
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from unspun.api.events import get_db
+from unspun.api.events import EventOut, get_db
 from unspun.core.models import Digest
-from unspun.pipeline.digest import DigestPayload
 
 router = APIRouter()
 
@@ -20,6 +19,14 @@ def iso_report_date(value: Any) -> date:
     if not isinstance(value, str) or re.fullmatch(r"\d{4}-\d{2}-\d{2}", value) is None:
         raise ValueError("report_date must use YYYY-MM-DD")
     return date.fromisoformat(value)
+
+
+class DigestPayload(BaseModel):
+    intro: str
+    window_start: datetime
+    window_end: datetime
+    timezone: str
+    events: list[EventOut]
 
 
 class DigestResponse(BaseModel):

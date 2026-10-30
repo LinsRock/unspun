@@ -7,7 +7,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from unspun.core.models import EMBEDDING_DIM, Article, Digest, Event, LlmUsage
-from unspun.pipeline.repair_grounding import repair_event
+from unspun.evaluation.legacy.repair_grounding import repair_event
 
 
 class RepairLlm:

@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 
 from tests.test_viewpoints import DIVERSE_SOURCES, PARAMS, FakeViewpointLlm, seed_event
 from unspun.core.llm import LlmError
-from unspun.pipeline.viewpoints import parse_viewpoints_payload, refresh_event_viewpoint
+from unspun.evaluation.legacy.viewpoints import parse_viewpoints_payload, refresh_event_viewpoint
 
 SOURCES = {1: "The decision in 1999 was approved.", 2: "The decision was approved yesterday."}
 
@@ -129,7 +129,10 @@ def test_relation_remap_and_invalid_kind() -> None:
 def test_prompt_excludes_legacy_summary(db_session: Session) -> None:
     import json
 
-    from unspun.pipeline.viewpoints import viewpoint_evidence_sources, viewpoint_user_prompt
+    from unspun.evaluation.legacy.viewpoints import (
+        viewpoint_evidence_sources,
+        viewpoint_user_prompt,
+    )
 
     event = seed_event(db_session, ["a", "b", "c"])
     a = event.articles[0]
@@ -145,7 +148,7 @@ def test_prompt_excludes_legacy_summary(db_session: Session) -> None:
 def test_generation_inputs_invalidate_cache(
     db_session: Session, monkeypatch: pytest.MonkeyPatch, change: str
 ) -> None:
-    import unspun.pipeline.viewpoints as module
+    import unspun.evaluation.legacy.viewpoints as module
 
     event = seed_event(db_session, ["a", "b", "c"])
     sources = {sid: source.model_copy() for sid, source in DIVERSE_SOURCES.items()}
@@ -168,7 +171,7 @@ def test_generation_inputs_invalidate_cache(
 def test_bounded_candidate_scan_rotates(
     db_session: Session, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    import unspun.pipeline.viewpoints as module
+    import unspun.evaluation.legacy.viewpoints as module
 
     monkeypatch.setattr(module, "CANDIDATE_SCAN_LIMIT", 1)
     monkeypatch.setattr(module, "_candidate_after_id", 0)
@@ -194,7 +197,7 @@ def test_batch_caps_rejected_attempts(
 ) -> None:
     from contextlib import nullcontext
 
-    import unspun.pipeline.viewpoints as module
+    import unspun.evaluation.legacy.viewpoints as module
 
     events = [seed_event(db_session, ["a", "b", "c"]) for _ in range(3)]
     monkeypatch.setattr(module, "session_scope", lambda: nullcontext(db_session))
@@ -230,7 +233,7 @@ def test_batch_scan_resumes_after_attempt_budget(
 ) -> None:
     from contextlib import nullcontext
 
-    import unspun.pipeline.viewpoints as module
+    import unspun.evaluation.legacy.viewpoints as module
 
     monkeypatch.setattr(module, "_candidate_after_id", 0)
     monkeypatch.setattr(module, "session_scope", lambda: nullcontext(db_session))
@@ -248,7 +251,7 @@ def test_batch_scan_resumes_after_attempt_budget(
 
 def test_excerpt_is_bounded_and_deeper_grounded_quote_selected(db_session: Session) -> None:
     from unspun.core.grounding import SUMMARY_VERSION
-    from unspun.pipeline.viewpoints import viewpoint_evidence_sources
+    from unspun.evaluation.legacy.viewpoints import viewpoint_evidence_sources
 
     event = seed_event(db_session, ["a", "b", "c"])
     article = event.articles[0]
@@ -266,7 +269,7 @@ def test_excerpt_is_bounded_and_deeper_grounded_quote_selected(db_session: Sessi
 
 
 def test_unseen_original_suffix_rejected(db_session: Session) -> None:
-    from unspun.pipeline.viewpoints import viewpoint_evidence_sources
+    from unspun.evaluation.legacy.viewpoints import viewpoint_evidence_sources
 
     event = seed_event(db_session, ["a", "b", "c"])
     article = event.articles[0]
@@ -332,7 +335,7 @@ def test_hot_priority_and_background_lane_fairness(
 ) -> None:
     from contextlib import nullcontext
 
-    import unspun.pipeline.viewpoints as module
+    import unspun.evaluation.legacy.viewpoints as module
     from unspun.core.models import EventViewpoint
 
     monkeypatch.setattr(module, "_candidate_after_id", 0)
@@ -427,7 +430,7 @@ def test_batch_limit_counts_events_with_two_calls(
 ) -> None:
     from contextlib import nullcontext
 
-    import unspun.pipeline.viewpoints as module
+    import unspun.evaluation.legacy.viewpoints as module
 
     monkeypatch.setattr(module, "_candidate_after_id", 0)
     monkeypatch.setattr(module, "session_scope", lambda: nullcontext(db_session))
@@ -519,7 +522,7 @@ def test_billed_review_failure_retains_both_usage_rows(
 def test_prompt_changes_invalidate_fingerprint(
     db_session: Session, monkeypatch: pytest.MonkeyPatch, prompt_name: str
 ) -> None:
-    import unspun.pipeline.viewpoints as module
+    import unspun.evaluation.legacy.viewpoints as module
 
     event = seed_event(db_session, ["a", "b", "c"])
     llm = FakeViewpointLlm(

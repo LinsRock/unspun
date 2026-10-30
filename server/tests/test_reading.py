@@ -18,7 +18,7 @@ from unspun.core.reading import (
     ready_condition,
 )
 from unspun.core.review_budget import GroundingBudgetExceeded
-from unspun.pipeline.summarize import pending_summary_ids, summarize_article
+from unspun.evaluation.legacy.summarize import pending_summary_ids, summarize_article
 
 
 def material(number: int = 1) -> Article:
@@ -162,7 +162,7 @@ def test_deferred_backlog_does_not_starve_new_reports(db_session: Session) -> No
 def test_budget_resume_reuses_draft_without_second_generation(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    from unspun.pipeline import summarize as module
+    from unspun.evaluation.legacy import summarize as module
 
     a = material()
     response = {
@@ -227,7 +227,7 @@ def test_batch_budget_preflight_keeps_retryable_state_without_generation(
     from contextlib import contextmanager
 
     from unspun.core.config import get_settings
-    from unspun.pipeline import summarize as module
+    from unspun.evaluation.legacy import summarize as module
 
     a = Article(source_id="test", title="Original English", url="https://test/budget")
     db_session.add(a)
@@ -257,7 +257,7 @@ def test_exact_duplicate_reuses_review_without_budget_or_provider_call(
     from contextlib import contextmanager
 
     from unspun.core.config import get_settings
-    from unspun.pipeline import summarize as module
+    from unspun.evaluation.legacy import summarize as module
 
     a = material()
     b = Article(id=2, source_id="other", title=a.title, content=a.content, url="https://test/copy")

@@ -17,7 +17,7 @@ export default function DigestPage() {
   )
   const [params, setParams] = useSearchParams()
   const today = useBeijingToday()
-  const selected = params.get('date') ?? today
+  const selected = params.get('date') ?? 'latest'
   const latest = selected === 'latest'
   const valid = latest || (isCalendarDate(selected) && selected <= today)
   const { data, error, isPending, refetch } = useQuery({
@@ -30,7 +30,7 @@ export default function DigestPage() {
     },
     enabled: valid,
     retry: false,
-    refetchInterval: latest || selected === today ? 5 * 60 * 1000 : false,
+    refetchOnWindowFocus: false,
   })
   const displayed = latest
     ? (data?.report_date ?? today)
@@ -43,8 +43,8 @@ export default function DigestPage() {
   return (
     <div className="mx-auto max-w-[760px]">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-xl font-bold tracking-[0.01em]">每日日报</h1>
-        <span className="text-xs text-ink-4">每日选编 · 北京时间</span>
+        <h1 className="text-xl font-bold tracking-[0.01em]">历史日报</h1>
+        <span className="text-xs text-ink-4">已保存快照 · 北京时间</span>
       </div>
       <div className="mt-5 flex flex-wrap items-center gap-2">
         <button
@@ -75,9 +75,6 @@ export default function DigestPage() {
         >
           ›
         </button>
-        <button type="button" onClick={() => setParams({})} className={CONTROL}>
-          今天
-        </button>
         <button
           type="button"
           onClick={() => chooseDate('latest')}
@@ -87,8 +84,8 @@ export default function DigestPage() {
         </button>
       </div>
       <p className="mb-4 mt-2 text-[11.5px] text-ink-4">
-        {latest ? '最新已生成日报' : `${displayed} · 日报快照`} · 过去 24
-        小时热度排行
+        {latest ? '最新已保存日报' : `${displayed} · 日报快照`} · 过去 24
+        小时的历史排行，保留当时内容与顺序。
       </p>
       {!valid && (
         <p
@@ -135,10 +132,10 @@ export default function DigestPage() {
       {valid && data === null && (
         <div className="rounded-card border border-line bg-surface p-5">
           <h2 className="text-sm font-semibold">
-            {latest ? '还没有已生成的日报' : '这一天的日报尚未生成'}
+            {latest ? '没有已保存的日报' : '这一天没有已保存的日报'}
           </h2>
           <p className="mt-2 text-[13px] text-ink-3">
-            可以选择其他日期，或查看最新一期已生成的日报。
+            可以选择其他日期，或查看最新一期已保存的日报。
           </p>
         </div>
       )}

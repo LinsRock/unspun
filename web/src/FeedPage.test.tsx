@@ -10,7 +10,7 @@ import type { EventOut } from './api'
 const event: EventOut = { id: 1, title: '事件一', summary_zh: null, score_final: 60, score_decayed: null, score_breakdown: null, first_seen_at: '2026-10-14T00:00:00Z', changed_at: '2026-10-14T03:00:00Z', articles: [], viewpoint: null }
 beforeEach(() => { localStorage.clear(); onlineManager.setOnline(true) })
 function stubFetch(fetch: (url: string, options?: RequestInit) => unknown) {
-  vi.stubGlobal('fetch', (url: string, options?: RequestInit) => url === '/api/feed-preferences' ? Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', version: options?.method === 'PUT' ? 1 : 0 }) }) : fetch(url, options))
+  vi.stubGlobal('fetch', fetch)
 }
 afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals() })
 function mount(path = '/') {
@@ -20,12 +20,12 @@ function mount(path = '/') {
 function response(events: EventOut[] = [], next_cursor: string | null = null) {
   return { ok: true, json: async () => ({ events, next_cursor, as_of: '2026-10-14T05:00:00Z', window_start: '2026-10-07T05:00:00Z', window_end: '2026-10-14T05:00:00Z' }) }
 }
-test('defaults to latest seven days and keeps range while changing sort', async () => {
+test('defaults to all historical events and keeps range while changing sort', async () => {
   const fetch = vi.fn().mockResolvedValue(response()); stubFetch(fetch)
   mount()
   await waitFor(() => expect(fetch).toHaveBeenCalled())
   expect(String(fetch.mock.calls[0]![0])).toContain('sort=newest')
-  expect(String(fetch.mock.calls[0]![0])).toContain('range=7d')
+  expect(String(fetch.mock.calls[0]![0])).toContain('range=all')
   fireEvent.change(screen.getByRole('combobox', { name: '时间范围' }), { target: { value: '24h' } })
   await waitFor(() => expect(String(fetch.mock.calls.at(-1)![0])).toContain('range=24h'))
   fireEvent.click(screen.getByRole('button', { name: '重要优先' }))
@@ -69,7 +69,7 @@ test('returning to a filter resets cached pagination', async () => {
   await waitFor(() => expect(screen.queryByText('旧第二页')).toBeNull())
   expect(String(fetch.mock.calls.at(-1)![0])).not.toContain('cursor=')
 })
-test('five-minute refresh discards later pages and only fetches first page', async () => {
+test('history does not poll and manual refresh resets pagination', async () => {
   vi.useFakeTimers()
   const fetch = vi.fn((url: string) => Promise.resolve(response(url.includes('cursor=') ? [{ ...event, id: 2, title: '第二页' }] : [event], url.includes('cursor=') ? null : 'next')))
   stubFetch(fetch)
@@ -81,6 +81,10 @@ test('five-minute refresh discards later pages and only fetches first page', asy
   expect(screen.getByText('第二页')).toBeTruthy()
   fetch.mockClear()
   await act(async () => { await vi.advanceTimersByTimeAsync(300000) })
+  expect(fetch).not.toHaveBeenCalled()
+  expect(screen.getByText('第二页')).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: '刷新' }))
+  await act(async () => { await vi.advanceTimersByTimeAsync(10) })
   expect(fetch).toHaveBeenCalledTimes(1)
   expect(String(fetch.mock.calls[0]![0])).not.toContain('cursor=')
   expect(screen.queryByText('第二页')).toBeNull()
@@ -116,45 +120,27 @@ test('changing filters aborts the previous request and ignores its late response
   expect(screen.getByText('新的筛选结果')).toBeTruthy()
 })
 
-test('waits for server preferences before the first feed query and URL never writes preferences', async () => {
-  let resolvePreferences!: (value: unknown) => void
-  const pending = new Promise((resolve) => { resolvePreferences = resolve })
-  const fetch = vi.fn((url: string) => url === '/api/feed-preferences' ? pending : Promise.resolve(response([event])))
+test('historical URL filters work without reading or writing preferences', async () => {
+  const fetch = vi.fn().mockResolvedValue(response([event]))
   vi.stubGlobal('fetch', fetch); mount('/?sort=hot&keep=yes')
-  await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1))
-  expect(screen.queryByText('事件一')).toBeNull()
-  await act(async () => { resolvePreferences({ ok: true, json: async () => ({ sort: 'important', range: 'all', version: 3 }) }) })
   await screen.findByText('事件一')
-  const url = String(fetch.mock.calls[1]![0])
-  expect(url).toContain('sort=hot'); expect(url).toContain('range=all'); expect(url).not.toContain('unread_only')
-  expect(fetch).toHaveBeenCalledTimes(2)
-})
-test('uses last successful local preferences only when server is unavailable', async () => {
-  localStorage.setItem('unspun.feed-preferences.v2', JSON.stringify({ sort: 'important', range: '24h', version: 5 }))
-  const fetch = vi.fn((url: string) => url === '/api/feed-preferences' ? Promise.reject(new Error('offline')) : Promise.resolve(response()))
-  vi.stubGlobal('fetch', fetch); mount()
-  await screen.findByText(/偏好同步失败/)
-  await waitFor(() => expect(String(fetch.mock.calls[1]?.[0])).toContain('sort=important'))
-  expect(String(fetch.mock.calls[1]![0])).toContain('range=24h')
-})
-
-test('preference conflicts refresh the version without replacing explicit URL choices', async () => {
-  const fetch = vi.fn((url: string, options?: RequestInit) => {
-    if (url === '/api/feed-preferences' && options?.method === 'PUT') return Promise.resolve({ ok: false, status: 409, json: async () => ({ detail: { current: { sort: 'hot', range: 'today', version: 8 } } }) })
-    if (url === '/api/feed-preferences') return Promise.resolve({ ok: true, json: async () => ({ sort: 'newest', range: '7d', version: 0 }) })
-    return Promise.resolve(response([event]))
-  })
-  vi.stubGlobal('fetch', fetch); mount('/?sort=newest&range=all&other=keep')
-  await screen.findByText('事件一')
+  expect(fetch).toHaveBeenCalledTimes(1)
+  expect(String(fetch.mock.calls[0]![0])).toContain('sort=hot')
+  expect(String(fetch.mock.calls[0]![0])).toContain('range=all')
   fireEvent.click(screen.getByRole('button', { name: '重要优先' }))
-  await screen.findByText(/偏好已在其他设备更新/)
-  expect(screen.getByRole('button', { name: '重要优先' }).getAttribute('aria-pressed')).toBe('true')
-  fireEvent.click(screen.getByRole('button', { name: '当前热度' }))
-  await waitFor(() => expect(fetch.mock.calls.filter((call) => call[1]?.method === 'PUT')).toHaveLength(2))
-  const lastWrite = fetch.mock.calls.filter((call) => call[1]?.method === 'PUT').at(-1)!
-  expect(JSON.parse(lastWrite[1]!.body as string).version).toBe(8)
+  await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2))
+  expect(fetch.mock.calls.every(call => String(call[0]).startsWith('/api/events?') && !call[1]?.method)).toBe(true)
 })
 
+test('old local preferences remain untouched and do not hide historical events', async () => {
+  const saved = JSON.stringify({ sort: 'important', range: '24h', version: 5 })
+  localStorage.setItem('unspun.feed-preferences.v2', saved)
+  const fetch = vi.fn().mockResolvedValue(response([event]))
+  vi.stubGlobal('fetch', fetch); mount()
+  await screen.findByText('事件一')
+  expect(String(fetch.mock.calls[0]![0])).toContain('range=all')
+  expect(localStorage.getItem('unspun.feed-preferences.v2')).toBe(saved)
+})
 
 test('reading interactions retain events and stale unread URLs do not filter the feed', async () => {
   const fetch = vi.fn().mockResolvedValue(response([event])); stubFetch(fetch)
@@ -167,11 +153,11 @@ test('reading interactions retain events and stale unread URLs do not filter the
   expect(fetch.mock.calls.every((call) => !String(call[0]).includes('unread_only'))).toBe(true)
   expect(fetch.mock.calls.every((call) => call[1]?.method !== 'PUT')).toBe(true)
 })
-test('offline disables preference writes without removing displayed events', async () => {
+test('going offline keeps the historical events and performs no writes', async () => {
   const fetch = vi.fn().mockResolvedValue(response([event])); stubFetch(fetch); mount()
   await screen.findByText('事件一')
   act(() => window.dispatchEvent(new Event('offline')))
-  expect((screen.getByRole('combobox', { name: '时间范围' }) as HTMLSelectElement).disabled).toBe(true)
+  expect(fetch.mock.calls.every(call => !call[1]?.method)).toBe(true)
   expect(screen.getByText('事件一')).toBeTruthy()
 })
 

@@ -1,6 +1,6 @@
 # Offline regression
 
-`uv run pytest` includes all 1,383 cases. `legacy_batch` classifies 13 retained
+`uv run pytest` includes all 1,384 cases. `legacy_batch` classifies 13 retained
 mock regressions; it does not exclude them from the default suite or CI.
 `uv run pytest -m legacy_batch` selects those 13 for the preliminary check.
 
@@ -21,3 +21,8 @@ migrated database and failed native IPv4/IPv6 external connections. CI also
 verifies that the database has exactly one network and that it is internal.
 It restores the job service's original network on exit and preserves failures
 as failures. The fixed 40-event ranking check remains a separate required step.
+
+CL-04/06 retains all 13 mock cases under the offline
+`unspun.evaluation.legacy` imports. `test_runtime_imports.py` also imports the
+production readers and worker with the offline package absent, preventing
+history from acquiring a generation dependency again.

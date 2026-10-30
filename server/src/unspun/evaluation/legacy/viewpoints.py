@@ -40,7 +40,7 @@ from unspun.core.params import ViewpointsParams, get_scoring_params
 from unspun.core.review_budget import GroundingBudgetExceeded, require_grounding_budget
 from unspun.core.sources import Source, load_sources
 
-log = get_logger("unspun.pipeline.viewpoints")
+log = get_logger("unspun.evaluation.legacy.viewpoints")
 
 # One article per source in the prompt; more sources than this and the
 # cheapest-weighted ones are dropped rather than growing the prompt.
