@@ -1,0 +1,174 @@
+{
+  "schema_version": "r2-04-selected-window-v2",
+  "registered_at": "2026-10-30T03:52:42.051723+00:00",
+  "base_revision": "6d17c740b4785b66ce23d4997dd4acf4cfd5ede7",
+  "parent_registration": "docs/evaluations/r2/source-increments-window-v1.json",
+  "parent_registration_sha256": "f1fe3b234077475f56ec83a5d275b4f05bc88d42f0a78150f2a8b02dc3283f4f",
+  "attribution_version": "thepaper-byline-v2",
+  "selected_source_ids": [
+    "thepaper-sidebar",
+    "36kr-newsflashes"
+  ],
+  "selection_reason": {
+    "thepaper-sidebar": "domestic society and public-issue bodies; mixed byline fixed, no-text media failures retained",
+    "36kr-newsflashes": "incremental AI/technology business briefs, never first-party technical coverage"
+  },
+  "target_environment": {
+    "base_image_ref": "ghcr.io/linsrock/unspun-server:201b5bdd0680e1a0bfb031cb30c8523560888830",
+    "immutable_image": "ghcr.io/linsrock/unspun-server@sha256:c856e2bf25814548c03185071f0d8a9cbfedd0a85ad65cf557d3b53e214dfcc7",
+    "base_image_id": "sha256:c856e2bf25814548c03185071f0d8a9cbfedd0a85ad65cf557d3b53e214dfcc7",
+    "network": "unspun_default",
+    "equivalence": "same deployed immutable Linux server image and network; no runtime source/config overlay; independent observer only",
+    "rsshub_cache_seconds": 1800,
+    "rsshub_content_cache_seconds": 3600,
+    "rsshub_restart_or_cache_clear_authorized": false,
+    "database_credentials": false,
+    "model_key": false,
+    "ports": [],
+    "memory_mib": 256,
+    "cpus": 0.5,
+    "pids_limit": 128,
+    "uid_gid": "1001:1001",
+    "read_only_rootfs": true,
+    "drop_all_capabilities": true,
+    "no_new_privileges": true,
+    "control_mount": "/control:ro",
+    "output_mount": "/capture:rw"
+  },
+  "artifact_sha256": {
+    "observer": "8af06d572aa927edc8b05e49aba90392aea1fb05287e8c4cd2f0a4058b607900",
+    "capture_dependency": "b8e2535a7bffcbb14f5340ec5b67869f2c910c422a7e60851469fa10c459e7bd",
+    "public_sources": "18d55b71dc29a00a3c0479881bd0da6d1b4fed1b9340cac7cdf89f69fb67a4c1",
+    "sources_config": "4c21aaace4c8c68d0181e101a136883fb43972c12e5af47caba410d9ec1bef43",
+    "private_collector": "e9462fd1455e52cfa9a7a7f730ccf51931bf1e28c72fb4091a54bdb014a5aa20",
+    "offline_boundary_checks": "5ffaa33792af3e1af874119a4d7fdc2ca0516f996ba41378e68eacf8a8e8132e",
+    "launcher": "e0ac207ace0886023e2c336f7c5c7d32c0d14cb2c2bc52a292d0134cc8389138"
+  },
+  "private_control_artifacts": {
+    "observer": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030/observe_v2.py",
+    "capture_dependency": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030/observe.py",
+    "private_collector": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030/collect_v2.py",
+    "offline_boundary_checks": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030/test_observe_v2.py",
+    "launcher": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030/launch.sh"
+  },
+  "window": {
+    "selection_registration_required_before_start": true,
+    "rounds": 21,
+    "interval_seconds": 1800,
+    "sample_materials_per_success": 2,
+    "sampling": "rotate by round index, retaining first and subsequent appearances without forcing updates",
+    "minimum_elapsed_seconds": 21600,
+    "minimum_distinct_calendar_days": 2,
+    "timezone": "Asia/Shanghai",
+    "minimum_scheduled_attempts": 13,
+    "maximum_gap_seconds": 4500,
+    "minimum_metadata_success_fraction": 0.9,
+    "maximum_consecutive_metadata_failures": 1,
+    "post_failure_successes_required": 2,
+    "minimum_distinct_material_urls": 3,
+    "minimum_declared_scope_success_fraction": 0.9,
+    "critical_identity_author_time_scope_mistakes_allowed": 0,
+    "real_new_upstream_identities_required": true,
+    "http_attempt_limit_per_route_per_round_including_redirects": 13,
+    "http_attempt_limit_per_route_entire_window": 273,
+    "automatic_retries": 0,
+    "missed_rounds": "retain scheduled timestamps and failures; do not compress catch-up requests or silently restart the window"
+  },
+  "schedule": {
+    "first_round_at": "2026-10-30T06:30:00+00:00",
+    "last_round_at": "2026-10-30T16:30:00+00:00",
+    "request_stop_at": "2026-10-30T16:35:00+00:00",
+    "first_round_shanghai": "2026-10-30T14:30:00+08:00",
+    "last_round_shanghai": "2026-10-31T00:30:00+08:00",
+    "maximum_start_lateness_seconds": 300,
+    "arming_after_first_round_forbidden": true
+  },
+  "sampling_scope": "scan quota 30 matches proposed runtime bounds; rotate all returned forms, retain media/unknown/none failures in denominator; no text-only filtering",
+  "request_boundary": {
+    "method": "GET",
+    "client_attempts_include_redirects_and_official_comparison": true,
+    "allowed_urls_and_patterns": {
+      "thepaper-sidebar": [
+        "https://cache.thepaper.cn/contentapi/wwwIndex/rightSidebar",
+        "https://www.thepaper.cn/newsDetail_forward_<decimal_identity>",
+        "https://thepaper.cn/newsDetail_forward_<decimal_identity>"
+      ],
+      "36kr-newsflashes": [
+        "http://rsshub:1200/36kr/newsflashes",
+        "https://36kr.com/newsflashes",
+        "https://36kr.com/newsflashes/",
+        "https://www.36kr.com/newsflashes",
+        "https://www.36kr.com/newsflashes/"
+      ]
+    },
+    "query_strings_allowed": false,
+    "subresources_or_browser_execution": false,
+    "response_body_limit_bytes": 2097152,
+    "automatic_retries": 0,
+    "maximum_client_attempts_per_route_per_round": 13,
+    "maximum_client_attempts_per_route_per_window": 273,
+    "rsshub_internal_upstream_attempts": "unmeasured; client counts are not upstream totals"
+  },
+  "official_comparison": {
+    "source_id": "36kr-newsflashes",
+    "round_indices": [
+      0,
+      2,
+      20
+    ],
+    "request_url": "https://36kr.com/newsflashes",
+    "maximum_http_attempts_per_comparison_including_redirects": 2,
+    "same_route_round_and_window_budget": true,
+    "ordinary_attempts_reserved_ceiling_on_comparison_rounds": 11,
+    "fallback_or_additional_sampling": false,
+    "review": "offline compare actual newsflash identities, publication timestamps and body sets with same-round RSS; record collection differences independently from header/raw-response changes",
+    "unavailable_or_unparseable": "unmeasured; no additional HTTP attempts",
+    "no_natural_failure_recovery": "unmeasured"
+  },
+  "stop_conditions": [
+    "Refuse arming on credential, dotenv, version, hash, source stage/scope, scan, schedule or existing output mismatch.",
+    "Refuse any unregistered method/address, or request after request_stop_at; stop further requests for the affected route and retain other route independence.",
+    "No dispatch beyond 13 client attempts per route/round or 273 per route/window, including redirects and official checks; phase caps never grant extra attempts.",
+    "If a scheduled wakeup is over 300 seconds late, record interruption and stop the window without catch-up, retries, reopening or restarting.",
+    "Preserve ordinary metadata/material failures, media shells, missed material slots and all denominators; gate failures do not erase later scheduled observations.",
+    "Exit naturally after round 20; process/container interruption is retained, never automatically restarted."
+  ],
+  "production_stage_flags": {
+    "discovery": false,
+    "material": false,
+    "paid": false,
+    "publish": false
+  },
+  "paid_requests_allowed": 0,
+  "publication_authorized": false,
+  "original_eight_unchanged": true,
+  "private_target_root": "/home/leon/unspun-observations/r2-04-window-v2-20261030",
+  "private_local_root": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030",
+  "container": "unspun-r204-window-v2-20261030",
+  "restart_policy": "no",
+  "prior_private_artifacts": {
+    "manifest": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030/old-windows-before.json",
+    "manifest_sha256": "caca891b3997c6f18bb9e2336c6af50a7f5d3a567680cda4e8f0538c54cdd570",
+    "remote_file_counts": {
+      "r2-04-v1": 52,
+      "r2-04-window-v1": 279
+    },
+    "preserve_all_prior_windows": true
+  },
+  "delivery_boundary": {
+    "observation_and_material_review_only": true,
+    "no_automatic_acceptance": true,
+    "unfinished_window": "incomplete; preserve process and exact read-only continuation entry",
+    "raw_responses_and_bodies": "private archive only; public minimal statistics, hashes and evidence references",
+    "generation_requests": 0,
+    "embedding_requests": 0,
+    "paid_retries": 0,
+    "provider_queries": 0,
+    "new_published_readable_items": 0,
+    "r2_06": "deferred 3/4",
+    "r2_11": "deferred 8/12",
+    "mixed_probes": 0,
+    "cleanup_or_r3": false,
+    "user_acceptance": null
+  }
+}
