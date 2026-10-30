@@ -5,7 +5,7 @@ import json
 from typing import Any, cast
 
 import httpx
-from sqlalchemy import ColumnElement, case, func, or_, select, update
+from sqlalchemy import select, update
 from sqlalchemy.orm import Session
 
 from unspun.core.billing import BudgetExceeded
@@ -27,16 +27,24 @@ from unspun.core.grounding import (
     usable_evidence,
     verify_facts,
 )
+from unspun.core.legacy_backlog import (
+    abandoned_summary_conditions as abandoned_summary_conditions,
+)
+from unspun.core.legacy_backlog import (
+    pending_embedding_conditions as pending_embedding_conditions,
+)
+from unspun.core.legacy_backlog import (
+    pending_summary_conditions as pending_summary_conditions,
+)
+from unspun.core.legacy_backlog import summary_ordering as summary_ordering
 from unspun.core.llm import LlmError, SupportsLlm
 from unspun.core.logging import get_logger
 from unspun.core.models import Article
 from unspun.core.params import get_scoring_params
 from unspun.core.reading import (
-    READING_VERSION,
     attach_reading,
     hydrate_legacy_reading,
     input_hash,
-    input_hash_expression,
     ready_condition,
     refresh_event_text,
 )
@@ -222,50 +230,6 @@ def embed_articles(session: Session, client: SupportsLlm, articles: list[Article
     texts = [f"{a.title_zh or a.title}\n{a.summary_zh or ''}" for a in articles]
     for article, vector in zip(articles, client.embed(session, texts), strict=True):
         article.embedding = vector
-
-
-# Pending/abandoned predicates are shared with the daily report, so the
-# backlog it shows always matches what the worker will actually drain.
-
-
-def pending_summary_conditions() -> tuple[ColumnElement[bool], ...]:
-    return (
-        or_(
-            Article.summary_zh.is_(None),
-            func.coalesce(Article.summary_grounding["reading"]["input_hash"].astext, "")
-            != input_hash_expression(),
-            Article.summary_grounding["status"].astext == "review_limited",
-            Article.summary_grounding["reading"]["reason"].astext.in_(
-                ["language_invalid", "title_unverified"]
-            ),
-            (
-                func.coalesce(Article.summary_grounding["reading"]["version"].astext, "")
-                != READING_VERSION
-            ),
-        ),
-        Article.summary_failures < get_scoring_params().pipeline.max_summary_failures,
-        Article.processing_track == "legacy",
-    )
-
-
-def abandoned_summary_conditions() -> tuple[ColumnElement[bool], ...]:
-    return (
-        pending_summary_conditions()[0],
-        Article.summary_failures >= get_scoring_params().pipeline.max_summary_failures,
-        Article.processing_track == "legacy",
-    )
-
-
-def pending_embedding_conditions() -> tuple[ColumnElement[bool], ...]:
-    return (ready_condition(), Article.embedding.is_(None), Article.processing_track == "legacy")
-
-
-def summary_ordering() -> tuple[Any, ...]:
-    return (
-        Article.published_at.desc().nulls_last(),
-        case((Article.summary_grounding["status"].astext == "review_limited", 0), else_=1),
-        Article.id.desc(),
-    )
 
 
 def pending_summary_ids(session: Session, limit: int) -> list[int]:

@@ -8,13 +8,8 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from unspun.api.events import get_db
-from unspun.core.models import Article, Event, FetchLog, LlmUsage, PipelineRun
-from unspun.pipeline.score import pending_score_conditions
-from unspun.pipeline.summarize import (
-    abandoned_summary_conditions,
-    pending_embedding_conditions,
-    pending_summary_conditions,
-)
+from unspun.core.legacy_backlog import abandoned_summary_conditions, backlog_counts
+from unspun.core.models import Article, FetchLog, LlmUsage, PipelineRun
 
 router = APIRouter()
 
@@ -107,18 +102,7 @@ def daily_report(session: Session = Depends(get_db)) -> ReportResponse:  # noqa:
         .order_by(func.sum(LlmUsage.cost_usd).desc())
     ).all()
 
-    pending_summaries = session.scalar(
-        select(func.count()).select_from(Article).where(*pending_summary_conditions())
-    )
-    pending_embeddings = session.scalar(
-        select(func.count()).select_from(Article).where(*pending_embedding_conditions())
-    )
-    pending_scores = session.scalar(
-        select(func.count()).select_from(Event).where(*pending_score_conditions())
-    )
-    abandoned_total = session.scalar(
-        select(func.count()).select_from(Article).where(*abandoned_summary_conditions())
-    )
+    counts = backlog_counts(session)
     abandoned = session.execute(
         select(Article.id, Article.title, Article.source_id)
         .where(*abandoned_summary_conditions())
@@ -151,10 +135,10 @@ def daily_report(session: Session = Depends(get_db)) -> ReportResponse:  # noqa:
         llm_spend=llm_spend,
         llm_cost_total_usd=sum(s.cost_usd for s in llm_spend),
         backlog=PipelineBacklog(
-            pending_summaries=pending_summaries or 0,
-            pending_embeddings=pending_embeddings or 0,
-            pending_scores=pending_scores or 0,
-            abandoned_total=abandoned_total or 0,
+            pending_summaries=counts["pending_summaries"],
+            pending_embeddings=counts["pending_embeddings"],
+            pending_scores=counts["pending_scores"],
+            abandoned_total=counts["abandoned_summaries"],
             abandoned_articles=[
                 AbandonedArticle(id=row[0], title=row[1], source_id=row[2]) for row in abandoned
             ],
