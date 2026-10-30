@@ -5,11 +5,11 @@ from datetime import UTC, datetime, timedelta
 from statistics import mean
 from typing import Any
 
-from sqlalchemy import ColumnElement, or_
 from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
-from unspun.core.content import legacy_event_condition, require_legacy
+from unspun.core.content import require_legacy
+from unspun.core.legacy_backlog import pending_score_conditions as pending_score_conditions
 from unspun.core.llm import SupportsLlm
 from unspun.core.models import Article, Event
 from unspun.core.params import ScoringParams
@@ -245,11 +245,3 @@ def refresh_event_public_impact(
         mode="json"
     )
     return True
-
-
-def pending_score_conditions() -> tuple[ColumnElement[bool], ...]:
-    # Historical backlog reporting remains available after batch retirement.
-    return (
-        or_(Event.scored_at.is_(None), Event.changed_at > Event.scored_at),
-        legacy_event_condition(),
-    )

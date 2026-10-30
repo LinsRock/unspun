@@ -1,6 +1,6 @@
 # Offline regression
 
-`uv run pytest` includes all 1,368 cases. `legacy_batch` classifies 13 retained
+`uv run pytest` includes all 1,383 cases. `legacy_batch` classifies 13 retained
 mock regressions; it does not exclude them from the default suite or CI.
 `uv run pytest -m legacy_batch` selects those 13 for the preliminary check.
 

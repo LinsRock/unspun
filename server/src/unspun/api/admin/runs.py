@@ -11,15 +11,16 @@ from sqlalchemy.orm import Session
 from unspun.api.admin.ranges import resolve_range
 from unspun.api.admin.schemas import AdminRangeOut
 from unspun.api.events import get_db
-from unspun.core.models import Article, Event, PipelineRun
-from unspun.core.reading import publication_counts
-from unspun.pipeline.score import pending_score_conditions
-from unspun.pipeline.summarize import (
+from unspun.core.legacy_backlog import (
     abandoned_summary_conditions,
+    backlog_counts,
     pending_embedding_conditions,
+    pending_score_conditions,
     pending_summary_conditions,
     summary_ordering,
 )
+from unspun.core.models import Article, Event, PipelineRun
+from unspun.core.reading import publication_counts
 
 router = APIRouter()
 MISSING_RUN_FIELDS = ["ended_at", "duration_seconds", "status", "stage_results", "cost_usd"]
@@ -144,28 +145,7 @@ def get_backlog(
         "abandoned_summary": abandoned_summary_conditions(),
         "pending_embedding": pending_embedding_conditions(),
     }
-    counts = BacklogCounts(
-        pending_summaries=session.scalar(
-            select(func.count()).select_from(Article).where(*article_conditions["pending_summary"])
-        )
-        or 0,
-        abandoned_summaries=session.scalar(
-            select(func.count())
-            .select_from(Article)
-            .where(*article_conditions["abandoned_summary"])
-        )
-        or 0,
-        pending_embeddings=session.scalar(
-            select(func.count())
-            .select_from(Article)
-            .where(*article_conditions["pending_embedding"])
-        )
-        or 0,
-        pending_scores=session.scalar(
-            select(func.count()).select_from(Event).where(*pending_score_conditions())
-        )
-        or 0,
-    )
+    counts = BacklogCounts(**backlog_counts(session))
     if stage == "pending_score":
         conditions = pending_score_conditions()
         total = counts.pending_scores

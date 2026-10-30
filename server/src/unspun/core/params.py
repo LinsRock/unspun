@@ -64,8 +64,8 @@ class PipelineParams(BaseModel):
 
     # Defaults match the constants these replaced, so an older config
     # file without a pipeline section keeps the previous behavior.
-    # ge=1: these are hand-tuned; a typo like 0 would silently stall the
-    # worker, so a bad value must fail loudly at config load instead.
+    # Retired stages still expose these limits in the config/admin contract.
+    # Keep validation and defaults without implying a running batch worker.
     summary_batch_limit: int = Field(default=50, ge=1)
     embed_batch_limit: int = Field(default=200, ge=1)
     score_batch_limit: int = Field(default=40, ge=1)
