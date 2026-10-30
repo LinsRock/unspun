@@ -1,0 +1,89 @@
+{
+  "schema_version": "r2-04-window-v2-progress",
+  "captured_at": "2026-10-30T03:57:43.041640+00:00",
+  "state": "armed_waiting_for_registered_start; observation and material conclusions incomplete",
+  "registration": "docs/evaluations/r2/source-increments-window-v2.json",
+  "registration_commit": "4515ae4744d2db49a45cce7c3eeb6302315c5c34",
+  "registration_sha256": "de4f204594f35aa142df16fb654332c6d7935969ec1b2f84aec1ce125e0c7d4b",
+  "container": "unspun-r204-window-v2-20261030",
+  "container_id": "b32633813278c6de40573785a3c435ab6ba53f7631dfbf36f55f68140dae390f",
+  "container_status": "running",
+  "restart_count": 0,
+  "restart_policy": "no",
+  "image_id": "sha256:c856e2bf25814548c03185071f0d8a9cbfedd0a85ad65cf557d3b53e214dfcc7",
+  "armed_at": "2026-10-30T03:57:10.815669+00:00",
+  "schedule": {
+    "first_round_at": "2026-10-30T06:30:00+00:00",
+    "last_round_at": "2026-10-30T16:30:00+00:00",
+    "request_stop_at": "2026-10-30T16:35:00+00:00",
+    "first_round_shanghai": "2026-10-30T14:30:00+08:00",
+    "last_round_shanghai": "2026-10-31T00:30:00+08:00",
+    "maximum_start_lateness_seconds": 300,
+    "arming_after_first_round_forbidden": true
+  },
+  "safety": {
+    "credential_free": true,
+    "published_ports": [],
+    "database_mounts": [],
+    "read_only_rootfs": true,
+    "network": "unspun_default",
+    "production_services_modified": false,
+    "shared_rsshub_restarted_or_cleared": false
+  },
+  "sources": {
+    "thepaper-sidebar": {
+      "recorded_rounds": 0,
+      "planned_rounds": 21,
+      "client_attempts_including_redirects_and_official": 0,
+      "sampled_materials": 0,
+      "planned_material_slots": 42,
+      "observation_gate": "incomplete",
+      "material_review": "pending",
+      "recovery": "unmeasured",
+      "enabled": false
+    },
+    "36kr-newsflashes": {
+      "recorded_rounds": 0,
+      "planned_rounds": 21,
+      "client_attempts_including_redirects_and_official": 0,
+      "sampled_materials": 0,
+      "planned_material_slots": 42,
+      "observation_gate": "incomplete",
+      "material_review": "pending",
+      "recovery": "unmeasured",
+      "enabled": false
+    }
+  },
+  "official_comparison": {
+    "source_id": "36kr-newsflashes",
+    "round_indices": [
+      0,
+      2,
+      20
+    ],
+    "captured": 0,
+    "comparison": "unmeasured"
+  },
+  "preservation": {
+    "prior_remote_files_verified_unchanged": 331,
+    "prior_window_results_unchanged": true,
+    "before_manifest_sha256": "caca891b3997c6f18bb9e2336c6af50a7f5d3a567680cda4e8f0538c54cdd570"
+  },
+  "private_evidence": {
+    "root": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030",
+    "armed-state.json": "a9835300bcb844db2a0341fc783b2ce3a8757d71ab6f63034fc5e3dda94c3d7d",
+    "collector": "/Users/li.cong/.cache/unspun-r204-window-v2-20261030/collect_v2.py",
+    "collector_sha256": "e9462fd1455e52cfa9a7a7f730ccf51931bf1e28c72fb4091a54bdb014a5aa20"
+  },
+  "generation_requests": 0,
+  "embedding_requests": 0,
+  "paid_retries": 0,
+  "provider_queries": 0,
+  "production_data_writes": 0,
+  "new_public_readable_items": 0,
+  "mixed_probes": 0,
+  "r2_04_accepted": false,
+  "r2_06": "deferred 3/4",
+  "r2_11": "deferred 8/12",
+  "user_acceptance": null
+}
