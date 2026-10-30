@@ -58,6 +58,8 @@
 
 R2-11 三个缓存目录中的观察/rollback/restore、R2-04 v1/v2 工作区及当前原件仅检查依赖/字节，不执行接续脚本。保留路径及恢复入口分别见 [R2-11 交接](r2-11-reading-enablement-2026-10-26.md)、[R2-04 交接](r2-04-source-increments-2026-10-20.md)和[本机回收登记](cl-local-lab-reclamation-2026-10-30.md)。不依赖已回收的 CL-01/04A/B 实验容器或卷。
 
+剩余验收条件：用户另行排期 R2-11 接续，保留原窗口缺口/误回退/恢复事实，完成剩余四次观察及尚未完成的性能、恢复、费用/提供方证据和用户体验对账；达到 12/12 计数本身不等于整体验收。之后才复核旧事件行为的替代、最小历史只读职责及冻结评测恢复方式，再决定旧生成/排序/偏好/页面的具体退役名单；页面变化仍须 D-012。共享身份、账务、任务/配额及版本失效职责必须有保留实现。日报另等 R3 新精选/首页及持续使用验收，不能随本批关闭 CL-06。
+
 ## 验证与资源
 
 独立 worktree：`~/.config/superpowers/worktrees/unspun/cl-04-compat-20261030`；独立 `server/.venv` 指向本工作区。本批资源归属和普通日志仅存 `~/.cache/unspun/cl-04-compat-20261030/registration.json` 及同目录，不提交整套日志、快照或 JUnit。
@@ -74,6 +76,20 @@ Ruff/224 文件格式/Pyright 通过；前端 **142 项**、lint/typecheck/build
 
 固定 **40 例排序通过**（ready/pass true、issues 0）。本机终版先通过 13 项，完整回归 **1,382 通过 / 1 失败**；`test_receipt_substitution_cannot_authorize_cas[response_fingerprint]` 在 `topic_recall` 领取时返回空。追加三轮成员处理/凭证诊断为 **182 通过 / 1 失败**，一次模块复核为 **60 通过 / 1 失败**，均为原 `explanation` 案例的账务时间排序断言，未修改测试。本机合成队列 2,000 次领取未复现；独立 55 秒原生时钟记录捕获五次墙钟倒退 **106–128 ms**，单调时钟仍前进约 1–2 ms，且与凭证顺序异常时刻吻合。这与刚入队任务暂时未到期及先后请求按墙钟排序异常一致，不能将这些失败抹去或宣称所有本机终版回归已通过。
 
-为保护现有 R2-04/11 及其他服务，不调整共享 Colima 的时钟/同步服务、不改测试时钟/重试/断言、不排除用例。最终完整回归在既有 CI 的新 Linux runner、新 Postgres 服务和 internal 网络完成；本机失败日志/只读诊断留本批缓存，CI 结果与收尾完成后补录。
+为保护现有 R2-04/11 及其他服务，不调整共享 Colima 的时钟/同步服务、不改测试时钟/重试/断言、不排除用例。最终完整回归在既有 CI 的新 Linux runner、新 Postgres 服务和 internal 网络完成；本机失败日志/只读诊断留本批缓存。
 
 差异及受影响调用方审查覆盖 SQL/零值/分页、导入兼容、配置默认值、API 身份/事务、运行注册、修复/历史读取、任务/配额/账务和镜像打包；应用变更未发现未解决问题。本批源码以外的 config YAML、迁移、Web、测试正文/marker、依赖声明/lock、部署/CI、R2 任务板均与基线一致。**442 份原验收/评测文件及 1,174 份登记的本机保护文件**字节保持；99 个本地文档链接与 `git diff --check` 通过。本批不把工程通过计入 R2-11、真实语义或用户体验验收。
+
+## PR、CI 与收尾
+
+同一代码 head **`f9b8bb3bde61c6822ce752a3d57bbefb7abd30b9`** 的[独立 Linux 验证](https://github.com/LinsRock/unspun/actions/runs/41028969896)全部通过：隔离预检、13 项 mock、默认 **1,383 项全部通过、0 跳过/排除**、固定 **40 例排序通过**，Web/原型/部署安全/汇总均成功；该 workflow_dispatch 不发布。
+
+[PR #157](https://github.com/LinsRock/unspun/pull/157) 的[首轮检查](https://github.com/LinsRock/unspun/actions/runs/41030208258/attempts/1)后端同样完成隔离预检、13 项、默认 1,383 项和 40 例，全部通过。Web 首轮 **141 通过 / 1 超时**：未修改的 `CostsPage.test.tsx` 中 `cost page separates the full period total from filtered calls` 达到原 5 秒超时，保留首轮结果。同一 head 仅重跑失败作业，[第二次检查](https://github.com/LinsRock/unspun/actions/runs/41030208258/attempts/2)的 Web **142 项**、build/PWA 和 `required-checks` 全部通过，没有改测试或重复后端成功作业。PR 于 **2026-10-30 09:13:28 UTC** 合并为 **`e61f5b7a1a111c40b8245c244964f4e7d568a98f`**。
+
+[主干 CI/自动部署](https://github.com/LinsRock/unspun/actions/runs/41031860535)首轮成功：隔离预检、13 项、默认 **1,383 项全部通过、无跳过/排除**、固定 40 例、Web **142 项**/PWA、必需汇总、server 镜像构建及 Deploy 全部通过，没有重跑。原型/部署代码未改，按既有分类器跳过相应主干作业；额外独立验证已完成它们的检查，未缩小 CI 规则。
+
+**2026-10-30 09:26:47 UTC** 仅核对版本和既有开关：API/受控 worker 的实际镜像及 `APP_VERSION` 均为 **`e61f5b7a1a111c40b8245c244964f4e7d568a98f`**，Web 继续复用 `b10df5ac66973b1d3d90573a828180de0d2b97b5` 且 image ID 与发布前一致。API mixed/发现首页仍为 true，成员处理/合成/话题发布/偏好为 false；worker R1 为 true、全部 R2 开关为 false，两个本地预览开关均 false。未运行 mixed HTTP/观察、手动部署或额外业务数据探针；部署后 442 + 1,174 份原件哈希复核保持。后续纯文档补录不改变该实际运行版本。
+
+本机新建 `unspun-cl04-compat-20261030-db`、专属 `*-data` 卷、`*-internal` 网络及 `unspun-cl04-compat:{tests,runtime}-20261030` 两个镜像标签已于 **08:49:28 UTC** 逐一核对 owner 后删除；测试容器均自动 `--rm`，PWA 预览已停止。未执行全局 prune，没有删除既有镜像、卷、库、预览或接续资源。普通检查输出与必要时钟/首轮失败证据仅留本批缓存；worktree/venv 在文档补录合并后收尾。
+
+本批主动发起的真实生成、embedding、付费重试、提供方查询及新增来源请求均 **0**，不据此将既有受控 R1 的自然活动费用归零。完整 CL-04 四项仍未勾选；行为退役仍等 R2-11，日报仍等 CL-06。R2-06 暂缓、生产 CL-05、CL-06 和 R3 均未开展，完成本批后停止。
