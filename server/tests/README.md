@@ -1,6 +1,6 @@
 # Offline regression
 
-`uv run pytest` includes all 1,384 cases. `legacy_batch` classifies 13 retained
+`uv run pytest` includes all 1,385 cases. `legacy_batch` classifies 13 retained
 mock regressions; it does not exclude them from the default suite or CI.
 `uv run pytest -m legacy_batch` selects those 13 for the preliminary check.
 
@@ -24,5 +24,8 @@ as failures. The fixed 40-event ranking check remains a separate required step.
 
 CL-04/06 retains all 13 mock cases under the offline
 `unspun.evaluation.legacy` imports. `test_runtime_imports.py` also imports the
-production readers and worker with the offline package absent, preventing
-history from acquiring a generation dependency again.
+production readers and worker with the offline package and retired helpers absent.
+The retired HTTP tests use `unspun.evaluation.legacy.app`; their assertions remain
+in the default suite. `test_retired_reader_routes.py` checks that production
+returns 404 without changing historical or accounting rows. The retained R2-10
+preview test replays at the registered evaluation date, independent of expiry.

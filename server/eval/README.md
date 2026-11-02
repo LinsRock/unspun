@@ -72,6 +72,8 @@ record under `docs/` for real read-only audit evidence and validation limits.
 CL-04/06 moved the old generators and explicit repair CLI into
 `unspun.evaluation.legacy`. Production images exclude this entire package.
 The default mock regressions still cover it in an isolated database with an
-empty real key and blocked external networking. Historical snapshots use the
-read-only API and do not import these tools. Real repair or paid replay requires
+empty real key and blocked external networking. Retired event/digest/preference
+APIs are available only through the offline replay app, outside production.
+The frozen ranking source `core/public_impact.py` stays byte-identical at its
+original path but is excluded from production images. Real repair or paid replay requires
 its own registered environment and authorization; never restart the old worker.

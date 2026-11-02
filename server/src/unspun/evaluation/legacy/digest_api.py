@@ -9,8 +9,9 @@ from pydantic import BaseModel, BeforeValidator
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from unspun.api.events import EventOut, get_db
+from unspun.api.dependencies import get_db
 from unspun.core.models import Digest
+from unspun.evaluation.legacy.events import EventOut
 
 router = APIRouter()
 

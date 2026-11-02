@@ -2,8 +2,8 @@ from datetime import UTC, datetime, timedelta
 
 from sqlalchemy.orm import Session
 
-from unspun.core.feed_query import feed_page
 from unspun.core.models import Article, Event
+from unspun.evaluation.legacy.feed_query import feed_page
 
 
 def test_database_filters_before_limit_and_original_time(db_session: Session) -> None:
@@ -134,7 +134,7 @@ def test_cursor_validation_and_mutation_restart(db_session: Session) -> None:
     import pytest
     from fastapi import HTTPException
 
-    from unspun.core.feed_query import decode_cursor
+    from unspun.evaluation.legacy.feed_query import decode_cursor
 
     now = datetime.now(UTC)
     events = [
@@ -355,7 +355,7 @@ def test_brand_aliases_and_epoch_date_match_publication_contract(db_session: Ses
 def test_api_dependency_keeps_one_snapshot_across_concurrent_scoring(db_session: Session) -> None:
     from sqlalchemy import create_engine, delete
 
-    from unspun.api.events import get_db
+    from unspun.api.dependencies import get_db
     from unspun.core.config import get_settings
 
     # This isolated database test needs committed rows for a second connection.

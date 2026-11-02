@@ -1,37 +1,28 @@
 """Live event stream endpoint: scored events with time-decayed ordering."""
 
 import math
-from collections.abc import Generator
 from datetime import UTC, date, datetime
 from typing import Any, Literal
 
 from fastapi import APIRouter, Depends, Query
 from pydantic import BaseModel
-from sqlalchemy import select, text
+from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
 from unspun.api.admin.auth import require_admin_identity
-from unspun.core.db import session_scope
-from unspun.core.feed_query import RANKING_VERSION, feed_page
+from unspun.api.dependencies import get_db
 from unspun.core.logging import get_logger
 from unspun.core.models import Event, EventViewpoint
 from unspun.core.params import get_scoring_params
 from unspun.core.reading import chinese_text, current_reading, event_reading
 from unspun.core.sources import load_sources
+from unspun.evaluation.legacy.feed_query import RANKING_VERSION, feed_page
 
 router = APIRouter()
 
-log = get_logger("unspun.api.events")
+log = get_logger("unspun.evaluation.legacy.events")
 
 LN2 = math.log(2.0)
-
-
-def get_db() -> Generator[Session]:
-    with session_scope() as session:
-        # One request observes one MVCC snapshot across generation, ranking and DTO queries.
-        session.connection(execution_options={"isolation_level": "REPEATABLE READ"})
-        session.execute(text("SET TRANSACTION READ ONLY"))
-        yield session
 
 
 def get_feed_now() -> datetime:

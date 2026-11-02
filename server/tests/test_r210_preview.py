@@ -1,7 +1,7 @@
 """The separate preview adapter must remain isolated and zero-task."""
 
 from collections.abc import Generator
-from datetime import UTC, datetime
+from datetime import UTC, datetime, tzinfo
 from uuid import UUID, uuid4
 
 import httpx
@@ -11,13 +11,13 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from unspun.api.app import app as production_app
-from unspun.api.events import get_db
-from unspun.api.feed_preferences import get_write_db
+from unspun.api.dependencies import get_db, get_write_db
 from unspun.core.billing_models import BilledRequest, BudgetPolicy
 from unspun.core.config import get_settings
 from unspun.core.sources import load_sources
 from unspun.core.task_models import PipelineTask
 from unspun.core.topic_synthesis import qualified_topic_text
+from unspun.evaluation.hybrid_feed import AS_OF
 from unspun.evaluation.preview_topics import create_app, groups, require_environment, seed
 
 
@@ -61,6 +61,14 @@ def test_preview_fails_closed(monkeypatch: pytest.MonkeyPatch, name: str, value:
 @pytest.fixture
 def preview(db_session: Session, monkeypatch: pytest.MonkeyPatch) -> FastAPI:
     settings(monkeypatch)
+
+    # Replay retained material at its registered date, before recommendation expiry.
+    class ReplayClock(datetime):
+        @classmethod
+        def now(cls, tz: tzinfo | None = None) -> datetime:
+            return AS_OF.astimezone(tz) if tz else AS_OF.replace(tzinfo=None)
+
+    monkeypatch.setattr("unspun.evaluation.preview_topics.datetime", ReplayClock)
     monkeypatch.setattr(
         "unspun.evaluation.preview_topics.get_engine", lambda: db_session.get_bind()
     )

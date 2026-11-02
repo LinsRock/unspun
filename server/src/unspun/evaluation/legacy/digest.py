@@ -8,8 +8,6 @@ from sqlalchemy import Float, func, literal, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session, selectinload
 
-from unspun.api.digest import DigestPayload
-from unspun.api.events import LN2, event_out
 from unspun.core.config import get_settings
 from unspun.core.content import legacy_event_condition
 from unspun.core.db import session_scope
@@ -19,6 +17,8 @@ from unspun.core.models import Article, Digest, Event
 from unspun.core.params import DigestParams, get_scoring_params
 from unspun.core.reading import chinese_text, ready_condition
 from unspun.core.sources import load_sources
+from unspun.evaluation.legacy.digest_api import DigestPayload
+from unspun.evaluation.legacy.events import LN2, event_out
 
 log = get_logger("unspun.evaluation.legacy.digest")
 WINDOW_HOURS = 24

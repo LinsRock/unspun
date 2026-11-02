@@ -1,28 +1,19 @@
 """Single-user feed preferences with atomic compare-and-set writes."""
 
-from collections.abc import Generator
 from typing import Annotated, Literal
 
-from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy import update
 from sqlalchemy.dialects.postgresql import insert
-from sqlalchemy.orm import Session
 
 from unspun.api.admin.auth import require_admin_identity
-from unspun.api.admin.expenses import same_origin
-from unspun.core.db import session_scope
+from unspun.api.dependencies import Db, require_write
 from unspun.core.models import FeedPreference
 
 router = APIRouter(dependencies=[Depends(require_admin_identity)])
 
 
-def get_write_db() -> Generator[Session]:
-    with session_scope() as session:
-        yield session
-
-
-Db = Annotated[Session, Depends(get_write_db)]
 Version = Annotated[int, Field(ge=0, le=2147483646, strict=True)]
 
 
@@ -49,12 +40,6 @@ def preferences(row: FeedPreference | None) -> Preferences:
         if row
         else Preferences()
     )
-
-
-def require_write(request: Request) -> None:
-    same_origin(request)
-    if request.headers.get("sec-fetch-site") not in (None, "same-origin", "none"):
-        raise HTTPException(403, "Same-origin request required")
 
 
 @router.get("/api/feed-preferences", response_model=Preferences)

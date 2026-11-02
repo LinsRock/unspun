@@ -11,26 +11,24 @@ pnpm build
 pnpm preview --host 0.0.0.0 --port 4173
 ```
 
-## PWA and offline digests
+## PWA and offline app shell
 
 The production build generates `sw.js` and `manifest.webmanifest`. Workbox
 precaches the app shell; offline SPA routes use the cached HTML. API and
 Cloudflare Access paths are excluded from navigation fallback. Service workers
 are disabled during development; use the production preview for offline tests.
 
-Previously loaded, nonempty digest responses persist in IndexedDB, including
-historical dates and the date corresponding to the latest digest. Empty and
-failed responses without data, event feed queries and reports are not persisted.
-A failed background refresh retains the last digest snapshot. The persisted
-query cache expires after seven days without an update; its schema version is
-`digest-v1` (increment it when the stored response shape becomes incompatible).
-Unavailable storage falls back to online use. Clearing site data removes offline
-digests. Source links still need a network connection.
+Historical event and digest pages are retired. App startup removes only the old
+`unspun-digests` IndexedDB entry and `unspun.feed-preferences.v2` local storage
+entry; other data and the theme remain. Unavailable storage does not block
+reading, and a later startup retries cleanup. Current API responses are not
+persisted; content and source links need a network connection.
 
 Install through the browser's install menu or iOS Safari's Add to Home Screen.
-First log in online through Cloudflare Access and open the desired digest.
-The installed app opens `/digest`. Offline dates without a cached snapshot show
-an explanation; reconnecting resumes the query.
+First log in online through Cloudflare Access. The installed app opens `/` and
+uses the current discovery or independent reading page. Retired `/history`,
+`/events` and `/digest` links redirect to that home. Offline startup displays the
+current reading shell; reconnecting resumes queries.
 
 Installation and service workers require HTTPS or a localhost origin. A phone
 opening a LAN HTTP URL can preview layout but cannot test installation or offline
@@ -48,6 +46,6 @@ pnpm test:pwa
 
 This uses an isolated browser context and API fixtures, checks installation
 assets, then goes offline, closes the original tab, reopens and reloads the
-installed-app start URL, switches to an uncached date and reconnects. It also
-checks mobile overflow, source links and the API navigation exclusion. CI runs
+installed-app start URL, checks retired route redirects and reconnects. It also
+checks targeted cache cleanup, mobile overflow and API navigation exclusion. CI runs
 the same check after building. It does not replace phone installation acceptance.

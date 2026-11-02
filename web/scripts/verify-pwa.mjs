@@ -1,66 +1,46 @@
 import assert from 'node:assert/strict'
 import { chromium } from 'playwright'
 
-// Run against a production preview; API fixtures are isolated to this browser context.
+// Verify the current app shell and removal of only the retired device cache.
 const baseURL = process.env.PWA_BASE_URL ?? 'http://localhost:4173'
-const today = new Intl.DateTimeFormat('sv-SE', {
-  timeZone: 'Asia/Shanghai',
-}).format(new Date())
-const intro = 'Offline digest verification'
-const digest = {
-  report_date: today,
-  kind: 'daily',
-  generated_at: new Date().toISOString(),
-  payload: {
-    intro,
-    timezone: 'Asia/Shanghai',
-    window_start: new Date(Date.now() - 86400000).toISOString(),
-    window_end: new Date().toISOString(),
-    events: [
-      {
-        id: 1,
-        title: 'Offline snapshot event',
-        summary_zh: 'Snapshot summary',
-        score_final: 90,
-        score_decayed: 80,
-        score_breakdown: null,
-        first_seen_at: new Date().toISOString(),
-        changed_at: new Date().toISOString(),
-        articles: [
-          {
-            id: 1,
-            title: 'Source article',
-            title_zh: null,
-            url: 'https://example.com/article',
-            source_id: 'test',
-            source_name: 'Test source',
-            published_at: null,
-          },
-        ],
-        viewpoint: {
-          claims: [{ article_id: 1, claim: 'Snapshot viewpoint' }],
-          disagreements: [],
-          model: 'fixture',
-          generated_at: new Date().toISOString(),
-        },
-      },
-    ],
-  },
-}
 const browser = await chromium.launch({ headless: true, channel: 'chromium' })
 try {
-  const context = await browser.newContext({
-    viewport: { width: 400, height: 850 },
-  })
+  const context = await browser.newContext({ viewport: { width: 390, height: 850 } })
   context.setDefaultTimeout(10000)
+  const requests = []
+  const apiRoute = route => {
+    const path = new URL(route.request().url()).pathname
+    requests.push(path)
+    const data = path === '/api/reading-capabilities'
+      ? { hybrid: false, topic_preferences: false, home: 'reading', engineering_preview: false }
+      : path === '/api/reader-preferences'
+        ? { version: 0, sort: 'recommended', interests: [], feedback: [] }
+        : { items: [], next_cursor: null }
+    return route.fulfill({ json: data })
+  }
+  await context.route('**/api/**', apiRoute)
   const page = await context.newPage()
   const errors = []
-  page.on('pageerror', (error) => errors.push(error.message))
-  await context.route('**/api/digest/*', (route) =>
-    route.fulfill({ json: digest }),
-  )
+  page.on('pageerror', error => errors.push(error.message))
+  await page.goto(`${baseURL}/icon.svg`)
+  await page.evaluate(async () => {
+    localStorage.setItem('unspun.feed-preferences.v2', 'retired')
+    localStorage.setItem('unspun-theme', 'dark')
+    const request = indexedDB.open('keyval-store')
+    request.onupgradeneeded = () => request.result.createObjectStore('keyval')
+    const db = await new Promise((resolve, reject) => {
+      request.onsuccess = () => resolve(request.result)
+      request.onerror = () => reject(request.error)
+    })
+    const tx = db.transaction('keyval', 'readwrite')
+    tx.objectStore('keyval').put({ buster: 'digest-v1', original: 'retired snapshot' }, 'unspun-digests')
+    tx.objectStore('keyval').put('retained', 'unrelated-data')
+    await new Promise((resolve, reject) => { tx.oncomplete = resolve; tx.onerror = () => reject(tx.error) })
+    db.close()
+  })
   await page.goto(`${baseURL}/digest?date=latest`)
-  await page.getByText(intro, { exact: true }).waitFor()
+  await page.waitForURL(`${baseURL}/reading`)
+  await page.locator('h1').waitFor()
   await page.evaluate(() => navigator.serviceWorker.ready)
   await page.waitForFunction(() => navigator.serviceWorker.controller !== null)
   await page.waitForFunction(async () => {
@@ -69,20 +49,20 @@ try {
       request.onsuccess = () => resolve(request.result)
       request.onerror = () => reject(request.error)
     })
-    const read = db
-      .transaction('keyval')
-      .objectStore('keyval')
-      .get('unspun-digests')
-    const saved = await new Promise((resolve, reject) => {
+    const read = db.transaction('keyval').objectStore('keyval').get('unspun-digests')
+    const value = await new Promise((resolve, reject) => {
       read.onsuccess = () => resolve(read.result)
       read.onerror = () => reject(read.error)
     })
     db.close()
-    return saved?.clientState.queries.length >= 2
+    return value === undefined
   })
-  const manifest = await (
-    await context.request.get(`${baseURL}/manifest.webmanifest`)
-  ).json()
+  assert.equal(await page.evaluate(() => localStorage.getItem('unspun.feed-preferences.v2')), null)
+  assert.equal(await page.evaluate(() => localStorage.getItem('unspun-theme')), 'dark')
+  assert.equal(await page.locator('nav a').count(), 3)
+  assert.equal(await page.locator('a[href="/history"], a[href="/events"], a[href="/digest"]').count(), 0)
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
+  const manifest = await (await context.request.get(`${baseURL}/manifest.webmanifest`)).json()
   assert.equal(manifest.start_url, '/')
   assert.equal(manifest.display, 'standalone')
   for (const icon of manifest.icons) {
@@ -94,49 +74,27 @@ try {
     assert.equal(bytes.readUInt32BE(16), width)
     assert.equal(bytes.readUInt32BE(20), height)
   }
-  await context.unroute('**/api/digest/*')
+  await context.unroute('**/api/**')
   await context.setOffline(true)
-  // Close the original tab and reopen the retained historical digest URL.
   await page.close()
-  const offlinePage = await context.newPage()
-  await offlinePage.goto(`${baseURL}/digest`)
-  await offlinePage.getByText(intro, { exact: true }).waitFor()
-  await offlinePage.getByRole('status').filter({ hasText: /\u79bb\u7ebf/ }).waitFor()
-  assert.equal(await offlinePage.locator('article').count(), 1)
-  assert.equal(
-    await offlinePage
-      .getByRole('link', { name: /Snapshot viewpoint/ })
-      .getAttribute('href'),
-    'https://example.com/article',
-  )
-  assert.equal(
-    await offlinePage.evaluate(
-      () => document.documentElement.scrollWidth > innerWidth,
-    ),
-    false,
-  )
-  await offlinePage.reload()
-  await offlinePage.getByText(intro, { exact: true }).waitFor()
-  await offlinePage.getByRole('button', { name: '\u524d\u4e00\u5929', exact: true }).click()
-  await offlinePage.getByRole('status').filter({ hasText: /\u6b64\u65e5\u671f/ }).waitFor()
-  assert.equal(await offlinePage.locator('article').count(), 0)
-  // A direct navigation to an uncached SPA route must use the shell too.
-  await offlinePage.goto(`${baseURL}/digest?date=2000-01-01`)
-  await offlinePage.getByRole('status').filter({ hasText: /\u6b64\u65e5\u671f/ }).waitFor()
-  assert.equal(await offlinePage.locator('article').count(), 0)
-  // API navigation must never be rewritten to the HTML application shell.
+  const offline = await context.newPage()
+  await offline.goto(`${baseURL}/`)
+  await offline.waitForURL(`${baseURL}/reading`)
+  await offline.locator('h1').waitFor()
+  await offline.reload()
+  await offline.locator('h1').waitFor()
+  await offline.goto(`${baseURL}/history`)
+  await offline.waitForURL(`${baseURL}/reading`)
   const apiPage = await context.newPage()
-  await apiPage.goto(`${baseURL}/api/digest/${today}`).catch(() => {})
+  await apiPage.goto(`${baseURL}/api/digest/latest`).catch(() => {})
   assert.equal(await apiPage.locator('#root').count(), 0)
-  await context.route('**/api/digest/*', (route) =>
-    route.fulfill({ json: digest }),
-  )
+  await context.route('**/api/**', apiRoute)
   await context.setOffline(false)
-  await offlinePage.getByText(intro, { exact: true }).waitFor()
+  await offline.reload()
+  await offline.locator('h1').waitFor()
   assert.deepEqual(errors, [])
-  console.log(
-    'PASS: install assets, IndexedDB restore, offline new tab/reload, date navigation, mobile layout, API exclusion, reconnect',
-  )
+  assert(!requests.some(path => /^\/api\/(events|digest|feed-preferences)/.test(path)))
+  console.log('PASS: install assets, retired cache cleanup, current offline shell, redirects, mobile layout, API exclusion, reconnect')
   await context.close()
 } finally {
   await browser.close()

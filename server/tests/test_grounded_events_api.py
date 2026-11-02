@@ -3,8 +3,8 @@ from datetime import UTC, datetime
 import pytest
 from sqlalchemy.orm import Session
 
-from unspun.api.events import EventOut, event_out, viewpoint_out
 from unspun.core.models import Article, Event, EventViewpoint
+from unspun.evaluation.legacy.events import EventOut, event_out, viewpoint_out
 
 
 def test_api_preserves_evidence_and_kind_when_remapping_claims() -> None:

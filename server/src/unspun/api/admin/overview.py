@@ -15,7 +15,7 @@ from unspun.api.admin.costs import get_costs
 from unspun.api.admin.query import RangeDep
 from unspun.api.admin.runs import get_backlog, run_out
 from unspun.api.admin.sources import list_sources, source_summary
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.models import Article, Event, FetchLog, LlmUsage, PipelineRun
 
 router = APIRouter()

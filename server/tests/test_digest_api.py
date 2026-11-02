@@ -6,9 +6,9 @@ import httpx
 import pytest
 from sqlalchemy.orm import Session
 
-from unspun.api.app import app
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.models import Digest
+from unspun.evaluation.legacy.app import app
 
 
 @pytest.mark.anyio

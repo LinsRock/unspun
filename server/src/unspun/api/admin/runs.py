@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 from unspun.api.admin.ranges import resolve_range
 from unspun.api.admin.schemas import AdminRangeOut
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.legacy_backlog import (
     abandoned_summary_conditions,
     backlog_counts,

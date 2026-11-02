@@ -23,7 +23,7 @@ def reading_capabilities() -> dict[str, Any]:
         "topic_preferences": settings.r2_topic_preferences_enabled,
         "home": "discover"
         if settings.r2_discover_home_enabled and settings.r2_hybrid_enabled
-        else "events",
+        else "reading",
         "engineering_preview": False,
     }
 

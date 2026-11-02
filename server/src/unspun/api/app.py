@@ -4,9 +4,6 @@ from sqlalchemy import text
 
 from unspun.api.admin import router as admin_router
 from unspun.api.contents import router as contents_router
-from unspun.api.digest import router as digest_router
-from unspun.api.events import router as events_router
-from unspun.api.feed_preferences import router as preferences_router
 from unspun.api.reader import router as reader_router
 from unspun.api.report import router as report_router
 from unspun.api.topics import router as topics_router
@@ -18,9 +15,6 @@ configure_logging()
 log = get_logger("unspun.api")
 
 app = FastAPI(title="Unspun API", docs_url=None, redoc_url=None)
-app.include_router(events_router)
-app.include_router(preferences_router)
-app.include_router(digest_router)
 app.include_router(report_router)
 app.include_router(admin_router)
 app.include_router(reader_router)

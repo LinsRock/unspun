@@ -7,6 +7,8 @@
 !server/src/unspun/__init__.py
 !server/src/unspun/api/**/*.py
 !server/src/unspun/core/*.py
+# Keep the frozen evaluation source at its original path outside production.
+server/src/unspun/core/public_impact.py
 !server/src/unspun/pipeline/*.py
 !server/alembic.ini
 !server/alembic/env.py

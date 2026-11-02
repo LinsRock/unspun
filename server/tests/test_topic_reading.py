@@ -14,7 +14,7 @@ from tests.test_topic_synthesis import REVIEWER, SynthesisDB, mock_draft
 from tests.test_topic_synthesis import synthesis_db as synthesis_db
 from tests.test_topics import member, write
 from unspun.api.app import app
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.config import get_settings
 from unspun.core.models import Article, ContentMaterial
 from unspun.core.topic_contracts import RemoveMember
@@ -105,7 +105,7 @@ async def test_topic_api_by_id_ignores_mixed_page_bounds(
         assert response.json()["engineering_preview"] is False
         assert (await client.get(f"/api/topics/{uuid4()}")).status_code == 404
         assert (await client.get("/api/topics/not-a-uuid")).status_code == 422
-        assert (await client.get("/api/reading-capabilities")).json()["home"] == "events"
+        assert (await client.get("/api/reading-capabilities")).json()["home"] == "reading"
         assert (await client.get("/api/feed?mode=mixed")).status_code == 404
 
 

@@ -23,12 +23,13 @@ from sqlalchemy.orm import Session
 
 from tests.reading_fixtures import approve_event
 from unspun.api.admin.auth import require_admin_identity
-from unspun.api.app import app
-from unspun.api.events import get_db, get_feed_now
+from unspun.api.dependencies import get_db
 from unspun.core.billing import budget_status
 from unspun.core.config import get_settings
 from unspun.core.models import Article, Event
 from unspun.core.tasks import claim, enqueue
+from unspun.evaluation.legacy.app import app
+from unspun.evaluation.legacy.events import get_feed_now
 
 SCRIPT = Path(__file__).parents[1] / "eval/cl05_retention.py"
 spec = importlib.util.spec_from_file_location("cl05_retention", SCRIPT)

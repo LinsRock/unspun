@@ -7,8 +7,7 @@ from pydantic import Field
 from sqlalchemy.orm import Session
 
 from unspun.api.admin.auth import require_admin_identity
-from unspun.api.events import get_db
-from unspun.api.feed_preferences import Db, require_write
+from unspun.api.dependencies import Db, get_db, require_write
 from unspun.core.reader import InterestTarget, Mutation, mutate, snapshot
 from unspun.core.reader_targets import FeedbackTarget, TopicTarget, require_topic_preferences
 

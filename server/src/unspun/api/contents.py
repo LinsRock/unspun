@@ -9,8 +9,7 @@ from sqlalchemy.engine import make_url
 from sqlalchemy.orm import Session
 
 from unspun.api.admin.auth import require_admin_identity
-from unspun.api.events import get_db
-from unspun.api.feed_preferences import Db, require_write
+from unspun.api.dependencies import Db, get_db, require_write
 from unspun.core.billing_models import BudgetPolicy
 from unspun.core.config import get_settings
 from unspun.core.content_feed import item_out, page

@@ -7,8 +7,6 @@ from sqlalchemy.orm import Session
 
 from tests.reading_fixtures import approve
 from tests.test_summary_grounding import ResponseLlm
-from unspun.api.events import event_out
-from unspun.core.feed_query import feed_page
 from unspun.core.models import Article, Event
 from unspun.core.reading import (
     attach_reading,
@@ -18,6 +16,8 @@ from unspun.core.reading import (
     ready_condition,
 )
 from unspun.core.review_budget import GroundingBudgetExceeded
+from unspun.evaluation.legacy.events import event_out
+from unspun.evaluation.legacy.feed_query import feed_page
 from unspun.evaluation.legacy.summarize import pending_summary_ids, summarize_article
 
 
