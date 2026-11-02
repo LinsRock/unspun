@@ -19,8 +19,7 @@ from tests.test_content_feed import ready
 from tests.test_hybrid_feed import hybrid as hybrid
 from unspun.api.admin import auth
 from unspun.api.app import app
-from unspun.api.events import get_db
-from unspun.api.feed_preferences import get_write_db
+from unspun.api.dependencies import get_db, get_write_db
 from unspun.core.config import Settings, get_settings
 from unspun.core.task_models import PipelineTask
 from unspun.pipeline.content_processing import load_content, processing_fingerprint
@@ -78,7 +77,7 @@ async def test_formal_home_requires_both_switches_and_identity(
         assert response.json() == {
             "hybrid": mixed,
             "topic_preferences": False,
-            "home": "discover" if mixed and home else "events",
+            "home": "discover" if mixed and home else "reading",
             "engineering_preview": False,
         }
 
@@ -178,7 +177,7 @@ async def test_content_only_reads_and_rollback_preserve_tasks_and_reader(
         ).json()
         assert state["version"] == 1 and state["feedback"][0]["value"] == "interested"
         monkeypatch.setattr(get_settings(), "r2_discover_home_enabled", False)
-        assert (await client.get("/api/reading-capabilities")).json()["home"] == "events"
+        assert (await client.get("/api/reading-capabilities")).json()["home"] == "reading"
         assert (await client.get("/api/feed?mode=mixed")).status_code == 200
         monkeypatch.setattr(get_settings(), "r2_hybrid_enabled", False)
         assert (await client.get("/api/feed?mode=mixed")).status_code == 404
@@ -195,6 +194,6 @@ async def test_content_only_reads_and_rollback_preserve_tasks_and_reader(
             },
         )
         assert removed.status_code == 200 and removed.json()["feedback"] == []
-        assert (await client.get("/api/events")).status_code == 200
-        assert (await client.get("/api/digest")).status_code in (200, 404)
+        assert (await client.get("/api/events")).status_code == 404
+        assert (await client.get("/api/digest/latest")).status_code == 404
     assert protected() == before

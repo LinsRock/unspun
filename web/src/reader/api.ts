@@ -58,7 +58,7 @@ export function getFeed(sort: Sort, cursor?: string, signal?: AbortSignal) {
 }
 export const getDetail = (id: number, signal?: AbortSignal) => request<ContentDetail>(`/api/contents/${id}`, { signal })
 
-export interface Capabilities { hybrid: boolean; topic_preferences: boolean; home: 'events' | 'discover'; engineering_preview: boolean }
+export interface Capabilities { hybrid: boolean; topic_preferences: boolean; home: 'reading' | 'discover'; engineering_preview: boolean }
 export type Target = { type: 'content'; id: number } | { type: 'topic'; id: string }
 export interface TopicTime { kind?: string; precision: 'time' | 'date' | 'unknown'; at?: string | null; on?: string | null; basis?: string | null }
 export interface TopicClaim {

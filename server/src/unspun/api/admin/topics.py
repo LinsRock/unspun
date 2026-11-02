@@ -14,7 +14,7 @@ from sqlalchemy.sql.elements import ColumnElement
 
 from unspun.api.admin.auth import require_admin_identity
 from unspun.api.admin.expenses import same_origin
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.billing_models import BilledRequest
 from unspun.core.config import get_settings
 from unspun.core.content import ContentContract

@@ -39,9 +39,9 @@ from unspun.core.models import Article, Event, LlmUsage
 from unspun.core.params import get_scoring_params
 from unspun.core.sources import Source
 from unspun.evaluation import baseline
+from unspun.evaluation.legacy.summarize import summarize_article
+from unspun.evaluation.legacy.viewpoints import VIEWPOINT_VERSION, refresh_event_viewpoint
 from unspun.evaluation.quality import CASE_PATH, evaluate_output, load_cases
-from unspun.pipeline.summarize import summarize_article
-from unspun.pipeline.viewpoints import VIEWPOINT_VERSION, refresh_event_viewpoint
 
 
 class BudgetLedger:

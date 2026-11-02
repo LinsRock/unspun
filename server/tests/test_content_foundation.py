@@ -28,16 +28,16 @@ from unspun.core.models import (
 )
 from unspun.core.params import get_scoring_params
 from unspun.core.reading import publication_counts
-from unspun.pipeline.cluster import assign_article
-from unspun.pipeline.score import pending_score_conditions, score_event
-from unspun.pipeline.summarize import (
+from unspun.evaluation.legacy.cluster import assign_article
+from unspun.evaluation.legacy.score import pending_score_conditions, score_event
+from unspun.evaluation.legacy.summarize import (
     abandoned_summary_conditions,
     embed_articles,
     pending_embedding_conditions,
     pending_summary_ids,
     summarize_article,
 )
-from unspun.pipeline.viewpoints import candidate_viewpoint_ids, refresh_event_viewpoint
+from unspun.evaluation.legacy.viewpoints import candidate_viewpoint_ids, refresh_event_viewpoint
 
 
 def article(session: Session, key: str, track: str = "r1", **values: Any) -> Article:

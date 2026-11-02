@@ -6,9 +6,10 @@ import pytest
 from sqlalchemy.orm import Session
 
 from tests.reading_fixtures import approve_event
-from unspun.api.app import app
-from unspun.api.events import get_db, viewpoint_out
+from unspun.api.dependencies import get_db
 from unspun.core.models import Article, Event, EventViewpoint
+from unspun.evaluation.legacy.app import app
+from unspun.evaluation.legacy.events import viewpoint_out
 
 
 @pytest.mark.anyio
@@ -159,7 +160,7 @@ def test_viewpoint_out_drops_foreign_claims_and_remaps(db_session: Session) -> N
 
 @pytest.mark.anyio
 async def test_feed_defaults_validation_and_fixed_cursor_snapshot(db_session: Session) -> None:
-    from unspun.api.events import get_feed_now
+    from unspun.evaluation.legacy.events import get_feed_now
 
     now = datetime.now(UTC)
     recent = Event(title="recent original", first_seen_at=now - timedelta(hours=1))

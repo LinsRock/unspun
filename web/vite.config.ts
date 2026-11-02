@@ -17,7 +17,7 @@ export default defineConfig({
         description: 'Personal Intelligence Station',
         lang: 'zh-CN',
         id: '/',
-        start_url: '/digest',
+        start_url: '/',
         scope: '/',
         display: 'standalone',
         theme_color: '#faf8f4',

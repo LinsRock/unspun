@@ -11,8 +11,8 @@ from sqlalchemy.orm import Session
 
 from unspun.core.config import get_settings
 from unspun.core.models import Article, LlmUsage
-from unspun.pipeline import summarize as summary_pipeline
-from unspun.pipeline.summarize import summarize_article
+from unspun.evaluation.legacy import summarize as summary_pipeline
+from unspun.evaluation.legacy.summarize import summarize_article
 
 
 class ResponseLlm:

@@ -13,7 +13,7 @@ from sqlalchemy.orm import Session
 
 from unspun.api.admin.exports import EXPORT_LIMIT, csv_lines
 from unspun.api.admin.query import Page, PageSize, RangeDep, page_result
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.billing import PRODUCTION_LIMIT, budget_status
 from unspun.core.billing_models import BilledRequest
 from unspun.core.expense_allocation import Cadence, allocate_days, period_for_index

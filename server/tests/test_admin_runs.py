@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from tests.reading_fixtures import approve
 from unspun.api.app import app
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.config import Settings, get_settings
 from unspun.core.models import Article, Event, PipelineRun
 

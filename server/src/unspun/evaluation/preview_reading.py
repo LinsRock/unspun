@@ -33,8 +33,8 @@ def require_preview_database() -> None:
 
 
 require_preview_database()
-from unspun.api.app import app  # noqa: E402
-from unspun.api.events import get_feed_now  # noqa: E402
+from unspun.evaluation.legacy.app import app  # noqa: E402
+from unspun.evaluation.legacy.events import get_feed_now  # noqa: E402
 
 app.dependency_overrides[get_feed_now] = lambda: AS_OF
 

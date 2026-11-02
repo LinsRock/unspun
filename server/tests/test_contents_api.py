@@ -15,8 +15,7 @@ from sqlalchemy.orm import Session
 from tests.test_content_feed import enabled_sources, ready
 from unspun.api.admin.auth import require_admin_identity
 from unspun.api.app import app
-from unspun.api.events import get_db
-from unspun.api.feed_preferences import get_write_db
+from unspun.api.dependencies import get_db, get_write_db
 from unspun.core.config import Settings, get_settings
 from unspun.core.models import ContentMaterial
 from unspun.core.task_models import PipelineTask

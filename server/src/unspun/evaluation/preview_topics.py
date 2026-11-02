@@ -27,7 +27,7 @@ from unspun.api.admin.auth import require_admin_identity
 from unspun.api.contents import ReadDb
 from unspun.api.contents import details as content_detail
 from unspun.api.contents import feed as content_feed
-from unspun.api.feed_preferences import Db, require_write
+from unspun.api.dependencies import Db, require_write
 from unspun.api.reader import TargetFeedbackDelete, TargetFeedbackInput, TopicFollowInput
 from unspun.core.config import get_settings
 from unspun.core.content import fingerprint
@@ -287,7 +287,6 @@ def create_app() -> FastAPI:
             "/api/interests",
             "/api/feedback",
             "/api/reader-preferences",
-            "/api/feed-preferences",
         }
         if not request.client or request.client.host not in {"127.0.0.1", "::1"}:
             return JSONResponse({"detail": "Loopback preview only"}, status_code=403)

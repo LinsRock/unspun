@@ -17,7 +17,7 @@ from tests.test_content_feed import NOW, ready
 from tests.test_content_feed import enabled_sources as enabled_sources
 from unspun.api.admin.auth import require_admin_identity
 from unspun.api.app import app
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core import content_feed
 from unspun.core.config import Settings, get_settings
 from unspun.core.content import fingerprint

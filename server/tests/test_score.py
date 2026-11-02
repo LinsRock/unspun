@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from unspun.core.models import Article, Event
 from unspun.core.params import ScoringParams, load_scoring_params
 from unspun.core.sources import Source
-from unspun.pipeline.score import objective_score, score_event
+from unspun.evaluation.legacy.score import objective_score, score_event
 
 CONFIG_DIR = Path(__file__).parents[2] / "config"
 
@@ -355,7 +355,7 @@ def test_public_impact_pending_budget_skips_generation(
 def test_transient_impact_retries_after_cooldown_without_rescoring(db_session: Session) -> None:
     from unspun.core.config import get_settings
     from unspun.core.public_impact import ImpactArticle, impact_fingerprint
-    from unspun.pipeline.score import refresh_event_public_impact
+    from unspun.evaluation.legacy.score import refresh_event_public_impact
 
     class GroundingOnly(FakeImportanceLlm):
         calls = 0
@@ -436,7 +436,7 @@ def test_transient_impact_retries_after_cooldown_without_rescoring(db_session: S
 
 def test_impact_retry_recovers_without_importance_call(db_session: Session) -> None:
     from unspun.core.llm import LlmError
-    from unspun.pipeline import score
+    from unspun.evaluation.legacy import score
 
     class TransientLlm(FakeImportanceLlm):
         failed = True

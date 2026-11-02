@@ -16,8 +16,8 @@ from unspun.core import db
 from unspun.core.llm import LlmClient, LlmError
 from unspun.core.models import Digest, Event, EventViewpoint, LlmUsage
 from unspun.core.params import DigestParams, load_scoring_params
-from unspun.pipeline import digest as digest_module
-from unspun.pipeline.digest import (
+from unspun.evaluation.legacy import digest as digest_module
+from unspun.evaluation.legacy.digest import (
     digest_pending,
     due_report_date,
     generate_digest,

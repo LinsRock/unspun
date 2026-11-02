@@ -12,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from unspun.api.admin.auth import require_admin_identity
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.expenses import (
     ConflictError,
     correct_entry,

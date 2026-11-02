@@ -7,7 +7,7 @@ from pydantic import BaseModel
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.legacy_backlog import abandoned_summary_conditions, backlog_counts
 from unspun.core.models import Article, FetchLog, LlmUsage, PipelineRun
 

@@ -8,8 +8,8 @@ from sqlalchemy.orm import Session
 from unspun.core.config import get_settings
 from unspun.core.models import EMBEDDING_DIM, Article, Event, LlmUsage
 from unspun.core.params import get_scoring_params
-from unspun.pipeline.cluster import assign_article
-from unspun.pipeline.summarize import (
+from unspun.evaluation.legacy.cluster import assign_article
+from unspun.evaluation.legacy.summarize import (
     embed_articles,
     pending_summary_ids,
     summarize_article,

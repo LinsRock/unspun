@@ -696,7 +696,7 @@ async def test_cost_api_keeps_known_totals_links_and_unknowns_separate(
     billing_db: BillingDB,
 ) -> None:
     from unspun.api.app import app
-    from unspun.api.events import get_db
+    from unspun.api.dependencies import get_db
     from unspun.core.config import Settings
 
     first = billing_db.reserve()

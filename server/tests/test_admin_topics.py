@@ -16,7 +16,7 @@ from tests.test_topics import derive, ref, setup, update
 from unspun.api.admin import topics
 from unspun.api.admin.auth import require_admin_identity
 from unspun.api.app import app
-from unspun.api.events import get_db
+from unspun.api.dependencies import get_db
 from unspun.core.billing_models import BilledRequest
 from unspun.core.member_models import MemberJudgment
 from unspun.core.models import LlmUsage

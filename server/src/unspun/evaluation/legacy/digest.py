@@ -4,12 +4,10 @@ import json
 from datetime import UTC, date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
-from pydantic import BaseModel
 from sqlalchemy import Float, func, literal, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session, selectinload
 
-from unspun.api.events import LN2, EventOut, event_out
 from unspun.core.config import get_settings
 from unspun.core.content import legacy_event_condition
 from unspun.core.db import session_scope
@@ -19,8 +17,10 @@ from unspun.core.models import Article, Digest, Event
 from unspun.core.params import DigestParams, get_scoring_params
 from unspun.core.reading import chinese_text, ready_condition
 from unspun.core.sources import load_sources
+from unspun.evaluation.legacy.digest_api import DigestPayload
+from unspun.evaluation.legacy.events import LN2, event_out
 
-log = get_logger("unspun.pipeline.digest")
+log = get_logger("unspun.evaluation.legacy.digest")
 WINDOW_HOURS = 24
 EMPTY_INTRO = (
     "\u8fc7\u53bb 24 \u5c0f\u65f6\u6682\u65e0\u53ef\u751f\u6210\u65e5\u62a5\u7684\u4e8b\u4ef6\u3002"
@@ -30,14 +30,6 @@ DIGEST_SYSTEM = (
     "Use only the supplied event titles and summaries. Do not invent facts, sources, "
     'or claims of completeness. Return a JSON object with exactly one field: {"intro": "..."}.'
 )
-
-
-class DigestPayload(BaseModel):
-    intro: str
-    window_start: datetime
-    window_end: datetime
-    timezone: str
-    events: list[EventOut]
 
 
 def due_report_date(now: datetime, params: DigestParams) -> date | None:
