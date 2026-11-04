@@ -36,6 +36,31 @@ class ScopeChecks(unittest.TestCase):
         )
         self.assertEqual(self.selected("server/alembic/versions/new.py"), expected)
 
+    def test_rebirth_executables_and_fixtures_check_prototype_without_release(self):
+        for name in (
+            "server.mjs",
+            "read-model.mjs",
+            "assets/reading.js",
+            "index.html",
+            "fixtures/materials.json",
+            "tests/reading.test.mjs",
+            "experiments/vendor/aihot/dates.ts",
+            "experiments/tests/publication-boundary.test.ts",
+        ):
+            with self.subTest(name=name):
+                self.assertEqual(
+                    self.selected(f"docs/design/rebirth-reading/{name}"),
+                    {"prototype"},
+                )
+        self.assertEqual(
+            self.selected(
+                "docs/design/rebirth-reading/README.md",
+                "docs/design/rebirth-reading/REUSE.md",
+                "docs/design/rebirth-reading/experiments/README.md",
+            ),
+            set(),
+        )
+
     def test_api_and_dependency_changes_also_check_frontend(self):
         for path in ("server/src/unspun/api/contents.py", "server/uv.lock"):
             self.assertEqual(

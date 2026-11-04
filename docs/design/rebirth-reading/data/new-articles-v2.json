@@ -1,0 +1,223 @@
+[
+  {
+    "id": "v2-agent-systems",
+    "type": "article",
+    "domain": "AI 与技术",
+    "title": "Agent 做长任务，为什么还需要一套工作系统",
+    "source": "Anthropic · 工程文章导读",
+    "author": "Unspun 编辑整理",
+    "publishedAt": "2025-11-26",
+    "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+    "materialScope": "full-page",
+    "summary": "会调用工具，离持续完成工作还有多远？从路径选择、工具接口、上下文到跨会话交接，四篇工程实践解释 Agent 为什么会中途失去方向。",
+    "whyRead": "把“模型不够聪明”拆成具体问题，区分模型能力与工具、上下文和任务组织各自影响的部分。",
+    "paragraphs": [
+      "让模型连续工作，实际涉及一连串决定：下一步由谁选择，看到哪些材料，如何确认进展，以及换一个会话之后怎样接着做。Anthropic 的几篇工程文章把这些问题放回具体失败场景中讨论。"
+    ],
+    "eventIds": [],
+    "role": "analysis",
+    "selected": true,
+    "selectionReason": "围绕 Agent 的实际工作机制展开，有接口案例、失败原因和适用边界，承接用户对 AI 及产品机制的阅读线索。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读四篇 Anthropic 公开工程文章及首发日期，保存独立导读而非翻译或全文。条目日期取主要长任务文章的 2025-11-26；标题与作者字段属于本导读。Building effective agents 页面含后续维护的产品举例，本文不据其首发日期倒推这些产品当时已存在。实践来自作者团队，不将其当作所有模型或任务上的普遍实验结论。"
+    },
+    "storedForm": "editorial-guide",
+    "reading": {
+      "lead": "让模型连续工作，实际涉及一连串决定：下一步由谁选择，看到哪些材料，如何确认进展，以及换一个会话之后怎样接着做。Anthropic 的几篇工程文章把这些问题放回具体失败场景中讨论。",
+      "takeaways": [
+        "步骤可以预先确定时，固定工作流有助于减少模型需要临场作出的决定。",
+        "工具返回什么、何时加载原文，会直接影响模型能否找到有用信息。",
+        "长任务需要留下可接手的状态，并用真实运行结果判断是否完成。"
+      ],
+      "sections": [
+        {
+          "id": "choose-path",
+          "title": "先决定哪些步骤需要模型判断",
+          "paragraphs": [
+            "Anthropic 将预先写好执行路径的工作流，与由模型动态选择行动的 Agent 分开。这个区别关乎任务本身：先写提纲、检查提纲、再展开正文，步骤大体可知；修改一个陌生代码库，则可能边调查边发现还需改动其他文件。",
+            "由此得到的设计取舍是：把确定的顺序交给程序，把难以预先列举的分支留给模型。自主性增加后，调用次数、等待时间和连续犯错的机会也会增加。是否值得付出这些成本，要看具体任务的完成效果。"
+          ],
+          "sourceIds": [
+            "agent-patterns"
+          ]
+        },
+        {
+          "id": "tool-interface",
+          "title": "一个搜索接口，能省掉许多无效思考",
+          "paragraphs": [
+            "工具设计文章用了通讯录的例子：把所有联系人返回给模型，模型就得逐个阅读；提供按条件查找联系人的接口，则能把无关数据留在程序里。同样，搜索日志时返回匹配行及附近内容，比把整份日志塞进上下文更贴近任务。",
+            "接口也要让模型理解下一步怎么办：参数名称应说明需要的是姓名还是用户 ID，结果要保留后续查询必需的信息，报错应说明怎样修正输入。这些改变减少的是选择和解释负担，效果仍需通过实际任务验证。"
+          ],
+          "sourceIds": [
+            "agent-tools"
+          ]
+        },
+        {
+          "id": "context-memory",
+          "title": "把材料放在能找到的位置，而非全部背下来",
+          "paragraphs": [
+            "上下文工程关心每次推理时模型实际看见什么。文章提出按需加载：先保留文件路径、查询条件或链接，遇到具体问题再取回内容。目录、文件名和时间等线索，还能帮助模型决定先读哪里。",
+            "这种方式节省上下文，但临时检索会增加时间，也可能走进无关分支。压缩历史则面临另一种取舍：删掉冗余工具结果有用，丢掉尚未解决的问题或关键决定却可能让后续工作偏离。持久笔记保存进展，当前窗口保存眼前需要的细节，两者需要配合。"
+          ],
+          "sourceIds": [
+            "agent-context"
+          ]
+        },
+        {
+          "id": "handoff",
+          "title": "下一班 Agent 如何知道工作还没结束",
+          "paragraphs": [
+            "长任务实验出现过两类失败：一次试图实现太多功能，留下半成品；看到项目已有一些功能，就误判全部完成。团队让首次会话准备功能列表和启动脚本，后续会话每次推进一项，并留下进度记录与 Git 提交。新会话先恢复环境、检查现状，再开始修改。",
+            "完成判断还需要可观察的结果：代码能运行、接口有响应，并不能替代在浏览器里走通用户操作。原文也指出浏览器工具的盲区仍会漏掉问题。这是一组针对网页应用的实验做法；能否迁移到研究或其他工作，要重新观察失败发生在哪里。"
+          ],
+          "sourceIds": [
+            "agent-harness"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "id": "agent-patterns",
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/research/building-effective-agents",
+          "publisher": "Anthropic · Erik S.、Barry Zhang",
+          "publishedAt": "2024-12-19",
+          "scope": "公开正文；工作流与 Agent 的定义、路径模式及成本取舍。页面产品示例已有后续维护。"
+        },
+        {
+          "id": "agent-tools",
+          "title": "Writing effective tools for agents — with agents",
+          "url": "https://www.anthropic.com/research/writing-tools-for-agents",
+          "publisher": "Anthropic · Ken Aizawa",
+          "publishedAt": "2025-09-11",
+          "scope": "公开正文；通讯录、日志检索、参数说明、结果信息及错误反馈的具体例子。"
+        },
+        {
+          "id": "agent-context",
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+          "publisher": "Anthropic · Applied AI 团队",
+          "publishedAt": "2025-09-29",
+          "scope": "公开正文；按需检索、历史压缩与外部笔记，以及检索时延和信息遗漏的取舍。"
+        },
+        {
+          "id": "agent-harness",
+          "title": "Effective harnesses for long-running agents",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "publisher": "Anthropic · Justin Young",
+          "publishedAt": "2025-11-26",
+          "scope": "公开正文；网页应用实验的失败模式、会话交接、端到端测试及作者列出的适用局限。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "v2-xiaomi-auto",
+    "type": "article",
+    "domain": "公司与商业",
+    "title": "小米汽车交付增长，为什么相关业务仍会亏损",
+    "source": "小米集团财报 · 经营机制解读",
+    "author": "Unspun 编辑整理",
+    "publishedAt": "2026-08-18",
+    "url": "https://ir.mi.com/static-files/62705e94-0ce0-4d98-9e51-689914b173cc",
+    "materialScope": "excerpt",
+    "summary": "小米汽车及 AI 等创新业务曾实现年度经营收益转正，随后又出现季度亏损。对照两份官方财报，拆开销量、车型结构、毛利和持续投入之间的关系。",
+    "whyRead": "用具体公司的变化理解制造业与 AI 投入怎样共同影响利润，以及一条“卖得更多”的消息究竟能说明多少。",
+    "paragraphs": [
+      "交付量回答产品卖出了多少，利润还取决于卖的是哪些产品，以及公司为下一阶段付出了多少。小米这组业务在扩张中的变化，提供了一个具体例子。"
+    ],
+    "eventIds": [],
+    "role": "analysis",
+    "selected": true,
+    "selectionReason": "中文一手公司披露有可解释的经营变化，能从产品销售深入到单位经济和投入口径；不以股价预测代替分析。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读小米 2025 年全年公告及 2026 年第二季度／中期公告的相关正文、表格和落款日期，并核读 SEC 财务报表基础说明。财报仅选读业务回顾、收入、毛利、经营开支等有关页，故 materialScope 为 excerpt；并非正文受限。条目日期为主要财报公布日，标题及解读由 Unspun 整理。所有小米数字限定在标明期间；未将汽车及 AI 等创新业务的分部结果当作纯汽车净利润。"
+    },
+    "storedForm": "editorial-guide",
+    "reading": {
+      "lead": "交付量回答产品卖出了多少，利润还取决于卖的是哪些产品，以及公司为下一阶段付出了多少。小米这组业务在扩张中的变化，提供了一个具体例子。",
+      "takeaways": [
+        "不同价位车型的销售占比改变，会让交付量和收入出现不同增速。",
+        "销售形成的毛利还要覆盖研发、销售等经营开支，才能留下经营收益。",
+        "小米披露的是汽车及 AI 等创新业务合计，不能直接算成每辆车的盈亏。"
+      ],
+      "sections": [
+        {
+          "id": "growth-base",
+          "title": "汽车已经改变了小米的收入结构",
+          "paragraphs": [
+            "2025 年，小米汽车及 AI 等创新业务收入达到约 1,061 亿元，占集团收入的 23.2%；上一年这一占比还是 9.0%。这说明它已经成为影响整家公司表现的一块业务，而非只在发布会上出现的新产品。",
+            "同年，这个分部的毛利率为 24.3%，全年经营收益首次转正、约为 9 亿元。两者相差很大并不矛盾：毛利与经营开支接近，最终留下的经营收益空间很薄。年度转正说明这一年的总量跨过了门槛，不能据此推断以后每个季度都能保持。"
+          ],
+          "sourceIds": [
+            "xiaomi-2025-results"
+          ]
+        },
+        {
+          "id": "mix-and-price",
+          "title": "多卖的车，未必带来同样比例的收入",
+          "paragraphs": [
+            "2026 年第二季度，汽车交付同比增长 28.2%，汽车收入增长 15.9%，平均售价下降 9.6%。公司解释，高价 SU7 Ultra 的交付占比下降，是平均售价回落的主要原因。",
+            "销量增加与车型组合变化可以同时发生。平均售价由多款车型共同形成，单凭它下降，不能推出每一款车都降了价；还要看不同车型各卖了多少。"
+          ],
+          "sourceIds": [
+            "xiaomi-2026-interim"
+          ]
+        },
+        {
+          "id": "profit-layers",
+          "title": "毛利留下之后，还有一整家公司需要运转",
+          "paragraphs": [
+            "财务报表把销售成本与经营开支分开。收入先减去已售产品或服务的成本，形成毛利；研发新产品、组织销售和维持管理等开支还需要继续扣除。因此，毛利为正仍可能对应经营亏损，判断业务是否自我支撑，不能停在毛利率。",
+            "利润和现金也是两种观察角度。购买长期使用的机器设备会发生现金支出，其成本通常通过折旧分摊到使用期间；当季利润并不等于当季剩下的现金。对需要持续扩产和研发的业务，这种时间差决定了增长为何仍可能需要资金。"
+          ],
+          "sourceIds": [
+            "sec-statements"
+          ]
+        },
+        {
+          "id": "segment-boundary",
+          "title": "亏损属于汽车和 AI 合在一起的分部",
+          "paragraphs": [
+            "2026 年第二季度，这个分部毛利率降至 19.2%，经营亏损约 26 亿元。公告把毛利率下降归因于 Ultra 占比降低、核心零部件涨价及 AI 相关成本增加；分部经营开支也继续增长。",
+            "财报把汽车与 AI 等业务合在一起，不能将分部亏损除以汽车销量，就说每辆车亏了多少。汽车自身贡献多少，新投入何时产生足够收入，这两份财报尚未完整拆开。销售增长已经发生，未来的盈利能力仍取决于这些变化如何组合。"
+          ],
+          "sourceIds": [
+            "xiaomi-2026-interim",
+            "xiaomi-2025-results"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "id": "xiaomi-2025-results",
+          "title": "截至 2025 年 12 月 31 日止年度之全年业绩公告",
+          "url": "https://ir.mi.com/static-files/640b163f-dacb-4612-a32d-45919fd84089",
+          "publisher": "小米集团",
+          "publishedAt": "2026-03-24",
+          "scope": "PDF 第 7、11、15—16 页：分部年度经营收益、收入占比、毛利与经营开支；第 59 页公布日期。采用公告的人民币口径与四舍五入。"
+        },
+        {
+          "id": "xiaomi-2026-interim",
+          "title": "截至 2026 年 6 月 30 日止三个月及六个月之业绩公告",
+          "url": "https://ir.mi.com/static-files/62705e94-0ce0-4d98-9e51-689914b173cc",
+          "publisher": "小米集团",
+          "publishedAt": "2026-08-18",
+          "scope": "PDF 第 6、10—14 页：第二季度汽车交付、收入、平均售价、分部毛利及经营开支；第 46 页公布日期。季度数据为未审计中期财务信息，公告说明已获独立核数师审阅。"
+        },
+        {
+          "id": "sec-statements",
+          "title": "Beginners’ Guide to Financial Statement",
+          "url": "https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide",
+          "publisher": "美国证券交易委员会（SEC）",
+          "publishedAt": "2007-02-04",
+          "scope": "公开正文中损益表与现金流说明：毛利、经营开支、折旧和现金的基础区别；不用于判定小米适用的具体会计处理。"
+        }
+      ]
+    }
+  }
+]

@@ -22,9 +22,9 @@ def classify(paths, *, full=False):
     for path in paths:
         if path.startswith((".github/",)):
             selected.update(CHECKS)
-        elif path.startswith("docs/design/m3a-admin-react/") and not path.endswith(
-            ".md"
-        ):
+        elif path.startswith(
+            ("docs/design/m3a-admin-react/", "docs/design/rebirth-reading/")
+        ) and not path.endswith(".md"):
             selected.add("prototype")
         elif path.startswith(
             (

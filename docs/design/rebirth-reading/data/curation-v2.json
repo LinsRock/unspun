@@ -1,0 +1,13 @@
+{
+  "edition": "v2",
+  "selectedIds": [
+    "event-deepseek-r1",
+    "material-deepseek-economics",
+    "v2-agent-systems",
+    "v2-xiaomi-auto",
+    "v2-battery-standard",
+    "event-shenzhong",
+    "event-change6"
+  ],
+  "note": "依据首轮明确反馈调整的本轮候选，不代表已确认永久兴趣或自动推荐效果。原始候选和第一版评价保留。"
+}

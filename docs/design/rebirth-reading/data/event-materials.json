@@ -1,0 +1,314 @@
+[
+  {
+    "id": "material-change6-ascent",
+    "type": "article",
+    "domain": "科学探索",
+    "title": "嫦娥六号完成采样，上升器从月背起飞进入预定环月轨道",
+    "source": "国家航天局",
+    "author": "蔡金曼",
+    "publishedAt": "2024-06-04",
+    "url": "https://www.cnsa.gov.cn/n6758823/n6758838/c10543020/content.html",
+    "materialScope": "full-page",
+    "summary": "嫦娥六号完成月背采样，上升器于6月4日进入预定环月轨道，样品尚待交会转移与返回地球。",
+    "whyRead": "把月面取样、月背起飞和最终返回三个步骤分开看。",
+    "paragraphs": [
+      "6月2日至3日，探测器用钻取和机械臂表取收集月背样品；4日，上升器携样品起飞。",
+      "月背无法直接获得地面测控支持，起飞依靠鹊桥二号中继与自主定位。此时返回地球仍是后续计划。"
+    ],
+    "eventIds": ["event-change6"],
+    "role": "report",
+    "selected": false,
+    "selectionReason": "作为事件的采样与起飞进展保留，不再占用一张独立精选卡。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读页面正文及署名；不将当时的后续计划写成已完成事实。"
+    }
+  },
+  {
+    "id": "material-change6-return",
+    "type": "article",
+    "domain": "科学探索",
+    "title": "嫦娥六号任务圆满成功，实现世界首次月球背面采样返回",
+    "source": "国家航天局",
+    "author": null,
+    "publishedAt": "2024-06-25",
+    "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10518102/n10518147/c10565180/content.html",
+    "materialScope": "excerpt",
+    "summary": "国家航天局通报，嫦娥六号返回器于6月25日在内蒙古着陆，完成首次月背采样返回。",
+    "whyRead": "用任务主管机构的通报确认返回结果。",
+    "paragraphs": [
+      "返回器于2024年6月25日14时07分降落在内蒙古四子王旗预定区域，通报称其工作正常。",
+      "通报开头确认任务完成，实现了世界首次月球背面采样返回。"
+    ],
+    "eventIds": ["event-change6"],
+    "role": "followup",
+    "selected": false,
+    "selectionReason": "核心结果通过事件卡呈现；可读范围有限，保留原文入口。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。首次读取获得标题、日期及正文开头；后续读取超时。仅标摘录，不声称读完整页。"
+    }
+  },
+  {
+    "id": "material-change6-repeat",
+    "type": "article",
+    "domain": "科学探索",
+    "title": "历史性时刻！嫦娥六号携月背珍宝回家了",
+    "source": "新华社 · 国家航天局转载",
+    "author": null,
+    "publishedAt": "2024-06-25",
+    "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10518102/n10518157/c10570560/content.html",
+    "materialScope": "full-page",
+    "summary": "新华社报道嫦娥六号返回，回顾再入与着陆过程；与当天任务通报属于同一次进展。",
+    "whyRead": "了解返回器怎样减速再入、开伞着陆。",
+    "paragraphs": [
+      "报道围绕6月25日的同一次着陆，介绍返回器经两次进入大气层减速，再开伞落地的过程。",
+      "报道还介绍了接下来的安排：样品将被移交，并用于后续科学研究。"
+    ],
+    "eventIds": ["event-change6"],
+    "role": "duplicate",
+    "selected": false,
+    "selectionReason": "重复覆盖同次返回；保留不同来源观测，不新增进展、不单独精选。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读国家航天局转载页正文与新华社来源标记；不是两份独立实验结果。"
+    }
+  },
+  {
+    "id": "material-change6-basalt",
+    "type": "article",
+    "domain": "科学探索",
+    "title": "嫦娥六号样品如何确定月背28亿年前的岩浆活动",
+    "source": "中国科学院地质与地球物理研究所",
+    "author": null,
+    "publishedAt": "2024-11-15",
+    "url": "https://igg.cas.cn/xwzx/yjcg/202411/t20241115_7440526.html",
+    "materialScope": "full-page",
+    "summary": "研究团队对返回样品中的玄武岩定年，将当地一次喷发限定在约28亿年前，也发现一颗更古老的岩屑。",
+    "whyRead": "看一份带回来的月壤，怎样变成可核对的地质证据。",
+    "paragraphs": [
+      "团队分析108颗玄武岩岩屑，其中107颗给出相近年龄，支持采样区约28亿年前发生过岩浆活动。",
+      "另一颗约42亿年的岩屑可能来自别处，提示月背经历过不同期次的岩浆活动，也为理解月幔物质差异提供线索。"
+    ],
+    "eventIds": ["event-change6"],
+    "role": "followup",
+    "selected": true,
+    "selectionReason": "既是后续科研进展，也有独立阅读价值：解释样品定年与结论边界。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读研究所成果介绍全文；原题为“张谦等–Nature：嫦娥六号月球样品揭示月背28亿年前的岩浆活动”。未声称阅读全文所链接的 Nature 论文；两期样品不代表火山活动在其间从未中断。"
+    }
+  },
+  {
+    "id": "material-shenzhong-open",
+    "type": "article",
+    "domain": "城市出行",
+    "title": "深中通道于2024年6月30日建成开通",
+    "source": "新华社 · 生态环境部转载",
+    "author": null,
+    "publishedAt": "2024-06-30",
+    "url": "https://www.mee.gov.cn/ywdt/szyw/202406/t20240630_1080446.shtml",
+    "materialScope": "full-page",
+    "summary": "深中通道建成开通，约24公里的跨海工程连接珠江口两岸，为深圳与中山增加直接通道。",
+    "whyRead": "先确认连接哪里、何时开通，再观察实际使用情况。",
+    "paragraphs": [
+      "6月30日举行开通活动。这条约24公里的线路于2017年开工，采用桥、岛、隧道及水下互通组合。",
+      "报道预计，线路开通后深圳至中山车程可由约2小时缩短至30分钟。"
+    ],
+    "eventIds": ["event-shenzhong"],
+    "role": "report",
+    "selected": false,
+    "selectionReason": "作为开通事实的依据进入事件详情，避免与事件卡重复。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读全文；页面来源标为中国政府网，正文为新华社电稿。原题为领导人致信祝贺建成开通，卡片仅提炼通道事实。"
+    }
+  },
+  {
+    "id": "material-shenzhong-first-day",
+    "type": "article",
+    "domain": "城市出行",
+    "title": "深中通道24小时车流量超12.5万车次",
+    "source": "深圳市交通运输局 · 南方日报",
+    "author": null,
+    "publishedAt": "2024-07-02",
+    "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/bmdt/content/post_11402165.html",
+    "materialScope": "full-page",
+    "summary": "交通部门转载的报道披露，深中通道开通首24小时约有12.5万车次通过，首日曾出现缓行。",
+    "whyRead": "把线路缩短的预期，与通车初期的真实拥堵放在一起看。",
+    "paragraphs": [
+      "广东省交通集团在7月1日披露，开通后24小时两侧合计通过约12.5万车次；首日车流高峰出现在17时。",
+      "报道记录了较长距离缓行，并提醒勿在桥上停车拍照。首日体验客流较大，不能直接代表长期通勤水平。"
+    ],
+    "eventIds": ["event-shenzhong"],
+    "role": "followup",
+    "selected": false,
+    "selectionReason": "补充实际运行情况，合并在事件的首日进展中。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读完整正文。publishedAt 为页面信息提供日7月2日，车流观察截止7月1日；交通限制只属当时报道，不作为当前出行指引。"
+    }
+  },
+  {
+    "id": "material-shenzhong-unavailable",
+    "type": "article",
+    "domain": "城市出行",
+    "title": "深中通道正式通车，助力形成世界级活力湾区",
+    "source": "广东省国资委 · 国务院国资委转载",
+    "author": null,
+    "publishedAt": "2024-07-03",
+    "url": "https://wap.sasac.gov.cn/n2588025/n2588129/c31099590/content.html",
+    "materialScope": "metadata",
+    "summary": "搜索元数据显示这是一篇深中通道通车报道；正文访问超时，本轮不生成内容导读。",
+    "whyRead": "仅保留来源线索，等能够读取正文后再判断阅读价值。",
+    "paragraphs": [
+      "目前只能确认标题、来源和发布日期，原页面读取超时。",
+      "暂时没有正文导读，可通过原文链接尝试阅读。"
+    ],
+    "eventIds": ["event-shenzhong"],
+    "role": "report",
+    "selected": false,
+    "selectionReason": "正文不可得；无法判断新增信息及论证质量，不纳入精选或事实依据。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。web open 返回 TimeoutError。标题、来源、2024-07-03 发布日期来自搜索元数据，正文未读；事件关联只依据标题保留线索。"
+    }
+  },
+  {
+    "id": "material-shenzhong-month",
+    "type": "article",
+    "domain": "城市出行",
+    "title": "深中通道开通首月，累计车流量超过300万车次",
+    "source": "南方+ · 广东省委港澳办转载",
+    "author": null,
+    "publishedAt": "2024-07-30",
+    "url": "https://www.gdhmo.gov.cn/xwzx/hzjl/shfz/content/post_75075.html",
+    "materialScope": "excerpt",
+    "summary": "开通满月的报道开头称，深中通道累计车流超过300万车次，日均超过10万车次。",
+    "whyRead": "将首日集中体验与一个月的累计使用分开观察。",
+    "paragraphs": [
+      "7月30日的报道以开通一个月为观察窗口，披露深中通道累计车流量超过300万车次。",
+      "报道开头还给出日均超过10万车次的数据，提供了比首日集中体验更长的观察窗口。"
+    ],
+    "eventIds": ["event-shenzhong"],
+    "role": "followup",
+    "selected": false,
+    "selectionReason": "已见的累计车流构成后续进展；全文未读，不单独推荐完整分析。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。首次打开取得日期与正文前段，继续读取超时；只使用已见的首段数值。原题为“深中通道开通首月，车流量约占过江通道25%”；25%的统计口径未核清，因此展示标题改用已读取的累计车流量。"
+    }
+  },
+  {
+    "id": "material-deepseek-release",
+    "type": "article",
+    "domain": "人工智能",
+    "title": "DeepSeek-R1 发布并开放模型权重",
+    "source": "DeepSeek",
+    "author": "DeepSeek",
+    "publishedAt": "2025-01-20",
+    "url": "https://deepseek.com/news/deepseek-r1/",
+    "materialScope": "full-page",
+    "summary": "DeepSeek发布R1并开放权重，同时公布蒸馏模型与使用许可；性能比较来自开发方自己的评测。",
+    "whyRead": "直接看发布方开放了什么，以及性能主张来自哪里。",
+    "paragraphs": [
+      "发布公告介绍R1、R1-Zero及六个蒸馏小模型，并说明R1权重采用MIT许可，允许利用输出蒸馏其他模型。",
+      "按照DeepSeek公布的评测，R1在数学、代码和自然语言推理任务上接近o1正式版。"
+    ],
+    "eventIds": ["event-deepseek-r1"],
+    "role": "report",
+    "selected": false,
+    "selectionReason": "原始发布公告作为事件依据保留，避免与R1发布事件形成重复精选卡。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读官网发布正文；原题含“性能对标 OpenAI o1 正式版”。开发方比较未独立复测；原文价格不作为当前报价。未调用模型或查询付费服务。"
+    }
+  },
+  {
+    "id": "material-deepseek-paper",
+    "type": "article",
+    "domain": "人工智能",
+    "title": "DeepSeek-R1技术报告：强化学习与冷启动数据的作用",
+    "source": "arXiv · DeepSeek-AI",
+    "author": "DeepSeek-AI 等",
+    "publishedAt": "2025-01-22",
+    "url": "https://arxiv.org/abs/2501.12948v1",
+    "materialScope": "excerpt",
+    "summary": "初版技术报告摘要介绍R1-Zero与R1的训练路线，指出纯强化学习版本存在可读性和语言混杂问题。",
+    "whyRead": "理解两个名称相近的模型，为何采用不同训练步骤。",
+    "paragraphs": [
+      "作者在摘要中称，R1-Zero不以监督微调为前置步骤，而是直接进行大规模强化学习，但出现语言混杂等问题。",
+      "摘要介绍，R1在强化学习前加入冷启动数据，并采用多阶段训练来改善这些问题。"
+    ],
+    "eventIds": ["event-deepseek-r1"],
+    "role": "background",
+    "selected": false,
+    "selectionReason": "作为训练路线背景关联事件；只取得摘要，不独立推荐为完整论文解读。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读英文摘要及版本历史，固定v1（2025-01-22），未混入2026年v2，也未阅读全文或附件。中文为摘要转述。该日期为初版提交arXiv的日期，不据此判断报告在其他渠道首次公开的时间。"
+    }
+  },
+  {
+    "id": "material-deepseek-azure",
+    "type": "article",
+    "domain": "人工智能",
+    "title": "微软宣布将DeepSeek R1接入Azure AI Foundry和GitHub模型目录",
+    "source": "Microsoft Azure Blog",
+    "author": "Asha Sharma",
+    "publishedAt": "2025-01-29",
+    "url": "https://azure.microsoft.com/en-us/blog/deepseek-r1-is-now-available-on-azure-ai-foundry-and-github/",
+    "materialScope": "full-page",
+    "summary": "微软在1月29日宣布，DeepSeek R1进入Azure AI Foundry与GitHub模型目录，增加第三方接入渠道。",
+    "whyRead": "观察开放权重之后，模型如何进入开发者使用的平台。",
+    "paragraphs": [
+      "微软宣布R1进入Azure AI Foundry与GitHub模型目录，开发者由此多了一个部署入口。",
+      "公告还介绍了平台提供的默认内容过滤和应用评估工具，帮助开发者评估部署后的表现。"
+    ],
+    "eventIds": ["event-deepseek-r1"],
+    "role": "followup",
+    "selected": false,
+    "selectionReason": "平台接入是发布后的实质变化，收进事件进展；不重复独立发布卡。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读英文公告正文、日期与署名，中文为简要转述。平台保障措施为微软自述，不代表独立安全认证。未验证当前模型目录、可用地区或服务状态。"
+    }
+  },
+  {
+    "id": "material-deepseek-economics",
+    "type": "article",
+    "domain": "人工智能",
+    "title": "彭文生：从规模经济看DeepSeek对创新发展的启示",
+    "source": "清华大学计算社会科学与国家治理实验室",
+    "author": "彭文生",
+    "publishedAt": "2025-03-11",
+    "url": "https://lcg.tsinghua.edu.cn/info/1029/1972.htm",
+    "materialScope": "full-page",
+    "summary": "彭文生把企业内部的规模优势，与人才、基础设施和开源生态带来的外部规模效应区分开，解释DeepSeek现象。",
+    "whyRead": "提供一个超出模型排行榜的解释角度，讨论创新依赖哪些共同条件。",
+    "paragraphs": [
+      "作者认为，算法进步能提高资源效率，但并不意味着创新不再需要门槛；人才和共享设施也可能构成规模优势。",
+      "他将开源视为外部规模效应的平台：企业除了自身投入，也能受益于共享基础设施、人才池及上下游生态。"
+    ],
+    "eventIds": ["event-deepseek-r1"],
+    "role": "analysis",
+    "selected": true,
+    "selectionReason": "保留作者独立论证和解释框架；与事件有关，也可单独阅读。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "历史回放。已读完整演讲整理正文。页面发布日为2025-03-11，演讲发生于2025-02-22；这是作者的经济学解释，不是对R1训练成本或能力的独立审计。"
+    }
+  }
+]

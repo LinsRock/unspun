@@ -1,0 +1,280 @@
+{
+  "event-change6": {
+    "summary": "月背样品把遥感推测变成了可测量的岩石证据：约28亿年前仍有火山喷发，但月背为什么缺少大片玄武岩，尚不能用一个原因解释。",
+    "whyRead": "理解1935.3克月壤如何检验月球正背面差异，以及定年结果能回答什么。",
+    "lead": "嫦娥六号带回的1935.3克样品补上了此前返回样品全部来自月球正面的缺口。2024年11月的首批研究，既给月背火山活动加上了直接测得的年代，也让研究者能够比较两面的深部物质。本篇回看这次取样怎样变成科学证据。",
+    "sections": [
+      {
+        "id": "change6-sampling",
+        "title": "取到月壤之前，先解决月背通信和自主起飞",
+        "paragraphs": [
+          "月背起飞无法直接得到地面测控支持。鹊桥二号负责中继，探测器利用自身传感器定位、定姿，并把着陆器当作起飞平台。这里的难点是让采样、封装和起飞在受限通信条件下接续完成。",
+          "采样同时采用机械臂表取和钻取；地面依据中继传回的数据模拟采样区，月壤结构探测仪则先检查浅层结构。这些步骤使任务取得不同位置的材料，而非只捡起一块碰巧遇到的石头。"
+        ],
+        "sourceIds": ["material-change6-ascent"]
+      },
+      {
+        "id": "change6-dating",
+        "title": "28亿年是怎样量出来的",
+        "paragraphs": [
+          "地质地球所团队分析108颗玄武岩岩屑，利用矿物中铅同位素的比例测定年龄。其中107颗的结果相近，支持它们来自同一期喷发，合并得到28.07±0.03亿年。这是玄武岩的形成时间，不能直接当作整个月球或盆地的年龄。",
+          "另有一颗约42亿年的岩屑，研究者认为它可能由别处溅射而来。两个年代说明月背有不同时期的岩浆活动；它们之间相隔约14亿年，不等于火山在此期间从未停歇。"
+        ],
+        "sourceIds": ["material-change6-basalt", "ref-change6-nature-abstract"]
+      },
+      {
+        "id": "change6-interior",
+        "title": "月背少见大片玄武岩，原因可能不只在月壳",
+        "paragraphs": [
+          "一种解释是月背较厚的月壳阻碍岩浆上升，但采样所在的南极—艾特肯盆地月壳较薄，也没有广泛的玄武岩覆盖。广州地化所另一团队测得约28.3亿年的喷发年龄，并从同位素特征推断，岩浆源区缺少某些容易进入熔体的元素。",
+          "该团队据此提出，源区本身难以大量熔融也是限制因素。样品因此把讨论从“上面的壳有多厚”推进到“下面的物质能否熔化”；这是研究解释，月球两面差异的成因仍未解决。"
+        ],
+        "sourceIds": ["ref-change6-gig"]
+      },
+      {
+        "id": "change6-clock",
+        "title": "一处样品还能校准远处地表的年代",
+        "paragraphs": [
+          "没有样品的区域常借助撞击坑统计估算年龄。此次直接测得的约28亿年，与此前对采样区数坑得到的年代相容，为把月球正面的年代模型用于月背提供了检验，也补充了原来缺少样品的时间段。",
+          "这份证据的价值由此超出着陆点：它能帮助研究者判断遥感推算是否可靠。但一次采样仍只覆盖一个区域，混入的外来岩屑还需要辨别来源，不能把这里的喷发史推广为整个月背的完整历史。"
+        ],
+        "sourceIds": ["ref-change6-nature-abstract", "ref-change6-gig", "material-change6-basalt"]
+      }
+    ],
+    "references": [
+      {
+        "id": "material-change6-ascent",
+        "title": "嫦娥六号完成采样，上升器从月背起飞进入预定环月轨道",
+        "url": "https://www.cnsa.gov.cn/n6758823/n6758838/c10543020/content.html",
+        "publisher": "国家航天局",
+        "publishedAt": "2024-06-04",
+        "scope": "正文；采样方式、中继支持及自主起飞。该文中的返回安排仍是当时计划。"
+      },
+      {
+        "id": "material-change6-basalt",
+        "title": "张谦等—Nature：嫦娥六号月球样品揭示月背28亿年前的岩浆活动",
+        "url": "https://igg.cas.cn/xwzx/yjcg/202411/t20241115_7440526.html",
+        "publisher": "中国科学院地质与地球物理研究所",
+        "publishedAt": "2024-11-15",
+        "scope": "研究团队成果介绍正文；108颗岩屑、定年方法、外来岩屑可能性。未读取论文附件。"
+      },
+      {
+        "id": "ref-change6-nature-abstract",
+        "title": "Lunar farside volcanism 2.8 billion years ago from Chang’e-6 basalts",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39547260/",
+        "publisher": "Nature · PubMed论文摘要",
+        "publishedAt": "2024-11-15",
+        "scope": "作者摘要及出版信息；日期为在线发表日，卷期为2025年7月。不是第二份独立研究。"
+      },
+      {
+        "id": "ref-change6-gig",
+        "title": "嫦娥六号月球样品首次揭示月背火山活动历史和月幔性质",
+        "url": "https://gig.cas.cn/xwdt/tpxw/202411/t20241115_7440657.html",
+        "publisher": "中国科学院广州地球化学研究所",
+        "publishedAt": "2024-11-15",
+        "scope": "研究团队成果介绍正文；日期依据页面检索元数据及正文所述论文在线发表日。未读取所链Science论文。"
+      }
+    ],
+    "takeaways": [
+      "月背取样依赖中继通信与自主起飞，表取和钻取取得了不同位置的材料。",
+      "约28亿年是样品所记录的一期喷发年龄；约42亿年岩屑可能来自其他地点。",
+      "样品同时检验月幔组成和撞击坑年代模型，尚不足以解释整个月背。"
+    ]
+  },
+  "event-shenzhong": {
+    "summary": "深中通道缩短了跨珠江口路线，也带来跨市公交。交通集团数据经报道披露：截至2024年7月30日15时，车流累计289万车次；通行时间和通勤价值仍受拥堵、接驳及费用影响。",
+    "whyRead": "把“半小时生活圈”拆成路线、费用、公交和实际车流，判断它改变了哪些出行条件。",
+    "lead": "2024年6月30日开通的深中通道，给深圳与中山增加了约24公里的跨海公路连接。最直接的变化是出行路线缩短；对具体居民而言，是否适合日常往返，还要算上两端接驳、通行费和高峰拥堵。本篇回看开通初期的实际条件。",
+    "sections": [
+      {
+        "id": "shenzhong-time",
+        "title": "“两小时变半小时”需要放回具体行程",
+        "paragraphs": [
+          "开通报道给出的深圳至中山车程预期，是从约2小时缩短到30分钟。它说明新通道能显著缩短跨江路线；报道未给出统一的住宅、办公地点或高峰时段，因此不能理解为两市任意两点都能半小时抵达。",
+          "首24小时，两侧合计有约12.5万车次通过，首日17时达到每小时约8000车次；现场一度出现较长距离缓行。线路缩短与实际堵车可以同时发生，不能用设计上的节时替代每次出行的用时。"
+        ],
+        "sourceIds": ["material-shenzhong-open", "material-shenzhong-first-day"]
+      },
+      {
+        "id": "shenzhong-cost",
+        "title": "日常往返的选择：开车还是接上公交",
+        "paragraphs": [
+          "开通时全线收费标准为66元/标准车次。按此简单计算，每天来回仅通道费用就是132元，尚未计优惠、其他路段、燃油和停车。这说明路线更短，并不自动等于低成本通勤。",
+          "同步开通的公交连接中山博览中心、国际人才港与深圳前海湾，试运营单程分别为18元、15元，核定线路约60公里、45公里。它让不开车的人也能利用通道，但全程比跨海段长，还需考虑候车、地铁和市内接驳。以上为2024年开通时的方案。"
+        ],
+        "sourceIds": ["ref-shenzhong-operation", "ref-shenzhong-bus-fares", "ref-shenzhong-bus-open"]
+      },
+      {
+        "id": "shenzhong-counts",
+        "title": "首月车流：289万与300万不能混写",
+        "paragraphs": [
+          "7月31日深圳政府网站转载的报道，引述交通集团给出明确窗口：截至7月30日15时累计289万车次，预计到7月31日24时达到300万。另有7月30日南方+报道写“已突破300万”，但未给出同样精确的截止时点。两处数字存在差异，本文采用前者的明确窗口，保留后者出处。",
+          "同一满月报道记录，工作日全线总体平稳，周末部分时段仍有缓行。车次记录的是通行次数，不是独立人数，也无法从中直接区分游客和固定通勤者，更不能据此量化新增就业或产值。"
+        ],
+        "sourceIds": ["ref-shenzhong-month-window", "material-shenzhong-month"]
+      },
+      {
+        "id": "shenzhong-limits",
+        "title": "交通收益有边界，也依赖运营",
+        "paragraphs": [
+          "开通初期，危险货物运输车辆全时段禁行，试运营期间四轴及以上货车也被临时限制。因此客运路线变短，不能直接推导为所有货物运输都能改走这条路。",
+          "通道还包含长隧道和长纵坡，运营方配置了火情探测、气象监测和救援力量。它改变的是跨江可达性；这种改善能否转化成稳定通勤，需要继续看高峰可靠性、两端接驳和长期负担，首月车流尚不足以回答。"
+        ],
+        "sourceIds": ["ref-shenzhong-operation", "ref-shenzhong-month-window"]
+      }
+    ],
+    "references": [
+      {
+        "id": "material-shenzhong-open",
+        "title": "深中通道建成开通报道",
+        "url": "https://www.mee.gov.cn/ywdt/szyw/202406/t20240630_1080446.shtml",
+        "publisher": "新华社 · 生态环境部转载",
+        "publishedAt": "2024-06-30",
+        "scope": "正文；线路长度、开通时间及车程预期。"
+      },
+      {
+        "id": "material-shenzhong-first-day",
+        "title": "深中通道24小时车流量超12.5万车次",
+        "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/bmdt/content/post_11402165.html",
+        "publisher": "深圳市交通运输局 · 南方日报",
+        "publishedAt": "2024-07-02",
+        "scope": "正文；观察窗口止于7月1日15时，首日拥堵为当时现场报道。"
+      },
+      {
+        "id": "ref-shenzhong-operation",
+        "title": "深中通道6月30日下午3时通车试运营",
+        "url": "https://jtys.sz.gov.cn/ydmh/jtzx/zyhy_1510/content/post_11396628.html",
+        "publisher": "深圳市交通运输局 · 深圳特区报",
+        "publishedAt": "2024-06-28",
+        "scope": "正文；开通发布会披露的收费、车辆限制与运营设施。只作2024年历史条件，不作为当前出行规则。"
+      },
+      {
+        "id": "ref-shenzhong-bus-fares",
+        "title": "关于深中跨市公交专线T01路试运营票价的批复",
+        "url": "https://www.zs.gov.cn/fgj/zcgw/qtwj/content/post_2418875.html",
+        "publisher": "中山市发展和改革局",
+        "publishedAt": "2024-06-28",
+        "scope": "检索返回的完整批复正文；后续原页打开超时。使用线路、里程及试运营票价，未确认当前票价。"
+      },
+      {
+        "id": "ref-shenzhong-bus-open",
+        "title": "深圳机场中山航空港、深中跨市公交启用",
+        "url": "https://www.zs.gov.cn/zwgk/gzdt/zsyw/content/post_2418552.html",
+        "publisher": "中山市政府 · 中山日报",
+        "publishedAt": "2024-07-01",
+        "scope": "正文；确认两条跨市公交与通道同步开通，避免把批复当作已运营证据。"
+      },
+      {
+        "id": "ref-shenzhong-month-window",
+        "title": "深中通道满月车流量达289万车次",
+        "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/zwdt/content/mpost_11475313.html",
+        "publisher": "深圳市政府 · 深圳特区报",
+        "publishedAt": "2024-07-31",
+        "scope": "正文；引述交通集团，统计截止7月30日15时；300万为对7月31日24时的预测。"
+      },
+      {
+        "id": "material-shenzhong-month",
+        "title": "深中通道开通首月，车流量约占过江通道25%",
+        "url": "https://www.gdhmo.gov.cn/xwzx/hzjl/shfz/content/post_75075.html",
+        "publisher": "广东省委港澳办 · 南方+",
+        "publishedAt": "2024-07-30",
+        "scope": "检索返回正文前段；原页打开超时。保留超过300万的原报道及其与明确统计窗口的差异，不合并为一个确定数字。"
+      }
+    ],
+    "takeaways": [
+      "跨海路线缩短，门到门时间仍由起终点、接驳与拥堵共同决定。",
+      "开通时标准车次收费66元，公交18元、15元，适合不同出行方式。",
+      "明确的首月窗口为7月30日15时累计289万车次；车次不能替代通勤人数。"
+    ]
+  },
+  "event-deepseek-r1": {
+    "summary": "R1在2025年1月开放了可部署的权重和六个蒸馏模型。真正的变化包括可复用的推理模型与训练路线；数学成绩、应用可靠性、研发成本仍是不同问题。",
+    "whyRead": "弄清完整R1与蒸馏版的区别、强化学习怎么起作用，以及“低成本”究竟对应哪笔账。",
+    "lead": "R1发布的意义包含两层：研究者能检查一种推理训练路线，开发者能取得权重并选择部署方式。把这两层分开，才能理解它为何容易被接入和改造，也避免把一次榜单表现当作所有应用都已成熟。以下讨论限定于2025年1月的初版。",
+    "sections": [
+      {
+        "id": "deepseek-weights",
+        "title": "开放的是可部署的模型，蒸馏版也不是同一份R1",
+        "paragraphs": [
+          "发布方采用MIT许可开放R1权重，并允许利用其输出训练其他模型。使用者由此可以下载、部署和修改模型，服务入口不必只依赖原厂；不过公开权重与方法说明，不能直接等同于完整训练过程已经被外部复现。",
+          "完整R1共有6710亿参数，每个词元激活约370亿参数。六个较小版本则以Qwen或Llama为底座，用R1生成的样本微调；它们是不同模型，不能把完整R1的成绩直接移给小版本，使用时也要留意底座许可。"
+        ],
+        "sourceIds": ["material-deepseek-release", "ref-deepseek-repository"]
+      },
+      {
+        "id": "deepseek-training",
+        "title": "从“答对有奖励”到让答案适合人读",
+        "paragraphs": [
+          "R1-Zero从已有基础模型出发，直接进行强化学习。数学题可核对确定答案，代码题可跑测试，再把对错反馈用于训练。这让模型探索解题方法，但该版本也出现重复、语言混杂和难读的问题；“没有先做监督微调”不意味着从零知识起步。",
+          "R1先用少量整理过的推理示例起步，随后强化学习，再筛选生成结果并加入一般任务数据进行微调，最后进一步对齐用户偏好。训练同时处理解题能力与表达可用性，两者并不会自然同步提升。"
+        ],
+        "sourceIds": ["material-deepseek-paper"]
+      },
+      {
+        "id": "deepseek-quality",
+        "title": "能做竞赛题，不代表每种产品任务都更好",
+        "paragraphs": [
+          "官方评测中，R1在AIME 2024的单次作答正确率估计为79.8%，对比的o1版本为79.2%。这是特定题集和采样设置下的开发方结果，不能换算成日常问题的通用正确率。",
+          "报告自己也承认，初版在函数调用、多轮对话和JSON输出等任务上落后于V3，软件工程提升有限。因此为应用选模型时，应另查它能否遵守格式、连续执行任务及处理真实输入，不能只按数学榜单选择。"
+        ],
+        "sourceIds": ["ref-deepseek-repository", "material-deepseek-paper"]
+      },
+      {
+        "id": "deepseek-cost-and-access",
+        "title": "低成本的口径，与生态扩散的实际变化",
+        "paragraphs": [
+          "常被提及的557.6万美元，来自V3报告按每H800 GPU小时2美元估算的正式训练费用，明确不含前期研究和消融实验。它不是R1全部研发支出，也不是一项应用部署后的总成本；拿这个数与另一家公司的整体投入相比，会混淆口径。",
+          "可确认的外部变化是：微软1月29日宣布把R1放入Azure AI Foundry与GitHub模型目录，提供云端部署入口和评估工具。结合开放权重看，开发者多了自建与第三方托管的选择；这说明分发渠道扩大，尚不能据此证明企业收益或推算市场冲击。"
+        ],
+        "sourceIds": ["ref-deepseek-v3-cost", "material-deepseek-azure", "material-deepseek-release"]
+      }
+    ],
+    "references": [
+      {
+        "id": "material-deepseek-release",
+        "title": "DeepSeek-R1发布，性能对标OpenAI o1正式版",
+        "url": "https://deepseek.com/news/deepseek-r1/",
+        "publisher": "DeepSeek",
+        "publishedAt": "2025-01-20",
+        "scope": "发布公告正文；开放权重、许可与蒸馏授权。性能为发布方主张，不采用原文价格作为现价。"
+      },
+      {
+        "id": "material-deepseek-paper",
+        "title": "DeepSeek-R1技术报告v1：训练方法与局限",
+        "url": "https://arxiv.org/html/2501.12948v1",
+        "publisher": "DeepSeek-AI · arXiv",
+        "publishedAt": "2025-01-22",
+        "scope": "初版HTML中训练路线、奖励设计、冷启动和局限章节；此次已核读这些正文，未独立复现训练和评测。"
+      },
+      {
+        "id": "ref-deepseek-repository",
+        "title": "DeepSeek-R1官方模型仓库：下载、模型差异与评测",
+        "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+        "publisher": "DeepSeek-AI · GitHub",
+        "publishedAt": null,
+        "scope": "README的模型表、蒸馏说明、评测设置及许可说明；页面未标统一发布日期。只使用初代R1信息，不将当前仓库热度用于历史判断。"
+      },
+      {
+        "id": "ref-deepseek-v3-cost",
+        "title": "DeepSeek-V3技术报告v1：训练成本表及排除项",
+        "url": "https://arxiv.org/html/2412.19437v1",
+        "publisher": "DeepSeek-AI · arXiv",
+        "publishedAt": "2024-12-27",
+        "scope": "初版引言与表1的成本说明；为团队自报估算，未作独立财务审计，不是R1成本报告。"
+      },
+      {
+        "id": "material-deepseek-azure",
+        "title": "DeepSeek R1 is now available on Azure AI Foundry and GitHub",
+        "url": "https://azure.microsoft.com/en-us/blog/deepseek-r1-is-now-available-on-azure-ai-foundry-and-github/",
+        "publisher": "Microsoft Azure Blog",
+        "publishedAt": "2025-01-29",
+        "scope": "公告正文；确认当时的模型目录接入、部署与评估入口。未检查当前可用地区、服务状态或实际企业效果。"
+      }
+    ],
+    "takeaways": [
+      "完整R1与Qwen、Llama底座的蒸馏版是不同模型，不能共用一个性能结论。",
+      "强化学习用可核验结果奖励解题，冷启动和后续训练改善表达与一般任务表现。",
+      "V3的557.6万美元是特定训练口径；R1的应用质量和总成本仍需分别判断。"
+    ]
+  }
+}

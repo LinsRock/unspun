@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/KKKKhazix/AIHOT",
+  "commit": "cd424b0a513c7c8535b6f291b106a3086d6b75bf",
+  "license": "MIT",
+  "upstream_files": {
+    "LICENSE": "b7f53d07ea4ae2eef26a4f8b28cb7d4df95586e2aa713df408f1ffde9f5a0fea",
+    "packages/backend/src/sources/dates.ts": "61eb829fbcdd6333df1e38d3c1fea1716ab082d3a752d0bc4b014ec16bccb2e5",
+    "packages/contracts/src/time.ts": "35684e1b2809b197cc9f7a924908438942b4a31b9d0b0204d3dc26515dae3fa2",
+    "tests/source-dates.standalone.test.ts": "dcc9f6a149985ea39c566c4bc3ae115871c100b57ea5a49af19023e90d833ba5",
+    "tests/source-published-formats.standalone.test.ts": "0b49659604d5ffeca2f6ad0a593f01868204896450b9a92bff32aca635dc09ac",
+    "packages/backend/src/publication/publish.ts": "fec2ea7362700c2c85931e1d4d20841c7c13c8eb343b2711728cf61cb927e26d"
+  }
+}
