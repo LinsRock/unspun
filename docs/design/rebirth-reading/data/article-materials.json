@@ -1,0 +1,326 @@
+[
+  {
+    "id": "a-wind-tunnel",
+    "type": "article",
+    "domain": "科学与知识",
+    "title": "风洞究竟是什么？",
+    "source": "中国科学院力学研究所 · 力学园地",
+    "author": "萤火",
+    "publishedAt": "2024-05-07",
+    "url": "https://imech.cas.cn/science/lxyd/syjh/202405/t20240507_7153838.html",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "把模型固定、让空气流动，为什么能研究真实飞行？文章从相对运动讲到风洞结构与高温高速气流的模拟。",
+    "whyRead": "看懂航空新闻里常出现的实验设施，也能理解它为何用于汽车、建筑和运动训练。",
+    "paragraphs": [
+      "作者先用参照物解释风洞的思路：让气流经过固定模型，便于测量空气对物体的作用。缩比实验还需满足相似条件，并非模型外形相像就足够。",
+      "文章随后介绍气流稳定、加速与测量的环节。高超声速试验不仅要追求速度，也要复现热环境；体育风洞的例子则把原理带回日常经验。"
+    ],
+    "eventIds": [],
+    "role": "background",
+    "selected": true,
+    "selectionReason": "以清楚的物理问题串起设施与应用，具有脱离新闻时点的解释价值。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读原页公开正文、署名及发布日期。full-page 指读取范围；仅保存原创导读，未转载全文。设施进展按 2024 年文章语境理解。"
+    }
+  },
+  {
+    "id": "a-cooking-workdays",
+    "type": "article",
+    "domain": "生活与技术",
+    "title": "做饭半年，995 码农如何做到自备每日工作餐",
+    "source": "少数派 · Matrix",
+    "author": "Chay",
+    "publishedAt": "2020-08-19",
+    "url": "https://sspai.com/post/62184",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "作者以半年带饭经验，讨论从简单菜练起、按需添置厨具，以及如何安排备菜和烹饪工序。",
+    "whyRead": "把下厨拆成学习成本、时间投入和重复练习，适合评估自己能否长期坚持。",
+    "paragraphs": [
+      "作者反复练习少量家常菜，用定量调味和对比尝试稳定口味。他也提前接受每周做饭的时间成本，把坚持视为需要安排的生活选择。",
+      "厨具随实际需求逐步增加，备菜与不同工序合理衔接，减少工作日压力。文章提供的是一位上班族的实践记录，可以从中挑选适合自己作息的方法。"
+    ],
+    "eventIds": [],
+    "role": "background",
+    "selected": true,
+    "selectionReason": "有具体过程与投入说明，提供可迁移的生活经验，而非单纯购物清单。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读公开正文、作者及日期，仅保存原创导读。文章发布于 2020 年；文中商品、价格和膳食指南不作为当前建议。"
+    }
+  },
+  {
+    "id": "a-hongshan-dragon",
+    "type": "article",
+    "domain": "文化与历史",
+    "title": "蟠曲欲飞——红山玉龙",
+    "source": "中国国家博物馆 · 百年国博",
+    "author": null,
+    "publishedAt": null,
+    "url": "https://www.chnmuseum.cn/Portals/0/web/zt/100n/guobao_content-3.html?id=25",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "从玉龙的造型、悬挂孔位置到被发现和确认的经过，国博导览说明一件器物如何成为理解红山文化的线索。",
+    "whyRead": "给逛博物馆增加可观察的细节：形态、制作与认定过程都能成为提问入口。",
+    "paragraphs": [
+      "导览从整块玉料雕成的龙形讲起，留意头尾、长鬣及纹饰。背部小孔的悬挂效果，也呈现制作者对器物平衡的把握。",
+      "文章再追述玉器被发现、收藏和重新认识的过程。后续考古材料让其文化归属更清楚，礼器则是研究者对用途的一种推测。"
+    ],
+    "eventIds": [],
+    "role": "background",
+    "selected": true,
+    "selectionReason": "馆方材料兼有器物观察与发现故事，无需依附最新展览消息即可阅读。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读原页全部公开文字。页面未显示作者和发布日期，均保留 null；发现、入藏年份不冒充发布日期。仅保存原创导读。"
+    }
+  },
+  {
+    "id": "a-urban-nature",
+    "type": "article",
+    "domain": "气候与环境",
+    "title": "发现城市中的自然",
+    "source": "对话地球（原中外对话）",
+    "author": "加文·范·霍恩",
+    "publishedAt": "2013-10-11",
+    "url": "https://dialogue.earth/zh/6/42059/",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "作者从芝加哥的游隼、河狸和郊狼出发，反思把城市与自然截然分开的习惯，并解释观察与讲故事的保护意义。",
+    "whyRead": "提供一种散步时就能尝试的观察角度，让生态议题从远方保护区回到身边。",
+    "paragraphs": [
+      "作者认为，城市也承载其他生命的迁移和定居。把自然只想成远处的荒野，会忽略楼宇、运河和街区里已经存在的生态关系。",
+      "他介绍通过记录相遇、讲述动物故事来建立关注的做法。这种关系视角与科学调查互补，促使居民把城市看作共同栖居之地。"
+    ],
+    "eventIds": [],
+    "role": "analysis",
+    "selected": true,
+    "selectionReason": "有明确主张和亲身观察，能拓展自然保护的日常视角。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读中文原页公开正文和署名。页头并列 2013-10-11 与 2020-06-22，保留较早的原始日期；不把后续页面时间当作新发表。仅保存原创导读。"
+    }
+  },
+  {
+    "id": "a-curling-physics",
+    "type": "article",
+    "domain": "科学与知识",
+    "title": "冰壶运动的奥秘",
+    "source": "中国科学院力学研究所 · 力学园地",
+    "author": "萤火",
+    "publishedAt": "2024-04-02",
+    "url": "https://imech.cas.cn/science/lxyd/syjh/202404/t20240402_7066080.html",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "从冰壶石材、冰面处理到擦冰动作，文章解释这项运动为何同时考验材料、体力和团队判断。",
+    "whyRead": "下次看比赛时，可以把注意力从落点移到制冰、刷冰与队长指令之间的联系。",
+    "paragraphs": [
+      "冰壶并非在普通平滑冰面上滑行，赛道会被专门处理。作者借冰面与冰壶接触的变化，引入摩擦对运动距离的影响。",
+      "壶离手后，队员通过刷冰参与调整滑行，并持续接收队长指令。原文把这一配合与战术选择联系起来，说明比赛不能只看投掷瞬间。"
+    ],
+    "eventIds": [],
+    "role": "background",
+    "selected": true,
+    "selectionReason": "从熟悉的观赛疑问进入力学知识，具有独立的科普阅读价值。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读原页公开正文、署名和日期。仅保存原创导读；作为入门科普，不将文中的简化摩擦解释扩展为完整运动模型。"
+    }
+  },
+  {
+    "id": "a-digital-pencil-case",
+    "type": "article",
+    "domain": "生活与技术",
+    "title": "文科博士生的数字文具盒：这一年里我真正在用的效率工具",
+    "source": "少数派 · Matrix",
+    "author": "chyixian",
+    "publishedAt": "2022-08-11",
+    "url": "https://sspai.com/post/75111",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "作者用读书会、文献精读和论文写作的实际场景，说明工具怎样融入工作，以及为什么探索工具也会变成拖延。",
+    "whyRead": "可以借作者的场景检查自己的笔记流程，尤其是笔记能否回到原文、能否继续用于写作。",
+    "paragraphs": [
+      "作者先反思新工具为何常被搁置：功能重合、学习成本和导出限制，都可能抵消新鲜感。真正留下来的工具需要对应持续存在的任务。",
+      "精读案例把结构笔记与原文位置相连，写作案例则关注材料的临时组织。文章最终强调，效率来自工具的实际使用，安装和折腾本身并不等于完成研究。"
+    ],
+    "eventIds": [],
+    "role": "analysis",
+    "selected": true,
+    "selectionReason": "有具体使用场景与反思，阅读价值主要在流程设计，而非软件榜单。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读公开正文、署名与日期，仅保存原创导读。原文软件和插件状态属于 2022 年使用经验，未验证其当前兼容性。"
+    }
+  },
+  {
+    "id": "a-architectural-painting",
+    "type": "article",
+    "domain": "文化与历史",
+    "title": "古建筑彩绘详解",
+    "source": "上海市绿化和市容管理局 · 绿色上海",
+    "author": null,
+    "publishedAt": "2022-06-06",
+    "url": "https://lhsr.sh.gov.cn/jnylwh/20220606/b0f8cf6e81404e10bbdcb1eeb9a09f44.html",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "文章沿朝代梳理建筑彩绘，再介绍和玺、苏式以及山西地方彩画，让颜色和图案背后的工艺差异更容易辨认。",
+    "whyRead": "游园或看古建时，可以从主色、纹样和贴金方式入手，观察照片之外的细节。",
+    "paragraphs": [
+      "彩绘不仅有装饰效果，也与建筑类型、等级和地方传统相连。文章按历史脉络比较色调、线条、纹样与用金等方面的变化。",
+      "后半部分把视线转向具体画种：宫廷彩画、江南园林彩画和晋中地方工艺各有特点。工序较简并不意味着审美价值低，朴素形式也有独立风格。"
+    ],
+    "eventIds": [],
+    "role": "background",
+    "selected": true,
+    "selectionReason": "提供具体观察词汇，适合作为古建与园林游览的知识背景。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读该机构公开页面全文及发布日期，页面来源为绿色上海，未列个人作者。仅保存原创导读；历史概述按原文呈现，不额外推断建筑断代。"
+    }
+  },
+  {
+    "id": "a-sponge-city",
+    "type": "article",
+    "domain": "气候与环境",
+    "title": "海绵城市：理念、机遇和挑战",
+    "source": "对话地球（原中外对话）",
+    "author": "阿希特·彼斯瓦斯、克里斯·哈特雷",
+    "publishedAt": "2017-09-13",
+    "url": "https://dialogue.earth/zh/uncategorized-zh/43736/",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "两位作者解释海绵城市如何借助透水铺装和绿色设施管理雨水，并将实施难题指向治理协调与持续资金。",
+    "whyRead": "有助于在讨论城市内涝时，同时追问土地开发、维护和治理，而不只比较排水设施。",
+    "paragraphs": [
+      "文章把城市硬化、雨水难以下渗与内涝风险联系起来，介绍通过屋顶、湿地和路面分散蓄水的思路。重点是恢复部分自然水循环。",
+      "作者认为，技术方案需要长期治理配合：专业协调不足、监管松懈和融资困难都可能影响效果。这是 2017 年的分析，不是对今天各地项目成效的评价。"
+    ],
+    "eventIds": [],
+    "role": "analysis",
+    "selected": true,
+    "selectionReason": "把工程概念与治理条件连在一起，适合作为历史背景分析阅读。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读中文公开正文。页头并列 2017-09-13 与 2020-06-22，采用较早日期；页面注明英文首发 The Conversation、授权转载，翻译奇芳。仅保存原创导读，不转述原文可疑的金额换算。"
+    }
+  },
+  {
+    "id": "a-3d-printing",
+    "type": "article",
+    "domain": "科学与知识",
+    "title": "漫谈3D打印技术",
+    "source": "中国科学院力学研究所 · 力学园地",
+    "author": "萤火",
+    "publishedAt": "2024-01-10",
+    "url": "https://imech.cas.cn/science/lxyd/syjh/202401/t20240104_6945739.html",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "从模型切片、逐层成形到文物保护和机器人零件，文章用具体例子说明增材制造如何把数字模型变成实物。",
+    "whyRead": "补上“打印一个东西”背后的步骤，理解复杂内部结构为什么会受益于这种制造方式。",
+    "paragraphs": [
+      "作者借分层地形图和蛋糕裱花解释逐层成形，再引入三维建模与切片：设备需要每层的加工信息，才能把模型转成实体。",
+      "应用部分展示定制模型、文物保护与机器人部件：原本难以加工的复杂形状，可以换一种制造方式。理解这一点，比记住某种打印设备更有用。"
+    ],
+    "eventIds": [],
+    "role": "background",
+    "selected": true,
+    "selectionReason": "把抽象术语拆成可以理解的制造过程，案例覆盖日常文化与工程。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读公开正文、署名和日期。发布日期按页面显示的 2024-01-10，未采用 URL 中的 20240104。仅保存原创导读。"
+    }
+  },
+  {
+    "id": "a-wechat-data",
+    "type": "article",
+    "domain": "生活与技术",
+    "title": "告别存储空间「头号杀手」，如何管理你的微信数据",
+    "source": "少数派",
+    "author": "Voyager_1",
+    "publishedAt": "2022-01-21",
+    "url": "https://sspai.com/post/71073",
+    "materialScope": "full-page",
+    "storedForm": "editorial-guide",
+    "summary": "作者从聊天记录占用空间的困扰出发，区分全量备份、重要文件单独保存与临时传输，梳理个人数据管理习惯。",
+    "whyRead": "适合盘点哪些内容需要长期留下，避免把“已经发给自己”直接当成可靠保存。",
+    "paragraphs": [
+      "作者发现聊天数据虽然大量占用设备空间，却不容易脱离应用检索，因此同时考虑整体留存与重要内容的单独整理。备份和日常查找是不同需求。",
+      "文章把定期整体备份与随手保存重要文件结合起来，并提醒临时中转工具有其用途边界。具体工具和容量说明属于 2022 年，阅读时宜先借鉴分类思路。"
+    ],
+    "eventIds": [],
+    "role": "background",
+    "selected": true,
+    "selectionReason": "围绕常见困扰区分保存目的；保留经验价值，不将旧工具教程当作当前操作指南。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读公开正文、署名与日期，仅保存原创导读。未验证旧第三方工具的兼容性、容量或安全性，不推荐执行其中的未加密备份步骤。"
+    }
+  },
+  {
+    "id": "a-chinese-podcast-history",
+    "type": "article",
+    "domain": "文化与历史",
+    "title": "一篇文章，读懂中文播客前世今生",
+    "source": "少数派",
+    "author": "拐子狼",
+    "publishedAt": "2022-08-05",
+    "url": "https://sspai.com/post/74874",
+    "materialScope": "excerpt",
+    "storedForm": "editorial-guide",
+    "summary": "这篇 2022 年长文从创作者、平台和收听场景观察中文播客，提出谈话内容既带来活力，也限制了形式与商业空间。",
+    "whyRead": "能把节目喜好放回媒介发展背景，理解作者为何期待叙事、综艺和短音频等不同形式。",
+    "paragraphs": [
+      "作者在总结中把中文播客分为萌芽、京海派与媒体播客阶段，强调技术入口、创作者背景和听众使用方式共同塑造节目面貌。",
+      "他的核心判断是，长谈话形成了讨论空间，也让内容形态趋同。文末提出扩展叙事、综艺及短音频的设想；这些是当时的观点与预测，不能当作今天的行业结论。"
+    ],
+    "eventIds": [],
+    "role": "analysis",
+    "selected": true,
+    "selectionReason": "长文有鲜明且可讨论的媒介分析，作为有日期边界的历史观察入选。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "核读原页开篇、创作者困境、媒体播客与平台讨论、未来设想和总结等片段，未逐段读完约 2.7 万字全文，故标 excerpt。作者、日期来自页头；仅保存原创导读。"
+    }
+  },
+  {
+    "id": "a-bird-glass-collisions",
+    "type": "article",
+    "domain": "气候与环境",
+    "title": "“鸟撞”青城山高铁站，鸟与玻璃“冲突”何解？",
+    "source": "四川在线 · 四川党的建设",
+    "author": "张微微",
+    "publishedAt": "2024-12-05",
+    "url": "https://sichuan.scol.com.cn/ggxw/202412/82855034.html",
+    "materialScope": "metadata",
+    "storedForm": "editorial-guide",
+    "summary": "检索摘要显示，报道从青城山站鸟撞现象讨论玻璃风险；原页两次读取超时，尚不足以生成完整导读。",
+    "whyRead": "选题连接公共设施与身边鸟类，值得在取得正文后继续判断其解释和建议。",
+    "paragraphs": [
+      "当前仅核得标题、署名、日期及检索摘要；摘要提到记者现场走访和专家对透明、反光玻璃的解释。",
+      "原页正文未成功取得，因此不概括报道的全部结论，也不推断其防护建议。此条保留为材料可得性不足的实际案例。"
+    ],
+    "eventIds": [],
+    "role": "background",
+    "selected": false,
+    "selectionReason": "原页连续两次超时，仅有检索摘要；暂不入选是材料不足，不是内容质量判定。",
+    "verification": {
+      "checkedAt": "2026-11-04",
+      "method": "web-read",
+      "note": "搜索结果展示原题、2024-12-05 23:15:37、四川在线及《四川党的建设》全媒体记者张微微。两次打开原 URL 均超时；未绕过登录或访问限制，未据摘要补写全文。"
+    }
+  }
+]

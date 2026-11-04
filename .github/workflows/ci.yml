@@ -221,6 +221,23 @@ jobs:
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
+      - name: Use verified runtime for rebirth prototype
+        uses: actions/setup-node@v4
+        with:
+          node-version: 26.12.1
+      - name: Test rebirth reading prototype
+        working-directory: .
+        run: node --test docs/design/rebirth-reading/tests/*.test.mjs
+      - name: Test AIHOT extraction in UTC
+        working-directory: .
+        env:
+          TZ: UTC
+        run: node --test docs/design/rebirth-reading/experiments/tests/*.test.ts
+      - name: Test AIHOT extraction in Shanghai
+        working-directory: .
+        env:
+          TZ: Asia/Shanghai
+        run: node --test docs/design/rebirth-reading/experiments/tests/*.test.ts
 
   deploy-safety:
     needs: changes

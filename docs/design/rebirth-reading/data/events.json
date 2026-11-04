@@ -1,0 +1,104 @@
+[
+  {
+    "id": "event-change6",
+    "domain": "科学探索",
+    "title": "嫦娥六号首次带回月背样品",
+    "summary": "嫦娥六号于2024年6月完成月背采样返回；11月，研究团队用样品为月背古老岩浆活动提供直接证据。",
+    "whyRead": "沿着取样、返回和研究三个节点，看航天任务怎样变成科学认识。",
+    "paragraphs": [
+      "2024年6月4日，上升器携月背样品进入环月轨道；6月25日，返回器在内蒙古着陆，完成首次月背采样返回。",
+      "11月的研究确定，当地玄武岩形成于约28亿年前。另一颗约42亿年的岩屑可能来自别处，为认识月背不同期次的岩浆活动提供了线索。"
+    ],
+    "developments": [
+      {
+        "date": "2024-06-04",
+        "title": "完成月背采样并起飞",
+        "description": "上升器携样品进入环月轨道，后续将完成交会转移与返回。",
+        "materialIds": ["material-change6-ascent"]
+      },
+      {
+        "date": "2024-06-25",
+        "title": "样品随返回器抵达地球",
+        "description": "返回器在内蒙古四子王旗预定区域着陆，完成首次月背采样返回。",
+        "materialIds": ["material-change6-return", "material-change6-repeat"]
+      },
+      {
+        "date": "2024-11-15",
+        "title": "样品定年揭示古老岩浆活动",
+        "description": "研究团队对玄武岩岩屑定年，将采样区一次岩浆活动确定在约28亿年前。",
+        "materialIds": ["material-change6-basalt"]
+      }
+    ],
+    "materialIds": ["material-change6-ascent", "material-change6-return", "material-change6-repeat", "material-change6-basalt"],
+    "selected": true,
+    "attention": null
+  },
+  {
+    "id": "event-shenzhong",
+    "domain": "城市出行",
+    "title": "深中通道通车试运营",
+    "summary": "深中通道于2024年6月30日开通。首24小时约有12.5万车次通过，满月报道给出累计超过300万车次。",
+    "whyRead": "从车程预期到首月车流，了解这条跨海通道开通后的实际使用情况。",
+    "paragraphs": [
+      "这条跨珠江口通道连接深圳与中山。开通报道预计车程缩短，但首日曾出现缓行，实际用时仍受交通情况影响。",
+      "开通首24小时约有12.5万车次通过；到满月时，累计车流超过300万车次，日均超过10万车次。两组数据分别呈现首日和首月的使用情况。"
+    ],
+    "developments": [
+      {
+        "date": "2024-06-30",
+        "title": "通道建成并开放试运营",
+        "description": "约24公里的跨海线路开通，增加珠江口东西两岸的直接连接。",
+        "materialIds": ["material-shenzhong-open", "material-shenzhong-first-day"]
+      },
+      {
+        "date": "2024-07-01",
+        "title": "首24小时通过约12.5万车次",
+        "description": "截至7月1日，开通首24小时两侧合计通过约12.5万车次，首日高峰曾出现缓行。",
+        "materialIds": ["material-shenzhong-first-day"]
+      },
+      {
+        "date": "2024-07-30",
+        "title": "满月累计车流超过300万车次",
+        "description": "开通满月的报道披露，累计车流超过300万车次，日均超过10万车次。",
+        "materialIds": ["material-shenzhong-month"]
+      }
+    ],
+    "materialIds": ["material-shenzhong-open", "material-shenzhong-first-day", "material-shenzhong-unavailable", "material-shenzhong-month"],
+    "selected": true,
+    "attention": null
+  },
+  {
+    "id": "event-deepseek-r1",
+    "domain": "人工智能",
+    "title": "DeepSeek-R1发布并开放模型权重",
+    "summary": "DeepSeek于2025年1月开放R1权重和六个蒸馏模型，并介绍训练路线；随后微软宣布将R1接入模型目录。",
+    "whyRead": "了解开放权重、训练方法和平台接入，怎样共同影响一个模型的使用与传播。",
+    "paragraphs": [
+      "DeepSeek开放R1权重及六个蒸馏模型。技术报告摘要称，R1加入冷启动数据和多阶段训练，以改善R1-Zero的可读性与语言混杂问题。",
+      "1月29日，微软宣布R1进入Azure AI Foundry和GitHub模型目录。彭文生随后从开源、人才与共享设施出发，讨论创新背后的共同条件。"
+    ],
+    "developments": [
+      {
+        "date": "2025-01-20",
+        "title": "发布R1并开放权重",
+        "description": "公告同时介绍六个蒸馏小模型；评测比较来自开发方。",
+        "materialIds": ["material-deepseek-release"]
+      },
+      {
+        "date": "2025-01-22",
+        "title": "初版技术报告提交arXiv",
+        "description": "v1摘要介绍两条训练路线：R1-Zero直接进行强化学习，R1加入冷启动数据与多阶段训练。",
+        "materialIds": ["material-deepseek-paper"]
+      },
+      {
+        "date": "2025-01-29",
+        "title": "微软宣布模型目录接入",
+        "description": "R1进入Azure AI Foundry与GitHub模型目录，增加第三方平台入口。",
+        "materialIds": ["material-deepseek-azure"]
+      }
+    ],
+    "materialIds": ["material-deepseek-release", "material-deepseek-paper", "material-deepseek-azure", "material-deepseek-economics"],
+    "selected": true,
+    "attention": null
+  }
+]
