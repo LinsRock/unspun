@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "qbitai",
+      "name": "量子位",
+      "url": "https://www.qbitai.com/feed",
+      "allowedHosts": ["www.qbitai.com"],
+      "domain": "AI 与技术",
+      "maxItems": 8
+    },
+    {
+      "id": "ithome",
+      "name": "IT之家",
+      "url": "https://www.ithome.com/rss/",
+      "allowedHosts": ["www.ithome.com"],
+      "domain": "科技与产品",
+      "maxItems": 8
+    },
+    {
+      "id": "solidot",
+      "name": "Solidot",
+      "url": "https://www.solidot.org/index.rss",
+      "allowedHosts": ["www.solidot.org"],
+      "domain": "技术与社会",
+      "maxItems": 8
+    },
+    {
+      "id": "36kr",
+      "name": "36氪",
+      "url": "https://36kr.com/feed",
+      "allowedHosts": ["36kr.com", "www.36kr.com"],
+      "domain": "公司与商业",
+      "maxItems": 8
+    }
+  ],
+  "limits": {
+    "maxRequests": 24,
+    "maxBytes": 2000000,
+    "timeoutSeconds": 10
+  }
+}

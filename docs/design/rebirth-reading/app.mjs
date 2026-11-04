@@ -8,6 +8,9 @@ let catalog, feedback = {}, previousFeedback = {}, currentHash = '', requestId =
 const feeds = new Map();
 const scrollPositions = new Map();
 const pendingFeedback = new Set();
+const feedbackPath = () => `/api/feedback/${encodeURIComponent(catalog.edition || 'v2')}`;
+const editionLabel = () => catalog.label || '试读 02';
+const timestamp = value => new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(value));
 
 async function api(path, options) {
   const result = await fetch(path, options);
@@ -60,8 +63,8 @@ async function feedView(type, token) {
 async function hotView(token) {
   const hot = await api('/api/hot');
   if (token !== requestId) return;
-  main.innerHTML = `<div class="feed-heading"><h1>热点</h1><span>事件阅读样张</span></div>
-    <p class="sample-note">以下保留原始事件日期。真实关注数据尚未接入，次序不代表热度排名。</p>
+  main.innerHTML = `<div class="feed-heading"><h1>热点</h1><span>${catalog.batch ? '本轮事件' : '事件阅读样张'}</span></div>
+    <p class="sample-note">${catalog.batch ? '本轮事件保留来源日期，真实关注数据尚未接入，暂不显示热度排名。' : '以下保留原始事件日期。真实关注数据尚未接入，次序不代表热度排名。'}</p>
     <section class="feed-column">${hot.items.map(card).join('')}</section>`;
 }
 
@@ -106,9 +109,9 @@ function detailView(kind, id) {
   const back = sessionStorage.getItem('unspun-rebirth-last-list') || '#/curated';
   const knownText = reading ? reading.sections.flatMap(section => section.paragraphs).join('') : '';
   main.innerHTML = `<div class="detail-shell"><a class="back-link" href="${escape(back)}">← 返回${back.startsWith('#/hot') ? '热点' : '精选'}</a>
-    <header class="detail-header"><div class="detail-kicker"><span class="kind ${event ? 'kind-event' : ''}">${event ? '事件' : '文章'}</span><span>${escape(item.domain)}</span><span>${reading ? '来源整理 · 试读 02' : '初版材料保留'}</span></div>
-    <h1>${escape(item.title)}</h1><div class="detail-meta">${event ? 'Unspun 多来源整理' : `${reading ? 'Unspun 编辑整理 · ' : ''}${escape(item.source)}${!reading && item.author ? ` · ${escape(item.author)}` : ''} · 来源日期 ${date(item.publishedAt)}`}${reading ? ` · 约 ${Math.max(2, Math.ceil(knownText.length / 400))} 分钟` : ''}${!event ? ` <a href="${external(item.url)}" target="_blank" rel="noopener noreferrer">原始出处 ↗</a>` : ''}</div></header>
-    <div class="detail-grid"><article class="detail-body">${reading ? readingBody(reading) : `<p class="sample-note">${unavailable ? '这份材料尚未取得正文，保留来源线索。' : '这是第一版的简短材料记录，暂未补写深读，不在本版精选中。'}</p><div class="prose">${item.paragraphs.map(value => `<p>${escape(value)}</p>`).join('')}</div>${!event ? `<a class="primary-link" href="${external(item.url)}" target="_blank" rel="noopener noreferrer">前往原文 ↗</a>` : ''}`}
+    <header class="detail-header"><div class="detail-kicker"><span class="kind ${event ? 'kind-event' : ''}">${event ? '事件' : '文章'}</span><span>${escape(item.domain)}</span><span>${reading ? `来源整理 · ${escape(editionLabel())}` : '材料保留'}</span></div>
+    <h1>${escape(item.title)}</h1><div class="detail-meta">${event ? 'Unspun 来源整理' : `${reading ? 'Unspun 编辑整理 · ' : ''}${escape(item.source)}${!reading && item.author ? ` · ${escape(item.author)}` : ''} · 来源日期 ${date(item.publishedAt)}`}${reading ? ` · 约 ${Math.max(2, Math.ceil(knownText.length / 400))} 分钟` : ''}${!event ? ` <a href="${external(item.url)}" target="_blank" rel="noopener noreferrer">原始出处 ↗</a>` : ''}</div></header>
+    <div class="detail-grid"><article class="detail-body">${reading ? readingBody(reading) : `<p class="sample-note">${unavailable ? '这份材料尚未取得正文，保留来源线索。' : catalog.batch ? '这是本轮事件的来源记录，完整整理见下方相关事件。' : '这是第一版的简短材料记录，暂未补写深读，不在本版精选中。'}</p><div class="prose">${item.paragraphs.map(value => `<p>${escape(value)}</p>`).join('')}</div>${!event ? `<a class="primary-link" href="${external(item.url)}" target="_blank" rel="noopener noreferrer">前往原文 ↗</a>` : ''}`}
       ${event ? `<details class="supporting-materials"><summary>相关原始材料（${related.length}）</summary>${related.map(materialRow).join('')}</details>` : `<details class="material-note"><summary>材料核对记录</summary><p>${escape(item.verification.note)}</p></details>`}
       <div id="feedback-region" data-item-id="${escape(item.id)}">${reading ? feedbackControls(item.id) : ''}</div>
       ${!event && related.length ? `<section class="related-links"><h2>相关事件</h2>${related.map(value => `<a href="#/event/${encodeURIComponent(value.id)}">${escape(value.title)} →</a>`).join('')}</section>` : ''}
@@ -131,7 +134,7 @@ function bindFeedback() {
     pendingFeedback.add(id);
     document.querySelectorAll('[data-feedback]').forEach(target => { target.disabled = true; });
     try {
-      const saved = await api('/api/feedback/v2', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ itemId: id, dimension, value }) });
+      const saved = await api(feedbackPath(), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ itemId: id, dimension, value, ...(catalog.batch ? { revision: catalog.revision } : {}) }) });
       if (saved[id]) feedback[id] = saved[id];
       else delete feedback[id];
       toast(value ? '已保存本次反馈' : '已撤销本次选择');
@@ -145,6 +148,20 @@ function bindFeedback() {
 }
 
 function sourcesView() {
+  if (catalog.batch) {
+    const batch = catalog.batch;
+    const names = { selected: '入选文章', supporting: '事件材料', rejected: '未入选', deferred: '待处理' };
+    main.innerHTML = `<div class="feed-heading"><h1>材料与选编记录</h1><span>更新于 ${escape(timestamp(batch.publishedAt))}</span></div>
+      <p class="sample-note">本轮自动发现与获取材料，由会话编辑选编和整理。以下保留全部候选及原因，来源获取成功不等于入选；补充核对的出处不计入自动发现覆盖。</p>
+      <details class="supporting-materials"><summary>来源获取记录 · ${batch.sources.filter(source => source.status === 'ok').length}/${batch.sources.length} 个来源取得候选</summary><div class="source-attempts">${batch.sources.map(source => `<p><strong>${escape(source.sourceName)}</strong> · ${source.status === 'ok' ? `取得 ${source.candidateCount} 条候选` : '未取得可用订阅内容'}${source.httpStatus ? ` · HTTP ${source.httpStatus}` : ''}</p>`).join('')}</div></details>
+      <div class="sources-list">${batch.decisions.map(decision => {
+        const candidate = batch.candidates.find(item => item.id === decision.candidateId);
+        const material = catalog.materials.find(item => item.id === decision.candidateId);
+        const href = material?.reading ? `#/article/${encodeURIComponent(material.id)}` : external(candidate.url);
+        return `<article><span class="source-status ${decision.decision === 'selected' ? 'selected' : ''}">${names[decision.decision]}</span><div><h2><a href="${href}" ${material?.reading ? '' : 'target="_blank" rel="noopener noreferrer"'}>${escape(candidate.title)}</a></h2><p>${escape(candidate.sourceName)} · ${date(candidate.publishedAt)}${candidate.materialScope === 'excerpt' ? ' · 部分材料' : candidate.bodyStatus !== 'readable' ? ' · 正文未取得' : ''}</p><p>${escape(decision.reason)}</p></div><a class="text-link" href="${external(candidate.url)}" target="_blank" rel="noopener noreferrer">原文 ↗</a></article>`;
+      }).join('')}</div>`;
+    return;
+  }
   main.innerHTML = `<div class="feed-heading"><h1>材料与选编记录</h1><span>初版材料保留，反馈不改写</span></div><div class="sources-list">${catalog.materials.map(item => `<article><span class="source-status ${item.selected ? 'selected' : ''}">${item.selected ? '本版精选' : '材料保留'}</span><div><h2><a href="#/article/${encodeURIComponent(item.id)}">${escape(item.title)}</a></h2><p>${escape(item.source)} · ${date(item.publishedAt)} · ${escape(item.domain)}</p><p>${item.selected ? escape(item.selectionReason) : '保留原材料与初版选编记录；本次试读暂未纳入精选。'}</p></div><a class="text-link" href="${external(item.url)}" target="_blank" rel="noopener noreferrer">原文 ↗</a></article>`).join('')}</div>`;
 }
 
@@ -181,7 +198,15 @@ document.querySelector('#about-close').onclick = () => dialog.close();
 dialog.addEventListener('click', event => { if (event.target === dialog && (event.clientX < dialog.getBoundingClientRect().left || event.clientX > dialog.getBoundingClientRect().right || event.clientY < dialog.getBoundingClientRect().top || event.clientY > dialog.getBoundingClientRect().bottom)) dialog.close(); });
 
 try {
-  [catalog, feedback, previousFeedback] = await Promise.all([api('/api/catalog'), api('/api/feedback/v2'), api('/api/feedback/v1')]);
+  catalog = await api('/api/catalog');
+  [feedback, previousFeedback] = await Promise.all([api(feedbackPath()), api('/api/feedback/v1')]);
+  document.querySelector('#sample-strip').innerHTML = catalog.batch
+    ? `<strong>${escape(editionLabel())}</strong> 更新于 ${escape(timestamp(catalog.batch.publishedAt))} · 保留来源日期`
+    : '<strong>试读 02</strong> 内容样张 · 保留来源日期 · 非实时信息流';
+  document.querySelector('#about-title').textContent = catalog.batch ? '从新材料到这一轮精选' : '第二版：让详情真正有内容可读。';
+  document.querySelector('#about-description').innerHTML = catalog.batch
+    ? '<p>本轮从公开 RSS 发现近期材料，再获取正文、选编并整理。采集由程序完成，选编与写作由本次会话完成；尚未验证无人值守自动写作。</p><p>延续已获认可的第二版阅读方式，正文与来源日期分开，热点暂不显示无依据的排名。全部候选和来源失败可在材料记录中查看。</p><p>当前内容版本单独保存反馈，旧版评价保留。兴趣和阅读问题可以分别选择、撤销。</p>'
+    : '<p>首轮反馈指出选题兴趣不符、详情信息不足。第二版收敛了选题、展开正文并压缩留白，整体阅读方向已获认可。</p><p>这组样张保留原始日期；真实热度与自动持续更新未接入。当前版本单独记录兴趣和阅读问题，旧版评价保留。</p>';
   document.querySelector('#sample-counts').textContent = `${catalog.counts.all} 项精选 · ${catalog.counts.event} 个事件 · ${catalog.counts.article} 篇深读文章`;
   await render();
 } catch {

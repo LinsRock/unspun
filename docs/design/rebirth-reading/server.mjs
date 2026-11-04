@@ -4,10 +4,18 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { createCatalog, getFeed, getHot } from './read-model.mjs';
+import { loadPublication } from './loop/publication.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 
-export async function loadCatalog() {
+export async function loadCatalog(publicationPath) {
+  if (publicationPath) {
+    const publication = await loadPublication(publicationPath);
+    if (!/^live-[a-z0-9-]{1,50}$/.test(publication.edition)) throw new Error('Invalid live edition');
+    return { ...createCatalog(publication.materials, publication.events, publication.curation),
+      mode: 'collected-content-pilot', label: publication.label,
+      batch: { runId: publication.runId, publishedAt: publication.publishedAt, ...publication.provenance } };
+  }
   const [first, second, events, eventReading, newArticles, analysis, curation] = await Promise.all([
     'event-materials.json', 'article-materials.json', 'events.json', 'event-reading-v2.json',
     'new-articles-v2.json', 'analysis-reading-v2.json', 'curation-v2.json']
@@ -25,12 +33,13 @@ export async function loadCatalog() {
   return createCatalog(materials, revisedEvents, curation);
 }
 
-export async function startServer({ port = 4318, stateDir = join(tmpdir(), 'unspun-rebirth-reading') } = {}) {
-  const catalog = await loadCatalog();
+export async function startServer({ port = 4318, stateDir = join(tmpdir(), 'unspun-rebirth-reading'), publicationPath } = {}) {
+  const catalog = await loadCatalog(publicationPath);
+  const feedbackRoute = `/api/feedback/${catalog.edition}`;
   const validIds = new Set([...catalog.materials, ...catalog.events].map(item => item.id));
   await mkdir(stateDir, { recursive: true });
   const legacyPath = join(stateDir, 'feedback.json');
-  const statePath = join(stateDir, 'feedback-v2.json');
+  const statePath = join(stateDir, catalog.batch ? `feedback-${catalog.edition}-${catalog.revision}.json` : 'feedback-v2.json');
   let feedback = {};
   let previousFeedback = {};
   try { feedback = JSON.parse(await readFile(statePath, 'utf8')); }
@@ -58,14 +67,14 @@ export async function startServer({ port = 4318, stateDir = join(tmpdir(), 'unsp
         }
         if (url.pathname === '/api/hot') return send(200, getHot(catalog));
         if (['/api/feedback', '/api/feedback/v1'].includes(url.pathname)) return send(200, previousFeedback);
-        if (url.pathname === '/api/feedback/v2') return send(200, feedback);
+        if (url.pathname === feedbackRoute) return send(200, feedback);
         const assets = { '/': ['index.html', 'text/html; charset=utf-8'], '/app.mjs': ['app.mjs', 'text/javascript; charset=utf-8'], '/style.css': ['style.css', 'text/css; charset=utf-8'] };
         const asset = assets[url.pathname];
         if (asset) return send(200, await readFile(join(root, asset[0])), asset[1]);
         return send(404, { error: 'Not found' });
       }
-      if (request.method === 'POST' && url.pathname === '/api/feedback') return send(409, { error: 'This edition is archived. Refresh to review edition 2.' });
-      if (request.method === 'POST' && url.pathname === '/api/feedback/v2') {
+      if (request.method === 'POST' && url.pathname.startsWith('/api/feedback') && url.pathname !== feedbackRoute) return send(409, { error: 'This edition is archived. Refresh to review the current edition.' });
+      if (request.method === 'POST' && url.pathname === feedbackRoute) {
         if (request.headers.origin !== `http://${request.headers.host}` ||
             !request.headers['content-type']?.startsWith('application/json')) return send(403, { error: 'Same-origin JSON required' });
         let body = '';
@@ -75,6 +84,8 @@ export async function startServer({ port = 4318, stateDir = join(tmpdir(), 'unsp
         }
         let change;
         try { change = JSON.parse(body); } catch { return send(400, { error: 'Invalid JSON' }); }
+        if (!change || typeof change !== 'object') return send(400, { error: 'Invalid feedback' });
+        if (catalog.batch && change.revision !== catalog.revision) return send(409, { error: 'Stale reading revision. Refresh before rating.' });
         const values = { interest: [null, 'worthwhile', 'not_interested'], quality: [null, 'too_shallow', 'unclear'], all: [null] };
         if (!validIds.has(change.itemId) || !values[change.dimension]?.includes(change.value)) return send(400, { error: 'Invalid feedback' });
         const task = pendingWrite.then(async () => {
@@ -106,7 +117,7 @@ export async function startServer({ port = 4318, stateDir = join(tmpdir(), 'unsp
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const args = process.argv.slice(2);
   const option = (name, fallback) => args.includes(name) ? args[args.indexOf(name) + 1] : fallback;
-  const { server, url } = await startServer({ port: Number(option('--port', '4318')), stateDir: option('--state-dir', undefined) });
+  const { server, url } = await startServer({ port: Number(option('--port', '4318')), stateDir: option('--state-dir', undefined), publicationPath: option('--publication', undefined) });
   console.log(`Unspun reading preview: ${url}`);
   for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => server.close(() => process.exit(0)));
 }
