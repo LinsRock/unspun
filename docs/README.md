@@ -4,6 +4,7 @@
 
 | 要做的事 | 阅读入口 |
 | --- | --- |
+| 调整文章详情阅读方式 | [详情阅读](requirement.md#详情阅读)、D-058；用户要求文章以原文或忠实翻译为主要正文，当前试读仍为编辑稿，原文阅读调整待实现 |
 | 验证新生计划真实内容闭环 | [小批实源闭环](design/rebirth-reading/loop/README.md)；D-057 已确认有界收集、选编和页面呈现，以第二版为阅读基准，自动整理、时效与成本分别记录 |
 | 体验新生计划原型 | [真实材料试读与第二版修正](design/rebirth-reading/README.md)、[复用试验结论](design/rebirth-reading/REUSE.md)；D-056 记录首版问题与第二版整体阅读方向获认可，正式选型及自动供给仍待验证 |
 | 比较新生计划架构与 AIHOT 复用 | [最小架构与对照方案](superpowers/specs/2026-11-04-rebirth-architecture-comparison.md)；方案建议，含内容模型、复用候选与选型验证，不代表选型或开工已批准 |
