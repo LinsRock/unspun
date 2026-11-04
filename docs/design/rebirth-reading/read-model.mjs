@@ -1,7 +1,13 @@
 import { createHash } from 'node:crypto';
 
-export function createCatalog(materials, events) {
-  const revision = createHash('sha256').update(JSON.stringify([materials, events])).digest('hex').slice(0, 12);
+export function createCatalog(materials, events, curation = null) {
+  const edition = curation?.edition || 'v1';
+  if (curation) {
+    const current = new Set(curation.selectedIds);
+    materials = materials.map(item => ({ ...item, selected: current.has(item.id), previouslySelected: item.selected }));
+    events = events.map(item => ({ ...item, selected: current.has(item.id) }));
+  }
+  const revision = createHash('sha256').update(JSON.stringify([materials, events, curation])).digest('hex').slice(0, 12);
   const eligible = materials.filter(item => item.selected && item.role !== 'duplicate');
   const articles = [...eligible.filter(item => item.eventIds.length === 0), ...eligible.filter(item => item.eventIds.length > 0)];
   const selectedEvents = events.filter(item => item.selected);
@@ -10,12 +16,13 @@ export function createCatalog(materials, events) {
     if (selectedEvents[index]) selections.push({ ...selectedEvents[index], type: 'event' });
     if (articles[index]) selections.push(articles[index]);
   }
-  return { revision, materials, events, selections, mode: 'historical-reading-sample',
+  if (curation) selections.sort((a, b) => curation.selectedIds.indexOf(a.id) - curation.selectedIds.indexOf(b.id));
+  return { revision, edition, materials, events, selections, mode: 'dated-reading-sample',
     counts: { all: selections.length, event: selectedEvents.length, article: articles.length },
     hasVideo: false };
 }
 
-export function getFeed(catalog, type = 'all', cursor = '', limit = 6) {
+export function getFeed(catalog, type = 'all', cursor = '', limit = 8) {
   if (!['all', 'event', 'article'].includes(type)) throw new Error('Invalid content type');
   let offset = 0;
   if (cursor) {
