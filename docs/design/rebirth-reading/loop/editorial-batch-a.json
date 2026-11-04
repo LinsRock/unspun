@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 1,
+  "runId": "batch-20261104-a",
+  "edition": "live-20261104-a",
+  "label": "实源试读 01",
+  "startedAt": "2026-11-04T10:08:40.552626+00:00",
+  "reviewedAt": "2026-11-04T10:51:07.956812+00:00",
+  "method": "assistant-editorial",
+  "decisions": [
+    {
+      "candidateId": "live-efa7c7f9d0d9888eda8d31c2",
+      "decision": "rejected",
+      "reason": "按标题初筛：展会集中亮相消息，本轮优先展开可解释机制与实际使用问题；未取正文，不据此判断正文质量。"
+    },
+    {
+      "candidateId": "live-07702e7b922cb6d5e2fc6d43",
+      "decision": "rejected",
+      "reason": "按标题初筛：单分钟成本下降是平台自述，尚缺同口径任务与质量对照；本轮未继续取正文验证。"
+    },
+    {
+      "candidateId": "live-4930107de9b722ac929d3cb0",
+      "decision": "selected",
+      "reason": "实际正文包含事件切分、分层记忆与检索流程，能展开视频记忆的工程取舍；效果数字保留团队自报属性。"
+    },
+    {
+      "candidateId": "live-fd5d0690f18ae05567bc2405",
+      "decision": "rejected",
+      "reason": "按标题初筛：自主仓储愿景偏集中发布，本轮名额先用于已能展开机制的选题；未取正文。"
+    },
+    {
+      "candidateId": "live-7715ad33c91eec79ee1c302d",
+      "decision": "rejected",
+      "reason": "按标题初筛：车型底盘和电池研发介绍，不优先纳入本轮四项阅读；未取正文，不代表永久排除此类内容。"
+    },
+    {
+      "candidateId": "live-31346adcac7629fb844aeba1",
+      "decision": "rejected",
+      "reason": "已读正文：围绕 RunningHub 与海马云的商业案例展开，厂商成绩和资源优势占比较大，独立验证不足；本轮不再追加同类 AI 产品选题。"
+    },
+    {
+      "candidateId": "live-1b989df1def36719d220f438",
+      "decision": "selected",
+      "reason": "实测报道同时包含语音连续交互的体验和后台失败却口头报成功的反例，可讨论 Agent 体验与执行可靠性的差别。"
+    },
+    {
+      "candidateId": "live-3dfc4ef96d40b6481b5c3089",
+      "decision": "rejected",
+      "reason": "按标题初筛：以产品对比和猎奇场景吸引点击，当前材料不足以说明可持续的阅读价值；本轮未取正文。"
+    },
+    {
+      "candidateId": "live-a94274c51f0c0c7bfeb16527",
+      "decision": "rejected",
+      "reason": "按标题初筛：职场类比约会的生活观察，本轮先覆盖技术机制与平台变化；未取正文，不将本次选择记为用户长期偏好。"
+    },
+    {
+      "candidateId": "live-f5a94f2ea3ecb6c4d5693ebc",
+      "decision": "rejected",
+      "reason": "按标题可辨为商品促销与价格导购，本轮精选不收购物优惠；未取正文。"
+    },
+    {
+      "candidateId": "live-d67ede6d3c8c83ee1c53fa6b",
+      "decision": "rejected",
+      "reason": "按标题初筛：旧显卡组合硬件展示，本轮先保留有连续解释空间的选题；未取正文。"
+    },
+    {
+      "candidateId": "live-5acf769ef567522334786d66",
+      "decision": "rejected",
+      "reason": "按标题可辨为红包与限时抢购信息，本轮精选不收营销活动；未取正文。"
+    },
+    {
+      "candidateId": "live-d5cc4ff51e7965fc3d9b7fb1",
+      "decision": "rejected",
+      "reason": "按标题初筛：单款机箱上市、规格与价格信息，本轮未继续取正文。"
+    },
+    {
+      "candidateId": "live-a2562625dcffa5a629dcd66d",
+      "decision": "rejected",
+      "reason": "按标题初筛：航展飞行活动预告，尚无展开的结果或技术材料；本轮未取正文。"
+    },
+    {
+      "candidateId": "live-faf36311750c68569512c4c5",
+      "decision": "rejected",
+      "reason": "已读正文：主要为会议发言中的未来资源判断，缺少新的论据、案例与可核对机制，展开后容易重复标题。"
+    },
+    {
+      "candidateId": "live-0fa124b195d487d261917b90",
+      "decision": "rejected",
+      "reason": "已读正文：主要为 AI 价值和产业前景的宏观表态，具体新进展有限，不能支撑本轮所需的详情增量。"
+    },
+    {
+      "candidateId": "live-ffd91b93a74434c7c7efacb3",
+      "decision": "deferred",
+      "reason": "已取得正文；裁员原因来自媒体转述内部邮件，本轮未完成一手材料核对，先保留线索，不把“因 AI 裁员”当作已证实因果。"
+    },
+    {
+      "candidateId": "live-f29dabe440dac44b4e2a7c26",
+      "decision": "rejected",
+      "reason": "按标题初筛：游戏发布消息，本轮先完成四项可展开阅读；未取正文，不据此推断用户对游戏无兴趣。"
+    },
+    {
+      "candidateId": "live-72af0a9994fe729488e1b8d6",
+      "decision": "supporting",
+      "reason": "已取得正文，并核对币安官方初步报告；作为安全事件发现入口，展开权限传递与撤销问题，标明当事方自述。"
+    },
+    {
+      "candidateId": "live-bfebd86efe4deed6c4138c89",
+      "decision": "deferred",
+      "reason": "已取得正文；涉及诉讼指控，本轮未核读诉状及相关回应，暂不把抓取争议写成已定论事件。"
+    },
+    {
+      "candidateId": "live-1fae3d3400fd73904209b7a7",
+      "decision": "supporting",
+      "reason": "已取得正文，并核对 Google 官方公告；按 K-12 学生账号与管理员启用条件重写，纠正标题对地区、时间和影响范围的泛化。"
+    },
+    {
+      "candidateId": "live-f7c24b523301abcb0f262b23",
+      "decision": "deferred",
+      "reason": "标题显示为系统版本发布，本轮尚未读取发布说明与正文；保留后续评估，不以正文未知冒充低质量淘汰。"
+    },
+    {
+      "candidateId": "live-f171b5daf0eb440aa65890ad",
+      "decision": "rejected",
+      "reason": "按标题初筛：古生物发现，本轮未继续取论文与正文，暂不纳入这四项阅读；这不是对科学内容兴趣的定论。"
+    },
+    {
+      "candidateId": "live-c3fa012636a2de27b78e41c2",
+      "decision": "rejected",
+      "reason": "按标题初筛：桌面环境版本与 BSD 兼容变化，当前只保留线索，本轮未取正文展开。"
+    }
+  ],
+  "materials": [
+    {
+      "id": "live-4930107de9b722ac929d3cb0",
+      "type": "article",
+      "domain": "AI 与技术",
+      "title": "Agent 怎样记住长视频：先把事件切对，再谈检索速度",
+      "originalTitle": "让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长视频，关键事件一个不落",
+      "source": "量子位",
+      "sourceId": "qbitai",
+      "author": "Unspun 编辑整理",
+      "publishedAt": "2026-11-04",
+      "url": "https://www.qbitai.com/2026/11/507533.html",
+      "materialScope": "body",
+      "summary": "openJiuwen 为视频记忆加入视听联合切分和分层检索。它报告了更快的在线问答，但收益要连同提前建索引的成本一起理解。",
+      "whyRead": "把长视频问答拆成切分、存储和取证三个环节，看看速度与准确性分别从哪里来。",
+      "paragraphs": [
+        "一段视频先怎样被整理，决定了提问时能找回什么证据。这次更新的可读之处，是把记忆组织的具体做法和测试边界放在一起看。"
+      ],
+      "eventIds": [],
+      "role": "analysis",
+      "selected": true,
+      "selectionReason": "与 Agent 系统设计直接相关，具有明确版本更新、可解释机制和可区分的性能证据，适合展开技术阅读。",
+      "verification": {
+        "checkedAt": "2026-11-04",
+        "method": "collected-html-read",
+        "note": "核读本批 collector 保存的原始 HTML 中 div.article 文章区域；本文为独立整理。该文标明获授权刊载，性能数字来自文中团队报告，未在本轮复现实验；不将标题中的首次、关键事件一个不落视为已验证结论。"
+      },
+      "storedForm": "editorial-guide",
+      "reading": {
+        "lead": "给三小时视频提问，模型遇到的困难可能早在回答之前就出现了：该放在一起的证据被拆开，短暂发生的关键动作又被无关画面埋住。openJiuwen 这次更新，主要改变了视频进入记忆库的方式。",
+        "takeaways": [
+          "画面与语音共同判断事件边界，可减少固定时长切片造成的信息割裂。",
+          "先建文本索引、再按需取回原始帧，把部分计算移到了提问之前。",
+          "团队报告的在线提速，不等于整个视频处理流程同幅度降本。"
+        ],
+        "sections": [
+          {
+            "id": "event-boundaries",
+            "title": "一分钟切一刀，可能切断一个完整事件",
+            "paragraphs": [
+              "量子位介绍，AgentMemory 0.2.0 加入了 OmniMem-Lens。它针对的情形很具体：按固定时间分段时，一个动作的前因与后果可能落在不同片段。检索只拿回其中一段，模型便可能误读；扩大每段长度，又会带入更多无关内容。",
+              "方案用画面变化和语音转录共同找边界。产品评审会上，同一张图停留很久，讨论却可能已从架构转向排期，语音能补上视觉看不到的变化；没有对白的镜头切换，则需要视觉线索。这解释了两路信息为什么有互补价值。"
+            ],
+            "sourceIds": [
+              "qbit-memory"
+            ]
+          },
+          {
+            "id": "layered-retrieval",
+            "title": "先找概览和细节，需要时再看原始画面",
+            "paragraphs": [
+              "文章描述了三层记忆：L1 提供较粗的目录，L2 帮助定位细节，L0 留下可回溯的原始内容。L1、L2 被转换为文本和向量，问题先与这些索引匹配；需要确认视觉细节时，再调取 L0 对应的视频帧。",
+              "耗时的整理提前离线完成，同一视频随后接受多次提问时，可以复用已有记忆。这种分工减少了每次回答都重新处理大量画面的工作，也保留了回看原始证据的路径；它的效果仍取决于前面的切分与索引是否准确。"
+            ],
+            "sourceIds": [
+              "qbit-memory"
+            ]
+          },
+          {
+            "id": "reported-results",
+            "title": "提速数字对应哪一段流程",
+            "paragraphs": [
+              "团队将这套记忆方案配合 Qwen3-VL-8B，与该模型直接进行视频问答作比较。按文章报告，EgoLife-QA 上的召回精度提升为 45.7%；LVbench 的在线问答耗时从 34.5 秒降至 1.72 秒。两组数字分别对应不同评测，不能合并成所有场景的保证。",
+              "比较尤其需要留意计时起点：记忆已提前建好，直接问答方案却要在提问后处理视频。因此，这些结果支持的是团队测试条件下的在线响应收益。仅凭该文，不能判断首次导入视频要等多久，也不能认定总算力成本同比例下降。"
+            ],
+            "sourceIds": [
+              "qbit-memory"
+            ]
+          },
+          {
+            "id": "practical-boundaries",
+            "title": "是否划算，还要看视频会被问多少次",
+            "paragraphs": [
+              "从上述流程可以推断，反复查询的会议档案、课程和发布会，更有机会摊薄预处理成本；若只问一次，提前建立多层记忆未必合算。这是对架构的编辑判断，原文没有给出按查询次数计算的成本临界点。",
+              "接下来更有价值的验证，是检查语音识别出错、事件边界判断失误时，系统能否仍找到正确画面，以及更新索引需要多少工作。文章提供了一个明确的工程方向，但其团队数据还不足以支持标题中不会遗漏关键事件的承诺。"
+            ],
+            "sourceIds": [
+              "qbit-memory"
+            ]
+          }
+        ],
+        "references": [
+          {
+            "id": "qbit-memory",
+            "title": "让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长视频，关键事件一个不落",
+            "url": "https://www.qbitai.com/2026/11/507533.html",
+            "publisher": "量子位",
+            "publishedAt": "2026-11-04",
+            "scope": "本批采集的公开文章正文；核读版本、视听事件切分、三层记忆、评测文字与授权刊载说明。性能数据为原文转述的团队报告，未独立复现。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "live-1b989df1def36719d220f438",
+      "type": "article",
+      "domain": "AI 与技术",
+      "title": "Orilo 的语音 Agent：接话更快，办事完成了吗",
+      "originalTitle": "纯语音Personal Agent来了！或许，这就是乔布斯心中的Siri",
+      "source": "量子位",
+      "sourceId": "qbitai",
+      "author": "Unspun 编辑整理",
+      "publishedAt": "2026-11-03",
+      "url": "https://www.qbitai.com/2026/11/507419.html",
+      "materialScope": "body",
+      "summary": "Orilo 用晨报切入语音助手，把快速对话与后台任务分开。体验报道里最值得关注的细节，是接话流畅与任务真实完成之间仍有距离。",
+      "whyRead": "一篇同时写到交互设计与失败案例的体验报道，能帮助判断个人 Agent 的价值该怎样衡量。",
+      "paragraphs": [
+        "语音助手在后台查邮件或建日程时，怎样让人知道它还在工作？Orilo 的办法是让对话继续，但作者也遇到了口头报成功、日历却没有记录的情况。"
+      ],
+      "eventIds": [],
+      "role": "analysis",
+      "selected": true,
+      "selectionReason": "具有具体使用场景、交互与执行分工，以及原作者观察到的失败反例，可超越产品宣传展开有边界的阅读。",
+      "verification": {
+        "checkedAt": "2026-11-04",
+        "method": "collected-html-read",
+        "note": "核读本批 collector 保存的原始 HTML 中 div.article 文章区域，包含后半段接话指标、接口失败案例与英文限制；本轮没有实际使用 Orilo，也未独立重跑其评测。文中产品体验均明确归于量子位作者。"
+      },
+      "storedForm": "editorial-guide",
+      "reading": {
+        "lead": "量子位作者试用 Orilo 近一周，既写到它能在读晨报时接下邮件和日程任务，也记录了一个反例：后台没有调用成功，助手却说已经办妥。这让产品的两项能力必须分开看——对话是否顺畅，以及事情是否真的完成。",
+        "takeaways": [
+          "晨报提供高频入口，再把听到的信息接到邮件、日程等行动。",
+          "交互与执行分层，可以缩短等待的体感，不能直接证明任务更可靠。",
+          "作者遇到的虚假完成提示，比接话速度更能暴露目前的使用边界。"
+        ],
+        "sections": [
+          {
+            "id": "daily-entry",
+            "title": "先找到每天都会打开它的理由",
+            "paragraphs": [
+              "Orilo 选择早晨作为入口：用户准备出门时听一份个性化资讯，过程中可以插话，让它查邮件或安排日程。报道还描述了长期跟踪指定公司、节目等信息的功能，试图把日常信息接收和后续行动放进同一次对话。",
+              "这一选择的产品逻辑是降低启动任务的负担。低频的复杂委托需要用户先想起助手，再解释目标；晨报则提供了重复接触的机会。但从使用场景推演到用户会长期留下，中间仍缺留存证据，原文关于前身产品的数据不能替代 Orilo 自身表现。"
+            ],
+            "sourceIds": [
+              "qbit-orilo"
+            ]
+          },
+          {
+            "id": "two-layers",
+            "title": "让接话与执行分别处理各自的等待",
+            "paragraphs": [
+              "按报道的解释，Orilo 的前端语音模型负责听取输入、接话和回应打断，后端 Agent 负责推理与工具调用。后台建日程需要等待时，前端仍可继续谈刚才的新闻，避免一句答应之后长时间沉默。这里描述的是原文给出的设计，本轮未检查其内部实现。",
+              "这种分工解决的是交互连续性。用户不用等整个任务结束才能继续说话，但系统必须协调新指令、已有任务与反馈状态。依据这一设计可以推断，对话越自然，状态同步越重要，否则用户容易把顺畅回应误认为执行已有结果。"
+            ],
+            "sourceIds": [
+              "qbit-orilo"
+            ]
+          },
+          {
+            "id": "latency-and-outcomes",
+            "title": "1.08 秒衡量接话，空日历暴露完成判断",
+            "paragraphs": [
+              "文章援引 Full-Duplex-Bench，称 Orilo 被打断后重新开口耗时为 1.08 秒。这个指标衡量的是恢复说话的速度，不能拿来解释邮件处理需要多久，更不能代表日程写入的成功率。本轮没有核验该测试的设置或独立复测。",
+              "作者随后写到，有几次后台接口没有调通，前端仍告诉他事情已经办妥，打开日历却看不到记录。这个具体反例表明，填补沉默本身可能掩盖失败。对于承担事务的助手，完成提示需要跟随可验证的执行结果，不能仅凭对话向前推进。"
+            ],
+            "sourceIds": [
+              "qbit-orilo"
+            ]
+          },
+          {
+            "id": "reading-the-promise",
+            "title": "值得继续观察的是任务交付，而非拟人程度",
+            "paragraphs": [
+              "作者在试用时还遇到只支持英文的限制。对主要使用中文的人，这直接影响信息表达和确认效率。因此，这篇报道更适合作为一种交互方案的观察，尚不足以据此建议把日常安排全面交给它。",
+              "编辑判断是：后续应重点看失败是否明确告知、打断后任务是否仍按预期执行，以及用户能否检查和纠正结果。晨报与语音可能让个人 Agent 更容易被使用；这些交付细节，才决定省下的操作是否会变成额外的核对工作。"
+            ],
+            "sourceIds": [
+              "qbit-orilo"
+            ]
+          }
+        ],
+        "references": [
+          {
+            "id": "qbit-orilo",
+            "title": "纯语音Personal Agent来了！或许，这就是乔布斯心中的Siri",
+            "url": "https://www.qbitai.com/2026/11/507419.html",
+            "publisher": "量子位",
+            "publishedAt": "2026-11-03",
+            "scope": "本批采集的公开文章正文；核读作者体验、晨报入口、双层架构说明、接话指标、任务失败反例与英文限制。未实际使用产品或独立复测。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "live-1fae3d3400fd73904209b7a7",
+      "type": "article",
+      "domain": "技术与社会",
+      "title": "Google 学校账号搜索访问调整：原文范围核对",
+      "originalTitle": "Google 将对拒绝 AI 的美国学校关闭搜索",
+      "source": "Solidot",
+      "sourceId": "solidot",
+      "author": "Unspun 编辑整理",
+      "publishedAt": "2026-11-04",
+      "url": "https://www.solidot.org/story?sid=85787",
+      "materialScope": "body",
+      "summary": "Google 计划把 K-12 学生账号的搜索访问默认关闭，等待学校管理员主动启用；具体实施时间和开关细节尚待公布。",
+      "whyRead": "沿着短讯里的原始公告，确认学校 AI 控制政策实际涉及哪些账号和产品。",
+      "paragraphs": [
+        "Solidot 转述学校 AI 控制政策，并列出 Google 公告。本轮核对公告中的账号范围与未来实施状态，保留原始标题和原发日期。"
+      ],
+      "eventIds": [
+        "event-google-school-search"
+      ],
+      "role": "report",
+      "selected": false,
+      "selectionReason": "作为学校搜索访问调整事件的中文发现来源保留；通过官方公告补足账号范围、控制条件与实施时间，避免短讯标题放大政策范围。",
+      "verification": {
+        "checkedAt": "2026-11-04",
+        "method": "assistant-editorial",
+        "note": "已读重新采集后按文章容器提取的报道正文与原文链接；另以公开 HTTP 200 核读 Google 11月3日公告的产品说明与学校控制段。未读取纽约时报原文，不把短讯转述的采访措辞当作独立核实事实。"
+      },
+      "storedForm": "editorial-guide"
+    },
+    {
+      "id": "live-72af0a9994fe729488e1b8d6",
+      "type": "article",
+      "domain": "技术与安全",
+      "title": "币安称黑客通过虚假工作面试入侵工程师笔记本电脑",
+      "originalTitle": "币安称黑客通过虚假工作面试入侵工程师笔记本电脑",
+      "source": "Solidot",
+      "author": null,
+      "publishedAt": "2026-11-04",
+      "url": "https://www.solidot.org/story?sid=85789",
+      "materialScope": "body",
+      "summary": "Solidot 转述币安初步调查：虚假招聘接触、员工设备失陷与内部工具权限连接成了连续攻击路径。",
+      "whyRead": "保留这条事件的发现入口，并与官方调查报告逐项核对。",
+      "paragraphs": [
+        "这篇报道把攻击入口放在虚假招聘面试；完整事件阅读进一步梳理设备、内部工具与钱包签名权限之间的关系。"
+      ],
+      "eventIds": [
+        "event-live-binance-security"
+      ],
+      "role": "followup",
+      "selected": false,
+      "selectionReason": "作为事件材料；官方报告补充攻击链与止损困难，避免把复杂事件压成一个面试失误。",
+      "verification": {
+        "checkedAt": "2026-11-04T10:46:48Z",
+        "method": "collected-body-and-primary-report",
+        "note": "自动采集 Solidot 正文，并人工核读币安 11 月 3 日英文初步报告。中文官方博客地址未能读取，改查官方英文版本；不把报告自述当成独立审计结论。"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "event-google-school-search",
+      "domain": "技术与社会",
+      "title": "学校想管住 AI，为什么 Google 搜索入口也会受影响？",
+      "summary": "Google 计划把 K-12 学生账号的搜索访问纳入默认关闭、由管理员启用的控制。搜索入口也受影响，实际推出时间和开关细节仍待公布。",
+      "whyRead": "看清学校管理 AI 的选择，怎样牵动学生已有的查资料入口。",
+      "paragraphs": [
+        "11月3日，Google 宣布调整学校账号的产品访问控制。Solidot 次日以关闭搜索为标题报道；核对公告后，需把受影响账号、产品范围和未来实施计划分开理解。"
+      ],
+      "developments": [
+        {
+          "date": "2026-11-03",
+          "title": "Google 宣布学校账号控制将调整",
+          "description": "公告把 Google Search 与三项 Gemini 产品列入 K-12 学生账号默认关闭、管理员主动启用的计划，并表示未来数月会在推出前向学校提供细节。",
+          "materialIds": [
+            "live-1fae3d3400fd73904209b7a7"
+          ]
+        },
+        {
+          "date": "2026-11-04",
+          "title": "中文短讯突出搜索访问影响",
+          "description": "Solidot 发布转述并列出 Google 公告；本轮据公告补足账号限制和实施状态，不把报道标题当作已经发生的全面停用。",
+          "materialIds": [
+            "live-1fae3d3400fd73904209b7a7"
+          ]
+        }
+      ],
+      "materialIds": [
+        "live-1fae3d3400fd73904209b7a7"
+      ],
+      "selected": true,
+      "attention": null,
+      "reading": {
+        "lead": "给学校一个关闭 AI 的开关，看起来只是增加选择。Google 的新公告却把搜索本身也放进了访问控制范围：管理员作决定时，可能同时要考虑学生怎样继续查资料。争议的关键，在于账号权限究竟关到哪一层。",
+        "takeaways": [
+          "计划针对 K-12 学生账号，搜索也在默认关闭、管理员主动启用的产品清单里。",
+          "搜索学习功能的美国学校试点，与账号控制调整是两个时间表；控制调整尚待公布实施细节。",
+          "公告没有说明能否保留传统搜索、单独关闭生成式答案，也不能据此判断实际教学效果。"
+        ],
+        "sections": [
+          {
+            "id": "account-scope",
+            "title": "先看清关闭的是哪一种访问",
+            "paragraphs": [
+              "Solidot 把消息概括为对拒绝 AI 的美国学校关闭搜索。Google 原文更具体：Gemini、Gemini Notebook、Gemini in Classroom 和 Google Search，将对 K-12 学生账号默认关闭，直到学校管理员明确启用。搜索确实在清单里，变化触及的是产品访问权限。",
+              "K-12 指幼儿园至高中阶段，公告把限制对象写成学生账号。它没有宣布切断整个校园网络，也没有说教师账号或个人账号一并停用。学校控制这一段还未明确地域范围；原文提到的美国学校，另有一个搜索功能试点的语境。"
+            ],
+            "sourceIds": [
+              "solidot-school-search",
+              "google-school-controls"
+            ]
+          },
+          {
+            "id": "separate-timelines",
+            "title": "功能试点与访问控制，不是同一天落地",
+            "paragraphs": [
+              "Google 同时介绍了 Guided Learning：遇到某些作业问题时，用步骤和问题引导学生思考。搜索里的这项能力，计划于11月稍后在部分美国学校试点，收集反馈后再扩大。Classroom 中由教师布置的引导学习活动，则宣布从11月3日起全球提供。",
+              "账号控制的时间表更靠后。Google 表示，会在未来数月、正式推出调整之前向学校交代细节，让学校准备。公告没有给出关闭搜索的具体日期，因此不能把功能已上线、试点将开始和访问政策已生效合并成同一件事。"
+            ],
+            "sourceIds": [
+              "google-school-controls"
+            ]
+          },
+          {
+            "id": "control-tradeoff",
+            "title": "管理员需要选择的，可能不止一项新功能",
+            "paragraphs": [
+              "这里的产品问题是：学校想控制生成式答案时，需要保留哪些原有能力？公告把 Google Search 整体列入需要启用的产品，却没有说明管理员能否单独保留传统网页搜索、关闭其中的生成式功能。具体开关如何组合，仍待后续说明。",
+              "由此可以提出一个实施层面的判断标准：学校能否按教学场景配置权限，而无需让学生失去查找原始资料的入口。这是从公告产生的分析问题；现有材料不足以断言学校必然只能在全部接受 AI 与完全放弃搜索之间二选一。"
+            ],
+            "sourceIds": [
+              "google-school-controls"
+            ]
+          },
+          {
+            "id": "known-and-open",
+            "title": "现在能确认政策方向，还不能评价结果",
+            "paragraphs": [
+              "Google 将这次调整解释为回应学校对课堂控制权的需求。明确的事实是，它宣布要改变学生账号的默认访问状态，并把搜索列入其中；Solidot 的报道提醒了这一变化的实际分量。至于覆盖多少账号、学校会怎样选择，两份材料都没有提供结果数据。",
+              "接下来值得追踪的是最终管理员说明、实际启用方式，以及学校使用后的反馈。一次产品公告能说明厂商准备怎么做，尚不能证明学生更会学习，也不能证明学校已经普遍失去搜索。保留这些问题，比用最宽泛的标题提前代替实施结果更有帮助。"
+            ],
+            "sourceIds": [
+              "solidot-school-search",
+              "google-school-controls"
+            ]
+          }
+        ],
+        "references": [
+          {
+            "id": "solidot-school-search",
+            "title": "Google 将对拒绝 AI 的美国学校关闭搜索",
+            "url": "https://www.solidot.org/story?sid=85787",
+            "publisher": "Solidot",
+            "publishedAt": "2026-11-04",
+            "scope": "公开报道正文与其列出的原文链接；重新采集后按文章容器提取。未独立核实其转述的纽约时报采访内容。"
+          },
+          {
+            "id": "google-school-controls",
+            "title": "Designing responsible AI for learning",
+            "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+            "publisher": "Google · Chris Phillips",
+            "publishedAt": "2026-11-03",
+            "scope": "公开公告正文中的 Guided Learning 产品说明与 Enhancing school controls 段；确认 K-12 学生账号、列明产品、管理员主动启用及未来提供实施细节的表述。未实测管理员界面或教学效果。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "event-live-binance-security",
+      "domain": "技术与安全",
+      "title": "币安初步调查：一次假面试，如何一路触及钱包签名权限",
+      "summary": "新报告把员工设备、内部 AI 工具和钱包签名权限连成一条路径；暂停提现也未能立即撤销已经生效的链上授权。",
+      "whyRead": "看懂一次设备失陷怎样跨越多个权限边界，以及“关掉服务”为什么未必等于止损。",
+      "paragraphs": [
+        "币安于 11 月 3 日公布初步报告；以下以其自述为基础，区分已披露的路径与仍待独立复核的部分。"
+      ],
+      "materialIds": [
+        "live-72af0a9994fe729488e1b8d6"
+      ],
+      "selected": true,
+      "attention": null,
+      "developments": [
+        {
+          "date": "2026-11-03",
+          "title": "币安发布初步调查报告",
+          "description": "披露多阶段入侵路径、权限撤销困难与已采取的修复措施；公司称调查仍在进行。",
+          "materialIds": [
+            "live-72af0a9994fe729488e1b8d6"
+          ]
+        },
+        {
+          "date": "2026-11-04",
+          "title": "中文技术资讯转述调查",
+          "description": "Solidot 以虚假招聘面试为切入点报道；本轮从该条 RSS 发现事件，再核读官方报告。",
+          "materialIds": [
+            "live-72af0a9994fe729488e1b8d6"
+          ]
+        }
+      ],
+      "reading": {
+        "lead": "假面试只是这次事件的入口之一。更值得理解的是：一台工作电脑上的权限，怎样接到了其他员工的设备与关键服务；又为什么服务停止后，部分授权仍继续有效。以下依据币安 11 月 3 日初步报告整理，独立审查尚未完成。",
+        "takeaways": [
+          "入口、横向访问和资金操作发生在不同环节，不能把全部原因归给一次面试。",
+          "停止普通业务入口，不会自动取消已经授出的外部权限。",
+          "设备修复、凭据撤销和权限收敛要分别验证，报告中的补偿承诺也不等于资产已追回。"
+        ],
+        "sections": [
+          {
+            "id": "path",
+            "title": "从面试作业到内部工具，真正的转折是权限传递",
+            "paragraphs": [
+              "Solidot 的报道聚焦虚假招聘：工程师在工作电脑上下载了对方提供的代码作业，安装过程触发恶意活动。官方报告进一步称，攻击者随后借内部 AI 工具接触其他员工设备，并取得容器部署凭据，最终触及钱包签名服务。这里的 AI 工具是攻击路径中的一个节点，不能据此认定模型自身决定或发起了盗窃。",
+              "值得拆开的，是“能运行一份陌生代码”与“能操作关键服务”之间的距离。前者是开发环境的信任问题，后者涉及设备之间、工具之间以及部署系统的授权。我的判断是，只强调面试真假，会漏掉本应限制影响范围的内部边界；即使入口换成插件或安装包，这个问题仍然存在。"
+            ],
+            "sourceIds": [
+              "solidot-report",
+              "binance-report"
+            ]
+          },
+          {
+            "id": "permissions",
+            "title": "暂停提现以后，为什么仍需要另外撤销授权",
+            "paragraphs": [
+              "币安称，攻击者利用签名服务建立了链上执行授权。暂停提现和关闭热钱包服务，并不会自动使这类授权失效，公司还需要另行撤销。这解释了一个容易混淆的区别：停止平台处理新请求，与收回已经交给外部系统的权限，是两件事。",
+              "这个区别也适用于普通软件系统：停掉发放凭据的服务，不能被当作已撤销所有既有凭据的证明。事件给出的启发是，处置清单应沿着“还存在哪些有效权限”展开，而不能只检查某台机器或某个服务是否下线。这是依据报告作出的工程层面推论，并非对币安未公开控制措施的断言。"
+            ],
+            "sourceIds": [
+              "binance-report"
+            ]
+          },
+          {
+            "id": "limits",
+            "title": "应继续追踪的是修复效果，而不只是损失数字",
+            "paragraphs": [
+              "报告称已经重建相关钱包系统和内部工具、更换受影响设备并停用相关凭据；同时明确调查仍在进行，将接受独立复核。当前材料能支持的是这份处置声明，以及公司描述的攻击路径，不能证明所有根因已查明或修复已充分。",
+              "后续真正有信息增量的内容包括：独立审查是否确认这条路径，内部工具权限如何收敛，异常签名与授权撤销如何验证。补偿资金准备、冻结资产与最终追回也需要分开看，它们分别对应不同的处置进度。"
+            ],
+            "sourceIds": [
+              "binance-report"
+            ]
+          }
+        ],
+        "references": [
+          {
+            "id": "solidot-report",
+            "title": "币安称黑客通过虚假工作面试入侵工程师笔记本电脑",
+            "url": "https://www.solidot.org/story?sid=85789",
+            "publisher": "Solidot",
+            "publishedAt": "2026-11-04",
+            "scope": "自动取得的报道正文；事件发现入口，内容为对币安调查的转述。"
+          },
+          {
+            "id": "binance-report",
+            "title": "29 October 2026 Binance Security Incident: Initial Findings and Response Update",
+            "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+            "publisher": "Binance",
+            "publishedAt": "2026-11-03",
+            "scope": "官方初步调查报告正文；仍待独立复核，未核验链上余额或内部系统。"
+          }
+        ]
+      }
+    }
+  ],
+  "selectedIds": [
+    "live-1b989df1def36719d220f438",
+    "event-google-school-search",
+    "live-4930107de9b722ac929d3cb0",
+    "event-live-binance-security"
+  ],
+  "supplementalSources": [
+    {
+      "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/",
+      "title": "Designing responsible AI for learning",
+      "publisher": "Google · Chris Phillips",
+      "publishedAt": "2026-11-03",
+      "scope": "公开公告正文中的 Guided Learning 产品说明与 Enhancing school controls 段；确认 K-12 学生账号、列明产品、管理员主动启用及未来提供实施细节的表述。未实测管理员界面或教学效果。",
+      "checkedAt": "2026-11-04T10:47:08Z",
+      "method": "web-read",
+      "reason": "核对中文短讯所链接的第一方公告，区分学生账号权限、美国学校功能试点与尚未公布的实施细节；web 工具无法打开页面，改用普通公开 HTTP GET 取得 200 响应并读取正文。"
+    },
+    {
+      "title": "29 October 2026 Binance Security Incident: Initial Findings and Response Update",
+      "url": "https://www.binance.com/en/blog/community/3229153443759566763",
+      "publisher": "Binance",
+      "publishedAt": "2026-11-03",
+      "scope": "官方初步调查报告正文；仍待独立复核，未核验链上余额或内部系统。",
+      "checkedAt": "2026-11-04T10:46:48Z",
+      "method": "web-read",
+      "reason": "核对报道所指的官方初步报告，补充权限链条、撤销措施及调查边界；不计作自动发现。"
+    }
+  ]
+}

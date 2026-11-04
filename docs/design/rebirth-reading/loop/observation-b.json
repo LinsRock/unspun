@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "firstRunId": "batch-20261104-a",
+  "followupRunId": "batch-20261104-b",
+  "firstStartedAt": "2026-11-04T10:08:40.552626+00:00",
+  "followupStartedAt": "2026-11-04T10:49:00.873900+00:00",
+  "intervalSeconds": 2420.321274,
+  "firstManifestSha256": "1cdcbec0ce6704ab5853888a075ebaa7f71b3116ac9840bbd787602e5b5a593d",
+  "followupManifestSha256": "4a8d28c71f030944f1fb66a4fff5f8db49cf03386344ded3ba19f8d0df4a98a6",
+  "firstCandidateCount": 24,
+  "followupCandidateCount": 24,
+  "repeatedIds": [
+    "live-07702e7b922cb6d5e2fc6d43",
+    "live-1b989df1def36719d220f438",
+    "live-1fae3d3400fd73904209b7a7",
+    "live-31346adcac7629fb844aeba1",
+    "live-4930107de9b722ac929d3cb0",
+    "live-72af0a9994fe729488e1b8d6",
+    "live-7715ad33c91eec79ee1c302d",
+    "live-bfebd86efe4deed6c4138c89",
+    "live-efa7c7f9d0d9888eda8d31c2",
+    "live-f29dabe440dac44b4e2a7c26",
+    "live-f7c24b523301abcb0f262b23",
+    "live-fd5d0690f18ae05567bc2405",
+    "live-ffd91b93a74434c7c7efacb3"
+  ],
+  "noLongerInWindowIds": [
+    "live-0fa124b195d487d261917b90",
+    "live-3dfc4ef96d40b6481b5c3089",
+    "live-5acf769ef567522334786d66",
+    "live-a2562625dcffa5a629dcd66d",
+    "live-a94274c51f0c0c7bfeb16527",
+    "live-c3fa012636a2de27b78e41c2",
+    "live-d5cc4ff51e7965fc3d9b7fb1",
+    "live-d67ede6d3c8c83ee1c53fa6b",
+    "live-f171b5daf0eb440aa65890ad",
+    "live-f5a94f2ea3ecb6c4d5693ebc",
+    "live-faf36311750c68569512c4c5"
+  ],
+  "newToObservation": [
+    {
+      "id": "live-1e6f2ae7c668b9f9af7a1868",
+      "sourceId": "qbitai",
+      "title": "不靠堆砌数据，让机器人看懂真实物理世界 | 招商局狮子山实验室发布「驭物™ Lion-ER-35B-A3B」具身推理模型",
+      "url": "https://www.qbitai.com/2026/11/507586.html",
+      "publishedAt": "2026-11-04T10:08:38+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.036326+00:00"
+    },
+    {
+      "id": "live-ae323529b9a13c2c85c52ef2",
+      "sourceId": "ithome",
+      "title": "固定前悬架平衡杆拉杆的螺母可能松动并产生异响，广汽丰田召回超 10 万辆铂智 3X",
+      "url": "https://www.ithome.com/1/022/364.htm",
+      "publishedAt": "2026-11-04T10:23:27+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.326200+00:00"
+    },
+    {
+      "id": "live-fae127bbd644d33a0ea0300e",
+      "sourceId": "ithome",
+      "title": "大众渠道调整最新进展曝光：部分进口车店可卖大众安徽，售后端也在打通",
+      "url": "https://www.ithome.com/1/022/370.htm",
+      "publishedAt": "2026-11-04T10:41:08+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.326200+00:00"
+    },
+    {
+      "id": "live-16e17bb20fce9bc86032bc7c",
+      "sourceId": "ithome",
+      "title": "光束汽车召回超 700 辆纯电 MINI：内后视镜存在脱落风险",
+      "url": "https://www.ithome.com/1/022/363.htm",
+      "publishedAt": "2026-11-04T10:23:25+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.326200+00:00"
+    },
+    {
+      "id": "live-03baabb7856b52d47f8af61d",
+      "sourceId": "ithome",
+      "title": "因转向助力存失效隐患，部分进口牧马人和角斗士汽车被召回",
+      "url": "https://www.ithome.com/1/022/365.htm",
+      "publishedAt": "2026-11-04T10:23:30+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.326200+00:00"
+    },
+    {
+      "id": "live-2838ff54577520caecf8caf8",
+      "sourceId": "ithome",
+      "title": "极端情况下可能出现车辆行驶中发动机熄火，武汉路特斯汽车销售有限公司召回部分进口莲花汽车",
+      "url": "https://www.ithome.com/1/022/360.htm",
+      "publishedAt": "2026-11-04T10:22:21+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.326200+00:00"
+    },
+    {
+      "id": "live-f40bc50e074239ce669798b2",
+      "sourceId": "ithome",
+      "title": "一汽丰田召回超 4.7 万辆国产普拉多、8130 辆进口雷克萨斯 GX，燃油管存在脱落风险",
+      "url": "https://www.ithome.com/1/022/361.htm",
+      "publishedAt": "2026-11-04T10:23:20+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.326200+00:00"
+    },
+    {
+      "id": "live-9a213bc4d0db17c2efd477a0",
+      "sourceId": "ithome",
+      "title": "女子利用电商平台七天无理由退货规则“买真退假”：涉案百余万元，获刑十年九个月",
+      "url": "https://www.ithome.com/1/022/368.htm",
+      "publishedAt": "2026-11-04T10:36:45+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.326200+00:00"
+    },
+    {
+      "id": "live-0bd8c4b2035637dfab62139a",
+      "sourceId": "ithome",
+      "title": "2025 年我国新型显示行业全球市场占有率超五成，显示面板出货面积超 2.2 亿平方米",
+      "url": "https://www.ithome.com/1/022/367.htm",
+      "publishedAt": "2026-11-04T10:31:17+00:00",
+      "discoveredAt": "2026-11-04T10:49:01.326200+00:00"
+    },
+    {
+      "id": "live-6d015052c61c92cb6190b92c",
+      "sourceId": "solidot",
+      "title": "苹果开始在中国推出 Apple Intelligence",
+      "url": "https://www.solidot.org/story?sid=85793",
+      "publishedAt": "2026-11-04T17:55:53+08:00",
+      "discoveredAt": "2026-11-04T10:49:01.658048+00:00"
+    },
+    {
+      "id": "live-0bd58fcca2d6af046966f5eb",
+      "sourceId": "solidot",
+      "title": "出生前后大脑会清理突变神经元",
+      "url": "https://www.solidot.org/story?sid=85792",
+      "publishedAt": "2026-11-04T17:24:42+08:00",
+      "discoveredAt": "2026-11-04T10:49:01.658048+00:00"
+    }
+  ],
+  "publishedAfterFirstObservation": 8,
+  "reusedBodyIds": [
+    "live-4930107de9b722ac929d3cb0",
+    "live-31346adcac7629fb844aeba1",
+    "live-1b989df1def36719d220f438",
+    "live-ffd91b93a74434c7c7efacb3",
+    "live-72af0a9994fe729488e1b8d6",
+    "live-bfebd86efe4deed6c4138c89",
+    "live-1fae3d3400fd73904209b7a7"
+  ],
+  "usage": {
+    "requestCount": 4,
+    "bytesDownloaded": 310574,
+    "elapsedMs": 1046,
+    "modelCalls": 0,
+    "modelCost": null
+  },
+  "sourceAttempts": [
+    {
+      "sourceId": "qbitai",
+      "sourceName": "量子位",
+      "attemptedAt": "2026-11-04T10:49:00.880644+00:00",
+      "status": "ok",
+      "httpStatus": 200,
+      "candidateCount": 8,
+      "completedAt": "2026-11-04T10:49:01.038316+00:00"
+    },
+    {
+      "sourceId": "ithome",
+      "sourceName": "IT之家",
+      "attemptedAt": "2026-11-04T10:49:01.038956+00:00",
+      "status": "ok",
+      "httpStatus": 200,
+      "candidateCount": 8,
+      "completedAt": "2026-11-04T10:49:01.327725+00:00"
+    },
+    {
+      "sourceId": "solidot",
+      "sourceName": "Solidot",
+      "attemptedAt": "2026-11-04T10:49:01.328129+00:00",
+      "status": "ok",
+      "httpStatus": 200,
+      "candidateCount": 8,
+      "completedAt": "2026-11-04T10:49:01.661236+00:00"
+    },
+    {
+      "sourceId": "36kr",
+      "sourceName": "36氪",
+      "attemptedAt": "2026-11-04T10:49:01.662201+00:00",
+      "status": "failed",
+      "httpStatus": 200,
+      "errorType": "ValueError",
+      "completedAt": "2026-11-04T10:49:01.903184+00:00"
+    }
+  ],
+  "interpretation": "11 new-to-observation IDs, of which 8 source publication times follow the first observation. Three were already published before it. Seven bodies reuse unchanged feed metadata and are not re-fetched for freshness. Absence means outside this top-eight window, not deleted. No followup publication or multi-day stability conclusion."
+}

@@ -6,6 +6,8 @@
 
 ## 运行
 
+第二版获认可后的下一批实源验证见[小批真实内容闭环](loop/README.md)：独立 4319 预览读取 4 项新内容，保留全部发现与筛选分母。本文以下记录第二版与第一版的原始结果。
+
 ```sh
 node docs/design/rebirth-reading/server.mjs
 ```
